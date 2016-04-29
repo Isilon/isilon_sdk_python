@@ -3,7 +3,7 @@
 This repository is part of the Isilon SDK, which is an evolving package of documents and files. This README describes how to install and configure Python language bindings in order to access the OneFS API on an Isilon cluster from a Python script. You can use the OneFS API to automate the configuration, maintenance, and monitoring of your Isilon cluster. 
 
 * For OneFS API reference documents, discussions, and blog posts, refer to the [OneFS SDK Info Hub](https://community.emc.com/docs/DOC-48273).
-* To browse the Isilon InsiqhtIQ statistics API, refer to the [Stat Key Browser](https://github.west.isilon.com/eng-axp/stat-key-browser) Github repository.
+* To browse the Isilon InsiqhtIQ statistics API, refer to the [Stat Key Browser](https://github.com/isilon/isilon_stat_browser.git) Github repository.
 
 ## Requirements
 Python 2.7 and later.
@@ -13,7 +13,7 @@ Python 2.7 and later.
 You can install the isi_sdk_python library from Github using the pip command. 
 
 ```sh
-pip install git+https://[to-be-decided]/isi_sdk_python.git
+pip install git+https://github.com/isilon/isilon_sdk_python_8_0.git
 ```
 
 **Note:** If you do not have pip installed, you can find instructions here: http://docs.python-requests.org/en/master/user/install/
