@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class QuotaQuota(object):
@@ -78,6 +79,7 @@ class QuotaQuota(object):
         :param container: The container of this QuotaQuota.
         :type: bool
         """
+        
         self._container = container
 
     @property
@@ -100,6 +102,7 @@ class QuotaQuota(object):
         :param enforced: The enforced of this QuotaQuota.
         :type: bool
         """
+        
         self._enforced = enforced
 
     @property
@@ -122,6 +125,7 @@ class QuotaQuota(object):
         :param linked: The linked of this QuotaQuota.
         :type: bool
         """
+        
         self._linked = linked
 
     @property
@@ -144,6 +148,7 @@ class QuotaQuota(object):
         :param thresholds: The thresholds of this QuotaQuota.
         :type: QuotaQuotaThresholds
         """
+        
         self._thresholds = thresholds
 
     @property
@@ -166,6 +171,7 @@ class QuotaQuota(object):
         :param thresholds_include_overhead: The thresholds_include_overhead of this QuotaQuota.
         :type: bool
         """
+        
         self._thresholds_include_overhead = thresholds_include_overhead
 
     def to_dict(self):
@@ -183,6 +189,12 @@ class QuotaQuota(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -200,14 +212,14 @@ class QuotaQuota(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

@@ -2,7 +2,7 @@
 
 """
 CloudApi.py
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@ from __future__ import absolute_import
 
 import sys
 import os
+import re
 
 # python 2 and python 3 compatibility library
 from six import iteritems
@@ -44,88 +45,6 @@ class CloudApi(object):
             if not config.api_client:
                 config.api_client = ApiClient()
             self.api_client = config.api_client
-
-    def list_cloud_access(self, **kwargs):
-        """
-        
-        List all accessible cluster identifiers.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.list_cloud_access(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str sort: The field that will be used for sorting.
-        :param int limit: Return no more than this many results at once (see resume).
-        :param str dir: The direction of the sort.
-        :return: CloudAccessExtended
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['sort', 'limit', 'dir']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_cloud_access" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/cloud/access'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-        if 'sort' in params:
-            query_params['sort'] = params['sort']
-        if 'limit' in params:
-            query_params['limit'] = params['limit']
-        if 'dir' in params:
-            query_params['dir'] = params['dir']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='CloudAccessExtended',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
 
     def create_cloud_access_item(self, cloud_access_item, **kwargs):
         """
@@ -165,17 +84,16 @@ class CloudApi(object):
         if ('cloud_access_item' not in params) or (params['cloud_access_item'] is None):
             raise ValueError("Missing the required parameter `cloud_access_item` when calling `create_cloud_access_item`")
 
-        resource_path = '/platform/3/cloud/access'.replace('{format}', 'json')
-        method = 'POST'
 
+        resource_path = '/platform/3/cloud/access'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'cloud_access_item' in params:
@@ -194,254 +112,14 @@ class CloudApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'POST',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='Empty',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_cloud_access_guid(self, cloud_access_guid, **kwargs):
-        """
-        
-        Retrieve cloud access information.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_cloud_access_guid(cloud_access_guid, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str cloud_access_guid: Retrieve cloud access information. (required)
-        :return: CloudAccess
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['cloud_access_guid']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_cloud_access_guid" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'cloud_access_guid' is set
-        if ('cloud_access_guid' not in params) or (params['cloud_access_guid'] is None):
-            raise ValueError("Missing the required parameter `cloud_access_guid` when calling `get_cloud_access_guid`")
-
-        resource_path = '/platform/3/cloud/access/{CloudAccessGuid}'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'cloud_access_guid' in params:
-            path_params['CloudAccessGuid'] = params['cloud_access_guid']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='CloudAccess',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def delete_cloud_access_guid(self, cloud_access_guid, **kwargs):
-        """
-        
-        Delete cloud access.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_cloud_access_guid(cloud_access_guid, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str cloud_access_guid: Delete cloud access. (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['cloud_access_guid']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_cloud_access_guid" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'cloud_access_guid' is set
-        if ('cloud_access_guid' not in params) or (params['cloud_access_guid'] is None):
-            raise ValueError("Missing the required parameter `cloud_access_guid` when calling `delete_cloud_access_guid`")
-
-        resource_path = '/platform/3/cloud/access/{CloudAccessGuid}'.replace('{format}', 'json')
-        method = 'DELETE'
-
-        path_params = {}
-        if 'cloud_access_guid' in params:
-            path_params['CloudAccessGuid'] = params['cloud_access_guid']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def list_cloud_accounts(self, **kwargs):
-        """
-        
-        List all accounts.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.list_cloud_accounts(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str sort: The field that will be used for sorting.
-        :param int limit: Return no more than this many results at once (see resume).
-        :param str dir: The direction of the sort.
-        :return: CloudAccountsExtended
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['sort', 'limit', 'dir']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_cloud_accounts" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/cloud/accounts'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-        if 'sort' in params:
-            query_params['sort'] = params['sort']
-        if 'limit' in params:
-            query_params['limit'] = params['limit']
-        if 'dir' in params:
-            query_params['dir'] = params['dir']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='CloudAccountsExtended',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -484,17 +162,16 @@ class CloudApi(object):
         if ('cloud_account' not in params) or (params['cloud_account'] is None):
             raise ValueError("Missing the required parameter `cloud_account` when calling `create_cloud_account`")
 
-        resource_path = '/platform/3/cloud/accounts'.replace('{format}', 'json')
-        method = 'POST'
 
+        resource_path = '/platform/3/cloud/accounts'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'cloud_account' in params:
@@ -513,22 +190,22 @@ class CloudApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'POST',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='CreateCloudAccountResponse',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def get_cloud_account(self, cloud_account_id, **kwargs):
+    def create_cloud_job(self, cloud_job, **kwargs):
         """
         
-        Retrieve cloud account information.
+        Create a new job.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -536,17 +213,17 @@ class CloudApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.get_cloud_account(cloud_account_id, callback=callback_function)
+        >>> thread = api.create_cloud_job(cloud_job, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str cloud_account_id: Retrieve cloud account information. (required)
-        :return: CloudAccounts
+        :param CloudJobCreateParams cloud_job:  (required)
+        :return: CreateCloudJobResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['cloud_account_id']
+        all_params = ['cloud_job']
         all_params.append('callback')
 
         params = locals()
@@ -554,28 +231,177 @@ class CloudApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_cloud_account" % key
+                    " to method create_cloud_job" % key
                 )
             params[key] = val
         del params['kwargs']
 
-        # verify the required parameter 'cloud_account_id' is set
-        if ('cloud_account_id' not in params) or (params['cloud_account_id'] is None):
-            raise ValueError("Missing the required parameter `cloud_account_id` when calling `get_cloud_account`")
+        # verify the required parameter 'cloud_job' is set
+        if ('cloud_job' not in params) or (params['cloud_job'] is None):
+            raise ValueError("Missing the required parameter `cloud_job` when calling `create_cloud_job`")
 
-        resource_path = '/platform/3/cloud/accounts/{CloudAccountId}'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/3/cloud/jobs'.replace('{format}', 'json')
         path_params = {}
-        if 'cloud_account_id' in params:
-            path_params['CloudAccountId'] = params['cloud_account_id']
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'cloud_job' in params:
+            body_params = params['cloud_job']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'POST',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='CreateCloudJobResponse',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def create_cloud_pool(self, cloud_pool, **kwargs):
+        """
+        
+        Create a new pool.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.create_cloud_pool(cloud_pool, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param CloudPoolCreateParams cloud_pool:  (required)
+        :return: CreateCloudPoolResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['cloud_pool']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_cloud_pool" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'cloud_pool' is set
+        if ('cloud_pool' not in params) or (params['cloud_pool'] is None):
+            raise ValueError("Missing the required parameter `cloud_pool` when calling `create_cloud_pool`")
+
+
+        resource_path = '/platform/3/cloud/pools'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'cloud_pool' in params:
+            body_params = params['cloud_pool']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'POST',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='CreateCloudPoolResponse',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def create_settings_encryption_key_item(self, **kwargs):
+        """
+        
+        Regenerate master encryption key.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.create_settings_encryption_key_item(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: Empty
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_settings_encryption_key_item" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/3/cloud/settings/encryption-key'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -592,22 +418,22 @@ class CloudApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'POST',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
-                                            response_type='CloudAccounts',
+                                            files=local_var_files,
+                                            response_type='Empty',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def update_cloud_account(self, cloud_account, cloud_account_id, **kwargs):
+    def create_settings_reporting_eula_item(self, settings_reporting_eula_item, **kwargs):
         """
         
-        Modify cloud account.  All fields are optional, but one or more must be supplied.
+        Accept telemetry collection EULA.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -615,18 +441,95 @@ class CloudApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.update_cloud_account(cloud_account, cloud_account_id, callback=callback_function)
+        >>> thread = api.create_settings_reporting_eula_item(settings_reporting_eula_item, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param CloudAccount cloud_account:  (required)
-        :param str cloud_account_id: Modify cloud account.  All fields are optional, but one or more must be supplied. (required)
+        :param SettingsReportingEulaItem settings_reporting_eula_item:  (required)
+        :return: SettingsReportingEulaItem
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['settings_reporting_eula_item']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_settings_reporting_eula_item" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'settings_reporting_eula_item' is set
+        if ('settings_reporting_eula_item' not in params) or (params['settings_reporting_eula_item'] is None):
+            raise ValueError("Missing the required parameter `settings_reporting_eula_item` when calling `create_settings_reporting_eula_item`")
+
+
+        resource_path = '/platform/3/cloud/settings/reporting-eula'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'settings_reporting_eula_item' in params:
+            body_params = params['settings_reporting_eula_item']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'POST',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='SettingsReportingEulaItem',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def delete_cloud_access_guid(self, cloud_access_guid, **kwargs):
+        """
+        
+        Delete cloud access.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.delete_cloud_access_guid(cloud_access_guid, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str cloud_access_guid: Delete cloud access. (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['cloud_account', 'cloud_account_id']
+        all_params = ['cloud_access_guid']
         all_params.append('callback')
 
         params = locals()
@@ -634,35 +537,29 @@ class CloudApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method update_cloud_account" % key
+                    " to method delete_cloud_access_guid" % key
                 )
             params[key] = val
         del params['kwargs']
 
-        # verify the required parameter 'cloud_account' is set
-        if ('cloud_account' not in params) or (params['cloud_account'] is None):
-            raise ValueError("Missing the required parameter `cloud_account` when calling `update_cloud_account`")
-        # verify the required parameter 'cloud_account_id' is set
-        if ('cloud_account_id' not in params) or (params['cloud_account_id'] is None):
-            raise ValueError("Missing the required parameter `cloud_account_id` when calling `update_cloud_account`")
+        # verify the required parameter 'cloud_access_guid' is set
+        if ('cloud_access_guid' not in params) or (params['cloud_access_guid'] is None):
+            raise ValueError("Missing the required parameter `cloud_access_guid` when calling `delete_cloud_access_guid`")
 
-        resource_path = '/platform/3/cloud/accounts/{CloudAccountId}'.replace('{format}', 'json')
-        method = 'PUT'
 
+        resource_path = '/platform/3/cloud/access/{CloudAccessGuid}'.replace('{format}', 'json')
         path_params = {}
-        if 'cloud_account_id' in params:
-            path_params['CloudAccountId'] = params['cloud_account_id']
+        if 'cloud_access_guid' in params:
+            path_params['CloudAccessGuid'] = params['cloud_access_guid']
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
-        if 'cloud_account' in params:
-            body_params = params['cloud_account']
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
@@ -677,13 +574,13 @@ class CloudApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'DELETE',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
@@ -727,9 +624,8 @@ class CloudApi(object):
         if ('cloud_account_id' not in params) or (params['cloud_account_id'] is None):
             raise ValueError("Missing the required parameter `cloud_account_id` when calling `delete_cloud_account`")
 
-        resource_path = '/platform/3/cloud/accounts/{CloudAccountId}'.replace('{format}', 'json')
-        method = 'DELETE'
 
+        resource_path = '/platform/3/cloud/accounts/{CloudAccountId}'.replace('{format}', 'json')
         path_params = {}
         if 'cloud_account_id' in params:
             path_params['CloudAccountId'] = params['cloud_account_id']
@@ -738,8 +634,8 @@ class CloudApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -756,22 +652,22 @@ class CloudApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'DELETE',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def list_cloud_jobs(self, **kwargs):
+    def delete_cloud_pool(self, cloud_pool_id, **kwargs):
         """
         
-        List all cloudpools jobs.
+        Delete a cloud pool.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -779,19 +675,17 @@ class CloudApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.list_cloud_jobs(callback=callback_function)
+        >>> thread = api.delete_cloud_pool(cloud_pool_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str sort: The field that will be used for sorting.
-        :param int limit: Return no more than this many results at once (see resume).
-        :param str dir: The direction of the sort.
-        :return: CloudJobsExtended
+        :param str cloud_pool_id: Delete a cloud pool. (required)
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['sort', 'limit', 'dir']
+        all_params = ['cloud_pool_id']
         all_params.append('callback')
 
         params = locals()
@@ -799,29 +693,27 @@ class CloudApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method list_cloud_jobs" % key
+                    " to method delete_cloud_pool" % key
                 )
             params[key] = val
         del params['kwargs']
 
+        # verify the required parameter 'cloud_pool_id' is set
+        if ('cloud_pool_id' not in params) or (params['cloud_pool_id'] is None):
+            raise ValueError("Missing the required parameter `cloud_pool_id` when calling `delete_cloud_pool`")
 
-        resource_path = '/platform/3/cloud/jobs'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/3/cloud/pools/{CloudPoolId}'.replace('{format}', 'json')
         path_params = {}
+        if 'cloud_pool_id' in params:
+            path_params['CloudPoolId'] = params['cloud_pool_id']
 
         query_params = {}
-        if 'sort' in params:
-            query_params['sort'] = params['sort']
-        if 'limit' in params:
-            query_params['limit'] = params['limit']
-        if 'dir' in params:
-            query_params['dir'] = params['dir']
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -838,22 +730,22 @@ class CloudApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'DELETE',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
-                                            response_type='CloudJobsExtended',
+                                            files=local_var_files,
+                                            response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def create_cloud_job(self, cloud_job, **kwargs):
+    def delete_settings_reporting_eula(self, **kwargs):
         """
         
-        Create a new job.
+        Revoke acceptance of telemetry collection EULA.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -861,17 +753,16 @@ class CloudApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.create_cloud_job(cloud_job, callback=callback_function)
+        >>> thread = api.delete_settings_reporting_eula(callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param CloudJobCreateParams cloud_job:  (required)
-        :return: CreateCloudJobResponse
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['cloud_job']
+        all_params = []
         all_params.append('callback')
 
         params = locals()
@@ -879,30 +770,24 @@ class CloudApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method create_cloud_job" % key
+                    " to method delete_settings_reporting_eula" % key
                 )
             params[key] = val
         del params['kwargs']
 
-        # verify the required parameter 'cloud_job' is set
-        if ('cloud_job' not in params) or (params['cloud_job'] is None):
-            raise ValueError("Missing the required parameter `cloud_job` when calling `create_cloud_job`")
 
-        resource_path = '/platform/3/cloud/jobs'.replace('{format}', 'json')
-        method = 'POST'
 
+        resource_path = '/platform/3/cloud/settings/reporting-eula'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
-        if 'cloud_job' in params:
-            body_params = params['cloud_job']
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
@@ -917,14 +802,248 @@ class CloudApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'DELETE',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
-                                            response_type='CreateCloudJobResponse',
+                                            files=local_var_files,
+                                            response_type=None,
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_cloud_access_guid(self, cloud_access_guid, **kwargs):
+        """
+        
+        Retrieve cloud access information.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_cloud_access_guid(cloud_access_guid, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str cloud_access_guid: Retrieve cloud access information. (required)
+        :return: CloudAccess
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['cloud_access_guid']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_cloud_access_guid" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'cloud_access_guid' is set
+        if ('cloud_access_guid' not in params) or (params['cloud_access_guid'] is None):
+            raise ValueError("Missing the required parameter `cloud_access_guid` when calling `get_cloud_access_guid`")
+
+
+        resource_path = '/platform/3/cloud/access/{CloudAccessGuid}'.replace('{format}', 'json')
+        path_params = {}
+        if 'cloud_access_guid' in params:
+            path_params['CloudAccessGuid'] = params['cloud_access_guid']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='CloudAccess',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_cloud_account(self, cloud_account_id, **kwargs):
+        """
+        
+        Retrieve cloud account information.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_cloud_account(cloud_account_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str cloud_account_id: Retrieve cloud account information. (required)
+        :return: CloudAccounts
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['cloud_account_id']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_cloud_account" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'cloud_account_id' is set
+        if ('cloud_account_id' not in params) or (params['cloud_account_id'] is None):
+            raise ValueError("Missing the required parameter `cloud_account_id` when calling `get_cloud_account`")
+
+
+        resource_path = '/platform/3/cloud/accounts/{CloudAccountId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'cloud_account_id' in params:
+            path_params['CloudAccountId'] = params['cloud_account_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='CloudAccounts',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_cloud_job(self, cloud_job_id, **kwargs):
+        """
+        
+        Retrieve cloudpool job information.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_cloud_job(cloud_job_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str cloud_job_id: Retrieve cloudpool job information. (required)
+        :return: CloudJobs
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['cloud_job_id']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_cloud_job" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'cloud_job_id' is set
+        if ('cloud_job_id' not in params) or (params['cloud_job_id'] is None):
+            raise ValueError("Missing the required parameter `cloud_job_id` when calling `get_cloud_job`")
+
+
+        resource_path = '/platform/3/cloud/jobs/{CloudJobId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'cloud_job_id' in params:
+            path_params['CloudJobId'] = params['cloud_job_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='CloudJobs',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -973,9 +1092,10 @@ class CloudApi(object):
         if ('cloud_jobs_file_id' not in params) or (params['cloud_jobs_file_id'] is None):
             raise ValueError("Missing the required parameter `cloud_jobs_file_id` when calling `get_cloud_jobs_file`")
 
-        resource_path = '/platform/3/cloud/jobs-files/{CloudJobsFileId}'.replace('{format}', 'json')
-        method = 'GET'
+        if 'limit' in params and params['limit'] < 1.0: 
+            raise ValueError("Invalid value for parameter `limit` when calling `get_cloud_jobs_file`, must be a value greater than or equal to `1.0`")
 
+        resource_path = '/platform/3/cloud/jobs-files/{CloudJobsFileId}'.replace('{format}', 'json')
         path_params = {}
         if 'cloud_jobs_file_id' in params:
             path_params['CloudJobsFileId'] = params['cloud_jobs_file_id']
@@ -996,8 +1116,8 @@ class CloudApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -1014,22 +1134,22 @@ class CloudApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='CloudJobsFiles',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def get_cloud_job(self, cloud_job_id, **kwargs):
+    def get_cloud_pool(self, cloud_pool_id, **kwargs):
         """
         
-        Retrieve cloudpool job information.
+        Retrieve cloud pool information
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1037,17 +1157,17 @@ class CloudApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.get_cloud_job(cloud_job_id, callback=callback_function)
+        >>> thread = api.get_cloud_pool(cloud_pool_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str cloud_job_id: Retrieve cloudpool job information. (required)
-        :return: CloudJobs
+        :param str cloud_pool_id: Retrieve cloud pool information (required)
+        :return: CloudPools
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['cloud_job_id']
+        all_params = ['cloud_pool_id']
         all_params.append('callback')
 
         params = locals()
@@ -1055,28 +1175,27 @@ class CloudApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_cloud_job" % key
+                    " to method get_cloud_pool" % key
                 )
             params[key] = val
         del params['kwargs']
 
-        # verify the required parameter 'cloud_job_id' is set
-        if ('cloud_job_id' not in params) or (params['cloud_job_id'] is None):
-            raise ValueError("Missing the required parameter `cloud_job_id` when calling `get_cloud_job`")
+        # verify the required parameter 'cloud_pool_id' is set
+        if ('cloud_pool_id' not in params) or (params['cloud_pool_id'] is None):
+            raise ValueError("Missing the required parameter `cloud_pool_id` when calling `get_cloud_pool`")
 
-        resource_path = '/platform/3/cloud/jobs/{CloudJobId}'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/3/cloud/pools/{CloudPoolId}'.replace('{format}', 'json')
         path_params = {}
-        if 'cloud_job_id' in params:
-            path_params['CloudJobId'] = params['cloud_job_id']
+        if 'cloud_pool_id' in params:
+            path_params['CloudPoolId'] = params['cloud_pool_id']
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -1093,14 +1212,574 @@ class CloudApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
-                                            response_type='CloudJobs',
+                                            files=local_var_files,
+                                            response_type='CloudPools',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_cloud_settings(self, **kwargs):
+        """
+        
+        List all cloud settings.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_cloud_settings(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: CloudSettings
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_cloud_settings" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/3/cloud/settings'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='CloudSettings',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def list_cloud_access(self, **kwargs):
+        """
+        
+        List all accessible cluster identifiers.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.list_cloud_access(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str sort: The field that will be used for sorting.
+        :param int limit: Return no more than this many results at once (see resume).
+        :param str dir: The direction of the sort.
+        :return: CloudAccessExtended
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['sort', 'limit', 'dir']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_cloud_access" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+        if 'limit' in params and params['limit'] < 1.0: 
+            raise ValueError("Invalid value for parameter `limit` when calling `list_cloud_access`, must be a value greater than or equal to `1.0`")
+
+        resource_path = '/platform/3/cloud/access'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'sort' in params:
+            query_params['sort'] = params['sort']
+        if 'limit' in params:
+            query_params['limit'] = params['limit']
+        if 'dir' in params:
+            query_params['dir'] = params['dir']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='CloudAccessExtended',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def list_cloud_accounts(self, **kwargs):
+        """
+        
+        List all accounts.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.list_cloud_accounts(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str sort: The field that will be used for sorting.
+        :param int limit: Return no more than this many results at once (see resume).
+        :param str dir: The direction of the sort.
+        :return: CloudAccountsExtended
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['sort', 'limit', 'dir']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_cloud_accounts" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+        if 'limit' in params and params['limit'] < 1.0: 
+            raise ValueError("Invalid value for parameter `limit` when calling `list_cloud_accounts`, must be a value greater than or equal to `1.0`")
+
+        resource_path = '/platform/3/cloud/accounts'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'sort' in params:
+            query_params['sort'] = params['sort']
+        if 'limit' in params:
+            query_params['limit'] = params['limit']
+        if 'dir' in params:
+            query_params['dir'] = params['dir']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='CloudAccountsExtended',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def list_cloud_jobs(self, **kwargs):
+        """
+        
+        List all cloudpools jobs.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.list_cloud_jobs(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str sort: The field that will be used for sorting.
+        :param int limit: Return no more than this many results at once (see resume).
+        :param str dir: The direction of the sort.
+        :return: CloudJobsExtended
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['sort', 'limit', 'dir']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_cloud_jobs" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+        if 'limit' in params and params['limit'] < 1.0: 
+            raise ValueError("Invalid value for parameter `limit` when calling `list_cloud_jobs`, must be a value greater than or equal to `1.0`")
+
+        resource_path = '/platform/3/cloud/jobs'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'sort' in params:
+            query_params['sort'] = params['sort']
+        if 'limit' in params:
+            query_params['limit'] = params['limit']
+        if 'dir' in params:
+            query_params['dir'] = params['dir']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='CloudJobsExtended',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def list_cloud_pools(self, **kwargs):
+        """
+        
+        List all pools.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.list_cloud_pools(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str sort: The field that will be used for sorting.
+        :param int limit: Return no more than this many results at once (see resume).
+        :param str dir: The direction of the sort.
+        :return: CloudPoolsExtended
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['sort', 'limit', 'dir']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_cloud_pools" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+        if 'limit' in params and params['limit'] < 1.0: 
+            raise ValueError("Invalid value for parameter `limit` when calling `list_cloud_pools`, must be a value greater than or equal to `1.0`")
+
+        resource_path = '/platform/3/cloud/pools'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'sort' in params:
+            query_params['sort'] = params['sort']
+        if 'limit' in params:
+            query_params['limit'] = params['limit']
+        if 'dir' in params:
+            query_params['dir'] = params['dir']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='CloudPoolsExtended',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def list_settings_reporting_eula(self, **kwargs):
+        """
+        
+        View telemetry collection EULA acceptance and content URI.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.list_settings_reporting_eula(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: SettingsReportingEulaItem
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_settings_reporting_eula" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/3/cloud/settings/reporting-eula'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='SettingsReportingEulaItem',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def update_cloud_account(self, cloud_account, cloud_account_id, **kwargs):
+        """
+        
+        Modify cloud account.  All fields are optional, but one or more must be supplied.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_cloud_account(cloud_account, cloud_account_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param CloudAccount cloud_account:  (required)
+        :param str cloud_account_id: Modify cloud account.  All fields are optional, but one or more must be supplied. (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['cloud_account', 'cloud_account_id']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_cloud_account" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'cloud_account' is set
+        if ('cloud_account' not in params) or (params['cloud_account'] is None):
+            raise ValueError("Missing the required parameter `cloud_account` when calling `update_cloud_account`")
+        # verify the required parameter 'cloud_account_id' is set
+        if ('cloud_account_id' not in params) or (params['cloud_account_id'] is None):
+            raise ValueError("Missing the required parameter `cloud_account_id` when calling `update_cloud_account`")
+
+
+        resource_path = '/platform/3/cloud/accounts/{CloudAccountId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'cloud_account_id' in params:
+            path_params['CloudAccountId'] = params['cloud_account_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'cloud_account' in params:
+            body_params = params['cloud_account']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'PUT',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -1147,9 +1826,8 @@ class CloudApi(object):
         if ('cloud_job_id' not in params) or (params['cloud_job_id'] is None):
             raise ValueError("Missing the required parameter `cloud_job_id` when calling `update_cloud_job`")
 
-        resource_path = '/platform/3/cloud/jobs/{CloudJobId}'.replace('{format}', 'json')
-        method = 'PUT'
 
+        resource_path = '/platform/3/cloud/jobs/{CloudJobId}'.replace('{format}', 'json')
         path_params = {}
         if 'cloud_job_id' in params:
             path_params['CloudJobId'] = params['cloud_job_id']
@@ -1158,8 +1836,8 @@ class CloudApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'cloud_job' in params:
@@ -1178,254 +1856,14 @@ class CloudApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'PUT',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def list_cloud_pools(self, **kwargs):
-        """
-        
-        List all pools.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.list_cloud_pools(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str sort: The field that will be used for sorting.
-        :param int limit: Return no more than this many results at once (see resume).
-        :param str dir: The direction of the sort.
-        :return: CloudPoolsExtended
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['sort', 'limit', 'dir']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_cloud_pools" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/cloud/pools'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-        if 'sort' in params:
-            query_params['sort'] = params['sort']
-        if 'limit' in params:
-            query_params['limit'] = params['limit']
-        if 'dir' in params:
-            query_params['dir'] = params['dir']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='CloudPoolsExtended',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def create_cloud_pool(self, cloud_pool, **kwargs):
-        """
-        
-        Create a new pool.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_cloud_pool(cloud_pool, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param CloudPoolCreateParams cloud_pool:  (required)
-        :return: CreateCloudPoolResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['cloud_pool']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_cloud_pool" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'cloud_pool' is set
-        if ('cloud_pool' not in params) or (params['cloud_pool'] is None):
-            raise ValueError("Missing the required parameter `cloud_pool` when calling `create_cloud_pool`")
-
-        resource_path = '/platform/3/cloud/pools'.replace('{format}', 'json')
-        method = 'POST'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'cloud_pool' in params:
-            body_params = params['cloud_pool']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='CreateCloudPoolResponse',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_cloud_pool(self, cloud_pool_id, **kwargs):
-        """
-        
-        Retrieve cloud pool information
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_cloud_pool(cloud_pool_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str cloud_pool_id: Retrieve cloud pool information (required)
-        :return: CloudPools
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['cloud_pool_id']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_cloud_pool" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'cloud_pool_id' is set
-        if ('cloud_pool_id' not in params) or (params['cloud_pool_id'] is None):
-            raise ValueError("Missing the required parameter `cloud_pool_id` when calling `get_cloud_pool`")
-
-        resource_path = '/platform/3/cloud/pools/{CloudPoolId}'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'cloud_pool_id' in params:
-            path_params['CloudPoolId'] = params['cloud_pool_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='CloudPools',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -1472,9 +1910,8 @@ class CloudApi(object):
         if ('cloud_pool_id' not in params) or (params['cloud_pool_id'] is None):
             raise ValueError("Missing the required parameter `cloud_pool_id` when calling `update_cloud_pool`")
 
-        resource_path = '/platform/3/cloud/pools/{CloudPoolId}'.replace('{format}', 'json')
-        method = 'PUT'
 
+        resource_path = '/platform/3/cloud/pools/{CloudPoolId}'.replace('{format}', 'json')
         path_params = {}
         if 'cloud_pool_id' in params:
             path_params['CloudPoolId'] = params['cloud_pool_id']
@@ -1483,8 +1920,8 @@ class CloudApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'cloud_pool' in params:
@@ -1503,166 +1940,14 @@ class CloudApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'PUT',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def delete_cloud_pool(self, cloud_pool_id, **kwargs):
-        """
-        
-        Delete a cloud pool.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_cloud_pool(cloud_pool_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str cloud_pool_id: Delete a cloud pool. (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['cloud_pool_id']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_cloud_pool" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'cloud_pool_id' is set
-        if ('cloud_pool_id' not in params) or (params['cloud_pool_id'] is None):
-            raise ValueError("Missing the required parameter `cloud_pool_id` when calling `delete_cloud_pool`")
-
-        resource_path = '/platform/3/cloud/pools/{CloudPoolId}'.replace('{format}', 'json')
-        method = 'DELETE'
-
-        path_params = {}
-        if 'cloud_pool_id' in params:
-            path_params['CloudPoolId'] = params['cloud_pool_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_cloud_settings(self, **kwargs):
-        """
-        
-        List all cloud settings.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_cloud_settings(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: CloudSettings
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_cloud_settings" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/cloud/settings'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='CloudSettings',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -1705,17 +1990,16 @@ class CloudApi(object):
         if ('cloud_settings' not in params) or (params['cloud_settings'] is None):
             raise ValueError("Missing the required parameter `cloud_settings` when calling `update_cloud_settings`")
 
-        resource_path = '/platform/3/cloud/settings'.replace('{format}', 'json')
-        method = 'PUT'
 
+        resource_path = '/platform/3/cloud/settings'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'cloud_settings' in params:
@@ -1734,311 +2018,13 @@ class CloudApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'PUT',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def create_settings_encryption_key_item(self, **kwargs):
-        """
-        
-        Regenerate master encryption key.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_settings_encryption_key_item(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: Empty
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_settings_encryption_key_item" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/cloud/settings/encryption-key'.replace('{format}', 'json')
-        method = 'POST'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='Empty',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def list_settings_reporting_eula(self, **kwargs):
-        """
-        
-        View telemetry collection EULA acceptance and content URI.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.list_settings_reporting_eula(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: SettingsReportingEulaItem
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_settings_reporting_eula" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/cloud/settings/reporting-eula'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='SettingsReportingEulaItem',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def create_settings_reporting_eula_item(self, settings_reporting_eula_item, **kwargs):
-        """
-        
-        Accept telemetry collection EULA.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_settings_reporting_eula_item(settings_reporting_eula_item, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param SettingsReportingEulaItem settings_reporting_eula_item:  (required)
-        :return: SettingsReportingEulaItem
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['settings_reporting_eula_item']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_settings_reporting_eula_item" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'settings_reporting_eula_item' is set
-        if ('settings_reporting_eula_item' not in params) or (params['settings_reporting_eula_item'] is None):
-            raise ValueError("Missing the required parameter `settings_reporting_eula_item` when calling `create_settings_reporting_eula_item`")
-
-        resource_path = '/platform/3/cloud/settings/reporting-eula'.replace('{format}', 'json')
-        method = 'POST'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'settings_reporting_eula_item' in params:
-            body_params = params['settings_reporting_eula_item']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='SettingsReportingEulaItem',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def delete_settings_reporting_eula(self, **kwargs):
-        """
-        
-        Revoke acceptance of telemetry collection EULA.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_settings_reporting_eula(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_settings_reporting_eula" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/cloud/settings/reporting-eula'.replace('{format}', 'json')
-        method = 'DELETE'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))

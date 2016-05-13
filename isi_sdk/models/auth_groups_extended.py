@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class AuthGroupsExtended(object):
@@ -37,39 +38,17 @@ class AuthGroupsExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'resume': 'str',
-            'groups': 'list[AuthGroupExtended]'
+            'groups': 'list[AuthGroupExtended]',
+            'resume': 'str'
         }
 
         self.attribute_map = {
-            'resume': 'resume',
-            'groups': 'groups'
+            'groups': 'groups',
+            'resume': 'resume'
         }
 
-        self._resume = None
         self._groups = None
-
-    @property
-    def resume(self):
-        """
-        Gets the resume of this AuthGroupsExtended.
-        Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
-
-        :return: The resume of this AuthGroupsExtended.
-        :rtype: str
-        """
-        return self._resume
-
-    @resume.setter
-    def resume(self, resume):
-        """
-        Sets the resume of this AuthGroupsExtended.
-        Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
-
-        :param resume: The resume of this AuthGroupsExtended.
-        :type: str
-        """
-        self._resume = resume
+        self._resume = None
 
     @property
     def groups(self):
@@ -91,7 +70,31 @@ class AuthGroupsExtended(object):
         :param groups: The groups of this AuthGroupsExtended.
         :type: list[AuthGroupExtended]
         """
+        
         self._groups = groups
+
+    @property
+    def resume(self):
+        """
+        Gets the resume of this AuthGroupsExtended.
+        Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
+
+        :return: The resume of this AuthGroupsExtended.
+        :rtype: str
+        """
+        return self._resume
+
+    @resume.setter
+    def resume(self, resume):
+        """
+        Sets the resume of this AuthGroupsExtended.
+        Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
+
+        :param resume: The resume of this AuthGroupsExtended.
+        :type: str
+        """
+        
+        self._resume = resume
 
     def to_dict(self):
         """
@@ -108,6 +111,12 @@ class AuthGroupsExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -125,14 +134,14 @@ class AuthGroupsExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

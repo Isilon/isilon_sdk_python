@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class AntivirusServerExtended(object):
@@ -38,27 +39,27 @@ class AntivirusServerExtended(object):
         """
         self.swagger_types = {
             'description': 'str',
-            'id': 'str',
-            'definitions': 'str',
             'enabled': 'bool',
             'url': 'str',
+            'definitions': 'str',
+            'id': 'str',
             'status': 'str'
         }
 
         self.attribute_map = {
             'description': 'description',
-            'id': 'id',
-            'definitions': 'definitions',
             'enabled': 'enabled',
             'url': 'url',
+            'definitions': 'definitions',
+            'id': 'id',
             'status': 'status'
         }
 
         self._description = None
-        self._id = None
-        self._definitions = None
         self._enabled = None
         self._url = None
+        self._definitions = None
+        self._id = None
         self._status = None
 
     @property
@@ -81,51 +82,8 @@ class AntivirusServerExtended(object):
         :param description: The description of this AntivirusServerExtended.
         :type: str
         """
+        
         self._description = description
-
-    @property
-    def id(self):
-        """
-        Gets the id of this AntivirusServerExtended.
-        A unique identifier for the server.
-
-        :return: The id of this AntivirusServerExtended.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this AntivirusServerExtended.
-        A unique identifier for the server.
-
-        :param id: The id of this AntivirusServerExtended.
-        :type: str
-        """
-        self._id = id
-
-    @property
-    def definitions(self):
-        """
-        Gets the definitions of this AntivirusServerExtended.
-        Virus definitions on the server.
-
-        :return: The definitions of this AntivirusServerExtended.
-        :rtype: str
-        """
-        return self._definitions
-
-    @definitions.setter
-    def definitions(self, definitions):
-        """
-        Sets the definitions of this AntivirusServerExtended.
-        Virus definitions on the server.
-
-        :param definitions: The definitions of this AntivirusServerExtended.
-        :type: str
-        """
-        self._definitions = definitions
 
     @property
     def enabled(self):
@@ -147,6 +105,7 @@ class AntivirusServerExtended(object):
         :param enabled: The enabled of this AntivirusServerExtended.
         :type: bool
         """
+        
         self._enabled = enabled
 
     @property
@@ -169,7 +128,59 @@ class AntivirusServerExtended(object):
         :param url: The url of this AntivirusServerExtended.
         :type: str
         """
+        
+        if not url:
+            raise ValueError("Invalid value for `url`, must not be `None`")
+        if len(url) < 1: 
+            raise ValueError("Invalid value for `url`, length must be greater than or equal to `1`")
+
         self._url = url
+
+    @property
+    def definitions(self):
+        """
+        Gets the definitions of this AntivirusServerExtended.
+        Virus definitions on the server.
+
+        :return: The definitions of this AntivirusServerExtended.
+        :rtype: str
+        """
+        return self._definitions
+
+    @definitions.setter
+    def definitions(self, definitions):
+        """
+        Sets the definitions of this AntivirusServerExtended.
+        Virus definitions on the server.
+
+        :param definitions: The definitions of this AntivirusServerExtended.
+        :type: str
+        """
+        
+        self._definitions = definitions
+
+    @property
+    def id(self):
+        """
+        Gets the id of this AntivirusServerExtended.
+        A unique identifier for the server.
+
+        :return: The id of this AntivirusServerExtended.
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """
+        Sets the id of this AntivirusServerExtended.
+        A unique identifier for the server.
+
+        :param id: The id of this AntivirusServerExtended.
+        :type: str
+        """
+        
+        self._id = id
 
     @property
     def status(self):
@@ -191,6 +202,7 @@ class AntivirusServerExtended(object):
         :param status: The status of this AntivirusServerExtended.
         :type: str
         """
+        
         self._status = status
 
     def to_dict(self):
@@ -208,6 +220,12 @@ class AntivirusServerExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -225,14 +243,14 @@ class AntivirusServerExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class NtpServerExtended(object):
@@ -37,42 +38,20 @@ class NtpServerExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'name': 'str',
             'key': 'str',
-            'id': 'str'
+            'id': 'str',
+            'name': 'str'
         }
 
         self.attribute_map = {
-            'name': 'name',
             'key': 'key',
-            'id': 'id'
+            'id': 'id',
+            'name': 'name'
         }
 
-        self._name = None
         self._key = None
         self._id = None
-
-    @property
-    def name(self):
-        """
-        Gets the name of this NtpServerExtended.
-        NTP server name.
-
-        :return: The name of this NtpServerExtended.
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """
-        Sets the name of this NtpServerExtended.
-        NTP server name.
-
-        :param name: The name of this NtpServerExtended.
-        :type: str
-        """
-        self._name = name
+        self._name = None
 
     @property
     def key(self):
@@ -94,6 +73,7 @@ class NtpServerExtended(object):
         :param key: The key of this NtpServerExtended.
         :type: str
         """
+        
         self._key = key
 
     @property
@@ -116,7 +96,31 @@ class NtpServerExtended(object):
         :param id: The id of this NtpServerExtended.
         :type: str
         """
+        
         self._id = id
+
+    @property
+    def name(self):
+        """
+        Gets the name of this NtpServerExtended.
+        NTP server name.
+
+        :return: The name of this NtpServerExtended.
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """
+        Sets the name of this NtpServerExtended.
+        NTP server name.
+
+        :param name: The name of this NtpServerExtended.
+        :type: str
+        """
+        
+        self._name = name
 
     def to_dict(self):
         """
@@ -133,6 +137,12 @@ class NtpServerExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -150,14 +160,14 @@ class NtpServerExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

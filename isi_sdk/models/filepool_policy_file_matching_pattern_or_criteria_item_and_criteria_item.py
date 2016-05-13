@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class FilepoolPolicyFileMatchingPatternOrCriteriaItemAndCriteriaItem(object):
@@ -90,6 +91,7 @@ class FilepoolPolicyFileMatchingPatternOrCriteriaItemAndCriteriaItem(object):
         :param attribute_exists: The attribute_exists of this FilepoolPolicyFileMatchingPatternOrCriteriaItemAndCriteriaItem.
         :type: bool
         """
+        
         self._attribute_exists = attribute_exists
 
     @property
@@ -112,6 +114,7 @@ class FilepoolPolicyFileMatchingPatternOrCriteriaItemAndCriteriaItem(object):
         :param begins_with: The begins_with of this FilepoolPolicyFileMatchingPatternOrCriteriaItemAndCriteriaItem.
         :type: bool
         """
+        
         self._begins_with = begins_with
 
     @property
@@ -134,6 +137,7 @@ class FilepoolPolicyFileMatchingPatternOrCriteriaItemAndCriteriaItem(object):
         :param case_sensitive: The case_sensitive of this FilepoolPolicyFileMatchingPatternOrCriteriaItemAndCriteriaItem.
         :type: bool
         """
+        
         self._case_sensitive = case_sensitive
 
     @property
@@ -156,6 +160,7 @@ class FilepoolPolicyFileMatchingPatternOrCriteriaItemAndCriteriaItem(object):
         :param field: The field of this FilepoolPolicyFileMatchingPatternOrCriteriaItemAndCriteriaItem.
         :type: str
         """
+        
         self._field = field
 
     @property
@@ -184,6 +189,7 @@ class FilepoolPolicyFileMatchingPatternOrCriteriaItemAndCriteriaItem(object):
                 "Invalid value for `operator`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._operator = operator
 
     @property
@@ -212,6 +218,7 @@ class FilepoolPolicyFileMatchingPatternOrCriteriaItemAndCriteriaItem(object):
                 "Invalid value for `type`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._type = type
 
     @property
@@ -234,6 +241,7 @@ class FilepoolPolicyFileMatchingPatternOrCriteriaItemAndCriteriaItem(object):
         :param units: The units of this FilepoolPolicyFileMatchingPatternOrCriteriaItemAndCriteriaItem.
         :type: str
         """
+        
         self._units = units
 
     @property
@@ -256,6 +264,7 @@ class FilepoolPolicyFileMatchingPatternOrCriteriaItemAndCriteriaItem(object):
         :param use_relative_time: The use_relative_time of this FilepoolPolicyFileMatchingPatternOrCriteriaItemAndCriteriaItem.
         :type: bool
         """
+        
         self._use_relative_time = use_relative_time
 
     @property
@@ -278,6 +287,7 @@ class FilepoolPolicyFileMatchingPatternOrCriteriaItemAndCriteriaItem(object):
         :param value: The value of this FilepoolPolicyFileMatchingPatternOrCriteriaItemAndCriteriaItem.
         :type: str
         """
+        
         self._value = value
 
     def to_dict(self):
@@ -295,6 +305,12 @@ class FilepoolPolicyFileMatchingPatternOrCriteriaItemAndCriteriaItem(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -312,14 +328,14 @@ class FilepoolPolicyFileMatchingPatternOrCriteriaItemAndCriteriaItem(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

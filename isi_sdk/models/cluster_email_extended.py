@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class ClusterEmailExtended(object):
@@ -37,176 +38,41 @@ class ClusterEmailExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'user_template': 'str',
-            'settings': 'ClusterEmailSettings',
-            'smtp_port': 'int',
-            'mail_subject': 'str',
-            'smtp_auth_username': 'str',
-            'mail_sender': 'str',
             'batch_mode': 'str',
             'mail_relay': 'str',
+            'mail_sender': 'str',
+            'mail_subject': 'str',
+            'smtp_auth_passwd': 'str',
             'smtp_auth_security': 'str',
+            'smtp_auth_username': 'str',
+            'smtp_port': 'int',
             'use_smtp_auth': 'bool',
-            'smtp_auth_passwd': 'str'
+            'user_template': 'str'
         }
 
         self.attribute_map = {
-            'user_template': 'user_template',
-            'settings': 'settings',
-            'smtp_port': 'smtp_port',
-            'mail_subject': 'mail_subject',
-            'smtp_auth_username': 'smtp_auth_username',
-            'mail_sender': 'mail_sender',
             'batch_mode': 'batch_mode',
             'mail_relay': 'mail_relay',
+            'mail_sender': 'mail_sender',
+            'mail_subject': 'mail_subject',
+            'smtp_auth_passwd': 'smtp_auth_passwd',
             'smtp_auth_security': 'smtp_auth_security',
+            'smtp_auth_username': 'smtp_auth_username',
+            'smtp_port': 'smtp_port',
             'use_smtp_auth': 'use_smtp_auth',
-            'smtp_auth_passwd': 'smtp_auth_passwd'
+            'user_template': 'user_template'
         }
 
-        self._user_template = None
-        self._settings = None
-        self._smtp_port = None
-        self._mail_subject = None
-        self._smtp_auth_username = None
-        self._mail_sender = None
         self._batch_mode = None
         self._mail_relay = None
-        self._smtp_auth_security = None
-        self._use_smtp_auth = None
+        self._mail_sender = None
+        self._mail_subject = None
         self._smtp_auth_passwd = None
-
-    @property
-    def user_template(self):
-        """
-        Gets the user_template of this ClusterEmailExtended.
-        Location of a custom template file that can be used to specify the layout of the notification emails.
-
-        :return: The user_template of this ClusterEmailExtended.
-        :rtype: str
-        """
-        return self._user_template
-
-    @user_template.setter
-    def user_template(self, user_template):
-        """
-        Sets the user_template of this ClusterEmailExtended.
-        Location of a custom template file that can be used to specify the layout of the notification emails.
-
-        :param user_template: The user_template of this ClusterEmailExtended.
-        :type: str
-        """
-        self._user_template = user_template
-
-    @property
-    def settings(self):
-        """
-        Gets the settings of this ClusterEmailExtended.
-        Cluster email notification settings.
-
-        :return: The settings of this ClusterEmailExtended.
-        :rtype: ClusterEmailSettings
-        """
-        return self._settings
-
-    @settings.setter
-    def settings(self, settings):
-        """
-        Sets the settings of this ClusterEmailExtended.
-        Cluster email notification settings.
-
-        :param settings: The settings of this ClusterEmailExtended.
-        :type: ClusterEmailSettings
-        """
-        self._settings = settings
-
-    @property
-    def smtp_port(self):
-        """
-        Gets the smtp_port of this ClusterEmailExtended.
-        The port on the SMTP server to be used for relaying the notification messages.
-
-        :return: The smtp_port of this ClusterEmailExtended.
-        :rtype: int
-        """
-        return self._smtp_port
-
-    @smtp_port.setter
-    def smtp_port(self, smtp_port):
-        """
-        Sets the smtp_port of this ClusterEmailExtended.
-        The port on the SMTP server to be used for relaying the notification messages.
-
-        :param smtp_port: The smtp_port of this ClusterEmailExtended.
-        :type: int
-        """
-        self._smtp_port = smtp_port
-
-    @property
-    def mail_subject(self):
-        """
-        Gets the mail_subject of this ClusterEmailExtended.
-        The subject line for notification messages from this cluster.
-
-        :return: The mail_subject of this ClusterEmailExtended.
-        :rtype: str
-        """
-        return self._mail_subject
-
-    @mail_subject.setter
-    def mail_subject(self, mail_subject):
-        """
-        Sets the mail_subject of this ClusterEmailExtended.
-        The subject line for notification messages from this cluster.
-
-        :param mail_subject: The mail_subject of this ClusterEmailExtended.
-        :type: str
-        """
-        self._mail_subject = mail_subject
-
-    @property
-    def smtp_auth_username(self):
-        """
-        Gets the smtp_auth_username of this ClusterEmailExtended.
-        Username to authenticate with if SMTP authentication is being used.
-
-        :return: The smtp_auth_username of this ClusterEmailExtended.
-        :rtype: str
-        """
-        return self._smtp_auth_username
-
-    @smtp_auth_username.setter
-    def smtp_auth_username(self, smtp_auth_username):
-        """
-        Sets the smtp_auth_username of this ClusterEmailExtended.
-        Username to authenticate with if SMTP authentication is being used.
-
-        :param smtp_auth_username: The smtp_auth_username of this ClusterEmailExtended.
-        :type: str
-        """
-        self._smtp_auth_username = smtp_auth_username
-
-    @property
-    def mail_sender(self):
-        """
-        Gets the mail_sender of this ClusterEmailExtended.
-        The full email address that will appear as the sender of notification messages.
-
-        :return: The mail_sender of this ClusterEmailExtended.
-        :rtype: str
-        """
-        return self._mail_sender
-
-    @mail_sender.setter
-    def mail_sender(self, mail_sender):
-        """
-        Sets the mail_sender of this ClusterEmailExtended.
-        The full email address that will appear as the sender of notification messages.
-
-        :param mail_sender: The mail_sender of this ClusterEmailExtended.
-        :type: str
-        """
-        self._mail_sender = mail_sender
+        self._smtp_auth_security = None
+        self._smtp_auth_username = None
+        self._smtp_port = None
+        self._use_smtp_auth = None
+        self._user_template = None
 
     @property
     def batch_mode(self):
@@ -234,6 +100,7 @@ class ClusterEmailExtended(object):
                 "Invalid value for `batch_mode`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._batch_mode = batch_mode
 
     @property
@@ -256,7 +123,77 @@ class ClusterEmailExtended(object):
         :param mail_relay: The mail_relay of this ClusterEmailExtended.
         :type: str
         """
+        
         self._mail_relay = mail_relay
+
+    @property
+    def mail_sender(self):
+        """
+        Gets the mail_sender of this ClusterEmailExtended.
+        The full email address that will appear as the sender of notification messages.
+
+        :return: The mail_sender of this ClusterEmailExtended.
+        :rtype: str
+        """
+        return self._mail_sender
+
+    @mail_sender.setter
+    def mail_sender(self, mail_sender):
+        """
+        Sets the mail_sender of this ClusterEmailExtended.
+        The full email address that will appear as the sender of notification messages.
+
+        :param mail_sender: The mail_sender of this ClusterEmailExtended.
+        :type: str
+        """
+        
+        self._mail_sender = mail_sender
+
+    @property
+    def mail_subject(self):
+        """
+        Gets the mail_subject of this ClusterEmailExtended.
+        The subject line for notification messages from this cluster.
+
+        :return: The mail_subject of this ClusterEmailExtended.
+        :rtype: str
+        """
+        return self._mail_subject
+
+    @mail_subject.setter
+    def mail_subject(self, mail_subject):
+        """
+        Sets the mail_subject of this ClusterEmailExtended.
+        The subject line for notification messages from this cluster.
+
+        :param mail_subject: The mail_subject of this ClusterEmailExtended.
+        :type: str
+        """
+        
+        self._mail_subject = mail_subject
+
+    @property
+    def smtp_auth_passwd(self):
+        """
+        Gets the smtp_auth_passwd of this ClusterEmailExtended.
+        Password to authenticate with if SMTP authentication is being used.
+
+        :return: The smtp_auth_passwd of this ClusterEmailExtended.
+        :rtype: str
+        """
+        return self._smtp_auth_passwd
+
+    @smtp_auth_passwd.setter
+    def smtp_auth_passwd(self, smtp_auth_passwd):
+        """
+        Sets the smtp_auth_passwd of this ClusterEmailExtended.
+        Password to authenticate with if SMTP authentication is being used.
+
+        :param smtp_auth_passwd: The smtp_auth_passwd of this ClusterEmailExtended.
+        :type: str
+        """
+        
+        self._smtp_auth_passwd = smtp_auth_passwd
 
     @property
     def smtp_auth_security(self):
@@ -284,7 +221,54 @@ class ClusterEmailExtended(object):
                 "Invalid value for `smtp_auth_security`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._smtp_auth_security = smtp_auth_security
+
+    @property
+    def smtp_auth_username(self):
+        """
+        Gets the smtp_auth_username of this ClusterEmailExtended.
+        Username to authenticate with if SMTP authentication is being used.
+
+        :return: The smtp_auth_username of this ClusterEmailExtended.
+        :rtype: str
+        """
+        return self._smtp_auth_username
+
+    @smtp_auth_username.setter
+    def smtp_auth_username(self, smtp_auth_username):
+        """
+        Sets the smtp_auth_username of this ClusterEmailExtended.
+        Username to authenticate with if SMTP authentication is being used.
+
+        :param smtp_auth_username: The smtp_auth_username of this ClusterEmailExtended.
+        :type: str
+        """
+        
+        self._smtp_auth_username = smtp_auth_username
+
+    @property
+    def smtp_port(self):
+        """
+        Gets the smtp_port of this ClusterEmailExtended.
+        The port on the SMTP server to be used for relaying the notification messages.  
+
+        :return: The smtp_port of this ClusterEmailExtended.
+        :rtype: int
+        """
+        return self._smtp_port
+
+    @smtp_port.setter
+    def smtp_port(self, smtp_port):
+        """
+        Sets the smtp_port of this ClusterEmailExtended.
+        The port on the SMTP server to be used for relaying the notification messages.  
+
+        :param smtp_port: The smtp_port of this ClusterEmailExtended.
+        :type: int
+        """
+        
+        self._smtp_port = smtp_port
 
     @property
     def use_smtp_auth(self):
@@ -306,29 +290,31 @@ class ClusterEmailExtended(object):
         :param use_smtp_auth: The use_smtp_auth of this ClusterEmailExtended.
         :type: bool
         """
+        
         self._use_smtp_auth = use_smtp_auth
 
     @property
-    def smtp_auth_passwd(self):
+    def user_template(self):
         """
-        Gets the smtp_auth_passwd of this ClusterEmailExtended.
-        Password to authenticate with if SMTP authentication is being used.
+        Gets the user_template of this ClusterEmailExtended.
+        Location of a custom template file that can be used to specify the layout of the notification emails.
 
-        :return: The smtp_auth_passwd of this ClusterEmailExtended.
+        :return: The user_template of this ClusterEmailExtended.
         :rtype: str
         """
-        return self._smtp_auth_passwd
+        return self._user_template
 
-    @smtp_auth_passwd.setter
-    def smtp_auth_passwd(self, smtp_auth_passwd):
+    @user_template.setter
+    def user_template(self, user_template):
         """
-        Sets the smtp_auth_passwd of this ClusterEmailExtended.
-        Password to authenticate with if SMTP authentication is being used.
+        Sets the user_template of this ClusterEmailExtended.
+        Location of a custom template file that can be used to specify the layout of the notification emails.
 
-        :param smtp_auth_passwd: The smtp_auth_passwd of this ClusterEmailExtended.
+        :param user_template: The user_template of this ClusterEmailExtended.
         :type: str
         """
-        self._smtp_auth_passwd = smtp_auth_passwd
+        
+        self._user_template = user_template
 
     def to_dict(self):
         """
@@ -345,6 +331,12 @@ class ClusterEmailExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -362,14 +354,14 @@ class ClusterEmailExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class AuditTopicCreateParams(object):
@@ -38,19 +39,16 @@ class AuditTopicCreateParams(object):
         """
         self.swagger_types = {
             'max_cached_messages': 'int',
-            'name': 'str',
-            'id': 'str'
+            'name': 'str'
         }
 
         self.attribute_map = {
             'max_cached_messages': 'max_cached_messages',
-            'name': 'name',
-            'id': 'id'
+            'name': 'name'
         }
 
         self._max_cached_messages = None
         self._name = None
-        self._id = None
 
     @property
     def max_cached_messages(self):
@@ -72,6 +70,12 @@ class AuditTopicCreateParams(object):
         :param max_cached_messages: The max_cached_messages of this AuditTopicCreateParams.
         :type: int
         """
+        
+        if not max_cached_messages:
+            raise ValueError("Invalid value for `max_cached_messages`, must not be `None`")
+        if max_cached_messages < 0.0: 
+            raise ValueError("Invalid value for `max_cached_messages`, must be a value greater than or equal to `0.0`")
+
         self._max_cached_messages = max_cached_messages
 
     @property
@@ -94,29 +98,8 @@ class AuditTopicCreateParams(object):
         :param name: The name of this AuditTopicCreateParams.
         :type: str
         """
+        
         self._name = name
-
-    @property
-    def id(self):
-        """
-        Gets the id of this AuditTopicCreateParams.
-        Specifies the system-provided ID for the audit topic.
-
-        :return: The id of this AuditTopicCreateParams.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this AuditTopicCreateParams.
-        Specifies the system-provided ID for the audit topic.
-
-        :param id: The id of this AuditTopicCreateParams.
-        :type: str
-        """
-        self._id = id
 
     def to_dict(self):
         """
@@ -133,6 +116,12 @@ class AuditTopicCreateParams(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -150,14 +139,14 @@ class AuditTopicCreateParams(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

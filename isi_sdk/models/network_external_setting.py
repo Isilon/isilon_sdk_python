@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class NetworkExternalSetting(object):
@@ -75,6 +76,7 @@ class NetworkExternalSetting(object):
         :param default_groupnet: The default_groupnet of this NetworkExternalSetting.
         :type: str
         """
+        
         self._default_groupnet = default_groupnet
 
     @property
@@ -97,6 +99,7 @@ class NetworkExternalSetting(object):
         :param sbr: The sbr of this NetworkExternalSetting.
         :type: bool
         """
+        
         self._sbr = sbr
 
     @property
@@ -119,6 +122,14 @@ class NetworkExternalSetting(object):
         :param sc_rebalance_delay: The sc_rebalance_delay of this NetworkExternalSetting.
         :type: int
         """
+        
+        if not sc_rebalance_delay:
+            raise ValueError("Invalid value for `sc_rebalance_delay`, must not be `None`")
+        if sc_rebalance_delay > 10.0: 
+            raise ValueError("Invalid value for `sc_rebalance_delay`, must be a value less than or equal to `10.0`")
+        if sc_rebalance_delay < 0.0: 
+            raise ValueError("Invalid value for `sc_rebalance_delay`, must be a value greater than or equal to `0.0`")
+
         self._sc_rebalance_delay = sc_rebalance_delay
 
     @property
@@ -141,6 +152,7 @@ class NetworkExternalSetting(object):
         :param tcp_ports: The tcp_ports of this NetworkExternalSetting.
         :type: list[int]
         """
+        
         self._tcp_ports = tcp_ports
 
     def to_dict(self):
@@ -158,6 +170,12 @@ class NetworkExternalSetting(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -175,14 +193,14 @@ class NetworkExternalSetting(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

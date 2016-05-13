@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class StatisticsCurrentStat(object):
@@ -81,6 +82,7 @@ class StatisticsCurrentStat(object):
         :param devid: The devid of this StatisticsCurrentStat.
         :type: int
         """
+        
         self._devid = devid
 
     @property
@@ -103,6 +105,7 @@ class StatisticsCurrentStat(object):
         :param error: The error of this StatisticsCurrentStat.
         :type: str
         """
+        
         self._error = error
 
     @property
@@ -125,6 +128,7 @@ class StatisticsCurrentStat(object):
         :param error_code: The error_code of this StatisticsCurrentStat.
         :type: int
         """
+        
         self._error_code = error_code
 
     @property
@@ -147,6 +151,7 @@ class StatisticsCurrentStat(object):
         :param key: The key of this StatisticsCurrentStat.
         :type: str
         """
+        
         self._key = key
 
     @property
@@ -169,6 +174,7 @@ class StatisticsCurrentStat(object):
         :param time: The time of this StatisticsCurrentStat.
         :type: int
         """
+        
         self._time = time
 
     @property
@@ -191,6 +197,7 @@ class StatisticsCurrentStat(object):
         :param value: The value of this StatisticsCurrentStat.
         :type: str
         """
+        
         self._value = value
 
     def to_dict(self):
@@ -208,6 +215,12 @@ class StatisticsCurrentStat(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -225,14 +238,14 @@ class StatisticsCurrentStat(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

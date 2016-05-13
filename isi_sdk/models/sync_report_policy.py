@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class SyncReportPolicy(object):
@@ -38,7 +39,7 @@ class SyncReportPolicy(object):
         """
         self.swagger_types = {
             'action': 'str',
-            'file_matching_pattern': 'ReportsRidSubreportsSubreportPolicyFileMatchingPattern',
+            'file_matching_pattern': 'ReportSubreportPolicyFileMatchingPattern',
             'name': 'str',
             'source_exclude_directories': 'list[str]',
             'source_include_directories': 'list[str]',
@@ -87,6 +88,7 @@ class SyncReportPolicy(object):
         :param action: The action of this SyncReportPolicy.
         :type: str
         """
+        
         self._action = action
 
     @property
@@ -96,7 +98,7 @@ class SyncReportPolicy(object):
         A file matching pattern, organized as an OR'ed set of AND'ed file criteria, for example ((a AND b) OR (x AND y)) used to define a set of files with specific properties.  Policies of type 'sync' cannot use 'path' or time criteria in their matching patterns, but policies of type 'copy' can use all listed criteria.
 
         :return: The file_matching_pattern of this SyncReportPolicy.
-        :rtype: ReportsRidSubreportsSubreportPolicyFileMatchingPattern
+        :rtype: ReportSubreportPolicyFileMatchingPattern
         """
         return self._file_matching_pattern
 
@@ -107,8 +109,9 @@ class SyncReportPolicy(object):
         A file matching pattern, organized as an OR'ed set of AND'ed file criteria, for example ((a AND b) OR (x AND y)) used to define a set of files with specific properties.  Policies of type 'sync' cannot use 'path' or time criteria in their matching patterns, but policies of type 'copy' can use all listed criteria.
 
         :param file_matching_pattern: The file_matching_pattern of this SyncReportPolicy.
-        :type: ReportsRidSubreportsSubreportPolicyFileMatchingPattern
+        :type: ReportSubreportPolicyFileMatchingPattern
         """
+        
         self._file_matching_pattern = file_matching_pattern
 
     @property
@@ -131,6 +134,7 @@ class SyncReportPolicy(object):
         :param name: The name of this SyncReportPolicy.
         :type: str
         """
+        
         self._name = name
 
     @property
@@ -153,6 +157,7 @@ class SyncReportPolicy(object):
         :param source_exclude_directories: The source_exclude_directories of this SyncReportPolicy.
         :type: list[str]
         """
+        
         self._source_exclude_directories = source_exclude_directories
 
     @property
@@ -175,6 +180,7 @@ class SyncReportPolicy(object):
         :param source_include_directories: The source_include_directories of this SyncReportPolicy.
         :type: list[str]
         """
+        
         self._source_include_directories = source_include_directories
 
     @property
@@ -197,6 +203,7 @@ class SyncReportPolicy(object):
         :param source_root_path: The source_root_path of this SyncReportPolicy.
         :type: str
         """
+        
         self._source_root_path = source_root_path
 
     @property
@@ -219,6 +226,7 @@ class SyncReportPolicy(object):
         :param target_host: The target_host of this SyncReportPolicy.
         :type: str
         """
+        
         self._target_host = target_host
 
     @property
@@ -241,6 +249,7 @@ class SyncReportPolicy(object):
         :param target_path: The target_path of this SyncReportPolicy.
         :type: str
         """
+        
         self._target_path = target_path
 
     def to_dict(self):
@@ -258,6 +267,12 @@ class SyncReportPolicy(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -275,14 +290,14 @@ class SyncReportPolicy(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class NdmpUserCreateParams(object):
@@ -37,39 +38,17 @@ class NdmpUserCreateParams(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'name': 'str',
-            'password': 'str'
+            'password': 'str',
+            'name': 'str'
         }
 
         self.attribute_map = {
-            'name': 'name',
-            'password': 'password'
+            'password': 'password',
+            'name': 'name'
         }
 
-        self._name = None
         self._password = None
-
-    @property
-    def name(self):
-        """
-        Gets the name of this NdmpUserCreateParams.
-        A unique user name for NDMP administrator.
-
-        :return: The name of this NdmpUserCreateParams.
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """
-        Sets the name of this NdmpUserCreateParams.
-        A unique user name for NDMP administrator.
-
-        :param name: The name of this NdmpUserCreateParams.
-        :type: str
-        """
-        self._name = name
+        self._name = None
 
     @property
     def password(self):
@@ -91,7 +70,31 @@ class NdmpUserCreateParams(object):
         :param password: The password of this NdmpUserCreateParams.
         :type: str
         """
+        
         self._password = password
+
+    @property
+    def name(self):
+        """
+        Gets the name of this NdmpUserCreateParams.
+        A unique user name for NDMP administrator.
+
+        :return: The name of this NdmpUserCreateParams.
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """
+        Sets the name of this NdmpUserCreateParams.
+        A unique user name for NDMP administrator.
+
+        :param name: The name of this NdmpUserCreateParams.
+        :type: str
+        """
+        
+        self._name = name
 
     def to_dict(self):
         """
@@ -108,6 +111,12 @@ class NdmpUserCreateParams(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -125,14 +134,14 @@ class NdmpUserCreateParams(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

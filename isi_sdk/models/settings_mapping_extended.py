@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class SettingsMappingExtended(object):
@@ -37,23 +38,43 @@ class SettingsMappingExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
+            'domain': 'str',
             'mapping': 'str',
-            'mapping_settings': 'SettingsMappingMappingSettings',
-            'type': 'str',
-            'domain': 'str'
+            'type': 'str'
         }
 
         self.attribute_map = {
+            'domain': 'domain',
             'mapping': 'mapping',
-            'mapping_settings': 'mapping_settings',
-            'type': 'type',
-            'domain': 'domain'
+            'type': 'type'
         }
 
-        self._mapping = None
-        self._mapping_settings = None
-        self._type = None
         self._domain = None
+        self._mapping = None
+        self._type = None
+
+    @property
+    def domain(self):
+        """
+        Gets the domain of this SettingsMappingExtended.
+        The FQDN of the source domain to map.
+
+        :return: The domain of this SettingsMappingExtended.
+        :rtype: str
+        """
+        return self._domain
+
+    @domain.setter
+    def domain(self, domain):
+        """
+        Sets the domain of this SettingsMappingExtended.
+        The FQDN of the source domain to map.
+
+        :param domain: The domain of this SettingsMappingExtended.
+        :type: str
+        """
+        
+        self._domain = domain
 
     @property
     def mapping(self):
@@ -75,29 +96,8 @@ class SettingsMappingExtended(object):
         :param mapping: The mapping of this SettingsMappingExtended.
         :type: str
         """
+        
         self._mapping = mapping
-
-    @property
-    def mapping_settings(self):
-        """
-        Gets the mapping_settings of this SettingsMappingExtended.
-        Specifies the properties for global authentication setting.
-
-        :return: The mapping_settings of this SettingsMappingExtended.
-        :rtype: SettingsMappingMappingSettings
-        """
-        return self._mapping_settings
-
-    @mapping_settings.setter
-    def mapping_settings(self, mapping_settings):
-        """
-        Sets the mapping_settings of this SettingsMappingExtended.
-        Specifies the properties for global authentication setting.
-
-        :param mapping_settings: The mapping_settings of this SettingsMappingExtended.
-        :type: SettingsMappingMappingSettings
-        """
-        self._mapping_settings = mapping_settings
 
     @property
     def type(self):
@@ -125,29 +125,8 @@ class SettingsMappingExtended(object):
                 "Invalid value for `type`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._type = type
-
-    @property
-    def domain(self):
-        """
-        Gets the domain of this SettingsMappingExtended.
-        The FQDN of the source domain to map.
-
-        :return: The domain of this SettingsMappingExtended.
-        :rtype: str
-        """
-        return self._domain
-
-    @domain.setter
-    def domain(self, domain):
-        """
-        Sets the domain of this SettingsMappingExtended.
-        The FQDN of the source domain to map.
-
-        :param domain: The domain of this SettingsMappingExtended.
-        :type: str
-        """
-        self._domain = domain
 
     def to_dict(self):
         """
@@ -164,6 +143,12 @@ class SettingsMappingExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -181,14 +166,14 @@ class SettingsMappingExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class SnapshotRepstatesExtended(object):
@@ -37,51 +38,20 @@ class SnapshotRepstatesExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'snap2': 'int',
             'repstates': 'list[SnapshotRepstates]',
             'resume': 'str',
-            'total': 'int',
-            'id': 'str',
-            'snap1': 'int'
+            'total': 'int'
         }
 
         self.attribute_map = {
-            'snap2': 'snap2',
             'repstates': 'repstates',
             'resume': 'resume',
-            'total': 'total',
-            'id': 'id',
-            'snap1': 'snap1'
+            'total': 'total'
         }
 
-        self._snap2 = None
         self._repstates = None
         self._resume = None
         self._total = None
-        self._id = None
-        self._snap1 = None
-
-    @property
-    def snap2(self):
-        """
-        Gets the snap2 of this SnapshotRepstatesExtended.
-        The higher snapid used to compute the repstate.
-
-        :return: The snap2 of this SnapshotRepstatesExtended.
-        :rtype: int
-        """
-        return self._snap2
-
-    @snap2.setter
-    def snap2(self, snap2):
-        """
-        Sets the snap2 of this SnapshotRepstatesExtended.
-        The higher snapid used to compute the repstate.
-
-        :param snap2: The snap2 of this SnapshotRepstatesExtended.
-        :type: int
-        """
-        self._snap2 = snap2
 
     @property
     def repstates(self):
@@ -103,6 +73,7 @@ class SnapshotRepstatesExtended(object):
         :param repstates: The repstates of this SnapshotRepstatesExtended.
         :type: list[SnapshotRepstates]
         """
+        
         self._repstates = repstates
 
     @property
@@ -125,6 +96,7 @@ class SnapshotRepstatesExtended(object):
         :param resume: The resume of this SnapshotRepstatesExtended.
         :type: str
         """
+        
         self._resume = resume
 
     @property
@@ -147,51 +119,8 @@ class SnapshotRepstatesExtended(object):
         :param total: The total of this SnapshotRepstatesExtended.
         :type: int
         """
+        
         self._total = total
-
-    @property
-    def id(self):
-        """
-        Gets the id of this SnapshotRepstatesExtended.
-        The system ID given to the repstate.
-
-        :return: The id of this SnapshotRepstatesExtended.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this SnapshotRepstatesExtended.
-        The system ID given to the repstate.
-
-        :param id: The id of this SnapshotRepstatesExtended.
-        :type: str
-        """
-        self._id = id
-
-    @property
-    def snap1(self):
-        """
-        Gets the snap1 of this SnapshotRepstatesExtended.
-        The lower snapid used to compute the repstate.
-
-        :return: The snap1 of this SnapshotRepstatesExtended.
-        :rtype: int
-        """
-        return self._snap1
-
-    @snap1.setter
-    def snap1(self, snap1):
-        """
-        Sets the snap1 of this SnapshotRepstatesExtended.
-        The lower snapid used to compute the repstate.
-
-        :param snap1: The snap1 of this SnapshotRepstatesExtended.
-        :type: int
-        """
-        self._snap1 = snap1
 
     def to_dict(self):
         """
@@ -208,6 +137,12 @@ class SnapshotRepstatesExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -225,14 +160,14 @@ class SnapshotRepstatesExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

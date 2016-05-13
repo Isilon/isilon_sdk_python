@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class SummaryProtocolProtocolItem(object):
@@ -126,6 +127,7 @@ class SummaryProtocolProtocolItem(object):
         :param _class: The _class of this SummaryProtocolProtocolItem.
         :type: str
         """
+        
         self.__class = _class
 
     @property
@@ -148,6 +150,7 @@ class SummaryProtocolProtocolItem(object):
         :param _in: The _in of this SummaryProtocolProtocolItem.
         :type: float
         """
+        
         self.__in = _in
 
     @property
@@ -170,6 +173,7 @@ class SummaryProtocolProtocolItem(object):
         :param in_avg: The in_avg of this SummaryProtocolProtocolItem.
         :type: float
         """
+        
         self._in_avg = in_avg
 
     @property
@@ -192,6 +196,7 @@ class SummaryProtocolProtocolItem(object):
         :param in_max: The in_max of this SummaryProtocolProtocolItem.
         :type: float
         """
+        
         self._in_max = in_max
 
     @property
@@ -214,6 +219,7 @@ class SummaryProtocolProtocolItem(object):
         :param in_min: The in_min of this SummaryProtocolProtocolItem.
         :type: float
         """
+        
         self._in_min = in_min
 
     @property
@@ -236,6 +242,7 @@ class SummaryProtocolProtocolItem(object):
         :param in_standard_dev: The in_standard_dev of this SummaryProtocolProtocolItem.
         :type: float
         """
+        
         self._in_standard_dev = in_standard_dev
 
     @property
@@ -258,6 +265,7 @@ class SummaryProtocolProtocolItem(object):
         :param node: The node of this SummaryProtocolProtocolItem.
         :type: int
         """
+        
         self._node = node
 
     @property
@@ -280,6 +288,7 @@ class SummaryProtocolProtocolItem(object):
         :param operation: The operation of this SummaryProtocolProtocolItem.
         :type: str
         """
+        
         self._operation = operation
 
     @property
@@ -302,6 +311,7 @@ class SummaryProtocolProtocolItem(object):
         :param operation_count: The operation_count of this SummaryProtocolProtocolItem.
         :type: int
         """
+        
         self._operation_count = operation_count
 
     @property
@@ -324,6 +334,7 @@ class SummaryProtocolProtocolItem(object):
         :param operation_rate: The operation_rate of this SummaryProtocolProtocolItem.
         :type: float
         """
+        
         self._operation_rate = operation_rate
 
     @property
@@ -346,6 +357,7 @@ class SummaryProtocolProtocolItem(object):
         :param out: The out of this SummaryProtocolProtocolItem.
         :type: float
         """
+        
         self._out = out
 
     @property
@@ -368,6 +380,7 @@ class SummaryProtocolProtocolItem(object):
         :param out_avg: The out_avg of this SummaryProtocolProtocolItem.
         :type: float
         """
+        
         self._out_avg = out_avg
 
     @property
@@ -390,6 +403,7 @@ class SummaryProtocolProtocolItem(object):
         :param out_max: The out_max of this SummaryProtocolProtocolItem.
         :type: float
         """
+        
         self._out_max = out_max
 
     @property
@@ -412,6 +426,7 @@ class SummaryProtocolProtocolItem(object):
         :param out_min: The out_min of this SummaryProtocolProtocolItem.
         :type: float
         """
+        
         self._out_min = out_min
 
     @property
@@ -434,6 +449,7 @@ class SummaryProtocolProtocolItem(object):
         :param out_standard_dev: The out_standard_dev of this SummaryProtocolProtocolItem.
         :type: float
         """
+        
         self._out_standard_dev = out_standard_dev
 
     @property
@@ -456,6 +472,7 @@ class SummaryProtocolProtocolItem(object):
         :param protocol: The protocol of this SummaryProtocolProtocolItem.
         :type: str
         """
+        
         self._protocol = protocol
 
     @property
@@ -478,6 +495,7 @@ class SummaryProtocolProtocolItem(object):
         :param time: The time of this SummaryProtocolProtocolItem.
         :type: int
         """
+        
         self._time = time
 
     @property
@@ -500,6 +518,7 @@ class SummaryProtocolProtocolItem(object):
         :param time_avg: The time_avg of this SummaryProtocolProtocolItem.
         :type: float
         """
+        
         self._time_avg = time_avg
 
     @property
@@ -522,6 +541,7 @@ class SummaryProtocolProtocolItem(object):
         :param time_max: The time_max of this SummaryProtocolProtocolItem.
         :type: float
         """
+        
         self._time_max = time_max
 
     @property
@@ -544,6 +564,7 @@ class SummaryProtocolProtocolItem(object):
         :param time_min: The time_min of this SummaryProtocolProtocolItem.
         :type: float
         """
+        
         self._time_min = time_min
 
     @property
@@ -566,6 +587,7 @@ class SummaryProtocolProtocolItem(object):
         :param time_standard_dev: The time_standard_dev of this SummaryProtocolProtocolItem.
         :type: float
         """
+        
         self._time_standard_dev = time_standard_dev
 
     def to_dict(self):
@@ -583,6 +605,12 @@ class SummaryProtocolProtocolItem(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -600,14 +628,14 @@ class SummaryProtocolProtocolItem(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

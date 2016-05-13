@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class ProvidersLdapLdapItem(object):
@@ -258,6 +259,7 @@ class ProvidersLdapLdapItem(object):
         :param alternate_security_identities_attribute: The alternate_security_identities_attribute of this ProvidersLdapLdapItem.
         :type: str
         """
+        
         self._alternate_security_identities_attribute = alternate_security_identities_attribute
 
     @property
@@ -280,6 +282,7 @@ class ProvidersLdapLdapItem(object):
         :param authentication: The authentication of this ProvidersLdapLdapItem.
         :type: bool
         """
+        
         self._authentication = authentication
 
     @property
@@ -302,6 +305,7 @@ class ProvidersLdapLdapItem(object):
         :param balance_servers: The balance_servers of this ProvidersLdapLdapItem.
         :type: bool
         """
+        
         self._balance_servers = balance_servers
 
     @property
@@ -324,6 +328,7 @@ class ProvidersLdapLdapItem(object):
         :param base_dn: The base_dn of this ProvidersLdapLdapItem.
         :type: str
         """
+        
         self._base_dn = base_dn
 
     @property
@@ -346,6 +351,7 @@ class ProvidersLdapLdapItem(object):
         :param bind_dn: The bind_dn of this ProvidersLdapLdapItem.
         :type: str
         """
+        
         self._bind_dn = bind_dn
 
     @property
@@ -374,6 +380,7 @@ class ProvidersLdapLdapItem(object):
                 "Invalid value for `bind_mechanism`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._bind_mechanism = bind_mechanism
 
     @property
@@ -396,6 +403,7 @@ class ProvidersLdapLdapItem(object):
         :param bind_timeout: The bind_timeout of this ProvidersLdapLdapItem.
         :type: int
         """
+        
         self._bind_timeout = bind_timeout
 
     @property
@@ -418,6 +426,7 @@ class ProvidersLdapLdapItem(object):
         :param certificate_authority_file: The certificate_authority_file of this ProvidersLdapLdapItem.
         :type: str
         """
+        
         self._certificate_authority_file = certificate_authority_file
 
     @property
@@ -440,6 +449,7 @@ class ProvidersLdapLdapItem(object):
         :param check_online_interval: The check_online_interval of this ProvidersLdapLdapItem.
         :type: int
         """
+        
         self._check_online_interval = check_online_interval
 
     @property
@@ -462,6 +472,7 @@ class ProvidersLdapLdapItem(object):
         :param cn_attribute: The cn_attribute of this ProvidersLdapLdapItem.
         :type: str
         """
+        
         self._cn_attribute = cn_attribute
 
     @property
@@ -484,6 +495,7 @@ class ProvidersLdapLdapItem(object):
         :param create_home_directory: The create_home_directory of this ProvidersLdapLdapItem.
         :type: bool
         """
+        
         self._create_home_directory = create_home_directory
 
     @property
@@ -506,6 +518,7 @@ class ProvidersLdapLdapItem(object):
         :param crypt_password_attribute: The crypt_password_attribute of this ProvidersLdapLdapItem.
         :type: str
         """
+        
         self._crypt_password_attribute = crypt_password_attribute
 
     @property
@@ -528,6 +541,7 @@ class ProvidersLdapLdapItem(object):
         :param email_attribute: The email_attribute of this ProvidersLdapLdapItem.
         :type: str
         """
+        
         self._email_attribute = email_attribute
 
     @property
@@ -550,6 +564,7 @@ class ProvidersLdapLdapItem(object):
         :param enabled: The enabled of this ProvidersLdapLdapItem.
         :type: bool
         """
+        
         self._enabled = enabled
 
     @property
@@ -572,6 +587,7 @@ class ProvidersLdapLdapItem(object):
         :param enumerate_groups: The enumerate_groups of this ProvidersLdapLdapItem.
         :type: bool
         """
+        
         self._enumerate_groups = enumerate_groups
 
     @property
@@ -594,6 +610,7 @@ class ProvidersLdapLdapItem(object):
         :param enumerate_users: The enumerate_users of this ProvidersLdapLdapItem.
         :type: bool
         """
+        
         self._enumerate_users = enumerate_users
 
     @property
@@ -616,6 +633,7 @@ class ProvidersLdapLdapItem(object):
         :param findable_groups: The findable_groups of this ProvidersLdapLdapItem.
         :type: list[str]
         """
+        
         self._findable_groups = findable_groups
 
     @property
@@ -638,6 +656,7 @@ class ProvidersLdapLdapItem(object):
         :param findable_users: The findable_users of this ProvidersLdapLdapItem.
         :type: list[str]
         """
+        
         self._findable_users = findable_users
 
     @property
@@ -660,6 +679,7 @@ class ProvidersLdapLdapItem(object):
         :param gecos_attribute: The gecos_attribute of this ProvidersLdapLdapItem.
         :type: str
         """
+        
         self._gecos_attribute = gecos_attribute
 
     @property
@@ -682,6 +702,7 @@ class ProvidersLdapLdapItem(object):
         :param gid_attribute: The gid_attribute of this ProvidersLdapLdapItem.
         :type: str
         """
+        
         self._gid_attribute = gid_attribute
 
     @property
@@ -704,6 +725,7 @@ class ProvidersLdapLdapItem(object):
         :param group_base_dn: The group_base_dn of this ProvidersLdapLdapItem.
         :type: str
         """
+        
         self._group_base_dn = group_base_dn
 
     @property
@@ -726,6 +748,7 @@ class ProvidersLdapLdapItem(object):
         :param group_domain: The group_domain of this ProvidersLdapLdapItem.
         :type: str
         """
+        
         self._group_domain = group_domain
 
     @property
@@ -748,6 +771,7 @@ class ProvidersLdapLdapItem(object):
         :param group_filter: The group_filter of this ProvidersLdapLdapItem.
         :type: str
         """
+        
         self._group_filter = group_filter
 
     @property
@@ -770,6 +794,7 @@ class ProvidersLdapLdapItem(object):
         :param group_members_attribute: The group_members_attribute of this ProvidersLdapLdapItem.
         :type: str
         """
+        
         self._group_members_attribute = group_members_attribute
 
     @property
@@ -798,6 +823,7 @@ class ProvidersLdapLdapItem(object):
                 "Invalid value for `group_search_scope`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._group_search_scope = group_search_scope
 
     @property
@@ -820,6 +846,7 @@ class ProvidersLdapLdapItem(object):
         :param groupnet: The groupnet of this ProvidersLdapLdapItem.
         :type: str
         """
+        
         self._groupnet = groupnet
 
     @property
@@ -842,6 +869,7 @@ class ProvidersLdapLdapItem(object):
         :param home_directory_template: The home_directory_template of this ProvidersLdapLdapItem.
         :type: str
         """
+        
         self._home_directory_template = home_directory_template
 
     @property
@@ -864,6 +892,7 @@ class ProvidersLdapLdapItem(object):
         :param homedir_attribute: The homedir_attribute of this ProvidersLdapLdapItem.
         :type: str
         """
+        
         self._homedir_attribute = homedir_attribute
 
     @property
@@ -886,6 +915,7 @@ class ProvidersLdapLdapItem(object):
         :param id: The id of this ProvidersLdapLdapItem.
         :type: str
         """
+        
         self._id = id
 
     @property
@@ -908,6 +938,7 @@ class ProvidersLdapLdapItem(object):
         :param ignore_tls_errors: The ignore_tls_errors of this ProvidersLdapLdapItem.
         :type: bool
         """
+        
         self._ignore_tls_errors = ignore_tls_errors
 
     @property
@@ -930,6 +961,7 @@ class ProvidersLdapLdapItem(object):
         :param listable_groups: The listable_groups of this ProvidersLdapLdapItem.
         :type: list[str]
         """
+        
         self._listable_groups = listable_groups
 
     @property
@@ -952,6 +984,7 @@ class ProvidersLdapLdapItem(object):
         :param listable_users: The listable_users of this ProvidersLdapLdapItem.
         :type: list[str]
         """
+        
         self._listable_users = listable_users
 
     @property
@@ -974,6 +1007,7 @@ class ProvidersLdapLdapItem(object):
         :param login_shell: The login_shell of this ProvidersLdapLdapItem.
         :type: str
         """
+        
         self._login_shell = login_shell
 
     @property
@@ -996,6 +1030,7 @@ class ProvidersLdapLdapItem(object):
         :param member_of_attribute: The member_of_attribute of this ProvidersLdapLdapItem.
         :type: str
         """
+        
         self._member_of_attribute = member_of_attribute
 
     @property
@@ -1018,6 +1053,7 @@ class ProvidersLdapLdapItem(object):
         :param name: The name of this ProvidersLdapLdapItem.
         :type: str
         """
+        
         self._name = name
 
     @property
@@ -1040,6 +1076,7 @@ class ProvidersLdapLdapItem(object):
         :param name_attribute: The name_attribute of this ProvidersLdapLdapItem.
         :type: str
         """
+        
         self._name_attribute = name_attribute
 
     @property
@@ -1062,6 +1099,7 @@ class ProvidersLdapLdapItem(object):
         :param netgroup_base_dn: The netgroup_base_dn of this ProvidersLdapLdapItem.
         :type: str
         """
+        
         self._netgroup_base_dn = netgroup_base_dn
 
     @property
@@ -1084,6 +1122,7 @@ class ProvidersLdapLdapItem(object):
         :param netgroup_filter: The netgroup_filter of this ProvidersLdapLdapItem.
         :type: str
         """
+        
         self._netgroup_filter = netgroup_filter
 
     @property
@@ -1106,6 +1145,7 @@ class ProvidersLdapLdapItem(object):
         :param netgroup_members_attribute: The netgroup_members_attribute of this ProvidersLdapLdapItem.
         :type: str
         """
+        
         self._netgroup_members_attribute = netgroup_members_attribute
 
     @property
@@ -1134,6 +1174,7 @@ class ProvidersLdapLdapItem(object):
                 "Invalid value for `netgroup_search_scope`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._netgroup_search_scope = netgroup_search_scope
 
     @property
@@ -1156,6 +1197,7 @@ class ProvidersLdapLdapItem(object):
         :param netgroup_triple_attribute: The netgroup_triple_attribute of this ProvidersLdapLdapItem.
         :type: str
         """
+        
         self._netgroup_triple_attribute = netgroup_triple_attribute
 
     @property
@@ -1178,6 +1220,7 @@ class ProvidersLdapLdapItem(object):
         :param normalize_groups: The normalize_groups of this ProvidersLdapLdapItem.
         :type: bool
         """
+        
         self._normalize_groups = normalize_groups
 
     @property
@@ -1200,6 +1243,7 @@ class ProvidersLdapLdapItem(object):
         :param normalize_users: The normalize_users of this ProvidersLdapLdapItem.
         :type: bool
         """
+        
         self._normalize_users = normalize_users
 
     @property
@@ -1222,6 +1266,7 @@ class ProvidersLdapLdapItem(object):
         :param nt_password_attribute: The nt_password_attribute of this ProvidersLdapLdapItem.
         :type: str
         """
+        
         self._nt_password_attribute = nt_password_attribute
 
     @property
@@ -1250,6 +1295,7 @@ class ProvidersLdapLdapItem(object):
                 "Invalid value for `ntlm_support`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._ntlm_support = ntlm_support
 
     @property
@@ -1272,6 +1318,7 @@ class ProvidersLdapLdapItem(object):
         :param provider_domain: The provider_domain of this ProvidersLdapLdapItem.
         :type: str
         """
+        
         self._provider_domain = provider_domain
 
     @property
@@ -1294,6 +1341,7 @@ class ProvidersLdapLdapItem(object):
         :param require_secure_connection: The require_secure_connection of this ProvidersLdapLdapItem.
         :type: bool
         """
+        
         self._require_secure_connection = require_secure_connection
 
     @property
@@ -1316,6 +1364,7 @@ class ProvidersLdapLdapItem(object):
         :param restrict_findable: The restrict_findable of this ProvidersLdapLdapItem.
         :type: bool
         """
+        
         self._restrict_findable = restrict_findable
 
     @property
@@ -1338,6 +1387,7 @@ class ProvidersLdapLdapItem(object):
         :param restrict_listable: The restrict_listable of this ProvidersLdapLdapItem.
         :type: bool
         """
+        
         self._restrict_listable = restrict_listable
 
     @property
@@ -1366,6 +1416,7 @@ class ProvidersLdapLdapItem(object):
                 "Invalid value for `search_scope`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._search_scope = search_scope
 
     @property
@@ -1388,6 +1439,7 @@ class ProvidersLdapLdapItem(object):
         :param search_timeout: The search_timeout of this ProvidersLdapLdapItem.
         :type: int
         """
+        
         self._search_timeout = search_timeout
 
     @property
@@ -1410,6 +1462,7 @@ class ProvidersLdapLdapItem(object):
         :param server_uris: The server_uris of this ProvidersLdapLdapItem.
         :type: list[str]
         """
+        
         self._server_uris = server_uris
 
     @property
@@ -1432,6 +1485,7 @@ class ProvidersLdapLdapItem(object):
         :param shell_attribute: The shell_attribute of this ProvidersLdapLdapItem.
         :type: str
         """
+        
         self._shell_attribute = shell_attribute
 
     @property
@@ -1454,6 +1508,7 @@ class ProvidersLdapLdapItem(object):
         :param status: The status of this ProvidersLdapLdapItem.
         :type: str
         """
+        
         self._status = status
 
     @property
@@ -1476,6 +1531,7 @@ class ProvidersLdapLdapItem(object):
         :param system: The system of this ProvidersLdapLdapItem.
         :type: bool
         """
+        
         self._system = system
 
     @property
@@ -1498,6 +1554,7 @@ class ProvidersLdapLdapItem(object):
         :param uid_attribute: The uid_attribute of this ProvidersLdapLdapItem.
         :type: str
         """
+        
         self._uid_attribute = uid_attribute
 
     @property
@@ -1520,6 +1577,7 @@ class ProvidersLdapLdapItem(object):
         :param unfindable_groups: The unfindable_groups of this ProvidersLdapLdapItem.
         :type: list[str]
         """
+        
         self._unfindable_groups = unfindable_groups
 
     @property
@@ -1542,6 +1600,7 @@ class ProvidersLdapLdapItem(object):
         :param unfindable_users: The unfindable_users of this ProvidersLdapLdapItem.
         :type: list[str]
         """
+        
         self._unfindable_users = unfindable_users
 
     @property
@@ -1564,6 +1623,7 @@ class ProvidersLdapLdapItem(object):
         :param unique_group_members_attribute: The unique_group_members_attribute of this ProvidersLdapLdapItem.
         :type: str
         """
+        
         self._unique_group_members_attribute = unique_group_members_attribute
 
     @property
@@ -1586,6 +1646,7 @@ class ProvidersLdapLdapItem(object):
         :param unlistable_groups: The unlistable_groups of this ProvidersLdapLdapItem.
         :type: list[str]
         """
+        
         self._unlistable_groups = unlistable_groups
 
     @property
@@ -1608,6 +1669,7 @@ class ProvidersLdapLdapItem(object):
         :param unlistable_users: The unlistable_users of this ProvidersLdapLdapItem.
         :type: list[str]
         """
+        
         self._unlistable_users = unlistable_users
 
     @property
@@ -1630,6 +1692,7 @@ class ProvidersLdapLdapItem(object):
         :param user_base_dn: The user_base_dn of this ProvidersLdapLdapItem.
         :type: str
         """
+        
         self._user_base_dn = user_base_dn
 
     @property
@@ -1652,6 +1715,7 @@ class ProvidersLdapLdapItem(object):
         :param user_domain: The user_domain of this ProvidersLdapLdapItem.
         :type: str
         """
+        
         self._user_domain = user_domain
 
     @property
@@ -1674,6 +1738,7 @@ class ProvidersLdapLdapItem(object):
         :param user_filter: The user_filter of this ProvidersLdapLdapItem.
         :type: str
         """
+        
         self._user_filter = user_filter
 
     @property
@@ -1702,6 +1767,7 @@ class ProvidersLdapLdapItem(object):
                 "Invalid value for `user_search_scope`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._user_search_scope = user_search_scope
 
     def to_dict(self):
@@ -1719,6 +1785,12 @@ class ProvidersLdapLdapItem(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -1736,14 +1808,14 @@ class ProvidersLdapLdapItem(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

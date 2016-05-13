@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class NfsNlmSessionsSession(object):
@@ -90,6 +91,7 @@ class NfsNlmSessionsSession(object):
         :param delegates: The delegates of this NfsNlmSessionsSession.
         :type: list[int]
         """
+        
         self._delegates = delegates
 
     @property
@@ -118,6 +120,7 @@ class NfsNlmSessionsSession(object):
                 "Invalid value for `host_type`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._host_type = host_type
 
     @property
@@ -140,6 +143,7 @@ class NfsNlmSessionsSession(object):
         :param hostname: The hostname of this NfsNlmSessionsSession.
         :type: str
         """
+        
         self._hostname = hostname
 
     @property
@@ -162,6 +166,7 @@ class NfsNlmSessionsSession(object):
         :param is_active: The is_active of this NfsNlmSessionsSession.
         :type: bool
         """
+        
         self._is_active = is_active
 
     @property
@@ -184,6 +189,7 @@ class NfsNlmSessionsSession(object):
         :param last_modified: The last_modified of this NfsNlmSessionsSession.
         :type: int
         """
+        
         self._last_modified = last_modified
 
     @property
@@ -206,6 +212,7 @@ class NfsNlmSessionsSession(object):
         :param node_ip: The node_ip of this NfsNlmSessionsSession.
         :type: str
         """
+        
         self._node_ip = node_ip
 
     @property
@@ -228,6 +235,7 @@ class NfsNlmSessionsSession(object):
         :param notify_attempts_remaining: The notify_attempts_remaining of this NfsNlmSessionsSession.
         :type: int
         """
+        
         self._notify_attempts_remaining = notify_attempts_remaining
 
     @property
@@ -250,6 +258,7 @@ class NfsNlmSessionsSession(object):
         :param notify_error: The notify_error of this NfsNlmSessionsSession.
         :type: str
         """
+        
         self._notify_error = notify_error
 
     @property
@@ -272,6 +281,7 @@ class NfsNlmSessionsSession(object):
         :param notify_last_attempt: The notify_last_attempt of this NfsNlmSessionsSession.
         :type: int
         """
+        
         self._notify_last_attempt = notify_last_attempt
 
     def to_dict(self):
@@ -289,6 +299,12 @@ class NfsNlmSessionsSession(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -306,14 +322,14 @@ class NfsNlmSessionsSession(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

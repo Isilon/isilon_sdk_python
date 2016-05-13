@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class EventEventlistsExtended(object):
@@ -37,89 +38,20 @@ class EventEventlistsExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
+            'eventlists': 'list[EventEventlistsEventlistItem]',
             'resume': 'str',
-            'eventlist': 'list[EventEventlistsEventlistItem]',
-            'total': 'int',
-            'eventlists': 'list[EventEventlistsEventlistItem]'
+            'total': 'int'
         }
 
         self.attribute_map = {
+            'eventlists': 'eventlists',
             'resume': 'resume',
-            'eventlist': 'eventlist',
-            'total': 'total',
-            'eventlists': 'eventlists'
+            'total': 'total'
         }
 
-        self._resume = None
-        self._eventlist = None
-        self._total = None
         self._eventlists = None
-
-    @property
-    def resume(self):
-        """
-        Gets the resume of this EventEventlistsExtended.
-        Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
-
-        :return: The resume of this EventEventlistsExtended.
-        :rtype: str
-        """
-        return self._resume
-
-    @resume.setter
-    def resume(self, resume):
-        """
-        Sets the resume of this EventEventlistsExtended.
-        Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
-
-        :param resume: The resume of this EventEventlistsExtended.
-        :type: str
-        """
-        self._resume = resume
-
-    @property
-    def eventlist(self):
-        """
-        Gets the eventlist of this EventEventlistsExtended.
-
-
-        :return: The eventlist of this EventEventlistsExtended.
-        :rtype: list[EventEventlistsEventlistItem]
-        """
-        return self._eventlist
-
-    @eventlist.setter
-    def eventlist(self, eventlist):
-        """
-        Sets the eventlist of this EventEventlistsExtended.
-
-
-        :param eventlist: The eventlist of this EventEventlistsExtended.
-        :type: list[EventEventlistsEventlistItem]
-        """
-        self._eventlist = eventlist
-
-    @property
-    def total(self):
-        """
-        Gets the total of this EventEventlistsExtended.
-        Total number of items available.
-
-        :return: The total of this EventEventlistsExtended.
-        :rtype: int
-        """
-        return self._total
-
-    @total.setter
-    def total(self, total):
-        """
-        Sets the total of this EventEventlistsExtended.
-        Total number of items available.
-
-        :param total: The total of this EventEventlistsExtended.
-        :type: int
-        """
-        self._total = total
+        self._resume = None
+        self._total = None
 
     @property
     def eventlists(self):
@@ -141,7 +73,54 @@ class EventEventlistsExtended(object):
         :param eventlists: The eventlists of this EventEventlistsExtended.
         :type: list[EventEventlistsEventlistItem]
         """
+        
         self._eventlists = eventlists
+
+    @property
+    def resume(self):
+        """
+        Gets the resume of this EventEventlistsExtended.
+        Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
+
+        :return: The resume of this EventEventlistsExtended.
+        :rtype: str
+        """
+        return self._resume
+
+    @resume.setter
+    def resume(self, resume):
+        """
+        Sets the resume of this EventEventlistsExtended.
+        Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
+
+        :param resume: The resume of this EventEventlistsExtended.
+        :type: str
+        """
+        
+        self._resume = resume
+
+    @property
+    def total(self):
+        """
+        Gets the total of this EventEventlistsExtended.
+        Total number of items available.
+
+        :return: The total of this EventEventlistsExtended.
+        :rtype: int
+        """
+        return self._total
+
+    @total.setter
+    def total(self, total):
+        """
+        Sets the total of this EventEventlistsExtended.
+        Total number of items available.
+
+        :param total: The total of this EventEventlistsExtended.
+        :type: int
+        """
+        
+        self._total = total
 
     def to_dict(self):
         """
@@ -158,6 +137,12 @@ class EventEventlistsExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -175,14 +160,14 @@ class EventEventlistsExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

@@ -2,7 +2,7 @@
 
 """
 ZonesSummaryApi.py
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@ from __future__ import absolute_import
 
 import sys
 import os
+import re
 
 # python 2 and python 3 compatibility library
 from six import iteritems
@@ -79,17 +80,16 @@ class ZonesSummaryApi(object):
         del params['kwargs']
 
 
-        resource_path = '/platform/1/zones-summary'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/1/zones-summary'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -106,13 +106,13 @@ class ZonesSummaryApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='ZonesSummaryExtended',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
@@ -156,9 +156,8 @@ class ZonesSummaryApi(object):
         if ('zones_summary_zone' not in params) or (params['zones_summary_zone'] is None):
             raise ValueError("Missing the required parameter `zones_summary_zone` when calling `get_zones_summary_zone`")
 
-        resource_path = '/platform/1/zones-summary/{ZonesSummaryZone}'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/1/zones-summary/{ZonesSummaryZone}'.replace('{format}', 'json')
         path_params = {}
         if 'zones_summary_zone' in params:
             path_params['ZonesSummaryZone'] = params['zones_summary_zone']
@@ -167,8 +166,8 @@ class ZonesSummaryApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -185,13 +184,13 @@ class ZonesSummaryApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='ZonesSummary',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))

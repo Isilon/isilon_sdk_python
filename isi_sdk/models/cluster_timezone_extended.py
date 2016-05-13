@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class ClusterTimezoneExtended(object):
@@ -37,39 +38,14 @@ class ClusterTimezoneExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'abbreviation': 'str',
             'path': 'str'
         }
 
         self.attribute_map = {
-            'abbreviation': 'abbreviation',
             'path': 'path'
         }
 
-        self._abbreviation = None
         self._path = None
-
-    @property
-    def abbreviation(self):
-        """
-        Gets the abbreviation of this ClusterTimezoneExtended.
-        Timezone abbreviation.
-
-        :return: The abbreviation of this ClusterTimezoneExtended.
-        :rtype: str
-        """
-        return self._abbreviation
-
-    @abbreviation.setter
-    def abbreviation(self, abbreviation):
-        """
-        Sets the abbreviation of this ClusterTimezoneExtended.
-        Timezone abbreviation.
-
-        :param abbreviation: The abbreviation of this ClusterTimezoneExtended.
-        :type: str
-        """
-        self._abbreviation = abbreviation
 
     @property
     def path(self):
@@ -91,6 +67,7 @@ class ClusterTimezoneExtended(object):
         :param path: The path of this ClusterTimezoneExtended.
         :type: str
         """
+        
         self._path = path
 
     def to_dict(self):
@@ -108,6 +85,12 @@ class ClusterTimezoneExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -125,14 +108,14 @@ class ClusterTimezoneExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

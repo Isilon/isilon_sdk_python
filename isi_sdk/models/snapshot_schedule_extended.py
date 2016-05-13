@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class SnapshotScheduleExtended(object):
@@ -37,170 +38,38 @@ class SnapshotScheduleExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'duration': 'int',
-            'path': 'str',
-            'schedule': 'str',
-            'next_run': 'int',
-            'name': 'str',
-            'pattern': 'str',
             'alias': 'str',
+            'duration': 'int',
+            'name': 'str',
+            'path': 'str',
+            'pattern': 'str',
+            'schedule': 'str',
             'id': 'int',
+            'next_run': 'int',
             'next_snapshot': 'str'
         }
 
         self.attribute_map = {
-            'duration': 'duration',
-            'path': 'path',
-            'schedule': 'schedule',
-            'next_run': 'next_run',
-            'name': 'name',
-            'pattern': 'pattern',
             'alias': 'alias',
+            'duration': 'duration',
+            'name': 'name',
+            'path': 'path',
+            'pattern': 'pattern',
+            'schedule': 'schedule',
             'id': 'id',
+            'next_run': 'next_run',
             'next_snapshot': 'next_snapshot'
         }
 
-        self._duration = None
-        self._path = None
-        self._schedule = None
-        self._next_run = None
-        self._name = None
-        self._pattern = None
         self._alias = None
+        self._duration = None
+        self._name = None
+        self._path = None
+        self._pattern = None
+        self._schedule = None
         self._id = None
+        self._next_run = None
         self._next_snapshot = None
-
-    @property
-    def duration(self):
-        """
-        Gets the duration of this SnapshotScheduleExtended.
-        Time in seconds added to creation time to construction expiration time.
-
-        :return: The duration of this SnapshotScheduleExtended.
-        :rtype: int
-        """
-        return self._duration
-
-    @duration.setter
-    def duration(self, duration):
-        """
-        Sets the duration of this SnapshotScheduleExtended.
-        Time in seconds added to creation time to construction expiration time.
-
-        :param duration: The duration of this SnapshotScheduleExtended.
-        :type: int
-        """
-        self._duration = duration
-
-    @property
-    def path(self):
-        """
-        Gets the path of this SnapshotScheduleExtended.
-        The /ifs path snapshotted.
-
-        :return: The path of this SnapshotScheduleExtended.
-        :rtype: str
-        """
-        return self._path
-
-    @path.setter
-    def path(self, path):
-        """
-        Sets the path of this SnapshotScheduleExtended.
-        The /ifs path snapshotted.
-
-        :param path: The path of this SnapshotScheduleExtended.
-        :type: str
-        """
-        self._path = path
-
-    @property
-    def schedule(self):
-        """
-        Gets the schedule of this SnapshotScheduleExtended.
-        The isidate compatible natural language description of the schedule.
-
-        :return: The schedule of this SnapshotScheduleExtended.
-        :rtype: str
-        """
-        return self._schedule
-
-    @schedule.setter
-    def schedule(self, schedule):
-        """
-        Sets the schedule of this SnapshotScheduleExtended.
-        The isidate compatible natural language description of the schedule.
-
-        :param schedule: The schedule of this SnapshotScheduleExtended.
-        :type: str
-        """
-        self._schedule = schedule
-
-    @property
-    def next_run(self):
-        """
-        Gets the next_run of this SnapshotScheduleExtended.
-        Unix Epoch time of next snapshot to be created.
-
-        :return: The next_run of this SnapshotScheduleExtended.
-        :rtype: int
-        """
-        return self._next_run
-
-    @next_run.setter
-    def next_run(self, next_run):
-        """
-        Sets the next_run of this SnapshotScheduleExtended.
-        Unix Epoch time of next snapshot to be created.
-
-        :param next_run: The next_run of this SnapshotScheduleExtended.
-        :type: int
-        """
-        self._next_run = next_run
-
-    @property
-    def name(self):
-        """
-        Gets the name of this SnapshotScheduleExtended.
-        The schedule name.
-
-        :return: The name of this SnapshotScheduleExtended.
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """
-        Sets the name of this SnapshotScheduleExtended.
-        The schedule name.
-
-        :param name: The name of this SnapshotScheduleExtended.
-        :type: str
-        """
-        self._name = name
-
-    @property
-    def pattern(self):
-        """
-        Gets the pattern of this SnapshotScheduleExtended.
-        Pattern expanded with strftime to create snapshot names.
-
-        :return: The pattern of this SnapshotScheduleExtended.
-        :rtype: str
-        """
-        return self._pattern
-
-    @pattern.setter
-    def pattern(self, pattern):
-        """
-        Sets the pattern of this SnapshotScheduleExtended.
-        Pattern expanded with strftime to create snapshot names.
-
-        :param pattern: The pattern of this SnapshotScheduleExtended.
-        :type: str
-        """
-        self._pattern = pattern
 
     @property
     def alias(self):
@@ -222,7 +91,128 @@ class SnapshotScheduleExtended(object):
         :param alias: The alias of this SnapshotScheduleExtended.
         :type: str
         """
+        
         self._alias = alias
+
+    @property
+    def duration(self):
+        """
+        Gets the duration of this SnapshotScheduleExtended.
+        Time in seconds added to creation time to construction expiration time.
+
+        :return: The duration of this SnapshotScheduleExtended.
+        :rtype: int
+        """
+        return self._duration
+
+    @duration.setter
+    def duration(self, duration):
+        """
+        Sets the duration of this SnapshotScheduleExtended.
+        Time in seconds added to creation time to construction expiration time.
+
+        :param duration: The duration of this SnapshotScheduleExtended.
+        :type: int
+        """
+        
+        if not duration:
+            raise ValueError("Invalid value for `duration`, must not be `None`")
+        if duration < 0.0: 
+            raise ValueError("Invalid value for `duration`, must be a value greater than or equal to `0.0`")
+
+        self._duration = duration
+
+    @property
+    def name(self):
+        """
+        Gets the name of this SnapshotScheduleExtended.
+        The schedule name.
+
+        :return: The name of this SnapshotScheduleExtended.
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """
+        Sets the name of this SnapshotScheduleExtended.
+        The schedule name.
+
+        :param name: The name of this SnapshotScheduleExtended.
+        :type: str
+        """
+        
+        self._name = name
+
+    @property
+    def path(self):
+        """
+        Gets the path of this SnapshotScheduleExtended.
+        The /ifs path snapshotted.
+
+        :return: The path of this SnapshotScheduleExtended.
+        :rtype: str
+        """
+        return self._path
+
+    @path.setter
+    def path(self, path):
+        """
+        Sets the path of this SnapshotScheduleExtended.
+        The /ifs path snapshotted.
+
+        :param path: The path of this SnapshotScheduleExtended.
+        :type: str
+        """
+        
+        self._path = path
+
+    @property
+    def pattern(self):
+        """
+        Gets the pattern of this SnapshotScheduleExtended.
+        Pattern expanded with strftime to create snapshot names.
+
+        :return: The pattern of this SnapshotScheduleExtended.
+        :rtype: str
+        """
+        return self._pattern
+
+    @pattern.setter
+    def pattern(self, pattern):
+        """
+        Sets the pattern of this SnapshotScheduleExtended.
+        Pattern expanded with strftime to create snapshot names.
+
+        :param pattern: The pattern of this SnapshotScheduleExtended.
+        :type: str
+        """
+        
+        self._pattern = pattern
+
+    @property
+    def schedule(self):
+        """
+        Gets the schedule of this SnapshotScheduleExtended.
+        The isidate compatible natural language description of the schedule.
+
+        :return: The schedule of this SnapshotScheduleExtended.
+        :rtype: str
+        """
+        return self._schedule
+
+    @schedule.setter
+    def schedule(self, schedule):
+        """
+        Sets the schedule of this SnapshotScheduleExtended.
+        The isidate compatible natural language description of the schedule.
+
+        :param schedule: The schedule of this SnapshotScheduleExtended.
+        :type: str
+        """
+        
+        self._schedule = schedule
 
     @property
     def id(self):
@@ -244,7 +234,31 @@ class SnapshotScheduleExtended(object):
         :param id: The id of this SnapshotScheduleExtended.
         :type: int
         """
+        
         self._id = id
+
+    @property
+    def next_run(self):
+        """
+        Gets the next_run of this SnapshotScheduleExtended.
+        Unix Epoch time of next snapshot to be created.
+
+        :return: The next_run of this SnapshotScheduleExtended.
+        :rtype: int
+        """
+        return self._next_run
+
+    @next_run.setter
+    def next_run(self, next_run):
+        """
+        Sets the next_run of this SnapshotScheduleExtended.
+        Unix Epoch time of next snapshot to be created.
+
+        :param next_run: The next_run of this SnapshotScheduleExtended.
+        :type: int
+        """
+        
+        self._next_run = next_run
 
     @property
     def next_snapshot(self):
@@ -266,6 +280,7 @@ class SnapshotScheduleExtended(object):
         :param next_snapshot: The next_snapshot of this SnapshotScheduleExtended.
         :type: str
         """
+        
         self._next_snapshot = next_snapshot
 
     def to_dict(self):
@@ -283,6 +298,12 @@ class SnapshotScheduleExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -300,14 +321,14 @@ class SnapshotScheduleExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

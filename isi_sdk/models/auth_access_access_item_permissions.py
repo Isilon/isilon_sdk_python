@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class AuthAccessAccessItemPermissions(object):
@@ -78,6 +79,7 @@ class AuthAccessAccessItemPermissions(object):
         :param dacl: The dacl of this AuthAccessAccessItemPermissions.
         :type: str
         """
+        
         self._dacl = dacl
 
     @property
@@ -100,6 +102,7 @@ class AuthAccessAccessItemPermissions(object):
         :param delete_child: The delete_child of this AuthAccessAccessItemPermissions.
         :type: str
         """
+        
         self._delete_child = delete_child
 
     @property
@@ -122,6 +125,7 @@ class AuthAccessAccessItemPermissions(object):
         :param expected: The expected of this AuthAccessAccessItemPermissions.
         :type: str
         """
+        
         self._expected = expected
 
     @property
@@ -144,6 +148,7 @@ class AuthAccessAccessItemPermissions(object):
         :param ownership: The ownership of this AuthAccessAccessItemPermissions.
         :type: str
         """
+        
         self._ownership = ownership
 
     @property
@@ -166,6 +171,7 @@ class AuthAccessAccessItemPermissions(object):
         :param sticky: The sticky of this AuthAccessAccessItemPermissions.
         :type: str
         """
+        
         self._sticky = sticky
 
     def to_dict(self):
@@ -183,6 +189,12 @@ class AuthAccessAccessItemPermissions(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -200,14 +212,14 @@ class AuthAccessAccessItemPermissions(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

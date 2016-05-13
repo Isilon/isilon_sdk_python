@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class ProvidersLocalLocalItem(object):
@@ -117,6 +118,7 @@ class ProvidersLocalLocalItem(object):
         :param authentication: The authentication of this ProvidersLocalLocalItem.
         :type: bool
         """
+        
         self._authentication = authentication
 
     @property
@@ -139,6 +141,7 @@ class ProvidersLocalLocalItem(object):
         :param create_home_directory: The create_home_directory of this ProvidersLocalLocalItem.
         :type: bool
         """
+        
         self._create_home_directory = create_home_directory
 
     @property
@@ -161,6 +164,7 @@ class ProvidersLocalLocalItem(object):
         :param home_directory_template: The home_directory_template of this ProvidersLocalLocalItem.
         :type: str
         """
+        
         self._home_directory_template = home_directory_template
 
     @property
@@ -183,6 +187,7 @@ class ProvidersLocalLocalItem(object):
         :param id: The id of this ProvidersLocalLocalItem.
         :type: str
         """
+        
         self._id = id
 
     @property
@@ -205,6 +210,7 @@ class ProvidersLocalLocalItem(object):
         :param lockout_duration: The lockout_duration of this ProvidersLocalLocalItem.
         :type: int
         """
+        
         self._lockout_duration = lockout_duration
 
     @property
@@ -227,6 +233,7 @@ class ProvidersLocalLocalItem(object):
         :param lockout_threshold: The lockout_threshold of this ProvidersLocalLocalItem.
         :type: int
         """
+        
         self._lockout_threshold = lockout_threshold
 
     @property
@@ -249,6 +256,7 @@ class ProvidersLocalLocalItem(object):
         :param lockout_window: The lockout_window of this ProvidersLocalLocalItem.
         :type: int
         """
+        
         self._lockout_window = lockout_window
 
     @property
@@ -271,6 +279,7 @@ class ProvidersLocalLocalItem(object):
         :param login_shell: The login_shell of this ProvidersLocalLocalItem.
         :type: str
         """
+        
         self._login_shell = login_shell
 
     @property
@@ -293,6 +302,7 @@ class ProvidersLocalLocalItem(object):
         :param machine_name: The machine_name of this ProvidersLocalLocalItem.
         :type: str
         """
+        
         self._machine_name = machine_name
 
     @property
@@ -315,6 +325,7 @@ class ProvidersLocalLocalItem(object):
         :param max_password_age: The max_password_age of this ProvidersLocalLocalItem.
         :type: int
         """
+        
         self._max_password_age = max_password_age
 
     @property
@@ -337,6 +348,7 @@ class ProvidersLocalLocalItem(object):
         :param min_password_age: The min_password_age of this ProvidersLocalLocalItem.
         :type: int
         """
+        
         self._min_password_age = min_password_age
 
     @property
@@ -359,6 +371,7 @@ class ProvidersLocalLocalItem(object):
         :param min_password_length: The min_password_length of this ProvidersLocalLocalItem.
         :type: int
         """
+        
         self._min_password_length = min_password_length
 
     @property
@@ -381,6 +394,7 @@ class ProvidersLocalLocalItem(object):
         :param name: The name of this ProvidersLocalLocalItem.
         :type: str
         """
+        
         self._name = name
 
     @property
@@ -403,6 +417,7 @@ class ProvidersLocalLocalItem(object):
         :param password_complexity: The password_complexity of this ProvidersLocalLocalItem.
         :type: list[str]
         """
+        
         self._password_complexity = password_complexity
 
     @property
@@ -425,6 +440,7 @@ class ProvidersLocalLocalItem(object):
         :param password_history_length: The password_history_length of this ProvidersLocalLocalItem.
         :type: int
         """
+        
         self._password_history_length = password_history_length
 
     @property
@@ -447,6 +463,7 @@ class ProvidersLocalLocalItem(object):
         :param password_prompt_time: The password_prompt_time of this ProvidersLocalLocalItem.
         :type: int
         """
+        
         self._password_prompt_time = password_prompt_time
 
     @property
@@ -469,6 +486,7 @@ class ProvidersLocalLocalItem(object):
         :param status: The status of this ProvidersLocalLocalItem.
         :type: str
         """
+        
         self._status = status
 
     @property
@@ -491,6 +509,7 @@ class ProvidersLocalLocalItem(object):
         :param system: The system of this ProvidersLocalLocalItem.
         :type: bool
         """
+        
         self._system = system
 
     def to_dict(self):
@@ -508,6 +527,12 @@ class ProvidersLocalLocalItem(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -525,14 +550,14 @@ class ProvidersLocalLocalItem(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class ClusterStatfs(object):
@@ -108,6 +109,7 @@ class ClusterStatfs(object):
         :param f_bavail: The f_bavail of this ClusterStatfs.
         :type: int
         """
+        
         self._f_bavail = f_bavail
 
     @property
@@ -130,6 +132,7 @@ class ClusterStatfs(object):
         :param f_bfree: The f_bfree of this ClusterStatfs.
         :type: int
         """
+        
         self._f_bfree = f_bfree
 
     @property
@@ -152,6 +155,7 @@ class ClusterStatfs(object):
         :param f_blocks: The f_blocks of this ClusterStatfs.
         :type: int
         """
+        
         self._f_blocks = f_blocks
 
     @property
@@ -174,6 +178,7 @@ class ClusterStatfs(object):
         :param f_bsize: The f_bsize of this ClusterStatfs.
         :type: int
         """
+        
         self._f_bsize = f_bsize
 
     @property
@@ -196,6 +201,7 @@ class ClusterStatfs(object):
         :param f_ffree: The f_ffree of this ClusterStatfs.
         :type: int
         """
+        
         self._f_ffree = f_ffree
 
     @property
@@ -218,6 +224,7 @@ class ClusterStatfs(object):
         :param f_files: The f_files of this ClusterStatfs.
         :type: int
         """
+        
         self._f_files = f_files
 
     @property
@@ -240,6 +247,7 @@ class ClusterStatfs(object):
         :param f_flags: The f_flags of this ClusterStatfs.
         :type: int
         """
+        
         self._f_flags = f_flags
 
     @property
@@ -262,6 +270,7 @@ class ClusterStatfs(object):
         :param f_fstypename: The f_fstypename of this ClusterStatfs.
         :type: str
         """
+        
         self._f_fstypename = f_fstypename
 
     @property
@@ -284,6 +293,7 @@ class ClusterStatfs(object):
         :param f_iosize: The f_iosize of this ClusterStatfs.
         :type: int
         """
+        
         self._f_iosize = f_iosize
 
     @property
@@ -306,6 +316,7 @@ class ClusterStatfs(object):
         :param f_mntfromname: The f_mntfromname of this ClusterStatfs.
         :type: str
         """
+        
         self._f_mntfromname = f_mntfromname
 
     @property
@@ -328,6 +339,7 @@ class ClusterStatfs(object):
         :param f_mntonname: The f_mntonname of this ClusterStatfs.
         :type: str
         """
+        
         self._f_mntonname = f_mntonname
 
     @property
@@ -350,6 +362,7 @@ class ClusterStatfs(object):
         :param f_namemax: The f_namemax of this ClusterStatfs.
         :type: int
         """
+        
         self._f_namemax = f_namemax
 
     @property
@@ -372,6 +385,7 @@ class ClusterStatfs(object):
         :param f_owner: The f_owner of this ClusterStatfs.
         :type: int
         """
+        
         self._f_owner = f_owner
 
     @property
@@ -394,6 +408,7 @@ class ClusterStatfs(object):
         :param f_type: The f_type of this ClusterStatfs.
         :type: int
         """
+        
         self._f_type = f_type
 
     @property
@@ -416,6 +431,7 @@ class ClusterStatfs(object):
         :param f_version: The f_version of this ClusterStatfs.
         :type: int
         """
+        
         self._f_version = f_version
 
     def to_dict(self):
@@ -433,6 +449,12 @@ class ClusterStatfs(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -450,14 +472,14 @@ class ClusterStatfs(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

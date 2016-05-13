@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class QuotaQuotaThresholds(object):
@@ -75,6 +76,12 @@ class QuotaQuotaThresholds(object):
         :param advisory: The advisory of this QuotaQuotaThresholds.
         :type: int
         """
+        
+        if not advisory:
+            raise ValueError("Invalid value for `advisory`, must not be `None`")
+        if advisory < 1.0: 
+            raise ValueError("Invalid value for `advisory`, must be a value greater than or equal to `1.0`")
+
         self._advisory = advisory
 
     @property
@@ -97,6 +104,12 @@ class QuotaQuotaThresholds(object):
         :param hard: The hard of this QuotaQuotaThresholds.
         :type: int
         """
+        
+        if not hard:
+            raise ValueError("Invalid value for `hard`, must not be `None`")
+        if hard < 1.0: 
+            raise ValueError("Invalid value for `hard`, must be a value greater than or equal to `1.0`")
+
         self._hard = hard
 
     @property
@@ -119,6 +132,12 @@ class QuotaQuotaThresholds(object):
         :param soft: The soft of this QuotaQuotaThresholds.
         :type: int
         """
+        
+        if not soft:
+            raise ValueError("Invalid value for `soft`, must not be `None`")
+        if soft < 1.0: 
+            raise ValueError("Invalid value for `soft`, must be a value greater than or equal to `1.0`")
+
         self._soft = soft
 
     @property
@@ -141,6 +160,12 @@ class QuotaQuotaThresholds(object):
         :param soft_grace: The soft_grace of this QuotaQuotaThresholds.
         :type: int
         """
+        
+        if not soft_grace:
+            raise ValueError("Invalid value for `soft_grace`, must not be `None`")
+        if soft_grace < 1.0: 
+            raise ValueError("Invalid value for `soft_grace`, must be a value greater than or equal to `1.0`")
+
         self._soft_grace = soft_grace
 
     def to_dict(self):
@@ -158,6 +183,12 @@ class QuotaQuotaThresholds(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -175,14 +206,14 @@ class QuotaQuotaThresholds(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class AuthRole(object):
@@ -38,7 +39,7 @@ class AuthRole(object):
         """
         self.swagger_types = {
             'description': 'str',
-            'members': 'list[GroupsGroupMember]',
+            'members': 'list[GroupMember]',
             'name': 'str',
             'privileges': 'list[AuthIdNtokenPrivilegeItem]'
         }
@@ -75,6 +76,7 @@ class AuthRole(object):
         :param description: The description of this AuthRole.
         :type: str
         """
+        
         self._description = description
 
     @property
@@ -84,7 +86,7 @@ class AuthRole(object):
         Specifies the users or groups that have this role.
 
         :return: The members of this AuthRole.
-        :rtype: list[GroupsGroupMember]
+        :rtype: list[GroupMember]
         """
         return self._members
 
@@ -95,8 +97,9 @@ class AuthRole(object):
         Specifies the users or groups that have this role.
 
         :param members: The members of this AuthRole.
-        :type: list[GroupsGroupMember]
+        :type: list[GroupMember]
         """
+        
         self._members = members
 
     @property
@@ -119,6 +122,7 @@ class AuthRole(object):
         :param name: The name of this AuthRole.
         :type: str
         """
+        
         self._name = name
 
     @property
@@ -141,6 +145,7 @@ class AuthRole(object):
         :param privileges: The privileges of this AuthRole.
         :type: list[AuthIdNtokenPrivilegeItem]
         """
+        
         self._privileges = privileges
 
     def to_dict(self):
@@ -158,6 +163,12 @@ class AuthRole(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -175,14 +186,14 @@ class AuthRole(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

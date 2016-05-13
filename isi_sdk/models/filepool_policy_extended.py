@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class FilepoolPolicyExtended(object):
@@ -37,60 +38,61 @@ class FilepoolPolicyExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'birth_cluster_id': 'str',
+            'actions': 'list[FilepoolDefaultPolicyDefaultPolicyAction]',
             'apply_order': 'int',
-            'state_details': 'str',
-            'name': 'str',
             'description': 'str',
+            'file_matching_pattern': 'FilepoolPolicyFileMatchingPattern',
+            'name': 'str',
+            'birth_cluster_id': 'str',
             'id': 'int',
             'state': 'str',
-            'file_matching_pattern': 'FilepoolPolicyFileMatchingPattern',
-            'actions': 'list[FilepoolDefaultPolicyDefaultPolicyAction]'
+            'state_details': 'str'
         }
 
         self.attribute_map = {
-            'birth_cluster_id': 'birth_cluster_id',
+            'actions': 'actions',
             'apply_order': 'apply_order',
-            'state_details': 'state_details',
-            'name': 'name',
             'description': 'description',
+            'file_matching_pattern': 'file_matching_pattern',
+            'name': 'name',
+            'birth_cluster_id': 'birth_cluster_id',
             'id': 'id',
             'state': 'state',
-            'file_matching_pattern': 'file_matching_pattern',
-            'actions': 'actions'
+            'state_details': 'state_details'
         }
 
-        self._birth_cluster_id = None
+        self._actions = None
         self._apply_order = None
-        self._state_details = None
-        self._name = None
         self._description = None
+        self._file_matching_pattern = None
+        self._name = None
+        self._birth_cluster_id = None
         self._id = None
         self._state = None
-        self._file_matching_pattern = None
-        self._actions = None
+        self._state_details = None
 
     @property
-    def birth_cluster_id(self):
+    def actions(self):
         """
-        Gets the birth_cluster_id of this FilepoolPolicyExtended.
-        The guid assigned to the cluster on which the account was created
+        Gets the actions of this FilepoolPolicyExtended.
+        A list of actions to be taken for matching files
 
-        :return: The birth_cluster_id of this FilepoolPolicyExtended.
-        :rtype: str
+        :return: The actions of this FilepoolPolicyExtended.
+        :rtype: list[FilepoolDefaultPolicyDefaultPolicyAction]
         """
-        return self._birth_cluster_id
+        return self._actions
 
-    @birth_cluster_id.setter
-    def birth_cluster_id(self, birth_cluster_id):
+    @actions.setter
+    def actions(self, actions):
         """
-        Sets the birth_cluster_id of this FilepoolPolicyExtended.
-        The guid assigned to the cluster on which the account was created
+        Sets the actions of this FilepoolPolicyExtended.
+        A list of actions to be taken for matching files
 
-        :param birth_cluster_id: The birth_cluster_id of this FilepoolPolicyExtended.
-        :type: str
+        :param actions: The actions of this FilepoolPolicyExtended.
+        :type: list[FilepoolDefaultPolicyDefaultPolicyAction]
         """
-        self._birth_cluster_id = birth_cluster_id
+        
+        self._actions = actions
 
     @property
     def apply_order(self):
@@ -112,51 +114,8 @@ class FilepoolPolicyExtended(object):
         :param apply_order: The apply_order of this FilepoolPolicyExtended.
         :type: int
         """
+        
         self._apply_order = apply_order
-
-    @property
-    def state_details(self):
-        """
-        Gets the state_details of this FilepoolPolicyExtended.
-        Gives further information to describe the state of this policy
-
-        :return: The state_details of this FilepoolPolicyExtended.
-        :rtype: str
-        """
-        return self._state_details
-
-    @state_details.setter
-    def state_details(self, state_details):
-        """
-        Sets the state_details of this FilepoolPolicyExtended.
-        Gives further information to describe the state of this policy
-
-        :param state_details: The state_details of this FilepoolPolicyExtended.
-        :type: str
-        """
-        self._state_details = state_details
-
-    @property
-    def name(self):
-        """
-        Gets the name of this FilepoolPolicyExtended.
-        A unique name for this policy
-
-        :return: The name of this FilepoolPolicyExtended.
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """
-        Sets the name of this FilepoolPolicyExtended.
-        A unique name for this policy
-
-        :param name: The name of this FilepoolPolicyExtended.
-        :type: str
-        """
-        self._name = name
 
     @property
     def description(self):
@@ -178,7 +137,77 @@ class FilepoolPolicyExtended(object):
         :param description: The description of this FilepoolPolicyExtended.
         :type: str
         """
+        
         self._description = description
+
+    @property
+    def file_matching_pattern(self):
+        """
+        Gets the file_matching_pattern of this FilepoolPolicyExtended.
+        The file matching rules for this policy
+
+        :return: The file_matching_pattern of this FilepoolPolicyExtended.
+        :rtype: FilepoolPolicyFileMatchingPattern
+        """
+        return self._file_matching_pattern
+
+    @file_matching_pattern.setter
+    def file_matching_pattern(self, file_matching_pattern):
+        """
+        Sets the file_matching_pattern of this FilepoolPolicyExtended.
+        The file matching rules for this policy
+
+        :param file_matching_pattern: The file_matching_pattern of this FilepoolPolicyExtended.
+        :type: FilepoolPolicyFileMatchingPattern
+        """
+        
+        self._file_matching_pattern = file_matching_pattern
+
+    @property
+    def name(self):
+        """
+        Gets the name of this FilepoolPolicyExtended.
+        A unique name for this policy
+
+        :return: The name of this FilepoolPolicyExtended.
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """
+        Sets the name of this FilepoolPolicyExtended.
+        A unique name for this policy
+
+        :param name: The name of this FilepoolPolicyExtended.
+        :type: str
+        """
+        
+        self._name = name
+
+    @property
+    def birth_cluster_id(self):
+        """
+        Gets the birth_cluster_id of this FilepoolPolicyExtended.
+        The guid assigned to the cluster on which the account was created
+
+        :return: The birth_cluster_id of this FilepoolPolicyExtended.
+        :rtype: str
+        """
+        return self._birth_cluster_id
+
+    @birth_cluster_id.setter
+    def birth_cluster_id(self, birth_cluster_id):
+        """
+        Sets the birth_cluster_id of this FilepoolPolicyExtended.
+        The guid assigned to the cluster on which the account was created
+
+        :param birth_cluster_id: The birth_cluster_id of this FilepoolPolicyExtended.
+        :type: str
+        """
+        
+        self._birth_cluster_id = birth_cluster_id
 
     @property
     def id(self):
@@ -200,6 +229,7 @@ class FilepoolPolicyExtended(object):
         :param id: The id of this FilepoolPolicyExtended.
         :type: int
         """
+        
         self._id = id
 
     @property
@@ -228,51 +258,31 @@ class FilepoolPolicyExtended(object):
                 "Invalid value for `state`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._state = state
 
     @property
-    def file_matching_pattern(self):
+    def state_details(self):
         """
-        Gets the file_matching_pattern of this FilepoolPolicyExtended.
-        The file matching rules for this policy
+        Gets the state_details of this FilepoolPolicyExtended.
+        Gives further information to describe the state of this policy
 
-        :return: The file_matching_pattern of this FilepoolPolicyExtended.
-        :rtype: FilepoolPolicyFileMatchingPattern
+        :return: The state_details of this FilepoolPolicyExtended.
+        :rtype: str
         """
-        return self._file_matching_pattern
+        return self._state_details
 
-    @file_matching_pattern.setter
-    def file_matching_pattern(self, file_matching_pattern):
+    @state_details.setter
+    def state_details(self, state_details):
         """
-        Sets the file_matching_pattern of this FilepoolPolicyExtended.
-        The file matching rules for this policy
+        Sets the state_details of this FilepoolPolicyExtended.
+        Gives further information to describe the state of this policy
 
-        :param file_matching_pattern: The file_matching_pattern of this FilepoolPolicyExtended.
-        :type: FilepoolPolicyFileMatchingPattern
+        :param state_details: The state_details of this FilepoolPolicyExtended.
+        :type: str
         """
-        self._file_matching_pattern = file_matching_pattern
-
-    @property
-    def actions(self):
-        """
-        Gets the actions of this FilepoolPolicyExtended.
-        A list of actions to be taken for matching files
-
-        :return: The actions of this FilepoolPolicyExtended.
-        :rtype: list[FilepoolDefaultPolicyDefaultPolicyAction]
-        """
-        return self._actions
-
-    @actions.setter
-    def actions(self, actions):
-        """
-        Sets the actions of this FilepoolPolicyExtended.
-        A list of actions to be taken for matching files
-
-        :param actions: The actions of this FilepoolPolicyExtended.
-        :type: list[FilepoolDefaultPolicyDefaultPolicyAction]
-        """
-        self._actions = actions
+        
+        self._state_details = state_details
 
     def to_dict(self):
         """
@@ -289,6 +299,12 @@ class FilepoolPolicyExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -306,14 +322,14 @@ class FilepoolPolicyExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

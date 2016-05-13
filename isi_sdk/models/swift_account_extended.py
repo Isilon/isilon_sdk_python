@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class SwiftAccountExtended(object):
@@ -37,120 +38,32 @@ class SwiftAccountExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'swiftuser': 'str',
-            'path': 'str',
-            'zone': 'str',
-            'name': 'str',
             'id': 'str',
+            'name': 'str',
             'swiftgroup': 'str',
-            'users': 'list[str]'
+            'swiftuser': 'str',
+            'users': 'list[str]',
+            'zone': 'str',
+            'path': 'str'
         }
 
         self.attribute_map = {
-            'swiftuser': 'swiftuser',
-            'path': 'path',
-            'zone': 'zone',
-            'name': 'name',
             'id': 'id',
+            'name': 'name',
             'swiftgroup': 'swiftgroup',
-            'users': 'users'
+            'swiftuser': 'swiftuser',
+            'users': 'users',
+            'zone': 'zone',
+            'path': 'path'
         }
 
-        self._swiftuser = None
-        self._path = None
-        self._zone = None
-        self._name = None
         self._id = None
+        self._name = None
         self._swiftgroup = None
+        self._swiftuser = None
         self._users = None
-
-    @property
-    def swiftuser(self):
-        """
-        Gets the swiftuser of this SwiftAccountExtended.
-        User with filesystem ownership of this account
-
-        :return: The swiftuser of this SwiftAccountExtended.
-        :rtype: str
-        """
-        return self._swiftuser
-
-    @swiftuser.setter
-    def swiftuser(self, swiftuser):
-        """
-        Sets the swiftuser of this SwiftAccountExtended.
-        User with filesystem ownership of this account
-
-        :param swiftuser: The swiftuser of this SwiftAccountExtended.
-        :type: str
-        """
-        self._swiftuser = swiftuser
-
-    @property
-    def path(self):
-        """
-        Gets the path of this SwiftAccountExtended.
-        Path to root of Swift account
-
-        :return: The path of this SwiftAccountExtended.
-        :rtype: str
-        """
-        return self._path
-
-    @path.setter
-    def path(self, path):
-        """
-        Sets the path of this SwiftAccountExtended.
-        Path to root of Swift account
-
-        :param path: The path of this SwiftAccountExtended.
-        :type: str
-        """
-        self._path = path
-
-    @property
-    def zone(self):
-        """
-        Gets the zone of this SwiftAccountExtended.
-        Name of access zone for account
-
-        :return: The zone of this SwiftAccountExtended.
-        :rtype: str
-        """
-        return self._zone
-
-    @zone.setter
-    def zone(self, zone):
-        """
-        Sets the zone of this SwiftAccountExtended.
-        Name of access zone for account
-
-        :param zone: The zone of this SwiftAccountExtended.
-        :type: str
-        """
-        self._zone = zone
-
-    @property
-    def name(self):
-        """
-        Gets the name of this SwiftAccountExtended.
-        Name of Swift account
-
-        :return: The name of this SwiftAccountExtended.
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """
-        Sets the name of this SwiftAccountExtended.
-        Name of Swift account
-
-        :param name: The name of this SwiftAccountExtended.
-        :type: str
-        """
-        self._name = name
+        self._zone = None
+        self._path = None
 
     @property
     def id(self):
@@ -172,7 +85,31 @@ class SwiftAccountExtended(object):
         :param id: The id of this SwiftAccountExtended.
         :type: str
         """
+        
         self._id = id
+
+    @property
+    def name(self):
+        """
+        Gets the name of this SwiftAccountExtended.
+        Name of Swift account
+
+        :return: The name of this SwiftAccountExtended.
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """
+        Sets the name of this SwiftAccountExtended.
+        Name of Swift account
+
+        :param name: The name of this SwiftAccountExtended.
+        :type: str
+        """
+        
+        self._name = name
 
     @property
     def swiftgroup(self):
@@ -194,7 +131,31 @@ class SwiftAccountExtended(object):
         :param swiftgroup: The swiftgroup of this SwiftAccountExtended.
         :type: str
         """
+        
         self._swiftgroup = swiftgroup
+
+    @property
+    def swiftuser(self):
+        """
+        Gets the swiftuser of this SwiftAccountExtended.
+        User with filesystem ownership of this account
+
+        :return: The swiftuser of this SwiftAccountExtended.
+        :rtype: str
+        """
+        return self._swiftuser
+
+    @swiftuser.setter
+    def swiftuser(self, swiftuser):
+        """
+        Sets the swiftuser of this SwiftAccountExtended.
+        User with filesystem ownership of this account
+
+        :param swiftuser: The swiftuser of this SwiftAccountExtended.
+        :type: str
+        """
+        
+        self._swiftuser = swiftuser
 
     @property
     def users(self):
@@ -216,7 +177,54 @@ class SwiftAccountExtended(object):
         :param users: The users of this SwiftAccountExtended.
         :type: list[str]
         """
+        
         self._users = users
+
+    @property
+    def zone(self):
+        """
+        Gets the zone of this SwiftAccountExtended.
+        Name of access zone for account
+
+        :return: The zone of this SwiftAccountExtended.
+        :rtype: str
+        """
+        return self._zone
+
+    @zone.setter
+    def zone(self, zone):
+        """
+        Sets the zone of this SwiftAccountExtended.
+        Name of access zone for account
+
+        :param zone: The zone of this SwiftAccountExtended.
+        :type: str
+        """
+        
+        self._zone = zone
+
+    @property
+    def path(self):
+        """
+        Gets the path of this SwiftAccountExtended.
+        Path to root of Swift account
+
+        :return: The path of this SwiftAccountExtended.
+        :rtype: str
+        """
+        return self._path
+
+    @path.setter
+    def path(self, path):
+        """
+        Sets the path of this SwiftAccountExtended.
+        Path to root of Swift account
+
+        :param path: The path of this SwiftAccountExtended.
+        :type: str
+        """
+        
+        self._path = path
 
     def to_dict(self):
         """
@@ -233,6 +241,12 @@ class SwiftAccountExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -250,14 +264,14 @@ class SwiftAccountExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class SettingsReportsSettings(object):
@@ -78,6 +79,7 @@ class SettingsReportsSettings(object):
         :param live_dir: The live_dir of this SettingsReportsSettings.
         :type: str
         """
+        
         self._live_dir = live_dir
 
     @property
@@ -100,6 +102,12 @@ class SettingsReportsSettings(object):
         :param live_retain: The live_retain of this SettingsReportsSettings.
         :type: int
         """
+        
+        if not live_retain:
+            raise ValueError("Invalid value for `live_retain`, must not be `None`")
+        if live_retain < 1.0: 
+            raise ValueError("Invalid value for `live_retain`, must be a value greater than or equal to `1.0`")
+
         self._live_retain = live_retain
 
     @property
@@ -122,6 +130,7 @@ class SettingsReportsSettings(object):
         :param schedule: The schedule of this SettingsReportsSettings.
         :type: str
         """
+        
         self._schedule = schedule
 
     @property
@@ -144,6 +153,7 @@ class SettingsReportsSettings(object):
         :param scheduled_dir: The scheduled_dir of this SettingsReportsSettings.
         :type: str
         """
+        
         self._scheduled_dir = scheduled_dir
 
     @property
@@ -166,6 +176,12 @@ class SettingsReportsSettings(object):
         :param scheduled_retain: The scheduled_retain of this SettingsReportsSettings.
         :type: int
         """
+        
+        if not scheduled_retain:
+            raise ValueError("Invalid value for `scheduled_retain`, must not be `None`")
+        if scheduled_retain < 1.0: 
+            raise ValueError("Invalid value for `scheduled_retain`, must be a value greater than or equal to `1.0`")
+
         self._scheduled_retain = scheduled_retain
 
     def to_dict(self):
@@ -183,6 +199,12 @@ class SettingsReportsSettings(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -200,14 +222,14 @@ class SettingsReportsSettings(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

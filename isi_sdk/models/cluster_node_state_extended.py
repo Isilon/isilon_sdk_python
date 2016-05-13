@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class ClusterNodeStateExtended(object):
@@ -37,20 +38,43 @@ class ClusterNodeStateExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
+            'readonly': 'Empty',
             'servicelight': 'ClusterNodeStateServicelight',
-            'smartfail': 'ClusterNodeStateSmartfail',
-            'readonly': 'Empty'
+            'smartfail': 'ClusterNodeStateSmartfail'
         }
 
         self.attribute_map = {
+            'readonly': 'readonly',
             'servicelight': 'servicelight',
-            'smartfail': 'smartfail',
-            'readonly': 'readonly'
+            'smartfail': 'smartfail'
         }
 
+        self._readonly = None
         self._servicelight = None
         self._smartfail = None
-        self._readonly = None
+
+    @property
+    def readonly(self):
+        """
+        Gets the readonly of this ClusterNodeStateExtended.
+        Node readonly state.
+
+        :return: The readonly of this ClusterNodeStateExtended.
+        :rtype: Empty
+        """
+        return self._readonly
+
+    @readonly.setter
+    def readonly(self, readonly):
+        """
+        Sets the readonly of this ClusterNodeStateExtended.
+        Node readonly state.
+
+        :param readonly: The readonly of this ClusterNodeStateExtended.
+        :type: Empty
+        """
+        
+        self._readonly = readonly
 
     @property
     def servicelight(self):
@@ -72,6 +96,7 @@ class ClusterNodeStateExtended(object):
         :param servicelight: The servicelight of this ClusterNodeStateExtended.
         :type: ClusterNodeStateServicelight
         """
+        
         self._servicelight = servicelight
 
     @property
@@ -94,29 +119,8 @@ class ClusterNodeStateExtended(object):
         :param smartfail: The smartfail of this ClusterNodeStateExtended.
         :type: ClusterNodeStateSmartfail
         """
+        
         self._smartfail = smartfail
-
-    @property
-    def readonly(self):
-        """
-        Gets the readonly of this ClusterNodeStateExtended.
-        Node readonly state.
-
-        :return: The readonly of this ClusterNodeStateExtended.
-        :rtype: Empty
-        """
-        return self._readonly
-
-    @readonly.setter
-    def readonly(self, readonly):
-        """
-        Sets the readonly of this ClusterNodeStateExtended.
-        Node readonly state.
-
-        :param readonly: The readonly of this ClusterNodeStateExtended.
-        :type: Empty
-        """
-        self._readonly = readonly
 
     def to_dict(self):
         """
@@ -133,6 +137,12 @@ class ClusterNodeStateExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -150,14 +160,14 @@ class ClusterNodeStateExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class SnapshotSettingsSettings(object):
@@ -105,6 +106,7 @@ class SnapshotSettingsSettings(object):
         :param autocreate: The autocreate of this SnapshotSettingsSettings.
         :type: bool
         """
+        
         self._autocreate = autocreate
 
     @property
@@ -127,6 +129,7 @@ class SnapshotSettingsSettings(object):
         :param autodelete: The autodelete of this SnapshotSettingsSettings.
         :type: bool
         """
+        
         self._autodelete = autodelete
 
     @property
@@ -149,6 +152,7 @@ class SnapshotSettingsSettings(object):
         :param global_visible_accessible: The global_visible_accessible of this SnapshotSettingsSettings.
         :type: bool
         """
+        
         self._global_visible_accessible = global_visible_accessible
 
     @property
@@ -171,6 +175,7 @@ class SnapshotSettingsSettings(object):
         :param local_root_accessible: The local_root_accessible of this SnapshotSettingsSettings.
         :type: bool
         """
+        
         self._local_root_accessible = local_root_accessible
 
     @property
@@ -193,6 +198,7 @@ class SnapshotSettingsSettings(object):
         :param local_root_visible: The local_root_visible of this SnapshotSettingsSettings.
         :type: bool
         """
+        
         self._local_root_visible = local_root_visible
 
     @property
@@ -215,6 +221,7 @@ class SnapshotSettingsSettings(object):
         :param local_subdir_accessible: The local_subdir_accessible of this SnapshotSettingsSettings.
         :type: bool
         """
+        
         self._local_subdir_accessible = local_subdir_accessible
 
     @property
@@ -237,6 +244,7 @@ class SnapshotSettingsSettings(object):
         :param nfs_root_accessible: The nfs_root_accessible of this SnapshotSettingsSettings.
         :type: bool
         """
+        
         self._nfs_root_accessible = nfs_root_accessible
 
     @property
@@ -259,6 +267,7 @@ class SnapshotSettingsSettings(object):
         :param nfs_root_visible: The nfs_root_visible of this SnapshotSettingsSettings.
         :type: bool
         """
+        
         self._nfs_root_visible = nfs_root_visible
 
     @property
@@ -281,6 +290,7 @@ class SnapshotSettingsSettings(object):
         :param nfs_subdir_accessible: The nfs_subdir_accessible of this SnapshotSettingsSettings.
         :type: bool
         """
+        
         self._nfs_subdir_accessible = nfs_subdir_accessible
 
     @property
@@ -303,6 +313,7 @@ class SnapshotSettingsSettings(object):
         :param reserve: The reserve of this SnapshotSettingsSettings.
         :type: float
         """
+        
         self._reserve = reserve
 
     @property
@@ -325,6 +336,7 @@ class SnapshotSettingsSettings(object):
         :param service: The service of this SnapshotSettingsSettings.
         :type: bool
         """
+        
         self._service = service
 
     @property
@@ -347,6 +359,7 @@ class SnapshotSettingsSettings(object):
         :param smb_root_accessible: The smb_root_accessible of this SnapshotSettingsSettings.
         :type: bool
         """
+        
         self._smb_root_accessible = smb_root_accessible
 
     @property
@@ -369,6 +382,7 @@ class SnapshotSettingsSettings(object):
         :param smb_root_visible: The smb_root_visible of this SnapshotSettingsSettings.
         :type: bool
         """
+        
         self._smb_root_visible = smb_root_visible
 
     @property
@@ -391,6 +405,7 @@ class SnapshotSettingsSettings(object):
         :param smb_subdir_accessible: The smb_subdir_accessible of this SnapshotSettingsSettings.
         :type: bool
         """
+        
         self._smb_subdir_accessible = smb_subdir_accessible
 
     def to_dict(self):
@@ -408,6 +423,12 @@ class SnapshotSettingsSettings(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -425,14 +446,14 @@ class SnapshotSettingsSettings(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

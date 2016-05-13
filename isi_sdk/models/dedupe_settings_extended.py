@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class DedupeSettingsExtended(object):
@@ -37,42 +38,17 @@ class DedupeSettingsExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'settings': 'DedupeSettingsSettings',
             'assess_paths': 'list[str]',
             'paths': 'list[str]'
         }
 
         self.attribute_map = {
-            'settings': 'settings',
             'assess_paths': 'assess_paths',
             'paths': 'paths'
         }
 
-        self._settings = None
         self._assess_paths = None
         self._paths = None
-
-    @property
-    def settings(self):
-        """
-        Gets the settings of this DedupeSettingsExtended.
-        Dedupe settings.
-
-        :return: The settings of this DedupeSettingsExtended.
-        :rtype: DedupeSettingsSettings
-        """
-        return self._settings
-
-    @settings.setter
-    def settings(self, settings):
-        """
-        Sets the settings of this DedupeSettingsExtended.
-        Dedupe settings.
-
-        :param settings: The settings of this DedupeSettingsExtended.
-        :type: DedupeSettingsSettings
-        """
-        self._settings = settings
 
     @property
     def assess_paths(self):
@@ -94,6 +70,7 @@ class DedupeSettingsExtended(object):
         :param assess_paths: The assess_paths of this DedupeSettingsExtended.
         :type: list[str]
         """
+        
         self._assess_paths = assess_paths
 
     @property
@@ -116,6 +93,7 @@ class DedupeSettingsExtended(object):
         :param paths: The paths of this DedupeSettingsExtended.
         :type: list[str]
         """
+        
         self._paths = paths
 
     def to_dict(self):
@@ -133,6 +111,12 @@ class DedupeSettingsExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -150,14 +134,14 @@ class DedupeSettingsExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

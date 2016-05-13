@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class DebugStatsUnknown(object):
@@ -72,6 +73,7 @@ class DebugStatsUnknown(object):
         :param calls: The calls of this DebugStatsUnknown.
         :type: int
         """
+        
         self._calls = calls
 
     @property
@@ -94,6 +96,7 @@ class DebugStatsUnknown(object):
         :param errors: The errors of this DebugStatsUnknown.
         :type: int
         """
+        
         self._errors = errors
 
     @property
@@ -116,6 +119,7 @@ class DebugStatsUnknown(object):
         :param time: The time of this DebugStatsUnknown.
         :type: float
         """
+        
         self._time = time
 
     def to_dict(self):
@@ -133,6 +137,12 @@ class DebugStatsUnknown(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -150,14 +160,14 @@ class DebugStatsUnknown(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

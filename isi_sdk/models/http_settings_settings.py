@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class HttpSettingsSettings(object):
@@ -84,6 +85,7 @@ class HttpSettingsSettings(object):
         :param access_control: The access_control of this HttpSettingsSettings.
         :type: bool
         """
+        
         self._access_control = access_control
 
     @property
@@ -106,6 +108,7 @@ class HttpSettingsSettings(object):
         :param basic_authentication: The basic_authentication of this HttpSettingsSettings.
         :type: bool
         """
+        
         self._basic_authentication = basic_authentication
 
     @property
@@ -128,6 +131,7 @@ class HttpSettingsSettings(object):
         :param dav: The dav of this HttpSettingsSettings.
         :type: bool
         """
+        
         self._dav = dav
 
     @property
@@ -150,6 +154,7 @@ class HttpSettingsSettings(object):
         :param enable_access_log: The enable_access_log of this HttpSettingsSettings.
         :type: bool
         """
+        
         self._enable_access_log = enable_access_log
 
     @property
@@ -172,6 +177,7 @@ class HttpSettingsSettings(object):
         :param integrated_authentication: The integrated_authentication of this HttpSettingsSettings.
         :type: bool
         """
+        
         self._integrated_authentication = integrated_authentication
 
     @property
@@ -194,6 +200,7 @@ class HttpSettingsSettings(object):
         :param server_root: The server_root of this HttpSettingsSettings.
         :type: str
         """
+        
         self._server_root = server_root
 
     @property
@@ -222,6 +229,7 @@ class HttpSettingsSettings(object):
                 "Invalid value for `service`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._service = service
 
     def to_dict(self):
@@ -239,6 +247,12 @@ class HttpSettingsSettings(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -256,14 +270,14 @@ class HttpSettingsSettings(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

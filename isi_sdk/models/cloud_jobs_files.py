@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class CloudJobsFiles(object):
@@ -37,39 +38,40 @@ class CloudJobsFiles(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            '_files': 'list[str]',
+            'files': 'list[str]',
             'resume': 'str'
         }
 
         self.attribute_map = {
-            '_files': 'files',
+            'files': 'files',
             'resume': 'resume'
         }
 
-        self.__files = None
+        self._files = None
         self._resume = None
 
     @property
-    def _files(self):
+    def files(self):
         """
-        Gets the _files of this CloudJobsFiles.
+        Gets the files of this CloudJobsFiles.
 
 
-        :return: The _files of this CloudJobsFiles.
+        :return: The files of this CloudJobsFiles.
         :rtype: list[str]
         """
-        return self.__files
+        return self._files
 
-    @_files.setter
-    def _files(self, _files):
+    @files.setter
+    def files(self, files):
         """
-        Sets the _files of this CloudJobsFiles.
+        Sets the files of this CloudJobsFiles.
 
 
-        :param _files: The _files of this CloudJobsFiles.
+        :param files: The files of this CloudJobsFiles.
         :type: list[str]
         """
-        self.__files = _files
+        
+        self._files = files
 
     @property
     def resume(self):
@@ -91,6 +93,7 @@ class CloudJobsFiles(object):
         :param resume: The resume of this CloudJobsFiles.
         :type: str
         """
+        
         self._resume = resume
 
     def to_dict(self):
@@ -108,6 +111,12 @@ class CloudJobsFiles(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -125,14 +134,14 @@ class CloudJobsFiles(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

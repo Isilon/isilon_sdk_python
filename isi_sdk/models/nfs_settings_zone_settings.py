@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class NfsSettingsZoneSettings(object):
@@ -84,6 +85,7 @@ class NfsSettingsZoneSettings(object):
         :param nfsv4_allow_numeric_ids: The nfsv4_allow_numeric_ids of this NfsSettingsZoneSettings.
         :type: bool
         """
+        
         self._nfsv4_allow_numeric_ids = nfsv4_allow_numeric_ids
 
     @property
@@ -106,6 +108,7 @@ class NfsSettingsZoneSettings(object):
         :param nfsv4_domain: The nfsv4_domain of this NfsSettingsZoneSettings.
         :type: str
         """
+        
         self._nfsv4_domain = nfsv4_domain
 
     @property
@@ -128,6 +131,7 @@ class NfsSettingsZoneSettings(object):
         :param nfsv4_no_domain: The nfsv4_no_domain of this NfsSettingsZoneSettings.
         :type: bool
         """
+        
         self._nfsv4_no_domain = nfsv4_no_domain
 
     @property
@@ -150,6 +154,7 @@ class NfsSettingsZoneSettings(object):
         :param nfsv4_no_domain_uids: The nfsv4_no_domain_uids of this NfsSettingsZoneSettings.
         :type: bool
         """
+        
         self._nfsv4_no_domain_uids = nfsv4_no_domain_uids
 
     @property
@@ -172,6 +177,7 @@ class NfsSettingsZoneSettings(object):
         :param nfsv4_no_names: The nfsv4_no_names of this NfsSettingsZoneSettings.
         :type: bool
         """
+        
         self._nfsv4_no_names = nfsv4_no_names
 
     @property
@@ -194,6 +200,7 @@ class NfsSettingsZoneSettings(object):
         :param nfsv4_replace_domain: The nfsv4_replace_domain of this NfsSettingsZoneSettings.
         :type: bool
         """
+        
         self._nfsv4_replace_domain = nfsv4_replace_domain
 
     @property
@@ -216,6 +223,7 @@ class NfsSettingsZoneSettings(object):
         :param zone: The zone of this NfsSettingsZoneSettings.
         :type: str
         """
+        
         self._zone = zone
 
     def to_dict(self):
@@ -233,6 +241,12 @@ class NfsSettingsZoneSettings(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -250,14 +264,14 @@ class NfsSettingsZoneSettings(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

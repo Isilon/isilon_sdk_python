@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class NetworkPools(object):
@@ -37,7 +38,7 @@ class NetworkPools(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'pools': 'list[GroupnetsGroupnetSubnetsSubnetPoolsPool]',
+            'pools': 'list[SubnetsSubnetPoolsPool]',
             'resume': 'str',
             'total': 'int'
         }
@@ -59,7 +60,7 @@ class NetworkPools(object):
 
 
         :return: The pools of this NetworkPools.
-        :rtype: list[GroupnetsGroupnetSubnetsSubnetPoolsPool]
+        :rtype: list[SubnetsSubnetPoolsPool]
         """
         return self._pools
 
@@ -70,8 +71,9 @@ class NetworkPools(object):
 
 
         :param pools: The pools of this NetworkPools.
-        :type: list[GroupnetsGroupnetSubnetsSubnetPoolsPool]
+        :type: list[SubnetsSubnetPoolsPool]
         """
+        
         self._pools = pools
 
     @property
@@ -94,6 +96,7 @@ class NetworkPools(object):
         :param resume: The resume of this NetworkPools.
         :type: str
         """
+        
         self._resume = resume
 
     @property
@@ -116,6 +119,7 @@ class NetworkPools(object):
         :param total: The total of this NetworkPools.
         :type: int
         """
+        
         self._total = total
 
     def to_dict(self):
@@ -133,6 +137,12 @@ class NetworkPools(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -150,14 +160,14 @@ class NetworkPools(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

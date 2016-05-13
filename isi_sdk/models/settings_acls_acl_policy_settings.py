@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class SettingsAclsAclPolicySettings(object):
@@ -111,6 +112,7 @@ class SettingsAclsAclPolicySettings(object):
                 "Invalid value for `access`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._access = access
 
     @property
@@ -139,6 +141,7 @@ class SettingsAclsAclPolicySettings(object):
                 "Invalid value for `calcmode`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._calcmode = calcmode
 
     @property
@@ -167,6 +170,7 @@ class SettingsAclsAclPolicySettings(object):
                 "Invalid value for `calcmode_group`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._calcmode_group = calcmode_group
 
     @property
@@ -195,6 +199,7 @@ class SettingsAclsAclPolicySettings(object):
                 "Invalid value for `calcmode_owner`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._calcmode_owner = calcmode_owner
 
     @property
@@ -223,6 +228,7 @@ class SettingsAclsAclPolicySettings(object):
                 "Invalid value for `chmod`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._chmod = chmod
 
     @property
@@ -251,6 +257,7 @@ class SettingsAclsAclPolicySettings(object):
                 "Invalid value for `chmod_007`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._chmod_007 = chmod_007
 
     @property
@@ -279,6 +286,7 @@ class SettingsAclsAclPolicySettings(object):
                 "Invalid value for `chmod_inheritable`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._chmod_inheritable = chmod_inheritable
 
     @property
@@ -307,6 +315,7 @@ class SettingsAclsAclPolicySettings(object):
                 "Invalid value for `chown`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._chown = chown
 
     @property
@@ -335,13 +344,14 @@ class SettingsAclsAclPolicySettings(object):
                 "Invalid value for `create_over_smb`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._create_over_smb = create_over_smb
 
     @property
     def dos_attr(self):
         """
         Gets the dos_attr of this SettingsAclsAclPolicySettings.
-        Read only DOS attribute.
+         Read only DOS attribute.
 
         :return: The dos_attr of this SettingsAclsAclPolicySettings.
         :rtype: str
@@ -352,7 +362,7 @@ class SettingsAclsAclPolicySettings(object):
     def dos_attr(self, dos_attr):
         """
         Sets the dos_attr of this SettingsAclsAclPolicySettings.
-        Read only DOS attribute.
+         Read only DOS attribute.
 
         :param dos_attr: The dos_attr of this SettingsAclsAclPolicySettings.
         :type: str
@@ -363,6 +373,7 @@ class SettingsAclsAclPolicySettings(object):
                 "Invalid value for `dos_attr`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._dos_attr = dos_attr
 
     @property
@@ -391,6 +402,7 @@ class SettingsAclsAclPolicySettings(object):
                 "Invalid value for `group_owner_inheritance`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._group_owner_inheritance = group_owner_inheritance
 
     @property
@@ -419,6 +431,7 @@ class SettingsAclsAclPolicySettings(object):
                 "Invalid value for `rwx`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._rwx = rwx
 
     @property
@@ -447,6 +460,7 @@ class SettingsAclsAclPolicySettings(object):
                 "Invalid value for `synthetic_denies`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._synthetic_denies = synthetic_denies
 
     @property
@@ -475,6 +489,7 @@ class SettingsAclsAclPolicySettings(object):
                 "Invalid value for `utimes`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._utimes = utimes
 
     def to_dict(self):
@@ -492,6 +507,12 @@ class SettingsAclsAclPolicySettings(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -509,14 +530,14 @@ class SettingsAclsAclPolicySettings(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

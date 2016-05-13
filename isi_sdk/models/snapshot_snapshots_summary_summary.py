@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class SnapshotSnapshotsSummarySummary(object):
@@ -87,6 +88,7 @@ class SnapshotSnapshotsSummarySummary(object):
         :param active_count: The active_count of this SnapshotSnapshotsSummarySummary.
         :type: int
         """
+        
         self._active_count = active_count
 
     @property
@@ -109,6 +111,7 @@ class SnapshotSnapshotsSummarySummary(object):
         :param active_size: The active_size of this SnapshotSnapshotsSummarySummary.
         :type: int
         """
+        
         self._active_size = active_size
 
     @property
@@ -131,6 +134,7 @@ class SnapshotSnapshotsSummarySummary(object):
         :param aliases_count: The aliases_count of this SnapshotSnapshotsSummarySummary.
         :type: int
         """
+        
         self._aliases_count = aliases_count
 
     @property
@@ -153,6 +157,7 @@ class SnapshotSnapshotsSummarySummary(object):
         :param count: The count of this SnapshotSnapshotsSummarySummary.
         :type: int
         """
+        
         self._count = count
 
     @property
@@ -175,6 +180,7 @@ class SnapshotSnapshotsSummarySummary(object):
         :param deleting_count: The deleting_count of this SnapshotSnapshotsSummarySummary.
         :type: int
         """
+        
         self._deleting_count = deleting_count
 
     @property
@@ -197,6 +203,7 @@ class SnapshotSnapshotsSummarySummary(object):
         :param deleting_size: The deleting_size of this SnapshotSnapshotsSummarySummary.
         :type: int
         """
+        
         self._deleting_size = deleting_size
 
     @property
@@ -219,6 +226,7 @@ class SnapshotSnapshotsSummarySummary(object):
         :param shadow_bytes: The shadow_bytes of this SnapshotSnapshotsSummarySummary.
         :type: int
         """
+        
         self._shadow_bytes = shadow_bytes
 
     @property
@@ -241,6 +249,7 @@ class SnapshotSnapshotsSummarySummary(object):
         :param size: The size of this SnapshotSnapshotsSummarySummary.
         :type: int
         """
+        
         self._size = size
 
     def to_dict(self):
@@ -258,6 +267,12 @@ class SnapshotSnapshotsSummarySummary(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -275,14 +290,14 @@ class SnapshotSnapshotsSummarySummary(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

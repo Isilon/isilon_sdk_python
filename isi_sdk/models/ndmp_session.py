@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class NdmpSession(object):
@@ -114,6 +115,7 @@ class NdmpSession(object):
         :param data_bytes_transferred: The data_bytes_transferred of this NdmpSession.
         :type: int
         """
+        
         self._data_bytes_transferred = data_bytes_transferred
 
     @property
@@ -142,6 +144,7 @@ class NdmpSession(object):
                 "Invalid value for `data_state`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._data_state = data_state
 
     @property
@@ -164,6 +167,7 @@ class NdmpSession(object):
         :param dest_path: The dest_path of this NdmpSession.
         :type: str
         """
+        
         self._dest_path = dest_path
 
     @property
@@ -186,6 +190,7 @@ class NdmpSession(object):
         :param dma_ip_addr: The dma_ip_addr of this NdmpSession.
         :type: str
         """
+        
         self._dma_ip_addr = dma_ip_addr
 
     @property
@@ -208,6 +213,7 @@ class NdmpSession(object):
         :param elapsed_time: The elapsed_time of this NdmpSession.
         :type: int
         """
+        
         self._elapsed_time = elapsed_time
 
     @property
@@ -230,6 +236,7 @@ class NdmpSession(object):
         :param id: The id of this NdmpSession.
         :type: str
         """
+        
         self._id = id
 
     @property
@@ -252,6 +259,7 @@ class NdmpSession(object):
         :param mover_bytes_transferred: The mover_bytes_transferred of this NdmpSession.
         :type: int
         """
+        
         self._mover_bytes_transferred = mover_bytes_transferred
 
     @property
@@ -280,6 +288,7 @@ class NdmpSession(object):
                 "Invalid value for `mover_state`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._mover_state = mover_state
 
     @property
@@ -308,6 +317,7 @@ class NdmpSession(object):
                 "Invalid value for `operation`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._operation = operation
 
     @property
@@ -330,6 +340,7 @@ class NdmpSession(object):
         :param remote_ip_addr: The remote_ip_addr of this NdmpSession.
         :type: str
         """
+        
         self._remote_ip_addr = remote_ip_addr
 
     @property
@@ -352,6 +363,7 @@ class NdmpSession(object):
         :param scsi_device: The scsi_device of this NdmpSession.
         :type: str
         """
+        
         self._scsi_device = scsi_device
 
     @property
@@ -374,6 +386,7 @@ class NdmpSession(object):
         :param session: The session of this NdmpSession.
         :type: str
         """
+        
         self._session = session
 
     @property
@@ -396,6 +409,7 @@ class NdmpSession(object):
         :param source_path: The source_path of this NdmpSession.
         :type: str
         """
+        
         self._source_path = source_path
 
     @property
@@ -418,6 +432,7 @@ class NdmpSession(object):
         :param start_time: The start_time of this NdmpSession.
         :type: int
         """
+        
         self._start_time = start_time
 
     @property
@@ -440,6 +455,7 @@ class NdmpSession(object):
         :param tape_device: The tape_device of this NdmpSession.
         :type: str
         """
+        
         self._tape_device = tape_device
 
     @property
@@ -468,6 +484,7 @@ class NdmpSession(object):
                 "Invalid value for `tape_open_mode`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._tape_open_mode = tape_open_mode
 
     @property
@@ -490,6 +507,7 @@ class NdmpSession(object):
         :param throughput: The throughput of this NdmpSession.
         :type: int
         """
+        
         self._throughput = throughput
 
     def to_dict(self):
@@ -507,6 +525,12 @@ class NdmpSession(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -524,14 +548,14 @@ class NdmpSession(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

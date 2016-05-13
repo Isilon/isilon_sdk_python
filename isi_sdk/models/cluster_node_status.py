@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class ClusterNodeStatus(object):
@@ -37,11 +38,11 @@ class ClusterNodeStatus(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'batterystatus': 'NodesLnnStatusNodeBatterystatus',
-            'capacity': 'list[NodesLnnStatusNodeCapacityItem]',
-            'cpu': 'NodesLnnStatusNodeCpu',
-            'nvram': 'NodesLnnStatusNodeNvram',
-            'powersupplies': 'NodesLnnStatusNodePowersupplies',
+            'batterystatus': 'NodeStatusNodeBatterystatus',
+            'capacity': 'list[NodeStatusNodeCapacityItem]',
+            'cpu': 'NodeStatusNodeCpu',
+            'nvram': 'NodeStatusNodeNvram',
+            'powersupplies': 'NodeStatusNodePowersupplies',
             'release': 'str',
             'uptime': 'int',
             'version': 'str'
@@ -74,7 +75,7 @@ class ClusterNodeStatus(object):
         Battery status information.
 
         :return: The batterystatus of this ClusterNodeStatus.
-        :rtype: NodesLnnStatusNodeBatterystatus
+        :rtype: NodeStatusNodeBatterystatus
         """
         return self._batterystatus
 
@@ -85,8 +86,9 @@ class ClusterNodeStatus(object):
         Battery status information.
 
         :param batterystatus: The batterystatus of this ClusterNodeStatus.
-        :type: NodesLnnStatusNodeBatterystatus
+        :type: NodeStatusNodeBatterystatus
         """
+        
         self._batterystatus = batterystatus
 
     @property
@@ -96,7 +98,7 @@ class ClusterNodeStatus(object):
         Storage capacity of this node.
 
         :return: The capacity of this ClusterNodeStatus.
-        :rtype: list[NodesLnnStatusNodeCapacityItem]
+        :rtype: list[NodeStatusNodeCapacityItem]
         """
         return self._capacity
 
@@ -107,8 +109,9 @@ class ClusterNodeStatus(object):
         Storage capacity of this node.
 
         :param capacity: The capacity of this ClusterNodeStatus.
-        :type: list[NodesLnnStatusNodeCapacityItem]
+        :type: list[NodeStatusNodeCapacityItem]
         """
+        
         self._capacity = capacity
 
     @property
@@ -118,7 +121,7 @@ class ClusterNodeStatus(object):
         CPU status information for this node.
 
         :return: The cpu of this ClusterNodeStatus.
-        :rtype: NodesLnnStatusNodeCpu
+        :rtype: NodeStatusNodeCpu
         """
         return self._cpu
 
@@ -129,8 +132,9 @@ class ClusterNodeStatus(object):
         CPU status information for this node.
 
         :param cpu: The cpu of this ClusterNodeStatus.
-        :type: NodesLnnStatusNodeCpu
+        :type: NodeStatusNodeCpu
         """
+        
         self._cpu = cpu
 
     @property
@@ -140,7 +144,7 @@ class ClusterNodeStatus(object):
         Node NVRAM information.
 
         :return: The nvram of this ClusterNodeStatus.
-        :rtype: NodesLnnStatusNodeNvram
+        :rtype: NodeStatusNodeNvram
         """
         return self._nvram
 
@@ -151,8 +155,9 @@ class ClusterNodeStatus(object):
         Node NVRAM information.
 
         :param nvram: The nvram of this ClusterNodeStatus.
-        :type: NodesLnnStatusNodeNvram
+        :type: NodeStatusNodeNvram
         """
+        
         self._nvram = nvram
 
     @property
@@ -162,7 +167,7 @@ class ClusterNodeStatus(object):
         Information about this node's power supplies.
 
         :return: The powersupplies of this ClusterNodeStatus.
-        :rtype: NodesLnnStatusNodePowersupplies
+        :rtype: NodeStatusNodePowersupplies
         """
         return self._powersupplies
 
@@ -173,8 +178,9 @@ class ClusterNodeStatus(object):
         Information about this node's power supplies.
 
         :param powersupplies: The powersupplies of this ClusterNodeStatus.
-        :type: NodesLnnStatusNodePowersupplies
+        :type: NodeStatusNodePowersupplies
         """
+        
         self._powersupplies = powersupplies
 
     @property
@@ -197,6 +203,7 @@ class ClusterNodeStatus(object):
         :param release: The release of this ClusterNodeStatus.
         :type: str
         """
+        
         self._release = release
 
     @property
@@ -219,6 +226,7 @@ class ClusterNodeStatus(object):
         :param uptime: The uptime of this ClusterNodeStatus.
         :type: int
         """
+        
         self._uptime = uptime
 
     @property
@@ -241,6 +249,7 @@ class ClusterNodeStatus(object):
         :param version: The version of this ClusterNodeStatus.
         :type: str
         """
+        
         self._version = version
 
     def to_dict(self):
@@ -258,6 +267,12 @@ class ClusterNodeStatus(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -275,14 +290,14 @@ class ClusterNodeStatus(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

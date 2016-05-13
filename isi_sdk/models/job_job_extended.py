@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class JobJobExtended(object):
@@ -37,237 +38,94 @@ class JobJobExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'total_phases': 'int',
+            'policy': 'str',
+            'priority': 'int',
+            'state': 'str',
+            'control_state': 'str',
             'create_time': 'int',
             'current_phase': 'int',
-            'impact': 'str',
-            'waiting_reason': 'str',
-            'end_time': 'int',
             'description': 'str',
-            'priority': 'int',
-            'type': 'str',
-            'control_state': 'str',
-            'start_time': 'int',
-            'paths': 'list[str]',
-            'retries_remaining': 'int',
-            'progress': 'str',
-            'running_time': 'int',
-            'waiting_on': 'int',
-            'state': 'str',
+            'end_time': 'int',
             'id': 'int',
-            'policy': 'str',
-            'participants': 'list[int]'
+            'impact': 'str',
+            'participants': 'list[int]',
+            'paths': 'list[str]',
+            'progress': 'str',
+            'retries_remaining': 'int',
+            'running_time': 'int',
+            'start_time': 'int',
+            'total_phases': 'int',
+            'type': 'str',
+            'waiting_on': 'int',
+            'waiting_reason': 'str'
         }
 
         self.attribute_map = {
-            'total_phases': 'total_phases',
+            'policy': 'policy',
+            'priority': 'priority',
+            'state': 'state',
+            'control_state': 'control_state',
             'create_time': 'create_time',
             'current_phase': 'current_phase',
-            'impact': 'impact',
-            'waiting_reason': 'waiting_reason',
-            'end_time': 'end_time',
             'description': 'description',
-            'priority': 'priority',
-            'type': 'type',
-            'control_state': 'control_state',
-            'start_time': 'start_time',
-            'paths': 'paths',
-            'retries_remaining': 'retries_remaining',
-            'progress': 'progress',
-            'running_time': 'running_time',
-            'waiting_on': 'waiting_on',
-            'state': 'state',
+            'end_time': 'end_time',
             'id': 'id',
-            'policy': 'policy',
-            'participants': 'participants'
+            'impact': 'impact',
+            'participants': 'participants',
+            'paths': 'paths',
+            'progress': 'progress',
+            'retries_remaining': 'retries_remaining',
+            'running_time': 'running_time',
+            'start_time': 'start_time',
+            'total_phases': 'total_phases',
+            'type': 'type',
+            'waiting_on': 'waiting_on',
+            'waiting_reason': 'waiting_reason'
         }
 
-        self._total_phases = None
+        self._policy = None
+        self._priority = None
+        self._state = None
+        self._control_state = None
         self._create_time = None
         self._current_phase = None
-        self._impact = None
-        self._waiting_reason = None
-        self._end_time = None
         self._description = None
-        self._priority = None
-        self._type = None
-        self._control_state = None
-        self._start_time = None
-        self._paths = None
-        self._retries_remaining = None
-        self._progress = None
-        self._running_time = None
-        self._waiting_on = None
-        self._state = None
+        self._end_time = None
         self._id = None
-        self._policy = None
+        self._impact = None
         self._participants = None
+        self._paths = None
+        self._progress = None
+        self._retries_remaining = None
+        self._running_time = None
+        self._start_time = None
+        self._total_phases = None
+        self._type = None
+        self._waiting_on = None
+        self._waiting_reason = None
 
     @property
-    def total_phases(self):
+    def policy(self):
         """
-        Gets the total_phases of this JobJobExtended.
-        The total number of phases of the job type.
+        Gets the policy of this JobJobExtended.
+        Impact policy of this job instance.
 
-        :return: The total_phases of this JobJobExtended.
-        :rtype: int
-        """
-        return self._total_phases
-
-    @total_phases.setter
-    def total_phases(self, total_phases):
-        """
-        Sets the total_phases of this JobJobExtended.
-        The total number of phases of the job type.
-
-        :param total_phases: The total_phases of this JobJobExtended.
-        :type: int
-        """
-        self._total_phases = total_phases
-
-    @property
-    def create_time(self):
-        """
-        Gets the create_time of this JobJobExtended.
-        The time the job was queued, in seconds since the epoch.
-
-        :return: The create_time of this JobJobExtended.
-        :rtype: int
-        """
-        return self._create_time
-
-    @create_time.setter
-    def create_time(self, create_time):
-        """
-        Sets the create_time of this JobJobExtended.
-        The time the job was queued, in seconds since the epoch.
-
-        :param create_time: The create_time of this JobJobExtended.
-        :type: int
-        """
-        self._create_time = create_time
-
-    @property
-    def current_phase(self):
-        """
-        Gets the current_phase of this JobJobExtended.
-        The current phase of the job.
-
-        :return: The current_phase of this JobJobExtended.
-        :rtype: int
-        """
-        return self._current_phase
-
-    @current_phase.setter
-    def current_phase(self, current_phase):
-        """
-        Sets the current_phase of this JobJobExtended.
-        The current phase of the job.
-
-        :param current_phase: The current_phase of this JobJobExtended.
-        :type: int
-        """
-        self._current_phase = current_phase
-
-    @property
-    def impact(self):
-        """
-        Gets the impact of this JobJobExtended.
-        The current impact of the job.
-
-        :return: The impact of this JobJobExtended.
+        :return: The policy of this JobJobExtended.
         :rtype: str
         """
-        return self._impact
+        return self._policy
 
-    @impact.setter
-    def impact(self, impact):
+    @policy.setter
+    def policy(self, policy):
         """
-        Sets the impact of this JobJobExtended.
-        The current impact of the job.
+        Sets the policy of this JobJobExtended.
+        Impact policy of this job instance.
 
-        :param impact: The impact of this JobJobExtended.
+        :param policy: The policy of this JobJobExtended.
         :type: str
         """
-        allowed_values = ["Low", "Medium", "High", "Paused"]
-        if impact not in allowed_values:
-            raise ValueError(
-                "Invalid value for `impact`, must be one of {0}"
-                .format(allowed_values)
-            )
-        self._impact = impact
-
-    @property
-    def waiting_reason(self):
-        """
-        Gets the waiting_reason of this JobJobExtended.
-        The reason the job is waiting.
-
-        :return: The waiting_reason of this JobJobExtended.
-        :rtype: str
-        """
-        return self._waiting_reason
-
-    @waiting_reason.setter
-    def waiting_reason(self, waiting_reason):
-        """
-        Sets the waiting_reason of this JobJobExtended.
-        The reason the job is waiting.
-
-        :param waiting_reason: The waiting_reason of this JobJobExtended.
-        :type: str
-        """
-        allowed_values = ["blocked_by_priority"]
-        if waiting_reason not in allowed_values:
-            raise ValueError(
-                "Invalid value for `waiting_reason`, must be one of {0}"
-                .format(allowed_values)
-            )
-        self._waiting_reason = waiting_reason
-
-    @property
-    def end_time(self):
-        """
-        Gets the end_time of this JobJobExtended.
-        The time the job ended, in seconds since the Epoch.
-
-        :return: The end_time of this JobJobExtended.
-        :rtype: int
-        """
-        return self._end_time
-
-    @end_time.setter
-    def end_time(self, end_time):
-        """
-        Sets the end_time of this JobJobExtended.
-        The time the job ended, in seconds since the Epoch.
-
-        :param end_time: The end_time of this JobJobExtended.
-        :type: int
-        """
-        self._end_time = end_time
-
-    @property
-    def description(self):
-        """
-        Gets the description of this JobJobExtended.
-        A text representation of the job.
-
-        :return: The description of this JobJobExtended.
-        :rtype: str
-        """
-        return self._description
-
-    @description.setter
-    def description(self, description):
-        """
-        Sets the description of this JobJobExtended.
-        A text representation of the job.
-
-        :param description: The description of this JobJobExtended.
-        :type: str
-        """
-        self._description = description
+        
+        self._policy = policy
 
     @property
     def priority(self):
@@ -289,189 +147,15 @@ class JobJobExtended(object):
         :param priority: The priority of this JobJobExtended.
         :type: int
         """
+        
+        if not priority:
+            raise ValueError("Invalid value for `priority`, must not be `None`")
+        if priority > 10.0: 
+            raise ValueError("Invalid value for `priority`, must be a value less than or equal to `10.0`")
+        if priority < 1.0: 
+            raise ValueError("Invalid value for `priority`, must be a value greater than or equal to `1.0`")
+
         self._priority = priority
-
-    @property
-    def type(self):
-        """
-        Gets the type of this JobJobExtended.
-        The job type.
-
-        :return: The type of this JobJobExtended.
-        :rtype: str
-        """
-        return self._type
-
-    @type.setter
-    def type(self, type):
-        """
-        Sets the type of this JobJobExtended.
-        The job type.
-
-        :param type: The type of this JobJobExtended.
-        :type: str
-        """
-        self._type = type
-
-    @property
-    def control_state(self):
-        """
-        Gets the control_state of this JobJobExtended.
-        State to which the job is transitioning; if control_state is identical to state, the job's state is stable.
-
-        :return: The control_state of this JobJobExtended.
-        :rtype: str
-        """
-        return self._control_state
-
-    @control_state.setter
-    def control_state(self, control_state):
-        """
-        Sets the control_state of this JobJobExtended.
-        State to which the job is transitioning; if control_state is identical to state, the job's state is stable.
-
-        :param control_state: The control_state of this JobJobExtended.
-        :type: str
-        """
-        allowed_values = ["running", "paused_user", "paused_system", "paused_policy", "paused_priority", "cancelled_user", "cancelled_system", "failed", "succeeded", "unknown"]
-        if control_state not in allowed_values:
-            raise ValueError(
-                "Invalid value for `control_state`, must be one of {0}"
-                .format(allowed_values)
-            )
-        self._control_state = control_state
-
-    @property
-    def start_time(self):
-        """
-        Gets the start_time of this JobJobExtended.
-        The time the job started, in seconds since the Epoch.
-
-        :return: The start_time of this JobJobExtended.
-        :rtype: int
-        """
-        return self._start_time
-
-    @start_time.setter
-    def start_time(self, start_time):
-        """
-        Sets the start_time of this JobJobExtended.
-        The time the job started, in seconds since the Epoch.
-
-        :param start_time: The start_time of this JobJobExtended.
-        :type: int
-        """
-        self._start_time = start_time
-
-    @property
-    def paths(self):
-        """
-        Gets the paths of this JobJobExtended.
-        Paths for which the job was queued.
-
-        :return: The paths of this JobJobExtended.
-        :rtype: list[str]
-        """
-        return self._paths
-
-    @paths.setter
-    def paths(self, paths):
-        """
-        Sets the paths of this JobJobExtended.
-        Paths for which the job was queued.
-
-        :param paths: The paths of this JobJobExtended.
-        :type: list[str]
-        """
-        self._paths = paths
-
-    @property
-    def retries_remaining(self):
-        """
-        Gets the retries_remaining of this JobJobExtended.
-        The number of retries remaining if the job fails.
-
-        :return: The retries_remaining of this JobJobExtended.
-        :rtype: int
-        """
-        return self._retries_remaining
-
-    @retries_remaining.setter
-    def retries_remaining(self, retries_remaining):
-        """
-        Sets the retries_remaining of this JobJobExtended.
-        The number of retries remaining if the job fails.
-
-        :param retries_remaining: The retries_remaining of this JobJobExtended.
-        :type: int
-        """
-        self._retries_remaining = retries_remaining
-
-    @property
-    def progress(self):
-        """
-        Gets the progress of this JobJobExtended.
-        A text representation of the job's progress.
-
-        :return: The progress of this JobJobExtended.
-        :rtype: str
-        """
-        return self._progress
-
-    @progress.setter
-    def progress(self, progress):
-        """
-        Sets the progress of this JobJobExtended.
-        A text representation of the job's progress.
-
-        :param progress: The progress of this JobJobExtended.
-        :type: str
-        """
-        self._progress = progress
-
-    @property
-    def running_time(self):
-        """
-        Gets the running_time of this JobJobExtended.
-        The number of seconds the job has executed.
-
-        :return: The running_time of this JobJobExtended.
-        :rtype: int
-        """
-        return self._running_time
-
-    @running_time.setter
-    def running_time(self, running_time):
-        """
-        Sets the running_time of this JobJobExtended.
-        The number of seconds the job has executed.
-
-        :param running_time: The running_time of this JobJobExtended.
-        :type: int
-        """
-        self._running_time = running_time
-
-    @property
-    def waiting_on(self):
-        """
-        Gets the waiting_on of this JobJobExtended.
-        The ID of a job for which this job is waiting.
-
-        :return: The waiting_on of this JobJobExtended.
-        :rtype: int
-        """
-        return self._waiting_on
-
-    @waiting_on.setter
-    def waiting_on(self, waiting_on):
-        """
-        Sets the waiting_on of this JobJobExtended.
-        The ID of a job for which this job is waiting.
-
-        :param waiting_on: The waiting_on of this JobJobExtended.
-        :type: int
-        """
-        self._waiting_on = waiting_on
 
     @property
     def state(self):
@@ -499,7 +183,129 @@ class JobJobExtended(object):
                 "Invalid value for `state`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._state = state
+
+    @property
+    def control_state(self):
+        """
+        Gets the control_state of this JobJobExtended.
+        State to which the job is transitioning; if control_state is identical to state, the job's state is stable.
+
+        :return: The control_state of this JobJobExtended.
+        :rtype: str
+        """
+        return self._control_state
+
+    @control_state.setter
+    def control_state(self, control_state):
+        """
+        Sets the control_state of this JobJobExtended.
+        State to which the job is transitioning; if control_state is identical to state, the job's state is stable.
+
+        :param control_state: The control_state of this JobJobExtended.
+        :type: str
+        """
+        allowed_values = ["running", "paused_user", "paused_system", "paused_policy", "paused_priority", "cancelled_user", "cancelled_system", "failed", "succeeded", "unknown"]
+        if control_state not in allowed_values:
+            raise ValueError(
+                "Invalid value for `control_state`, must be one of {0}"
+                .format(allowed_values)
+            )
+
+        self._control_state = control_state
+
+    @property
+    def create_time(self):
+        """
+        Gets the create_time of this JobJobExtended.
+        The time the job was queued, in seconds since the epoch.
+
+        :return: The create_time of this JobJobExtended.
+        :rtype: int
+        """
+        return self._create_time
+
+    @create_time.setter
+    def create_time(self, create_time):
+        """
+        Sets the create_time of this JobJobExtended.
+        The time the job was queued, in seconds since the epoch.
+
+        :param create_time: The create_time of this JobJobExtended.
+        :type: int
+        """
+        
+        self._create_time = create_time
+
+    @property
+    def current_phase(self):
+        """
+        Gets the current_phase of this JobJobExtended.
+        The current phase of the job.
+
+        :return: The current_phase of this JobJobExtended.
+        :rtype: int
+        """
+        return self._current_phase
+
+    @current_phase.setter
+    def current_phase(self, current_phase):
+        """
+        Sets the current_phase of this JobJobExtended.
+        The current phase of the job.
+
+        :param current_phase: The current_phase of this JobJobExtended.
+        :type: int
+        """
+        
+        self._current_phase = current_phase
+
+    @property
+    def description(self):
+        """
+        Gets the description of this JobJobExtended.
+        A text representation of the job.
+
+        :return: The description of this JobJobExtended.
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """
+        Sets the description of this JobJobExtended.
+        A text representation of the job.
+
+        :param description: The description of this JobJobExtended.
+        :type: str
+        """
+        
+        self._description = description
+
+    @property
+    def end_time(self):
+        """
+        Gets the end_time of this JobJobExtended.
+        The time the job ended, in seconds since the Epoch.
+
+        :return: The end_time of this JobJobExtended.
+        :rtype: int
+        """
+        return self._end_time
+
+    @end_time.setter
+    def end_time(self, end_time):
+        """
+        Sets the end_time of this JobJobExtended.
+        The time the job ended, in seconds since the Epoch.
+
+        :param end_time: The end_time of this JobJobExtended.
+        :type: int
+        """
+        
+        self._end_time = end_time
 
     @property
     def id(self):
@@ -521,29 +327,42 @@ class JobJobExtended(object):
         :param id: The id of this JobJobExtended.
         :type: int
         """
+        
+        if not id:
+            raise ValueError("Invalid value for `id`, must not be `None`")
+        if id < 1.0: 
+            raise ValueError("Invalid value for `id`, must be a value greater than or equal to `1.0`")
+
         self._id = id
 
     @property
-    def policy(self):
+    def impact(self):
         """
-        Gets the policy of this JobJobExtended.
-        Impact policy of this job instance.
+        Gets the impact of this JobJobExtended.
+        The current impact of the job.
 
-        :return: The policy of this JobJobExtended.
+        :return: The impact of this JobJobExtended.
         :rtype: str
         """
-        return self._policy
+        return self._impact
 
-    @policy.setter
-    def policy(self, policy):
+    @impact.setter
+    def impact(self, impact):
         """
-        Sets the policy of this JobJobExtended.
-        Impact policy of this job instance.
+        Sets the impact of this JobJobExtended.
+        The current impact of the job.
 
-        :param policy: The policy of this JobJobExtended.
+        :param impact: The impact of this JobJobExtended.
         :type: str
         """
-        self._policy = policy
+        allowed_values = ["Low", "Medium", "High", "Paused"]
+        if impact not in allowed_values:
+            raise ValueError(
+                "Invalid value for `impact`, must be one of {0}"
+                .format(allowed_values)
+            )
+
+        self._impact = impact
 
     @property
     def participants(self):
@@ -565,7 +384,221 @@ class JobJobExtended(object):
         :param participants: The participants of this JobJobExtended.
         :type: list[int]
         """
+        
         self._participants = participants
+
+    @property
+    def paths(self):
+        """
+        Gets the paths of this JobJobExtended.
+        Paths for which the job was queued.
+
+        :return: The paths of this JobJobExtended.
+        :rtype: list[str]
+        """
+        return self._paths
+
+    @paths.setter
+    def paths(self, paths):
+        """
+        Sets the paths of this JobJobExtended.
+        Paths for which the job was queued.
+
+        :param paths: The paths of this JobJobExtended.
+        :type: list[str]
+        """
+        
+        self._paths = paths
+
+    @property
+    def progress(self):
+        """
+        Gets the progress of this JobJobExtended.
+        A text representation of the job's progress.
+
+        :return: The progress of this JobJobExtended.
+        :rtype: str
+        """
+        return self._progress
+
+    @progress.setter
+    def progress(self, progress):
+        """
+        Sets the progress of this JobJobExtended.
+        A text representation of the job's progress.
+
+        :param progress: The progress of this JobJobExtended.
+        :type: str
+        """
+        
+        self._progress = progress
+
+    @property
+    def retries_remaining(self):
+        """
+        Gets the retries_remaining of this JobJobExtended.
+        The number of retries remaining if the job fails.
+
+        :return: The retries_remaining of this JobJobExtended.
+        :rtype: int
+        """
+        return self._retries_remaining
+
+    @retries_remaining.setter
+    def retries_remaining(self, retries_remaining):
+        """
+        Sets the retries_remaining of this JobJobExtended.
+        The number of retries remaining if the job fails.
+
+        :param retries_remaining: The retries_remaining of this JobJobExtended.
+        :type: int
+        """
+        
+        self._retries_remaining = retries_remaining
+
+    @property
+    def running_time(self):
+        """
+        Gets the running_time of this JobJobExtended.
+        The number of seconds the job has executed.
+
+        :return: The running_time of this JobJobExtended.
+        :rtype: int
+        """
+        return self._running_time
+
+    @running_time.setter
+    def running_time(self, running_time):
+        """
+        Sets the running_time of this JobJobExtended.
+        The number of seconds the job has executed.
+
+        :param running_time: The running_time of this JobJobExtended.
+        :type: int
+        """
+        
+        self._running_time = running_time
+
+    @property
+    def start_time(self):
+        """
+        Gets the start_time of this JobJobExtended.
+        The time the job started, in seconds since the Epoch.
+
+        :return: The start_time of this JobJobExtended.
+        :rtype: int
+        """
+        return self._start_time
+
+    @start_time.setter
+    def start_time(self, start_time):
+        """
+        Sets the start_time of this JobJobExtended.
+        The time the job started, in seconds since the Epoch.
+
+        :param start_time: The start_time of this JobJobExtended.
+        :type: int
+        """
+        
+        self._start_time = start_time
+
+    @property
+    def total_phases(self):
+        """
+        Gets the total_phases of this JobJobExtended.
+        The total number of phases of the job type.
+
+        :return: The total_phases of this JobJobExtended.
+        :rtype: int
+        """
+        return self._total_phases
+
+    @total_phases.setter
+    def total_phases(self, total_phases):
+        """
+        Sets the total_phases of this JobJobExtended.
+        The total number of phases of the job type.
+
+        :param total_phases: The total_phases of this JobJobExtended.
+        :type: int
+        """
+        
+        self._total_phases = total_phases
+
+    @property
+    def type(self):
+        """
+        Gets the type of this JobJobExtended.
+        The job type.
+
+        :return: The type of this JobJobExtended.
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """
+        Sets the type of this JobJobExtended.
+        The job type.
+
+        :param type: The type of this JobJobExtended.
+        :type: str
+        """
+        
+        self._type = type
+
+    @property
+    def waiting_on(self):
+        """
+        Gets the waiting_on of this JobJobExtended.
+        The ID of a job for which this job is waiting.
+
+        :return: The waiting_on of this JobJobExtended.
+        :rtype: int
+        """
+        return self._waiting_on
+
+    @waiting_on.setter
+    def waiting_on(self, waiting_on):
+        """
+        Sets the waiting_on of this JobJobExtended.
+        The ID of a job for which this job is waiting.
+
+        :param waiting_on: The waiting_on of this JobJobExtended.
+        :type: int
+        """
+        
+        self._waiting_on = waiting_on
+
+    @property
+    def waiting_reason(self):
+        """
+        Gets the waiting_reason of this JobJobExtended.
+        The reason the job is waiting.
+
+        :return: The waiting_reason of this JobJobExtended.
+        :rtype: str
+        """
+        return self._waiting_reason
+
+    @waiting_reason.setter
+    def waiting_reason(self, waiting_reason):
+        """
+        Sets the waiting_reason of this JobJobExtended.
+        The reason the job is waiting.
+
+        :param waiting_reason: The waiting_reason of this JobJobExtended.
+        :type: str
+        """
+        allowed_values = ["blocked_by_priority"]
+        if waiting_reason not in allowed_values:
+            raise ValueError(
+                "Invalid value for `waiting_reason`, must be one of {0}"
+                .format(allowed_values)
+            )
+
+        self._waiting_reason = waiting_reason
 
     def to_dict(self):
         """
@@ -582,6 +615,12 @@ class JobJobExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -599,14 +638,14 @@ class JobJobExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class MappingUsersLookupMappingItemUser(object):
@@ -48,27 +49,27 @@ class MappingUsersLookupMappingItemUser(object):
             'generated_gid': 'bool',
             'generated_uid': 'bool',
             'generated_upn': 'bool',
-            'gid': 'GroupsGroupMember',
+            'gid': 'GroupMember',
             'home_directory': 'str',
             'id': 'str',
             'locked': 'bool',
             'max_password_age': 'int',
-            'member_of': 'list[GroupsGroupMember]',
+            'member_of': 'list[GroupMember]',
             'name': 'str',
-            'on_disk_group_identity': 'GroupsGroupMember',
-            'on_disk_user_identity': 'GroupsGroupMember',
+            'on_disk_group_identity': 'GroupMember',
+            'on_disk_user_identity': 'GroupMember',
             'password_expired': 'bool',
             'password_expires': 'bool',
             'password_expiry': 'int',
             'password_last_set': 'int',
-            'primary_group_sid': 'GroupsGroupMember',
+            'primary_group_sid': 'GroupMember',
             'prompt_password_change': 'bool',
             'provider': 'str',
             'sam_account_name': 'str',
             'shell': 'str',
-            'sid': 'GroupsGroupMember',
+            'sid': 'GroupMember',
             'type': 'str',
-            'uid': 'GroupsGroupMember',
+            'uid': 'GroupMember',
             'upn': 'str',
             'user_can_change_password': 'bool'
         }
@@ -165,6 +166,7 @@ class MappingUsersLookupMappingItemUser(object):
         :param dn: The dn of this MappingUsersLookupMappingItemUser.
         :type: str
         """
+        
         self._dn = dn
 
     @property
@@ -187,6 +189,7 @@ class MappingUsersLookupMappingItemUser(object):
         :param dns_domain: The dns_domain of this MappingUsersLookupMappingItemUser.
         :type: str
         """
+        
         self._dns_domain = dns_domain
 
     @property
@@ -209,6 +212,7 @@ class MappingUsersLookupMappingItemUser(object):
         :param domain: The domain of this MappingUsersLookupMappingItemUser.
         :type: str
         """
+        
         self._domain = domain
 
     @property
@@ -231,6 +235,7 @@ class MappingUsersLookupMappingItemUser(object):
         :param email: The email of this MappingUsersLookupMappingItemUser.
         :type: str
         """
+        
         self._email = email
 
     @property
@@ -253,6 +258,7 @@ class MappingUsersLookupMappingItemUser(object):
         :param enabled: The enabled of this MappingUsersLookupMappingItemUser.
         :type: bool
         """
+        
         self._enabled = enabled
 
     @property
@@ -275,6 +281,7 @@ class MappingUsersLookupMappingItemUser(object):
         :param expired: The expired of this MappingUsersLookupMappingItemUser.
         :type: bool
         """
+        
         self._expired = expired
 
     @property
@@ -297,6 +304,7 @@ class MappingUsersLookupMappingItemUser(object):
         :param expiry: The expiry of this MappingUsersLookupMappingItemUser.
         :type: int
         """
+        
         self._expiry = expiry
 
     @property
@@ -319,6 +327,7 @@ class MappingUsersLookupMappingItemUser(object):
         :param gecos: The gecos of this MappingUsersLookupMappingItemUser.
         :type: str
         """
+        
         self._gecos = gecos
 
     @property
@@ -341,6 +350,7 @@ class MappingUsersLookupMappingItemUser(object):
         :param generated_gid: The generated_gid of this MappingUsersLookupMappingItemUser.
         :type: bool
         """
+        
         self._generated_gid = generated_gid
 
     @property
@@ -363,6 +373,7 @@ class MappingUsersLookupMappingItemUser(object):
         :param generated_uid: The generated_uid of this MappingUsersLookupMappingItemUser.
         :type: bool
         """
+        
         self._generated_uid = generated_uid
 
     @property
@@ -385,6 +396,7 @@ class MappingUsersLookupMappingItemUser(object):
         :param generated_upn: The generated_upn of this MappingUsersLookupMappingItemUser.
         :type: bool
         """
+        
         self._generated_upn = generated_upn
 
     @property
@@ -394,7 +406,7 @@ class MappingUsersLookupMappingItemUser(object):
         Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'.
 
         :return: The gid of this MappingUsersLookupMappingItemUser.
-        :rtype: GroupsGroupMember
+        :rtype: GroupMember
         """
         return self._gid
 
@@ -405,8 +417,9 @@ class MappingUsersLookupMappingItemUser(object):
         Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'.
 
         :param gid: The gid of this MappingUsersLookupMappingItemUser.
-        :type: GroupsGroupMember
+        :type: GroupMember
         """
+        
         self._gid = gid
 
     @property
@@ -429,6 +442,7 @@ class MappingUsersLookupMappingItemUser(object):
         :param home_directory: The home_directory of this MappingUsersLookupMappingItemUser.
         :type: str
         """
+        
         self._home_directory = home_directory
 
     @property
@@ -451,6 +465,7 @@ class MappingUsersLookupMappingItemUser(object):
         :param id: The id of this MappingUsersLookupMappingItemUser.
         :type: str
         """
+        
         self._id = id
 
     @property
@@ -473,6 +488,7 @@ class MappingUsersLookupMappingItemUser(object):
         :param locked: The locked of this MappingUsersLookupMappingItemUser.
         :type: bool
         """
+        
         self._locked = locked
 
     @property
@@ -495,6 +511,7 @@ class MappingUsersLookupMappingItemUser(object):
         :param max_password_age: The max_password_age of this MappingUsersLookupMappingItemUser.
         :type: int
         """
+        
         self._max_password_age = max_password_age
 
     @property
@@ -504,7 +521,7 @@ class MappingUsersLookupMappingItemUser(object):
 
 
         :return: The member_of of this MappingUsersLookupMappingItemUser.
-        :rtype: list[GroupsGroupMember]
+        :rtype: list[GroupMember]
         """
         return self._member_of
 
@@ -515,8 +532,9 @@ class MappingUsersLookupMappingItemUser(object):
 
 
         :param member_of: The member_of of this MappingUsersLookupMappingItemUser.
-        :type: list[GroupsGroupMember]
+        :type: list[GroupMember]
         """
+        
         self._member_of = member_of
 
     @property
@@ -539,6 +557,7 @@ class MappingUsersLookupMappingItemUser(object):
         :param name: The name of this MappingUsersLookupMappingItemUser.
         :type: str
         """
+        
         self._name = name
 
     @property
@@ -548,7 +567,7 @@ class MappingUsersLookupMappingItemUser(object):
         Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'.
 
         :return: The on_disk_group_identity of this MappingUsersLookupMappingItemUser.
-        :rtype: GroupsGroupMember
+        :rtype: GroupMember
         """
         return self._on_disk_group_identity
 
@@ -559,8 +578,9 @@ class MappingUsersLookupMappingItemUser(object):
         Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'.
 
         :param on_disk_group_identity: The on_disk_group_identity of this MappingUsersLookupMappingItemUser.
-        :type: GroupsGroupMember
+        :type: GroupMember
         """
+        
         self._on_disk_group_identity = on_disk_group_identity
 
     @property
@@ -570,7 +590,7 @@ class MappingUsersLookupMappingItemUser(object):
         Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'.
 
         :return: The on_disk_user_identity of this MappingUsersLookupMappingItemUser.
-        :rtype: GroupsGroupMember
+        :rtype: GroupMember
         """
         return self._on_disk_user_identity
 
@@ -581,8 +601,9 @@ class MappingUsersLookupMappingItemUser(object):
         Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'.
 
         :param on_disk_user_identity: The on_disk_user_identity of this MappingUsersLookupMappingItemUser.
-        :type: GroupsGroupMember
+        :type: GroupMember
         """
+        
         self._on_disk_user_identity = on_disk_user_identity
 
     @property
@@ -605,6 +626,7 @@ class MappingUsersLookupMappingItemUser(object):
         :param password_expired: The password_expired of this MappingUsersLookupMappingItemUser.
         :type: bool
         """
+        
         self._password_expired = password_expired
 
     @property
@@ -627,6 +649,7 @@ class MappingUsersLookupMappingItemUser(object):
         :param password_expires: The password_expires of this MappingUsersLookupMappingItemUser.
         :type: bool
         """
+        
         self._password_expires = password_expires
 
     @property
@@ -649,6 +672,7 @@ class MappingUsersLookupMappingItemUser(object):
         :param password_expiry: The password_expiry of this MappingUsersLookupMappingItemUser.
         :type: int
         """
+        
         self._password_expiry = password_expiry
 
     @property
@@ -671,6 +695,7 @@ class MappingUsersLookupMappingItemUser(object):
         :param password_last_set: The password_last_set of this MappingUsersLookupMappingItemUser.
         :type: int
         """
+        
         self._password_last_set = password_last_set
 
     @property
@@ -680,7 +705,7 @@ class MappingUsersLookupMappingItemUser(object):
         Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'.
 
         :return: The primary_group_sid of this MappingUsersLookupMappingItemUser.
-        :rtype: GroupsGroupMember
+        :rtype: GroupMember
         """
         return self._primary_group_sid
 
@@ -691,8 +716,9 @@ class MappingUsersLookupMappingItemUser(object):
         Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'.
 
         :param primary_group_sid: The primary_group_sid of this MappingUsersLookupMappingItemUser.
-        :type: GroupsGroupMember
+        :type: GroupMember
         """
+        
         self._primary_group_sid = primary_group_sid
 
     @property
@@ -715,6 +741,7 @@ class MappingUsersLookupMappingItemUser(object):
         :param prompt_password_change: The prompt_password_change of this MappingUsersLookupMappingItemUser.
         :type: bool
         """
+        
         self._prompt_password_change = prompt_password_change
 
     @property
@@ -737,6 +764,7 @@ class MappingUsersLookupMappingItemUser(object):
         :param provider: The provider of this MappingUsersLookupMappingItemUser.
         :type: str
         """
+        
         self._provider = provider
 
     @property
@@ -759,6 +787,7 @@ class MappingUsersLookupMappingItemUser(object):
         :param sam_account_name: The sam_account_name of this MappingUsersLookupMappingItemUser.
         :type: str
         """
+        
         self._sam_account_name = sam_account_name
 
     @property
@@ -781,6 +810,7 @@ class MappingUsersLookupMappingItemUser(object):
         :param shell: The shell of this MappingUsersLookupMappingItemUser.
         :type: str
         """
+        
         self._shell = shell
 
     @property
@@ -790,7 +820,7 @@ class MappingUsersLookupMappingItemUser(object):
         Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'.
 
         :return: The sid of this MappingUsersLookupMappingItemUser.
-        :rtype: GroupsGroupMember
+        :rtype: GroupMember
         """
         return self._sid
 
@@ -801,8 +831,9 @@ class MappingUsersLookupMappingItemUser(object):
         Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'.
 
         :param sid: The sid of this MappingUsersLookupMappingItemUser.
-        :type: GroupsGroupMember
+        :type: GroupMember
         """
+        
         self._sid = sid
 
     @property
@@ -825,6 +856,7 @@ class MappingUsersLookupMappingItemUser(object):
         :param type: The type of this MappingUsersLookupMappingItemUser.
         :type: str
         """
+        
         self._type = type
 
     @property
@@ -834,7 +866,7 @@ class MappingUsersLookupMappingItemUser(object):
         Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'.
 
         :return: The uid of this MappingUsersLookupMappingItemUser.
-        :rtype: GroupsGroupMember
+        :rtype: GroupMember
         """
         return self._uid
 
@@ -845,8 +877,9 @@ class MappingUsersLookupMappingItemUser(object):
         Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'.
 
         :param uid: The uid of this MappingUsersLookupMappingItemUser.
-        :type: GroupsGroupMember
+        :type: GroupMember
         """
+        
         self._uid = uid
 
     @property
@@ -869,6 +902,7 @@ class MappingUsersLookupMappingItemUser(object):
         :param upn: The upn of this MappingUsersLookupMappingItemUser.
         :type: str
         """
+        
         self._upn = upn
 
     @property
@@ -891,6 +925,7 @@ class MappingUsersLookupMappingItemUser(object):
         :param user_can_change_password: The user_can_change_password of this MappingUsersLookupMappingItemUser.
         :type: bool
         """
+        
         self._user_can_change_password = user_can_change_password
 
     def to_dict(self):
@@ -908,6 +943,12 @@ class MappingUsersLookupMappingItemUser(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -925,14 +966,14 @@ class MappingUsersLookupMappingItemUser(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

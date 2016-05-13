@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class AntivirusPolicyExtended(object):
@@ -37,151 +38,41 @@ class AntivirusPolicyExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'schedule': 'str',
-            'recursion_depth': 'int',
-            'paths': 'list[str]',
+            'description': 'str',
+            'enabled': 'bool',
+            'force_run': 'bool',
             'impact': 'str',
             'name': 'str',
-            'description': 'str',
-            'last_run': 'int',
+            'paths': 'list[str]',
+            'recursion_depth': 'int',
+            'schedule': 'str',
             'id': 'str',
-            'enabled': 'bool',
-            'force_run': 'bool'
+            'last_run': 'int'
         }
 
         self.attribute_map = {
-            'schedule': 'schedule',
-            'recursion_depth': 'recursion_depth',
-            'paths': 'paths',
+            'description': 'description',
+            'enabled': 'enabled',
+            'force_run': 'force_run',
             'impact': 'impact',
             'name': 'name',
-            'description': 'description',
-            'last_run': 'last_run',
+            'paths': 'paths',
+            'recursion_depth': 'recursion_depth',
+            'schedule': 'schedule',
             'id': 'id',
-            'enabled': 'enabled',
-            'force_run': 'force_run'
+            'last_run': 'last_run'
         }
 
-        self._schedule = None
-        self._recursion_depth = None
-        self._paths = None
-        self._impact = None
-        self._name = None
         self._description = None
-        self._last_run = None
-        self._id = None
         self._enabled = None
         self._force_run = None
-
-    @property
-    def schedule(self):
-        """
-        Gets the schedule of this AntivirusPolicyExtended.
-        The schedule for running scans in isi date format.  Examples include: 'every Friday' or 'every day at 4:00'.  A null value means the policy is manually scheduled.
-
-        :return: The schedule of this AntivirusPolicyExtended.
-        :rtype: str
-        """
-        return self._schedule
-
-    @schedule.setter
-    def schedule(self, schedule):
-        """
-        Sets the schedule of this AntivirusPolicyExtended.
-        The schedule for running scans in isi date format.  Examples include: 'every Friday' or 'every day at 4:00'.  A null value means the policy is manually scheduled.
-
-        :param schedule: The schedule of this AntivirusPolicyExtended.
-        :type: str
-        """
-        self._schedule = schedule
-
-    @property
-    def recursion_depth(self):
-        """
-        Gets the recursion_depth of this AntivirusPolicyExtended.
-        The depth to recurse in directories.  The default of -1 gives unlimited recursion.
-
-        :return: The recursion_depth of this AntivirusPolicyExtended.
-        :rtype: int
-        """
-        return self._recursion_depth
-
-    @recursion_depth.setter
-    def recursion_depth(self, recursion_depth):
-        """
-        Sets the recursion_depth of this AntivirusPolicyExtended.
-        The depth to recurse in directories.  The default of -1 gives unlimited recursion.
-
-        :param recursion_depth: The recursion_depth of this AntivirusPolicyExtended.
-        :type: int
-        """
-        self._recursion_depth = recursion_depth
-
-    @property
-    def paths(self):
-        """
-        Gets the paths of this AntivirusPolicyExtended.
-        Paths to include in the scan.
-
-        :return: The paths of this AntivirusPolicyExtended.
-        :rtype: list[str]
-        """
-        return self._paths
-
-    @paths.setter
-    def paths(self, paths):
-        """
-        Sets the paths of this AntivirusPolicyExtended.
-        Paths to include in the scan.
-
-        :param paths: The paths of this AntivirusPolicyExtended.
-        :type: list[str]
-        """
-        self._paths = paths
-
-    @property
-    def impact(self):
-        """
-        Gets the impact of this AntivirusPolicyExtended.
-        The priority of the antivirus scan job.  Must be a valid job engine impact policy, or null to use the default impact.
-
-        :return: The impact of this AntivirusPolicyExtended.
-        :rtype: str
-        """
-        return self._impact
-
-    @impact.setter
-    def impact(self, impact):
-        """
-        Sets the impact of this AntivirusPolicyExtended.
-        The priority of the antivirus scan job.  Must be a valid job engine impact policy, or null to use the default impact.
-
-        :param impact: The impact of this AntivirusPolicyExtended.
-        :type: str
-        """
-        self._impact = impact
-
-    @property
-    def name(self):
-        """
-        Gets the name of this AntivirusPolicyExtended.
-        The name of the policy.
-
-        :return: The name of this AntivirusPolicyExtended.
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """
-        Sets the name of this AntivirusPolicyExtended.
-        The name of the policy.
-
-        :param name: The name of this AntivirusPolicyExtended.
-        :type: str
-        """
-        self._name = name
+        self._impact = None
+        self._name = None
+        self._paths = None
+        self._recursion_depth = None
+        self._schedule = None
+        self._id = None
+        self._last_run = None
 
     @property
     def description(self):
@@ -203,51 +94,8 @@ class AntivirusPolicyExtended(object):
         :param description: The description of this AntivirusPolicyExtended.
         :type: str
         """
+        
         self._description = description
-
-    @property
-    def last_run(self):
-        """
-        Gets the last_run of this AntivirusPolicyExtended.
-        The epoch time of the last run of this policy.
-
-        :return: The last_run of this AntivirusPolicyExtended.
-        :rtype: int
-        """
-        return self._last_run
-
-    @last_run.setter
-    def last_run(self, last_run):
-        """
-        Sets the last_run of this AntivirusPolicyExtended.
-        The epoch time of the last run of this policy.
-
-        :param last_run: The last_run of this AntivirusPolicyExtended.
-        :type: int
-        """
-        self._last_run = last_run
-
-    @property
-    def id(self):
-        """
-        Gets the id of this AntivirusPolicyExtended.
-        A unique identifier for the policy.
-
-        :return: The id of this AntivirusPolicyExtended.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this AntivirusPolicyExtended.
-        A unique identifier for the policy.
-
-        :param id: The id of this AntivirusPolicyExtended.
-        :type: str
-        """
-        self._id = id
 
     @property
     def enabled(self):
@@ -269,6 +117,7 @@ class AntivirusPolicyExtended(object):
         :param enabled: The enabled of this AntivirusPolicyExtended.
         :type: bool
         """
+        
         self._enabled = enabled
 
     @property
@@ -291,7 +140,169 @@ class AntivirusPolicyExtended(object):
         :param force_run: The force_run of this AntivirusPolicyExtended.
         :type: bool
         """
+        
         self._force_run = force_run
+
+    @property
+    def impact(self):
+        """
+        Gets the impact of this AntivirusPolicyExtended.
+        The priority of the antivirus scan job.  Must be a valid job engine impact policy, or null to use the default impact.
+
+        :return: The impact of this AntivirusPolicyExtended.
+        :rtype: str
+        """
+        return self._impact
+
+    @impact.setter
+    def impact(self, impact):
+        """
+        Sets the impact of this AntivirusPolicyExtended.
+        The priority of the antivirus scan job.  Must be a valid job engine impact policy, or null to use the default impact.
+
+        :param impact: The impact of this AntivirusPolicyExtended.
+        :type: str
+        """
+        
+        self._impact = impact
+
+    @property
+    def name(self):
+        """
+        Gets the name of this AntivirusPolicyExtended.
+        The name of the policy.
+
+        :return: The name of this AntivirusPolicyExtended.
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """
+        Sets the name of this AntivirusPolicyExtended.
+        The name of the policy.
+
+        :param name: The name of this AntivirusPolicyExtended.
+        :type: str
+        """
+        
+        self._name = name
+
+    @property
+    def paths(self):
+        """
+        Gets the paths of this AntivirusPolicyExtended.
+        Paths to include in the scan.
+
+        :return: The paths of this AntivirusPolicyExtended.
+        :rtype: list[str]
+        """
+        return self._paths
+
+    @paths.setter
+    def paths(self, paths):
+        """
+        Sets the paths of this AntivirusPolicyExtended.
+        Paths to include in the scan.
+
+        :param paths: The paths of this AntivirusPolicyExtended.
+        :type: list[str]
+        """
+        
+        self._paths = paths
+
+    @property
+    def recursion_depth(self):
+        """
+        Gets the recursion_depth of this AntivirusPolicyExtended.
+        The depth to recurse in directories.  The default of -1 gives unlimited recursion.
+
+        :return: The recursion_depth of this AntivirusPolicyExtended.
+        :rtype: int
+        """
+        return self._recursion_depth
+
+    @recursion_depth.setter
+    def recursion_depth(self, recursion_depth):
+        """
+        Sets the recursion_depth of this AntivirusPolicyExtended.
+        The depth to recurse in directories.  The default of -1 gives unlimited recursion.
+
+        :param recursion_depth: The recursion_depth of this AntivirusPolicyExtended.
+        :type: int
+        """
+        
+        self._recursion_depth = recursion_depth
+
+    @property
+    def schedule(self):
+        """
+        Gets the schedule of this AntivirusPolicyExtended.
+        The schedule for running scans in isi date format.  Examples include: 'every Friday' or 'every day at 4:00'.  A null value means the policy is manually scheduled.
+
+        :return: The schedule of this AntivirusPolicyExtended.
+        :rtype: str
+        """
+        return self._schedule
+
+    @schedule.setter
+    def schedule(self, schedule):
+        """
+        Sets the schedule of this AntivirusPolicyExtended.
+        The schedule for running scans in isi date format.  Examples include: 'every Friday' or 'every day at 4:00'.  A null value means the policy is manually scheduled.
+
+        :param schedule: The schedule of this AntivirusPolicyExtended.
+        :type: str
+        """
+        
+        self._schedule = schedule
+
+    @property
+    def id(self):
+        """
+        Gets the id of this AntivirusPolicyExtended.
+        A unique identifier for the policy.
+
+        :return: The id of this AntivirusPolicyExtended.
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """
+        Sets the id of this AntivirusPolicyExtended.
+        A unique identifier for the policy.
+
+        :param id: The id of this AntivirusPolicyExtended.
+        :type: str
+        """
+        
+        self._id = id
+
+    @property
+    def last_run(self):
+        """
+        Gets the last_run of this AntivirusPolicyExtended.
+        The epoch time of the last run of this policy.
+
+        :return: The last_run of this AntivirusPolicyExtended.
+        :rtype: int
+        """
+        return self._last_run
+
+    @last_run.setter
+    def last_run(self, last_run):
+        """
+        Sets the last_run of this AntivirusPolicyExtended.
+        The epoch time of the last run of this policy.
+
+        :param last_run: The last_run of this AntivirusPolicyExtended.
+        :type: int
+        """
+        
+        self._last_run = last_run
 
     def to_dict(self):
         """
@@ -308,6 +319,12 @@ class AntivirusPolicyExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -325,14 +342,14 @@ class AntivirusPolicyExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

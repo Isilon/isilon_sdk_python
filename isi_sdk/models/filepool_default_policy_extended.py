@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class FilepoolDefaultPolicyExtended(object):
@@ -37,17 +38,14 @@ class FilepoolDefaultPolicyExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'actions': 'list[FilepoolDefaultPolicyDefaultPolicyAction]',
-            'default_policy': 'FilepoolDefaultPolicyDefaultPolicy'
+            'actions': 'list[FilepoolDefaultPolicyDefaultPolicyAction]'
         }
 
         self.attribute_map = {
-            'actions': 'actions',
-            'default_policy': 'default-policy'
+            'actions': 'actions'
         }
 
         self._actions = None
-        self._default_policy = None
 
     @property
     def actions(self):
@@ -69,29 +67,8 @@ class FilepoolDefaultPolicyExtended(object):
         :param actions: The actions of this FilepoolDefaultPolicyExtended.
         :type: list[FilepoolDefaultPolicyDefaultPolicyAction]
         """
+        
         self._actions = actions
-
-    @property
-    def default_policy(self):
-        """
-        Gets the default_policy of this FilepoolDefaultPolicyExtended.
-        A default filepool policy object
-
-        :return: The default_policy of this FilepoolDefaultPolicyExtended.
-        :rtype: FilepoolDefaultPolicyDefaultPolicy
-        """
-        return self._default_policy
-
-    @default_policy.setter
-    def default_policy(self, default_policy):
-        """
-        Sets the default_policy of this FilepoolDefaultPolicyExtended.
-        A default filepool policy object
-
-        :param default_policy: The default_policy of this FilepoolDefaultPolicyExtended.
-        :type: FilepoolDefaultPolicyDefaultPolicy
-        """
-        self._default_policy = default_policy
 
     def to_dict(self):
         """
@@ -108,6 +85,12 @@ class FilepoolDefaultPolicyExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -125,14 +108,14 @@ class FilepoolDefaultPolicyExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class SmbLogLevelFiltersExtended(object):
@@ -37,20 +38,43 @@ class SmbLogLevelFiltersExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
+            'filters': 'list[SmbLogLevelFiltersFilter]',
             'resume': 'str',
-            'total': 'int',
-            'filters': 'list[SmbLogLevelFiltersFilter]'
+            'total': 'int'
         }
 
         self.attribute_map = {
+            'filters': 'filters',
             'resume': 'resume',
-            'total': 'total',
-            'filters': 'filters'
+            'total': 'total'
         }
 
+        self._filters = None
         self._resume = None
         self._total = None
-        self._filters = None
+
+    @property
+    def filters(self):
+        """
+        Gets the filters of this SmbLogLevelFiltersExtended.
+
+
+        :return: The filters of this SmbLogLevelFiltersExtended.
+        :rtype: list[SmbLogLevelFiltersFilter]
+        """
+        return self._filters
+
+    @filters.setter
+    def filters(self, filters):
+        """
+        Sets the filters of this SmbLogLevelFiltersExtended.
+
+
+        :param filters: The filters of this SmbLogLevelFiltersExtended.
+        :type: list[SmbLogLevelFiltersFilter]
+        """
+        
+        self._filters = filters
 
     @property
     def resume(self):
@@ -72,6 +96,7 @@ class SmbLogLevelFiltersExtended(object):
         :param resume: The resume of this SmbLogLevelFiltersExtended.
         :type: str
         """
+        
         self._resume = resume
 
     @property
@@ -94,29 +119,8 @@ class SmbLogLevelFiltersExtended(object):
         :param total: The total of this SmbLogLevelFiltersExtended.
         :type: int
         """
+        
         self._total = total
-
-    @property
-    def filters(self):
-        """
-        Gets the filters of this SmbLogLevelFiltersExtended.
-
-
-        :return: The filters of this SmbLogLevelFiltersExtended.
-        :rtype: list[SmbLogLevelFiltersFilter]
-        """
-        return self._filters
-
-    @filters.setter
-    def filters(self, filters):
-        """
-        Sets the filters of this SmbLogLevelFiltersExtended.
-
-
-        :param filters: The filters of this SmbLogLevelFiltersExtended.
-        :type: list[SmbLogLevelFiltersFilter]
-        """
-        self._filters = filters
 
     def to_dict(self):
         """
@@ -133,6 +137,12 @@ class SmbLogLevelFiltersExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -150,14 +160,14 @@ class SmbLogLevelFiltersExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class ProvidersKrb5IdParams(object):
@@ -87,6 +88,7 @@ class ProvidersKrb5IdParams(object):
         :param keytab_entries: The keytab_entries of this ProvidersKrb5IdParams.
         :type: list[ProvidersKrb5IdParamsKeytabEntry]
         """
+        
         self._keytab_entries = keytab_entries
 
     @property
@@ -109,6 +111,7 @@ class ProvidersKrb5IdParams(object):
         :param keytab_file: The keytab_file of this ProvidersKrb5IdParams.
         :type: str
         """
+        
         self._keytab_file = keytab_file
 
     @property
@@ -131,6 +134,7 @@ class ProvidersKrb5IdParams(object):
         :param manual_keying: The manual_keying of this ProvidersKrb5IdParams.
         :type: bool
         """
+        
         self._manual_keying = manual_keying
 
     @property
@@ -153,6 +157,7 @@ class ProvidersKrb5IdParams(object):
         :param name: The name of this ProvidersKrb5IdParams.
         :type: str
         """
+        
         self._name = name
 
     @property
@@ -175,6 +180,7 @@ class ProvidersKrb5IdParams(object):
         :param password: The password of this ProvidersKrb5IdParams.
         :type: str
         """
+        
         self._password = password
 
     @property
@@ -197,6 +203,7 @@ class ProvidersKrb5IdParams(object):
         :param realm: The realm of this ProvidersKrb5IdParams.
         :type: str
         """
+        
         self._realm = realm
 
     @property
@@ -219,6 +226,7 @@ class ProvidersKrb5IdParams(object):
         :param status: The status of this ProvidersKrb5IdParams.
         :type: str
         """
+        
         self._status = status
 
     @property
@@ -241,6 +249,7 @@ class ProvidersKrb5IdParams(object):
         :param user: The user of this ProvidersKrb5IdParams.
         :type: str
         """
+        
         self._user = user
 
     def to_dict(self):
@@ -258,6 +267,12 @@ class ProvidersKrb5IdParams(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -275,14 +290,14 @@ class ProvidersKrb5IdParams(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

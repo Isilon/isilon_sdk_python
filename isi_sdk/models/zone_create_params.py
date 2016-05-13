@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class ZoneCreateParams(object):
@@ -37,188 +38,56 @@ class ZoneCreateParams(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'ifs_restricted': 'list[GroupsGroupMember]',
-            'netbios_name': 'str',
-            'map_untrusted': 'str',
-            'system_provider': 'str',
-            'skeleton_directory': 'str',
-            'cache_entry_expiry': 'int',
             'alternate_system_provider': 'str',
-            'force_overlap': 'bool',
-            'user_mapping_rules': 'list[str]',
-            'groupnet': 'str',
-            'path': 'str',
-            'home_directory_umask': 'int',
-            'name': 'str',
+            'auth_providers': 'list[str]',
+            'cache_entry_expiry': 'int',
             'create_path': 'bool',
-            'auth_providers': 'list[str]'
+            'force_overlap': 'bool',
+            'home_directory_umask': 'int',
+            'ifs_restricted': 'list[GroupMember]',
+            'map_untrusted': 'str',
+            'name': 'str',
+            'netbios_name': 'str',
+            'path': 'str',
+            'skeleton_directory': 'str',
+            'system_provider': 'str',
+            'user_mapping_rules': 'list[str]',
+            'groupnet': 'str'
         }
 
         self.attribute_map = {
-            'ifs_restricted': 'ifs_restricted',
-            'netbios_name': 'netbios_name',
-            'map_untrusted': 'map_untrusted',
-            'system_provider': 'system_provider',
-            'skeleton_directory': 'skeleton_directory',
-            'cache_entry_expiry': 'cache_entry_expiry',
             'alternate_system_provider': 'alternate_system_provider',
-            'force_overlap': 'force_overlap',
-            'user_mapping_rules': 'user_mapping_rules',
-            'groupnet': 'groupnet',
-            'path': 'path',
-            'home_directory_umask': 'home_directory_umask',
-            'name': 'name',
+            'auth_providers': 'auth_providers',
+            'cache_entry_expiry': 'cache_entry_expiry',
             'create_path': 'create_path',
-            'auth_providers': 'auth_providers'
+            'force_overlap': 'force_overlap',
+            'home_directory_umask': 'home_directory_umask',
+            'ifs_restricted': 'ifs_restricted',
+            'map_untrusted': 'map_untrusted',
+            'name': 'name',
+            'netbios_name': 'netbios_name',
+            'path': 'path',
+            'skeleton_directory': 'skeleton_directory',
+            'system_provider': 'system_provider',
+            'user_mapping_rules': 'user_mapping_rules',
+            'groupnet': 'groupnet'
         }
 
-        self._ifs_restricted = None
-        self._netbios_name = None
-        self._map_untrusted = None
-        self._system_provider = None
-        self._skeleton_directory = None
-        self._cache_entry_expiry = None
         self._alternate_system_provider = None
+        self._auth_providers = None
+        self._cache_entry_expiry = None
+        self._create_path = None
         self._force_overlap = None
+        self._home_directory_umask = None
+        self._ifs_restricted = None
+        self._map_untrusted = None
+        self._name = None
+        self._netbios_name = None
+        self._path = None
+        self._skeleton_directory = None
+        self._system_provider = None
         self._user_mapping_rules = None
         self._groupnet = None
-        self._path = None
-        self._home_directory_umask = None
-        self._name = None
-        self._create_path = None
-        self._auth_providers = None
-
-    @property
-    def ifs_restricted(self):
-        """
-        Gets the ifs_restricted of this ZoneCreateParams.
-        Specifies a list of users and groups that have read and write access to /ifs.
-
-        :return: The ifs_restricted of this ZoneCreateParams.
-        :rtype: list[GroupsGroupMember]
-        """
-        return self._ifs_restricted
-
-    @ifs_restricted.setter
-    def ifs_restricted(self, ifs_restricted):
-        """
-        Sets the ifs_restricted of this ZoneCreateParams.
-        Specifies a list of users and groups that have read and write access to /ifs.
-
-        :param ifs_restricted: The ifs_restricted of this ZoneCreateParams.
-        :type: list[GroupsGroupMember]
-        """
-        self._ifs_restricted = ifs_restricted
-
-    @property
-    def netbios_name(self):
-        """
-        Gets the netbios_name of this ZoneCreateParams.
-        Specifies the NetBIOS name.
-
-        :return: The netbios_name of this ZoneCreateParams.
-        :rtype: str
-        """
-        return self._netbios_name
-
-    @netbios_name.setter
-    def netbios_name(self, netbios_name):
-        """
-        Sets the netbios_name of this ZoneCreateParams.
-        Specifies the NetBIOS name.
-
-        :param netbios_name: The netbios_name of this ZoneCreateParams.
-        :type: str
-        """
-        self._netbios_name = netbios_name
-
-    @property
-    def map_untrusted(self):
-        """
-        Gets the map_untrusted of this ZoneCreateParams.
-        Maps untrusted domains to this NetBIOS domain during authentication.
-
-        :return: The map_untrusted of this ZoneCreateParams.
-        :rtype: str
-        """
-        return self._map_untrusted
-
-    @map_untrusted.setter
-    def map_untrusted(self, map_untrusted):
-        """
-        Sets the map_untrusted of this ZoneCreateParams.
-        Maps untrusted domains to this NetBIOS domain during authentication.
-
-        :param map_untrusted: The map_untrusted of this ZoneCreateParams.
-        :type: str
-        """
-        self._map_untrusted = map_untrusted
-
-    @property
-    def system_provider(self):
-        """
-        Gets the system_provider of this ZoneCreateParams.
-        Specifies the system provider for the access zone.
-
-        :return: The system_provider of this ZoneCreateParams.
-        :rtype: str
-        """
-        return self._system_provider
-
-    @system_provider.setter
-    def system_provider(self, system_provider):
-        """
-        Sets the system_provider of this ZoneCreateParams.
-        Specifies the system provider for the access zone.
-
-        :param system_provider: The system_provider of this ZoneCreateParams.
-        :type: str
-        """
-        self._system_provider = system_provider
-
-    @property
-    def skeleton_directory(self):
-        """
-        Gets the skeleton_directory of this ZoneCreateParams.
-        Specifies the skeleton directory that is used for user home directories.
-
-        :return: The skeleton_directory of this ZoneCreateParams.
-        :rtype: str
-        """
-        return self._skeleton_directory
-
-    @skeleton_directory.setter
-    def skeleton_directory(self, skeleton_directory):
-        """
-        Sets the skeleton_directory of this ZoneCreateParams.
-        Specifies the skeleton directory that is used for user home directories.
-
-        :param skeleton_directory: The skeleton_directory of this ZoneCreateParams.
-        :type: str
-        """
-        self._skeleton_directory = skeleton_directory
-
-    @property
-    def cache_entry_expiry(self):
-        """
-        Gets the cache_entry_expiry of this ZoneCreateParams.
-        Specifies amount of time in seconds to cache a user/group.
-
-        :return: The cache_entry_expiry of this ZoneCreateParams.
-        :rtype: int
-        """
-        return self._cache_entry_expiry
-
-    @cache_entry_expiry.setter
-    def cache_entry_expiry(self, cache_entry_expiry):
-        """
-        Sets the cache_entry_expiry of this ZoneCreateParams.
-        Specifies amount of time in seconds to cache a user/group.
-
-        :param cache_entry_expiry: The cache_entry_expiry of this ZoneCreateParams.
-        :type: int
-        """
-        self._cache_entry_expiry = cache_entry_expiry
 
     @property
     def alternate_system_provider(self):
@@ -240,7 +109,77 @@ class ZoneCreateParams(object):
         :param alternate_system_provider: The alternate_system_provider of this ZoneCreateParams.
         :type: str
         """
+        
         self._alternate_system_provider = alternate_system_provider
+
+    @property
+    def auth_providers(self):
+        """
+        Gets the auth_providers of this ZoneCreateParams.
+        Specifies the list of authentication providers available on this access zone.
+
+        :return: The auth_providers of this ZoneCreateParams.
+        :rtype: list[str]
+        """
+        return self._auth_providers
+
+    @auth_providers.setter
+    def auth_providers(self, auth_providers):
+        """
+        Sets the auth_providers of this ZoneCreateParams.
+        Specifies the list of authentication providers available on this access zone.
+
+        :param auth_providers: The auth_providers of this ZoneCreateParams.
+        :type: list[str]
+        """
+        
+        self._auth_providers = auth_providers
+
+    @property
+    def cache_entry_expiry(self):
+        """
+        Gets the cache_entry_expiry of this ZoneCreateParams.
+        Specifies amount of time in seconds to cache a user/group.
+
+        :return: The cache_entry_expiry of this ZoneCreateParams.
+        :rtype: int
+        """
+        return self._cache_entry_expiry
+
+    @cache_entry_expiry.setter
+    def cache_entry_expiry(self, cache_entry_expiry):
+        """
+        Sets the cache_entry_expiry of this ZoneCreateParams.
+        Specifies amount of time in seconds to cache a user/group.
+
+        :param cache_entry_expiry: The cache_entry_expiry of this ZoneCreateParams.
+        :type: int
+        """
+        
+        self._cache_entry_expiry = cache_entry_expiry
+
+    @property
+    def create_path(self):
+        """
+        Gets the create_path of this ZoneCreateParams.
+        Determines if a path is created when a path does not exist.
+
+        :return: The create_path of this ZoneCreateParams.
+        :rtype: bool
+        """
+        return self._create_path
+
+    @create_path.setter
+    def create_path(self, create_path):
+        """
+        Sets the create_path of this ZoneCreateParams.
+        Determines if a path is created when a path does not exist.
+
+        :param create_path: The create_path of this ZoneCreateParams.
+        :type: bool
+        """
+        
+        self._create_path = create_path
 
     @property
     def force_overlap(self):
@@ -262,7 +201,192 @@ class ZoneCreateParams(object):
         :param force_overlap: The force_overlap of this ZoneCreateParams.
         :type: bool
         """
+        
         self._force_overlap = force_overlap
+
+    @property
+    def home_directory_umask(self):
+        """
+        Gets the home_directory_umask of this ZoneCreateParams.
+        Specifies the permissions set on automatically created user home directories.
+
+        :return: The home_directory_umask of this ZoneCreateParams.
+        :rtype: int
+        """
+        return self._home_directory_umask
+
+    @home_directory_umask.setter
+    def home_directory_umask(self, home_directory_umask):
+        """
+        Sets the home_directory_umask of this ZoneCreateParams.
+        Specifies the permissions set on automatically created user home directories.
+
+        :param home_directory_umask: The home_directory_umask of this ZoneCreateParams.
+        :type: int
+        """
+        
+        self._home_directory_umask = home_directory_umask
+
+    @property
+    def ifs_restricted(self):
+        """
+        Gets the ifs_restricted of this ZoneCreateParams.
+        Specifies a list of users and groups that have read and write access to /ifs.
+
+        :return: The ifs_restricted of this ZoneCreateParams.
+        :rtype: list[GroupMember]
+        """
+        return self._ifs_restricted
+
+    @ifs_restricted.setter
+    def ifs_restricted(self, ifs_restricted):
+        """
+        Sets the ifs_restricted of this ZoneCreateParams.
+        Specifies a list of users and groups that have read and write access to /ifs.
+
+        :param ifs_restricted: The ifs_restricted of this ZoneCreateParams.
+        :type: list[GroupMember]
+        """
+        
+        self._ifs_restricted = ifs_restricted
+
+    @property
+    def map_untrusted(self):
+        """
+        Gets the map_untrusted of this ZoneCreateParams.
+        Maps untrusted domains to this NetBIOS domain during authentication.
+
+        :return: The map_untrusted of this ZoneCreateParams.
+        :rtype: str
+        """
+        return self._map_untrusted
+
+    @map_untrusted.setter
+    def map_untrusted(self, map_untrusted):
+        """
+        Sets the map_untrusted of this ZoneCreateParams.
+        Maps untrusted domains to this NetBIOS domain during authentication.
+
+        :param map_untrusted: The map_untrusted of this ZoneCreateParams.
+        :type: str
+        """
+        
+        self._map_untrusted = map_untrusted
+
+    @property
+    def name(self):
+        """
+        Gets the name of this ZoneCreateParams.
+        Specifies the access zone name.
+
+        :return: The name of this ZoneCreateParams.
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """
+        Sets the name of this ZoneCreateParams.
+        Specifies the access zone name.
+
+        :param name: The name of this ZoneCreateParams.
+        :type: str
+        """
+        
+        self._name = name
+
+    @property
+    def netbios_name(self):
+        """
+        Gets the netbios_name of this ZoneCreateParams.
+        Specifies the NetBIOS name.
+
+        :return: The netbios_name of this ZoneCreateParams.
+        :rtype: str
+        """
+        return self._netbios_name
+
+    @netbios_name.setter
+    def netbios_name(self, netbios_name):
+        """
+        Sets the netbios_name of this ZoneCreateParams.
+        Specifies the NetBIOS name.
+
+        :param netbios_name: The netbios_name of this ZoneCreateParams.
+        :type: str
+        """
+        
+        self._netbios_name = netbios_name
+
+    @property
+    def path(self):
+        """
+        Gets the path of this ZoneCreateParams.
+        Specifies the access zone base directory path.
+
+        :return: The path of this ZoneCreateParams.
+        :rtype: str
+        """
+        return self._path
+
+    @path.setter
+    def path(self, path):
+        """
+        Sets the path of this ZoneCreateParams.
+        Specifies the access zone base directory path.
+
+        :param path: The path of this ZoneCreateParams.
+        :type: str
+        """
+        
+        self._path = path
+
+    @property
+    def skeleton_directory(self):
+        """
+        Gets the skeleton_directory of this ZoneCreateParams.
+        Specifies the skeleton directory that is used for user home directories.
+
+        :return: The skeleton_directory of this ZoneCreateParams.
+        :rtype: str
+        """
+        return self._skeleton_directory
+
+    @skeleton_directory.setter
+    def skeleton_directory(self, skeleton_directory):
+        """
+        Sets the skeleton_directory of this ZoneCreateParams.
+        Specifies the skeleton directory that is used for user home directories.
+
+        :param skeleton_directory: The skeleton_directory of this ZoneCreateParams.
+        :type: str
+        """
+        
+        self._skeleton_directory = skeleton_directory
+
+    @property
+    def system_provider(self):
+        """
+        Gets the system_provider of this ZoneCreateParams.
+        Specifies the system provider for the access zone.
+
+        :return: The system_provider of this ZoneCreateParams.
+        :rtype: str
+        """
+        return self._system_provider
+
+    @system_provider.setter
+    def system_provider(self, system_provider):
+        """
+        Sets the system_provider of this ZoneCreateParams.
+        Specifies the system provider for the access zone.
+
+        :param system_provider: The system_provider of this ZoneCreateParams.
+        :type: str
+        """
+        
+        self._system_provider = system_provider
 
     @property
     def user_mapping_rules(self):
@@ -284,6 +408,7 @@ class ZoneCreateParams(object):
         :param user_mapping_rules: The user_mapping_rules of this ZoneCreateParams.
         :type: list[str]
         """
+        
         self._user_mapping_rules = user_mapping_rules
 
     @property
@@ -306,117 +431,8 @@ class ZoneCreateParams(object):
         :param groupnet: The groupnet of this ZoneCreateParams.
         :type: str
         """
+        
         self._groupnet = groupnet
-
-    @property
-    def path(self):
-        """
-        Gets the path of this ZoneCreateParams.
-        Specifies the access zone base directory path.
-
-        :return: The path of this ZoneCreateParams.
-        :rtype: str
-        """
-        return self._path
-
-    @path.setter
-    def path(self, path):
-        """
-        Sets the path of this ZoneCreateParams.
-        Specifies the access zone base directory path.
-
-        :param path: The path of this ZoneCreateParams.
-        :type: str
-        """
-        self._path = path
-
-    @property
-    def home_directory_umask(self):
-        """
-        Gets the home_directory_umask of this ZoneCreateParams.
-        Specifies the permissions set on automatically created user home directories.
-
-        :return: The home_directory_umask of this ZoneCreateParams.
-        :rtype: int
-        """
-        return self._home_directory_umask
-
-    @home_directory_umask.setter
-    def home_directory_umask(self, home_directory_umask):
-        """
-        Sets the home_directory_umask of this ZoneCreateParams.
-        Specifies the permissions set on automatically created user home directories.
-
-        :param home_directory_umask: The home_directory_umask of this ZoneCreateParams.
-        :type: int
-        """
-        self._home_directory_umask = home_directory_umask
-
-    @property
-    def name(self):
-        """
-        Gets the name of this ZoneCreateParams.
-        Specifies the access zone name.
-
-        :return: The name of this ZoneCreateParams.
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """
-        Sets the name of this ZoneCreateParams.
-        Specifies the access zone name.
-
-        :param name: The name of this ZoneCreateParams.
-        :type: str
-        """
-        self._name = name
-
-    @property
-    def create_path(self):
-        """
-        Gets the create_path of this ZoneCreateParams.
-        Determines if a path is created when a path does not exist.
-
-        :return: The create_path of this ZoneCreateParams.
-        :rtype: bool
-        """
-        return self._create_path
-
-    @create_path.setter
-    def create_path(self, create_path):
-        """
-        Sets the create_path of this ZoneCreateParams.
-        Determines if a path is created when a path does not exist.
-
-        :param create_path: The create_path of this ZoneCreateParams.
-        :type: bool
-        """
-        self._create_path = create_path
-
-    @property
-    def auth_providers(self):
-        """
-        Gets the auth_providers of this ZoneCreateParams.
-        Specifies the list of authentication providers available on this access zone.
-
-        :return: The auth_providers of this ZoneCreateParams.
-        :rtype: list[str]
-        """
-        return self._auth_providers
-
-    @auth_providers.setter
-    def auth_providers(self, auth_providers):
-        """
-        Sets the auth_providers of this ZoneCreateParams.
-        Specifies the list of authentication providers available on this access zone.
-
-        :param auth_providers: The auth_providers of this ZoneCreateParams.
-        :type: list[str]
-        """
-        self._auth_providers = auth_providers
 
     def to_dict(self):
         """
@@ -433,6 +449,12 @@ class ZoneCreateParams(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -450,14 +472,14 @@ class ZoneCreateParams(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

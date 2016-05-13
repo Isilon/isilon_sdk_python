@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class QuotaQuotaExtended(object):
@@ -39,48 +40,48 @@ class QuotaQuotaExtended(object):
         self.swagger_types = {
             'container': 'bool',
             'enforced': 'bool',
-            'persona': 'GroupsGroupMember',
-            'usage': 'QuotaQuotaUsage',
-            'type': 'str',
-            'path': 'str',
+            'linked': 'bool',
             'thresholds': 'QuotaQuotaThresholds',
-            'ready': 'bool',
             'thresholds_include_overhead': 'bool',
             'id': 'str',
             'include_snapshots': 'bool',
             'notifications': 'str',
-            'linked': 'bool'
+            'path': 'str',
+            'persona': 'GroupMember',
+            'ready': 'bool',
+            'type': 'str',
+            'usage': 'QuotaQuotaUsage'
         }
 
         self.attribute_map = {
             'container': 'container',
             'enforced': 'enforced',
-            'persona': 'persona',
-            'usage': 'usage',
-            'type': 'type',
-            'path': 'path',
+            'linked': 'linked',
             'thresholds': 'thresholds',
-            'ready': 'ready',
             'thresholds_include_overhead': 'thresholds_include_overhead',
             'id': 'id',
             'include_snapshots': 'include_snapshots',
             'notifications': 'notifications',
-            'linked': 'linked'
+            'path': 'path',
+            'persona': 'persona',
+            'ready': 'ready',
+            'type': 'type',
+            'usage': 'usage'
         }
 
         self._container = None
         self._enforced = None
-        self._persona = None
-        self._usage = None
-        self._type = None
-        self._path = None
+        self._linked = None
         self._thresholds = None
-        self._ready = None
         self._thresholds_include_overhead = None
         self._id = None
         self._include_snapshots = None
         self._notifications = None
-        self._linked = None
+        self._path = None
+        self._persona = None
+        self._ready = None
+        self._type = None
+        self._usage = None
 
     @property
     def container(self):
@@ -102,6 +103,7 @@ class QuotaQuotaExtended(object):
         :param container: The container of this QuotaQuotaExtended.
         :type: bool
         """
+        
         self._container = container
 
     @property
@@ -124,101 +126,31 @@ class QuotaQuotaExtended(object):
         :param enforced: The enforced of this QuotaQuotaExtended.
         :type: bool
         """
+        
         self._enforced = enforced
 
     @property
-    def persona(self):
+    def linked(self):
         """
-        Gets the persona of this QuotaQuotaExtended.
-        Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'.
+        Gets the linked of this QuotaQuotaExtended.
+        If false and the quota is linked, attempt to unlink.
 
-        :return: The persona of this QuotaQuotaExtended.
-        :rtype: GroupsGroupMember
+        :return: The linked of this QuotaQuotaExtended.
+        :rtype: bool
         """
-        return self._persona
+        return self._linked
 
-    @persona.setter
-    def persona(self, persona):
+    @linked.setter
+    def linked(self, linked):
         """
-        Sets the persona of this QuotaQuotaExtended.
-        Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'.
+        Sets the linked of this QuotaQuotaExtended.
+        If false and the quota is linked, attempt to unlink.
 
-        :param persona: The persona of this QuotaQuotaExtended.
-        :type: GroupsGroupMember
+        :param linked: The linked of this QuotaQuotaExtended.
+        :type: bool
         """
-        self._persona = persona
-
-    @property
-    def usage(self):
-        """
-        Gets the usage of this QuotaQuotaExtended.
         
-
-        :return: The usage of this QuotaQuotaExtended.
-        :rtype: QuotaQuotaUsage
-        """
-        return self._usage
-
-    @usage.setter
-    def usage(self, usage):
-        """
-        Sets the usage of this QuotaQuotaExtended.
-        
-
-        :param usage: The usage of this QuotaQuotaExtended.
-        :type: QuotaQuotaUsage
-        """
-        self._usage = usage
-
-    @property
-    def type(self):
-        """
-        Gets the type of this QuotaQuotaExtended.
-        The type of quota.
-
-        :return: The type of this QuotaQuotaExtended.
-        :rtype: str
-        """
-        return self._type
-
-    @type.setter
-    def type(self, type):
-        """
-        Sets the type of this QuotaQuotaExtended.
-        The type of quota.
-
-        :param type: The type of this QuotaQuotaExtended.
-        :type: str
-        """
-        allowed_values = ["directory", "user", "group", "default-user", "default-group"]
-        if type not in allowed_values:
-            raise ValueError(
-                "Invalid value for `type`, must be one of {0}"
-                .format(allowed_values)
-            )
-        self._type = type
-
-    @property
-    def path(self):
-        """
-        Gets the path of this QuotaQuotaExtended.
-        The /ifs path governed.
-
-        :return: The path of this QuotaQuotaExtended.
-        :rtype: str
-        """
-        return self._path
-
-    @path.setter
-    def path(self, path):
-        """
-        Sets the path of this QuotaQuotaExtended.
-        The /ifs path governed.
-
-        :param path: The path of this QuotaQuotaExtended.
-        :type: str
-        """
-        self._path = path
+        self._linked = linked
 
     @property
     def thresholds(self):
@@ -240,29 +172,8 @@ class QuotaQuotaExtended(object):
         :param thresholds: The thresholds of this QuotaQuotaExtended.
         :type: QuotaQuotaThresholds
         """
+        
         self._thresholds = thresholds
-
-    @property
-    def ready(self):
-        """
-        Gets the ready of this QuotaQuotaExtended.
-        True if the accounting is accurate on the quota.  If false, this quota is waiting on completion of a QuotaScan job.
-
-        :return: The ready of this QuotaQuotaExtended.
-        :rtype: bool
-        """
-        return self._ready
-
-    @ready.setter
-    def ready(self, ready):
-        """
-        Sets the ready of this QuotaQuotaExtended.
-        True if the accounting is accurate on the quota.  If false, this quota is waiting on completion of a QuotaScan job.
-
-        :param ready: The ready of this QuotaQuotaExtended.
-        :type: bool
-        """
-        self._ready = ready
 
     @property
     def thresholds_include_overhead(self):
@@ -284,6 +195,7 @@ class QuotaQuotaExtended(object):
         :param thresholds_include_overhead: The thresholds_include_overhead of this QuotaQuotaExtended.
         :type: bool
         """
+        
         self._thresholds_include_overhead = thresholds_include_overhead
 
     @property
@@ -306,6 +218,7 @@ class QuotaQuotaExtended(object):
         :param id: The id of this QuotaQuotaExtended.
         :type: str
         """
+        
         self._id = id
 
     @property
@@ -328,6 +241,7 @@ class QuotaQuotaExtended(object):
         :param include_snapshots: The include_snapshots of this QuotaQuotaExtended.
         :type: bool
         """
+        
         self._include_snapshots = include_snapshots
 
     @property
@@ -356,29 +270,129 @@ class QuotaQuotaExtended(object):
                 "Invalid value for `notifications`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._notifications = notifications
 
     @property
-    def linked(self):
+    def path(self):
         """
-        Gets the linked of this QuotaQuotaExtended.
-        If false and the quota is linked, attempt to unlink.
+        Gets the path of this QuotaQuotaExtended.
+        The /ifs path governed.
 
-        :return: The linked of this QuotaQuotaExtended.
+        :return: The path of this QuotaQuotaExtended.
+        :rtype: str
+        """
+        return self._path
+
+    @path.setter
+    def path(self, path):
+        """
+        Sets the path of this QuotaQuotaExtended.
+        The /ifs path governed.
+
+        :param path: The path of this QuotaQuotaExtended.
+        :type: str
+        """
+        
+        self._path = path
+
+    @property
+    def persona(self):
+        """
+        Gets the persona of this QuotaQuotaExtended.
+        Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'.
+
+        :return: The persona of this QuotaQuotaExtended.
+        :rtype: GroupMember
+        """
+        return self._persona
+
+    @persona.setter
+    def persona(self, persona):
+        """
+        Sets the persona of this QuotaQuotaExtended.
+        Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'.
+
+        :param persona: The persona of this QuotaQuotaExtended.
+        :type: GroupMember
+        """
+        
+        self._persona = persona
+
+    @property
+    def ready(self):
+        """
+        Gets the ready of this QuotaQuotaExtended.
+        True if the accounting is accurate on the quota.  If false, this quota is waiting on completion of a QuotaScan job.
+
+        :return: The ready of this QuotaQuotaExtended.
         :rtype: bool
         """
-        return self._linked
+        return self._ready
 
-    @linked.setter
-    def linked(self, linked):
+    @ready.setter
+    def ready(self, ready):
         """
-        Sets the linked of this QuotaQuotaExtended.
-        If false and the quota is linked, attempt to unlink.
+        Sets the ready of this QuotaQuotaExtended.
+        True if the accounting is accurate on the quota.  If false, this quota is waiting on completion of a QuotaScan job.
 
-        :param linked: The linked of this QuotaQuotaExtended.
+        :param ready: The ready of this QuotaQuotaExtended.
         :type: bool
         """
-        self._linked = linked
+        
+        self._ready = ready
+
+    @property
+    def type(self):
+        """
+        Gets the type of this QuotaQuotaExtended.
+        The type of quota.
+
+        :return: The type of this QuotaQuotaExtended.
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """
+        Sets the type of this QuotaQuotaExtended.
+        The type of quota.
+
+        :param type: The type of this QuotaQuotaExtended.
+        :type: str
+        """
+        allowed_values = ["directory", "user", "group", "default-user", "default-group"]
+        if type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `type`, must be one of {0}"
+                .format(allowed_values)
+            )
+
+        self._type = type
+
+    @property
+    def usage(self):
+        """
+        Gets the usage of this QuotaQuotaExtended.
+        
+
+        :return: The usage of this QuotaQuotaExtended.
+        :rtype: QuotaQuotaUsage
+        """
+        return self._usage
+
+    @usage.setter
+    def usage(self, usage):
+        """
+        Sets the usage of this QuotaQuotaExtended.
+        
+
+        :param usage: The usage of this QuotaQuotaExtended.
+        :type: QuotaQuotaUsage
+        """
+        
+        self._usage = usage
 
     def to_dict(self):
         """
@@ -395,6 +409,12 @@ class QuotaQuotaExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -412,14 +432,14 @@ class QuotaQuotaExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

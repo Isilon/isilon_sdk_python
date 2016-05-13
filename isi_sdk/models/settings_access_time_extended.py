@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class SettingsAccessTimeExtended(object):
@@ -37,42 +38,17 @@ class SettingsAccessTimeExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'settings': 'SettingsAccessTimeSettings',
             'enabled': 'bool',
             'precision': 'int'
         }
 
         self.attribute_map = {
-            'settings': 'settings',
             'enabled': 'enabled',
             'precision': 'precision'
         }
 
-        self._settings = None
         self._enabled = None
         self._precision = None
-
-    @property
-    def settings(self):
-        """
-        Gets the settings of this SettingsAccessTimeExtended.
-        
-
-        :return: The settings of this SettingsAccessTimeExtended.
-        :rtype: SettingsAccessTimeSettings
-        """
-        return self._settings
-
-    @settings.setter
-    def settings(self, settings):
-        """
-        Sets the settings of this SettingsAccessTimeExtended.
-        
-
-        :param settings: The settings of this SettingsAccessTimeExtended.
-        :type: SettingsAccessTimeSettings
-        """
-        self._settings = settings
 
     @property
     def enabled(self):
@@ -94,6 +70,7 @@ class SettingsAccessTimeExtended(object):
         :param enabled: The enabled of this SettingsAccessTimeExtended.
         :type: bool
         """
+        
         self._enabled = enabled
 
     @property
@@ -116,6 +93,14 @@ class SettingsAccessTimeExtended(object):
         :param precision: The precision of this SettingsAccessTimeExtended.
         :type: int
         """
+        
+        if not precision:
+            raise ValueError("Invalid value for `precision`, must not be `None`")
+        if precision > 1.5768E9: 
+            raise ValueError("Invalid value for `precision`, must be a value less than or equal to `1.5768E9`")
+        if precision < 0.0: 
+            raise ValueError("Invalid value for `precision`, must be a value greater than or equal to `0.0`")
+
         self._precision = precision
 
     def to_dict(self):
@@ -133,6 +118,12 @@ class SettingsAccessTimeExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -150,14 +141,14 @@ class SettingsAccessTimeExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

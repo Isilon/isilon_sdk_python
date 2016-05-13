@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class SettingsGlobalSettings(object):
@@ -87,6 +88,7 @@ class SettingsGlobalSettings(object):
         :param audited_zones: The audited_zones of this SettingsGlobalSettings.
         :type: list[str]
         """
+        
         self._audited_zones = audited_zones
 
     @property
@@ -109,6 +111,7 @@ class SettingsGlobalSettings(object):
         :param cee_log_time: The cee_log_time of this SettingsGlobalSettings.
         :type: str
         """
+        
         self._cee_log_time = cee_log_time
 
     @property
@@ -131,6 +134,7 @@ class SettingsGlobalSettings(object):
         :param cee_server_uris: The cee_server_uris of this SettingsGlobalSettings.
         :type: list[str]
         """
+        
         self._cee_server_uris = cee_server_uris
 
     @property
@@ -153,6 +157,7 @@ class SettingsGlobalSettings(object):
         :param config_auditing_enabled: The config_auditing_enabled of this SettingsGlobalSettings.
         :type: bool
         """
+        
         self._config_auditing_enabled = config_auditing_enabled
 
     @property
@@ -175,6 +180,7 @@ class SettingsGlobalSettings(object):
         :param config_syslog_enabled: The config_syslog_enabled of this SettingsGlobalSettings.
         :type: bool
         """
+        
         self._config_syslog_enabled = config_syslog_enabled
 
     @property
@@ -197,6 +203,7 @@ class SettingsGlobalSettings(object):
         :param hostname: The hostname of this SettingsGlobalSettings.
         :type: str
         """
+        
         self._hostname = hostname
 
     @property
@@ -219,6 +226,7 @@ class SettingsGlobalSettings(object):
         :param protocol_auditing_enabled: The protocol_auditing_enabled of this SettingsGlobalSettings.
         :type: bool
         """
+        
         self._protocol_auditing_enabled = protocol_auditing_enabled
 
     @property
@@ -241,6 +249,7 @@ class SettingsGlobalSettings(object):
         :param syslog_log_time: The syslog_log_time of this SettingsGlobalSettings.
         :type: str
         """
+        
         self._syslog_log_time = syslog_log_time
 
     def to_dict(self):
@@ -258,6 +267,12 @@ class SettingsGlobalSettings(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -275,14 +290,14 @@ class SettingsGlobalSettings(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class SummaryClientClientItem(object):
@@ -58,7 +59,7 @@ class SummaryClientClientItem(object):
             'time_avg': 'float',
             'time_max': 'float',
             'time_min': 'float',
-            'user': 'GroupsGroupMember'
+            'user': 'GroupMember'
         }
 
         self.attribute_map = {
@@ -129,6 +130,7 @@ class SummaryClientClientItem(object):
         :param _class: The _class of this SummaryClientClientItem.
         :type: str
         """
+        
         self.__class = _class
 
     @property
@@ -151,6 +153,7 @@ class SummaryClientClientItem(object):
         :param _in: The _in of this SummaryClientClientItem.
         :type: float
         """
+        
         self.__in = _in
 
     @property
@@ -173,6 +176,7 @@ class SummaryClientClientItem(object):
         :param in_avg: The in_avg of this SummaryClientClientItem.
         :type: float
         """
+        
         self._in_avg = in_avg
 
     @property
@@ -195,6 +199,7 @@ class SummaryClientClientItem(object):
         :param in_max: The in_max of this SummaryClientClientItem.
         :type: float
         """
+        
         self._in_max = in_max
 
     @property
@@ -217,6 +222,7 @@ class SummaryClientClientItem(object):
         :param in_min: The in_min of this SummaryClientClientItem.
         :type: float
         """
+        
         self._in_min = in_min
 
     @property
@@ -239,6 +245,7 @@ class SummaryClientClientItem(object):
         :param local_addr: The local_addr of this SummaryClientClientItem.
         :type: str
         """
+        
         self._local_addr = local_addr
 
     @property
@@ -261,6 +268,7 @@ class SummaryClientClientItem(object):
         :param local_name: The local_name of this SummaryClientClientItem.
         :type: str
         """
+        
         self._local_name = local_name
 
     @property
@@ -283,6 +291,7 @@ class SummaryClientClientItem(object):
         :param node: The node of this SummaryClientClientItem.
         :type: int
         """
+        
         self._node = node
 
     @property
@@ -305,6 +314,7 @@ class SummaryClientClientItem(object):
         :param num_operations: The num_operations of this SummaryClientClientItem.
         :type: int
         """
+        
         self._num_operations = num_operations
 
     @property
@@ -327,6 +337,7 @@ class SummaryClientClientItem(object):
         :param operation_rate: The operation_rate of this SummaryClientClientItem.
         :type: float
         """
+        
         self._operation_rate = operation_rate
 
     @property
@@ -349,6 +360,7 @@ class SummaryClientClientItem(object):
         :param out: The out of this SummaryClientClientItem.
         :type: float
         """
+        
         self._out = out
 
     @property
@@ -371,6 +383,7 @@ class SummaryClientClientItem(object):
         :param out_avg: The out_avg of this SummaryClientClientItem.
         :type: float
         """
+        
         self._out_avg = out_avg
 
     @property
@@ -393,6 +406,7 @@ class SummaryClientClientItem(object):
         :param out_max: The out_max of this SummaryClientClientItem.
         :type: float
         """
+        
         self._out_max = out_max
 
     @property
@@ -415,6 +429,7 @@ class SummaryClientClientItem(object):
         :param out_min: The out_min of this SummaryClientClientItem.
         :type: float
         """
+        
         self._out_min = out_min
 
     @property
@@ -437,6 +452,7 @@ class SummaryClientClientItem(object):
         :param protocol: The protocol of this SummaryClientClientItem.
         :type: str
         """
+        
         self._protocol = protocol
 
     @property
@@ -459,6 +475,7 @@ class SummaryClientClientItem(object):
         :param remote_addr: The remote_addr of this SummaryClientClientItem.
         :type: str
         """
+        
         self._remote_addr = remote_addr
 
     @property
@@ -481,6 +498,7 @@ class SummaryClientClientItem(object):
         :param remote_name: The remote_name of this SummaryClientClientItem.
         :type: str
         """
+        
         self._remote_name = remote_name
 
     @property
@@ -503,6 +521,7 @@ class SummaryClientClientItem(object):
         :param time: The time of this SummaryClientClientItem.
         :type: int
         """
+        
         self._time = time
 
     @property
@@ -525,6 +544,7 @@ class SummaryClientClientItem(object):
         :param time_avg: The time_avg of this SummaryClientClientItem.
         :type: float
         """
+        
         self._time_avg = time_avg
 
     @property
@@ -547,6 +567,7 @@ class SummaryClientClientItem(object):
         :param time_max: The time_max of this SummaryClientClientItem.
         :type: float
         """
+        
         self._time_max = time_max
 
     @property
@@ -569,6 +590,7 @@ class SummaryClientClientItem(object):
         :param time_min: The time_min of this SummaryClientClientItem.
         :type: float
         """
+        
         self._time_min = time_min
 
     @property
@@ -578,7 +600,7 @@ class SummaryClientClientItem(object):
         User issuing the operation.
 
         :return: The user of this SummaryClientClientItem.
-        :rtype: GroupsGroupMember
+        :rtype: GroupMember
         """
         return self._user
 
@@ -589,8 +611,9 @@ class SummaryClientClientItem(object):
         User issuing the operation.
 
         :param user: The user of this SummaryClientClientItem.
-        :type: GroupsGroupMember
+        :type: GroupMember
         """
+        
         self._user = user
 
     def to_dict(self):
@@ -608,6 +631,12 @@ class SummaryClientClientItem(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -625,14 +654,14 @@ class SummaryClientClientItem(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

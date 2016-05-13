@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class LicenseLicenseCreateParams(object):
@@ -37,117 +38,14 @@ class LicenseLicenseCreateParams(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'duration': 'int',
-            'name': 'str',
-            'expiration': 'int',
-            'id': 'str',
-            'key': 'str',
-            'status': 'str'
+            'key': 'str'
         }
 
         self.attribute_map = {
-            'duration': 'duration',
-            'name': 'name',
-            'expiration': 'expiration',
-            'id': 'id',
-            'key': 'key',
-            'status': 'status'
+            'key': 'key'
         }
 
-        self._duration = None
-        self._name = None
-        self._expiration = None
-        self._id = None
         self._key = None
-        self._status = None
-
-    @property
-    def duration(self):
-        """
-        Gets the duration of this LicenseLicenseCreateParams.
-        Total duration in seconds for temporary licenses.
-
-        :return: The duration of this LicenseLicenseCreateParams.
-        :rtype: int
-        """
-        return self._duration
-
-    @duration.setter
-    def duration(self, duration):
-        """
-        Sets the duration of this LicenseLicenseCreateParams.
-        Total duration in seconds for temporary licenses.
-
-        :param duration: The duration of this LicenseLicenseCreateParams.
-        :type: int
-        """
-        self._duration = duration
-
-    @property
-    def name(self):
-        """
-        Gets the name of this LicenseLicenseCreateParams.
-        Name of the licensed feature.
-
-        :return: The name of this LicenseLicenseCreateParams.
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """
-        Sets the name of this LicenseLicenseCreateParams.
-        Name of the licensed feature.
-
-        :param name: The name of this LicenseLicenseCreateParams.
-        :type: str
-        """
-        self._name = name
-
-    @property
-    def expiration(self):
-        """
-        Gets the expiration of this LicenseLicenseCreateParams.
-        Unix epoch time the license will expire.
-
-        :return: The expiration of this LicenseLicenseCreateParams.
-        :rtype: int
-        """
-        return self._expiration
-
-    @expiration.setter
-    def expiration(self, expiration):
-        """
-        Sets the expiration of this LicenseLicenseCreateParams.
-        Unix epoch time the license will expire.
-
-        :param expiration: The expiration of this LicenseLicenseCreateParams.
-        :type: int
-        """
-        self._expiration = expiration
-
-    @property
-    def id(self):
-        """
-        Gets the id of this LicenseLicenseCreateParams.
-        Unique identifier for the license.
-
-        :return: The id of this LicenseLicenseCreateParams.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this LicenseLicenseCreateParams.
-        Unique identifier for the license.
-
-        :param id: The id of this LicenseLicenseCreateParams.
-        :type: str
-        """
-        self._id = id
 
     @property
     def key(self):
@@ -169,35 +67,8 @@ class LicenseLicenseCreateParams(object):
         :param key: The key of this LicenseLicenseCreateParams.
         :type: str
         """
+        
         self._key = key
-
-    @property
-    def status(self):
-        """
-        Gets the status of this LicenseLicenseCreateParams.
-        Current status of the license.
-
-        :return: The status of this LicenseLicenseCreateParams.
-        :rtype: str
-        """
-        return self._status
-
-    @status.setter
-    def status(self, status):
-        """
-        Sets the status of this LicenseLicenseCreateParams.
-        Current status of the license.
-
-        :param status: The status of this LicenseLicenseCreateParams.
-        :type: str
-        """
-        allowed_values = ["Activated", "Evaluation", "Expired", "Inactive", "Unknown"]
-        if status not in allowed_values:
-            raise ValueError(
-                "Invalid value for `status`, must be one of {0}"
-                .format(allowed_values)
-            )
-        self._status = status
 
     def to_dict(self):
         """
@@ -214,6 +85,12 @@ class LicenseLicenseCreateParams(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -231,14 +108,14 @@ class LicenseLicenseCreateParams(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

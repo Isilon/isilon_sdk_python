@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class StoragepoolTierExtended(object):
@@ -37,26 +38,49 @@ class StoragepoolTierExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
+            'children': 'list[str]',
             'name': 'str',
             'id': 'int',
-            'children': 'list[str]',
             'lnns': 'list[int]',
             'usage': 'StoragepoolTierUsage'
         }
 
         self.attribute_map = {
+            'children': 'children',
             'name': 'name',
             'id': 'id',
-            'children': 'children',
             'lnns': 'lnns',
             'usage': 'usage'
         }
 
+        self._children = None
         self._name = None
         self._id = None
-        self._children = None
         self._lnns = None
         self._usage = None
+
+    @property
+    def children(self):
+        """
+        Gets the children of this StoragepoolTierExtended.
+        The names or IDs of the tier's children.
+
+        :return: The children of this StoragepoolTierExtended.
+        :rtype: list[str]
+        """
+        return self._children
+
+    @children.setter
+    def children(self, children):
+        """
+        Sets the children of this StoragepoolTierExtended.
+        The names or IDs of the tier's children.
+
+        :param children: The children of this StoragepoolTierExtended.
+        :type: list[str]
+        """
+        
+        self._children = children
 
     @property
     def name(self):
@@ -78,6 +102,7 @@ class StoragepoolTierExtended(object):
         :param name: The name of this StoragepoolTierExtended.
         :type: str
         """
+        
         self._name = name
 
     @property
@@ -100,29 +125,8 @@ class StoragepoolTierExtended(object):
         :param id: The id of this StoragepoolTierExtended.
         :type: int
         """
+        
         self._id = id
-
-    @property
-    def children(self):
-        """
-        Gets the children of this StoragepoolTierExtended.
-        The names or IDs of the tier's children.
-
-        :return: The children of this StoragepoolTierExtended.
-        :rtype: list[str]
-        """
-        return self._children
-
-    @children.setter
-    def children(self, children):
-        """
-        Sets the children of this StoragepoolTierExtended.
-        The names or IDs of the tier's children.
-
-        :param children: The children of this StoragepoolTierExtended.
-        :type: list[str]
-        """
-        self._children = children
 
     @property
     def lnns(self):
@@ -144,6 +148,7 @@ class StoragepoolTierExtended(object):
         :param lnns: The lnns of this StoragepoolTierExtended.
         :type: list[int]
         """
+        
         self._lnns = lnns
 
     @property
@@ -166,6 +171,7 @@ class StoragepoolTierExtended(object):
         :param usage: The usage of this StoragepoolTierExtended.
         :type: StoragepoolTierUsage
         """
+        
         self._usage = usage
 
     def to_dict(self):
@@ -183,6 +189,12 @@ class StoragepoolTierExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -200,14 +212,14 @@ class StoragepoolTierExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class CloudPoolCreateParams(object):
@@ -37,73 +38,29 @@ class CloudPoolCreateParams(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'name': 'str',
-            'description': 'str',
             'accounts': 'list[str]',
             'birth_cluster_id': 'str',
-            'type': 'str',
-            'vendor': 'str'
+            'description': 'str',
+            'name': 'str',
+            'vendor': 'str',
+            'type': 'str'
         }
 
         self.attribute_map = {
-            'name': 'name',
-            'description': 'description',
             'accounts': 'accounts',
             'birth_cluster_id': 'birth_cluster_id',
-            'type': 'type',
-            'vendor': 'vendor'
+            'description': 'description',
+            'name': 'name',
+            'vendor': 'vendor',
+            'type': 'type'
         }
 
-        self._name = None
-        self._description = None
         self._accounts = None
         self._birth_cluster_id = None
-        self._type = None
+        self._description = None
+        self._name = None
         self._vendor = None
-
-    @property
-    def name(self):
-        """
-        Gets the name of this CloudPoolCreateParams.
-        A unique name for this pool
-
-        :return: The name of this CloudPoolCreateParams.
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """
-        Sets the name of this CloudPoolCreateParams.
-        A unique name for this pool
-
-        :param name: The name of this CloudPoolCreateParams.
-        :type: str
-        """
-        self._name = name
-
-    @property
-    def description(self):
-        """
-        Gets the description of this CloudPoolCreateParams.
-        A brief description of this pool
-
-        :return: The description of this CloudPoolCreateParams.
-        :rtype: str
-        """
-        return self._description
-
-    @description.setter
-    def description(self, description):
-        """
-        Sets the description of this CloudPoolCreateParams.
-        A brief description of this pool
-
-        :param description: The description of this CloudPoolCreateParams.
-        :type: str
-        """
-        self._description = description
+        self._type = None
 
     @property
     def accounts(self):
@@ -125,6 +82,7 @@ class CloudPoolCreateParams(object):
         :param accounts: The accounts of this CloudPoolCreateParams.
         :type: list[str]
         """
+        
         self._accounts = accounts
 
     @property
@@ -147,7 +105,77 @@ class CloudPoolCreateParams(object):
         :param birth_cluster_id: The birth_cluster_id of this CloudPoolCreateParams.
         :type: str
         """
+        
         self._birth_cluster_id = birth_cluster_id
+
+    @property
+    def description(self):
+        """
+        Gets the description of this CloudPoolCreateParams.
+        A brief description of this pool
+
+        :return: The description of this CloudPoolCreateParams.
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """
+        Sets the description of this CloudPoolCreateParams.
+        A brief description of this pool
+
+        :param description: The description of this CloudPoolCreateParams.
+        :type: str
+        """
+        
+        self._description = description
+
+    @property
+    def name(self):
+        """
+        Gets the name of this CloudPoolCreateParams.
+        A unique name for this pool
+
+        :return: The name of this CloudPoolCreateParams.
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """
+        Sets the name of this CloudPoolCreateParams.
+        A unique name for this pool
+
+        :param name: The name of this CloudPoolCreateParams.
+        :type: str
+        """
+        
+        self._name = name
+
+    @property
+    def vendor(self):
+        """
+        Gets the vendor of this CloudPoolCreateParams.
+        A string identifier of the cloud services vendor
+
+        :return: The vendor of this CloudPoolCreateParams.
+        :rtype: str
+        """
+        return self._vendor
+
+    @vendor.setter
+    def vendor(self, vendor):
+        """
+        Sets the vendor of this CloudPoolCreateParams.
+        A string identifier of the cloud services vendor
+
+        :param vendor: The vendor of this CloudPoolCreateParams.
+        :type: str
+        """
+        
+        self._vendor = vendor
 
     @property
     def type(self):
@@ -175,29 +203,8 @@ class CloudPoolCreateParams(object):
                 "Invalid value for `type`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._type = type
-
-    @property
-    def vendor(self):
-        """
-        Gets the vendor of this CloudPoolCreateParams.
-        A string identifier of the cloud services vendor
-
-        :return: The vendor of this CloudPoolCreateParams.
-        :rtype: str
-        """
-        return self._vendor
-
-    @vendor.setter
-    def vendor(self, vendor):
-        """
-        Sets the vendor of this CloudPoolCreateParams.
-        A string identifier of the cloud services vendor
-
-        :param vendor: The vendor of this CloudPoolCreateParams.
-        :type: str
-        """
-        self._vendor = vendor
 
     def to_dict(self):
         """
@@ -214,6 +221,12 @@ class CloudPoolCreateParams(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -231,14 +244,14 @@ class CloudPoolCreateParams(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

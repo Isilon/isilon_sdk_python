@@ -2,7 +2,7 @@
 
 """
 EventApi.py
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@ from __future__ import absolute_import
 
 import sys
 import os
+import re
 
 # python 2 and python 3 compatibility library
 from six import iteritems
@@ -44,94 +45,6 @@ class EventApi(object):
             if not config.api_client:
                 config.api_client = ApiClient()
             self.api_client = config.api_client
-
-    def list_event_alert_conditions(self, **kwargs):
-        """
-        
-        List all alert conditions.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.list_event_alert_conditions(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str sort: The field that will be used for sorting.
-        :param str channel_ids: Return only conditions for the specified channel:
-        :param int limit: Return no more than this many results at once (see resume).
-        :param str dir: The direction of the sort.
-        :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
-        :return: EventAlertConditionsExtended
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['sort', 'channel_ids', 'limit', 'dir', 'resume']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_event_alert_conditions" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/event/alert-conditions'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-        if 'sort' in params:
-            query_params['sort'] = params['sort']
-        if 'channel_ids' in params:
-            query_params['channel_ids'] = params['channel_ids']
-        if 'limit' in params:
-            query_params['limit'] = params['limit']
-        if 'dir' in params:
-            query_params['dir'] = params['dir']
-        if 'resume' in params:
-            query_params['resume'] = params['resume']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='EventAlertConditionsExtended',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
 
     def create_event_alert_condition(self, event_alert_condition, **kwargs):
         """
@@ -171,17 +84,16 @@ class EventApi(object):
         if ('event_alert_condition' not in params) or (params['event_alert_condition'] is None):
             raise ValueError("Missing the required parameter `event_alert_condition` when calling `create_event_alert_condition`")
 
-        resource_path = '/platform/3/event/alert-conditions'.replace('{format}', 'json')
-        method = 'POST'
 
+        resource_path = '/platform/3/event/alert-conditions'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'event_alert_condition' in params:
@@ -200,570 +112,14 @@ class EventApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'POST',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='CreateResponse',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def delete_event_alert_conditions(self, **kwargs):
-        """
-        
-        Bulk delete of alert conditions.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_event_alert_conditions(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str channel: Delete only conditions for this channel
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['channel']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_event_alert_conditions" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/event/alert-conditions'.replace('{format}', 'json')
-        method = 'DELETE'
-
-        path_params = {}
-
-        query_params = {}
-        if 'channel' in params:
-            query_params['channel`'] = params['channel']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_event_alert_condition(self, event_alert_condition_id, **kwargs):
-        """
-        
-        Retrieve the alert-condition.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_event_alert_condition(event_alert_condition_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str event_alert_condition_id: Retrieve the alert-condition. (required)
-        :return: EventAlertConditions
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['event_alert_condition_id']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_event_alert_condition" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'event_alert_condition_id' is set
-        if ('event_alert_condition_id' not in params) or (params['event_alert_condition_id'] is None):
-            raise ValueError("Missing the required parameter `event_alert_condition_id` when calling `get_event_alert_condition`")
-
-        resource_path = '/platform/3/event/alert-conditions/{EventAlertConditionId}'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'event_alert_condition_id' in params:
-            path_params['EventAlertConditionId'] = params['event_alert_condition_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='EventAlertConditions',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def update_event_alert_condition(self, event_alert_condition, event_alert_condition_id, **kwargs):
-        """
-        
-        Modify the alert-condition
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_event_alert_condition(event_alert_condition, event_alert_condition_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param EventAlertCondition event_alert_condition:  (required)
-        :param str event_alert_condition_id: Modify the alert-condition (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['event_alert_condition', 'event_alert_condition_id']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_event_alert_condition" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'event_alert_condition' is set
-        if ('event_alert_condition' not in params) or (params['event_alert_condition'] is None):
-            raise ValueError("Missing the required parameter `event_alert_condition` when calling `update_event_alert_condition`")
-        # verify the required parameter 'event_alert_condition_id' is set
-        if ('event_alert_condition_id' not in params) or (params['event_alert_condition_id'] is None):
-            raise ValueError("Missing the required parameter `event_alert_condition_id` when calling `update_event_alert_condition`")
-
-        resource_path = '/platform/3/event/alert-conditions/{EventAlertConditionId}'.replace('{format}', 'json')
-        method = 'PUT'
-
-        path_params = {}
-        if 'event_alert_condition_id' in params:
-            path_params['EventAlertConditionId'] = params['event_alert_condition_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'event_alert_condition' in params:
-            body_params = params['event_alert_condition']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def delete_event_alert_condition(self, event_alert_condition_id, **kwargs):
-        """
-        
-        Delete the alert-condition.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_event_alert_condition(event_alert_condition_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str event_alert_condition_id: Delete the alert-condition. (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['event_alert_condition_id']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_event_alert_condition" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'event_alert_condition_id' is set
-        if ('event_alert_condition_id' not in params) or (params['event_alert_condition_id'] is None):
-            raise ValueError("Missing the required parameter `event_alert_condition_id` when calling `delete_event_alert_condition`")
-
-        resource_path = '/platform/3/event/alert-conditions/{EventAlertConditionId}'.replace('{format}', 'json')
-        method = 'DELETE'
-
-        path_params = {}
-        if 'event_alert_condition_id' in params:
-            path_params['EventAlertConditionId'] = params['event_alert_condition_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_event_categories(self, **kwargs):
-        """
-        
-        List all eventgroup categories.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_event_categories(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int limit: Return no more than this many results at once (see resume).
-        :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
-        :return: EventCategoriesExtended
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['limit', 'resume']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_event_categories" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/event/categories'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-        if 'limit' in params:
-            query_params['limit'] = params['limit']
-        if 'resume' in params:
-            query_params['resume'] = params['resume']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='EventCategoriesExtended',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_event_category(self, event_category_id, **kwargs):
-        """
-        
-        Retrieve the eventgroup category.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_event_category(event_category_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str event_category_id: Retrieve the eventgroup category. (required)
-        :return: EventCategories
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['event_category_id']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_event_category" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'event_category_id' is set
-        if ('event_category_id' not in params) or (params['event_category_id'] is None):
-            raise ValueError("Missing the required parameter `event_category_id` when calling `get_event_category`")
-
-        resource_path = '/platform/3/event/categories/{EventCategoryId}'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'event_category_id' in params:
-            path_params['EventCategoryId'] = params['event_category_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='EventCategories',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def list_event_channels(self, **kwargs):
-        """
-        
-        List all channels.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.list_event_channels(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int limit: Return no more than this many results at once (see resume).
-        :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
-        :return: EventChannelsExtended
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['limit', 'resume']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_event_channels" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/event/channels'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-        if 'limit' in params:
-            query_params['limit'] = params['limit']
-        if 'resume' in params:
-            query_params['resume'] = params['resume']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='EventChannelsExtended',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -806,17 +162,16 @@ class EventApi(object):
         if ('event_channel' not in params) or (params['event_channel'] is None):
             raise ValueError("Missing the required parameter `event_channel` when calling `create_event_channel`")
 
-        resource_path = '/platform/3/event/channels'.replace('{format}', 'json')
-        method = 'POST'
 
+        resource_path = '/platform/3/event/channels'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'event_channel' in params:
@@ -835,22 +190,22 @@ class EventApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'POST',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='CreateResponse',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def get_event_channel(self, event_channel_id, **kwargs):
+    def create_event_event(self, event_event, **kwargs):
         """
         
-        Retrieve the alert-condition.
+        Create a test event.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -858,17 +213,17 @@ class EventApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.get_event_channel(event_channel_id, callback=callback_function)
+        >>> thread = api.create_event_event(event_event, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str event_channel_id: Retrieve the alert-condition. (required)
-        :return: EventChannels
+        :param EventEvent event_event:  (required)
+        :return: CreateResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['event_channel_id']
+        all_params = ['event_event']
         all_params.append('callback')
 
         params = locals()
@@ -876,30 +231,29 @@ class EventApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_event_channel" % key
+                    " to method create_event_event" % key
                 )
             params[key] = val
         del params['kwargs']
 
-        # verify the required parameter 'event_channel_id' is set
-        if ('event_channel_id' not in params) or (params['event_channel_id'] is None):
-            raise ValueError("Missing the required parameter `event_channel_id` when calling `get_event_channel`")
+        # verify the required parameter 'event_event' is set
+        if ('event_event' not in params) or (params['event_event'] is None):
+            raise ValueError("Missing the required parameter `event_event` when calling `create_event_event`")
 
-        resource_path = '/platform/3/event/channels/{EventChannelId}'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/3/event/events'.replace('{format}', 'json')
         path_params = {}
-        if 'event_channel_id' in params:
-            path_params['EventChannelId'] = params['event_channel_id']
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
+        if 'event_event' in params:
+            body_params = params['event_event']
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
@@ -914,22 +268,22 @@ class EventApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'POST',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
-                                            response_type='EventChannels',
+                                            files=local_var_files,
+                                            response_type='CreateResponse',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def update_event_channel(self, event_channel, event_channel_id, **kwargs):
+    def delete_event_alert_condition(self, event_alert_condition_id, **kwargs):
         """
         
-        Modify the alert-condition
+        Delete the alert-condition.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -937,18 +291,17 @@ class EventApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.update_event_channel(event_channel, event_channel_id, callback=callback_function)
+        >>> thread = api.delete_event_alert_condition(event_alert_condition_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param EventChannel event_channel:  (required)
-        :param str event_channel_id: Modify the alert-condition (required)
+        :param str event_alert_condition_id: Delete the alert-condition. (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['event_channel', 'event_channel_id']
+        all_params = ['event_alert_condition_id']
         all_params.append('callback')
 
         params = locals()
@@ -956,35 +309,29 @@ class EventApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method update_event_channel" % key
+                    " to method delete_event_alert_condition" % key
                 )
             params[key] = val
         del params['kwargs']
 
-        # verify the required parameter 'event_channel' is set
-        if ('event_channel' not in params) or (params['event_channel'] is None):
-            raise ValueError("Missing the required parameter `event_channel` when calling `update_event_channel`")
-        # verify the required parameter 'event_channel_id' is set
-        if ('event_channel_id' not in params) or (params['event_channel_id'] is None):
-            raise ValueError("Missing the required parameter `event_channel_id` when calling `update_event_channel`")
+        # verify the required parameter 'event_alert_condition_id' is set
+        if ('event_alert_condition_id' not in params) or (params['event_alert_condition_id'] is None):
+            raise ValueError("Missing the required parameter `event_alert_condition_id` when calling `delete_event_alert_condition`")
 
-        resource_path = '/platform/3/event/channels/{EventChannelId}'.replace('{format}', 'json')
-        method = 'PUT'
 
+        resource_path = '/platform/3/event/alert-conditions/{EventAlertConditionId}'.replace('{format}', 'json')
         path_params = {}
-        if 'event_channel_id' in params:
-            path_params['EventChannelId'] = params['event_channel_id']
+        if 'event_alert_condition_id' in params:
+            path_params['EventAlertConditionId'] = params['event_alert_condition_id']
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
-        if 'event_channel' in params:
-            body_params = params['event_channel']
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
@@ -999,13 +346,88 @@ class EventApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'DELETE',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
+                                            response_type=None,
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def delete_event_alert_conditions(self, **kwargs):
+        """
+        
+        Bulk delete of alert conditions.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.delete_event_alert_conditions(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str channel: Delete only conditions for this channel
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['channel']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_event_alert_conditions" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/3/event/alert-conditions'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'channel' in params:
+            query_params['channel&#x60;'] = params['channel']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'DELETE',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
                                             response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
@@ -1049,9 +471,8 @@ class EventApi(object):
         if ('event_channel_id' not in params) or (params['event_channel_id'] is None):
             raise ValueError("Missing the required parameter `event_channel_id` when calling `delete_event_channel`")
 
-        resource_path = '/platform/3/event/channels/{EventChannelId}'.replace('{format}', 'json')
-        method = 'DELETE'
 
+        resource_path = '/platform/3/event/channels/{EventChannelId}'.replace('{format}', 'json')
         path_params = {}
         if 'event_channel_id' in params:
             path_params['EventChannelId'] = params['event_channel_id']
@@ -1060,8 +481,8 @@ class EventApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -1078,22 +499,22 @@ class EventApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'DELETE',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def get_event_eventgroup_definitions(self, **kwargs):
+    def get_event_alert_condition(self, event_alert_condition_id, **kwargs):
         """
         
-        List all eventgroup definitions.
+        Retrieve the alert-condition.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1101,19 +522,17 @@ class EventApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.get_event_eventgroup_definitions(callback=callback_function)
+        >>> thread = api.get_event_alert_condition(event_alert_condition_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param int category: Return eventgroups in the specified category
-        :param int limit: Return no more than this many results at once (see resume).
-        :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
-        :return: EventEventgroupDefinitionsExtended
+        :param str event_alert_condition_id: Retrieve the alert-condition. (required)
+        :return: EventAlertConditions
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['category', 'limit', 'resume']
+        all_params = ['event_alert_condition_id']
         all_params.append('callback')
 
         params = locals()
@@ -1121,29 +540,27 @@ class EventApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_event_eventgroup_definitions" % key
+                    " to method get_event_alert_condition" % key
                 )
             params[key] = val
         del params['kwargs']
 
+        # verify the required parameter 'event_alert_condition_id' is set
+        if ('event_alert_condition_id' not in params) or (params['event_alert_condition_id'] is None):
+            raise ValueError("Missing the required parameter `event_alert_condition_id` when calling `get_event_alert_condition`")
 
-        resource_path = '/platform/3/event/eventgroup-definitions'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/3/event/alert-conditions/{EventAlertConditionId}'.replace('{format}', 'json')
         path_params = {}
+        if 'event_alert_condition_id' in params:
+            path_params['EventAlertConditionId'] = params['event_alert_condition_id']
 
         query_params = {}
-        if 'category' in params:
-            query_params['category'] = params['category']
-        if 'limit' in params:
-            query_params['limit'] = params['limit']
-        if 'resume' in params:
-            query_params['resume'] = params['resume']
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -1160,14 +577,250 @@ class EventApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
-                                            response_type='EventEventgroupDefinitionsExtended',
+                                            files=local_var_files,
+                                            response_type='EventAlertConditions',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_event_categories(self, **kwargs):
+        """
+        
+        List all eventgroup categories.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_event_categories(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int limit: Return no more than this many results at once (see resume).
+        :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
+        :return: EventCategoriesExtended
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['limit', 'resume']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_event_categories" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+        if 'limit' in params and params['limit'] < 1.0: 
+            raise ValueError("Invalid value for parameter `limit` when calling `get_event_categories`, must be a value greater than or equal to `1.0`")
+
+        resource_path = '/platform/3/event/categories'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'limit' in params:
+            query_params['limit'] = params['limit']
+        if 'resume' in params:
+            query_params['resume'] = params['resume']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='EventCategoriesExtended',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_event_category(self, event_category_id, **kwargs):
+        """
+        
+        Retrieve the eventgroup category.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_event_category(event_category_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str event_category_id: Retrieve the eventgroup category. (required)
+        :return: EventCategories
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['event_category_id']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_event_category" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'event_category_id' is set
+        if ('event_category_id' not in params) or (params['event_category_id'] is None):
+            raise ValueError("Missing the required parameter `event_category_id` when calling `get_event_category`")
+
+
+        resource_path = '/platform/3/event/categories/{EventCategoryId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'event_category_id' in params:
+            path_params['EventCategoryId'] = params['event_category_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='EventCategories',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_event_channel(self, event_channel_id, **kwargs):
+        """
+        
+        Retrieve the alert-condition.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_event_channel(event_channel_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str event_channel_id: Retrieve the alert-condition. (required)
+        :return: EventChannels
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['event_channel_id']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_event_channel" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'event_channel_id' is set
+        if ('event_channel_id' not in params) or (params['event_channel_id'] is None):
+            raise ValueError("Missing the required parameter `event_channel_id` when calling `get_event_channel`")
+
+
+        resource_path = '/platform/3/event/channels/{EventChannelId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'event_channel_id' in params:
+            path_params['EventChannelId'] = params['event_channel_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='EventChannels',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -1210,9 +863,8 @@ class EventApi(object):
         if ('event_eventgroup_definition_id' not in params) or (params['event_eventgroup_definition_id'] is None):
             raise ValueError("Missing the required parameter `event_eventgroup_definition_id` when calling `get_event_eventgroup_definition`")
 
-        resource_path = '/platform/3/event/eventgroup-definitions/{EventEventgroupDefinitionId}'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/3/event/eventgroup-definitions/{EventEventgroupDefinitionId}'.replace('{format}', 'json')
         path_params = {}
         if 'event_eventgroup_definition_id' in params:
             path_params['EventEventgroupDefinitionId'] = params['event_eventgroup_definition_id']
@@ -1221,8 +873,8 @@ class EventApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -1239,14 +891,175 @@ class EventApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='EventEventgroupDefinitions',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_event_eventgroup_definitions(self, **kwargs):
+        """
+        
+        List all eventgroup definitions.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_event_eventgroup_definitions(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int category: Return eventgroups in the specified category
+        :param int limit: Return no more than this many results at once (see resume).
+        :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
+        :return: EventEventgroupDefinitionsExtended
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['category', 'limit', 'resume']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_event_eventgroup_definitions" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+        if 'limit' in params and params['limit'] < 1.0: 
+            raise ValueError("Invalid value for parameter `limit` when calling `get_event_eventgroup_definitions`, must be a value greater than or equal to `1.0`")
+
+        resource_path = '/platform/3/event/eventgroup-definitions'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'category' in params:
+            query_params['category'] = params['category']
+        if 'limit' in params:
+            query_params['limit'] = params['limit']
+        if 'resume' in params:
+            query_params['resume'] = params['resume']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='EventEventgroupDefinitionsExtended',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_event_eventgroup_occurrence(self, event_eventgroup_occurrence_id, **kwargs):
+        """
+        
+        Retrieve individual eventgroup occurrence.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_event_eventgroup_occurrence(event_eventgroup_occurrence_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str event_eventgroup_occurrence_id: Retrieve individual eventgroup occurrence. (required)
+        :return: EventEventgroupOccurrences
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['event_eventgroup_occurrence_id']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_event_eventgroup_occurrence" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'event_eventgroup_occurrence_id' is set
+        if ('event_eventgroup_occurrence_id' not in params) or (params['event_eventgroup_occurrence_id'] is None):
+            raise ValueError("Missing the required parameter `event_eventgroup_occurrence_id` when calling `get_event_eventgroup_occurrence`")
+
+
+        resource_path = '/platform/3/event/eventgroup-occurrences/{EventEventgroupOccurrenceId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'event_eventgroup_occurrence_id' in params:
+            path_params['EventEventgroupOccurrenceId'] = params['event_eventgroup_occurrence_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='EventEventgroupOccurrences',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -1296,9 +1109,10 @@ class EventApi(object):
         del params['kwargs']
 
 
-        resource_path = '/platform/3/event/eventgroup-occurrences'.replace('{format}', 'json')
-        method = 'GET'
+        if 'limit' in params and params['limit'] < 1.0: 
+            raise ValueError("Invalid value for parameter `limit` when calling `get_event_eventgroup_occurrences`, must be a value greater than or equal to `1.0`")
 
+        resource_path = '/platform/3/event/eventgroup-occurrences'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
@@ -1327,8 +1141,8 @@ class EventApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -1345,22 +1159,22 @@ class EventApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='EventEventgroupOccurrencesExtended',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def update_event_eventgroup_occurrences(self, event_eventgroup_occurrences, **kwargs):
+    def get_event_eventlist(self, event_eventlist_id, **kwargs):
         """
         
-        Modify all eventgroup occurrences, resolve or ignore all
+        Retrieve the list of events for a eventgroup occureence.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1368,17 +1182,420 @@ class EventApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.update_event_eventgroup_occurrences(event_eventgroup_occurrences, callback=callback_function)
+        >>> thread = api.get_event_eventlist(event_eventlist_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param EventEventgroupOccurrence event_eventgroup_occurrences:  (required)
+        :param str event_eventlist_id: Retrieve the list of events for a eventgroup occureence. (required)
+        :return: EventEventlists
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['event_eventlist_id']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_event_eventlist" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'event_eventlist_id' is set
+        if ('event_eventlist_id' not in params) or (params['event_eventlist_id'] is None):
+            raise ValueError("Missing the required parameter `event_eventlist_id` when calling `get_event_eventlist`")
+
+
+        resource_path = '/platform/3/event/eventlists/{EventEventlistId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'event_eventlist_id' in params:
+            path_params['EventEventlistId'] = params['event_eventlist_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='EventEventlists',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_event_eventlists(self, **kwargs):
+        """
+        
+        List all event occurrences grouped by eventgroup occurrence.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_event_eventlists(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str event_instance: Return only this event occurrence
+        :param int limit: Return no more than this many results at once (see resume).
+        :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
+        :return: EventEventlistsExtended
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['event_instance', 'limit', 'resume']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_event_eventlists" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+        if 'limit' in params and params['limit'] < 1.0: 
+            raise ValueError("Invalid value for parameter `limit` when calling `get_event_eventlists`, must be a value greater than or equal to `1.0`")
+
+        resource_path = '/platform/3/event/eventlists'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'event_instance' in params:
+            query_params['event_instance'] = params['event_instance']
+        if 'limit' in params:
+            query_params['limit'] = params['limit']
+        if 'resume' in params:
+            query_params['resume'] = params['resume']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='EventEventlistsExtended',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_event_settings(self, **kwargs):
+        """
+        
+        Retrieve the settings.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_event_settings(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: EventSettings
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_event_settings" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/3/event/settings'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='EventSettings',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def list_event_alert_conditions(self, **kwargs):
+        """
+        
+        List all alert conditions.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.list_event_alert_conditions(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str sort: The field that will be used for sorting.
+        :param str channel_ids: Return only conditions for the specified channel:
+        :param int limit: Return no more than this many results at once (see resume).
+        :param str dir: The direction of the sort.
+        :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
+        :return: EventAlertConditionsExtended
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['sort', 'channel_ids', 'limit', 'dir', 'resume']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_event_alert_conditions" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+        if 'limit' in params and params['limit'] < 1.0: 
+            raise ValueError("Invalid value for parameter `limit` when calling `list_event_alert_conditions`, must be a value greater than or equal to `1.0`")
+
+        resource_path = '/platform/3/event/alert-conditions'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'sort' in params:
+            query_params['sort'] = params['sort']
+        if 'channel_ids' in params:
+            query_params['channel_ids'] = params['channel_ids']
+        if 'limit' in params:
+            query_params['limit'] = params['limit']
+        if 'dir' in params:
+            query_params['dir'] = params['dir']
+        if 'resume' in params:
+            query_params['resume'] = params['resume']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='EventAlertConditionsExtended',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def list_event_channels(self, **kwargs):
+        """
+        
+        List all channels.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.list_event_channels(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int limit: Return no more than this many results at once (see resume).
+        :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
+        :return: EventChannelsExtended
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['limit', 'resume']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_event_channels" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+        if 'limit' in params and params['limit'] < 1.0: 
+            raise ValueError("Invalid value for parameter `limit` when calling `list_event_channels`, must be a value greater than or equal to `1.0`")
+
+        resource_path = '/platform/3/event/channels'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'limit' in params:
+            query_params['limit'] = params['limit']
+        if 'resume' in params:
+            query_params['resume'] = params['resume']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='EventChannelsExtended',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def update_event_alert_condition(self, event_alert_condition, event_alert_condition_id, **kwargs):
+        """
+        
+        Modify the alert-condition
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_event_alert_condition(event_alert_condition, event_alert_condition_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param EventAlertCondition event_alert_condition:  (required)
+        :param str event_alert_condition_id: Modify the alert-condition (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['event_eventgroup_occurrences']
+        all_params = ['event_alert_condition', 'event_alert_condition_id']
         all_params.append('callback')
 
         params = locals()
@@ -1386,30 +1603,34 @@ class EventApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method update_event_eventgroup_occurrences" % key
+                    " to method update_event_alert_condition" % key
                 )
             params[key] = val
         del params['kwargs']
 
-        # verify the required parameter 'event_eventgroup_occurrences' is set
-        if ('event_eventgroup_occurrences' not in params) or (params['event_eventgroup_occurrences'] is None):
-            raise ValueError("Missing the required parameter `event_eventgroup_occurrences` when calling `update_event_eventgroup_occurrences`")
+        # verify the required parameter 'event_alert_condition' is set
+        if ('event_alert_condition' not in params) or (params['event_alert_condition'] is None):
+            raise ValueError("Missing the required parameter `event_alert_condition` when calling `update_event_alert_condition`")
+        # verify the required parameter 'event_alert_condition_id' is set
+        if ('event_alert_condition_id' not in params) or (params['event_alert_condition_id'] is None):
+            raise ValueError("Missing the required parameter `event_alert_condition_id` when calling `update_event_alert_condition`")
 
-        resource_path = '/platform/3/event/eventgroup-occurrences'.replace('{format}', 'json')
-        method = 'PUT'
 
+        resource_path = '/platform/3/event/alert-conditions/{EventAlertConditionId}'.replace('{format}', 'json')
         path_params = {}
+        if 'event_alert_condition_id' in params:
+            path_params['EventAlertConditionId'] = params['event_alert_condition_id']
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
-        if 'event_eventgroup_occurrences' in params:
-            body_params = params['event_eventgroup_occurrences']
+        if 'event_alert_condition' in params:
+            body_params = params['event_alert_condition']
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
@@ -1424,22 +1645,22 @@ class EventApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'PUT',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def get_event_eventgroup_occurrence(self, event_eventgroup_occurrence_id, **kwargs):
+    def update_event_channel(self, event_channel, event_channel_id, **kwargs):
         """
         
-        Retrieve individual eventgroup occurrence.
+        Modify the alert-condition
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1447,17 +1668,18 @@ class EventApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.get_event_eventgroup_occurrence(event_eventgroup_occurrence_id, callback=callback_function)
+        >>> thread = api.update_event_channel(event_channel, event_channel_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str event_eventgroup_occurrence_id: Retrieve individual eventgroup occurrence. (required)
-        :return: EventEventgroupOccurrences
+        :param EventChannel event_channel:  (required)
+        :param str event_channel_id: Modify the alert-condition (required)
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['event_eventgroup_occurrence_id']
+        all_params = ['event_channel', 'event_channel_id']
         all_params.append('callback')
 
         params = locals()
@@ -1465,30 +1687,34 @@ class EventApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_event_eventgroup_occurrence" % key
+                    " to method update_event_channel" % key
                 )
             params[key] = val
         del params['kwargs']
 
-        # verify the required parameter 'event_eventgroup_occurrence_id' is set
-        if ('event_eventgroup_occurrence_id' not in params) or (params['event_eventgroup_occurrence_id'] is None):
-            raise ValueError("Missing the required parameter `event_eventgroup_occurrence_id` when calling `get_event_eventgroup_occurrence`")
+        # verify the required parameter 'event_channel' is set
+        if ('event_channel' not in params) or (params['event_channel'] is None):
+            raise ValueError("Missing the required parameter `event_channel` when calling `update_event_channel`")
+        # verify the required parameter 'event_channel_id' is set
+        if ('event_channel_id' not in params) or (params['event_channel_id'] is None):
+            raise ValueError("Missing the required parameter `event_channel_id` when calling `update_event_channel`")
 
-        resource_path = '/platform/3/event/eventgroup-occurrences/{EventEventgroupOccurrenceId}'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/3/event/channels/{EventChannelId}'.replace('{format}', 'json')
         path_params = {}
-        if 'event_eventgroup_occurrence_id' in params:
-            path_params['EventEventgroupOccurrenceId'] = params['event_eventgroup_occurrence_id']
+        if 'event_channel_id' in params:
+            path_params['EventChannelId'] = params['event_channel_id']
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
+        if 'event_channel' in params:
+            body_params = params['event_channel']
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
@@ -1503,14 +1729,14 @@ class EventApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'PUT',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
-                                            response_type='EventEventgroupOccurrences',
+                                            files=local_var_files,
+                                            response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -1557,9 +1783,8 @@ class EventApi(object):
         if ('event_eventgroup_occurrence_id' not in params) or (params['event_eventgroup_occurrence_id'] is None):
             raise ValueError("Missing the required parameter `event_eventgroup_occurrence_id` when calling `update_event_eventgroup_occurrence`")
 
-        resource_path = '/platform/3/event/eventgroup-occurrences/{EventEventgroupOccurrenceId}'.replace('{format}', 'json')
-        method = 'PUT'
 
+        resource_path = '/platform/3/event/eventgroup-occurrences/{EventEventgroupOccurrenceId}'.replace('{format}', 'json')
         path_params = {}
         if 'event_eventgroup_occurrence_id' in params:
             path_params['EventEventgroupOccurrenceId'] = params['event_eventgroup_occurrence_id']
@@ -1568,8 +1793,8 @@ class EventApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'event_eventgroup_occurrence' in params:
@@ -1588,22 +1813,22 @@ class EventApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'PUT',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def get_event_eventlists(self, **kwargs):
+    def update_event_eventgroup_occurrences(self, event_eventgroup_occurrences, **kwargs):
         """
         
-        List all event occurrences grouped by eventgroup occurrence.
+        Modify all eventgroup occurrences, resolve or ignore all
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1611,19 +1836,17 @@ class EventApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.get_event_eventlists(callback=callback_function)
+        >>> thread = api.update_event_eventgroup_occurrences(event_eventgroup_occurrences, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str event_instance: Return only this event occurrence
-        :param int limit: Return no more than this many results at once (see resume).
-        :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
-        :return: EventEventlistsExtended
+        :param EventEventgroupOccurrence event_eventgroup_occurrences:  (required)
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['event_instance', 'limit', 'resume']
+        all_params = ['event_eventgroup_occurrences']
         all_params.append('callback')
 
         params = locals()
@@ -1631,31 +1854,29 @@ class EventApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_event_eventlists" % key
+                    " to method update_event_eventgroup_occurrences" % key
                 )
             params[key] = val
         del params['kwargs']
 
+        # verify the required parameter 'event_eventgroup_occurrences' is set
+        if ('event_eventgroup_occurrences' not in params) or (params['event_eventgroup_occurrences'] is None):
+            raise ValueError("Missing the required parameter `event_eventgroup_occurrences` when calling `update_event_eventgroup_occurrences`")
 
-        resource_path = '/platform/3/event/eventlists'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/3/event/eventgroup-occurrences'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
-        if 'event_instance' in params:
-            query_params['event_instance'] = params['event_instance']
-        if 'limit' in params:
-            query_params['limit'] = params['limit']
-        if 'resume' in params:
-            query_params['resume'] = params['resume']
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
+        if 'event_eventgroup_occurrences' in params:
+            body_params = params['event_eventgroup_occurrences']
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
@@ -1670,245 +1891,14 @@ class EventApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'PUT',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
-                                            response_type='EventEventlistsExtended',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_event_eventlist(self, event_eventlist_id, **kwargs):
-        """
-        
-        Retrieve the list of events for a eventgroup occureence.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_event_eventlist(event_eventlist_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str event_eventlist_id: Retrieve the list of events for a eventgroup occureence. (required)
-        :return: EventEventlists
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['event_eventlist_id']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_event_eventlist" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'event_eventlist_id' is set
-        if ('event_eventlist_id' not in params) or (params['event_eventlist_id'] is None):
-            raise ValueError("Missing the required parameter `event_eventlist_id` when calling `get_event_eventlist`")
-
-        resource_path = '/platform/3/event/eventlists/{EventEventlistId}'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'event_eventlist_id' in params:
-            path_params['EventEventlistId'] = params['event_eventlist_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='EventEventlists',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def create_event_event(self, event_event, **kwargs):
-        """
-        
-        Create a test event.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_event_event(event_event, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param EventEvent event_event:  (required)
-        :return: CreateResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['event_event']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_event_event" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'event_event' is set
-        if ('event_event' not in params) or (params['event_event'] is None):
-            raise ValueError("Missing the required parameter `event_event` when calling `create_event_event`")
-
-        resource_path = '/platform/3/event/events'.replace('{format}', 'json')
-        method = 'POST'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'event_event' in params:
-            body_params = params['event_event']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='CreateResponse',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_event_settings(self, **kwargs):
-        """
-        
-        Retrieve the settings.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_event_settings(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: EventSettings
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_event_settings" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/event/settings'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='EventSettings',
+                                            files=local_var_files,
+                                            response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -1951,17 +1941,16 @@ class EventApi(object):
         if ('event_settings' not in params) or (params['event_settings'] is None):
             raise ValueError("Missing the required parameter `event_settings` when calling `update_event_settings`")
 
-        resource_path = '/platform/3/event/settings'.replace('{format}', 'json')
-        method = 'PUT'
 
+        resource_path = '/platform/3/event/settings'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'event_settings' in params:
@@ -1980,13 +1969,13 @@ class EventApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'PUT',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))

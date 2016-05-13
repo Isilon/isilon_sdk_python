@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class SettingsKrb5Realm(object):
@@ -75,6 +76,7 @@ class SettingsKrb5Realm(object):
         :param admin_server: The admin_server of this SettingsKrb5Realm.
         :type: str
         """
+        
         self._admin_server = admin_server
 
     @property
@@ -97,6 +99,7 @@ class SettingsKrb5Realm(object):
         :param default_domain: The default_domain of this SettingsKrb5Realm.
         :type: str
         """
+        
         self._default_domain = default_domain
 
     @property
@@ -119,6 +122,7 @@ class SettingsKrb5Realm(object):
         :param is_default_realm: The is_default_realm of this SettingsKrb5Realm.
         :type: bool
         """
+        
         self._is_default_realm = is_default_realm
 
     @property
@@ -141,6 +145,7 @@ class SettingsKrb5Realm(object):
         :param kdc: The kdc of this SettingsKrb5Realm.
         :type: list[str]
         """
+        
         self._kdc = kdc
 
     def to_dict(self):
@@ -158,6 +163,12 @@ class SettingsKrb5Realm(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -175,14 +186,14 @@ class SettingsKrb5Realm(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class ClusterFirmwareStatusNodeDevice(object):
@@ -81,6 +82,7 @@ class ClusterFirmwareStatusNodeDevice(object):
         :param device: The device of this ClusterFirmwareStatusNodeDevice.
         :type: str
         """
+        
         self._device = device
 
     @property
@@ -103,6 +105,7 @@ class ClusterFirmwareStatusNodeDevice(object):
         :param mismatch: The mismatch of this ClusterFirmwareStatusNodeDevice.
         :type: bool
         """
+        
         self._mismatch = mismatch
 
     @property
@@ -125,6 +128,7 @@ class ClusterFirmwareStatusNodeDevice(object):
         :param target_version: The target_version of this ClusterFirmwareStatusNodeDevice.
         :type: str
         """
+        
         self._target_version = target_version
 
     @property
@@ -147,6 +151,7 @@ class ClusterFirmwareStatusNodeDevice(object):
         :param type: The type of this ClusterFirmwareStatusNodeDevice.
         :type: str
         """
+        
         self._type = type
 
     @property
@@ -169,6 +174,7 @@ class ClusterFirmwareStatusNodeDevice(object):
         :param upgrade_status: The upgrade_status of this ClusterFirmwareStatusNodeDevice.
         :type: str
         """
+        
         self._upgrade_status = upgrade_status
 
     @property
@@ -191,6 +197,7 @@ class ClusterFirmwareStatusNodeDevice(object):
         :param version: The version of this ClusterFirmwareStatusNodeDevice.
         :type: str
         """
+        
         self._version = version
 
     def to_dict(self):
@@ -208,6 +215,12 @@ class ClusterFirmwareStatusNodeDevice(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -225,14 +238,14 @@ class ClusterFirmwareStatusNodeDevice(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

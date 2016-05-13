@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class NfsAliaseExtended(object):
@@ -37,48 +38,26 @@ class NfsAliaseExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'name': 'str',
             'health': 'str',
+            'name': 'str',
             'path': 'str',
-            'id': 'str',
-            'zone': 'str'
+            'zone': 'str',
+            'id': 'str'
         }
 
         self.attribute_map = {
-            'name': 'name',
             'health': 'health',
+            'name': 'name',
             'path': 'path',
-            'id': 'id',
-            'zone': 'zone'
+            'zone': 'zone',
+            'id': 'id'
         }
 
-        self._name = None
         self._health = None
+        self._name = None
         self._path = None
-        self._id = None
         self._zone = None
-
-    @property
-    def name(self):
-        """
-        Gets the name of this NfsAliaseExtended.
-        Specifies the name by which the alias can be referenced.
-
-        :return: The name of this NfsAliaseExtended.
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """
-        Sets the name of this NfsAliaseExtended.
-        Specifies the name by which the alias can be referenced.
-
-        :param name: The name of this NfsAliaseExtended.
-        :type: str
-        """
-        self._name = name
+        self._id = None
 
     @property
     def health(self):
@@ -106,7 +85,31 @@ class NfsAliaseExtended(object):
                 "Invalid value for `health`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._health = health
+
+    @property
+    def name(self):
+        """
+        Gets the name of this NfsAliaseExtended.
+        Specifies the name by which the alias can be referenced.
+
+        :return: The name of this NfsAliaseExtended.
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """
+        Sets the name of this NfsAliaseExtended.
+        Specifies the name by which the alias can be referenced.
+
+        :param name: The name of this NfsAliaseExtended.
+        :type: str
+        """
+        
+        self._name = name
 
     @property
     def path(self):
@@ -128,29 +131,8 @@ class NfsAliaseExtended(object):
         :param path: The path of this NfsAliaseExtended.
         :type: str
         """
+        
         self._path = path
-
-    @property
-    def id(self):
-        """
-        Gets the id of this NfsAliaseExtended.
-        Specifies a string which represents the unique location of the alias.
-
-        :return: The id of this NfsAliaseExtended.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this NfsAliaseExtended.
-        Specifies a string which represents the unique location of the alias.
-
-        :param id: The id of this NfsAliaseExtended.
-        :type: str
-        """
-        self._id = id
 
     @property
     def zone(self):
@@ -172,7 +154,31 @@ class NfsAliaseExtended(object):
         :param zone: The zone of this NfsAliaseExtended.
         :type: str
         """
+        
         self._zone = zone
+
+    @property
+    def id(self):
+        """
+        Gets the id of this NfsAliaseExtended.
+        Specifies a string which represents the unique location of the alias.
+
+        :return: The id of this NfsAliaseExtended.
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """
+        Sets the id of this NfsAliaseExtended.
+        Specifies a string which represents the unique location of the alias.
+
+        :param id: The id of this NfsAliaseExtended.
+        :type: str
+        """
+        
+        self._id = id
 
     def to_dict(self):
         """
@@ -189,6 +195,12 @@ class NfsAliaseExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -206,14 +218,14 @@ class NfsAliaseExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

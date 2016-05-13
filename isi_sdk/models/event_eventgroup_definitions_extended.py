@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class EventEventgroupDefinitionsExtended(object):
@@ -37,42 +38,20 @@ class EventEventgroupDefinitionsExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'resume': 'str',
             'eventgroup_definitions': 'list[EventEventgroupDefinitionsEventgroupDefinition]',
+            'resume': 'str',
             'total': 'int'
         }
 
         self.attribute_map = {
-            'resume': 'resume',
             'eventgroup_definitions': 'eventgroup-definitions',
+            'resume': 'resume',
             'total': 'total'
         }
 
-        self._resume = None
         self._eventgroup_definitions = None
+        self._resume = None
         self._total = None
-
-    @property
-    def resume(self):
-        """
-        Gets the resume of this EventEventgroupDefinitionsExtended.
-        Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
-
-        :return: The resume of this EventEventgroupDefinitionsExtended.
-        :rtype: str
-        """
-        return self._resume
-
-    @resume.setter
-    def resume(self, resume):
-        """
-        Sets the resume of this EventEventgroupDefinitionsExtended.
-        Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
-
-        :param resume: The resume of this EventEventgroupDefinitionsExtended.
-        :type: str
-        """
-        self._resume = resume
 
     @property
     def eventgroup_definitions(self):
@@ -94,7 +73,31 @@ class EventEventgroupDefinitionsExtended(object):
         :param eventgroup_definitions: The eventgroup_definitions of this EventEventgroupDefinitionsExtended.
         :type: list[EventEventgroupDefinitionsEventgroupDefinition]
         """
+        
         self._eventgroup_definitions = eventgroup_definitions
+
+    @property
+    def resume(self):
+        """
+        Gets the resume of this EventEventgroupDefinitionsExtended.
+        Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
+
+        :return: The resume of this EventEventgroupDefinitionsExtended.
+        :rtype: str
+        """
+        return self._resume
+
+    @resume.setter
+    def resume(self, resume):
+        """
+        Sets the resume of this EventEventgroupDefinitionsExtended.
+        Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
+
+        :param resume: The resume of this EventEventgroupDefinitionsExtended.
+        :type: str
+        """
+        
+        self._resume = resume
 
     @property
     def total(self):
@@ -116,6 +119,7 @@ class EventEventgroupDefinitionsExtended(object):
         :param total: The total of this EventEventgroupDefinitionsExtended.
         :type: int
         """
+        
         self._total = total
 
     def to_dict(self):
@@ -133,6 +137,12 @@ class EventEventgroupDefinitionsExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -150,14 +160,14 @@ class EventEventgroupDefinitionsExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

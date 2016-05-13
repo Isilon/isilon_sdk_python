@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class SmbSettingsGlobalSettings(object):
@@ -129,6 +130,7 @@ class SmbSettingsGlobalSettings(object):
         :param access_based_share_enum: The access_based_share_enum of this SmbSettingsGlobalSettings.
         :type: bool
         """
+        
         self._access_based_share_enum = access_based_share_enum
 
     @property
@@ -157,6 +159,7 @@ class SmbSettingsGlobalSettings(object):
                 "Invalid value for `audit_fileshare`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._audit_fileshare = audit_fileshare
 
     @property
@@ -179,6 +182,7 @@ class SmbSettingsGlobalSettings(object):
         :param audit_global_sacl: The audit_global_sacl of this SmbSettingsGlobalSettings.
         :type: list[SmbSettingsGlobalSettingsAuditGlobalSaclItem]
         """
+        
         self._audit_global_sacl = audit_global_sacl
 
     @property
@@ -207,6 +211,7 @@ class SmbSettingsGlobalSettings(object):
                 "Invalid value for `audit_logon`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._audit_logon = audit_logon
 
     @property
@@ -229,6 +234,7 @@ class SmbSettingsGlobalSettings(object):
         :param dot_snap_accessible_child: The dot_snap_accessible_child of this SmbSettingsGlobalSettings.
         :type: bool
         """
+        
         self._dot_snap_accessible_child = dot_snap_accessible_child
 
     @property
@@ -251,6 +257,7 @@ class SmbSettingsGlobalSettings(object):
         :param dot_snap_accessible_root: The dot_snap_accessible_root of this SmbSettingsGlobalSettings.
         :type: bool
         """
+        
         self._dot_snap_accessible_root = dot_snap_accessible_root
 
     @property
@@ -273,6 +280,7 @@ class SmbSettingsGlobalSettings(object):
         :param dot_snap_visible_child: The dot_snap_visible_child of this SmbSettingsGlobalSettings.
         :type: bool
         """
+        
         self._dot_snap_visible_child = dot_snap_visible_child
 
     @property
@@ -295,6 +303,7 @@ class SmbSettingsGlobalSettings(object):
         :param dot_snap_visible_root: The dot_snap_visible_root of this SmbSettingsGlobalSettings.
         :type: bool
         """
+        
         self._dot_snap_visible_root = dot_snap_visible_root
 
     @property
@@ -317,6 +326,7 @@ class SmbSettingsGlobalSettings(object):
         :param enable_security_signatures: The enable_security_signatures of this SmbSettingsGlobalSettings.
         :type: bool
         """
+        
         self._enable_security_signatures = enable_security_signatures
 
     @property
@@ -339,6 +349,7 @@ class SmbSettingsGlobalSettings(object):
         :param guest_user: The guest_user of this SmbSettingsGlobalSettings.
         :type: str
         """
+        
         self._guest_user = guest_user
 
     @property
@@ -361,6 +372,7 @@ class SmbSettingsGlobalSettings(object):
         :param ignore_eas: The ignore_eas of this SmbSettingsGlobalSettings.
         :type: bool
         """
+        
         self._ignore_eas = ignore_eas
 
     @property
@@ -383,6 +395,14 @@ class SmbSettingsGlobalSettings(object):
         :param onefs_cpu_multiplier: The onefs_cpu_multiplier of this SmbSettingsGlobalSettings.
         :type: int
         """
+        
+        if not onefs_cpu_multiplier:
+            raise ValueError("Invalid value for `onefs_cpu_multiplier`, must not be `None`")
+        if onefs_cpu_multiplier > 4.0: 
+            raise ValueError("Invalid value for `onefs_cpu_multiplier`, must be a value less than or equal to `4.0`")
+        if onefs_cpu_multiplier < 1.0: 
+            raise ValueError("Invalid value for `onefs_cpu_multiplier`, must be a value greater than or equal to `1.0`")
+
         self._onefs_cpu_multiplier = onefs_cpu_multiplier
 
     @property
@@ -405,6 +425,14 @@ class SmbSettingsGlobalSettings(object):
         :param onefs_num_workers: The onefs_num_workers of this SmbSettingsGlobalSettings.
         :type: int
         """
+        
+        if not onefs_num_workers:
+            raise ValueError("Invalid value for `onefs_num_workers`, must not be `None`")
+        if onefs_num_workers > 1024.0: 
+            raise ValueError("Invalid value for `onefs_num_workers`, must be a value less than or equal to `1024.0`")
+        if onefs_num_workers < 0.0: 
+            raise ValueError("Invalid value for `onefs_num_workers`, must be a value greater than or equal to `0.0`")
+
         self._onefs_num_workers = onefs_num_workers
 
     @property
@@ -427,6 +455,7 @@ class SmbSettingsGlobalSettings(object):
         :param require_security_signatures: The require_security_signatures of this SmbSettingsGlobalSettings.
         :type: bool
         """
+        
         self._require_security_signatures = require_security_signatures
 
     @property
@@ -449,6 +478,7 @@ class SmbSettingsGlobalSettings(object):
         :param server_side_copy: The server_side_copy of this SmbSettingsGlobalSettings.
         :type: bool
         """
+        
         self._server_side_copy = server_side_copy
 
     @property
@@ -471,6 +501,7 @@ class SmbSettingsGlobalSettings(object):
         :param server_string: The server_string of this SmbSettingsGlobalSettings.
         :type: str
         """
+        
         self._server_string = server_string
 
     @property
@@ -493,6 +524,7 @@ class SmbSettingsGlobalSettings(object):
         :param service: The service of this SmbSettingsGlobalSettings.
         :type: bool
         """
+        
         self._service = service
 
     @property
@@ -515,6 +547,14 @@ class SmbSettingsGlobalSettings(object):
         :param srv_cpu_multiplier: The srv_cpu_multiplier of this SmbSettingsGlobalSettings.
         :type: int
         """
+        
+        if not srv_cpu_multiplier:
+            raise ValueError("Invalid value for `srv_cpu_multiplier`, must not be `None`")
+        if srv_cpu_multiplier > 8.0: 
+            raise ValueError("Invalid value for `srv_cpu_multiplier`, must be a value less than or equal to `8.0`")
+        if srv_cpu_multiplier < 1.0: 
+            raise ValueError("Invalid value for `srv_cpu_multiplier`, must be a value greater than or equal to `1.0`")
+
         self._srv_cpu_multiplier = srv_cpu_multiplier
 
     @property
@@ -537,6 +577,14 @@ class SmbSettingsGlobalSettings(object):
         :param srv_num_workers: The srv_num_workers of this SmbSettingsGlobalSettings.
         :type: int
         """
+        
+        if not srv_num_workers:
+            raise ValueError("Invalid value for `srv_num_workers`, must not be `None`")
+        if srv_num_workers > 1024.0: 
+            raise ValueError("Invalid value for `srv_num_workers`, must be a value less than or equal to `1024.0`")
+        if srv_num_workers < 0.0: 
+            raise ValueError("Invalid value for `srv_num_workers`, must be a value greater than or equal to `0.0`")
+
         self._srv_num_workers = srv_num_workers
 
     @property
@@ -559,6 +607,7 @@ class SmbSettingsGlobalSettings(object):
         :param support_multichannel: The support_multichannel of this SmbSettingsGlobalSettings.
         :type: bool
         """
+        
         self._support_multichannel = support_multichannel
 
     @property
@@ -581,6 +630,7 @@ class SmbSettingsGlobalSettings(object):
         :param support_netbios: The support_netbios of this SmbSettingsGlobalSettings.
         :type: bool
         """
+        
         self._support_netbios = support_netbios
 
     @property
@@ -603,6 +653,7 @@ class SmbSettingsGlobalSettings(object):
         :param support_smb2: The support_smb2 of this SmbSettingsGlobalSettings.
         :type: bool
         """
+        
         self._support_smb2 = support_smb2
 
     def to_dict(self):
@@ -620,6 +671,12 @@ class SmbSettingsGlobalSettings(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -637,14 +694,14 @@ class SmbSettingsGlobalSettings(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class NetworkGroupnetExtended(object):
@@ -37,126 +38,38 @@ class NetworkGroupnetExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'dns_options': 'list[str]',
-            'server_side_dns_search': 'bool',
-            'dns_search': 'list[str]',
-            'name': 'str',
             'description': 'str',
             'dns_cache_enabled': 'bool',
-            'subnets': 'list[str]',
+            'dns_options': 'list[str]',
+            'dns_search': 'list[str]',
+            'dns_servers': 'list[str]',
+            'name': 'str',
+            'server_side_dns_search': 'bool',
             'id': 'str',
-            'dns_servers': 'list[str]'
+            'subnets': 'list[str]'
         }
 
         self.attribute_map = {
-            'dns_options': 'dns_options',
-            'server_side_dns_search': 'server_side_dns_search',
-            'dns_search': 'dns_search',
-            'name': 'name',
             'description': 'description',
             'dns_cache_enabled': 'dns_cache_enabled',
-            'subnets': 'subnets',
+            'dns_options': 'dns_options',
+            'dns_search': 'dns_search',
+            'dns_servers': 'dns_servers',
+            'name': 'name',
+            'server_side_dns_search': 'server_side_dns_search',
             'id': 'id',
-            'dns_servers': 'dns_servers'
+            'subnets': 'subnets'
         }
 
-        self._dns_options = None
-        self._server_side_dns_search = None
-        self._dns_search = None
-        self._name = None
         self._description = None
         self._dns_cache_enabled = None
-        self._subnets = None
-        self._id = None
+        self._dns_options = None
+        self._dns_search = None
         self._dns_servers = None
-
-    @property
-    def dns_options(self):
-        """
-        Gets the dns_options of this NetworkGroupnetExtended.
-        List of DNS resolver options.
-
-        :return: The dns_options of this NetworkGroupnetExtended.
-        :rtype: list[str]
-        """
-        return self._dns_options
-
-    @dns_options.setter
-    def dns_options(self, dns_options):
-        """
-        Sets the dns_options of this NetworkGroupnetExtended.
-        List of DNS resolver options.
-
-        :param dns_options: The dns_options of this NetworkGroupnetExtended.
-        :type: list[str]
-        """
-        self._dns_options = dns_options
-
-    @property
-    def server_side_dns_search(self):
-        """
-        Gets the server_side_dns_search of this NetworkGroupnetExtended.
-        Enable or disable appending nodes DNS search  list to client DNS inquiries directed at SmartConnect service IP.
-
-        :return: The server_side_dns_search of this NetworkGroupnetExtended.
-        :rtype: bool
-        """
-        return self._server_side_dns_search
-
-    @server_side_dns_search.setter
-    def server_side_dns_search(self, server_side_dns_search):
-        """
-        Sets the server_side_dns_search of this NetworkGroupnetExtended.
-        Enable or disable appending nodes DNS search  list to client DNS inquiries directed at SmartConnect service IP.
-
-        :param server_side_dns_search: The server_side_dns_search of this NetworkGroupnetExtended.
-        :type: bool
-        """
-        self._server_side_dns_search = server_side_dns_search
-
-    @property
-    def dns_search(self):
-        """
-        Gets the dns_search of this NetworkGroupnetExtended.
-        List of DNS search suffixes.
-
-        :return: The dns_search of this NetworkGroupnetExtended.
-        :rtype: list[str]
-        """
-        return self._dns_search
-
-    @dns_search.setter
-    def dns_search(self, dns_search):
-        """
-        Sets the dns_search of this NetworkGroupnetExtended.
-        List of DNS search suffixes.
-
-        :param dns_search: The dns_search of this NetworkGroupnetExtended.
-        :type: list[str]
-        """
-        self._dns_search = dns_search
-
-    @property
-    def name(self):
-        """
-        Gets the name of this NetworkGroupnetExtended.
-        The name of the groupnet.
-
-        :return: The name of this NetworkGroupnetExtended.
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """
-        Sets the name of this NetworkGroupnetExtended.
-        The name of the groupnet.
-
-        :param name: The name of this NetworkGroupnetExtended.
-        :type: str
-        """
-        self._name = name
+        self._name = None
+        self._server_side_dns_search = None
+        self._id = None
+        self._subnets = None
 
     @property
     def description(self):
@@ -178,6 +91,12 @@ class NetworkGroupnetExtended(object):
         :param description: The description of this NetworkGroupnetExtended.
         :type: str
         """
+        
+        if not description:
+            raise ValueError("Invalid value for `description`, must not be `None`")
+        if len(description) > 128: 
+            raise ValueError("Invalid value for `description`, length must be less than `128`")
+
         self._description = description
 
     @property
@@ -200,51 +119,54 @@ class NetworkGroupnetExtended(object):
         :param dns_cache_enabled: The dns_cache_enabled of this NetworkGroupnetExtended.
         :type: bool
         """
+        
         self._dns_cache_enabled = dns_cache_enabled
 
     @property
-    def subnets(self):
+    def dns_options(self):
         """
-        Gets the subnets of this NetworkGroupnetExtended.
-        Name of the subnets in the groupnet.
+        Gets the dns_options of this NetworkGroupnetExtended.
+        List of DNS resolver options.
 
-        :return: The subnets of this NetworkGroupnetExtended.
+        :return: The dns_options of this NetworkGroupnetExtended.
         :rtype: list[str]
         """
-        return self._subnets
+        return self._dns_options
 
-    @subnets.setter
-    def subnets(self, subnets):
+    @dns_options.setter
+    def dns_options(self, dns_options):
         """
-        Sets the subnets of this NetworkGroupnetExtended.
-        Name of the subnets in the groupnet.
+        Sets the dns_options of this NetworkGroupnetExtended.
+        List of DNS resolver options.
 
-        :param subnets: The subnets of this NetworkGroupnetExtended.
+        :param dns_options: The dns_options of this NetworkGroupnetExtended.
         :type: list[str]
         """
-        self._subnets = subnets
+        
+        self._dns_options = dns_options
 
     @property
-    def id(self):
+    def dns_search(self):
         """
-        Gets the id of this NetworkGroupnetExtended.
-        Unique Interface ID.
+        Gets the dns_search of this NetworkGroupnetExtended.
+        List of DNS search suffixes.
 
-        :return: The id of this NetworkGroupnetExtended.
-        :rtype: str
+        :return: The dns_search of this NetworkGroupnetExtended.
+        :rtype: list[str]
         """
-        return self._id
+        return self._dns_search
 
-    @id.setter
-    def id(self, id):
+    @dns_search.setter
+    def dns_search(self, dns_search):
         """
-        Sets the id of this NetworkGroupnetExtended.
-        Unique Interface ID.
+        Sets the dns_search of this NetworkGroupnetExtended.
+        List of DNS search suffixes.
 
-        :param id: The id of this NetworkGroupnetExtended.
-        :type: str
+        :param dns_search: The dns_search of this NetworkGroupnetExtended.
+        :type: list[str]
         """
-        self._id = id
+        
+        self._dns_search = dns_search
 
     @property
     def dns_servers(self):
@@ -266,7 +188,105 @@ class NetworkGroupnetExtended(object):
         :param dns_servers: The dns_servers of this NetworkGroupnetExtended.
         :type: list[str]
         """
+        
         self._dns_servers = dns_servers
+
+    @property
+    def name(self):
+        """
+        Gets the name of this NetworkGroupnetExtended.
+        The name of the groupnet.
+
+        :return: The name of this NetworkGroupnetExtended.
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """
+        Sets the name of this NetworkGroupnetExtended.
+        The name of the groupnet.
+
+        :param name: The name of this NetworkGroupnetExtended.
+        :type: str
+        """
+        
+        if not name:
+            raise ValueError("Invalid value for `name`, must not be `None`")
+        if len(name) > 32: 
+            raise ValueError("Invalid value for `name`, length must be less than `32`")
+
+        self._name = name
+
+    @property
+    def server_side_dns_search(self):
+        """
+        Gets the server_side_dns_search of this NetworkGroupnetExtended.
+        Enable or disable appending nodes DNS search  list to client DNS inquiries directed at SmartConnect service IP.
+
+        :return: The server_side_dns_search of this NetworkGroupnetExtended.
+        :rtype: bool
+        """
+        return self._server_side_dns_search
+
+    @server_side_dns_search.setter
+    def server_side_dns_search(self, server_side_dns_search):
+        """
+        Sets the server_side_dns_search of this NetworkGroupnetExtended.
+        Enable or disable appending nodes DNS search  list to client DNS inquiries directed at SmartConnect service IP.
+
+        :param server_side_dns_search: The server_side_dns_search of this NetworkGroupnetExtended.
+        :type: bool
+        """
+        
+        self._server_side_dns_search = server_side_dns_search
+
+    @property
+    def id(self):
+        """
+        Gets the id of this NetworkGroupnetExtended.
+        Unique Interface ID.
+
+        :return: The id of this NetworkGroupnetExtended.
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """
+        Sets the id of this NetworkGroupnetExtended.
+        Unique Interface ID.
+
+        :param id: The id of this NetworkGroupnetExtended.
+        :type: str
+        """
+        
+        self._id = id
+
+    @property
+    def subnets(self):
+        """
+        Gets the subnets of this NetworkGroupnetExtended.
+        Name of the subnets in the groupnet.
+
+        :return: The subnets of this NetworkGroupnetExtended.
+        :rtype: list[str]
+        """
+        return self._subnets
+
+    @subnets.setter
+    def subnets(self, subnets):
+        """
+        Sets the subnets of this NetworkGroupnetExtended.
+        Name of the subnets in the groupnet.
+
+        :param subnets: The subnets of this NetworkGroupnetExtended.
+        :type: list[str]
+        """
+        
+        self._subnets = subnets
 
     def to_dict(self):
         """
@@ -283,6 +303,12 @@ class NetworkGroupnetExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -300,14 +326,14 @@ class NetworkGroupnetExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

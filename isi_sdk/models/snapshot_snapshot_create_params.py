@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class SnapshotSnapshotCreateParams(object):
@@ -37,45 +38,23 @@ class SnapshotSnapshotCreateParams(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'name': 'str',
             'alias': 'str',
-            'path': 'str',
-            'expires': 'int'
+            'expires': 'int',
+            'name': 'str',
+            'path': 'str'
         }
 
         self.attribute_map = {
-            'name': 'name',
             'alias': 'alias',
-            'path': 'path',
-            'expires': 'expires'
+            'expires': 'expires',
+            'name': 'name',
+            'path': 'path'
         }
 
-        self._name = None
         self._alias = None
-        self._path = None
         self._expires = None
-
-    @property
-    def name(self):
-        """
-        Gets the name of this SnapshotSnapshotCreateParams.
-        The user or system supplied snapshot name. This will be null for snapshots pending delete.
-
-        :return: The name of this SnapshotSnapshotCreateParams.
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """
-        Sets the name of this SnapshotSnapshotCreateParams.
-        The user or system supplied snapshot name. This will be null for snapshots pending delete.
-
-        :param name: The name of this SnapshotSnapshotCreateParams.
-        :type: str
-        """
-        self._name = name
+        self._name = None
+        self._path = None
 
     @property
     def alias(self):
@@ -97,29 +76,8 @@ class SnapshotSnapshotCreateParams(object):
         :param alias: The alias of this SnapshotSnapshotCreateParams.
         :type: str
         """
+        
         self._alias = alias
-
-    @property
-    def path(self):
-        """
-        Gets the path of this SnapshotSnapshotCreateParams.
-        The /ifs path snapshotted.
-
-        :return: The path of this SnapshotSnapshotCreateParams.
-        :rtype: str
-        """
-        return self._path
-
-    @path.setter
-    def path(self, path):
-        """
-        Sets the path of this SnapshotSnapshotCreateParams.
-        The /ifs path snapshotted.
-
-        :param path: The path of this SnapshotSnapshotCreateParams.
-        :type: str
-        """
-        self._path = path
 
     @property
     def expires(self):
@@ -141,7 +99,54 @@ class SnapshotSnapshotCreateParams(object):
         :param expires: The expires of this SnapshotSnapshotCreateParams.
         :type: int
         """
+        
         self._expires = expires
+
+    @property
+    def name(self):
+        """
+        Gets the name of this SnapshotSnapshotCreateParams.
+        The user or system supplied snapshot name. This will be null for snapshots pending delete.
+
+        :return: The name of this SnapshotSnapshotCreateParams.
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """
+        Sets the name of this SnapshotSnapshotCreateParams.
+        The user or system supplied snapshot name. This will be null for snapshots pending delete.
+
+        :param name: The name of this SnapshotSnapshotCreateParams.
+        :type: str
+        """
+        
+        self._name = name
+
+    @property
+    def path(self):
+        """
+        Gets the path of this SnapshotSnapshotCreateParams.
+        The /ifs path snapshotted.
+
+        :return: The path of this SnapshotSnapshotCreateParams.
+        :rtype: str
+        """
+        return self._path
+
+    @path.setter
+    def path(self, path):
+        """
+        Sets the path of this SnapshotSnapshotCreateParams.
+        The /ifs path snapshotted.
+
+        :param path: The path of this SnapshotSnapshotCreateParams.
+        :type: str
+        """
+        
+        self._path = path
 
     def to_dict(self):
         """
@@ -158,6 +163,12 @@ class SnapshotSnapshotCreateParams(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -175,14 +186,14 @@ class SnapshotSnapshotCreateParams(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

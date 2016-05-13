@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class SettingsGlobalGlobalSettings(object):
@@ -141,6 +142,7 @@ class SettingsGlobalGlobalSettings(object):
         :param alloc_retries: The alloc_retries of this SettingsGlobalGlobalSettings.
         :type: int
         """
+        
         self._alloc_retries = alloc_retries
 
     @property
@@ -163,6 +165,7 @@ class SettingsGlobalGlobalSettings(object):
         :param gid_range_enabled: The gid_range_enabled of this SettingsGlobalGlobalSettings.
         :type: bool
         """
+        
         self._gid_range_enabled = gid_range_enabled
 
     @property
@@ -185,6 +188,7 @@ class SettingsGlobalGlobalSettings(object):
         :param gid_range_max: The gid_range_max of this SettingsGlobalGlobalSettings.
         :type: int
         """
+        
         self._gid_range_max = gid_range_max
 
     @property
@@ -207,6 +211,7 @@ class SettingsGlobalGlobalSettings(object):
         :param gid_range_min: The gid_range_min of this SettingsGlobalGlobalSettings.
         :type: int
         """
+        
         self._gid_range_min = gid_range_min
 
     @property
@@ -229,6 +234,7 @@ class SettingsGlobalGlobalSettings(object):
         :param gid_range_next: The gid_range_next of this SettingsGlobalGlobalSettings.
         :type: int
         """
+        
         self._gid_range_next = gid_range_next
 
     @property
@@ -251,6 +257,7 @@ class SettingsGlobalGlobalSettings(object):
         :param group_uid: The group_uid of this SettingsGlobalGlobalSettings.
         :type: int
         """
+        
         self._group_uid = group_uid
 
     @property
@@ -273,6 +280,7 @@ class SettingsGlobalGlobalSettings(object):
         :param load_providers: The load_providers of this SettingsGlobalGlobalSettings.
         :type: list[str]
         """
+        
         self._load_providers = load_providers
 
     @property
@@ -295,6 +303,7 @@ class SettingsGlobalGlobalSettings(object):
         :param min_mapped_rid: The min_mapped_rid of this SettingsGlobalGlobalSettings.
         :type: int
         """
+        
         self._min_mapped_rid = min_mapped_rid
 
     @property
@@ -317,6 +326,7 @@ class SettingsGlobalGlobalSettings(object):
         :param null_gid: The null_gid of this SettingsGlobalGlobalSettings.
         :type: int
         """
+        
         self._null_gid = null_gid
 
     @property
@@ -339,6 +349,7 @@ class SettingsGlobalGlobalSettings(object):
         :param null_uid: The null_uid of this SettingsGlobalGlobalSettings.
         :type: int
         """
+        
         self._null_uid = null_uid
 
     @property
@@ -367,6 +378,7 @@ class SettingsGlobalGlobalSettings(object):
                 "Invalid value for `on_disk_identity`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._on_disk_identity = on_disk_identity
 
     @property
@@ -389,6 +401,7 @@ class SettingsGlobalGlobalSettings(object):
         :param rpc_block_time: The rpc_block_time of this SettingsGlobalGlobalSettings.
         :type: int
         """
+        
         self._rpc_block_time = rpc_block_time
 
     @property
@@ -411,6 +424,7 @@ class SettingsGlobalGlobalSettings(object):
         :param rpc_max_requests: The rpc_max_requests of this SettingsGlobalGlobalSettings.
         :type: int
         """
+        
         self._rpc_max_requests = rpc_max_requests
 
     @property
@@ -433,6 +447,7 @@ class SettingsGlobalGlobalSettings(object):
         :param rpc_timeout: The rpc_timeout of this SettingsGlobalGlobalSettings.
         :type: int
         """
+        
         self._rpc_timeout = rpc_timeout
 
     @property
@@ -455,6 +470,7 @@ class SettingsGlobalGlobalSettings(object):
         :param send_ntlmv2: The send_ntlmv2 of this SettingsGlobalGlobalSettings.
         :type: bool
         """
+        
         self._send_ntlmv2 = send_ntlmv2
 
     @property
@@ -477,6 +493,7 @@ class SettingsGlobalGlobalSettings(object):
         :param space_replacement: The space_replacement of this SettingsGlobalGlobalSettings.
         :type: str
         """
+        
         self._space_replacement = space_replacement
 
     @property
@@ -499,6 +516,7 @@ class SettingsGlobalGlobalSettings(object):
         :param system_gid_threshold: The system_gid_threshold of this SettingsGlobalGlobalSettings.
         :type: int
         """
+        
         self._system_gid_threshold = system_gid_threshold
 
     @property
@@ -521,6 +539,7 @@ class SettingsGlobalGlobalSettings(object):
         :param system_uid_threshold: The system_uid_threshold of this SettingsGlobalGlobalSettings.
         :type: int
         """
+        
         self._system_uid_threshold = system_uid_threshold
 
     @property
@@ -543,6 +562,7 @@ class SettingsGlobalGlobalSettings(object):
         :param uid_range_enabled: The uid_range_enabled of this SettingsGlobalGlobalSettings.
         :type: bool
         """
+        
         self._uid_range_enabled = uid_range_enabled
 
     @property
@@ -565,6 +585,7 @@ class SettingsGlobalGlobalSettings(object):
         :param uid_range_max: The uid_range_max of this SettingsGlobalGlobalSettings.
         :type: int
         """
+        
         self._uid_range_max = uid_range_max
 
     @property
@@ -587,6 +608,7 @@ class SettingsGlobalGlobalSettings(object):
         :param uid_range_min: The uid_range_min of this SettingsGlobalGlobalSettings.
         :type: int
         """
+        
         self._uid_range_min = uid_range_min
 
     @property
@@ -609,6 +631,7 @@ class SettingsGlobalGlobalSettings(object):
         :param uid_range_next: The uid_range_next of this SettingsGlobalGlobalSettings.
         :type: int
         """
+        
         self._uid_range_next = uid_range_next
 
     @property
@@ -631,6 +654,7 @@ class SettingsGlobalGlobalSettings(object):
         :param unknown_gid: The unknown_gid of this SettingsGlobalGlobalSettings.
         :type: int
         """
+        
         self._unknown_gid = unknown_gid
 
     @property
@@ -653,6 +677,7 @@ class SettingsGlobalGlobalSettings(object):
         :param unknown_uid: The unknown_uid of this SettingsGlobalGlobalSettings.
         :type: int
         """
+        
         self._unknown_uid = unknown_uid
 
     @property
@@ -675,6 +700,7 @@ class SettingsGlobalGlobalSettings(object):
         :param user_object_cache_size: The user_object_cache_size of this SettingsGlobalGlobalSettings.
         :type: int
         """
+        
         self._user_object_cache_size = user_object_cache_size
 
     @property
@@ -697,6 +723,7 @@ class SettingsGlobalGlobalSettings(object):
         :param workgroup: The workgroup of this SettingsGlobalGlobalSettings.
         :type: str
         """
+        
         self._workgroup = workgroup
 
     def to_dict(self):
@@ -714,6 +741,12 @@ class SettingsGlobalGlobalSettings(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -731,14 +764,14 @@ class SettingsGlobalGlobalSettings(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

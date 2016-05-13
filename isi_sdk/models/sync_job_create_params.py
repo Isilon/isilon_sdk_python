@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class SyncJobCreateParams(object):
@@ -37,57 +38,26 @@ class SyncJobCreateParams(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'log_level': 'str',
             'action': 'str',
-            'state': 'str',
             'id': 'str',
+            'log_level': 'str',
             'source_snapshot': 'str',
             'workers_per_node': 'int'
         }
 
         self.attribute_map = {
-            'log_level': 'log_level',
             'action': 'action',
-            'state': 'state',
             'id': 'id',
+            'log_level': 'log_level',
             'source_snapshot': 'source_snapshot',
             'workers_per_node': 'workers_per_node'
         }
 
-        self._log_level = None
         self._action = None
-        self._state = None
         self._id = None
+        self._log_level = None
         self._source_snapshot = None
         self._workers_per_node = None
-
-    @property
-    def log_level(self):
-        """
-        Gets the log_level of this SyncJobCreateParams.
-        Only valid for allow_write, and allow_write_revert; specify the desired logging level, will be stored in the logs for isi_migrate, defaults to 'info'.
-
-        :return: The log_level of this SyncJobCreateParams.
-        :rtype: str
-        """
-        return self._log_level
-
-    @log_level.setter
-    def log_level(self, log_level):
-        """
-        Sets the log_level of this SyncJobCreateParams.
-        Only valid for allow_write, and allow_write_revert; specify the desired logging level, will be stored in the logs for isi_migrate, defaults to 'info'.
-
-        :param log_level: The log_level of this SyncJobCreateParams.
-        :type: str
-        """
-        allowed_values = ["fatal", "error", "notice", "info", "copy", "debug", "trace"]
-        if log_level not in allowed_values:
-            raise ValueError(
-                "Invalid value for `log_level`, must be one of {0}"
-                .format(allowed_values)
-            )
-        self._log_level = log_level
 
     @property
     def action(self):
@@ -115,35 +85,8 @@ class SyncJobCreateParams(object):
                 "Invalid value for `action`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._action = action
-
-    @property
-    def state(self):
-        """
-        Gets the state of this SyncJobCreateParams.
-        The state of the job.
-
-        :return: The state of this SyncJobCreateParams.
-        :rtype: str
-        """
-        return self._state
-
-    @state.setter
-    def state(self, state):
-        """
-        Sets the state of this SyncJobCreateParams.
-        The state of the job.
-
-        :param state: The state of this SyncJobCreateParams.
-        :type: str
-        """
-        allowed_values = ["canceled", "running", "paused"]
-        if state not in allowed_values:
-            raise ValueError(
-                "Invalid value for `state`, must be one of {0}"
-                .format(allowed_values)
-            )
-        self._state = state
 
     @property
     def id(self):
@@ -165,7 +108,37 @@ class SyncJobCreateParams(object):
         :param id: The id of this SyncJobCreateParams.
         :type: str
         """
+        
         self._id = id
+
+    @property
+    def log_level(self):
+        """
+        Gets the log_level of this SyncJobCreateParams.
+        Only valid for allow_write, and allow_write_revert; specify the desired logging level, will be stored in the logs for isi_migrate, defaults to 'info'.
+
+        :return: The log_level of this SyncJobCreateParams.
+        :rtype: str
+        """
+        return self._log_level
+
+    @log_level.setter
+    def log_level(self, log_level):
+        """
+        Sets the log_level of this SyncJobCreateParams.
+        Only valid for allow_write, and allow_write_revert; specify the desired logging level, will be stored in the logs for isi_migrate, defaults to 'info'.
+
+        :param log_level: The log_level of this SyncJobCreateParams.
+        :type: str
+        """
+        allowed_values = ["fatal", "error", "notice", "info", "copy", "debug", "trace"]
+        if log_level not in allowed_values:
+            raise ValueError(
+                "Invalid value for `log_level`, must be one of {0}"
+                .format(allowed_values)
+            )
+
+        self._log_level = log_level
 
     @property
     def source_snapshot(self):
@@ -187,6 +160,7 @@ class SyncJobCreateParams(object):
         :param source_snapshot: The source_snapshot of this SyncJobCreateParams.
         :type: str
         """
+        
         self._source_snapshot = source_snapshot
 
     @property
@@ -209,6 +183,7 @@ class SyncJobCreateParams(object):
         :param workers_per_node: The workers_per_node of this SyncJobCreateParams.
         :type: int
         """
+        
         self._workers_per_node = workers_per_node
 
     def to_dict(self):
@@ -226,6 +201,12 @@ class SyncJobCreateParams(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -243,14 +224,14 @@ class SyncJobCreateParams(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

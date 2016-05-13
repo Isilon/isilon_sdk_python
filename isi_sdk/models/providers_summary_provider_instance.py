@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class ProvidersSummaryProviderInstance(object):
@@ -93,6 +94,7 @@ class ProvidersSummaryProviderInstance(object):
         :param active_server: The active_server of this ProvidersSummaryProviderInstance.
         :type: str
         """
+        
         self._active_server = active_server
 
     @property
@@ -115,6 +117,7 @@ class ProvidersSummaryProviderInstance(object):
         :param client_site: The client_site of this ProvidersSummaryProviderInstance.
         :type: str
         """
+        
         self._client_site = client_site
 
     @property
@@ -137,6 +140,7 @@ class ProvidersSummaryProviderInstance(object):
         :param connections: The connections of this ProvidersSummaryProviderInstance.
         :type: list[ProvidersSummaryProviderInstanceConnection]
         """
+        
         self._connections = connections
 
     @property
@@ -159,6 +163,7 @@ class ProvidersSummaryProviderInstance(object):
         :param dc_site: The dc_site of this ProvidersSummaryProviderInstance.
         :type: str
         """
+        
         self._dc_site = dc_site
 
     @property
@@ -181,6 +186,7 @@ class ProvidersSummaryProviderInstance(object):
         :param forest: The forest of this ProvidersSummaryProviderInstance.
         :type: str
         """
+        
         self._forest = forest
 
     @property
@@ -203,6 +209,7 @@ class ProvidersSummaryProviderInstance(object):
         :param groupnet: The groupnet of this ProvidersSummaryProviderInstance.
         :type: str
         """
+        
         self._groupnet = groupnet
 
     @property
@@ -225,6 +232,7 @@ class ProvidersSummaryProviderInstance(object):
         :param id: The id of this ProvidersSummaryProviderInstance.
         :type: str
         """
+        
         self._id = id
 
     @property
@@ -247,6 +255,7 @@ class ProvidersSummaryProviderInstance(object):
         :param name: The name of this ProvidersSummaryProviderInstance.
         :type: str
         """
+        
         self._name = name
 
     @property
@@ -275,6 +284,7 @@ class ProvidersSummaryProviderInstance(object):
                 "Invalid value for `status`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._status = status
 
     @property
@@ -303,6 +313,7 @@ class ProvidersSummaryProviderInstance(object):
                 "Invalid value for `type`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._type = type
 
     def to_dict(self):
@@ -320,6 +331,12 @@ class ProvidersSummaryProviderInstance(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -337,14 +354,14 @@ class ProvidersSummaryProviderInstance(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

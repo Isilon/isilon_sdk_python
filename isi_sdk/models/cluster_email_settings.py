@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class ClusterEmailSettings(object):
@@ -99,6 +100,7 @@ class ClusterEmailSettings(object):
                 "Invalid value for `batch_mode`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._batch_mode = batch_mode
 
     @property
@@ -121,6 +123,7 @@ class ClusterEmailSettings(object):
         :param mail_relay: The mail_relay of this ClusterEmailSettings.
         :type: str
         """
+        
         self._mail_relay = mail_relay
 
     @property
@@ -143,6 +146,7 @@ class ClusterEmailSettings(object):
         :param mail_sender: The mail_sender of this ClusterEmailSettings.
         :type: str
         """
+        
         self._mail_sender = mail_sender
 
     @property
@@ -165,6 +169,7 @@ class ClusterEmailSettings(object):
         :param mail_subject: The mail_subject of this ClusterEmailSettings.
         :type: str
         """
+        
         self._mail_subject = mail_subject
 
     @property
@@ -187,6 +192,7 @@ class ClusterEmailSettings(object):
         :param smtp_auth_passwd_set: The smtp_auth_passwd_set of this ClusterEmailSettings.
         :type: bool
         """
+        
         self._smtp_auth_passwd_set = smtp_auth_passwd_set
 
     @property
@@ -215,6 +221,7 @@ class ClusterEmailSettings(object):
                 "Invalid value for `smtp_auth_security`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._smtp_auth_security = smtp_auth_security
 
     @property
@@ -237,13 +244,14 @@ class ClusterEmailSettings(object):
         :param smtp_auth_username: The smtp_auth_username of this ClusterEmailSettings.
         :type: str
         """
+        
         self._smtp_auth_username = smtp_auth_username
 
     @property
     def smtp_port(self):
         """
         Gets the smtp_port of this ClusterEmailSettings.
-        The port on the SMTP server to be used for relaying the notification messages.
+        The port on the SMTP server to be used for relaying the notification messages.  
 
         :return: The smtp_port of this ClusterEmailSettings.
         :rtype: int
@@ -254,11 +262,12 @@ class ClusterEmailSettings(object):
     def smtp_port(self, smtp_port):
         """
         Sets the smtp_port of this ClusterEmailSettings.
-        The port on the SMTP server to be used for relaying the notification messages.
+        The port on the SMTP server to be used for relaying the notification messages.  
 
         :param smtp_port: The smtp_port of this ClusterEmailSettings.
         :type: int
         """
+        
         self._smtp_port = smtp_port
 
     @property
@@ -281,6 +290,7 @@ class ClusterEmailSettings(object):
         :param use_smtp_auth: The use_smtp_auth of this ClusterEmailSettings.
         :type: bool
         """
+        
         self._use_smtp_auth = use_smtp_auth
 
     @property
@@ -303,6 +313,7 @@ class ClusterEmailSettings(object):
         :param user_template: The user_template of this ClusterEmailSettings.
         :type: str
         """
+        
         self._user_template = user_template
 
     def to_dict(self):
@@ -320,6 +331,12 @@ class ClusterEmailSettings(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -337,14 +354,14 @@ class ClusterEmailSettings(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class ClusterNodePartitions(object):
@@ -38,7 +39,7 @@ class ClusterNodePartitions(object):
         """
         self.swagger_types = {
             'count': 'int',
-            'partitions': 'list[NodesLnnPartitionsNodePartition]'
+            'partitions': 'list[NodePartitionsNodePartition]'
         }
 
         self.attribute_map = {
@@ -69,6 +70,7 @@ class ClusterNodePartitions(object):
         :param count: The count of this ClusterNodePartitions.
         :type: int
         """
+        
         self._count = count
 
     @property
@@ -78,7 +80,7 @@ class ClusterNodePartitions(object):
         Partition information.
 
         :return: The partitions of this ClusterNodePartitions.
-        :rtype: list[NodesLnnPartitionsNodePartition]
+        :rtype: list[NodePartitionsNodePartition]
         """
         return self._partitions
 
@@ -89,8 +91,9 @@ class ClusterNodePartitions(object):
         Partition information.
 
         :param partitions: The partitions of this ClusterNodePartitions.
-        :type: list[NodesLnnPartitionsNodePartition]
+        :type: list[NodePartitionsNodePartition]
         """
+        
         self._partitions = partitions
 
     def to_dict(self):
@@ -108,6 +111,12 @@ class ClusterNodePartitions(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -125,14 +134,14 @@ class ClusterNodePartitions(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

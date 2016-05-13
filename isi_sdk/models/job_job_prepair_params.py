@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class JobJobPrepairParams(object):
@@ -81,6 +82,7 @@ class JobJobPrepairParams(object):
                 "Invalid value for `mapping_type`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._mapping_type = mapping_type
 
     @property
@@ -109,6 +111,7 @@ class JobJobPrepairParams(object):
                 "Invalid value for `mode`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._mode = mode
 
     @property
@@ -131,6 +134,7 @@ class JobJobPrepairParams(object):
         :param template: The template of this JobJobPrepairParams.
         :type: str
         """
+        
         self._template = template
 
     @property
@@ -153,6 +157,7 @@ class JobJobPrepairParams(object):
         :param zone: The zone of this JobJobPrepairParams.
         :type: str
         """
+        
         self._zone = zone
 
     def to_dict(self):
@@ -170,6 +175,12 @@ class JobJobPrepairParams(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -187,14 +198,14 @@ class JobJobPrepairParams(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

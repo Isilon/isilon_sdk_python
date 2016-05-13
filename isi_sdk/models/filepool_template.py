@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class FilepoolTemplate(object):
@@ -90,6 +91,7 @@ class FilepoolTemplate(object):
         :param actions: The actions of this FilepoolTemplate.
         :type: list[FilepoolDefaultPolicyDefaultPolicyAction]
         """
+        
         self._actions = actions
 
     @property
@@ -112,6 +114,7 @@ class FilepoolTemplate(object):
         :param apply_order: The apply_order of this FilepoolTemplate.
         :type: int
         """
+        
         self._apply_order = apply_order
 
     @property
@@ -134,6 +137,7 @@ class FilepoolTemplate(object):
         :param birth_cluster_id: The birth_cluster_id of this FilepoolTemplate.
         :type: str
         """
+        
         self._birth_cluster_id = birth_cluster_id
 
     @property
@@ -156,6 +160,7 @@ class FilepoolTemplate(object):
         :param description: The description of this FilepoolTemplate.
         :type: str
         """
+        
         self._description = description
 
     @property
@@ -178,6 +183,7 @@ class FilepoolTemplate(object):
         :param file_matching_pattern: The file_matching_pattern of this FilepoolTemplate.
         :type: FilepoolPolicyFileMatchingPattern
         """
+        
         self._file_matching_pattern = file_matching_pattern
 
     @property
@@ -200,6 +206,7 @@ class FilepoolTemplate(object):
         :param id: The id of this FilepoolTemplate.
         :type: int
         """
+        
         self._id = id
 
     @property
@@ -222,6 +229,7 @@ class FilepoolTemplate(object):
         :param name: The name of this FilepoolTemplate.
         :type: str
         """
+        
         self._name = name
 
     @property
@@ -250,6 +258,7 @@ class FilepoolTemplate(object):
                 "Invalid value for `state`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._state = state
 
     @property
@@ -272,6 +281,7 @@ class FilepoolTemplate(object):
         :param state_details: The state_details of this FilepoolTemplate.
         :type: str
         """
+        
         self._state_details = state_details
 
     def to_dict(self):
@@ -289,6 +299,12 @@ class FilepoolTemplate(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -306,14 +322,14 @@ class FilepoolTemplate(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

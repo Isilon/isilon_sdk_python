@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class QuotaQuotaCreateParams(object):
@@ -39,39 +40,36 @@ class QuotaQuotaCreateParams(object):
         self.swagger_types = {
             'container': 'bool',
             'enforced': 'bool',
-            'path': 'str',
-            'thresholds': 'QuotaQuotaThresholds',
-            'persona': 'GroupsGroupMember',
-            'thresholds_include_overhead': 'bool',
             'force': 'bool',
-            'type': 'str',
             'include_snapshots': 'bool',
-            'linked': 'bool'
+            'path': 'str',
+            'persona': 'GroupMember',
+            'thresholds': 'QuotaQuotaThresholds',
+            'thresholds_include_overhead': 'bool',
+            'type': 'str'
         }
 
         self.attribute_map = {
             'container': 'container',
             'enforced': 'enforced',
-            'path': 'path',
-            'thresholds': 'thresholds',
-            'persona': 'persona',
-            'thresholds_include_overhead': 'thresholds_include_overhead',
             'force': 'force',
-            'type': 'type',
             'include_snapshots': 'include_snapshots',
-            'linked': 'linked'
+            'path': 'path',
+            'persona': 'persona',
+            'thresholds': 'thresholds',
+            'thresholds_include_overhead': 'thresholds_include_overhead',
+            'type': 'type'
         }
 
         self._container = None
         self._enforced = None
-        self._path = None
-        self._thresholds = None
-        self._persona = None
-        self._thresholds_include_overhead = None
         self._force = None
-        self._type = None
         self._include_snapshots = None
-        self._linked = None
+        self._path = None
+        self._persona = None
+        self._thresholds = None
+        self._thresholds_include_overhead = None
+        self._type = None
 
     @property
     def container(self):
@@ -93,6 +91,7 @@ class QuotaQuotaCreateParams(object):
         :param container: The container of this QuotaQuotaCreateParams.
         :type: bool
         """
+        
         self._container = container
 
     @property
@@ -115,95 +114,8 @@ class QuotaQuotaCreateParams(object):
         :param enforced: The enforced of this QuotaQuotaCreateParams.
         :type: bool
         """
+        
         self._enforced = enforced
-
-    @property
-    def path(self):
-        """
-        Gets the path of this QuotaQuotaCreateParams.
-        The /ifs path governed.
-
-        :return: The path of this QuotaQuotaCreateParams.
-        :rtype: str
-        """
-        return self._path
-
-    @path.setter
-    def path(self, path):
-        """
-        Sets the path of this QuotaQuotaCreateParams.
-        The /ifs path governed.
-
-        :param path: The path of this QuotaQuotaCreateParams.
-        :type: str
-        """
-        self._path = path
-
-    @property
-    def thresholds(self):
-        """
-        Gets the thresholds of this QuotaQuotaCreateParams.
-        
-
-        :return: The thresholds of this QuotaQuotaCreateParams.
-        :rtype: QuotaQuotaThresholds
-        """
-        return self._thresholds
-
-    @thresholds.setter
-    def thresholds(self, thresholds):
-        """
-        Sets the thresholds of this QuotaQuotaCreateParams.
-        
-
-        :param thresholds: The thresholds of this QuotaQuotaCreateParams.
-        :type: QuotaQuotaThresholds
-        """
-        self._thresholds = thresholds
-
-    @property
-    def persona(self):
-        """
-        Gets the persona of this QuotaQuotaCreateParams.
-        Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'.
-
-        :return: The persona of this QuotaQuotaCreateParams.
-        :rtype: GroupsGroupMember
-        """
-        return self._persona
-
-    @persona.setter
-    def persona(self, persona):
-        """
-        Sets the persona of this QuotaQuotaCreateParams.
-        Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'.
-
-        :param persona: The persona of this QuotaQuotaCreateParams.
-        :type: GroupsGroupMember
-        """
-        self._persona = persona
-
-    @property
-    def thresholds_include_overhead(self):
-        """
-        Gets the thresholds_include_overhead of this QuotaQuotaCreateParams.
-        If true, thresholds apply to data plus filesystem overhead required to store the data (i.e. 'physical' usage).
-
-        :return: The thresholds_include_overhead of this QuotaQuotaCreateParams.
-        :rtype: bool
-        """
-        return self._thresholds_include_overhead
-
-    @thresholds_include_overhead.setter
-    def thresholds_include_overhead(self, thresholds_include_overhead):
-        """
-        Sets the thresholds_include_overhead of this QuotaQuotaCreateParams.
-        If true, thresholds apply to data plus filesystem overhead required to store the data (i.e. 'physical' usage).
-
-        :param thresholds_include_overhead: The thresholds_include_overhead of this QuotaQuotaCreateParams.
-        :type: bool
-        """
-        self._thresholds_include_overhead = thresholds_include_overhead
 
     @property
     def force(self):
@@ -225,7 +137,123 @@ class QuotaQuotaCreateParams(object):
         :param force: The force of this QuotaQuotaCreateParams.
         :type: bool
         """
+        
         self._force = force
+
+    @property
+    def include_snapshots(self):
+        """
+        Gets the include_snapshots of this QuotaQuotaCreateParams.
+        If true, quota governs snapshot data as well as head data.
+
+        :return: The include_snapshots of this QuotaQuotaCreateParams.
+        :rtype: bool
+        """
+        return self._include_snapshots
+
+    @include_snapshots.setter
+    def include_snapshots(self, include_snapshots):
+        """
+        Sets the include_snapshots of this QuotaQuotaCreateParams.
+        If true, quota governs snapshot data as well as head data.
+
+        :param include_snapshots: The include_snapshots of this QuotaQuotaCreateParams.
+        :type: bool
+        """
+        
+        self._include_snapshots = include_snapshots
+
+    @property
+    def path(self):
+        """
+        Gets the path of this QuotaQuotaCreateParams.
+        The /ifs path governed.
+
+        :return: The path of this QuotaQuotaCreateParams.
+        :rtype: str
+        """
+        return self._path
+
+    @path.setter
+    def path(self, path):
+        """
+        Sets the path of this QuotaQuotaCreateParams.
+        The /ifs path governed.
+
+        :param path: The path of this QuotaQuotaCreateParams.
+        :type: str
+        """
+        
+        self._path = path
+
+    @property
+    def persona(self):
+        """
+        Gets the persona of this QuotaQuotaCreateParams.
+        Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'.
+
+        :return: The persona of this QuotaQuotaCreateParams.
+        :rtype: GroupMember
+        """
+        return self._persona
+
+    @persona.setter
+    def persona(self, persona):
+        """
+        Sets the persona of this QuotaQuotaCreateParams.
+        Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'.
+
+        :param persona: The persona of this QuotaQuotaCreateParams.
+        :type: GroupMember
+        """
+        
+        self._persona = persona
+
+    @property
+    def thresholds(self):
+        """
+        Gets the thresholds of this QuotaQuotaCreateParams.
+        
+
+        :return: The thresholds of this QuotaQuotaCreateParams.
+        :rtype: QuotaQuotaThresholds
+        """
+        return self._thresholds
+
+    @thresholds.setter
+    def thresholds(self, thresholds):
+        """
+        Sets the thresholds of this QuotaQuotaCreateParams.
+        
+
+        :param thresholds: The thresholds of this QuotaQuotaCreateParams.
+        :type: QuotaQuotaThresholds
+        """
+        
+        self._thresholds = thresholds
+
+    @property
+    def thresholds_include_overhead(self):
+        """
+        Gets the thresholds_include_overhead of this QuotaQuotaCreateParams.
+        If true, thresholds apply to data plus filesystem overhead required to store the data (i.e. 'physical' usage).
+
+        :return: The thresholds_include_overhead of this QuotaQuotaCreateParams.
+        :rtype: bool
+        """
+        return self._thresholds_include_overhead
+
+    @thresholds_include_overhead.setter
+    def thresholds_include_overhead(self, thresholds_include_overhead):
+        """
+        Sets the thresholds_include_overhead of this QuotaQuotaCreateParams.
+        If true, thresholds apply to data plus filesystem overhead required to store the data (i.e. 'physical' usage).
+
+        :param thresholds_include_overhead: The thresholds_include_overhead of this QuotaQuotaCreateParams.
+        :type: bool
+        """
+        
+        self._thresholds_include_overhead = thresholds_include_overhead
 
     @property
     def type(self):
@@ -253,51 +281,8 @@ class QuotaQuotaCreateParams(object):
                 "Invalid value for `type`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._type = type
-
-    @property
-    def include_snapshots(self):
-        """
-        Gets the include_snapshots of this QuotaQuotaCreateParams.
-        If true, quota governs snapshot data as well as head data.
-
-        :return: The include_snapshots of this QuotaQuotaCreateParams.
-        :rtype: bool
-        """
-        return self._include_snapshots
-
-    @include_snapshots.setter
-    def include_snapshots(self, include_snapshots):
-        """
-        Sets the include_snapshots of this QuotaQuotaCreateParams.
-        If true, quota governs snapshot data as well as head data.
-
-        :param include_snapshots: The include_snapshots of this QuotaQuotaCreateParams.
-        :type: bool
-        """
-        self._include_snapshots = include_snapshots
-
-    @property
-    def linked(self):
-        """
-        Gets the linked of this QuotaQuotaCreateParams.
-        If false and the quota is linked, attempt to unlink.
-
-        :return: The linked of this QuotaQuotaCreateParams.
-        :rtype: bool
-        """
-        return self._linked
-
-    @linked.setter
-    def linked(self, linked):
-        """
-        Sets the linked of this QuotaQuotaCreateParams.
-        If false and the quota is linked, attempt to unlink.
-
-        :param linked: The linked of this QuotaQuotaCreateParams.
-        :type: bool
-        """
-        self._linked = linked
 
     def to_dict(self):
         """
@@ -314,6 +299,12 @@ class QuotaQuotaCreateParams(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -331,14 +322,14 @@ class QuotaQuotaCreateParams(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

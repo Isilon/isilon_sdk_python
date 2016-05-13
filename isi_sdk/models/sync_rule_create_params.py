@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class SyncRuleCreateParams(object):
@@ -37,48 +38,26 @@ class SyncRuleCreateParams(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'limit': 'int',
             'description': 'str',
+            'enabled': 'bool',
+            'limit': 'int',
             'schedule': 'SyncRuleSchedule',
-            'type': 'str',
-            'enabled': 'bool'
+            'type': 'str'
         }
 
         self.attribute_map = {
-            'limit': 'limit',
             'description': 'description',
+            'enabled': 'enabled',
+            'limit': 'limit',
             'schedule': 'schedule',
-            'type': 'type',
-            'enabled': 'enabled'
+            'type': 'type'
         }
 
-        self._limit = None
         self._description = None
+        self._enabled = None
+        self._limit = None
         self._schedule = None
         self._type = None
-        self._enabled = None
-
-    @property
-    def limit(self):
-        """
-        Gets the limit of this SyncRuleCreateParams.
-        Amount the specified system resource type is limited by this rule.  Units are kb/s for bandwidth, files/s for file-count, processing percentage used for cpu, or percentage of maximum available workers.
-
-        :return: The limit of this SyncRuleCreateParams.
-        :rtype: int
-        """
-        return self._limit
-
-    @limit.setter
-    def limit(self, limit):
-        """
-        Sets the limit of this SyncRuleCreateParams.
-        Amount the specified system resource type is limited by this rule.  Units are kb/s for bandwidth, files/s for file-count, processing percentage used for cpu, or percentage of maximum available workers.
-
-        :param limit: The limit of this SyncRuleCreateParams.
-        :type: int
-        """
-        self._limit = limit
 
     @property
     def description(self):
@@ -100,7 +79,54 @@ class SyncRuleCreateParams(object):
         :param description: The description of this SyncRuleCreateParams.
         :type: str
         """
+        
         self._description = description
+
+    @property
+    def enabled(self):
+        """
+        Gets the enabled of this SyncRuleCreateParams.
+        Whether this performance rule is currently in effect during its specified intervals.
+
+        :return: The enabled of this SyncRuleCreateParams.
+        :rtype: bool
+        """
+        return self._enabled
+
+    @enabled.setter
+    def enabled(self, enabled):
+        """
+        Sets the enabled of this SyncRuleCreateParams.
+        Whether this performance rule is currently in effect during its specified intervals.
+
+        :param enabled: The enabled of this SyncRuleCreateParams.
+        :type: bool
+        """
+        
+        self._enabled = enabled
+
+    @property
+    def limit(self):
+        """
+        Gets the limit of this SyncRuleCreateParams.
+        Amount the specified system resource type is limited by this rule.  Units are kb/s for bandwidth, files/s for file-count, processing percentage used for cpu, or percentage of maximum available workers.
+
+        :return: The limit of this SyncRuleCreateParams.
+        :rtype: int
+        """
+        return self._limit
+
+    @limit.setter
+    def limit(self, limit):
+        """
+        Sets the limit of this SyncRuleCreateParams.
+        Amount the specified system resource type is limited by this rule.  Units are kb/s for bandwidth, files/s for file-count, processing percentage used for cpu, or percentage of maximum available workers.
+
+        :param limit: The limit of this SyncRuleCreateParams.
+        :type: int
+        """
+        
+        self._limit = limit
 
     @property
     def schedule(self):
@@ -122,6 +148,7 @@ class SyncRuleCreateParams(object):
         :param schedule: The schedule of this SyncRuleCreateParams.
         :type: SyncRuleSchedule
         """
+        
         self._schedule = schedule
 
     @property
@@ -150,29 +177,8 @@ class SyncRuleCreateParams(object):
                 "Invalid value for `type`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._type = type
-
-    @property
-    def enabled(self):
-        """
-        Gets the enabled of this SyncRuleCreateParams.
-        Whether this performance rule is currently in effect during its specified intervals.
-
-        :return: The enabled of this SyncRuleCreateParams.
-        :rtype: bool
-        """
-        return self._enabled
-
-    @enabled.setter
-    def enabled(self, enabled):
-        """
-        Sets the enabled of this SyncRuleCreateParams.
-        Whether this performance rule is currently in effect during its specified intervals.
-
-        :param enabled: The enabled of this SyncRuleCreateParams.
-        :type: bool
-        """
-        self._enabled = enabled
 
     def to_dict(self):
         """
@@ -189,6 +195,12 @@ class SyncRuleCreateParams(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -206,14 +218,14 @@ class SyncRuleCreateParams(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

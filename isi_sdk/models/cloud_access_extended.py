@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class CloudAccessExtended(object):
@@ -37,42 +38,20 @@ class CloudAccessExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'resume': 'str',
             'clusters': 'list[CloudAccessCluster]',
+            'resume': 'str',
             'total': 'int'
         }
 
         self.attribute_map = {
-            'resume': 'resume',
             'clusters': 'clusters',
+            'resume': 'resume',
             'total': 'total'
         }
 
-        self._resume = None
         self._clusters = None
+        self._resume = None
         self._total = None
-
-    @property
-    def resume(self):
-        """
-        Gets the resume of this CloudAccessExtended.
-        Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
-
-        :return: The resume of this CloudAccessExtended.
-        :rtype: str
-        """
-        return self._resume
-
-    @resume.setter
-    def resume(self, resume):
-        """
-        Sets the resume of this CloudAccessExtended.
-        Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
-
-        :param resume: The resume of this CloudAccessExtended.
-        :type: str
-        """
-        self._resume = resume
 
     @property
     def clusters(self):
@@ -94,7 +73,31 @@ class CloudAccessExtended(object):
         :param clusters: The clusters of this CloudAccessExtended.
         :type: list[CloudAccessCluster]
         """
+        
         self._clusters = clusters
+
+    @property
+    def resume(self):
+        """
+        Gets the resume of this CloudAccessExtended.
+        Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
+
+        :return: The resume of this CloudAccessExtended.
+        :rtype: str
+        """
+        return self._resume
+
+    @resume.setter
+    def resume(self, resume):
+        """
+        Sets the resume of this CloudAccessExtended.
+        Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
+
+        :param resume: The resume of this CloudAccessExtended.
+        :type: str
+        """
+        
+        self._resume = resume
 
     @property
     def total(self):
@@ -116,6 +119,7 @@ class CloudAccessExtended(object):
         :param total: The total of this CloudAccessExtended.
         :type: int
         """
+        
         self._total = total
 
     def to_dict(self):
@@ -133,6 +137,12 @@ class CloudAccessExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -150,14 +160,14 @@ class CloudAccessExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

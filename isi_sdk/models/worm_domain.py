@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class WormDomain(object):
@@ -84,6 +85,12 @@ class WormDomain(object):
         :param autocommit_offset: The autocommit_offset of this WormDomain.
         :type: int
         """
+        
+        if not autocommit_offset:
+            raise ValueError("Invalid value for `autocommit_offset`, must not be `None`")
+        if autocommit_offset < 0.0: 
+            raise ValueError("Invalid value for `autocommit_offset`, must be a value greater than or equal to `0.0`")
+
         self._autocommit_offset = autocommit_offset
 
     @property
@@ -106,6 +113,12 @@ class WormDomain(object):
         :param default_retention: The default_retention of this WormDomain.
         :type: int
         """
+        
+        if not default_retention:
+            raise ValueError("Invalid value for `default_retention`, must not be `None`")
+        if default_retention < 0.0: 
+            raise ValueError("Invalid value for `default_retention`, must be a value greater than or equal to `0.0`")
+
         self._default_retention = default_retention
 
     @property
@@ -128,6 +141,12 @@ class WormDomain(object):
         :param max_retention: The max_retention of this WormDomain.
         :type: int
         """
+        
+        if not max_retention:
+            raise ValueError("Invalid value for `max_retention`, must not be `None`")
+        if max_retention < 0.0: 
+            raise ValueError("Invalid value for `max_retention`, must be a value greater than or equal to `0.0`")
+
         self._max_retention = max_retention
 
     @property
@@ -150,6 +169,12 @@ class WormDomain(object):
         :param min_retention: The min_retention of this WormDomain.
         :type: int
         """
+        
+        if not min_retention:
+            raise ValueError("Invalid value for `min_retention`, must not be `None`")
+        if min_retention < 0.0: 
+            raise ValueError("Invalid value for `min_retention`, must be a value greater than or equal to `0.0`")
+
         self._min_retention = min_retention
 
     @property
@@ -172,6 +197,12 @@ class WormDomain(object):
         :param override_date: The override_date of this WormDomain.
         :type: int
         """
+        
+        if not override_date:
+            raise ValueError("Invalid value for `override_date`, must not be `None`")
+        if override_date < 0.0: 
+            raise ValueError("Invalid value for `override_date`, must be a value greater than or equal to `0.0`")
+
         self._override_date = override_date
 
     @property
@@ -200,6 +231,7 @@ class WormDomain(object):
                 "Invalid value for `privileged_delete`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._privileged_delete = privileged_delete
 
     @property
@@ -228,6 +260,7 @@ class WormDomain(object):
                 "Invalid value for `type`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._type = type
 
     def to_dict(self):
@@ -245,6 +278,12 @@ class WormDomain(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -262,14 +301,14 @@ class WormDomain(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

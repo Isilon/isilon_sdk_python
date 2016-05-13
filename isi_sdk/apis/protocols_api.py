@@ -2,7 +2,7 @@
 
 """
 ProtocolsApi.py
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@ from __future__ import absolute_import
 
 import sys
 import os
+import re
 
 # python 2 and python 3 compatibility library
 from six import iteritems
@@ -44,79 +45,6 @@ class ProtocolsApi(object):
             if not config.api_client:
                 config.api_client = ApiClient()
             self.api_client = config.api_client
-
-    def list_hdfs_proxyusers(self, **kwargs):
-        """
-        
-        List all proxyusers.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.list_hdfs_proxyusers(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: HdfsProxyusers
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_hdfs_proxyusers" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/1/protocols/hdfs/proxyusers'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='HdfsProxyusers',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
 
     def create_hdfs_proxyuser(self, hdfs_proxyuser, **kwargs):
         """
@@ -156,17 +84,16 @@ class ProtocolsApi(object):
         if ('hdfs_proxyuser' not in params) or (params['hdfs_proxyuser'] is None):
             raise ValueError("Missing the required parameter `hdfs_proxyuser` when calling `create_hdfs_proxyuser`")
 
+
         resource_path = '/platform/1/protocols/hdfs/proxyusers'.replace('{format}', 'json')
-        method = 'POST'
-
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'hdfs_proxyuser' in params:
@@ -185,670 +112,14 @@ class ProtocolsApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'POST',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='CreateResponse',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_hdfs_proxyuser(self, hdfs_proxyuser_id, **kwargs):
-        """
-        
-        List all proxyusers.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_hdfs_proxyuser(hdfs_proxyuser_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str hdfs_proxyuser_id: List all proxyusers. (required)
-        :return: HdfsProxyusers
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['hdfs_proxyuser_id']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_hdfs_proxyuser" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'hdfs_proxyuser_id' is set
-        if ('hdfs_proxyuser_id' not in params) or (params['hdfs_proxyuser_id'] is None):
-            raise ValueError("Missing the required parameter `hdfs_proxyuser_id` when calling `get_hdfs_proxyuser`")
-
-        resource_path = '/platform/1/protocols/hdfs/proxyusers/{HdfsProxyuserId}'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'hdfs_proxyuser_id' in params:
-            path_params['HdfsProxyuserId'] = params['hdfs_proxyuser_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='HdfsProxyusers',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def update_hdfs_proxyuser(self, hdfs_proxyuser, hdfs_proxyuser_id, **kwargs):
-        """
-        
-        Create a new HDFS proxyuser.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_hdfs_proxyuser(hdfs_proxyuser, hdfs_proxyuser_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param Empty hdfs_proxyuser:  (required)
-        :param str hdfs_proxyuser_id: Create a new HDFS proxyuser. (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['hdfs_proxyuser', 'hdfs_proxyuser_id']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_hdfs_proxyuser" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'hdfs_proxyuser' is set
-        if ('hdfs_proxyuser' not in params) or (params['hdfs_proxyuser'] is None):
-            raise ValueError("Missing the required parameter `hdfs_proxyuser` when calling `update_hdfs_proxyuser`")
-        # verify the required parameter 'hdfs_proxyuser_id' is set
-        if ('hdfs_proxyuser_id' not in params) or (params['hdfs_proxyuser_id'] is None):
-            raise ValueError("Missing the required parameter `hdfs_proxyuser_id` when calling `update_hdfs_proxyuser`")
-
-        resource_path = '/platform/1/protocols/hdfs/proxyusers/{HdfsProxyuserId}'.replace('{format}', 'json')
-        method = 'PUT'
-
-        path_params = {}
-        if 'hdfs_proxyuser_id' in params:
-            path_params['HdfsProxyuserId'] = params['hdfs_proxyuser_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'hdfs_proxyuser' in params:
-            body_params = params['hdfs_proxyuser']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def delete_hdfs_proxyuser(self, hdfs_proxyuser_id, **kwargs):
-        """
-        
-        Delete a a HDFS proxyuser.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_hdfs_proxyuser(hdfs_proxyuser_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str hdfs_proxyuser_id: Delete a a HDFS proxyuser. (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['hdfs_proxyuser_id']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_hdfs_proxyuser" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'hdfs_proxyuser_id' is set
-        if ('hdfs_proxyuser_id' not in params) or (params['hdfs_proxyuser_id'] is None):
-            raise ValueError("Missing the required parameter `hdfs_proxyuser_id` when calling `delete_hdfs_proxyuser`")
-
-        resource_path = '/platform/1/protocols/hdfs/proxyusers/{HdfsProxyuserId}'.replace('{format}', 'json')
-        method = 'DELETE'
-
-        path_params = {}
-        if 'hdfs_proxyuser_id' in params:
-            path_params['HdfsProxyuserId'] = params['hdfs_proxyuser_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def list_hdfs_proxyusers_name_members(self, name, **kwargs):
-        """
-        
-        List all the members of the HDFS proxyuser.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.list_hdfs_proxyusers_name_members(name, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str name:  (required)
-        :return: GroupsGroupMembers
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['name']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_hdfs_proxyusers_name_members" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'name' is set
-        if ('name' not in params) or (params['name'] is None):
-            raise ValueError("Missing the required parameter `name` when calling `list_hdfs_proxyusers_name_members`")
-
-        resource_path = '/platform/1/protocols/hdfs/proxyusers/{Name}/members'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'name' in params:
-            path_params['Name'] = params['name']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='GroupsGroupMembers',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def create_hdfs_proxyusers_name_member(self, hdfs_proxyusers_name_member, name, **kwargs):
-        """
-        
-        Add a member to the HDFS proxyuser.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_hdfs_proxyusers_name_member(hdfs_proxyusers_name_member, name, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param GroupsGroupMember hdfs_proxyusers_name_member:  (required)
-        :param str name:  (required)
-        :return: CreateResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['hdfs_proxyusers_name_member', 'name']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_hdfs_proxyusers_name_member" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'hdfs_proxyusers_name_member' is set
-        if ('hdfs_proxyusers_name_member' not in params) or (params['hdfs_proxyusers_name_member'] is None):
-            raise ValueError("Missing the required parameter `hdfs_proxyusers_name_member` when calling `create_hdfs_proxyusers_name_member`")
-        # verify the required parameter 'name' is set
-        if ('name' not in params) or (params['name'] is None):
-            raise ValueError("Missing the required parameter `name` when calling `create_hdfs_proxyusers_name_member`")
-
-        resource_path = '/platform/1/protocols/hdfs/proxyusers/{Name}/members'.replace('{format}', 'json')
-        method = 'POST'
-
-        path_params = {}
-        if 'name' in params:
-            path_params['Name'] = params['name']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'hdfs_proxyusers_name_member' in params:
-            body_params = params['hdfs_proxyusers_name_member']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='CreateResponse',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def update_hdfs_proxyusers_name_member(self, hdfs_proxyusers_name_member, hdfs_proxyusers_name_member_id, name, **kwargs):
-        """
-        
-        Create a new HDFS proxyuser.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_hdfs_proxyusers_name_member(hdfs_proxyusers_name_member, hdfs_proxyusers_name_member_id, name, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param Empty hdfs_proxyusers_name_member:  (required)
-        :param str hdfs_proxyusers_name_member_id: Create a new HDFS proxyuser. (required)
-        :param str name:  (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['hdfs_proxyusers_name_member', 'hdfs_proxyusers_name_member_id', 'name']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_hdfs_proxyusers_name_member" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'hdfs_proxyusers_name_member' is set
-        if ('hdfs_proxyusers_name_member' not in params) or (params['hdfs_proxyusers_name_member'] is None):
-            raise ValueError("Missing the required parameter `hdfs_proxyusers_name_member` when calling `update_hdfs_proxyusers_name_member`")
-        # verify the required parameter 'hdfs_proxyusers_name_member_id' is set
-        if ('hdfs_proxyusers_name_member_id' not in params) or (params['hdfs_proxyusers_name_member_id'] is None):
-            raise ValueError("Missing the required parameter `hdfs_proxyusers_name_member_id` when calling `update_hdfs_proxyusers_name_member`")
-        # verify the required parameter 'name' is set
-        if ('name' not in params) or (params['name'] is None):
-            raise ValueError("Missing the required parameter `name` when calling `update_hdfs_proxyusers_name_member`")
-
-        resource_path = '/platform/1/protocols/hdfs/proxyusers/{Name}/members/{HdfsProxyusersNameMemberId}'.replace('{format}', 'json')
-        method = 'PUT'
-
-        path_params = {}
-        if 'hdfs_proxyusers_name_member_id' in params:
-            path_params['HdfsProxyusersNameMemberId'] = params['hdfs_proxyusers_name_member_id']
-        if 'name' in params:
-            path_params['Name'] = params['name']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'hdfs_proxyusers_name_member' in params:
-            body_params = params['hdfs_proxyusers_name_member']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def delete_hdfs_proxyusers_name_member(self, hdfs_proxyusers_name_member_id, name, **kwargs):
-        """
-        
-        Remove a member from the HDFS proxyuser.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_hdfs_proxyusers_name_member(hdfs_proxyusers_name_member_id, name, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str hdfs_proxyusers_name_member_id: Remove a member from the HDFS proxyuser. (required)
-        :param str name:  (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['hdfs_proxyusers_name_member_id', 'name']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_hdfs_proxyusers_name_member" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'hdfs_proxyusers_name_member_id' is set
-        if ('hdfs_proxyusers_name_member_id' not in params) or (params['hdfs_proxyusers_name_member_id'] is None):
-            raise ValueError("Missing the required parameter `hdfs_proxyusers_name_member_id` when calling `delete_hdfs_proxyusers_name_member`")
-        # verify the required parameter 'name' is set
-        if ('name' not in params) or (params['name'] is None):
-            raise ValueError("Missing the required parameter `name` when calling `delete_hdfs_proxyusers_name_member`")
-
-        resource_path = '/platform/1/protocols/hdfs/proxyusers/{Name}/members/{HdfsProxyusersNameMemberId}'.replace('{format}', 'json')
-        method = 'DELETE'
-
-        path_params = {}
-        if 'hdfs_proxyusers_name_member_id' in params:
-            path_params['HdfsProxyusersNameMemberId'] = params['hdfs_proxyusers_name_member_id']
-        if 'name' in params:
-            path_params['Name'] = params['name']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def list_hdfs_racks(self, **kwargs):
-        """
-        
-        List all racks.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.list_hdfs_racks(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: HdfsRacksExtended
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_hdfs_racks" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/1/protocols/hdfs/racks'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='HdfsRacksExtended',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -891,17 +162,16 @@ class ProtocolsApi(object):
         if ('hdfs_rack' not in params) or (params['hdfs_rack'] is None):
             raise ValueError("Missing the required parameter `hdfs_rack` when calling `create_hdfs_rack`")
 
-        resource_path = '/platform/1/protocols/hdfs/racks'.replace('{format}', 'json')
-        method = 'POST'
 
+        resource_path = '/platform/1/protocols/hdfs/racks'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'hdfs_rack' in params:
@@ -920,22 +190,22 @@ class ProtocolsApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'POST',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='CreateResponse',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def get_hdfs_rack(self, hdfs_rack_id, **kwargs):
+    def create_ndmp_user(self, ndmp_user, **kwargs):
         """
         
-        Retrieve the HDFS rack.
+        Created a new user.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -943,17 +213,17 @@ class ProtocolsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.get_hdfs_rack(hdfs_rack_id, callback=callback_function)
+        >>> thread = api.create_ndmp_user(ndmp_user, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str hdfs_rack_id: Retrieve the HDFS rack. (required)
-        :return: HdfsRacks
+        :param NdmpUserCreateParams ndmp_user:  (required)
+        :return: Empty
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['hdfs_rack_id']
+        all_params = ['ndmp_user']
         all_params.append('callback')
 
         params = locals()
@@ -961,30 +231,29 @@ class ProtocolsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_hdfs_rack" % key
+                    " to method create_ndmp_user" % key
                 )
             params[key] = val
         del params['kwargs']
 
-        # verify the required parameter 'hdfs_rack_id' is set
-        if ('hdfs_rack_id' not in params) or (params['hdfs_rack_id'] is None):
-            raise ValueError("Missing the required parameter `hdfs_rack_id` when calling `get_hdfs_rack`")
+        # verify the required parameter 'ndmp_user' is set
+        if ('ndmp_user' not in params) or (params['ndmp_user'] is None):
+            raise ValueError("Missing the required parameter `ndmp_user` when calling `create_ndmp_user`")
 
-        resource_path = '/platform/1/protocols/hdfs/racks/{HdfsRackId}'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/3/protocols/ndmp/users'.replace('{format}', 'json')
         path_params = {}
-        if 'hdfs_rack_id' in params:
-            path_params['HdfsRackId'] = params['hdfs_rack_id']
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
+        if 'ndmp_user' in params:
+            body_params = params['ndmp_user']
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
@@ -999,22 +268,22 @@ class ProtocolsApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'POST',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
-                                            response_type='HdfsRacks',
+                                            files=local_var_files,
+                                            response_type='Empty',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def update_hdfs_rack(self, hdfs_rack, hdfs_rack_id, **kwargs):
+    def create_nfs_aliase(self, nfs_aliase, **kwargs):
         """
         
-        Modify the HDFS rack
+        Create a new NFS alias.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1022,18 +291,824 @@ class ProtocolsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.update_hdfs_rack(hdfs_rack, hdfs_rack_id, callback=callback_function)
+        >>> thread = api.create_nfs_aliase(nfs_aliase, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param HdfsRack hdfs_rack:  (required)
-        :param str hdfs_rack_id: Modify the HDFS rack (required)
+        :param NfsAliase nfs_aliase:  (required)
+        :param str zone: Access zone
+        :return: CreateNfsAliaseResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['nfs_aliase', 'zone']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_nfs_aliase" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'nfs_aliase' is set
+        if ('nfs_aliase' not in params) or (params['nfs_aliase'] is None):
+            raise ValueError("Missing the required parameter `nfs_aliase` when calling `create_nfs_aliase`")
+
+
+        resource_path = '/platform/2/protocols/nfs/aliases'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'zone' in params:
+            query_params['zone'] = params['zone']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'nfs_aliase' in params:
+            body_params = params['nfs_aliase']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'POST',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='CreateNfsAliaseResponse',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def create_nfs_export(self, nfs_export, **kwargs):
+        """
+        
+        Create a new NFS export.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.create_nfs_export(nfs_export, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param NfsExport nfs_export:  (required)
+        :param bool force: If true, the export will be created even if it conflicts with another export.
+        :param str zone: Access zone
+        :return: CreateQuotaReportResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['nfs_export', 'force', 'zone']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_nfs_export" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'nfs_export' is set
+        if ('nfs_export' not in params) or (params['nfs_export'] is None):
+            raise ValueError("Missing the required parameter `nfs_export` when calling `create_nfs_export`")
+
+
+        resource_path = '/platform/2/protocols/nfs/exports'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'force' in params:
+            query_params['force'] = params['force']
+        if 'zone' in params:
+            query_params['zone'] = params['zone']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'nfs_export' in params:
+            body_params = params['nfs_export']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'POST',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='CreateQuotaReportResponse',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def create_nfs_netgroup_check_item(self, nfs_netgroup_check_item, **kwargs):
+        """
+        
+        Update the NFS netgroups in the cache.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.create_nfs_netgroup_check_item(nfs_netgroup_check_item, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param Empty nfs_netgroup_check_item:  (required)
+        :param str host: IP address of node to update. If unspecified, the local nodes cache is updated.
+        :return: Empty
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['nfs_netgroup_check_item', 'host']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_nfs_netgroup_check_item" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'nfs_netgroup_check_item' is set
+        if ('nfs_netgroup_check_item' not in params) or (params['nfs_netgroup_check_item'] is None):
+            raise ValueError("Missing the required parameter `nfs_netgroup_check_item` when calling `create_nfs_netgroup_check_item`")
+
+
+        resource_path = '/platform/3/protocols/nfs/netgroup/check'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'host' in params:
+            query_params['host'] = params['host']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'nfs_netgroup_check_item' in params:
+            body_params = params['nfs_netgroup_check_item']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'POST',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='Empty',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def create_nfs_netgroup_flush_item(self, nfs_netgroup_flush_item, **kwargs):
+        """
+        
+        Flush the NFS netgroups in the cache.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.create_nfs_netgroup_flush_item(nfs_netgroup_flush_item, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param Empty nfs_netgroup_flush_item:  (required)
+        :param str host: IP address of node to flush. If unspecified, all nodes on the cluster are flushed.
+        :return: Empty
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['nfs_netgroup_flush_item', 'host']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_nfs_netgroup_flush_item" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'nfs_netgroup_flush_item' is set
+        if ('nfs_netgroup_flush_item' not in params) or (params['nfs_netgroup_flush_item'] is None):
+            raise ValueError("Missing the required parameter `nfs_netgroup_flush_item` when calling `create_nfs_netgroup_flush_item`")
+
+
+        resource_path = '/platform/3/protocols/nfs/netgroup/flush'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'host' in params:
+            query_params['host'] = params['host']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'nfs_netgroup_flush_item' in params:
+            body_params = params['nfs_netgroup_flush_item']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'POST',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='Empty',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def create_nfs_nlm_sessions_check_item(self, nfs_nlm_sessions_check_item, **kwargs):
+        """
+        
+        Perform an active scan for lost NFSv3 locks.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.create_nfs_nlm_sessions_check_item(nfs_nlm_sessions_check_item, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param Empty nfs_nlm_sessions_check_item:  (required)
+        :param str ip: An IP address for which NSM has client records
+        :param str zone: Represents an extant auth zone
+        :return: CreateNfsNlmSessionsCheckItemResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['nfs_nlm_sessions_check_item', 'ip', 'zone']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_nfs_nlm_sessions_check_item" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'nfs_nlm_sessions_check_item' is set
+        if ('nfs_nlm_sessions_check_item' not in params) or (params['nfs_nlm_sessions_check_item'] is None):
+            raise ValueError("Missing the required parameter `nfs_nlm_sessions_check_item` when calling `create_nfs_nlm_sessions_check_item`")
+
+
+        resource_path = '/platform/3/protocols/nfs/nlm/sessions-check'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'ip' in params:
+            query_params['ip'] = params['ip']
+        if 'zone' in params:
+            query_params['zone'] = params['zone']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'nfs_nlm_sessions_check_item' in params:
+            body_params = params['nfs_nlm_sessions_check_item']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'POST',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='CreateNfsNlmSessionsCheckItemResponse',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def create_nfs_reload_item(self, nfs_reload_item, **kwargs):
+        """
+        
+        Reload default NFS export configuration.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.create_nfs_reload_item(nfs_reload_item, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param Empty nfs_reload_item:  (required)
+        :param str zone: Access zone
+        :return: Empty
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['nfs_reload_item', 'zone']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_nfs_reload_item" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'nfs_reload_item' is set
+        if ('nfs_reload_item' not in params) or (params['nfs_reload_item'] is None):
+            raise ValueError("Missing the required parameter `nfs_reload_item` when calling `create_nfs_reload_item`")
+
+
+        resource_path = '/platform/3/protocols/nfs/reload'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'zone' in params:
+            query_params['zone'] = params['zone']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'nfs_reload_item' in params:
+            body_params = params['nfs_reload_item']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'POST',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='Empty',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def create_ntp_server(self, ntp_server, **kwargs):
+        """
+        
+        Create an NTP server entry.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.create_ntp_server(ntp_server, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param NtpServerCreateParams ntp_server:  (required)
+        :return: CreateResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['ntp_server']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_ntp_server" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'ntp_server' is set
+        if ('ntp_server' not in params) or (params['ntp_server'] is None):
+            raise ValueError("Missing the required parameter `ntp_server` when calling `create_ntp_server`")
+
+
+        resource_path = '/platform/3/protocols/ntp/servers'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'ntp_server' in params:
+            body_params = params['ntp_server']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'POST',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='CreateResponse',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def create_smb_log_level_filter(self, smb_log_level_filter, **kwargs):
+        """
+        
+        Add an SMB log filter.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.create_smb_log_level_filter(smb_log_level_filter, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param SmbLogLevelFilter smb_log_level_filter:  (required)
+        :return: CreateAuthRefreshItemResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['smb_log_level_filter']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_smb_log_level_filter" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'smb_log_level_filter' is set
+        if ('smb_log_level_filter' not in params) or (params['smb_log_level_filter'] is None):
+            raise ValueError("Missing the required parameter `smb_log_level_filter` when calling `create_smb_log_level_filter`")
+
+
+        resource_path = '/platform/3/protocols/smb/log-level/filters'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'smb_log_level_filter' in params:
+            body_params = params['smb_log_level_filter']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'POST',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='CreateAuthRefreshItemResponse',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def create_smb_share(self, smb_share, **kwargs):
+        """
+        
+        Create a new share.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.create_smb_share(smb_share, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param SmbShareCreateParams smb_share:  (required)
+        :param str zone: Zone which contains this share.
+        :return: CreateResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['smb_share', 'zone']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_smb_share" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'smb_share' is set
+        if ('smb_share' not in params) or (params['smb_share'] is None):
+            raise ValueError("Missing the required parameter `smb_share` when calling `create_smb_share`")
+
+
+        resource_path = '/platform/3/protocols/smb/shares'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'zone' in params:
+            query_params['zone'] = params['zone']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'smb_share' in params:
+            body_params = params['smb_share']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'POST',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='CreateResponse',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def create_swift_account(self, swift_account, **kwargs):
+        """
+        
+        Create a new Swift account
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.create_swift_account(swift_account, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param SwiftAccount swift_account:  (required)
+        :return: CreateResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['swift_account']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_swift_account" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'swift_account' is set
+        if ('swift_account' not in params) or (params['swift_account'] is None):
+            raise ValueError("Missing the required parameter `swift_account` when calling `create_swift_account`")
+
+
+        resource_path = '/platform/3/protocols/swift/accounts'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'swift_account' in params:
+            body_params = params['swift_account']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'POST',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='CreateResponse',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def delete_hdfs_proxyuser(self, hdfs_proxyuser_id, **kwargs):
+        """
+        
+        Delete a a HDFS proxyuser.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.delete_hdfs_proxyuser(hdfs_proxyuser_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str hdfs_proxyuser_id: Delete a a HDFS proxyuser. (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['hdfs_rack', 'hdfs_rack_id']
+        all_params = ['hdfs_proxyuser_id']
         all_params.append('callback')
 
         params = locals()
@@ -1041,35 +1116,29 @@ class ProtocolsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method update_hdfs_rack" % key
+                    " to method delete_hdfs_proxyuser" % key
                 )
             params[key] = val
         del params['kwargs']
 
-        # verify the required parameter 'hdfs_rack' is set
-        if ('hdfs_rack' not in params) or (params['hdfs_rack'] is None):
-            raise ValueError("Missing the required parameter `hdfs_rack` when calling `update_hdfs_rack`")
-        # verify the required parameter 'hdfs_rack_id' is set
-        if ('hdfs_rack_id' not in params) or (params['hdfs_rack_id'] is None):
-            raise ValueError("Missing the required parameter `hdfs_rack_id` when calling `update_hdfs_rack`")
+        # verify the required parameter 'hdfs_proxyuser_id' is set
+        if ('hdfs_proxyuser_id' not in params) or (params['hdfs_proxyuser_id'] is None):
+            raise ValueError("Missing the required parameter `hdfs_proxyuser_id` when calling `delete_hdfs_proxyuser`")
 
-        resource_path = '/platform/1/protocols/hdfs/racks/{HdfsRackId}'.replace('{format}', 'json')
-        method = 'PUT'
 
+        resource_path = '/platform/1/protocols/hdfs/proxyusers/{HdfsProxyuserId}'.replace('{format}', 'json')
         path_params = {}
-        if 'hdfs_rack_id' in params:
-            path_params['HdfsRackId'] = params['hdfs_rack_id']
+        if 'hdfs_proxyuser_id' in params:
+            path_params['HdfsProxyuserId'] = params['hdfs_proxyuser_id']
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
-        if 'hdfs_rack' in params:
-            body_params = params['hdfs_rack']
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
@@ -1084,13 +1153,13 @@ class ProtocolsApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'DELETE',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
@@ -1134,9 +1203,8 @@ class ProtocolsApi(object):
         if ('hdfs_rack_id' not in params) or (params['hdfs_rack_id'] is None):
             raise ValueError("Missing the required parameter `hdfs_rack_id` when calling `delete_hdfs_rack`")
 
-        resource_path = '/platform/1/protocols/hdfs/racks/{HdfsRackId}'.replace('{format}', 'json')
-        method = 'DELETE'
 
+        resource_path = '/platform/1/protocols/hdfs/racks/{HdfsRackId}'.replace('{format}', 'json')
         path_params = {}
         if 'hdfs_rack_id' in params:
             path_params['HdfsRackId'] = params['hdfs_rack_id']
@@ -1145,8 +1213,8 @@ class ProtocolsApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -1163,22 +1231,22 @@ class ProtocolsApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'DELETE',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def get_smb_openfiles(self, **kwargs):
+    def delete_ndmp_user(self, ndmp_user_id, **kwargs):
         """
         
-        List open files.
+        Delete the user.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1186,20 +1254,17 @@ class ProtocolsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.get_smb_openfiles(callback=callback_function)
+        >>> thread = api.delete_ndmp_user(ndmp_user_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str sort: Order results by this field. Default is id.
-        :param int limit: Return no more than this many results at once (see resume).
-        :param str dir: The direction of the sort.
-        :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
-        :return: SmbOpenfiles
+        :param str ndmp_user_id: Delete the user. (required)
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['sort', 'limit', 'dir', 'resume']
+        all_params = ['ndmp_user_id']
         all_params.append('callback')
 
         params = locals()
@@ -1207,31 +1272,27 @@ class ProtocolsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_smb_openfiles" % key
+                    " to method delete_ndmp_user" % key
                 )
             params[key] = val
         del params['kwargs']
 
+        # verify the required parameter 'ndmp_user_id' is set
+        if ('ndmp_user_id' not in params) or (params['ndmp_user_id'] is None):
+            raise ValueError("Missing the required parameter `ndmp_user_id` when calling `delete_ndmp_user`")
 
-        resource_path = '/platform/1/protocols/smb/openfiles'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/3/protocols/ndmp/users/{NdmpUserId}'.replace('{format}', 'json')
         path_params = {}
+        if 'ndmp_user_id' in params:
+            path_params['NdmpUserId'] = params['ndmp_user_id']
 
         query_params = {}
-        if 'sort' in params:
-            query_params['sort'] = params['sort']
-        if 'limit' in params:
-            query_params['limit'] = params['limit']
-        if 'dir' in params:
-            query_params['dir'] = params['dir']
-        if 'resume' in params:
-            query_params['resume'] = params['resume']
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -1248,14 +1309,563 @@ class ProtocolsApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'DELETE',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
-                                            response_type='SmbOpenfiles',
+                                            files=local_var_files,
+                                            response_type=None,
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def delete_nfs_aliase(self, nfs_aliase_id, **kwargs):
+        """
+        
+        Delete the export.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.delete_nfs_aliase(nfs_aliase_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str nfs_aliase_id: Delete the export. (required)
+        :param str zone: Access zone
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['nfs_aliase_id', 'zone']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_nfs_aliase" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'nfs_aliase_id' is set
+        if ('nfs_aliase_id' not in params) or (params['nfs_aliase_id'] is None):
+            raise ValueError("Missing the required parameter `nfs_aliase_id` when calling `delete_nfs_aliase`")
+
+
+        resource_path = '/platform/2/protocols/nfs/aliases/{NfsAliaseId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'nfs_aliase_id' in params:
+            path_params['NfsAliaseId'] = params['nfs_aliase_id']
+
+        query_params = {}
+        if 'zone' in params:
+            query_params['zone'] = params['zone']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'DELETE',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def delete_nfs_export(self, nfs_export_id, **kwargs):
+        """
+        
+        Delete the export.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.delete_nfs_export(nfs_export_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str nfs_export_id: Delete the export. (required)
+        :param str zone: Access zone
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['nfs_export_id', 'zone']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_nfs_export" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'nfs_export_id' is set
+        if ('nfs_export_id' not in params) or (params['nfs_export_id'] is None):
+            raise ValueError("Missing the required parameter `nfs_export_id` when calling `delete_nfs_export`")
+
+
+        resource_path = '/platform/2/protocols/nfs/exports/{NfsExportId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'nfs_export_id' in params:
+            path_params['NfsExportId'] = params['nfs_export_id']
+
+        query_params = {}
+        if 'zone' in params:
+            query_params['zone'] = params['zone']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'DELETE',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def delete_nfs_nlm_session(self, nfs_nlm_session_id, **kwargs):
+        """
+        
+        Delete all lock state for this host.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.delete_nfs_nlm_session(nfs_nlm_session_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str nfs_nlm_session_id: Delete all lock state for this host. (required)
+        :param str ip: An IP address for which NSM has client records
+        :param str zone: Represents an extant auth zone
+        :param bool refresh: if set to true, the client will be given a chance to reclaim its locks before they are destroyed
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['nfs_nlm_session_id', 'ip', 'zone', 'refresh']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_nfs_nlm_session" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'nfs_nlm_session_id' is set
+        if ('nfs_nlm_session_id' not in params) or (params['nfs_nlm_session_id'] is None):
+            raise ValueError("Missing the required parameter `nfs_nlm_session_id` when calling `delete_nfs_nlm_session`")
+
+
+        resource_path = '/platform/3/protocols/nfs/nlm/sessions/{NfsNlmSessionId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'nfs_nlm_session_id' in params:
+            path_params['NfsNlmSessionId'] = params['nfs_nlm_session_id']
+
+        query_params = {}
+        if 'ip' in params:
+            query_params['ip'] = params['ip']
+        if 'zone' in params:
+            query_params['zone'] = params['zone']
+        if 'refresh' in params:
+            query_params['refresh'] = params['refresh']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'DELETE',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def delete_ntp_server(self, ntp_server_id, **kwargs):
+        """
+        
+        Delete an NTP server entry.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.delete_ntp_server(ntp_server_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str ntp_server_id: Delete an NTP server entry. (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['ntp_server_id']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_ntp_server" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'ntp_server_id' is set
+        if ('ntp_server_id' not in params) or (params['ntp_server_id'] is None):
+            raise ValueError("Missing the required parameter `ntp_server_id` when calling `delete_ntp_server`")
+
+
+        resource_path = '/platform/3/protocols/ntp/servers/{NtpServerId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'ntp_server_id' in params:
+            path_params['NtpServerId'] = params['ntp_server_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'DELETE',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def delete_ntp_servers(self, **kwargs):
+        """
+        
+        Delete all NTP server entries.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.delete_ntp_servers(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_ntp_servers" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/3/protocols/ntp/servers'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'DELETE',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def delete_smb_log_level_filter(self, smb_log_level_filter_id, **kwargs):
+        """
+        
+        Delete log filter.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.delete_smb_log_level_filter(smb_log_level_filter_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str smb_log_level_filter_id: Delete log filter. (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['smb_log_level_filter_id']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_smb_log_level_filter" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'smb_log_level_filter_id' is set
+        if ('smb_log_level_filter_id' not in params) or (params['smb_log_level_filter_id'] is None):
+            raise ValueError("Missing the required parameter `smb_log_level_filter_id` when calling `delete_smb_log_level_filter`")
+
+
+        resource_path = '/platform/3/protocols/smb/log-level/filters/{SmbLogLevelFilterId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'smb_log_level_filter_id' in params:
+            path_params['SmbLogLevelFilterId'] = params['smb_log_level_filter_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'DELETE',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def delete_smb_log_level_filters(self, **kwargs):
+        """
+        
+        Delete an existing SMB log filter.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.delete_smb_log_level_filters(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_smb_log_level_filters" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/3/protocols/smb/log-level/filters'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'DELETE',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -1298,9 +1908,8 @@ class ProtocolsApi(object):
         if ('smb_openfile_id' not in params) or (params['smb_openfile_id'] is None):
             raise ValueError("Missing the required parameter `smb_openfile_id` when calling `delete_smb_openfile`")
 
-        resource_path = '/platform/1/protocols/smb/openfiles/{SmbOpenfileId}'.replace('{format}', 'json')
-        method = 'DELETE'
 
+        resource_path = '/platform/1/protocols/smb/openfiles/{SmbOpenfileId}'.replace('{format}', 'json')
         path_params = {}
         if 'smb_openfile_id' in params:
             path_params['SmbOpenfileId'] = params['smb_openfile_id']
@@ -1309,8 +1918,8 @@ class ProtocolsApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -1327,22 +1936,22 @@ class ProtocolsApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'DELETE',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def get_smb_sessions(self, **kwargs):
+    def delete_smb_session(self, smb_session_id, **kwargs):
         """
         
-        List open sessions.
+        Close the SMB session.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1350,20 +1959,17 @@ class ProtocolsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.get_smb_sessions(callback=callback_function)
+        >>> thread = api.delete_smb_session(smb_session_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str sort: Order results by this field.
-        :param int limit: Return no more than this many results at once (see resume).
-        :param str dir: The direction of the sort.
-        :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
-        :return: SmbSessions
+        :param str smb_session_id: Close the SMB session. (required)
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['sort', 'limit', 'dir', 'resume']
+        all_params = ['smb_session_id']
         all_params.append('callback')
 
         params = locals()
@@ -1371,31 +1977,27 @@ class ProtocolsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_smb_sessions" % key
+                    " to method delete_smb_session" % key
                 )
             params[key] = val
         del params['kwargs']
 
+        # verify the required parameter 'smb_session_id' is set
+        if ('smb_session_id' not in params) or (params['smb_session_id'] is None):
+            raise ValueError("Missing the required parameter `smb_session_id` when calling `delete_smb_session`")
 
-        resource_path = '/platform/1/protocols/smb/sessions'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/1/protocols/smb/sessions/{SmbSessionId}'.replace('{format}', 'json')
         path_params = {}
+        if 'smb_session_id' in params:
+            path_params['SmbSessionId'] = params['smb_session_id']
 
         query_params = {}
-        if 'sort' in params:
-            query_params['sort'] = params['sort']
-        if 'limit' in params:
-            query_params['limit'] = params['limit']
-        if 'dir' in params:
-            query_params['dir'] = params['dir']
-        if 'resume' in params:
-            query_params['resume'] = params['resume']
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -1412,14 +2014,14 @@ class ProtocolsApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'DELETE',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
-                                            response_type='SmbSessions',
+                                            files=local_var_files,
+                                            response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -1466,9 +2068,8 @@ class ProtocolsApi(object):
         if ('computer' not in params) or (params['computer'] is None):
             raise ValueError("Missing the required parameter `computer` when calling `delete_smb_sessions_computer_user`")
 
-        resource_path = '/platform/1/protocols/smb/sessions/{Computer}/{SmbSessionsComputerUser}'.replace('{format}', 'json')
-        method = 'DELETE'
 
+        resource_path = '/platform/1/protocols/smb/sessions/{Computer}/{SmbSessionsComputerUser}'.replace('{format}', 'json')
         path_params = {}
         if 'smb_sessions_computer_user' in params:
             path_params['SmbSessionsComputerUser'] = params['smb_sessions_computer_user']
@@ -1479,8 +2080,8 @@ class ProtocolsApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -1497,22 +2098,22 @@ class ProtocolsApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'DELETE',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def delete_smb_session(self, smb_session_id, **kwargs):
+    def delete_smb_share(self, smb_share_id, **kwargs):
         """
         
-        Close the SMB session.
+        Delete the share.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1520,17 +2121,18 @@ class ProtocolsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.delete_smb_session(smb_session_id, callback=callback_function)
+        >>> thread = api.delete_smb_share(smb_share_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str smb_session_id: Close the SMB session. (required)
+        :param str smb_share_id: Delete the share. (required)
+        :param str zone: Zone which contains this share.
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['smb_session_id']
+        all_params = ['smb_share_id', 'zone']
         all_params.append('callback')
 
         params = locals()
@@ -1538,28 +2140,29 @@ class ProtocolsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method delete_smb_session" % key
+                    " to method delete_smb_share" % key
                 )
             params[key] = val
         del params['kwargs']
 
-        # verify the required parameter 'smb_session_id' is set
-        if ('smb_session_id' not in params) or (params['smb_session_id'] is None):
-            raise ValueError("Missing the required parameter `smb_session_id` when calling `delete_smb_session`")
+        # verify the required parameter 'smb_share_id' is set
+        if ('smb_share_id' not in params) or (params['smb_share_id'] is None):
+            raise ValueError("Missing the required parameter `smb_share_id` when calling `delete_smb_share`")
 
-        resource_path = '/platform/1/protocols/smb/sessions/{SmbSessionId}'.replace('{format}', 'json')
-        method = 'DELETE'
 
+        resource_path = '/platform/3/protocols/smb/shares/{SmbShareId}'.replace('{format}', 'json')
         path_params = {}
-        if 'smb_session_id' in params:
-            path_params['SmbSessionId'] = params['smb_session_id']
+        if 'smb_share_id' in params:
+            path_params['SmbShareId'] = params['smb_share_id']
 
         query_params = {}
+        if 'zone' in params:
+            query_params['zone'] = params['zone']
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -1576,22 +2179,22 @@ class ProtocolsApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'DELETE',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def get_smb_shares_summary(self, **kwargs):
+    def delete_smb_shares(self, **kwargs):
         """
         
-        Return summary information about shares.
+        Delete multiple smb shares.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1599,11 +2202,11 @@ class ProtocolsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.get_smb_shares_summary(callback=callback_function)
+        >>> thread = api.delete_smb_shares(callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :return: SmbSharesSummary
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1616,23 +2219,22 @@ class ProtocolsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_smb_shares_summary" % key
+                    " to method delete_smb_shares" % key
                 )
             params[key] = val
         del params['kwargs']
 
 
-        resource_path = '/platform/1/protocols/smb/shares-summary'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/3/protocols/smb/shares'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -1649,22 +2251,22 @@ class ProtocolsApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'DELETE',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
-                                            response_type='SmbSharesSummary',
+                                            files=local_var_files,
+                                            response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def list_nfs_aliases(self, **kwargs):
+    def delete_swift_account(self, swift_account_id, **kwargs):
         """
         
-        List all NFS aliases.
+        Delete a Swift account.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1672,22 +2274,17 @@ class ProtocolsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.list_nfs_aliases(callback=callback_function)
+        >>> thread = api.delete_swift_account(swift_account_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str sort: The field that will be used for sorting.
-        :param str zone: Access zone
-        :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
-        :param int limit: Return no more than this many results at once (see resume).
-        :param bool check: Check for conflicts when listing exports.
-        :param str dir: The direction of the sort.
-        :return: NfsAliasesExtended
+        :param str swift_account_id: Delete a Swift account. (required)
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['sort', 'zone', 'resume', 'limit', 'check', 'dir']
+        all_params = ['swift_account_id']
         all_params.append('callback')
 
         params = locals()
@@ -1695,35 +2292,27 @@ class ProtocolsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method list_nfs_aliases" % key
+                    " to method delete_swift_account" % key
                 )
             params[key] = val
         del params['kwargs']
 
+        # verify the required parameter 'swift_account_id' is set
+        if ('swift_account_id' not in params) or (params['swift_account_id'] is None):
+            raise ValueError("Missing the required parameter `swift_account_id` when calling `delete_swift_account`")
 
-        resource_path = '/platform/2/protocols/nfs/aliases'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/3/protocols/swift/accounts/{SwiftAccountId}'.replace('{format}', 'json')
         path_params = {}
+        if 'swift_account_id' in params:
+            path_params['SwiftAccountId'] = params['swift_account_id']
 
         query_params = {}
-        if 'sort' in params:
-            query_params['sort'] = params['sort']
-        if 'zone' in params:
-            query_params['zone'] = params['zone']
-        if 'resume' in params:
-            query_params['resume'] = params['resume']
-        if 'limit' in params:
-            query_params['limit'] = params['limit']
-        if 'check' in params:
-            query_params['check'] = params['check']
-        if 'dir' in params:
-            query_params['dir'] = params['dir']
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -1740,22 +2329,22 @@ class ProtocolsApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'DELETE',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
-                                            response_type='NfsAliasesExtended',
+                                            files=local_var_files,
+                                            response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def create_nfs_aliase(self, nfs_aliase, **kwargs):
+    def get_ftp_settings(self, **kwargs):
         """
         
-        Create a new NFS alias.
+        Retrieve the FTP settings.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1763,18 +2352,16 @@ class ProtocolsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.create_nfs_aliase(nfs_aliase, callback=callback_function)
+        >>> thread = api.get_ftp_settings(callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param NfsAliase nfs_aliase:  (required)
-        :param str zone: Access zone
-        :return: CreateNfsAliaseResponse
+        :return: FtpSettings
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['nfs_aliase', 'zone']
+        all_params = []
         all_params.append('callback')
 
         params = locals()
@@ -1782,32 +2369,24 @@ class ProtocolsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method create_nfs_aliase" % key
+                    " to method get_ftp_settings" % key
                 )
             params[key] = val
         del params['kwargs']
 
-        # verify the required parameter 'nfs_aliase' is set
-        if ('nfs_aliase' not in params) or (params['nfs_aliase'] is None):
-            raise ValueError("Missing the required parameter `nfs_aliase` when calling `create_nfs_aliase`")
 
-        resource_path = '/platform/2/protocols/nfs/aliases'.replace('{format}', 'json')
-        method = 'POST'
 
+        resource_path = '/platform/3/protocols/ftp/settings'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
-        if 'zone' in params:
-            query_params['zone'] = params['zone']
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
-        if 'nfs_aliase' in params:
-            body_params = params['nfs_aliase']
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
@@ -1822,14 +2401,824 @@ class ProtocolsApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
-                                            response_type='CreateNfsAliaseResponse',
+                                            files=local_var_files,
+                                            response_type='FtpSettings',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_hdfs_log_level(self, **kwargs):
+        """
+        
+        Retrieve the HDFS service log-level.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_hdfs_log_level(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: HdfsLogLevel
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_hdfs_log_level" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/3/protocols/hdfs/log-level'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='HdfsLogLevel',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_hdfs_proxyuser(self, hdfs_proxyuser_id, **kwargs):
+        """
+        
+        List all proxyusers.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_hdfs_proxyuser(hdfs_proxyuser_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str hdfs_proxyuser_id: List all proxyusers. (required)
+        :return: HdfsProxyusers
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['hdfs_proxyuser_id']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_hdfs_proxyuser" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'hdfs_proxyuser_id' is set
+        if ('hdfs_proxyuser_id' not in params) or (params['hdfs_proxyuser_id'] is None):
+            raise ValueError("Missing the required parameter `hdfs_proxyuser_id` when calling `get_hdfs_proxyuser`")
+
+
+        resource_path = '/platform/1/protocols/hdfs/proxyusers/{HdfsProxyuserId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'hdfs_proxyuser_id' in params:
+            path_params['HdfsProxyuserId'] = params['hdfs_proxyuser_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='HdfsProxyusers',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_hdfs_rack(self, hdfs_rack_id, **kwargs):
+        """
+        
+        Retrieve the HDFS rack.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_hdfs_rack(hdfs_rack_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str hdfs_rack_id: Retrieve the HDFS rack. (required)
+        :return: HdfsRacks
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['hdfs_rack_id']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_hdfs_rack" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'hdfs_rack_id' is set
+        if ('hdfs_rack_id' not in params) or (params['hdfs_rack_id'] is None):
+            raise ValueError("Missing the required parameter `hdfs_rack_id` when calling `get_hdfs_rack`")
+
+
+        resource_path = '/platform/1/protocols/hdfs/racks/{HdfsRackId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'hdfs_rack_id' in params:
+            path_params['HdfsRackId'] = params['hdfs_rack_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='HdfsRacks',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_hdfs_settings(self, **kwargs):
+        """
+        
+        Retrieve HDFS properties.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_hdfs_settings(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: HdfsSettings
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_hdfs_settings" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/3/protocols/hdfs/settings'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='HdfsSettings',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_http_settings(self, **kwargs):
+        """
+        
+        Retrieve HTTP properties.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_http_settings(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: HttpSettings
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_http_settings" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/3/protocols/http/settings'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='HttpSettings',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_ndmp_contexts_bre(self, **kwargs):
+        """
+        
+        Get list of NDMP BRE Contexts.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_ndmp_contexts_bre(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: NdmpContextsBre
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_ndmp_contexts_bre" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/3/protocols/ndmp/contexts/bre'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='NdmpContextsBre',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_ndmp_diagnostics(self, **kwargs):
+        """
+        
+        List ndmp diagnostics settings.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_ndmp_diagnostics(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: NdmpDiagnostics
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_ndmp_diagnostics" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/3/protocols/ndmp/diagnostics'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='NdmpDiagnostics',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_ndmp_logs(self, **kwargs):
+        """
+        
+        Get NDMP logs
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_ndmp_logs(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: NdmpLogs
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_ndmp_logs" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/3/protocols/ndmp/logs'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='NdmpLogs',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_ndmp_sessions(self, **kwargs):
+        """
+        
+        List all ndmp sessions.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_ndmp_sessions(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: NdmpSessions
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_ndmp_sessions" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/3/protocols/ndmp/sessions'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='NdmpSessions',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_ndmp_settings_global(self, **kwargs):
+        """
+        
+        List global ndmp settings.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_ndmp_settings_global(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: NdmpSettingsGlobal
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_ndmp_settings_global" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/3/protocols/ndmp/settings/global'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='NdmpSettingsGlobal',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_ndmp_user(self, ndmp_user_id, **kwargs):
+        """
+        
+        Retrieve the user.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_ndmp_user(ndmp_user_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str ndmp_user_id: Retrieve the user. (required)
+        :return: NdmpUsers
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['ndmp_user_id']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_ndmp_user" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'ndmp_user_id' is set
+        if ('ndmp_user_id' not in params) or (params['ndmp_user_id'] is None):
+            raise ValueError("Missing the required parameter `ndmp_user_id` when calling `get_ndmp_user`")
+
+
+        resource_path = '/platform/3/protocols/ndmp/users/{NdmpUserId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'ndmp_user_id' in params:
+            path_params['NdmpUserId'] = params['ndmp_user_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='NdmpUsers',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -1874,9 +3263,8 @@ class ProtocolsApi(object):
         if ('nfs_aliase_id' not in params) or (params['nfs_aliase_id'] is None):
             raise ValueError("Missing the required parameter `nfs_aliase_id` when calling `get_nfs_aliase`")
 
-        resource_path = '/platform/2/protocols/nfs/aliases/{NfsAliaseId}'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/2/protocols/nfs/aliases/{NfsAliaseId}'.replace('{format}', 'json')
         path_params = {}
         if 'nfs_aliase_id' in params:
             path_params['NfsAliaseId'] = params['nfs_aliase_id']
@@ -1889,8 +3277,8 @@ class ProtocolsApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -1907,14 +3295,3336 @@ class ProtocolsApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='NfsAliases',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_nfs_check(self, **kwargs):
+        """
+        
+        Retrieve NFS export validation information.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_nfs_check(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str zone: Access zone
+        :return: NfsCheckExtended
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['zone']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_nfs_check" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/2/protocols/nfs/check'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'zone' in params:
+            query_params['zone'] = params['zone']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='NfsCheckExtended',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_nfs_export(self, nfs_export_id, **kwargs):
+        """
+        
+        Retrieve export information.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_nfs_export(nfs_export_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str nfs_export_id: Retrieve export information. (required)
+        :param str scope: When specified as 'effective', or not specified, all fields are returned. When specified as 'user', only fields with non-default values are shown. When specified as 'default', the original values are returned.
+        :param str zone: Access zone
+        :return: NfsExports
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['nfs_export_id', 'scope', 'zone']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_nfs_export" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'nfs_export_id' is set
+        if ('nfs_export_id' not in params) or (params['nfs_export_id'] is None):
+            raise ValueError("Missing the required parameter `nfs_export_id` when calling `get_nfs_export`")
+
+
+        resource_path = '/platform/2/protocols/nfs/exports/{NfsExportId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'nfs_export_id' in params:
+            path_params['NfsExportId'] = params['nfs_export_id']
+
+        query_params = {}
+        if 'scope' in params:
+            query_params['scope'] = params['scope']
+        if 'zone' in params:
+            query_params['zone'] = params['zone']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='NfsExports',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_nfs_exports_summary(self, **kwargs):
+        """
+        
+        Retrieve NFS export summary information.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_nfs_exports_summary(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str zone: Access zone
+        :return: NfsExportsSummary
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['zone']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_nfs_exports_summary" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/2/protocols/nfs/exports-summary'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'zone' in params:
+            query_params['zone'] = params['zone']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='NfsExportsSummary',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_nfs_log_level(self, **kwargs):
+        """
+        
+        Get the current NFS service logging level.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_nfs_log_level(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: NfsLogLevel
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_nfs_log_level" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/3/protocols/nfs/log-level'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='NfsLogLevel',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_nfs_netgroup(self, **kwargs):
+        """
+        
+        Get the current NFS netgroup cache settings.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_nfs_netgroup(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str host: Host to retrieve netgroup cache settings from.
+        :return: NfsNetgroup
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['host']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_nfs_netgroup" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/3/protocols/nfs/netgroup'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'host' in params:
+            query_params['host'] = params['host']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='NfsNetgroup',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_nfs_nlm_locks(self, **kwargs):
+        """
+        
+        List all NLM locks.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_nfs_nlm_locks(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str sort: The field that will be used for sorting.
+        :param int limit: Return no more than this many results at once (see resume).
+        :param str dir: The direction of the sort.
+        :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
+        :return: NfsNlmLocks
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['sort', 'limit', 'dir', 'resume']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_nfs_nlm_locks" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+        if 'limit' in params and params['limit'] < 1.0: 
+            raise ValueError("Invalid value for parameter `limit` when calling `get_nfs_nlm_locks`, must be a value greater than or equal to `1.0`")
+
+        resource_path = '/platform/2/protocols/nfs/nlm/locks'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'sort' in params:
+            query_params['sort'] = params['sort']
+        if 'limit' in params:
+            query_params['limit'] = params['limit']
+        if 'dir' in params:
+            query_params['dir'] = params['dir']
+        if 'resume' in params:
+            query_params['resume'] = params['resume']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='NfsNlmLocks',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_nfs_nlm_session(self, nfs_nlm_session_id, **kwargs):
+        """
+        
+        Retrieve all lock state for a single client.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_nfs_nlm_session(nfs_nlm_session_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str nfs_nlm_session_id: Retrieve all lock state for a single client. (required)
+        :param str ip: An IP address for which NSM has client records
+        :param str zone: Represents an extant auth zone
+        :return: NfsNlmSessions
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['nfs_nlm_session_id', 'ip', 'zone']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_nfs_nlm_session" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'nfs_nlm_session_id' is set
+        if ('nfs_nlm_session_id' not in params) or (params['nfs_nlm_session_id'] is None):
+            raise ValueError("Missing the required parameter `nfs_nlm_session_id` when calling `get_nfs_nlm_session`")
+
+
+        resource_path = '/platform/3/protocols/nfs/nlm/sessions/{NfsNlmSessionId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'nfs_nlm_session_id' in params:
+            path_params['NfsNlmSessionId'] = params['nfs_nlm_session_id']
+
+        query_params = {}
+        if 'ip' in params:
+            query_params['ip'] = params['ip']
+        if 'zone' in params:
+            query_params['zone'] = params['zone']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='NfsNlmSessions',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_nfs_nlm_sessions(self, **kwargs):
+        """
+        
+        List all NSM clients (optionally filtered by either zone or IP)
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_nfs_nlm_sessions(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str ip: An IP address for which NSM has client records
+        :param str zone: Represents an extant auth zone
+        :return: NfsNlmSessionsExtended
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['ip', 'zone']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_nfs_nlm_sessions" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/3/protocols/nfs/nlm/sessions'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'ip' in params:
+            query_params['ip'] = params['ip']
+        if 'zone' in params:
+            query_params['zone'] = params['zone']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='NfsNlmSessionsExtended',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_nfs_nlm_waiters(self, **kwargs):
+        """
+        
+        List all NLM lock waiters.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_nfs_nlm_waiters(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str sort: The field that will be used for sorting.
+        :param int limit: Return no more than this many results at once (see resume).
+        :param str dir: The direction of the sort.
+        :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
+        :return: NfsNlmWaiters
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['sort', 'limit', 'dir', 'resume']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_nfs_nlm_waiters" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+        if 'limit' in params and params['limit'] < 1.0: 
+            raise ValueError("Invalid value for parameter `limit` when calling `get_nfs_nlm_waiters`, must be a value greater than or equal to `1.0`")
+
+        resource_path = '/platform/2/protocols/nfs/nlm/waiters'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'sort' in params:
+            query_params['sort'] = params['sort']
+        if 'limit' in params:
+            query_params['limit'] = params['limit']
+        if 'dir' in params:
+            query_params['dir'] = params['dir']
+        if 'resume' in params:
+            query_params['resume'] = params['resume']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='NfsNlmWaiters',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_nfs_settings_export(self, **kwargs):
+        """
+        
+        Retrieve export information.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_nfs_settings_export(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
+        :param str zone: Access zone
+        :return: NfsSettingsExport
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['scope', 'zone']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_nfs_settings_export" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/2/protocols/nfs/settings/export'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'scope' in params:
+            query_params['scope'] = params['scope']
+        if 'zone' in params:
+            query_params['zone'] = params['zone']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='NfsSettingsExport',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_nfs_settings_global(self, **kwargs):
+        """
+        
+        Retrieve the NFS configuration.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_nfs_settings_global(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: NfsSettingsGlobal
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_nfs_settings_global" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/3/protocols/nfs/settings/global'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='NfsSettingsGlobal',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_nfs_settings_zone(self, **kwargs):
+        """
+        
+        Retrieve the NFS server settings for this zone.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_nfs_settings_zone(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: NfsSettingsZone
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_nfs_settings_zone" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/2/protocols/nfs/settings/zone'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='NfsSettingsZone',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_ntp_server(self, ntp_server_id, **kwargs):
+        """
+        
+        Retrieve one NTP server.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_ntp_server(ntp_server_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str ntp_server_id: Retrieve one NTP server. (required)
+        :return: NtpServers
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['ntp_server_id']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_ntp_server" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'ntp_server_id' is set
+        if ('ntp_server_id' not in params) or (params['ntp_server_id'] is None):
+            raise ValueError("Missing the required parameter `ntp_server_id` when calling `get_ntp_server`")
+
+
+        resource_path = '/platform/3/protocols/ntp/servers/{NtpServerId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'ntp_server_id' in params:
+            path_params['NtpServerId'] = params['ntp_server_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='NtpServers',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_ntp_settings(self, **kwargs):
+        """
+        
+        Retrieve the NTP settings.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_ntp_settings(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: NtpSettings
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_ntp_settings" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/3/protocols/ntp/settings'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='NtpSettings',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_smb_log_level(self, **kwargs):
+        """
+        
+        Get the current SMB logging level.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_smb_log_level(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: SmbLogLevel
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_smb_log_level" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/3/protocols/smb/log-level'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='SmbLogLevel',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_smb_log_level_filter(self, smb_log_level_filter_id, **kwargs):
+        """
+        
+        View log filter.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_smb_log_level_filter(smb_log_level_filter_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str smb_log_level_filter_id: View log filter. (required)
+        :return: SmbLogLevelFilters
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['smb_log_level_filter_id']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_smb_log_level_filter" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'smb_log_level_filter_id' is set
+        if ('smb_log_level_filter_id' not in params) or (params['smb_log_level_filter_id'] is None):
+            raise ValueError("Missing the required parameter `smb_log_level_filter_id` when calling `get_smb_log_level_filter`")
+
+
+        resource_path = '/platform/3/protocols/smb/log-level/filters/{SmbLogLevelFilterId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'smb_log_level_filter_id' in params:
+            path_params['SmbLogLevelFilterId'] = params['smb_log_level_filter_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='SmbLogLevelFilters',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_smb_openfiles(self, **kwargs):
+        """
+        
+        List open files.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_smb_openfiles(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str sort: Order results by this field. Default is id.
+        :param int limit: Return no more than this many results at once (see resume).
+        :param str dir: The direction of the sort.
+        :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
+        :return: SmbOpenfiles
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['sort', 'limit', 'dir', 'resume']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_smb_openfiles" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+        if 'limit' in params and params['limit'] < 1.0: 
+            raise ValueError("Invalid value for parameter `limit` when calling `get_smb_openfiles`, must be a value greater than or equal to `1.0`")
+
+        resource_path = '/platform/1/protocols/smb/openfiles'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'sort' in params:
+            query_params['sort'] = params['sort']
+        if 'limit' in params:
+            query_params['limit'] = params['limit']
+        if 'dir' in params:
+            query_params['dir'] = params['dir']
+        if 'resume' in params:
+            query_params['resume'] = params['resume']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='SmbOpenfiles',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_smb_sessions(self, **kwargs):
+        """
+        
+        List open sessions.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_smb_sessions(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str sort: Order results by this field.
+        :param int limit: Return no more than this many results at once (see resume).
+        :param str dir: The direction of the sort.
+        :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
+        :return: SmbSessions
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['sort', 'limit', 'dir', 'resume']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_smb_sessions" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+        if 'limit' in params and params['limit'] < 1.0: 
+            raise ValueError("Invalid value for parameter `limit` when calling `get_smb_sessions`, must be a value greater than or equal to `1.0`")
+
+        resource_path = '/platform/1/protocols/smb/sessions'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'sort' in params:
+            query_params['sort'] = params['sort']
+        if 'limit' in params:
+            query_params['limit'] = params['limit']
+        if 'dir' in params:
+            query_params['dir'] = params['dir']
+        if 'resume' in params:
+            query_params['resume'] = params['resume']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='SmbSessions',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_smb_settings_global(self, **kwargs):
+        """
+        
+        List all settings.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_smb_settings_global(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
+        :return: SmbSettingsGlobal
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['scope']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_smb_settings_global" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/3/protocols/smb/settings/global'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'scope' in params:
+            query_params['scope'] = params['scope']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='SmbSettingsGlobal',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_smb_settings_share(self, **kwargs):
+        """
+        
+        List all settings.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_smb_settings_share(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
+        :param str zone: Zone which contains these share settings.
+        :return: SmbSettingsShare
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['scope', 'zone']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_smb_settings_share" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/3/protocols/smb/settings/share'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'scope' in params:
+            query_params['scope'] = params['scope']
+        if 'zone' in params:
+            query_params['zone'] = params['zone']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='SmbSettingsShare',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_smb_share(self, smb_share_id, **kwargs):
+        """
+        
+        Retrieve share.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_smb_share(smb_share_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str smb_share_id: Retrieve share. (required)
+        :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
+        :param bool resolve_names: If true, resolve group and user names in personas.
+        :param str zone: Zone which contains this share.
+        :return: SmbShares
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['smb_share_id', 'scope', 'resolve_names', 'zone']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_smb_share" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'smb_share_id' is set
+        if ('smb_share_id' not in params) or (params['smb_share_id'] is None):
+            raise ValueError("Missing the required parameter `smb_share_id` when calling `get_smb_share`")
+
+
+        resource_path = '/platform/3/protocols/smb/shares/{SmbShareId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'smb_share_id' in params:
+            path_params['SmbShareId'] = params['smb_share_id']
+
+        query_params = {}
+        if 'scope' in params:
+            query_params['scope'] = params['scope']
+        if 'resolve_names' in params:
+            query_params['resolve_names'] = params['resolve_names']
+        if 'zone' in params:
+            query_params['zone'] = params['zone']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='SmbShares',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_smb_shares_summary(self, **kwargs):
+        """
+        
+        Return summary information about shares.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_smb_shares_summary(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: SmbSharesSummary
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_smb_shares_summary" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/1/protocols/smb/shares-summary'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='SmbSharesSummary',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_snmp_settings(self, **kwargs):
+        """
+        
+        Retrieve the SNMP settings.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_snmp_settings(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: SnmpSettings
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_snmp_settings" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/3/protocols/snmp/settings'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='SnmpSettings',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_swift_account(self, swift_account_id, **kwargs):
+        """
+        
+        List a swift account.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_swift_account(swift_account_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str swift_account_id: List a swift account. (required)
+        :return: SwiftAccounts
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['swift_account_id']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_swift_account" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'swift_account_id' is set
+        if ('swift_account_id' not in params) or (params['swift_account_id'] is None):
+            raise ValueError("Missing the required parameter `swift_account_id` when calling `get_swift_account`")
+
+
+        resource_path = '/platform/3/protocols/swift/accounts/{SwiftAccountId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'swift_account_id' in params:
+            path_params['SwiftAccountId'] = params['swift_account_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='SwiftAccounts',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def list_hdfs_proxyusers(self, **kwargs):
+        """
+        
+        List all proxyusers.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.list_hdfs_proxyusers(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: HdfsProxyusers
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_hdfs_proxyusers" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/1/protocols/hdfs/proxyusers'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='HdfsProxyusers',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def list_hdfs_racks(self, **kwargs):
+        """
+        
+        List all racks.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.list_hdfs_racks(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: HdfsRacksExtended
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_hdfs_racks" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/1/protocols/hdfs/racks'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='HdfsRacksExtended',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def list_ndmp_users(self, **kwargs):
+        """
+        
+        List all ndmp administrators.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.list_ndmp_users(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: NdmpUsersExtended
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_ndmp_users" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/3/protocols/ndmp/users'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='NdmpUsersExtended',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def list_nfs_aliases(self, **kwargs):
+        """
+        
+        List all NFS aliases.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.list_nfs_aliases(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str sort: The field that will be used for sorting.
+        :param str zone: Access zone
+        :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
+        :param int limit: Return no more than this many results at once (see resume).
+        :param bool check: Check for conflicts when listing exports.
+        :param str dir: The direction of the sort.
+        :return: NfsAliasesExtended
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['sort', 'zone', 'resume', 'limit', 'check', 'dir']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_nfs_aliases" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+        if 'limit' in params and params['limit'] < 1.0: 
+            raise ValueError("Invalid value for parameter `limit` when calling `list_nfs_aliases`, must be a value greater than or equal to `1.0`")
+
+        resource_path = '/platform/2/protocols/nfs/aliases'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'sort' in params:
+            query_params['sort'] = params['sort']
+        if 'zone' in params:
+            query_params['zone'] = params['zone']
+        if 'resume' in params:
+            query_params['resume'] = params['resume']
+        if 'limit' in params:
+            query_params['limit'] = params['limit']
+        if 'check' in params:
+            query_params['check'] = params['check']
+        if 'dir' in params:
+            query_params['dir'] = params['dir']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='NfsAliasesExtended',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def list_nfs_exports(self, **kwargs):
+        """
+        
+        List all NFS exports.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.list_nfs_exports(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str sort: The field that will be used for sorting.
+        :param str paths: If specified, only exports that explicitly reference at least one of the given paths will be returned.
+        :param str zone: Access zone
+        :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
+        :param int limit: Return no more than this many results at once (see resume).
+        :param str scope: When specified as 'effective', or not specified, all fields are returned. When specified as 'user', only fields with non-default values are shown. When specified as 'default', the original values are returned.
+        :param bool check: Check for conflicts when listing exports.
+        :param str dir: The direction of the sort.
+        :return: NfsExportsExtended
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['sort', 'paths', 'zone', 'resume', 'limit', 'scope', 'check', 'dir']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_nfs_exports" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+        if 'limit' in params and params['limit'] < 1.0: 
+            raise ValueError("Invalid value for parameter `limit` when calling `list_nfs_exports`, must be a value greater than or equal to `1.0`")
+
+        resource_path = '/platform/2/protocols/nfs/exports'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'sort' in params:
+            query_params['sort'] = params['sort']
+        if 'paths' in params:
+            query_params['paths'] = params['paths']
+        if 'zone' in params:
+            query_params['zone'] = params['zone']
+        if 'resume' in params:
+            query_params['resume'] = params['resume']
+        if 'limit' in params:
+            query_params['limit'] = params['limit']
+        if 'scope' in params:
+            query_params['scope'] = params['scope']
+        if 'check' in params:
+            query_params['check'] = params['check']
+        if 'dir' in params:
+            query_params['dir'] = params['dir']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='NfsExportsExtended',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def list_ntp_servers(self, **kwargs):
+        """
+        
+        List all NTP servers.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.list_ntp_servers(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str sort: The field that will be used for sorting.
+        :param int limit: Return no more than this many results at once (see resume).
+        :param str dir: The direction of the sort.
+        :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
+        :return: NtpServersExtended
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['sort', 'limit', 'dir', 'resume']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_ntp_servers" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+        if 'limit' in params and params['limit'] < 1.0: 
+            raise ValueError("Invalid value for parameter `limit` when calling `list_ntp_servers`, must be a value greater than or equal to `1.0`")
+
+        resource_path = '/platform/3/protocols/ntp/servers'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'sort' in params:
+            query_params['sort'] = params['sort']
+        if 'limit' in params:
+            query_params['limit'] = params['limit']
+        if 'dir' in params:
+            query_params['dir'] = params['dir']
+        if 'resume' in params:
+            query_params['resume'] = params['resume']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='NtpServersExtended',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def list_smb_log_level_filters(self, **kwargs):
+        """
+        
+        Get the current SMB log filters.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.list_smb_log_level_filters(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: SmbLogLevelFiltersExtended
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_smb_log_level_filters" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/3/protocols/smb/log-level/filters'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='SmbLogLevelFiltersExtended',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def list_smb_shares(self, **kwargs):
+        """
+        
+        List all shares.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.list_smb_shares(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str sort: Order results by this field. Default is id.
+        :param str zone: Zone which contains this share.
+        :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
+        :param bool resolve_names: If true, resolve group and user names in personas.
+        :param int limit: Return no more than this many results at once (see resume).
+        :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
+        :param str dir: The direction of the sort.
+        :return: SmbSharesExtended
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['sort', 'zone', 'resume', 'resolve_names', 'limit', 'scope', 'dir']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_smb_shares" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+        if 'limit' in params and params['limit'] < 1.0: 
+            raise ValueError("Invalid value for parameter `limit` when calling `list_smb_shares`, must be a value greater than or equal to `1.0`")
+
+        resource_path = '/platform/3/protocols/smb/shares'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'sort' in params:
+            query_params['sort'] = params['sort']
+        if 'zone' in params:
+            query_params['zone'] = params['zone']
+        if 'resume' in params:
+            query_params['resume'] = params['resume']
+        if 'resolve_names' in params:
+            query_params['resolve_names'] = params['resolve_names']
+        if 'limit' in params:
+            query_params['limit'] = params['limit']
+        if 'scope' in params:
+            query_params['scope'] = params['scope']
+        if 'dir' in params:
+            query_params['dir'] = params['dir']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='SmbSharesExtended',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def list_swift_accounts(self, **kwargs):
+        """
+        
+        List all swift accounts.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.list_swift_accounts(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: SwiftAccounts
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_swift_accounts" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/3/protocols/swift/accounts'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='SwiftAccounts',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def update_ftp_settings(self, ftp_settings, **kwargs):
+        """
+        
+        Modify the FTP settings. All input fields are optional, but one or more must be supplied.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_ftp_settings(ftp_settings, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param FtpSettingsSettings ftp_settings:  (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['ftp_settings']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_ftp_settings" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'ftp_settings' is set
+        if ('ftp_settings' not in params) or (params['ftp_settings'] is None):
+            raise ValueError("Missing the required parameter `ftp_settings` when calling `update_ftp_settings`")
+
+
+        resource_path = '/platform/3/protocols/ftp/settings'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'ftp_settings' in params:
+            body_params = params['ftp_settings']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'PUT',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def update_hdfs_log_level(self, hdfs_log_level, **kwargs):
+        """
+        
+        Modify the HDFS service log-level.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_hdfs_log_level(hdfs_log_level, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param HdfsLogLevel hdfs_log_level:  (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['hdfs_log_level']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_hdfs_log_level" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'hdfs_log_level' is set
+        if ('hdfs_log_level' not in params) or (params['hdfs_log_level'] is None):
+            raise ValueError("Missing the required parameter `hdfs_log_level` when calling `update_hdfs_log_level`")
+
+
+        resource_path = '/platform/3/protocols/hdfs/log-level'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'hdfs_log_level' in params:
+            body_params = params['hdfs_log_level']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'PUT',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def update_hdfs_proxyuser(self, hdfs_proxyuser, hdfs_proxyuser_id, **kwargs):
+        """
+        
+        Create a new HDFS proxyuser.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_hdfs_proxyuser(hdfs_proxyuser, hdfs_proxyuser_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param Empty hdfs_proxyuser:  (required)
+        :param str hdfs_proxyuser_id: Create a new HDFS proxyuser. (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['hdfs_proxyuser', 'hdfs_proxyuser_id']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_hdfs_proxyuser" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'hdfs_proxyuser' is set
+        if ('hdfs_proxyuser' not in params) or (params['hdfs_proxyuser'] is None):
+            raise ValueError("Missing the required parameter `hdfs_proxyuser` when calling `update_hdfs_proxyuser`")
+        # verify the required parameter 'hdfs_proxyuser_id' is set
+        if ('hdfs_proxyuser_id' not in params) or (params['hdfs_proxyuser_id'] is None):
+            raise ValueError("Missing the required parameter `hdfs_proxyuser_id` when calling `update_hdfs_proxyuser`")
+
+
+        resource_path = '/platform/1/protocols/hdfs/proxyusers/{HdfsProxyuserId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'hdfs_proxyuser_id' in params:
+            path_params['HdfsProxyuserId'] = params['hdfs_proxyuser_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'hdfs_proxyuser' in params:
+            body_params = params['hdfs_proxyuser']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'PUT',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def update_hdfs_rack(self, hdfs_rack, hdfs_rack_id, **kwargs):
+        """
+        
+        Modify the HDFS rack
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_hdfs_rack(hdfs_rack, hdfs_rack_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param HdfsRack hdfs_rack:  (required)
+        :param str hdfs_rack_id: Modify the HDFS rack (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['hdfs_rack', 'hdfs_rack_id']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_hdfs_rack" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'hdfs_rack' is set
+        if ('hdfs_rack' not in params) or (params['hdfs_rack'] is None):
+            raise ValueError("Missing the required parameter `hdfs_rack` when calling `update_hdfs_rack`")
+        # verify the required parameter 'hdfs_rack_id' is set
+        if ('hdfs_rack_id' not in params) or (params['hdfs_rack_id'] is None):
+            raise ValueError("Missing the required parameter `hdfs_rack_id` when calling `update_hdfs_rack`")
+
+
+        resource_path = '/platform/1/protocols/hdfs/racks/{HdfsRackId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'hdfs_rack_id' in params:
+            path_params['HdfsRackId'] = params['hdfs_rack_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'hdfs_rack' in params:
+            body_params = params['hdfs_rack']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'PUT',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def update_hdfs_settings(self, hdfs_settings, **kwargs):
+        """
+        
+        Modify HDFS properties.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_hdfs_settings(hdfs_settings, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param HdfsSettingsSettings hdfs_settings:  (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['hdfs_settings']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_hdfs_settings" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'hdfs_settings' is set
+        if ('hdfs_settings' not in params) or (params['hdfs_settings'] is None):
+            raise ValueError("Missing the required parameter `hdfs_settings` when calling `update_hdfs_settings`")
+
+
+        resource_path = '/platform/3/protocols/hdfs/settings'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'hdfs_settings' in params:
+            body_params = params['hdfs_settings']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'PUT',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def update_http_settings(self, http_settings, **kwargs):
+        """
+        
+        Modify HTTP properties.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_http_settings(http_settings, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param HttpSettingsSettings http_settings:  (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['http_settings']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_http_settings" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'http_settings' is set
+        if ('http_settings' not in params) or (params['http_settings'] is None):
+            raise ValueError("Missing the required parameter `http_settings` when calling `update_http_settings`")
+
+
+        resource_path = '/platform/3/protocols/http/settings'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'http_settings' in params:
+            body_params = params['http_settings']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'PUT',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def update_ndmp_diagnostics(self, ndmp_diagnostics, **kwargs):
+        """
+        
+        Modify ndmp diagnostics settings.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_ndmp_diagnostics(ndmp_diagnostics, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param NdmpDiagnosticsDiagnostics ndmp_diagnostics:  (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['ndmp_diagnostics']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_ndmp_diagnostics" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'ndmp_diagnostics' is set
+        if ('ndmp_diagnostics' not in params) or (params['ndmp_diagnostics'] is None):
+            raise ValueError("Missing the required parameter `ndmp_diagnostics` when calling `update_ndmp_diagnostics`")
+
+
+        resource_path = '/platform/3/protocols/ndmp/diagnostics'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'ndmp_diagnostics' in params:
+            body_params = params['ndmp_diagnostics']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'PUT',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def update_ndmp_settings_global(self, ndmp_settings_global, **kwargs):
+        """
+        
+        Modify one or more settings.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_ndmp_settings_global(ndmp_settings_global, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param NdmpSettingsGlobalGlobal ndmp_settings_global:  (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['ndmp_settings_global']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_ndmp_settings_global" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'ndmp_settings_global' is set
+        if ('ndmp_settings_global' not in params) or (params['ndmp_settings_global'] is None):
+            raise ValueError("Missing the required parameter `ndmp_settings_global` when calling `update_ndmp_settings_global`")
+
+
+        resource_path = '/platform/3/protocols/ndmp/settings/global'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'ndmp_settings_global' in params:
+            body_params = params['ndmp_settings_global']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'PUT',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def update_ndmp_user(self, ndmp_user, ndmp_user_id, **kwargs):
+        """
+        
+        Modify the user
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_ndmp_user(ndmp_user, ndmp_user_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param NdmpUser ndmp_user:  (required)
+        :param str ndmp_user_id: Modify the user (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['ndmp_user', 'ndmp_user_id']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_ndmp_user" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'ndmp_user' is set
+        if ('ndmp_user' not in params) or (params['ndmp_user'] is None):
+            raise ValueError("Missing the required parameter `ndmp_user` when calling `update_ndmp_user`")
+        # verify the required parameter 'ndmp_user_id' is set
+        if ('ndmp_user_id' not in params) or (params['ndmp_user_id'] is None):
+            raise ValueError("Missing the required parameter `ndmp_user_id` when calling `update_ndmp_user`")
+
+
+        resource_path = '/platform/3/protocols/ndmp/users/{NdmpUserId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'ndmp_user_id' in params:
+            path_params['NdmpUserId'] = params['ndmp_user_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'ndmp_user' in params:
+            body_params = params['ndmp_user']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'PUT',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -1962,9 +6672,8 @@ class ProtocolsApi(object):
         if ('nfs_aliase_id' not in params) or (params['nfs_aliase_id'] is None):
             raise ValueError("Missing the required parameter `nfs_aliase_id` when calling `update_nfs_aliase`")
 
-        resource_path = '/platform/2/protocols/nfs/aliases/{NfsAliaseId}'.replace('{format}', 'json')
-        method = 'PUT'
 
+        resource_path = '/platform/2/protocols/nfs/aliases/{NfsAliaseId}'.replace('{format}', 'json')
         path_params = {}
         if 'nfs_aliase_id' in params:
             path_params['NfsAliaseId'] = params['nfs_aliase_id']
@@ -1975,8 +6684,8 @@ class ProtocolsApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'nfs_aliase' in params:
@@ -1995,515 +6704,14 @@ class ProtocolsApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'PUT',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def delete_nfs_aliase(self, nfs_aliase_id, **kwargs):
-        """
-        
-        Delete the export.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_nfs_aliase(nfs_aliase_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str nfs_aliase_id: Delete the export. (required)
-        :param str zone: Access zone
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['nfs_aliase_id', 'zone']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_nfs_aliase" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'nfs_aliase_id' is set
-        if ('nfs_aliase_id' not in params) or (params['nfs_aliase_id'] is None):
-            raise ValueError("Missing the required parameter `nfs_aliase_id` when calling `delete_nfs_aliase`")
-
-        resource_path = '/platform/2/protocols/nfs/aliases/{NfsAliaseId}'.replace('{format}', 'json')
-        method = 'DELETE'
-
-        path_params = {}
-        if 'nfs_aliase_id' in params:
-            path_params['NfsAliaseId'] = params['nfs_aliase_id']
-
-        query_params = {}
-        if 'zone' in params:
-            query_params['zone'] = params['zone']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_nfs_check(self, **kwargs):
-        """
-        
-        Retrieve NFS export validation information.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_nfs_check(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str zone: Access zone
-        :return: NfsCheckExtended
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['zone']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_nfs_check" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/2/protocols/nfs/check'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-        if 'zone' in params:
-            query_params['zone'] = params['zone']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='NfsCheckExtended',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def list_nfs_exports(self, **kwargs):
-        """
-        
-        List all NFS exports.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.list_nfs_exports(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str sort: The field that will be used for sorting.
-        :param str paths: If specified, only exports that explicitly reference at least one of the given paths will be returned.
-        :param str zone: Access zone
-        :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
-        :param int limit: Return no more than this many results at once (see resume).
-        :param str scope: When specified as 'effective', or not specified, all fields are returned. When specified as 'user', only fields with non-default values are shown. When specified as 'default', the original values are returned.
-        :param bool check: Check for conflicts when listing exports.
-        :param str dir: The direction of the sort.
-        :return: NfsExportsExtended
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['sort', 'paths', 'zone', 'resume', 'limit', 'scope', 'check', 'dir']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_nfs_exports" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/2/protocols/nfs/exports'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-        if 'sort' in params:
-            query_params['sort'] = params['sort']
-        if 'paths' in params:
-            query_params['paths'] = params['paths']
-        if 'zone' in params:
-            query_params['zone'] = params['zone']
-        if 'resume' in params:
-            query_params['resume'] = params['resume']
-        if 'limit' in params:
-            query_params['limit'] = params['limit']
-        if 'scope' in params:
-            query_params['scope'] = params['scope']
-        if 'check' in params:
-            query_params['check'] = params['check']
-        if 'dir' in params:
-            query_params['dir'] = params['dir']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='NfsExportsExtended',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def create_nfs_export(self, nfs_export, **kwargs):
-        """
-        
-        Create a new NFS export.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_nfs_export(nfs_export, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param NfsExport nfs_export:  (required)
-        :param bool force: If true, the export will be created even if it conflicts with another export.
-        :param str zone: Access zone
-        :return: CreateQuotaReportResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['nfs_export', 'force', 'zone']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_nfs_export" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'nfs_export' is set
-        if ('nfs_export' not in params) or (params['nfs_export'] is None):
-            raise ValueError("Missing the required parameter `nfs_export` when calling `create_nfs_export`")
-
-        resource_path = '/platform/2/protocols/nfs/exports'.replace('{format}', 'json')
-        method = 'POST'
-
-        path_params = {}
-
-        query_params = {}
-        if 'force' in params:
-            query_params['force'] = params['force']
-        if 'zone' in params:
-            query_params['zone'] = params['zone']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'nfs_export' in params:
-            body_params = params['nfs_export']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='CreateQuotaReportResponse',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_nfs_exports_summary(self, **kwargs):
-        """
-        
-        Retrieve NFS export summary information.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_nfs_exports_summary(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str zone: Access zone
-        :return: NfsExportsSummary
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['zone']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_nfs_exports_summary" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/2/protocols/nfs/exports-summary'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-        if 'zone' in params:
-            query_params['zone'] = params['zone']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='NfsExportsSummary',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_nfs_export(self, nfs_export_id, **kwargs):
-        """
-        
-        Retrieve export information.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_nfs_export(nfs_export_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str nfs_export_id: Retrieve export information. (required)
-        :param str scope: When specified as 'effective', or not specified, all fields are returned. When specified as 'user', only fields with non-default values are shown. When specified as 'default', the original values are returned.
-        :param str zone: Access zone
-        :return: NfsExports
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['nfs_export_id', 'scope', 'zone']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_nfs_export" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'nfs_export_id' is set
-        if ('nfs_export_id' not in params) or (params['nfs_export_id'] is None):
-            raise ValueError("Missing the required parameter `nfs_export_id` when calling `get_nfs_export`")
-
-        resource_path = '/platform/2/protocols/nfs/exports/{NfsExportId}'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'nfs_export_id' in params:
-            path_params['NfsExportId'] = params['nfs_export_id']
-
-        query_params = {}
-        if 'scope' in params:
-            query_params['scope'] = params['scope']
-        if 'zone' in params:
-            query_params['zone'] = params['zone']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='NfsExports',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -2552,9 +6760,8 @@ class ProtocolsApi(object):
         if ('nfs_export_id' not in params) or (params['nfs_export_id'] is None):
             raise ValueError("Missing the required parameter `nfs_export_id` when calling `update_nfs_export`")
 
-        resource_path = '/platform/2/protocols/nfs/exports/{NfsExportId}'.replace('{format}', 'json')
-        method = 'PUT'
 
+        resource_path = '/platform/2/protocols/nfs/exports/{NfsExportId}'.replace('{format}', 'json')
         path_params = {}
         if 'nfs_export_id' in params:
             path_params['NfsExportId'] = params['nfs_export_id']
@@ -2567,8 +6774,8 @@ class ProtocolsApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'nfs_export' in params:
@@ -2587,2178 +6794,14 @@ class ProtocolsApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'PUT',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def delete_nfs_export(self, nfs_export_id, **kwargs):
-        """
-        
-        Delete the export.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_nfs_export(nfs_export_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str nfs_export_id: Delete the export. (required)
-        :param str zone: Access zone
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['nfs_export_id', 'zone']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_nfs_export" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'nfs_export_id' is set
-        if ('nfs_export_id' not in params) or (params['nfs_export_id'] is None):
-            raise ValueError("Missing the required parameter `nfs_export_id` when calling `delete_nfs_export`")
-
-        resource_path = '/platform/2/protocols/nfs/exports/{NfsExportId}'.replace('{format}', 'json')
-        method = 'DELETE'
-
-        path_params = {}
-        if 'nfs_export_id' in params:
-            path_params['NfsExportId'] = params['nfs_export_id']
-
-        query_params = {}
-        if 'zone' in params:
-            query_params['zone'] = params['zone']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_nfs_nlm_locks(self, **kwargs):
-        """
-        
-        List all NLM locks.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_nfs_nlm_locks(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str sort: The field that will be used for sorting.
-        :param int limit: Return no more than this many results at once (see resume).
-        :param str dir: The direction of the sort.
-        :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
-        :return: NfsNlmLocks
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['sort', 'limit', 'dir', 'resume']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_nfs_nlm_locks" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/2/protocols/nfs/nlm/locks'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-        if 'sort' in params:
-            query_params['sort'] = params['sort']
-        if 'limit' in params:
-            query_params['limit'] = params['limit']
-        if 'dir' in params:
-            query_params['dir'] = params['dir']
-        if 'resume' in params:
-            query_params['resume'] = params['resume']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='NfsNlmLocks',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_nfs_nlm_waiters(self, **kwargs):
-        """
-        
-        List all NLM lock waiters.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_nfs_nlm_waiters(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str sort: The field that will be used for sorting.
-        :param int limit: Return no more than this many results at once (see resume).
-        :param str dir: The direction of the sort.
-        :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
-        :return: NfsNlmWaiters
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['sort', 'limit', 'dir', 'resume']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_nfs_nlm_waiters" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/2/protocols/nfs/nlm/waiters'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-        if 'sort' in params:
-            query_params['sort'] = params['sort']
-        if 'limit' in params:
-            query_params['limit'] = params['limit']
-        if 'dir' in params:
-            query_params['dir'] = params['dir']
-        if 'resume' in params:
-            query_params['resume'] = params['resume']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='NfsNlmWaiters',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_nfs_settings_export(self, **kwargs):
-        """
-        
-        Retrieve export information.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_nfs_settings_export(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
-        :param str zone: Access zone
-        :return: NfsSettingsExport
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['scope', 'zone']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_nfs_settings_export" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/2/protocols/nfs/settings/export'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-        if 'scope' in params:
-            query_params['scope'] = params['scope']
-        if 'zone' in params:
-            query_params['zone'] = params['zone']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='NfsSettingsExport',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def update_nfs_settings_export(self, nfs_settings_export, **kwargs):
-        """
-        
-        Modify the default values for NFS exports. All input fields are optional, but one or more must be supplied.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_nfs_settings_export(nfs_settings_export, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param NfsSettingsExportSettings nfs_settings_export:  (required)
-        :param str zone: Access zone
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['nfs_settings_export', 'zone']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_nfs_settings_export" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'nfs_settings_export' is set
-        if ('nfs_settings_export' not in params) or (params['nfs_settings_export'] is None):
-            raise ValueError("Missing the required parameter `nfs_settings_export` when calling `update_nfs_settings_export`")
-
-        resource_path = '/platform/2/protocols/nfs/settings/export'.replace('{format}', 'json')
-        method = 'PUT'
-
-        path_params = {}
-
-        query_params = {}
-        if 'zone' in params:
-            query_params['zone'] = params['zone']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'nfs_settings_export' in params:
-            body_params = params['nfs_settings_export']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_nfs_settings_zone(self, **kwargs):
-        """
-        
-        Retrieve the NFS server settings for this zone.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_nfs_settings_zone(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: NfsSettingsZone
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_nfs_settings_zone" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/2/protocols/nfs/settings/zone'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='NfsSettingsZone',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def update_nfs_settings_zone(self, nfs_settings_zone, **kwargs):
-        """
-        
-        Modify the NFS server settings for this zone.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_nfs_settings_zone(nfs_settings_zone, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param NfsSettingsZoneSettings nfs_settings_zone:  (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['nfs_settings_zone']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_nfs_settings_zone" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'nfs_settings_zone' is set
-        if ('nfs_settings_zone' not in params) or (params['nfs_settings_zone'] is None):
-            raise ValueError("Missing the required parameter `nfs_settings_zone` when calling `update_nfs_settings_zone`")
-
-        resource_path = '/platform/2/protocols/nfs/settings/zone'.replace('{format}', 'json')
-        method = 'PUT'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'nfs_settings_zone' in params:
-            body_params = params['nfs_settings_zone']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_ftp_settings(self, **kwargs):
-        """
-        
-        Retrieve the FTP settings.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_ftp_settings(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: FtpSettings
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_ftp_settings" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/protocols/ftp/settings'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='FtpSettings',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def update_ftp_settings(self, ftp_settings, **kwargs):
-        """
-        
-        Modify the FTP settings. All input fields are optional, but one or more must be supplied.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_ftp_settings(ftp_settings, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param FtpSettingsSettings ftp_settings:  (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['ftp_settings']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_ftp_settings" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'ftp_settings' is set
-        if ('ftp_settings' not in params) or (params['ftp_settings'] is None):
-            raise ValueError("Missing the required parameter `ftp_settings` when calling `update_ftp_settings`")
-
-        resource_path = '/platform/3/protocols/ftp/settings'.replace('{format}', 'json')
-        method = 'PUT'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'ftp_settings' in params:
-            body_params = params['ftp_settings']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_hdfs_log_level(self, **kwargs):
-        """
-        
-        Retrieve the HDFS service log-level.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_hdfs_log_level(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: HdfsLogLevel
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_hdfs_log_level" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/protocols/hdfs/log-level'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='HdfsLogLevel',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def update_hdfs_log_level(self, hdfs_log_level, **kwargs):
-        """
-        
-        Modify the HDFS service log-level.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_hdfs_log_level(hdfs_log_level, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param HdfsLogLevel hdfs_log_level:  (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['hdfs_log_level']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_hdfs_log_level" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'hdfs_log_level' is set
-        if ('hdfs_log_level' not in params) or (params['hdfs_log_level'] is None):
-            raise ValueError("Missing the required parameter `hdfs_log_level` when calling `update_hdfs_log_level`")
-
-        resource_path = '/platform/3/protocols/hdfs/log-level'.replace('{format}', 'json')
-        method = 'PUT'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'hdfs_log_level' in params:
-            body_params = params['hdfs_log_level']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_hdfs_settings(self, **kwargs):
-        """
-        
-        Retrieve HDFS properties.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_hdfs_settings(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: HdfsSettings
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_hdfs_settings" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/protocols/hdfs/settings'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='HdfsSettings',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def update_hdfs_settings(self, hdfs_settings, **kwargs):
-        """
-        
-        Modify HDFS properties.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_hdfs_settings(hdfs_settings, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param HdfsSettingsSettings hdfs_settings:  (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['hdfs_settings']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_hdfs_settings" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'hdfs_settings' is set
-        if ('hdfs_settings' not in params) or (params['hdfs_settings'] is None):
-            raise ValueError("Missing the required parameter `hdfs_settings` when calling `update_hdfs_settings`")
-
-        resource_path = '/platform/3/protocols/hdfs/settings'.replace('{format}', 'json')
-        method = 'PUT'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'hdfs_settings' in params:
-            body_params = params['hdfs_settings']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_http_settings(self, **kwargs):
-        """
-        
-        Retrieve HTTP properties.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_http_settings(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: HttpSettings
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_http_settings" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/protocols/http/settings'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='HttpSettings',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def update_http_settings(self, http_settings, **kwargs):
-        """
-        
-        Modify HTTP properties.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_http_settings(http_settings, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param HttpSettingsSettings http_settings:  (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['http_settings']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_http_settings" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'http_settings' is set
-        if ('http_settings' not in params) or (params['http_settings'] is None):
-            raise ValueError("Missing the required parameter `http_settings` when calling `update_http_settings`")
-
-        resource_path = '/platform/3/protocols/http/settings'.replace('{format}', 'json')
-        method = 'PUT'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'http_settings' in params:
-            body_params = params['http_settings']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_ndmp_contexts_bre(self, **kwargs):
-        """
-        
-        Get list of NDMP BRE Contexts.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_ndmp_contexts_bre(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: NdmpContextsBre
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_ndmp_contexts_bre" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/protocols/ndmp/contexts/bre'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='NdmpContextsBre',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_ndmp_diagnostics(self, **kwargs):
-        """
-        
-        List ndmp diagnostics settings.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_ndmp_diagnostics(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: NdmpDiagnostics
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_ndmp_diagnostics" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/protocols/ndmp/diagnostics'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='NdmpDiagnostics',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def update_ndmp_diagnostics(self, ndmp_diagnostics, **kwargs):
-        """
-        
-        Modify ndmp diagnostics settings.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_ndmp_diagnostics(ndmp_diagnostics, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param NdmpDiagnosticsDiagnostics ndmp_diagnostics:  (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['ndmp_diagnostics']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_ndmp_diagnostics" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'ndmp_diagnostics' is set
-        if ('ndmp_diagnostics' not in params) or (params['ndmp_diagnostics'] is None):
-            raise ValueError("Missing the required parameter `ndmp_diagnostics` when calling `update_ndmp_diagnostics`")
-
-        resource_path = '/platform/3/protocols/ndmp/diagnostics'.replace('{format}', 'json')
-        method = 'PUT'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'ndmp_diagnostics' in params:
-            body_params = params['ndmp_diagnostics']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_ndmp_logs(self, **kwargs):
-        """
-        
-        Get NDMP logs
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_ndmp_logs(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: NdmpLogs
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_ndmp_logs" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/protocols/ndmp/logs'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='NdmpLogs',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_ndmp_sessions(self, **kwargs):
-        """
-        
-        List all ndmp sessions.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_ndmp_sessions(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: NdmpSessions
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_ndmp_sessions" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/protocols/ndmp/sessions'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='NdmpSessions',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_ndmp_settings_global(self, **kwargs):
-        """
-        
-        List global ndmp settings.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_ndmp_settings_global(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: NdmpSettingsGlobal
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_ndmp_settings_global" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/protocols/ndmp/settings/global'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='NdmpSettingsGlobal',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def update_ndmp_settings_global(self, ndmp_settings_global, **kwargs):
-        """
-        
-        Modify one or more settings.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_ndmp_settings_global(ndmp_settings_global, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param NdmpSettingsGlobalGlobal ndmp_settings_global:  (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['ndmp_settings_global']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_ndmp_settings_global" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'ndmp_settings_global' is set
-        if ('ndmp_settings_global' not in params) or (params['ndmp_settings_global'] is None):
-            raise ValueError("Missing the required parameter `ndmp_settings_global` when calling `update_ndmp_settings_global`")
-
-        resource_path = '/platform/3/protocols/ndmp/settings/global'.replace('{format}', 'json')
-        method = 'PUT'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'ndmp_settings_global' in params:
-            body_params = params['ndmp_settings_global']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def list_ndmp_users(self, **kwargs):
-        """
-        
-        List all ndmp administrators.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.list_ndmp_users(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: NdmpUsersExtended
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_ndmp_users" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/protocols/ndmp/users'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='NdmpUsersExtended',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def create_ndmp_user(self, ndmp_user, **kwargs):
-        """
-        
-        Created a new user.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_ndmp_user(ndmp_user, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param NdmpUserCreateParams ndmp_user:  (required)
-        :return: Empty
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['ndmp_user']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_ndmp_user" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'ndmp_user' is set
-        if ('ndmp_user' not in params) or (params['ndmp_user'] is None):
-            raise ValueError("Missing the required parameter `ndmp_user` when calling `create_ndmp_user`")
-
-        resource_path = '/platform/3/protocols/ndmp/users'.replace('{format}', 'json')
-        method = 'POST'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'ndmp_user' in params:
-            body_params = params['ndmp_user']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='Empty',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_ndmp_user(self, ndmp_user_id, **kwargs):
-        """
-        
-        Retrieve the user.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_ndmp_user(ndmp_user_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str ndmp_user_id: Retrieve the user. (required)
-        :return: NdmpUsers
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['ndmp_user_id']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_ndmp_user" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'ndmp_user_id' is set
-        if ('ndmp_user_id' not in params) or (params['ndmp_user_id'] is None):
-            raise ValueError("Missing the required parameter `ndmp_user_id` when calling `get_ndmp_user`")
-
-        resource_path = '/platform/3/protocols/ndmp/users/{NdmpUserId}'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'ndmp_user_id' in params:
-            path_params['NdmpUserId'] = params['ndmp_user_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='NdmpUsers',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def update_ndmp_user(self, ndmp_user, ndmp_user_id, **kwargs):
-        """
-        
-        Modify the user
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_ndmp_user(ndmp_user, ndmp_user_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param NdmpUser ndmp_user:  (required)
-        :param str ndmp_user_id: Modify the user (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['ndmp_user', 'ndmp_user_id']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_ndmp_user" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'ndmp_user' is set
-        if ('ndmp_user' not in params) or (params['ndmp_user'] is None):
-            raise ValueError("Missing the required parameter `ndmp_user` when calling `update_ndmp_user`")
-        # verify the required parameter 'ndmp_user_id' is set
-        if ('ndmp_user_id' not in params) or (params['ndmp_user_id'] is None):
-            raise ValueError("Missing the required parameter `ndmp_user_id` when calling `update_ndmp_user`")
-
-        resource_path = '/platform/3/protocols/ndmp/users/{NdmpUserId}'.replace('{format}', 'json')
-        method = 'PUT'
-
-        path_params = {}
-        if 'ndmp_user_id' in params:
-            path_params['NdmpUserId'] = params['ndmp_user_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'ndmp_user' in params:
-            body_params = params['ndmp_user']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def delete_ndmp_user(self, ndmp_user_id, **kwargs):
-        """
-        
-        Delete the user.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_ndmp_user(ndmp_user_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str ndmp_user_id: Delete the user. (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['ndmp_user_id']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_ndmp_user" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'ndmp_user_id' is set
-        if ('ndmp_user_id' not in params) or (params['ndmp_user_id'] is None):
-            raise ValueError("Missing the required parameter `ndmp_user_id` when calling `delete_ndmp_user`")
-
-        resource_path = '/platform/3/protocols/ndmp/users/{NdmpUserId}'.replace('{format}', 'json')
-        method = 'DELETE'
-
-        path_params = {}
-        if 'ndmp_user_id' in params:
-            path_params['NdmpUserId'] = params['ndmp_user_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_nfs_log_level(self, **kwargs):
-        """
-        
-        Get the current NFS service logging level.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_nfs_log_level(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: NfsLogLevel
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_nfs_log_level" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/protocols/nfs/log-level'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='NfsLogLevel',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -4801,17 +6844,16 @@ class ProtocolsApi(object):
         if ('nfs_log_level' not in params) or (params['nfs_log_level'] is None):
             raise ValueError("Missing the required parameter `nfs_log_level` when calling `update_nfs_log_level`")
 
-        resource_path = '/platform/3/protocols/nfs/log-level'.replace('{format}', 'json')
-        method = 'PUT'
 
+        resource_path = '/platform/3/protocols/nfs/log-level'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'nfs_log_level' in params:
@@ -4830,90 +6872,14 @@ class ProtocolsApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'PUT',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_nfs_netgroup(self, **kwargs):
-        """
-        
-        Get the current NFS netgroup cache settings.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_nfs_netgroup(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str host: Host to retrieve netgroup cache settings from.
-        :return: NfsNetgroup
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['host']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_nfs_netgroup" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/protocols/nfs/netgroup'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-        if 'host' in params:
-            query_params['host'] = params['host']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='NfsNetgroup',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -4957,9 +6923,8 @@ class ProtocolsApi(object):
         if ('nfs_netgroup' not in params) or (params['nfs_netgroup'] is None):
             raise ValueError("Missing the required parameter `nfs_netgroup` when calling `update_nfs_netgroup`")
 
-        resource_path = '/platform/3/protocols/nfs/netgroup'.replace('{format}', 'json')
-        method = 'PUT'
 
+        resource_path = '/platform/3/protocols/nfs/netgroup'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
@@ -4968,8 +6933,8 @@ class ProtocolsApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'nfs_netgroup' in params:
@@ -4988,22 +6953,22 @@ class ProtocolsApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'PUT',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def create_nfs_netgroup_check_item(self, nfs_netgroup_check_item, **kwargs):
+    def update_nfs_settings_export(self, nfs_settings_export, **kwargs):
         """
         
-        Update the NFS netgroups in the cache.
+        Modify the default values for NFS exports. All input fields are optional, but one or more must be supplied.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -5011,433 +6976,18 @@ class ProtocolsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.create_nfs_netgroup_check_item(nfs_netgroup_check_item, callback=callback_function)
+        >>> thread = api.update_nfs_settings_export(nfs_settings_export, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param Empty nfs_netgroup_check_item:  (required)
-        :param str host: IP address of node to update. If unspecified, the local nodes cache is updated.
-        :return: Empty
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['nfs_netgroup_check_item', 'host']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_nfs_netgroup_check_item" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'nfs_netgroup_check_item' is set
-        if ('nfs_netgroup_check_item' not in params) or (params['nfs_netgroup_check_item'] is None):
-            raise ValueError("Missing the required parameter `nfs_netgroup_check_item` when calling `create_nfs_netgroup_check_item`")
-
-        resource_path = '/platform/3/protocols/nfs/netgroup/check'.replace('{format}', 'json')
-        method = 'POST'
-
-        path_params = {}
-
-        query_params = {}
-        if 'host' in params:
-            query_params['host'] = params['host']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'nfs_netgroup_check_item' in params:
-            body_params = params['nfs_netgroup_check_item']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='Empty',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def create_nfs_netgroup_flush_item(self, nfs_netgroup_flush_item, **kwargs):
-        """
-        
-        Flush the NFS netgroups in the cache.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_nfs_netgroup_flush_item(nfs_netgroup_flush_item, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param Empty nfs_netgroup_flush_item:  (required)
-        :param str host: IP address of node to flush. If unspecified, all nodes on the cluster are flushed.
-        :return: Empty
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['nfs_netgroup_flush_item', 'host']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_nfs_netgroup_flush_item" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'nfs_netgroup_flush_item' is set
-        if ('nfs_netgroup_flush_item' not in params) or (params['nfs_netgroup_flush_item'] is None):
-            raise ValueError("Missing the required parameter `nfs_netgroup_flush_item` when calling `create_nfs_netgroup_flush_item`")
-
-        resource_path = '/platform/3/protocols/nfs/netgroup/flush'.replace('{format}', 'json')
-        method = 'POST'
-
-        path_params = {}
-
-        query_params = {}
-        if 'host' in params:
-            query_params['host'] = params['host']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'nfs_netgroup_flush_item' in params:
-            body_params = params['nfs_netgroup_flush_item']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='Empty',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_nfs_nlm_sessions(self, **kwargs):
-        """
-        
-        List all NSM clients (optionally filtered by either zone or IP)
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_nfs_nlm_sessions(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str ip: An IP address for which NSM has client records
-        :param str zone: Represents an extant auth zone
-        :return: NfsNlmSessionsExtended
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['ip', 'zone']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_nfs_nlm_sessions" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/protocols/nfs/nlm/sessions'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-        if 'ip' in params:
-            query_params['ip'] = params['ip']
-        if 'zone' in params:
-            query_params['zone'] = params['zone']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='NfsNlmSessionsExtended',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def create_nfs_nlm_sessions_check_item(self, nfs_nlm_sessions_check_item, **kwargs):
-        """
-        
-        Perform an active scan for lost NFSv3 locks.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_nfs_nlm_sessions_check_item(nfs_nlm_sessions_check_item, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param Empty nfs_nlm_sessions_check_item:  (required)
-        :param str ip: An IP address for which NSM has client records
-        :param str zone: Represents an extant auth zone
-        :return: CreateNfsNlmSessionsCheckItemResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['nfs_nlm_sessions_check_item', 'ip', 'zone']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_nfs_nlm_sessions_check_item" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'nfs_nlm_sessions_check_item' is set
-        if ('nfs_nlm_sessions_check_item' not in params) or (params['nfs_nlm_sessions_check_item'] is None):
-            raise ValueError("Missing the required parameter `nfs_nlm_sessions_check_item` when calling `create_nfs_nlm_sessions_check_item`")
-
-        resource_path = '/platform/3/protocols/nfs/nlm/sessions-check'.replace('{format}', 'json')
-        method = 'POST'
-
-        path_params = {}
-
-        query_params = {}
-        if 'ip' in params:
-            query_params['ip'] = params['ip']
-        if 'zone' in params:
-            query_params['zone'] = params['zone']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'nfs_nlm_sessions_check_item' in params:
-            body_params = params['nfs_nlm_sessions_check_item']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='CreateNfsNlmSessionsCheckItemResponse',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_nfs_nlm_session(self, nfs_nlm_session_id, **kwargs):
-        """
-        
-        Retrieve all lock state for a single client.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_nfs_nlm_session(nfs_nlm_session_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str nfs_nlm_session_id: Retrieve all lock state for a single client. (required)
-        :param str ip: An IP address for which NSM has client records
-        :param str zone: Represents an extant auth zone
-        :return: NfsNlmSessions
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['nfs_nlm_session_id', 'ip', 'zone']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_nfs_nlm_session" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'nfs_nlm_session_id' is set
-        if ('nfs_nlm_session_id' not in params) or (params['nfs_nlm_session_id'] is None):
-            raise ValueError("Missing the required parameter `nfs_nlm_session_id` when calling `get_nfs_nlm_session`")
-
-        resource_path = '/platform/3/protocols/nfs/nlm/sessions/{NfsNlmSessionId}'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'nfs_nlm_session_id' in params:
-            path_params['NfsNlmSessionId'] = params['nfs_nlm_session_id']
-
-        query_params = {}
-        if 'ip' in params:
-            query_params['ip'] = params['ip']
-        if 'zone' in params:
-            query_params['zone'] = params['zone']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='NfsNlmSessions',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def delete_nfs_nlm_session(self, nfs_nlm_session_id, **kwargs):
-        """
-        
-        Delete all lock state for this host.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_nfs_nlm_session(nfs_nlm_session_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str nfs_nlm_session_id: Delete all lock state for this host. (required)
-        :param str ip: An IP address for which NSM has client records
-        :param str zone: Represents an extant auth zone
-        :param bool refresh: if set to true, the client will be given a chance to reclaim its locks before they are destroyed
+        :param NfsSettingsExportSettings nfs_settings_export:  (required)
+        :param str zone: Access zone
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['nfs_nlm_session_id', 'ip', 'zone', 'refresh']
+        all_params = ['nfs_settings_export', 'zone']
         all_params.append('callback')
 
         params = locals()
@@ -5445,36 +6995,31 @@ class ProtocolsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method delete_nfs_nlm_session" % key
+                    " to method update_nfs_settings_export" % key
                 )
             params[key] = val
         del params['kwargs']
 
-        # verify the required parameter 'nfs_nlm_session_id' is set
-        if ('nfs_nlm_session_id' not in params) or (params['nfs_nlm_session_id'] is None):
-            raise ValueError("Missing the required parameter `nfs_nlm_session_id` when calling `delete_nfs_nlm_session`")
+        # verify the required parameter 'nfs_settings_export' is set
+        if ('nfs_settings_export' not in params) or (params['nfs_settings_export'] is None):
+            raise ValueError("Missing the required parameter `nfs_settings_export` when calling `update_nfs_settings_export`")
 
-        resource_path = '/platform/3/protocols/nfs/nlm/sessions/{NfsNlmSessionId}'.replace('{format}', 'json')
-        method = 'DELETE'
 
+        resource_path = '/platform/2/protocols/nfs/settings/export'.replace('{format}', 'json')
         path_params = {}
-        if 'nfs_nlm_session_id' in params:
-            path_params['NfsNlmSessionId'] = params['nfs_nlm_session_id']
 
         query_params = {}
-        if 'ip' in params:
-            query_params['ip'] = params['ip']
         if 'zone' in params:
             query_params['zone'] = params['zone']
-        if 'refresh' in params:
-            query_params['refresh'] = params['refresh']
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
+        if 'nfs_settings_export' in params:
+            body_params = params['nfs_settings_export']
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
@@ -5489,169 +7034,14 @@ class ProtocolsApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'PUT',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def create_nfs_reload_item(self, nfs_reload_item, **kwargs):
-        """
-        
-        Reload default NFS export configuration.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_nfs_reload_item(nfs_reload_item, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param Empty nfs_reload_item:  (required)
-        :param str zone: Access zone
-        :return: Empty
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['nfs_reload_item', 'zone']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_nfs_reload_item" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'nfs_reload_item' is set
-        if ('nfs_reload_item' not in params) or (params['nfs_reload_item'] is None):
-            raise ValueError("Missing the required parameter `nfs_reload_item` when calling `create_nfs_reload_item`")
-
-        resource_path = '/platform/3/protocols/nfs/reload'.replace('{format}', 'json')
-        method = 'POST'
-
-        path_params = {}
-
-        query_params = {}
-        if 'zone' in params:
-            query_params['zone'] = params['zone']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'nfs_reload_item' in params:
-            body_params = params['nfs_reload_item']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='Empty',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_nfs_settings_global(self, **kwargs):
-        """
-        
-        Retrieve the NFS configuration.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_nfs_settings_global(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: NfsSettingsGlobal
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_nfs_settings_global" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/protocols/nfs/settings/global'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='NfsSettingsGlobal',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -5694,17 +7084,16 @@ class ProtocolsApi(object):
         if ('nfs_settings_global' not in params) or (params['nfs_settings_global'] is None):
             raise ValueError("Missing the required parameter `nfs_settings_global` when calling `update_nfs_settings_global`")
 
-        resource_path = '/platform/3/protocols/nfs/settings/global'.replace('{format}', 'json')
-        method = 'PUT'
 
+        resource_path = '/platform/3/protocols/nfs/settings/global'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'nfs_settings_global' in params:
@@ -5723,22 +7112,22 @@ class ProtocolsApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'PUT',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def list_ntp_servers(self, **kwargs):
+    def update_nfs_settings_zone(self, nfs_settings_zone, **kwargs):
         """
         
-        List all NTP servers.
+        Modify the NFS server settings for this zone.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -5746,180 +7135,17 @@ class ProtocolsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.list_ntp_servers(callback=callback_function)
+        >>> thread = api.update_nfs_settings_zone(nfs_settings_zone, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str sort: The field that will be used for sorting.
-        :param int limit: Return no more than this many results at once (see resume).
-        :param str dir: The direction of the sort.
-        :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
-        :return: NtpServersExtended
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['sort', 'limit', 'dir', 'resume']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_ntp_servers" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/protocols/ntp/servers'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-        if 'sort' in params:
-            query_params['sort'] = params['sort']
-        if 'limit' in params:
-            query_params['limit'] = params['limit']
-        if 'dir' in params:
-            query_params['dir'] = params['dir']
-        if 'resume' in params:
-            query_params['resume'] = params['resume']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='NtpServersExtended',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def create_ntp_server(self, ntp_server, **kwargs):
-        """
-        
-        Create an NTP server entry.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_ntp_server(ntp_server, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param NtpServerCreateParams ntp_server:  (required)
-        :return: CreateResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['ntp_server']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_ntp_server" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'ntp_server' is set
-        if ('ntp_server' not in params) or (params['ntp_server'] is None):
-            raise ValueError("Missing the required parameter `ntp_server` when calling `create_ntp_server`")
-
-        resource_path = '/platform/3/protocols/ntp/servers'.replace('{format}', 'json')
-        method = 'POST'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'ntp_server' in params:
-            body_params = params['ntp_server']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='CreateResponse',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def delete_ntp_servers(self, **kwargs):
-        """
-        
-        Delete all NTP server entries.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_ntp_servers(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param NfsSettingsZoneSettings nfs_settings_zone:  (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = []
+        all_params = ['nfs_settings_zone']
         all_params.append('callback')
 
         params = locals()
@@ -5927,25 +7153,29 @@ class ProtocolsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method delete_ntp_servers" % key
+                    " to method update_nfs_settings_zone" % key
                 )
             params[key] = val
         del params['kwargs']
 
+        # verify the required parameter 'nfs_settings_zone' is set
+        if ('nfs_settings_zone' not in params) or (params['nfs_settings_zone'] is None):
+            raise ValueError("Missing the required parameter `nfs_settings_zone` when calling `update_nfs_settings_zone`")
 
-        resource_path = '/platform/3/protocols/ntp/servers'.replace('{format}', 'json')
-        method = 'DELETE'
 
+        resource_path = '/platform/2/protocols/nfs/settings/zone'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
+        if 'nfs_settings_zone' in params:
+            body_params = params['nfs_settings_zone']
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
@@ -5960,93 +7190,14 @@ class ProtocolsApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'PUT',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_ntp_server(self, ntp_server_id, **kwargs):
-        """
-        
-        Retrieve one NTP server.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_ntp_server(ntp_server_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str ntp_server_id: Retrieve one NTP server. (required)
-        :return: NtpServers
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['ntp_server_id']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_ntp_server" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'ntp_server_id' is set
-        if ('ntp_server_id' not in params) or (params['ntp_server_id'] is None):
-            raise ValueError("Missing the required parameter `ntp_server_id` when calling `get_ntp_server`")
-
-        resource_path = '/platform/3/protocols/ntp/servers/{NtpServerId}'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'ntp_server_id' in params:
-            path_params['NtpServerId'] = params['ntp_server_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='NtpServers',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -6093,9 +7244,8 @@ class ProtocolsApi(object):
         if ('ntp_server_id' not in params) or (params['ntp_server_id'] is None):
             raise ValueError("Missing the required parameter `ntp_server_id` when calling `update_ntp_server`")
 
-        resource_path = '/platform/3/protocols/ntp/servers/{NtpServerId}'.replace('{format}', 'json')
-        method = 'PUT'
 
+        resource_path = '/platform/3/protocols/ntp/servers/{NtpServerId}'.replace('{format}', 'json')
         path_params = {}
         if 'ntp_server_id' in params:
             path_params['NtpServerId'] = params['ntp_server_id']
@@ -6104,8 +7254,8 @@ class ProtocolsApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'ntp_server' in params:
@@ -6124,166 +7274,14 @@ class ProtocolsApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'PUT',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def delete_ntp_server(self, ntp_server_id, **kwargs):
-        """
-        
-        Delete an NTP server entry.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_ntp_server(ntp_server_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str ntp_server_id: Delete an NTP server entry. (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['ntp_server_id']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_ntp_server" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'ntp_server_id' is set
-        if ('ntp_server_id' not in params) or (params['ntp_server_id'] is None):
-            raise ValueError("Missing the required parameter `ntp_server_id` when calling `delete_ntp_server`")
-
-        resource_path = '/platform/3/protocols/ntp/servers/{NtpServerId}'.replace('{format}', 'json')
-        method = 'DELETE'
-
-        path_params = {}
-        if 'ntp_server_id' in params:
-            path_params['NtpServerId'] = params['ntp_server_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_ntp_settings(self, **kwargs):
-        """
-        
-        Retrieve the NTP settings.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_ntp_settings(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: NtpSettings
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_ntp_settings" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/protocols/ntp/settings'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='NtpSettings',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -6326,17 +7324,16 @@ class ProtocolsApi(object):
         if ('ntp_settings' not in params) or (params['ntp_settings'] is None):
             raise ValueError("Missing the required parameter `ntp_settings` when calling `update_ntp_settings`")
 
-        resource_path = '/platform/3/protocols/ntp/settings'.replace('{format}', 'json')
-        method = 'PUT'
 
+        resource_path = '/platform/3/protocols/ntp/settings'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'ntp_settings' in params:
@@ -6355,87 +7352,14 @@ class ProtocolsApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'PUT',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_smb_log_level(self, **kwargs):
-        """
-        
-        Get the current SMB logging level.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_smb_log_level(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: SmbLogLevel
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_smb_log_level" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/protocols/smb/log-level'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='SmbLogLevel',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -6478,17 +7402,16 @@ class ProtocolsApi(object):
         if ('smb_log_level' not in params) or (params['smb_log_level'] is None):
             raise ValueError("Missing the required parameter `smb_log_level` when calling `update_smb_log_level`")
 
-        resource_path = '/platform/3/protocols/smb/log-level'.replace('{format}', 'json')
-        method = 'PUT'
 
+        resource_path = '/platform/3/protocols/smb/log-level'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'smb_log_level' in params:
@@ -6507,473 +7430,14 @@ class ProtocolsApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'PUT',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def list_smb_log_level_filters(self, **kwargs):
-        """
-        
-        Get the current SMB log filters.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.list_smb_log_level_filters(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: SmbLogLevelFiltersExtended
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_smb_log_level_filters" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/protocols/smb/log-level/filters'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='SmbLogLevelFiltersExtended',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def create_smb_log_level_filter(self, smb_log_level_filter, **kwargs):
-        """
-        
-        Add an SMB log filter.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_smb_log_level_filter(smb_log_level_filter, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param SmbLogLevelFilter smb_log_level_filter:  (required)
-        :return: CreateAuthRefreshItemResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['smb_log_level_filter']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_smb_log_level_filter" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'smb_log_level_filter' is set
-        if ('smb_log_level_filter' not in params) or (params['smb_log_level_filter'] is None):
-            raise ValueError("Missing the required parameter `smb_log_level_filter` when calling `create_smb_log_level_filter`")
-
-        resource_path = '/platform/3/protocols/smb/log-level/filters'.replace('{format}', 'json')
-        method = 'POST'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'smb_log_level_filter' in params:
-            body_params = params['smb_log_level_filter']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='CreateAuthRefreshItemResponse',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def delete_smb_log_level_filters(self, **kwargs):
-        """
-        
-        Delete an existing SMB log filter.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_smb_log_level_filters(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_smb_log_level_filters" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/protocols/smb/log-level/filters'.replace('{format}', 'json')
-        method = 'DELETE'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_smb_log_level_filter(self, smb_log_level_filter_id, **kwargs):
-        """
-        
-        View log filter.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_smb_log_level_filter(smb_log_level_filter_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str smb_log_level_filter_id: View log filter. (required)
-        :return: SmbLogLevelFilters
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['smb_log_level_filter_id']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_smb_log_level_filter" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'smb_log_level_filter_id' is set
-        if ('smb_log_level_filter_id' not in params) or (params['smb_log_level_filter_id'] is None):
-            raise ValueError("Missing the required parameter `smb_log_level_filter_id` when calling `get_smb_log_level_filter`")
-
-        resource_path = '/platform/3/protocols/smb/log-level/filters/{SmbLogLevelFilterId}'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'smb_log_level_filter_id' in params:
-            path_params['SmbLogLevelFilterId'] = params['smb_log_level_filter_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='SmbLogLevelFilters',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def delete_smb_log_level_filter(self, smb_log_level_filter_id, **kwargs):
-        """
-        
-        Delete log filter.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_smb_log_level_filter(smb_log_level_filter_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str smb_log_level_filter_id: Delete log filter. (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['smb_log_level_filter_id']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_smb_log_level_filter" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'smb_log_level_filter_id' is set
-        if ('smb_log_level_filter_id' not in params) or (params['smb_log_level_filter_id'] is None):
-            raise ValueError("Missing the required parameter `smb_log_level_filter_id` when calling `delete_smb_log_level_filter`")
-
-        resource_path = '/platform/3/protocols/smb/log-level/filters/{SmbLogLevelFilterId}'.replace('{format}', 'json')
-        method = 'DELETE'
-
-        path_params = {}
-        if 'smb_log_level_filter_id' in params:
-            path_params['SmbLogLevelFilterId'] = params['smb_log_level_filter_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_smb_settings_global(self, **kwargs):
-        """
-        
-        List all settings.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_smb_settings_global(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
-        :return: SmbSettingsGlobal
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['scope']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_smb_settings_global" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/protocols/smb/settings/global'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-        if 'scope' in params:
-            query_params['scope'] = params['scope']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='SmbSettingsGlobal',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -7016,17 +7480,16 @@ class ProtocolsApi(object):
         if ('smb_settings_global' not in params) or (params['smb_settings_global'] is None):
             raise ValueError("Missing the required parameter `smb_settings_global` when calling `update_smb_settings_global`")
 
-        resource_path = '/platform/3/protocols/smb/settings/global'.replace('{format}', 'json')
-        method = 'PUT'
 
+        resource_path = '/platform/3/protocols/smb/settings/global'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'smb_settings_global' in params:
@@ -7045,93 +7508,14 @@ class ProtocolsApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'PUT',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_smb_settings_share(self, **kwargs):
-        """
-        
-        List all settings.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_smb_settings_share(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
-        :param str zone: Zone which contains these share settings.
-        :return: SmbSettingsShare
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['scope', 'zone']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_smb_settings_share" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/protocols/smb/settings/share'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-        if 'scope' in params:
-            query_params['scope'] = params['scope']
-        if 'zone' in params:
-            query_params['zone'] = params['zone']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='SmbSettingsShare',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -7175,9 +7559,8 @@ class ProtocolsApi(object):
         if ('smb_settings_share' not in params) or (params['smb_settings_share'] is None):
             raise ValueError("Missing the required parameter `smb_settings_share` when calling `update_smb_settings_share`")
 
-        resource_path = '/platform/3/protocols/smb/settings/share'.replace('{format}', 'json')
-        method = 'PUT'
 
+        resource_path = '/platform/3/protocols/smb/settings/share'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
@@ -7186,8 +7569,8 @@ class ProtocolsApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'smb_settings_share' in params:
@@ -7206,351 +7589,14 @@ class ProtocolsApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'PUT',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def list_smb_shares(self, **kwargs):
-        """
-        
-        List all shares.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.list_smb_shares(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str sort: Order results by this field. Default is id.
-        :param str zone: Zone which contains this share.
-        :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
-        :param bool resolve_names: If true, resolve group and user names in personas.
-        :param int limit: Return no more than this many results at once (see resume).
-        :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
-        :param str dir: The direction of the sort.
-        :return: SmbSharesExtended
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['sort', 'zone', 'resume', 'resolve_names', 'limit', 'scope', 'dir']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_smb_shares" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/protocols/smb/shares'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-        if 'sort' in params:
-            query_params['sort'] = params['sort']
-        if 'zone' in params:
-            query_params['zone'] = params['zone']
-        if 'resume' in params:
-            query_params['resume'] = params['resume']
-        if 'resolve_names' in params:
-            query_params['resolve_names'] = params['resolve_names']
-        if 'limit' in params:
-            query_params['limit'] = params['limit']
-        if 'scope' in params:
-            query_params['scope'] = params['scope']
-        if 'dir' in params:
-            query_params['dir'] = params['dir']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='SmbSharesExtended',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def create_smb_share(self, smb_share, **kwargs):
-        """
-        
-        Create a new share.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_smb_share(smb_share, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param SmbShareCreateParams smb_share:  (required)
-        :param str zone: Zone which contains this share.
-        :return: CreateResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['smb_share', 'zone']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_smb_share" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'smb_share' is set
-        if ('smb_share' not in params) or (params['smb_share'] is None):
-            raise ValueError("Missing the required parameter `smb_share` when calling `create_smb_share`")
-
-        resource_path = '/platform/3/protocols/smb/shares'.replace('{format}', 'json')
-        method = 'POST'
-
-        path_params = {}
-
-        query_params = {}
-        if 'zone' in params:
-            query_params['zone'] = params['zone']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'smb_share' in params:
-            body_params = params['smb_share']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='CreateResponse',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def delete_smb_shares(self, **kwargs):
-        """
-        
-        Delete multiple smb shares.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_smb_shares(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_smb_shares" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/protocols/smb/shares'.replace('{format}', 'json')
-        method = 'DELETE'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_smb_share(self, smb_share_id, **kwargs):
-        """
-        
-        Retrieve share.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_smb_share(smb_share_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str smb_share_id: Retrieve share. (required)
-        :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
-        :param bool resolve_names: If true, resolve group and user names in personas.
-        :param str zone: Zone which contains this share.
-        :return: SmbShares
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['smb_share_id', 'scope', 'resolve_names', 'zone']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_smb_share" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'smb_share_id' is set
-        if ('smb_share_id' not in params) or (params['smb_share_id'] is None):
-            raise ValueError("Missing the required parameter `smb_share_id` when calling `get_smb_share`")
-
-        resource_path = '/platform/3/protocols/smb/shares/{SmbShareId}'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'smb_share_id' in params:
-            path_params['SmbShareId'] = params['smb_share_id']
-
-        query_params = {}
-        if 'scope' in params:
-            query_params['scope'] = params['scope']
-        if 'resolve_names' in params:
-            query_params['resolve_names'] = params['resolve_names']
-        if 'zone' in params:
-            query_params['zone'] = params['zone']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='SmbShares',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -7598,9 +7644,8 @@ class ProtocolsApi(object):
         if ('smb_share_id' not in params) or (params['smb_share_id'] is None):
             raise ValueError("Missing the required parameter `smb_share_id` when calling `update_smb_share`")
 
-        resource_path = '/platform/3/protocols/smb/shares/{SmbShareId}'.replace('{format}', 'json')
-        method = 'PUT'
 
+        resource_path = '/platform/3/protocols/smb/shares/{SmbShareId}'.replace('{format}', 'json')
         path_params = {}
         if 'smb_share_id' in params:
             path_params['SmbShareId'] = params['smb_share_id']
@@ -7611,8 +7656,8 @@ class ProtocolsApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'smb_share' in params:
@@ -7631,169 +7676,14 @@ class ProtocolsApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'PUT',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def delete_smb_share(self, smb_share_id, **kwargs):
-        """
-        
-        Delete the share.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_smb_share(smb_share_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str smb_share_id: Delete the share. (required)
-        :param str zone: Zone which contains this share.
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['smb_share_id', 'zone']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_smb_share" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'smb_share_id' is set
-        if ('smb_share_id' not in params) or (params['smb_share_id'] is None):
-            raise ValueError("Missing the required parameter `smb_share_id` when calling `delete_smb_share`")
-
-        resource_path = '/platform/3/protocols/smb/shares/{SmbShareId}'.replace('{format}', 'json')
-        method = 'DELETE'
-
-        path_params = {}
-        if 'smb_share_id' in params:
-            path_params['SmbShareId'] = params['smb_share_id']
-
-        query_params = {}
-        if 'zone' in params:
-            query_params['zone'] = params['zone']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_snmp_settings(self, **kwargs):
-        """
-        
-        Retrieve the SNMP settings.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_snmp_settings(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: SnmpSettings
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_snmp_settings" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/protocols/snmp/settings'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='SnmpSettings',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -7836,17 +7726,16 @@ class ProtocolsApi(object):
         if ('snmp_settings' not in params) or (params['snmp_settings'] is None):
             raise ValueError("Missing the required parameter `snmp_settings` when calling `update_snmp_settings`")
 
-        resource_path = '/platform/3/protocols/snmp/settings'.replace('{format}', 'json')
-        method = 'PUT'
 
+        resource_path = '/platform/3/protocols/snmp/settings'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'snmp_settings' in params:
@@ -7865,245 +7754,14 @@ class ProtocolsApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'PUT',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def list_swift_accounts(self, **kwargs):
-        """
-        
-        List all swift accounts.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.list_swift_accounts(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: SwiftAccounts
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_swift_accounts" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/protocols/swift/accounts'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='SwiftAccounts',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def create_swift_account(self, swift_account, **kwargs):
-        """
-        
-        Create a new Swift account
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_swift_account(swift_account, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param SwiftAccount swift_account:  (required)
-        :return: CreateResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['swift_account']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_swift_account" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'swift_account' is set
-        if ('swift_account' not in params) or (params['swift_account'] is None):
-            raise ValueError("Missing the required parameter `swift_account` when calling `create_swift_account`")
-
-        resource_path = '/platform/3/protocols/swift/accounts'.replace('{format}', 'json')
-        method = 'POST'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'swift_account' in params:
-            body_params = params['swift_account']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='CreateResponse',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_swift_account(self, swift_account_id, **kwargs):
-        """
-        
-        List a swift account.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_swift_account(swift_account_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str swift_account_id: List a swift account. (required)
-        :return: SwiftAccounts
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['swift_account_id']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_swift_account" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'swift_account_id' is set
-        if ('swift_account_id' not in params) or (params['swift_account_id'] is None):
-            raise ValueError("Missing the required parameter `swift_account_id` when calling `get_swift_account`")
-
-        resource_path = '/platform/3/protocols/swift/accounts/{SwiftAccountId}'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'swift_account_id' in params:
-            path_params['SwiftAccountId'] = params['swift_account_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='SwiftAccounts',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -8150,9 +7808,8 @@ class ProtocolsApi(object):
         if ('swift_account_id' not in params) or (params['swift_account_id'] is None):
             raise ValueError("Missing the required parameter `swift_account_id` when calling `update_swift_account`")
 
-        resource_path = '/platform/3/protocols/swift/accounts/{SwiftAccountId}'.replace('{format}', 'json')
-        method = 'PUT'
 
+        resource_path = '/platform/3/protocols/swift/accounts/{SwiftAccountId}'.replace('{format}', 'json')
         path_params = {}
         if 'swift_account_id' in params:
             path_params['SwiftAccountId'] = params['swift_account_id']
@@ -8161,8 +7818,8 @@ class ProtocolsApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'swift_account' in params:
@@ -8181,92 +7838,13 @@ class ProtocolsApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'PUT',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def delete_swift_account(self, swift_account_id, **kwargs):
-        """
-        
-        Delete a Swift account.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_swift_account(swift_account_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str swift_account_id: Delete a Swift account. (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['swift_account_id']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_swift_account" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'swift_account_id' is set
-        if ('swift_account_id' not in params) or (params['swift_account_id'] is None):
-            raise ValueError("Missing the required parameter `swift_account_id` when calling `delete_swift_account`")
-
-        resource_path = '/platform/3/protocols/swift/accounts/{SwiftAccountId}'.replace('{format}', 'json')
-        method = 'DELETE'
-
-        path_params = {}
-        if 'swift_account_id' in params:
-            path_params['SwiftAccountId'] = params['swift_account_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))

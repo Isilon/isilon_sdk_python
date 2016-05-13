@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class SmbShareCreateParams(object):
@@ -37,216 +38,151 @@ class SmbShareCreateParams(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'ntfs_acl_support': 'bool',
-            'allow_variable_expansion': 'bool',
-            'strict_flush': 'bool',
-            'continuously_available': 'bool',
+            'access_based_enumeration': 'bool',
             'access_based_enumeration_root_only': 'bool',
-            'description': 'str',
-            'browsable': 'bool',
-            'ca_write_integrity': 'str',
-            'impersonate_user': 'str',
-            'file_create_mask': 'int',
-            'path': 'str',
-            'run_as_root': 'list[GroupsGroupMember]',
+            'allow_delete_readonly': 'bool',
             'allow_execute_always': 'bool',
+            'allow_variable_expansion': 'bool',
+            'auto_create_directory': 'bool',
+            'browsable': 'bool',
             'ca_timeout': 'int',
-            'zone': 'str',
-            'mangle_byte_start': 'int',
-            'permissions': 'list[SmbSharePermission]',
-            'directory_create_mask': 'int',
-            'hide_dot_files': 'bool',
-            'create_path': 'bool',
+            'ca_write_integrity': 'str',
             'change_notify': 'str',
+            'create_permissions': 'str',
+            'csc_policy': 'str',
+            'description': 'str',
+            'directory_create_mask': 'int',
             'directory_create_mode': 'int',
+            'file_create_mask': 'int',
             'file_create_mode': 'int',
+            'file_filter_extensions': 'list[str]',
             'file_filter_type': 'str',
             'file_filtering_enabled': 'bool',
-            'access_based_enumeration': 'bool',
-            'csc_policy': 'str',
+            'hide_dot_files': 'bool',
             'host_acl': 'list[str]',
-            'strict_ca_lockout': 'bool',
-            'create_permissions': 'str',
-            'inheritable_path_acl': 'bool',
-            'auto_create_directory': 'bool',
-            'file_filter_extensions': 'list[str]',
-            'strict_locking': 'bool',
-            'name': 'str',
             'impersonate_guest': 'str',
-            'allow_delete_readonly': 'bool',
+            'impersonate_user': 'str',
+            'inheritable_path_acl': 'bool',
+            'mangle_byte_start': 'int',
             'mangle_map': 'list[str]',
-            'oplocks': 'bool'
+            'name': 'str',
+            'ntfs_acl_support': 'bool',
+            'oplocks': 'bool',
+            'path': 'str',
+            'permissions': 'list[SmbSharePermission]',
+            'run_as_root': 'list[GroupMember]',
+            'strict_ca_lockout': 'bool',
+            'strict_flush': 'bool',
+            'strict_locking': 'bool',
+            'zone': 'str',
+            'continuously_available': 'bool',
+            'create_path': 'bool'
         }
 
         self.attribute_map = {
-            'ntfs_acl_support': 'ntfs_acl_support',
-            'allow_variable_expansion': 'allow_variable_expansion',
-            'strict_flush': 'strict_flush',
-            'continuously_available': 'continuously_available',
+            'access_based_enumeration': 'access_based_enumeration',
             'access_based_enumeration_root_only': 'access_based_enumeration_root_only',
-            'description': 'description',
-            'browsable': 'browsable',
-            'ca_write_integrity': 'ca_write_integrity',
-            'impersonate_user': 'impersonate_user',
-            'file_create_mask': 'file_create_mask',
-            'path': 'path',
-            'run_as_root': 'run_as_root',
+            'allow_delete_readonly': 'allow_delete_readonly',
             'allow_execute_always': 'allow_execute_always',
+            'allow_variable_expansion': 'allow_variable_expansion',
+            'auto_create_directory': 'auto_create_directory',
+            'browsable': 'browsable',
             'ca_timeout': 'ca_timeout',
-            'zone': 'zone',
-            'mangle_byte_start': 'mangle_byte_start',
-            'permissions': 'permissions',
-            'directory_create_mask': 'directory_create_mask',
-            'hide_dot_files': 'hide_dot_files',
-            'create_path': 'create_path',
+            'ca_write_integrity': 'ca_write_integrity',
             'change_notify': 'change_notify',
+            'create_permissions': 'create_permissions',
+            'csc_policy': 'csc_policy',
+            'description': 'description',
+            'directory_create_mask': 'directory_create_mask',
             'directory_create_mode': 'directory_create_mode',
+            'file_create_mask': 'file_create_mask',
             'file_create_mode': 'file_create_mode',
+            'file_filter_extensions': 'file_filter_extensions',
             'file_filter_type': 'file_filter_type',
             'file_filtering_enabled': 'file_filtering_enabled',
-            'access_based_enumeration': 'access_based_enumeration',
-            'csc_policy': 'csc_policy',
+            'hide_dot_files': 'hide_dot_files',
             'host_acl': 'host_acl',
-            'strict_ca_lockout': 'strict_ca_lockout',
-            'create_permissions': 'create_permissions',
-            'inheritable_path_acl': 'inheritable_path_acl',
-            'auto_create_directory': 'auto_create_directory',
-            'file_filter_extensions': 'file_filter_extensions',
-            'strict_locking': 'strict_locking',
-            'name': 'name',
             'impersonate_guest': 'impersonate_guest',
-            'allow_delete_readonly': 'allow_delete_readonly',
+            'impersonate_user': 'impersonate_user',
+            'inheritable_path_acl': 'inheritable_path_acl',
+            'mangle_byte_start': 'mangle_byte_start',
             'mangle_map': 'mangle_map',
-            'oplocks': 'oplocks'
+            'name': 'name',
+            'ntfs_acl_support': 'ntfs_acl_support',
+            'oplocks': 'oplocks',
+            'path': 'path',
+            'permissions': 'permissions',
+            'run_as_root': 'run_as_root',
+            'strict_ca_lockout': 'strict_ca_lockout',
+            'strict_flush': 'strict_flush',
+            'strict_locking': 'strict_locking',
+            'zone': 'zone',
+            'continuously_available': 'continuously_available',
+            'create_path': 'create_path'
         }
 
-        self._ntfs_acl_support = None
-        self._allow_variable_expansion = None
-        self._strict_flush = None
-        self._continuously_available = None
+        self._access_based_enumeration = None
         self._access_based_enumeration_root_only = None
-        self._description = None
-        self._browsable = None
-        self._ca_write_integrity = None
-        self._impersonate_user = None
-        self._file_create_mask = None
-        self._path = None
-        self._run_as_root = None
+        self._allow_delete_readonly = None
         self._allow_execute_always = None
+        self._allow_variable_expansion = None
+        self._auto_create_directory = None
+        self._browsable = None
         self._ca_timeout = None
-        self._zone = None
-        self._mangle_byte_start = None
-        self._permissions = None
-        self._directory_create_mask = None
-        self._hide_dot_files = None
-        self._create_path = None
+        self._ca_write_integrity = None
         self._change_notify = None
+        self._create_permissions = None
+        self._csc_policy = None
+        self._description = None
+        self._directory_create_mask = None
         self._directory_create_mode = None
+        self._file_create_mask = None
         self._file_create_mode = None
+        self._file_filter_extensions = None
         self._file_filter_type = None
         self._file_filtering_enabled = None
-        self._access_based_enumeration = None
-        self._csc_policy = None
+        self._hide_dot_files = None
         self._host_acl = None
-        self._strict_ca_lockout = None
-        self._create_permissions = None
-        self._inheritable_path_acl = None
-        self._auto_create_directory = None
-        self._file_filter_extensions = None
-        self._strict_locking = None
-        self._name = None
         self._impersonate_guest = None
-        self._allow_delete_readonly = None
+        self._impersonate_user = None
+        self._inheritable_path_acl = None
+        self._mangle_byte_start = None
         self._mangle_map = None
+        self._name = None
+        self._ntfs_acl_support = None
         self._oplocks = None
+        self._path = None
+        self._permissions = None
+        self._run_as_root = None
+        self._strict_ca_lockout = None
+        self._strict_flush = None
+        self._strict_locking = None
+        self._zone = None
+        self._continuously_available = None
+        self._create_path = None
 
     @property
-    def ntfs_acl_support(self):
+    def access_based_enumeration(self):
         """
-        Gets the ntfs_acl_support of this SmbShareCreateParams.
-        Support NTFS ACLs on files and directories.
+        Gets the access_based_enumeration of this SmbShareCreateParams.
+        Only enumerate files and folders the requesting user has access to.
 
-        :return: The ntfs_acl_support of this SmbShareCreateParams.
+        :return: The access_based_enumeration of this SmbShareCreateParams.
         :rtype: bool
         """
-        return self._ntfs_acl_support
+        return self._access_based_enumeration
 
-    @ntfs_acl_support.setter
-    def ntfs_acl_support(self, ntfs_acl_support):
+    @access_based_enumeration.setter
+    def access_based_enumeration(self, access_based_enumeration):
         """
-        Sets the ntfs_acl_support of this SmbShareCreateParams.
-        Support NTFS ACLs on files and directories.
+        Sets the access_based_enumeration of this SmbShareCreateParams.
+        Only enumerate files and folders the requesting user has access to.
 
-        :param ntfs_acl_support: The ntfs_acl_support of this SmbShareCreateParams.
+        :param access_based_enumeration: The access_based_enumeration of this SmbShareCreateParams.
         :type: bool
         """
-        self._ntfs_acl_support = ntfs_acl_support
-
-    @property
-    def allow_variable_expansion(self):
-        """
-        Gets the allow_variable_expansion of this SmbShareCreateParams.
-        Allow automatic expansion of variables for home directories.
-
-        :return: The allow_variable_expansion of this SmbShareCreateParams.
-        :rtype: bool
-        """
-        return self._allow_variable_expansion
-
-    @allow_variable_expansion.setter
-    def allow_variable_expansion(self, allow_variable_expansion):
-        """
-        Sets the allow_variable_expansion of this SmbShareCreateParams.
-        Allow automatic expansion of variables for home directories.
-
-        :param allow_variable_expansion: The allow_variable_expansion of this SmbShareCreateParams.
-        :type: bool
-        """
-        self._allow_variable_expansion = allow_variable_expansion
-
-    @property
-    def strict_flush(self):
-        """
-        Gets the strict_flush of this SmbShareCreateParams.
-        Handle SMB flush operations.
-
-        :return: The strict_flush of this SmbShareCreateParams.
-        :rtype: bool
-        """
-        return self._strict_flush
-
-    @strict_flush.setter
-    def strict_flush(self, strict_flush):
-        """
-        Sets the strict_flush of this SmbShareCreateParams.
-        Handle SMB flush operations.
-
-        :param strict_flush: The strict_flush of this SmbShareCreateParams.
-        :type: bool
-        """
-        self._strict_flush = strict_flush
-
-    @property
-    def continuously_available(self):
-        """
-        Gets the continuously_available of this SmbShareCreateParams.
-        Specify if persistent opens are allowed on the share.
-
-        :return: The continuously_available of this SmbShareCreateParams.
-        :rtype: bool
-        """
-        return self._continuously_available
-
-    @continuously_available.setter
-    def continuously_available(self, continuously_available):
-        """
-        Sets the continuously_available of this SmbShareCreateParams.
-        Specify if persistent opens are allowed on the share.
-
-        :param continuously_available: The continuously_available of this SmbShareCreateParams.
-        :type: bool
-        """
-        self._continuously_available = continuously_available
+        
+        self._access_based_enumeration = access_based_enumeration
 
     @property
     def access_based_enumeration_root_only(self):
@@ -268,29 +204,100 @@ class SmbShareCreateParams(object):
         :param access_based_enumeration_root_only: The access_based_enumeration_root_only of this SmbShareCreateParams.
         :type: bool
         """
+        
         self._access_based_enumeration_root_only = access_based_enumeration_root_only
 
     @property
-    def description(self):
+    def allow_delete_readonly(self):
         """
-        Gets the description of this SmbShareCreateParams.
-        Description for this SMB share.
+        Gets the allow_delete_readonly of this SmbShareCreateParams.
+        Allow deletion of read-only files in the share.
 
-        :return: The description of this SmbShareCreateParams.
-        :rtype: str
+        :return: The allow_delete_readonly of this SmbShareCreateParams.
+        :rtype: bool
         """
-        return self._description
+        return self._allow_delete_readonly
 
-    @description.setter
-    def description(self, description):
+    @allow_delete_readonly.setter
+    def allow_delete_readonly(self, allow_delete_readonly):
         """
-        Sets the description of this SmbShareCreateParams.
-        Description for this SMB share.
+        Sets the allow_delete_readonly of this SmbShareCreateParams.
+        Allow deletion of read-only files in the share.
 
-        :param description: The description of this SmbShareCreateParams.
-        :type: str
+        :param allow_delete_readonly: The allow_delete_readonly of this SmbShareCreateParams.
+        :type: bool
         """
-        self._description = description
+        
+        self._allow_delete_readonly = allow_delete_readonly
+
+    @property
+    def allow_execute_always(self):
+        """
+        Gets the allow_execute_always of this SmbShareCreateParams.
+        Allows users to execute files they have read rights for.
+
+        :return: The allow_execute_always of this SmbShareCreateParams.
+        :rtype: bool
+        """
+        return self._allow_execute_always
+
+    @allow_execute_always.setter
+    def allow_execute_always(self, allow_execute_always):
+        """
+        Sets the allow_execute_always of this SmbShareCreateParams.
+        Allows users to execute files they have read rights for.
+
+        :param allow_execute_always: The allow_execute_always of this SmbShareCreateParams.
+        :type: bool
+        """
+        
+        self._allow_execute_always = allow_execute_always
+
+    @property
+    def allow_variable_expansion(self):
+        """
+        Gets the allow_variable_expansion of this SmbShareCreateParams.
+        Allow automatic expansion of variables for home directories.
+
+        :return: The allow_variable_expansion of this SmbShareCreateParams.
+        :rtype: bool
+        """
+        return self._allow_variable_expansion
+
+    @allow_variable_expansion.setter
+    def allow_variable_expansion(self, allow_variable_expansion):
+        """
+        Sets the allow_variable_expansion of this SmbShareCreateParams.
+        Allow automatic expansion of variables for home directories.
+
+        :param allow_variable_expansion: The allow_variable_expansion of this SmbShareCreateParams.
+        :type: bool
+        """
+        
+        self._allow_variable_expansion = allow_variable_expansion
+
+    @property
+    def auto_create_directory(self):
+        """
+        Gets the auto_create_directory of this SmbShareCreateParams.
+        Automatically create home directories.
+
+        :return: The auto_create_directory of this SmbShareCreateParams.
+        :rtype: bool
+        """
+        return self._auto_create_directory
+
+    @auto_create_directory.setter
+    def auto_create_directory(self, auto_create_directory):
+        """
+        Sets the auto_create_directory of this SmbShareCreateParams.
+        Automatically create home directories.
+
+        :param auto_create_directory: The auto_create_directory of this SmbShareCreateParams.
+        :type: bool
+        """
+        
+        self._auto_create_directory = auto_create_directory
 
     @property
     def browsable(self):
@@ -312,7 +319,36 @@ class SmbShareCreateParams(object):
         :param browsable: The browsable of this SmbShareCreateParams.
         :type: bool
         """
+        
         self._browsable = browsable
+
+    @property
+    def ca_timeout(self):
+        """
+        Gets the ca_timeout of this SmbShareCreateParams.
+        Persistent open timeout for the share.
+
+        :return: The ca_timeout of this SmbShareCreateParams.
+        :rtype: int
+        """
+        return self._ca_timeout
+
+    @ca_timeout.setter
+    def ca_timeout(self, ca_timeout):
+        """
+        Sets the ca_timeout of this SmbShareCreateParams.
+        Persistent open timeout for the share.
+
+        :param ca_timeout: The ca_timeout of this SmbShareCreateParams.
+        :type: int
+        """
+        
+        if not ca_timeout:
+            raise ValueError("Invalid value for `ca_timeout`, must not be `None`")
+        if ca_timeout < 2.0: 
+            raise ValueError("Invalid value for `ca_timeout`, must be a value greater than or equal to `2.0`")
+
+        self._ca_timeout = ca_timeout
 
     @property
     def ca_write_integrity(self):
@@ -340,271 +376,8 @@ class SmbShareCreateParams(object):
                 "Invalid value for `ca_write_integrity`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._ca_write_integrity = ca_write_integrity
-
-    @property
-    def impersonate_user(self):
-        """
-        Gets the impersonate_user of this SmbShareCreateParams.
-        User account to be used as guest account.
-
-        :return: The impersonate_user of this SmbShareCreateParams.
-        :rtype: str
-        """
-        return self._impersonate_user
-
-    @impersonate_user.setter
-    def impersonate_user(self, impersonate_user):
-        """
-        Sets the impersonate_user of this SmbShareCreateParams.
-        User account to be used as guest account.
-
-        :param impersonate_user: The impersonate_user of this SmbShareCreateParams.
-        :type: str
-        """
-        self._impersonate_user = impersonate_user
-
-    @property
-    def file_create_mask(self):
-        """
-        Gets the file_create_mask of this SmbShareCreateParams.
-        File create mask bits.
-
-        :return: The file_create_mask of this SmbShareCreateParams.
-        :rtype: int
-        """
-        return self._file_create_mask
-
-    @file_create_mask.setter
-    def file_create_mask(self, file_create_mask):
-        """
-        Sets the file_create_mask of this SmbShareCreateParams.
-        File create mask bits.
-
-        :param file_create_mask: The file_create_mask of this SmbShareCreateParams.
-        :type: int
-        """
-        self._file_create_mask = file_create_mask
-
-    @property
-    def path(self):
-        """
-        Gets the path of this SmbShareCreateParams.
-        Path of share within /ifs.
-
-        :return: The path of this SmbShareCreateParams.
-        :rtype: str
-        """
-        return self._path
-
-    @path.setter
-    def path(self, path):
-        """
-        Sets the path of this SmbShareCreateParams.
-        Path of share within /ifs.
-
-        :param path: The path of this SmbShareCreateParams.
-        :type: str
-        """
-        self._path = path
-
-    @property
-    def run_as_root(self):
-        """
-        Gets the run_as_root of this SmbShareCreateParams.
-        Allow account to run as root.
-
-        :return: The run_as_root of this SmbShareCreateParams.
-        :rtype: list[GroupsGroupMember]
-        """
-        return self._run_as_root
-
-    @run_as_root.setter
-    def run_as_root(self, run_as_root):
-        """
-        Sets the run_as_root of this SmbShareCreateParams.
-        Allow account to run as root.
-
-        :param run_as_root: The run_as_root of this SmbShareCreateParams.
-        :type: list[GroupsGroupMember]
-        """
-        self._run_as_root = run_as_root
-
-    @property
-    def allow_execute_always(self):
-        """
-        Gets the allow_execute_always of this SmbShareCreateParams.
-        Allows users to execute files they have read rights for.
-
-        :return: The allow_execute_always of this SmbShareCreateParams.
-        :rtype: bool
-        """
-        return self._allow_execute_always
-
-    @allow_execute_always.setter
-    def allow_execute_always(self, allow_execute_always):
-        """
-        Sets the allow_execute_always of this SmbShareCreateParams.
-        Allows users to execute files they have read rights for.
-
-        :param allow_execute_always: The allow_execute_always of this SmbShareCreateParams.
-        :type: bool
-        """
-        self._allow_execute_always = allow_execute_always
-
-    @property
-    def ca_timeout(self):
-        """
-        Gets the ca_timeout of this SmbShareCreateParams.
-        Persistent open timeout for the share.
-
-        :return: The ca_timeout of this SmbShareCreateParams.
-        :rtype: int
-        """
-        return self._ca_timeout
-
-    @ca_timeout.setter
-    def ca_timeout(self, ca_timeout):
-        """
-        Sets the ca_timeout of this SmbShareCreateParams.
-        Persistent open timeout for the share.
-
-        :param ca_timeout: The ca_timeout of this SmbShareCreateParams.
-        :type: int
-        """
-        self._ca_timeout = ca_timeout
-
-    @property
-    def zone(self):
-        """
-        Gets the zone of this SmbShareCreateParams.
-        Name of the access zone to which to move this SMB share
-
-        :return: The zone of this SmbShareCreateParams.
-        :rtype: str
-        """
-        return self._zone
-
-    @zone.setter
-    def zone(self, zone):
-        """
-        Sets the zone of this SmbShareCreateParams.
-        Name of the access zone to which to move this SMB share
-
-        :param zone: The zone of this SmbShareCreateParams.
-        :type: str
-        """
-        self._zone = zone
-
-    @property
-    def mangle_byte_start(self):
-        """
-        Gets the mangle_byte_start of this SmbShareCreateParams.
-        Specifies the wchar_t starting point for automatic byte mangling.
-
-        :return: The mangle_byte_start of this SmbShareCreateParams.
-        :rtype: int
-        """
-        return self._mangle_byte_start
-
-    @mangle_byte_start.setter
-    def mangle_byte_start(self, mangle_byte_start):
-        """
-        Sets the mangle_byte_start of this SmbShareCreateParams.
-        Specifies the wchar_t starting point for automatic byte mangling.
-
-        :param mangle_byte_start: The mangle_byte_start of this SmbShareCreateParams.
-        :type: int
-        """
-        self._mangle_byte_start = mangle_byte_start
-
-    @property
-    def permissions(self):
-        """
-        Gets the permissions of this SmbShareCreateParams.
-        Specifies an ordered list of permission modifications.
-
-        :return: The permissions of this SmbShareCreateParams.
-        :rtype: list[SmbSharePermission]
-        """
-        return self._permissions
-
-    @permissions.setter
-    def permissions(self, permissions):
-        """
-        Sets the permissions of this SmbShareCreateParams.
-        Specifies an ordered list of permission modifications.
-
-        :param permissions: The permissions of this SmbShareCreateParams.
-        :type: list[SmbSharePermission]
-        """
-        self._permissions = permissions
-
-    @property
-    def directory_create_mask(self):
-        """
-        Gets the directory_create_mask of this SmbShareCreateParams.
-        Directory create mask bits.
-
-        :return: The directory_create_mask of this SmbShareCreateParams.
-        :rtype: int
-        """
-        return self._directory_create_mask
-
-    @directory_create_mask.setter
-    def directory_create_mask(self, directory_create_mask):
-        """
-        Sets the directory_create_mask of this SmbShareCreateParams.
-        Directory create mask bits.
-
-        :param directory_create_mask: The directory_create_mask of this SmbShareCreateParams.
-        :type: int
-        """
-        self._directory_create_mask = directory_create_mask
-
-    @property
-    def hide_dot_files(self):
-        """
-        Gets the hide_dot_files of this SmbShareCreateParams.
-        Hide files and directories that begin with a period '.'.
-
-        :return: The hide_dot_files of this SmbShareCreateParams.
-        :rtype: bool
-        """
-        return self._hide_dot_files
-
-    @hide_dot_files.setter
-    def hide_dot_files(self, hide_dot_files):
-        """
-        Sets the hide_dot_files of this SmbShareCreateParams.
-        Hide files and directories that begin with a period '.'.
-
-        :param hide_dot_files: The hide_dot_files of this SmbShareCreateParams.
-        :type: bool
-        """
-        self._hide_dot_files = hide_dot_files
-
-    @property
-    def create_path(self):
-        """
-        Gets the create_path of this SmbShareCreateParams.
-        Create path if does not exist.
-
-        :return: The create_path of this SmbShareCreateParams.
-        :rtype: bool
-        """
-        return self._create_path
-
-    @create_path.setter
-    def create_path(self, create_path):
-        """
-        Sets the create_path of this SmbShareCreateParams.
-        Create path if does not exist.
-
-        :param create_path: The create_path of this SmbShareCreateParams.
-        :type: bool
-        """
-        self._create_path = create_path
 
     @property
     def change_notify(self):
@@ -632,195 +405,8 @@ class SmbShareCreateParams(object):
                 "Invalid value for `change_notify`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._change_notify = change_notify
-
-    @property
-    def directory_create_mode(self):
-        """
-        Gets the directory_create_mode of this SmbShareCreateParams.
-        Directory create mode bits.
-
-        :return: The directory_create_mode of this SmbShareCreateParams.
-        :rtype: int
-        """
-        return self._directory_create_mode
-
-    @directory_create_mode.setter
-    def directory_create_mode(self, directory_create_mode):
-        """
-        Sets the directory_create_mode of this SmbShareCreateParams.
-        Directory create mode bits.
-
-        :param directory_create_mode: The directory_create_mode of this SmbShareCreateParams.
-        :type: int
-        """
-        self._directory_create_mode = directory_create_mode
-
-    @property
-    def file_create_mode(self):
-        """
-        Gets the file_create_mode of this SmbShareCreateParams.
-        File create mode bits.
-
-        :return: The file_create_mode of this SmbShareCreateParams.
-        :rtype: int
-        """
-        return self._file_create_mode
-
-    @file_create_mode.setter
-    def file_create_mode(self, file_create_mode):
-        """
-        Sets the file_create_mode of this SmbShareCreateParams.
-        File create mode bits.
-
-        :param file_create_mode: The file_create_mode of this SmbShareCreateParams.
-        :type: int
-        """
-        self._file_create_mode = file_create_mode
-
-    @property
-    def file_filter_type(self):
-        """
-        Gets the file_filter_type of this SmbShareCreateParams.
-        Specifies if filter list is for deny or allow. Default is deny.
-
-        :return: The file_filter_type of this SmbShareCreateParams.
-        :rtype: str
-        """
-        return self._file_filter_type
-
-    @file_filter_type.setter
-    def file_filter_type(self, file_filter_type):
-        """
-        Sets the file_filter_type of this SmbShareCreateParams.
-        Specifies if filter list is for deny or allow. Default is deny.
-
-        :param file_filter_type: The file_filter_type of this SmbShareCreateParams.
-        :type: str
-        """
-        allowed_values = ["deny", "allow"]
-        if file_filter_type not in allowed_values:
-            raise ValueError(
-                "Invalid value for `file_filter_type`, must be one of {0}"
-                .format(allowed_values)
-            )
-        self._file_filter_type = file_filter_type
-
-    @property
-    def file_filtering_enabled(self):
-        """
-        Gets the file_filtering_enabled of this SmbShareCreateParams.
-        Enables file filtering on this zone.
-
-        :return: The file_filtering_enabled of this SmbShareCreateParams.
-        :rtype: bool
-        """
-        return self._file_filtering_enabled
-
-    @file_filtering_enabled.setter
-    def file_filtering_enabled(self, file_filtering_enabled):
-        """
-        Sets the file_filtering_enabled of this SmbShareCreateParams.
-        Enables file filtering on this zone.
-
-        :param file_filtering_enabled: The file_filtering_enabled of this SmbShareCreateParams.
-        :type: bool
-        """
-        self._file_filtering_enabled = file_filtering_enabled
-
-    @property
-    def access_based_enumeration(self):
-        """
-        Gets the access_based_enumeration of this SmbShareCreateParams.
-        Only enumerate files and folders the requesting user has access to.
-
-        :return: The access_based_enumeration of this SmbShareCreateParams.
-        :rtype: bool
-        """
-        return self._access_based_enumeration
-
-    @access_based_enumeration.setter
-    def access_based_enumeration(self, access_based_enumeration):
-        """
-        Sets the access_based_enumeration of this SmbShareCreateParams.
-        Only enumerate files and folders the requesting user has access to.
-
-        :param access_based_enumeration: The access_based_enumeration of this SmbShareCreateParams.
-        :type: bool
-        """
-        self._access_based_enumeration = access_based_enumeration
-
-    @property
-    def csc_policy(self):
-        """
-        Gets the csc_policy of this SmbShareCreateParams.
-        Client-side caching policy for the shares.
-
-        :return: The csc_policy of this SmbShareCreateParams.
-        :rtype: str
-        """
-        return self._csc_policy
-
-    @csc_policy.setter
-    def csc_policy(self, csc_policy):
-        """
-        Sets the csc_policy of this SmbShareCreateParams.
-        Client-side caching policy for the shares.
-
-        :param csc_policy: The csc_policy of this SmbShareCreateParams.
-        :type: str
-        """
-        allowed_values = ["manual", "documents", "programs", "none"]
-        if csc_policy not in allowed_values:
-            raise ValueError(
-                "Invalid value for `csc_policy`, must be one of {0}"
-                .format(allowed_values)
-            )
-        self._csc_policy = csc_policy
-
-    @property
-    def host_acl(self):
-        """
-        Gets the host_acl of this SmbShareCreateParams.
-        An ACL expressing which hosts are allowed access. A deny clause must be the final entry.
-
-        :return: The host_acl of this SmbShareCreateParams.
-        :rtype: list[str]
-        """
-        return self._host_acl
-
-    @host_acl.setter
-    def host_acl(self, host_acl):
-        """
-        Sets the host_acl of this SmbShareCreateParams.
-        An ACL expressing which hosts are allowed access. A deny clause must be the final entry.
-
-        :param host_acl: The host_acl of this SmbShareCreateParams.
-        :type: list[str]
-        """
-        self._host_acl = host_acl
-
-    @property
-    def strict_ca_lockout(self):
-        """
-        Gets the strict_ca_lockout of this SmbShareCreateParams.
-        Specifies if persistent opens would do strict lockout on the share.
-
-        :return: The strict_ca_lockout of this SmbShareCreateParams.
-        :rtype: bool
-        """
-        return self._strict_ca_lockout
-
-    @strict_ca_lockout.setter
-    def strict_ca_lockout(self, strict_ca_lockout):
-        """
-        Sets the strict_ca_lockout of this SmbShareCreateParams.
-        Specifies if persistent opens would do strict lockout on the share.
-
-        :param strict_ca_lockout: The strict_ca_lockout of this SmbShareCreateParams.
-        :type: bool
-        """
-        self._strict_ca_lockout = strict_ca_lockout
 
     @property
     def create_permissions(self):
@@ -848,51 +434,152 @@ class SmbShareCreateParams(object):
                 "Invalid value for `create_permissions`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._create_permissions = create_permissions
 
     @property
-    def inheritable_path_acl(self):
+    def csc_policy(self):
         """
-        Gets the inheritable_path_acl of this SmbShareCreateParams.
-        Set the inheritable ACL on the share path.
+        Gets the csc_policy of this SmbShareCreateParams.
+        Client-side caching policy for the shares.
 
-        :return: The inheritable_path_acl of this SmbShareCreateParams.
-        :rtype: bool
+        :return: The csc_policy of this SmbShareCreateParams.
+        :rtype: str
         """
-        return self._inheritable_path_acl
+        return self._csc_policy
 
-    @inheritable_path_acl.setter
-    def inheritable_path_acl(self, inheritable_path_acl):
+    @csc_policy.setter
+    def csc_policy(self, csc_policy):
         """
-        Sets the inheritable_path_acl of this SmbShareCreateParams.
-        Set the inheritable ACL on the share path.
+        Sets the csc_policy of this SmbShareCreateParams.
+        Client-side caching policy for the shares.
 
-        :param inheritable_path_acl: The inheritable_path_acl of this SmbShareCreateParams.
-        :type: bool
+        :param csc_policy: The csc_policy of this SmbShareCreateParams.
+        :type: str
         """
-        self._inheritable_path_acl = inheritable_path_acl
+        allowed_values = ["manual", "documents", "programs", "none"]
+        if csc_policy not in allowed_values:
+            raise ValueError(
+                "Invalid value for `csc_policy`, must be one of {0}"
+                .format(allowed_values)
+            )
+
+        self._csc_policy = csc_policy
 
     @property
-    def auto_create_directory(self):
+    def description(self):
         """
-        Gets the auto_create_directory of this SmbShareCreateParams.
-        Automatically create home directories.
+        Gets the description of this SmbShareCreateParams.
+        Description for this SMB share.
 
-        :return: The auto_create_directory of this SmbShareCreateParams.
-        :rtype: bool
+        :return: The description of this SmbShareCreateParams.
+        :rtype: str
         """
-        return self._auto_create_directory
+        return self._description
 
-    @auto_create_directory.setter
-    def auto_create_directory(self, auto_create_directory):
+    @description.setter
+    def description(self, description):
         """
-        Sets the auto_create_directory of this SmbShareCreateParams.
-        Automatically create home directories.
+        Sets the description of this SmbShareCreateParams.
+        Description for this SMB share.
 
-        :param auto_create_directory: The auto_create_directory of this SmbShareCreateParams.
-        :type: bool
+        :param description: The description of this SmbShareCreateParams.
+        :type: str
         """
-        self._auto_create_directory = auto_create_directory
+        
+        self._description = description
+
+    @property
+    def directory_create_mask(self):
+        """
+        Gets the directory_create_mask of this SmbShareCreateParams.
+        Directory create mask bits.
+
+        :return: The directory_create_mask of this SmbShareCreateParams.
+        :rtype: int
+        """
+        return self._directory_create_mask
+
+    @directory_create_mask.setter
+    def directory_create_mask(self, directory_create_mask):
+        """
+        Sets the directory_create_mask of this SmbShareCreateParams.
+        Directory create mask bits.
+
+        :param directory_create_mask: The directory_create_mask of this SmbShareCreateParams.
+        :type: int
+        """
+        
+        self._directory_create_mask = directory_create_mask
+
+    @property
+    def directory_create_mode(self):
+        """
+        Gets the directory_create_mode of this SmbShareCreateParams.
+        Directory create mode bits.
+
+        :return: The directory_create_mode of this SmbShareCreateParams.
+        :rtype: int
+        """
+        return self._directory_create_mode
+
+    @directory_create_mode.setter
+    def directory_create_mode(self, directory_create_mode):
+        """
+        Sets the directory_create_mode of this SmbShareCreateParams.
+        Directory create mode bits.
+
+        :param directory_create_mode: The directory_create_mode of this SmbShareCreateParams.
+        :type: int
+        """
+        
+        self._directory_create_mode = directory_create_mode
+
+    @property
+    def file_create_mask(self):
+        """
+        Gets the file_create_mask of this SmbShareCreateParams.
+        File create mask bits.
+
+        :return: The file_create_mask of this SmbShareCreateParams.
+        :rtype: int
+        """
+        return self._file_create_mask
+
+    @file_create_mask.setter
+    def file_create_mask(self, file_create_mask):
+        """
+        Sets the file_create_mask of this SmbShareCreateParams.
+        File create mask bits.
+
+        :param file_create_mask: The file_create_mask of this SmbShareCreateParams.
+        :type: int
+        """
+        
+        self._file_create_mask = file_create_mask
+
+    @property
+    def file_create_mode(self):
+        """
+        Gets the file_create_mode of this SmbShareCreateParams.
+        File create mode bits.
+
+        :return: The file_create_mode of this SmbShareCreateParams.
+        :rtype: int
+        """
+        return self._file_create_mode
+
+    @file_create_mode.setter
+    def file_create_mode(self, file_create_mode):
+        """
+        Sets the file_create_mode of this SmbShareCreateParams.
+        File create mode bits.
+
+        :param file_create_mode: The file_create_mode of this SmbShareCreateParams.
+        :type: int
+        """
+        
+        self._file_create_mode = file_create_mode
 
     @property
     def file_filter_extensions(self):
@@ -914,51 +601,106 @@ class SmbShareCreateParams(object):
         :param file_filter_extensions: The file_filter_extensions of this SmbShareCreateParams.
         :type: list[str]
         """
+        
         self._file_filter_extensions = file_filter_extensions
 
     @property
-    def strict_locking(self):
+    def file_filter_type(self):
         """
-        Gets the strict_locking of this SmbShareCreateParams.
-        Specifies whether byte range locks contend against SMB I/O.
+        Gets the file_filter_type of this SmbShareCreateParams.
+        Specifies if filter list is for deny or allow. Default is deny.
 
-        :return: The strict_locking of this SmbShareCreateParams.
-        :rtype: bool
-        """
-        return self._strict_locking
-
-    @strict_locking.setter
-    def strict_locking(self, strict_locking):
-        """
-        Sets the strict_locking of this SmbShareCreateParams.
-        Specifies whether byte range locks contend against SMB I/O.
-
-        :param strict_locking: The strict_locking of this SmbShareCreateParams.
-        :type: bool
-        """
-        self._strict_locking = strict_locking
-
-    @property
-    def name(self):
-        """
-        Gets the name of this SmbShareCreateParams.
-        Share name.
-
-        :return: The name of this SmbShareCreateParams.
+        :return: The file_filter_type of this SmbShareCreateParams.
         :rtype: str
         """
-        return self._name
+        return self._file_filter_type
 
-    @name.setter
-    def name(self, name):
+    @file_filter_type.setter
+    def file_filter_type(self, file_filter_type):
         """
-        Sets the name of this SmbShareCreateParams.
-        Share name.
+        Sets the file_filter_type of this SmbShareCreateParams.
+        Specifies if filter list is for deny or allow. Default is deny.
 
-        :param name: The name of this SmbShareCreateParams.
+        :param file_filter_type: The file_filter_type of this SmbShareCreateParams.
         :type: str
         """
-        self._name = name
+        allowed_values = ["deny", "allow"]
+        if file_filter_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `file_filter_type`, must be one of {0}"
+                .format(allowed_values)
+            )
+
+        self._file_filter_type = file_filter_type
+
+    @property
+    def file_filtering_enabled(self):
+        """
+        Gets the file_filtering_enabled of this SmbShareCreateParams.
+        Enables file filtering on this zone.
+
+        :return: The file_filtering_enabled of this SmbShareCreateParams.
+        :rtype: bool
+        """
+        return self._file_filtering_enabled
+
+    @file_filtering_enabled.setter
+    def file_filtering_enabled(self, file_filtering_enabled):
+        """
+        Sets the file_filtering_enabled of this SmbShareCreateParams.
+        Enables file filtering on this zone.
+
+        :param file_filtering_enabled: The file_filtering_enabled of this SmbShareCreateParams.
+        :type: bool
+        """
+        
+        self._file_filtering_enabled = file_filtering_enabled
+
+    @property
+    def hide_dot_files(self):
+        """
+        Gets the hide_dot_files of this SmbShareCreateParams.
+        Hide files and directories that begin with a period '.'.
+
+        :return: The hide_dot_files of this SmbShareCreateParams.
+        :rtype: bool
+        """
+        return self._hide_dot_files
+
+    @hide_dot_files.setter
+    def hide_dot_files(self, hide_dot_files):
+        """
+        Sets the hide_dot_files of this SmbShareCreateParams.
+        Hide files and directories that begin with a period '.'.
+
+        :param hide_dot_files: The hide_dot_files of this SmbShareCreateParams.
+        :type: bool
+        """
+        
+        self._hide_dot_files = hide_dot_files
+
+    @property
+    def host_acl(self):
+        """
+        Gets the host_acl of this SmbShareCreateParams.
+        An ACL expressing which hosts are allowed access. A deny clause must be the final entry.
+
+        :return: The host_acl of this SmbShareCreateParams.
+        :rtype: list[str]
+        """
+        return self._host_acl
+
+    @host_acl.setter
+    def host_acl(self, host_acl):
+        """
+        Sets the host_acl of this SmbShareCreateParams.
+        An ACL expressing which hosts are allowed access. A deny clause must be the final entry.
+
+        :param host_acl: The host_acl of this SmbShareCreateParams.
+        :type: list[str]
+        """
+        
+        self._host_acl = host_acl
 
     @property
     def impersonate_guest(self):
@@ -986,29 +728,77 @@ class SmbShareCreateParams(object):
                 "Invalid value for `impersonate_guest`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._impersonate_guest = impersonate_guest
 
     @property
-    def allow_delete_readonly(self):
+    def impersonate_user(self):
         """
-        Gets the allow_delete_readonly of this SmbShareCreateParams.
-        Allow deletion of read-only files in the share.
+        Gets the impersonate_user of this SmbShareCreateParams.
+        User account to be used as guest account.
 
-        :return: The allow_delete_readonly of this SmbShareCreateParams.
+        :return: The impersonate_user of this SmbShareCreateParams.
+        :rtype: str
+        """
+        return self._impersonate_user
+
+    @impersonate_user.setter
+    def impersonate_user(self, impersonate_user):
+        """
+        Sets the impersonate_user of this SmbShareCreateParams.
+        User account to be used as guest account.
+
+        :param impersonate_user: The impersonate_user of this SmbShareCreateParams.
+        :type: str
+        """
+        
+        self._impersonate_user = impersonate_user
+
+    @property
+    def inheritable_path_acl(self):
+        """
+        Gets the inheritable_path_acl of this SmbShareCreateParams.
+        Set the inheritable ACL on the share path.
+
+        :return: The inheritable_path_acl of this SmbShareCreateParams.
         :rtype: bool
         """
-        return self._allow_delete_readonly
+        return self._inheritable_path_acl
 
-    @allow_delete_readonly.setter
-    def allow_delete_readonly(self, allow_delete_readonly):
+    @inheritable_path_acl.setter
+    def inheritable_path_acl(self, inheritable_path_acl):
         """
-        Sets the allow_delete_readonly of this SmbShareCreateParams.
-        Allow deletion of read-only files in the share.
+        Sets the inheritable_path_acl of this SmbShareCreateParams.
+        Set the inheritable ACL on the share path.
 
-        :param allow_delete_readonly: The allow_delete_readonly of this SmbShareCreateParams.
+        :param inheritable_path_acl: The inheritable_path_acl of this SmbShareCreateParams.
         :type: bool
         """
-        self._allow_delete_readonly = allow_delete_readonly
+        
+        self._inheritable_path_acl = inheritable_path_acl
+
+    @property
+    def mangle_byte_start(self):
+        """
+        Gets the mangle_byte_start of this SmbShareCreateParams.
+        Specifies the wchar_t starting point for automatic byte mangling.
+
+        :return: The mangle_byte_start of this SmbShareCreateParams.
+        :rtype: int
+        """
+        return self._mangle_byte_start
+
+    @mangle_byte_start.setter
+    def mangle_byte_start(self, mangle_byte_start):
+        """
+        Sets the mangle_byte_start of this SmbShareCreateParams.
+        Specifies the wchar_t starting point for automatic byte mangling.
+
+        :param mangle_byte_start: The mangle_byte_start of this SmbShareCreateParams.
+        :type: int
+        """
+        
+        self._mangle_byte_start = mangle_byte_start
 
     @property
     def mangle_map(self):
@@ -1030,7 +820,54 @@ class SmbShareCreateParams(object):
         :param mangle_map: The mangle_map of this SmbShareCreateParams.
         :type: list[str]
         """
+        
         self._mangle_map = mangle_map
+
+    @property
+    def name(self):
+        """
+        Gets the name of this SmbShareCreateParams.
+        Share name.
+
+        :return: The name of this SmbShareCreateParams.
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """
+        Sets the name of this SmbShareCreateParams.
+        Share name.
+
+        :param name: The name of this SmbShareCreateParams.
+        :type: str
+        """
+        
+        self._name = name
+
+    @property
+    def ntfs_acl_support(self):
+        """
+        Gets the ntfs_acl_support of this SmbShareCreateParams.
+        Support NTFS ACLs on files and directories.
+
+        :return: The ntfs_acl_support of this SmbShareCreateParams.
+        :rtype: bool
+        """
+        return self._ntfs_acl_support
+
+    @ntfs_acl_support.setter
+    def ntfs_acl_support(self, ntfs_acl_support):
+        """
+        Sets the ntfs_acl_support of this SmbShareCreateParams.
+        Support NTFS ACLs on files and directories.
+
+        :param ntfs_acl_support: The ntfs_acl_support of this SmbShareCreateParams.
+        :type: bool
+        """
+        
+        self._ntfs_acl_support = ntfs_acl_support
 
     @property
     def oplocks(self):
@@ -1052,7 +889,215 @@ class SmbShareCreateParams(object):
         :param oplocks: The oplocks of this SmbShareCreateParams.
         :type: bool
         """
+        
         self._oplocks = oplocks
+
+    @property
+    def path(self):
+        """
+        Gets the path of this SmbShareCreateParams.
+        Path of share within /ifs.
+
+        :return: The path of this SmbShareCreateParams.
+        :rtype: str
+        """
+        return self._path
+
+    @path.setter
+    def path(self, path):
+        """
+        Sets the path of this SmbShareCreateParams.
+        Path of share within /ifs.
+
+        :param path: The path of this SmbShareCreateParams.
+        :type: str
+        """
+        
+        self._path = path
+
+    @property
+    def permissions(self):
+        """
+        Gets the permissions of this SmbShareCreateParams.
+        Specifies an ordered list of permission modifications.
+
+        :return: The permissions of this SmbShareCreateParams.
+        :rtype: list[SmbSharePermission]
+        """
+        return self._permissions
+
+    @permissions.setter
+    def permissions(self, permissions):
+        """
+        Sets the permissions of this SmbShareCreateParams.
+        Specifies an ordered list of permission modifications.
+
+        :param permissions: The permissions of this SmbShareCreateParams.
+        :type: list[SmbSharePermission]
+        """
+        
+        self._permissions = permissions
+
+    @property
+    def run_as_root(self):
+        """
+        Gets the run_as_root of this SmbShareCreateParams.
+        Allow account to run as root.
+
+        :return: The run_as_root of this SmbShareCreateParams.
+        :rtype: list[GroupMember]
+        """
+        return self._run_as_root
+
+    @run_as_root.setter
+    def run_as_root(self, run_as_root):
+        """
+        Sets the run_as_root of this SmbShareCreateParams.
+        Allow account to run as root.
+
+        :param run_as_root: The run_as_root of this SmbShareCreateParams.
+        :type: list[GroupMember]
+        """
+        
+        self._run_as_root = run_as_root
+
+    @property
+    def strict_ca_lockout(self):
+        """
+        Gets the strict_ca_lockout of this SmbShareCreateParams.
+        Specifies if persistent opens would do strict lockout on the share.
+
+        :return: The strict_ca_lockout of this SmbShareCreateParams.
+        :rtype: bool
+        """
+        return self._strict_ca_lockout
+
+    @strict_ca_lockout.setter
+    def strict_ca_lockout(self, strict_ca_lockout):
+        """
+        Sets the strict_ca_lockout of this SmbShareCreateParams.
+        Specifies if persistent opens would do strict lockout on the share.
+
+        :param strict_ca_lockout: The strict_ca_lockout of this SmbShareCreateParams.
+        :type: bool
+        """
+        
+        self._strict_ca_lockout = strict_ca_lockout
+
+    @property
+    def strict_flush(self):
+        """
+        Gets the strict_flush of this SmbShareCreateParams.
+        Handle SMB flush operations.
+
+        :return: The strict_flush of this SmbShareCreateParams.
+        :rtype: bool
+        """
+        return self._strict_flush
+
+    @strict_flush.setter
+    def strict_flush(self, strict_flush):
+        """
+        Sets the strict_flush of this SmbShareCreateParams.
+        Handle SMB flush operations.
+
+        :param strict_flush: The strict_flush of this SmbShareCreateParams.
+        :type: bool
+        """
+        
+        self._strict_flush = strict_flush
+
+    @property
+    def strict_locking(self):
+        """
+        Gets the strict_locking of this SmbShareCreateParams.
+        Specifies whether byte range locks contend against SMB I/O.
+
+        :return: The strict_locking of this SmbShareCreateParams.
+        :rtype: bool
+        """
+        return self._strict_locking
+
+    @strict_locking.setter
+    def strict_locking(self, strict_locking):
+        """
+        Sets the strict_locking of this SmbShareCreateParams.
+        Specifies whether byte range locks contend against SMB I/O.
+
+        :param strict_locking: The strict_locking of this SmbShareCreateParams.
+        :type: bool
+        """
+        
+        self._strict_locking = strict_locking
+
+    @property
+    def zone(self):
+        """
+        Gets the zone of this SmbShareCreateParams.
+        Name of the access zone to which to move this SMB share
+
+        :return: The zone of this SmbShareCreateParams.
+        :rtype: str
+        """
+        return self._zone
+
+    @zone.setter
+    def zone(self, zone):
+        """
+        Sets the zone of this SmbShareCreateParams.
+        Name of the access zone to which to move this SMB share
+
+        :param zone: The zone of this SmbShareCreateParams.
+        :type: str
+        """
+        
+        self._zone = zone
+
+    @property
+    def continuously_available(self):
+        """
+        Gets the continuously_available of this SmbShareCreateParams.
+        Specify if persistent opens are allowed on the share.
+
+        :return: The continuously_available of this SmbShareCreateParams.
+        :rtype: bool
+        """
+        return self._continuously_available
+
+    @continuously_available.setter
+    def continuously_available(self, continuously_available):
+        """
+        Sets the continuously_available of this SmbShareCreateParams.
+        Specify if persistent opens are allowed on the share.
+
+        :param continuously_available: The continuously_available of this SmbShareCreateParams.
+        :type: bool
+        """
+        
+        self._continuously_available = continuously_available
+
+    @property
+    def create_path(self):
+        """
+        Gets the create_path of this SmbShareCreateParams.
+        Create path if does not exist.
+
+        :return: The create_path of this SmbShareCreateParams.
+        :rtype: bool
+        """
+        return self._create_path
+
+    @create_path.setter
+    def create_path(self, create_path):
+        """
+        Sets the create_path of this SmbShareCreateParams.
+        Create path if does not exist.
+
+        :param create_path: The create_path of this SmbShareCreateParams.
+        :type: bool
+        """
+        
+        self._create_path = create_path
 
     def to_dict(self):
         """
@@ -1069,6 +1114,12 @@ class SmbShareCreateParams(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -1086,14 +1137,14 @@ class SmbShareCreateParams(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

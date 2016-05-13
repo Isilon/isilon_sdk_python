@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class NfsExportMapAllSecondaryGroups(object):
@@ -37,42 +38,20 @@ class NfsExportMapAllSecondaryGroups(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'name': 'str',
             'id': 'str',
+            'name': 'str',
             'type': 'str'
         }
 
         self.attribute_map = {
-            'name': 'name',
             'id': 'id',
+            'name': 'name',
             'type': 'type'
         }
 
-        self._name = None
         self._id = None
+        self._name = None
         self._type = None
-
-    @property
-    def name(self):
-        """
-        Gets the name of this NfsExportMapAllSecondaryGroups.
-        Specifies the persona name, which must be combined with a type.
-
-        :return: The name of this NfsExportMapAllSecondaryGroups.
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """
-        Sets the name of this NfsExportMapAllSecondaryGroups.
-        Specifies the persona name, which must be combined with a type.
-
-        :param name: The name of this NfsExportMapAllSecondaryGroups.
-        :type: str
-        """
-        self._name = name
 
     @property
     def id(self):
@@ -94,7 +73,31 @@ class NfsExportMapAllSecondaryGroups(object):
         :param id: The id of this NfsExportMapAllSecondaryGroups.
         :type: str
         """
+        
         self._id = id
+
+    @property
+    def name(self):
+        """
+        Gets the name of this NfsExportMapAllSecondaryGroups.
+        Specifies the persona name, which must be combined with a type.
+
+        :return: The name of this NfsExportMapAllSecondaryGroups.
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """
+        Sets the name of this NfsExportMapAllSecondaryGroups.
+        Specifies the persona name, which must be combined with a type.
+
+        :param name: The name of this NfsExportMapAllSecondaryGroups.
+        :type: str
+        """
+        
+        self._name = name
 
     @property
     def type(self):
@@ -122,6 +125,7 @@ class NfsExportMapAllSecondaryGroups(object):
                 "Invalid value for `type`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._type = type
 
     def to_dict(self):
@@ -139,6 +143,12 @@ class NfsExportMapAllSecondaryGroups(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -156,14 +166,14 @@ class NfsExportMapAllSecondaryGroups(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

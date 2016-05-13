@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class StoragepoolSettingsSettings(object):
@@ -105,6 +106,7 @@ class StoragepoolSettingsSettings(object):
                 "Invalid value for `automatically_manage_io_optimization`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._automatically_manage_io_optimization = automatically_manage_io_optimization
 
     @property
@@ -133,6 +135,7 @@ class StoragepoolSettingsSettings(object):
                 "Invalid value for `automatically_manage_protection`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._automatically_manage_protection = automatically_manage_protection
 
     @property
@@ -155,6 +158,7 @@ class StoragepoolSettingsSettings(object):
         :param global_namespace_acceleration_enabled: The global_namespace_acceleration_enabled of this StoragepoolSettingsSettings.
         :type: bool
         """
+        
         self._global_namespace_acceleration_enabled = global_namespace_acceleration_enabled
 
     @property
@@ -183,6 +187,7 @@ class StoragepoolSettingsSettings(object):
                 "Invalid value for `global_namespace_acceleration_state`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._global_namespace_acceleration_state = global_namespace_acceleration_state
 
     @property
@@ -205,6 +210,7 @@ class StoragepoolSettingsSettings(object):
         :param protect_directories_one_level_higher: The protect_directories_one_level_higher of this StoragepoolSettingsSettings.
         :type: bool
         """
+        
         self._protect_directories_one_level_higher = protect_directories_one_level_higher
 
     @property
@@ -227,6 +233,7 @@ class StoragepoolSettingsSettings(object):
         :param spillover_enabled: The spillover_enabled of this StoragepoolSettingsSettings.
         :type: bool
         """
+        
         self._spillover_enabled = spillover_enabled
 
     @property
@@ -249,6 +256,7 @@ class StoragepoolSettingsSettings(object):
         :param spillover_target: The spillover_target of this StoragepoolSettingsSettings.
         :type: StoragepoolSettingsSettingsSpilloverTarget
         """
+        
         self._spillover_target = spillover_target
 
     @property
@@ -271,6 +279,7 @@ class StoragepoolSettingsSettings(object):
         :param ssd_l3_cache_default_enabled: The ssd_l3_cache_default_enabled of this StoragepoolSettingsSettings.
         :type: bool
         """
+        
         self._ssd_l3_cache_default_enabled = ssd_l3_cache_default_enabled
 
     @property
@@ -293,6 +302,7 @@ class StoragepoolSettingsSettings(object):
         :param virtual_hot_spare_deny_writes: The virtual_hot_spare_deny_writes of this StoragepoolSettingsSettings.
         :type: bool
         """
+        
         self._virtual_hot_spare_deny_writes = virtual_hot_spare_deny_writes
 
     @property
@@ -315,6 +325,7 @@ class StoragepoolSettingsSettings(object):
         :param virtual_hot_spare_hide_spare: The virtual_hot_spare_hide_spare of this StoragepoolSettingsSettings.
         :type: bool
         """
+        
         self._virtual_hot_spare_hide_spare = virtual_hot_spare_hide_spare
 
     @property
@@ -337,6 +348,14 @@ class StoragepoolSettingsSettings(object):
         :param virtual_hot_spare_limit_drives: The virtual_hot_spare_limit_drives of this StoragepoolSettingsSettings.
         :type: int
         """
+        
+        if not virtual_hot_spare_limit_drives:
+            raise ValueError("Invalid value for `virtual_hot_spare_limit_drives`, must not be `None`")
+        if virtual_hot_spare_limit_drives > 4.0: 
+            raise ValueError("Invalid value for `virtual_hot_spare_limit_drives`, must be a value less than or equal to `4.0`")
+        if virtual_hot_spare_limit_drives < 0.0: 
+            raise ValueError("Invalid value for `virtual_hot_spare_limit_drives`, must be a value greater than or equal to `0.0`")
+
         self._virtual_hot_spare_limit_drives = virtual_hot_spare_limit_drives
 
     @property
@@ -359,6 +378,14 @@ class StoragepoolSettingsSettings(object):
         :param virtual_hot_spare_limit_percent: The virtual_hot_spare_limit_percent of this StoragepoolSettingsSettings.
         :type: int
         """
+        
+        if not virtual_hot_spare_limit_percent:
+            raise ValueError("Invalid value for `virtual_hot_spare_limit_percent`, must not be `None`")
+        if virtual_hot_spare_limit_percent > 20.0: 
+            raise ValueError("Invalid value for `virtual_hot_spare_limit_percent`, must be a value less than or equal to `20.0`")
+        if virtual_hot_spare_limit_percent < 0.0: 
+            raise ValueError("Invalid value for `virtual_hot_spare_limit_percent`, must be a value greater than or equal to `0.0`")
+
         self._virtual_hot_spare_limit_percent = virtual_hot_spare_limit_percent
 
     def to_dict(self):
@@ -376,6 +403,12 @@ class StoragepoolSettingsSettings(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -393,14 +426,14 @@ class StoragepoolSettingsSettings(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

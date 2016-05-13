@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class JobStatisticsJobNode(object):
@@ -84,6 +85,7 @@ class JobStatisticsJobNode(object):
         :param cpu: The cpu of this JobStatisticsJobNode.
         :type: JobStatisticsJobNodeCpu
         """
+        
         self._cpu = cpu
 
     @property
@@ -106,6 +108,7 @@ class JobStatisticsJobNode(object):
         :param io: The io of this JobStatisticsJobNode.
         :type: JobStatisticsJobNodeIo
         """
+        
         self._io = io
 
     @property
@@ -128,6 +131,7 @@ class JobStatisticsJobNode(object):
         :param memory: The memory of this JobStatisticsJobNode.
         :type: JobStatisticsJobNodeMemory
         """
+        
         self._memory = memory
 
     @property
@@ -150,6 +154,7 @@ class JobStatisticsJobNode(object):
         :param node: The node of this JobStatisticsJobNode.
         :type: int
         """
+        
         self._node = node
 
     @property
@@ -172,6 +177,7 @@ class JobStatisticsJobNode(object):
         :param pid: The pid of this JobStatisticsJobNode.
         :type: int
         """
+        
         self._pid = pid
 
     @property
@@ -194,6 +200,7 @@ class JobStatisticsJobNode(object):
         :param total_workers: The total_workers of this JobStatisticsJobNode.
         :type: int
         """
+        
         self._total_workers = total_workers
 
     @property
@@ -216,6 +223,7 @@ class JobStatisticsJobNode(object):
         :param workers: The workers of this JobStatisticsJobNode.
         :type: list[JobStatisticsJobNodeWorker]
         """
+        
         self._workers = workers
 
     def to_dict(self):
@@ -233,6 +241,12 @@ class JobStatisticsJobNode(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -250,14 +264,14 @@ class JobStatisticsJobNode(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

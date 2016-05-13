@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -81,7 +81,7 @@ class ApiClient(object):
             self.host = host
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'Python-Swagger/1.0.0'
+        self.user_agent = 'Swagger-Codegen/1.0.0/python'
 
     @property
     def user_agent(self):
@@ -371,7 +371,8 @@ class ApiClient(object):
         elif method == "DELETE":
             return self.rest_client.DELETE(url,
                                            query_params=query_params,
-                                           headers=headers)
+                                           headers=headers,
+                                           body=body)
         else:
             raise ValueError(
                 "http method must be `GET`, `HEAD`,"
@@ -386,22 +387,23 @@ class ApiClient(object):
         :param files: File parameters.
         :return: Form parameters with files.
         """
-        params = {}
+        params = []
 
         if post_params:
-            params.update(post_params)
+            params = post_params
 
         if files:
             for k, v in iteritems(files):
                 if not v:
                     continue
-
-                with open(v, 'rb') as f:
-                    filename = os.path.basename(f.name)
-                    filedata = f.read()
-                    mimetype = mimetypes.\
-                        guess_type(filename)[0] or 'application/octet-stream'
-                    params[k] = tuple([filename, filedata, mimetype])
+                file_names = v if type(v) is list else [v]
+                for n in file_names:
+                    with open(n, 'rb') as f:
+                        filename = os.path.basename(f.name)
+                        filedata = f.read()
+                        mimetype = mimetypes.\
+                            guess_type(filename)[0] or 'application/octet-stream'
+                        params.append(tuple([k, tuple([filename, filedata, mimetype])]))
 
         return params
 

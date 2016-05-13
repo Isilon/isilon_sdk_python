@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class ZonesSummarySummaryExtended(object):
@@ -38,19 +39,16 @@ class ZonesSummarySummaryExtended(object):
         """
         self.swagger_types = {
             'count': 'int',
-            'list': 'list[str]',
-            'path': 'str'
+            'list': 'list[str]'
         }
 
         self.attribute_map = {
             'count': 'count',
-            'list': 'list',
-            'path': 'path'
+            'list': 'list'
         }
 
         self._count = None
         self._list = None
-        self._path = None
 
     @property
     def count(self):
@@ -72,6 +70,7 @@ class ZonesSummarySummaryExtended(object):
         :param count: The count of this ZonesSummarySummaryExtended.
         :type: int
         """
+        
         self._count = count
 
     @property
@@ -94,29 +93,8 @@ class ZonesSummarySummaryExtended(object):
         :param list: The list of this ZonesSummarySummaryExtended.
         :type: list[str]
         """
+        
         self._list = list
-
-    @property
-    def path(self):
-        """
-        Gets the path of this ZonesSummarySummaryExtended.
-        The zone base path
-
-        :return: The path of this ZonesSummarySummaryExtended.
-        :rtype: str
-        """
-        return self._path
-
-    @path.setter
-    def path(self, path):
-        """
-        Sets the path of this ZonesSummarySummaryExtended.
-        The zone base path
-
-        :param path: The path of this ZonesSummarySummaryExtended.
-        :type: str
-        """
-        self._path = path
 
     def to_dict(self):
         """
@@ -133,6 +111,12 @@ class ZonesSummarySummaryExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -150,14 +134,14 @@ class ZonesSummarySummaryExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

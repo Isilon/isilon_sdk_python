@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class EventChannelsExtended(object):
@@ -37,23 +38,43 @@ class EventChannelsExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
+            'channels': 'list[EventChannelsAlertCondition]',
             'resume': 'str',
-            'total': 'int',
-            'alert_conditions': 'list[EventChannelsAlertCondition]',
-            'channels': 'list[EventChannelsAlertCondition]'
+            'total': 'int'
         }
 
         self.attribute_map = {
+            'channels': 'channels',
             'resume': 'resume',
-            'total': 'total',
-            'alert_conditions': 'alert-conditions',
-            'channels': 'channels'
+            'total': 'total'
         }
 
+        self._channels = None
         self._resume = None
         self._total = None
-        self._alert_conditions = None
-        self._channels = None
+
+    @property
+    def channels(self):
+        """
+        Gets the channels of this EventChannelsExtended.
+
+
+        :return: The channels of this EventChannelsExtended.
+        :rtype: list[EventChannelsAlertCondition]
+        """
+        return self._channels
+
+    @channels.setter
+    def channels(self, channels):
+        """
+        Sets the channels of this EventChannelsExtended.
+
+
+        :param channels: The channels of this EventChannelsExtended.
+        :type: list[EventChannelsAlertCondition]
+        """
+        
+        self._channels = channels
 
     @property
     def resume(self):
@@ -75,6 +96,7 @@ class EventChannelsExtended(object):
         :param resume: The resume of this EventChannelsExtended.
         :type: str
         """
+        
         self._resume = resume
 
     @property
@@ -97,51 +119,8 @@ class EventChannelsExtended(object):
         :param total: The total of this EventChannelsExtended.
         :type: int
         """
+        
         self._total = total
-
-    @property
-    def alert_conditions(self):
-        """
-        Gets the alert_conditions of this EventChannelsExtended.
-
-
-        :return: The alert_conditions of this EventChannelsExtended.
-        :rtype: list[EventChannelsAlertCondition]
-        """
-        return self._alert_conditions
-
-    @alert_conditions.setter
-    def alert_conditions(self, alert_conditions):
-        """
-        Sets the alert_conditions of this EventChannelsExtended.
-
-
-        :param alert_conditions: The alert_conditions of this EventChannelsExtended.
-        :type: list[EventChannelsAlertCondition]
-        """
-        self._alert_conditions = alert_conditions
-
-    @property
-    def channels(self):
-        """
-        Gets the channels of this EventChannelsExtended.
-
-
-        :return: The channels of this EventChannelsExtended.
-        :rtype: list[EventChannelsAlertCondition]
-        """
-        return self._channels
-
-    @channels.setter
-    def channels(self, channels):
-        """
-        Sets the channels of this EventChannelsExtended.
-
-
-        :param channels: The channels of this EventChannelsExtended.
-        :type: list[EventChannelsAlertCondition]
-        """
-        self._channels = channels
 
     def to_dict(self):
         """
@@ -158,6 +137,12 @@ class EventChannelsExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -175,14 +160,14 @@ class EventChannelsExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

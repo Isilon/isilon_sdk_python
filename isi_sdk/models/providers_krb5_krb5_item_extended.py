@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class ProvidersKrb5Krb5ItemExtended(object):
@@ -38,46 +39,46 @@ class ProvidersKrb5Krb5ItemExtended(object):
         """
         self.swagger_types = {
             'groupnet': 'str',
+            'id': 'str',
             'keytab_entries': 'list[ProvidersKrb5IdParamsKeytabEntry]',
-            'password': 'str',
-            'system': 'bool',
             'keytab_file': 'str',
             'manual_keying': 'bool',
             'name': 'str',
-            'recommended_spns': 'list[str]',
             'realm': 'str',
-            'id': 'str',
+            'recommended_spns': 'list[str]',
+            'status': 'str',
+            'system': 'bool',
             'user': 'str',
-            'status': 'str'
+            'password': 'str'
         }
 
         self.attribute_map = {
             'groupnet': 'groupnet',
+            'id': 'id',
             'keytab_entries': 'keytab_entries',
-            'password': 'password',
-            'system': 'system',
             'keytab_file': 'keytab_file',
             'manual_keying': 'manual_keying',
             'name': 'name',
-            'recommended_spns': 'recommended_spns',
             'realm': 'realm',
-            'id': 'id',
+            'recommended_spns': 'recommended_spns',
+            'status': 'status',
+            'system': 'system',
             'user': 'user',
-            'status': 'status'
+            'password': 'password'
         }
 
         self._groupnet = None
+        self._id = None
         self._keytab_entries = None
-        self._password = None
-        self._system = None
         self._keytab_file = None
         self._manual_keying = None
         self._name = None
-        self._recommended_spns = None
         self._realm = None
-        self._id = None
-        self._user = None
+        self._recommended_spns = None
         self._status = None
+        self._system = None
+        self._user = None
+        self._password = None
 
     @property
     def groupnet(self):
@@ -99,7 +100,31 @@ class ProvidersKrb5Krb5ItemExtended(object):
         :param groupnet: The groupnet of this ProvidersKrb5Krb5ItemExtended.
         :type: str
         """
+        
         self._groupnet = groupnet
+
+    @property
+    def id(self):
+        """
+        Gets the id of this ProvidersKrb5Krb5ItemExtended.
+        Specifies the Kerberos provider ID.
+
+        :return: The id of this ProvidersKrb5Krb5ItemExtended.
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """
+        Sets the id of this ProvidersKrb5Krb5ItemExtended.
+        Specifies the Kerberos provider ID.
+
+        :param id: The id of this ProvidersKrb5Krb5ItemExtended.
+        :type: str
+        """
+        
+        self._id = id
 
     @property
     def keytab_entries(self):
@@ -121,51 +146,8 @@ class ProvidersKrb5Krb5ItemExtended(object):
         :param keytab_entries: The keytab_entries of this ProvidersKrb5Krb5ItemExtended.
         :type: list[ProvidersKrb5IdParamsKeytabEntry]
         """
+        
         self._keytab_entries = keytab_entries
-
-    @property
-    def password(self):
-        """
-        Gets the password of this ProvidersKrb5Krb5ItemExtended.
-        Specifies the Kerberos provider password.
-
-        :return: The password of this ProvidersKrb5Krb5ItemExtended.
-        :rtype: str
-        """
-        return self._password
-
-    @password.setter
-    def password(self, password):
-        """
-        Sets the password of this ProvidersKrb5Krb5ItemExtended.
-        Specifies the Kerberos provider password.
-
-        :param password: The password of this ProvidersKrb5Krb5ItemExtended.
-        :type: str
-        """
-        self._password = password
-
-    @property
-    def system(self):
-        """
-        Gets the system of this ProvidersKrb5Krb5ItemExtended.
-        If true, indicates that this provider instance was created by OneFS and cannot be removed
-
-        :return: The system of this ProvidersKrb5Krb5ItemExtended.
-        :rtype: bool
-        """
-        return self._system
-
-    @system.setter
-    def system(self, system):
-        """
-        Sets the system of this ProvidersKrb5Krb5ItemExtended.
-        If true, indicates that this provider instance was created by OneFS and cannot be removed
-
-        :param system: The system of this ProvidersKrb5Krb5ItemExtended.
-        :type: bool
-        """
-        self._system = system
 
     @property
     def keytab_file(self):
@@ -187,6 +169,7 @@ class ProvidersKrb5Krb5ItemExtended(object):
         :param keytab_file: The keytab_file of this ProvidersKrb5Krb5ItemExtended.
         :type: str
         """
+        
         self._keytab_file = keytab_file
 
     @property
@@ -209,6 +192,7 @@ class ProvidersKrb5Krb5ItemExtended(object):
         :param manual_keying: The manual_keying of this ProvidersKrb5Krb5ItemExtended.
         :type: bool
         """
+        
         self._manual_keying = manual_keying
 
     @property
@@ -231,29 +215,8 @@ class ProvidersKrb5Krb5ItemExtended(object):
         :param name: The name of this ProvidersKrb5Krb5ItemExtended.
         :type: str
         """
+        
         self._name = name
-
-    @property
-    def recommended_spns(self):
-        """
-        Gets the recommended_spns of this ProvidersKrb5Krb5ItemExtended.
-        Specifies the recommended SPNs.
-
-        :return: The recommended_spns of this ProvidersKrb5Krb5ItemExtended.
-        :rtype: list[str]
-        """
-        return self._recommended_spns
-
-    @recommended_spns.setter
-    def recommended_spns(self, recommended_spns):
-        """
-        Sets the recommended_spns of this ProvidersKrb5Krb5ItemExtended.
-        Specifies the recommended SPNs.
-
-        :param recommended_spns: The recommended_spns of this ProvidersKrb5Krb5ItemExtended.
-        :type: list[str]
-        """
-        self._recommended_spns = recommended_spns
 
     @property
     def realm(self):
@@ -275,51 +238,31 @@ class ProvidersKrb5Krb5ItemExtended(object):
         :param realm: The realm of this ProvidersKrb5Krb5ItemExtended.
         :type: str
         """
+        
         self._realm = realm
 
     @property
-    def id(self):
+    def recommended_spns(self):
         """
-        Gets the id of this ProvidersKrb5Krb5ItemExtended.
-        Specifies the Kerberos provider ID.
+        Gets the recommended_spns of this ProvidersKrb5Krb5ItemExtended.
+        Specifies the recommended SPNs.
 
-        :return: The id of this ProvidersKrb5Krb5ItemExtended.
-        :rtype: str
+        :return: The recommended_spns of this ProvidersKrb5Krb5ItemExtended.
+        :rtype: list[str]
         """
-        return self._id
+        return self._recommended_spns
 
-    @id.setter
-    def id(self, id):
+    @recommended_spns.setter
+    def recommended_spns(self, recommended_spns):
         """
-        Sets the id of this ProvidersKrb5Krb5ItemExtended.
-        Specifies the Kerberos provider ID.
+        Sets the recommended_spns of this ProvidersKrb5Krb5ItemExtended.
+        Specifies the recommended SPNs.
 
-        :param id: The id of this ProvidersKrb5Krb5ItemExtended.
-        :type: str
+        :param recommended_spns: The recommended_spns of this ProvidersKrb5Krb5ItemExtended.
+        :type: list[str]
         """
-        self._id = id
-
-    @property
-    def user(self):
-        """
-        Gets the user of this ProvidersKrb5Krb5ItemExtended.
-        Specifies the name of the user that performs kadmin tasks.
-
-        :return: The user of this ProvidersKrb5Krb5ItemExtended.
-        :rtype: str
-        """
-        return self._user
-
-    @user.setter
-    def user(self, user):
-        """
-        Sets the user of this ProvidersKrb5Krb5ItemExtended.
-        Specifies the name of the user that performs kadmin tasks.
-
-        :param user: The user of this ProvidersKrb5Krb5ItemExtended.
-        :type: str
-        """
-        self._user = user
+        
+        self._recommended_spns = recommended_spns
 
     @property
     def status(self):
@@ -341,7 +284,77 @@ class ProvidersKrb5Krb5ItemExtended(object):
         :param status: The status of this ProvidersKrb5Krb5ItemExtended.
         :type: str
         """
+        
         self._status = status
+
+    @property
+    def system(self):
+        """
+        Gets the system of this ProvidersKrb5Krb5ItemExtended.
+        If true, indicates that this provider instance was created by OneFS and cannot be removed
+
+        :return: The system of this ProvidersKrb5Krb5ItemExtended.
+        :rtype: bool
+        """
+        return self._system
+
+    @system.setter
+    def system(self, system):
+        """
+        Sets the system of this ProvidersKrb5Krb5ItemExtended.
+        If true, indicates that this provider instance was created by OneFS and cannot be removed
+
+        :param system: The system of this ProvidersKrb5Krb5ItemExtended.
+        :type: bool
+        """
+        
+        self._system = system
+
+    @property
+    def user(self):
+        """
+        Gets the user of this ProvidersKrb5Krb5ItemExtended.
+        Specifies the name of the user that performs kadmin tasks.
+
+        :return: The user of this ProvidersKrb5Krb5ItemExtended.
+        :rtype: str
+        """
+        return self._user
+
+    @user.setter
+    def user(self, user):
+        """
+        Sets the user of this ProvidersKrb5Krb5ItemExtended.
+        Specifies the name of the user that performs kadmin tasks.
+
+        :param user: The user of this ProvidersKrb5Krb5ItemExtended.
+        :type: str
+        """
+        
+        self._user = user
+
+    @property
+    def password(self):
+        """
+        Gets the password of this ProvidersKrb5Krb5ItemExtended.
+        Specifies the Kerberos provider password.
+
+        :return: The password of this ProvidersKrb5Krb5ItemExtended.
+        :rtype: str
+        """
+        return self._password
+
+    @password.setter
+    def password(self, password):
+        """
+        Sets the password of this ProvidersKrb5Krb5ItemExtended.
+        Specifies the Kerberos provider password.
+
+        :param password: The password of this ProvidersKrb5Krb5ItemExtended.
+        :type: str
+        """
+        
+        self._password = password
 
     def to_dict(self):
         """
@@ -358,6 +371,12 @@ class ProvidersKrb5Krb5ItemExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -375,14 +394,14 @@ class ProvidersKrb5Krb5ItemExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

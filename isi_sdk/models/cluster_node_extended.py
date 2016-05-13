@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class ClusterNodeExtended(object):
@@ -37,60 +38,35 @@ class ClusterNodeExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'last_action_result': 'str',
-            'drives': 'list[NodesLnnDrivesNodeDrive]',
-            'node_state': 'str',
-            'onefs_version': 'ClusterNodesOnefsVersion',
-            'progress': 'int',
+            'drives': 'list[NodeDrivesNodeDrive]',
             'state': 'ClusterNodeState',
-            'last_action': 'str',
-            'error': 'ClusterNodesError',
-            'lnn': 'int'
+            'hardware': 'ClusterNodeHardware',
+            'id': 'int',
+            'lnn': 'int',
+            'partitions': 'ClusterNodePartitions',
+            'sensors': 'ClusterNodeSensors',
+            'status': 'ClusterNodeStatus'
         }
 
         self.attribute_map = {
-            'last_action_result': 'last_action_result',
             'drives': 'drives',
-            'node_state': 'node_state',
-            'onefs_version': 'onefs_version',
-            'progress': 'progress',
             'state': 'state',
-            'last_action': 'last_action',
-            'error': 'error',
-            'lnn': 'lnn'
+            'hardware': 'hardware',
+            'id': 'id',
+            'lnn': 'lnn',
+            'partitions': 'partitions',
+            'sensors': 'sensors',
+            'status': 'status'
         }
 
-        self._last_action_result = None
         self._drives = None
-        self._node_state = None
-        self._onefs_version = None
-        self._progress = None
         self._state = None
-        self._last_action = None
-        self._error = None
+        self._hardware = None
+        self._id = None
         self._lnn = None
-
-    @property
-    def last_action_result(self):
-        """
-        Gets the last_action_result of this ClusterNodeExtended.
-        Did the node pass upgrade or rollback without failing? Null if the node_state is 'committed.' One of the following values: 'pass', 'fail', null
-
-        :return: The last_action_result of this ClusterNodeExtended.
-        :rtype: str
-        """
-        return self._last_action_result
-
-    @last_action_result.setter
-    def last_action_result(self, last_action_result):
-        """
-        Sets the last_action_result of this ClusterNodeExtended.
-        Did the node pass upgrade or rollback without failing? Null if the node_state is 'committed.' One of the following values: 'pass', 'fail', null
-
-        :param last_action_result: The last_action_result of this ClusterNodeExtended.
-        :type: str
-        """
-        self._last_action_result = last_action_result
+        self._partitions = None
+        self._sensors = None
+        self._status = None
 
     @property
     def drives(self):
@@ -99,7 +75,7 @@ class ClusterNodeExtended(object):
         List of the drives in this node.
 
         :return: The drives of this ClusterNodeExtended.
-        :rtype: list[NodesLnnDrivesNodeDrive]
+        :rtype: list[NodeDrivesNodeDrive]
         """
         return self._drives
 
@@ -110,75 +86,10 @@ class ClusterNodeExtended(object):
         List of the drives in this node.
 
         :param drives: The drives of this ClusterNodeExtended.
-        :type: list[NodesLnnDrivesNodeDrive]
+        :type: list[NodeDrivesNodeDrive]
         """
+        
         self._drives = drives
-
-    @property
-    def node_state(self):
-        """
-        Gets the node_state of this ClusterNodeExtended.
-        The state of the node during the upgrade, rollback, or assessment. One of the following values: 'committed', 'upgraded', 'upgrading', 'rolling back', 'assessing', 'error'
-
-        :return: The node_state of this ClusterNodeExtended.
-        :rtype: str
-        """
-        return self._node_state
-
-    @node_state.setter
-    def node_state(self, node_state):
-        """
-        Sets the node_state of this ClusterNodeExtended.
-        The state of the node during the upgrade, rollback, or assessment. One of the following values: 'committed', 'upgraded', 'upgrading', 'rolling back', 'assessing', 'error'
-
-        :param node_state: The node_state of this ClusterNodeExtended.
-        :type: str
-        """
-        self._node_state = node_state
-
-    @property
-    def onefs_version(self):
-        """
-        Gets the onefs_version of this ClusterNodeExtended.
-        The current OneFS version before upgrade.
-
-        :return: The onefs_version of this ClusterNodeExtended.
-        :rtype: ClusterNodesOnefsVersion
-        """
-        return self._onefs_version
-
-    @onefs_version.setter
-    def onefs_version(self, onefs_version):
-        """
-        Sets the onefs_version of this ClusterNodeExtended.
-        The current OneFS version before upgrade.
-
-        :param onefs_version: The onefs_version of this ClusterNodeExtended.
-        :type: ClusterNodesOnefsVersion
-        """
-        self._onefs_version = onefs_version
-
-    @property
-    def progress(self):
-        """
-        Gets the progress of this ClusterNodeExtended.
-        What step is the upgrade, assessment, or rollback in? To show via progress indicator. NOTE: the value is an integer between 0 and 100 (percent)
-
-        :return: The progress of this ClusterNodeExtended.
-        :rtype: int
-        """
-        return self._progress
-
-    @progress.setter
-    def progress(self, progress):
-        """
-        Sets the progress of this ClusterNodeExtended.
-        What step is the upgrade, assessment, or rollback in? To show via progress indicator. NOTE: the value is an integer between 0 and 100 (percent)
-
-        :param progress: The progress of this ClusterNodeExtended.
-        :type: int
-        """
-        self._progress = progress
 
     @property
     def state(self):
@@ -200,57 +111,60 @@ class ClusterNodeExtended(object):
         :param state: The state of this ClusterNodeExtended.
         :type: ClusterNodeState
         """
+        
         self._state = state
 
     @property
-    def last_action(self):
+    def hardware(self):
         """
-        Gets the last_action of this ClusterNodeExtended.
-        The last action performed to completion/failure on this node.  Null if the node_state is 'committed' or 'assessing.' One of the following values: 'upgrade', 'rollback'.
+        Gets the hardware of this ClusterNodeExtended.
+        Node hardware identifying information (static).
 
-        :return: The last_action of this ClusterNodeExtended.
-        :rtype: str
+        :return: The hardware of this ClusterNodeExtended.
+        :rtype: ClusterNodeHardware
         """
-        return self._last_action
+        return self._hardware
 
-    @last_action.setter
-    def last_action(self, last_action):
+    @hardware.setter
+    def hardware(self, hardware):
         """
-        Sets the last_action of this ClusterNodeExtended.
-        The last action performed to completion/failure on this node.  Null if the node_state is 'committed' or 'assessing.' One of the following values: 'upgrade', 'rollback'.
+        Sets the hardware of this ClusterNodeExtended.
+        Node hardware identifying information (static).
 
-        :param last_action: The last_action of this ClusterNodeExtended.
-        :type: str
+        :param hardware: The hardware of this ClusterNodeExtended.
+        :type: ClusterNodeHardware
         """
-        self._last_action = last_action
+        
+        self._hardware = hardware
 
     @property
-    def error(self):
+    def id(self):
         """
-        Gets the error of this ClusterNodeExtended.
-        The current OneFS version before upgrade.
+        Gets the id of this ClusterNodeExtended.
+        Node ID (Device Number) of this node.
 
-        :return: The error of this ClusterNodeExtended.
-        :rtype: ClusterNodesError
+        :return: The id of this ClusterNodeExtended.
+        :rtype: int
         """
-        return self._error
+        return self._id
 
-    @error.setter
-    def error(self, error):
+    @id.setter
+    def id(self, id):
         """
-        Sets the error of this ClusterNodeExtended.
-        The current OneFS version before upgrade.
+        Sets the id of this ClusterNodeExtended.
+        Node ID (Device Number) of this node.
 
-        :param error: The error of this ClusterNodeExtended.
-        :type: ClusterNodesError
+        :param id: The id of this ClusterNodeExtended.
+        :type: int
         """
-        self._error = error
+        
+        self._id = id
 
     @property
     def lnn(self):
         """
         Gets the lnn of this ClusterNodeExtended.
-        The lnn of the node.
+        Logical Node Number (LNN) of this node.
 
         :return: The lnn of this ClusterNodeExtended.
         :rtype: int
@@ -261,12 +175,82 @@ class ClusterNodeExtended(object):
     def lnn(self, lnn):
         """
         Sets the lnn of this ClusterNodeExtended.
-        The lnn of the node.
+        Logical Node Number (LNN) of this node.
 
         :param lnn: The lnn of this ClusterNodeExtended.
         :type: int
         """
+        
         self._lnn = lnn
+
+    @property
+    def partitions(self):
+        """
+        Gets the partitions of this ClusterNodeExtended.
+        Node partition information.
+
+        :return: The partitions of this ClusterNodeExtended.
+        :rtype: ClusterNodePartitions
+        """
+        return self._partitions
+
+    @partitions.setter
+    def partitions(self, partitions):
+        """
+        Sets the partitions of this ClusterNodeExtended.
+        Node partition information.
+
+        :param partitions: The partitions of this ClusterNodeExtended.
+        :type: ClusterNodePartitions
+        """
+        
+        self._partitions = partitions
+
+    @property
+    def sensors(self):
+        """
+        Gets the sensors of this ClusterNodeExtended.
+        Node sensor information (hardware reported).
+
+        :return: The sensors of this ClusterNodeExtended.
+        :rtype: ClusterNodeSensors
+        """
+        return self._sensors
+
+    @sensors.setter
+    def sensors(self, sensors):
+        """
+        Sets the sensors of this ClusterNodeExtended.
+        Node sensor information (hardware reported).
+
+        :param sensors: The sensors of this ClusterNodeExtended.
+        :type: ClusterNodeSensors
+        """
+        
+        self._sensors = sensors
+
+    @property
+    def status(self):
+        """
+        Gets the status of this ClusterNodeExtended.
+        Node status information (hardware reported).
+
+        :return: The status of this ClusterNodeExtended.
+        :rtype: ClusterNodeStatus
+        """
+        return self._status
+
+    @status.setter
+    def status(self, status):
+        """
+        Sets the status of this ClusterNodeExtended.
+        Node status information (hardware reported).
+
+        :param status: The status of this ClusterNodeExtended.
+        :type: ClusterNodeStatus
+        """
+        
+        self._status = status
 
     def to_dict(self):
         """
@@ -283,6 +267,12 @@ class ClusterNodeExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -300,14 +290,14 @@ class ClusterNodeExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

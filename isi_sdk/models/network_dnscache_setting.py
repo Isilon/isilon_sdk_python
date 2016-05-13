@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class NetworkDnscacheSetting(object):
@@ -102,6 +103,14 @@ class NetworkDnscacheSetting(object):
         :param cache_entry_limit: The cache_entry_limit of this NetworkDnscacheSetting.
         :type: int
         """
+        
+        if not cache_entry_limit:
+            raise ValueError("Invalid value for `cache_entry_limit`, must not be `None`")
+        if cache_entry_limit > 1048576.0: 
+            raise ValueError("Invalid value for `cache_entry_limit`, must be a value less than or equal to `1048576.0`")
+        if cache_entry_limit < 1024.0: 
+            raise ValueError("Invalid value for `cache_entry_limit`, must be a value greater than or equal to `1024.0`")
+
         self._cache_entry_limit = cache_entry_limit
 
     @property
@@ -124,6 +133,14 @@ class NetworkDnscacheSetting(object):
         :param cluster_timeout: The cluster_timeout of this NetworkDnscacheSetting.
         :type: int
         """
+        
+        if not cluster_timeout:
+            raise ValueError("Invalid value for `cluster_timeout`, must not be `None`")
+        if cluster_timeout > 30.0: 
+            raise ValueError("Invalid value for `cluster_timeout`, must be a value less than or equal to `30.0`")
+        if cluster_timeout < 1.0: 
+            raise ValueError("Invalid value for `cluster_timeout`, must be a value greater than or equal to `1.0`")
+
         self._cluster_timeout = cluster_timeout
 
     @property
@@ -146,6 +163,14 @@ class NetworkDnscacheSetting(object):
         :param dns_timeout: The dns_timeout of this NetworkDnscacheSetting.
         :type: int
         """
+        
+        if not dns_timeout:
+            raise ValueError("Invalid value for `dns_timeout`, must not be `None`")
+        if dns_timeout > 30.0: 
+            raise ValueError("Invalid value for `dns_timeout`, must be a value less than or equal to `30.0`")
+        if dns_timeout < 1.0: 
+            raise ValueError("Invalid value for `dns_timeout`, must be a value greater than or equal to `1.0`")
+
         self._dns_timeout = dns_timeout
 
     @property
@@ -168,6 +193,14 @@ class NetworkDnscacheSetting(object):
         :param eager_refresh: The eager_refresh of this NetworkDnscacheSetting.
         :type: int
         """
+        
+        if not eager_refresh:
+            raise ValueError("Invalid value for `eager_refresh`, must not be `None`")
+        if eager_refresh > 60.0: 
+            raise ValueError("Invalid value for `eager_refresh`, must be a value less than or equal to `60.0`")
+        if eager_refresh < 0.0: 
+            raise ValueError("Invalid value for `eager_refresh`, must be a value greater than or equal to `0.0`")
+
         self._eager_refresh = eager_refresh
 
     @property
@@ -190,6 +223,14 @@ class NetworkDnscacheSetting(object):
         :param testping_delta: The testping_delta of this NetworkDnscacheSetting.
         :type: int
         """
+        
+        if not testping_delta:
+            raise ValueError("Invalid value for `testping_delta`, must not be `None`")
+        if testping_delta > 60.0: 
+            raise ValueError("Invalid value for `testping_delta`, must be a value less than or equal to `60.0`")
+        if testping_delta < 0.0: 
+            raise ValueError("Invalid value for `testping_delta`, must be a value greater than or equal to `0.0`")
+
         self._testping_delta = testping_delta
 
     @property
@@ -212,6 +253,14 @@ class NetworkDnscacheSetting(object):
         :param ttl_max_noerror: The ttl_max_noerror of this NetworkDnscacheSetting.
         :type: int
         """
+        
+        if not ttl_max_noerror:
+            raise ValueError("Invalid value for `ttl_max_noerror`, must not be `None`")
+        if ttl_max_noerror > 3600.0: 
+            raise ValueError("Invalid value for `ttl_max_noerror`, must be a value less than or equal to `3600.0`")
+        if ttl_max_noerror < 0.0: 
+            raise ValueError("Invalid value for `ttl_max_noerror`, must be a value greater than or equal to `0.0`")
+
         self._ttl_max_noerror = ttl_max_noerror
 
     @property
@@ -234,6 +283,14 @@ class NetworkDnscacheSetting(object):
         :param ttl_max_nxdomain: The ttl_max_nxdomain of this NetworkDnscacheSetting.
         :type: int
         """
+        
+        if not ttl_max_nxdomain:
+            raise ValueError("Invalid value for `ttl_max_nxdomain`, must not be `None`")
+        if ttl_max_nxdomain > 3600.0: 
+            raise ValueError("Invalid value for `ttl_max_nxdomain`, must be a value less than or equal to `3600.0`")
+        if ttl_max_nxdomain < 0.0: 
+            raise ValueError("Invalid value for `ttl_max_nxdomain`, must be a value greater than or equal to `0.0`")
+
         self._ttl_max_nxdomain = ttl_max_nxdomain
 
     @property
@@ -256,6 +313,14 @@ class NetworkDnscacheSetting(object):
         :param ttl_max_other: The ttl_max_other of this NetworkDnscacheSetting.
         :type: int
         """
+        
+        if not ttl_max_other:
+            raise ValueError("Invalid value for `ttl_max_other`, must not be `None`")
+        if ttl_max_other > 3600.0: 
+            raise ValueError("Invalid value for `ttl_max_other`, must be a value less than or equal to `3600.0`")
+        if ttl_max_other < 0.0: 
+            raise ValueError("Invalid value for `ttl_max_other`, must be a value greater than or equal to `0.0`")
+
         self._ttl_max_other = ttl_max_other
 
     @property
@@ -278,6 +343,14 @@ class NetworkDnscacheSetting(object):
         :param ttl_max_servfail: The ttl_max_servfail of this NetworkDnscacheSetting.
         :type: int
         """
+        
+        if not ttl_max_servfail:
+            raise ValueError("Invalid value for `ttl_max_servfail`, must not be `None`")
+        if ttl_max_servfail > 3600.0: 
+            raise ValueError("Invalid value for `ttl_max_servfail`, must be a value less than or equal to `3600.0`")
+        if ttl_max_servfail < 0.0: 
+            raise ValueError("Invalid value for `ttl_max_servfail`, must be a value greater than or equal to `0.0`")
+
         self._ttl_max_servfail = ttl_max_servfail
 
     @property
@@ -300,6 +373,14 @@ class NetworkDnscacheSetting(object):
         :param ttl_min_noerror: The ttl_min_noerror of this NetworkDnscacheSetting.
         :type: int
         """
+        
+        if not ttl_min_noerror:
+            raise ValueError("Invalid value for `ttl_min_noerror`, must not be `None`")
+        if ttl_min_noerror > 3600.0: 
+            raise ValueError("Invalid value for `ttl_min_noerror`, must be a value less than or equal to `3600.0`")
+        if ttl_min_noerror < 0.0: 
+            raise ValueError("Invalid value for `ttl_min_noerror`, must be a value greater than or equal to `0.0`")
+
         self._ttl_min_noerror = ttl_min_noerror
 
     @property
@@ -322,6 +403,14 @@ class NetworkDnscacheSetting(object):
         :param ttl_min_nxdomain: The ttl_min_nxdomain of this NetworkDnscacheSetting.
         :type: int
         """
+        
+        if not ttl_min_nxdomain:
+            raise ValueError("Invalid value for `ttl_min_nxdomain`, must not be `None`")
+        if ttl_min_nxdomain > 3600.0: 
+            raise ValueError("Invalid value for `ttl_min_nxdomain`, must be a value less than or equal to `3600.0`")
+        if ttl_min_nxdomain < 0.0: 
+            raise ValueError("Invalid value for `ttl_min_nxdomain`, must be a value greater than or equal to `0.0`")
+
         self._ttl_min_nxdomain = ttl_min_nxdomain
 
     @property
@@ -344,6 +433,14 @@ class NetworkDnscacheSetting(object):
         :param ttl_min_other: The ttl_min_other of this NetworkDnscacheSetting.
         :type: int
         """
+        
+        if not ttl_min_other:
+            raise ValueError("Invalid value for `ttl_min_other`, must not be `None`")
+        if ttl_min_other > 3600.0: 
+            raise ValueError("Invalid value for `ttl_min_other`, must be a value less than or equal to `3600.0`")
+        if ttl_min_other < 0.0: 
+            raise ValueError("Invalid value for `ttl_min_other`, must be a value greater than or equal to `0.0`")
+
         self._ttl_min_other = ttl_min_other
 
     @property
@@ -366,6 +463,14 @@ class NetworkDnscacheSetting(object):
         :param ttl_min_servfail: The ttl_min_servfail of this NetworkDnscacheSetting.
         :type: int
         """
+        
+        if not ttl_min_servfail:
+            raise ValueError("Invalid value for `ttl_min_servfail`, must not be `None`")
+        if ttl_min_servfail > 3600.0: 
+            raise ValueError("Invalid value for `ttl_min_servfail`, must be a value less than or equal to `3600.0`")
+        if ttl_min_servfail < 0.0: 
+            raise ValueError("Invalid value for `ttl_min_servfail`, must be a value greater than or equal to `0.0`")
+
         self._ttl_min_servfail = ttl_min_servfail
 
     def to_dict(self):
@@ -383,6 +488,12 @@ class NetworkDnscacheSetting(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -400,14 +511,14 @@ class NetworkDnscacheSetting(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

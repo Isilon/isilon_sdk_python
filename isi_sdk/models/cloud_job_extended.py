@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class CloudJobExtended(object):
@@ -37,72 +38,44 @@ class CloudJobExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'all': 'bool',
             'completion_time': 'int',
             'create_time': 'int',
-            'state_change_time': 'int',
             'description': 'str',
-            'operation_state': 'str',
-            'type': 'str',
-            'job_state': 'str',
             'effective_state': 'str',
-            '_files': 'CloudJobFiles',
-            'state': 'str',
+            'files': 'CloudJobFiles',
             'id': 'int',
-            'job_engine_job': 'CloudJobJobEngineJob'
+            'job_engine_job': 'CloudJobJobEngineJob',
+            'job_state': 'str',
+            'operation_state': 'str',
+            'state_change_time': 'int',
+            'type': 'str'
         }
 
         self.attribute_map = {
-            'all': 'all',
             'completion_time': 'completion_time',
             'create_time': 'create_time',
-            'state_change_time': 'state_change_time',
             'description': 'description',
-            'operation_state': 'operation_state',
-            'type': 'type',
-            'job_state': 'job_state',
             'effective_state': 'effective_state',
-            '_files': 'files',
-            'state': 'state',
+            'files': 'files',
             'id': 'id',
-            'job_engine_job': 'job_engine_job'
+            'job_engine_job': 'job_engine_job',
+            'job_state': 'job_state',
+            'operation_state': 'operation_state',
+            'state_change_time': 'state_change_time',
+            'type': 'type'
         }
 
-        self._all = None
         self._completion_time = None
         self._create_time = None
-        self._state_change_time = None
         self._description = None
-        self._operation_state = None
-        self._type = None
-        self._job_state = None
         self._effective_state = None
-        self.__files = None
-        self._state = None
+        self._files = None
         self._id = None
         self._job_engine_job = None
-
-    @property
-    def all(self):
-        """
-        Gets the all of this CloudJobExtended.
-        Whether to apply to the given operation type or to all jobs of the given operation type
-
-        :return: The all of this CloudJobExtended.
-        :rtype: bool
-        """
-        return self._all
-
-    @all.setter
-    def all(self, all):
-        """
-        Sets the all of this CloudJobExtended.
-        Whether to apply to the given operation type or to all jobs of the given operation type
-
-        :param all: The all of this CloudJobExtended.
-        :type: bool
-        """
-        self._all = all
+        self._job_state = None
+        self._operation_state = None
+        self._state_change_time = None
+        self._type = None
 
     @property
     def completion_time(self):
@@ -124,6 +97,7 @@ class CloudJobExtended(object):
         :param completion_time: The completion_time of this CloudJobExtended.
         :type: int
         """
+        
         self._completion_time = completion_time
 
     @property
@@ -146,29 +120,8 @@ class CloudJobExtended(object):
         :param create_time: The create_time of this CloudJobExtended.
         :type: int
         """
+        
         self._create_time = create_time
-
-    @property
-    def state_change_time(self):
-        """
-        Gets the state_change_time of this CloudJobExtended.
-        The last time at which the job state changed
-
-        :return: The state_change_time of this CloudJobExtended.
-        :rtype: int
-        """
-        return self._state_change_time
-
-    @state_change_time.setter
-    def state_change_time(self, state_change_time):
-        """
-        Sets the state_change_time of this CloudJobExtended.
-        The last time at which the job state changed
-
-        :param state_change_time: The state_change_time of this CloudJobExtended.
-        :type: int
-        """
-        self._state_change_time = state_change_time
 
     @property
     def description(self):
@@ -190,91 +143,8 @@ class CloudJobExtended(object):
         :param description: The description of this CloudJobExtended.
         :type: str
         """
+        
         self._description = description
-
-    @property
-    def operation_state(self):
-        """
-        Gets the operation_state of this CloudJobExtended.
-        The current state of the operation associated with the job
-
-        :return: The operation_state of this CloudJobExtended.
-        :rtype: str
-        """
-        return self._operation_state
-
-    @operation_state.setter
-    def operation_state(self, operation_state):
-        """
-        Sets the operation_state of this CloudJobExtended.
-        The current state of the operation associated with the job
-
-        :param operation_state: The operation_state of this CloudJobExtended.
-        :type: str
-        """
-        allowed_values = ["running", "paused"]
-        if operation_state not in allowed_values:
-            raise ValueError(
-                "Invalid value for `operation_state`, must be one of {0}"
-                .format(allowed_values)
-            )
-        self._operation_state = operation_state
-
-    @property
-    def type(self):
-        """
-        Gets the type of this CloudJobExtended.
-        The type of cloud action to be performed by this job.
-
-        :return: The type of this CloudJobExtended.
-        :rtype: str
-        """
-        return self._type
-
-    @type.setter
-    def type(self, type):
-        """
-        Sets the type of this CloudJobExtended.
-        The type of cloud action to be performed by this job.
-
-        :param type: The type of this CloudJobExtended.
-        :type: str
-        """
-        allowed_values = ["archive", "recall", "local-garbage-collection", "cloud-garbage-collection", "cache-writeback", "cache-on-access", "cache-invalidation", "restore-coi"]
-        if type not in allowed_values:
-            raise ValueError(
-                "Invalid value for `type`, must be one of {0}"
-                .format(allowed_values)
-            )
-        self._type = type
-
-    @property
-    def job_state(self):
-        """
-        Gets the job_state of this CloudJobExtended.
-        The current state of the job
-
-        :return: The job_state of this CloudJobExtended.
-        :rtype: str
-        """
-        return self._job_state
-
-    @job_state.setter
-    def job_state(self, job_state):
-        """
-        Sets the job_state of this CloudJobExtended.
-        The current state of the job
-
-        :param job_state: The job_state of this CloudJobExtended.
-        :type: str
-        """
-        allowed_values = ["running", "paused", "canceled", "completed", "failed"]
-        if job_state not in allowed_values:
-            raise ValueError(
-                "Invalid value for `job_state`, must be one of {0}"
-                .format(allowed_values)
-            )
-        self._job_state = job_state
 
     @property
     def effective_state(self):
@@ -302,57 +172,31 @@ class CloudJobExtended(object):
                 "Invalid value for `effective_state`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._effective_state = effective_state
 
     @property
-    def _files(self):
+    def files(self):
         """
-        Gets the _files of this CloudJobExtended.
+        Gets the files of this CloudJobExtended.
         The files and filters addressed by this job
 
-        :return: The _files of this CloudJobExtended.
+        :return: The files of this CloudJobExtended.
         :rtype: CloudJobFiles
         """
-        return self.__files
+        return self._files
 
-    @_files.setter
-    def _files(self, _files):
+    @files.setter
+    def files(self, files):
         """
-        Sets the _files of this CloudJobExtended.
+        Sets the files of this CloudJobExtended.
         The files and filters addressed by this job
 
-        :param _files: The _files of this CloudJobExtended.
+        :param files: The files of this CloudJobExtended.
         :type: CloudJobFiles
         """
-        self.__files = _files
-
-    @property
-    def state(self):
-        """
-        Gets the state of this CloudJobExtended.
-        The desired state of the job or operation
-
-        :return: The state of this CloudJobExtended.
-        :rtype: str
-        """
-        return self._state
-
-    @state.setter
-    def state(self, state):
-        """
-        Sets the state of this CloudJobExtended.
-        The desired state of the job or operation
-
-        :param state: The state of this CloudJobExtended.
-        :type: str
-        """
-        allowed_values = ["resume", "pause", "cancel"]
-        if state not in allowed_values:
-            raise ValueError(
-                "Invalid value for `state`, must be one of {0}"
-                .format(allowed_values)
-            )
-        self._state = state
+        
+        self._files = files
 
     @property
     def id(self):
@@ -374,6 +218,7 @@ class CloudJobExtended(object):
         :param id: The id of this CloudJobExtended.
         :type: int
         """
+        
         self._id = id
 
     @property
@@ -396,7 +241,118 @@ class CloudJobExtended(object):
         :param job_engine_job: The job_engine_job of this CloudJobExtended.
         :type: CloudJobJobEngineJob
         """
+        
         self._job_engine_job = job_engine_job
+
+    @property
+    def job_state(self):
+        """
+        Gets the job_state of this CloudJobExtended.
+        The current state of the job
+
+        :return: The job_state of this CloudJobExtended.
+        :rtype: str
+        """
+        return self._job_state
+
+    @job_state.setter
+    def job_state(self, job_state):
+        """
+        Sets the job_state of this CloudJobExtended.
+        The current state of the job
+
+        :param job_state: The job_state of this CloudJobExtended.
+        :type: str
+        """
+        allowed_values = ["running", "paused", "canceled", "completed", "failed"]
+        if job_state not in allowed_values:
+            raise ValueError(
+                "Invalid value for `job_state`, must be one of {0}"
+                .format(allowed_values)
+            )
+
+        self._job_state = job_state
+
+    @property
+    def operation_state(self):
+        """
+        Gets the operation_state of this CloudJobExtended.
+        The current state of the operation associated with the job
+
+        :return: The operation_state of this CloudJobExtended.
+        :rtype: str
+        """
+        return self._operation_state
+
+    @operation_state.setter
+    def operation_state(self, operation_state):
+        """
+        Sets the operation_state of this CloudJobExtended.
+        The current state of the operation associated with the job
+
+        :param operation_state: The operation_state of this CloudJobExtended.
+        :type: str
+        """
+        allowed_values = ["running", "paused"]
+        if operation_state not in allowed_values:
+            raise ValueError(
+                "Invalid value for `operation_state`, must be one of {0}"
+                .format(allowed_values)
+            )
+
+        self._operation_state = operation_state
+
+    @property
+    def state_change_time(self):
+        """
+        Gets the state_change_time of this CloudJobExtended.
+        The last time at which the job state changed
+
+        :return: The state_change_time of this CloudJobExtended.
+        :rtype: int
+        """
+        return self._state_change_time
+
+    @state_change_time.setter
+    def state_change_time(self, state_change_time):
+        """
+        Sets the state_change_time of this CloudJobExtended.
+        The last time at which the job state changed
+
+        :param state_change_time: The state_change_time of this CloudJobExtended.
+        :type: int
+        """
+        
+        self._state_change_time = state_change_time
+
+    @property
+    def type(self):
+        """
+        Gets the type of this CloudJobExtended.
+        The type of cloud action to be performed by this job.
+
+        :return: The type of this CloudJobExtended.
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """
+        Sets the type of this CloudJobExtended.
+        The type of cloud action to be performed by this job.
+
+        :param type: The type of this CloudJobExtended.
+        :type: str
+        """
+        allowed_values = ["archive", "recall", "local-garbage-collection", "cloud-garbage-collection", "cache-writeback", "cache-on-access", "cache-invalidation", "restore-coi"]
+        if type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `type`, must be one of {0}"
+                .format(allowed_values)
+            )
+
+        self._type = type
 
     def to_dict(self):
         """
@@ -413,6 +369,12 @@ class CloudJobExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -430,14 +392,14 @@ class CloudJobExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class SmbSharePermission(object):
@@ -39,7 +40,7 @@ class SmbSharePermission(object):
         self.swagger_types = {
             'permission': 'str',
             'permission_type': 'str',
-            'trustee': 'GroupsGroupMember'
+            'trustee': 'GroupMember'
         }
 
         self.attribute_map = {
@@ -78,6 +79,7 @@ class SmbSharePermission(object):
                 "Invalid value for `permission`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._permission = permission
 
     @property
@@ -106,6 +108,7 @@ class SmbSharePermission(object):
                 "Invalid value for `permission_type`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._permission_type = permission_type
 
     @property
@@ -115,7 +118,7 @@ class SmbSharePermission(object):
         Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'.
 
         :return: The trustee of this SmbSharePermission.
-        :rtype: GroupsGroupMember
+        :rtype: GroupMember
         """
         return self._trustee
 
@@ -126,8 +129,9 @@ class SmbSharePermission(object):
         Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'.
 
         :param trustee: The trustee of this SmbSharePermission.
-        :type: GroupsGroupMember
+        :type: GroupMember
         """
+        
         self._trustee = trustee
 
     def to_dict(self):
@@ -145,6 +149,12 @@ class SmbSharePermission(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -162,14 +172,14 @@ class SmbSharePermission(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class SyncJobWorker(object):
@@ -90,6 +91,7 @@ class SyncJobWorker(object):
         :param connected: The connected of this SyncJobWorker.
         :type: bool
         """
+        
         self._connected = connected
 
     @property
@@ -112,6 +114,7 @@ class SyncJobWorker(object):
         :param last_split: The last_split of this SyncJobWorker.
         :type: int
         """
+        
         self._last_split = last_split
 
     @property
@@ -134,6 +137,7 @@ class SyncJobWorker(object):
         :param last_work: The last_work of this SyncJobWorker.
         :type: int
         """
+        
         self._last_work = last_work
 
     @property
@@ -156,6 +160,7 @@ class SyncJobWorker(object):
         :param lin: The lin of this SyncJobWorker.
         :type: int
         """
+        
         self._lin = lin
 
     @property
@@ -178,6 +183,7 @@ class SyncJobWorker(object):
         :param lnn: The lnn of this SyncJobWorker.
         :type: int
         """
+        
         self._lnn = lnn
 
     @property
@@ -200,6 +206,7 @@ class SyncJobWorker(object):
         :param process_id: The process_id of this SyncJobWorker.
         :type: int
         """
+        
         self._process_id = process_id
 
     @property
@@ -222,6 +229,7 @@ class SyncJobWorker(object):
         :param source_host: The source_host of this SyncJobWorker.
         :type: str
         """
+        
         self._source_host = source_host
 
     @property
@@ -244,6 +252,7 @@ class SyncJobWorker(object):
         :param target_host: The target_host of this SyncJobWorker.
         :type: str
         """
+        
         self._target_host = target_host
 
     @property
@@ -266,6 +275,7 @@ class SyncJobWorker(object):
         :param worker_id: The worker_id of this SyncJobWorker.
         :type: int
         """
+        
         self._worker_id = worker_id
 
     def to_dict(self):
@@ -283,6 +293,12 @@ class SyncJobWorker(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -300,14 +316,14 @@ class SyncJobWorker(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class JobJobAvscanParams(object):
@@ -75,6 +76,7 @@ class JobJobAvscanParams(object):
         :param force_run: The force_run of this JobJobAvscanParams.
         :type: bool
         """
+        
         self._force_run = force_run
 
     @property
@@ -97,6 +99,12 @@ class JobJobAvscanParams(object):
         :param policy: The policy of this JobJobAvscanParams.
         :type: str
         """
+        
+        if not policy:
+            raise ValueError("Invalid value for `policy`, must not be `None`")
+        if len(policy) < 1: 
+            raise ValueError("Invalid value for `policy`, length must be greater than or equal to `1`")
+
         self._policy = policy
 
     @property
@@ -119,6 +127,14 @@ class JobJobAvscanParams(object):
         :param report_id: The report_id of this JobJobAvscanParams.
         :type: str
         """
+        
+        if not report_id:
+            raise ValueError("Invalid value for `report_id`, must not be `None`")
+        if len(report_id) > 15: 
+            raise ValueError("Invalid value for `report_id`, length must be less than `15`")
+        if len(report_id) < 1: 
+            raise ValueError("Invalid value for `report_id`, length must be greater than or equal to `1`")
+
         self._report_id = report_id
 
     @property
@@ -141,6 +157,7 @@ class JobJobAvscanParams(object):
         :param update: The update of this JobJobAvscanParams.
         :type: bool
         """
+        
         self._update = update
 
     def to_dict(self):
@@ -158,6 +175,12 @@ class JobJobAvscanParams(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -175,14 +198,14 @@ class JobJobAvscanParams(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

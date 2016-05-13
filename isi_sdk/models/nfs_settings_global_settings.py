@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class NfsSettingsGlobalSettings(object):
@@ -78,6 +79,7 @@ class NfsSettingsGlobalSettings(object):
         :param nfsv3_enabled: The nfsv3_enabled of this NfsSettingsGlobalSettings.
         :type: bool
         """
+        
         self._nfsv3_enabled = nfsv3_enabled
 
     @property
@@ -100,6 +102,7 @@ class NfsSettingsGlobalSettings(object):
         :param nfsv4_enabled: The nfsv4_enabled of this NfsSettingsGlobalSettings.
         :type: bool
         """
+        
         self._nfsv4_enabled = nfsv4_enabled
 
     @property
@@ -122,6 +125,7 @@ class NfsSettingsGlobalSettings(object):
         :param rpc_maxthreads: The rpc_maxthreads of this NfsSettingsGlobalSettings.
         :type: int
         """
+        
         self._rpc_maxthreads = rpc_maxthreads
 
     @property
@@ -144,6 +148,7 @@ class NfsSettingsGlobalSettings(object):
         :param rpc_minthreads: The rpc_minthreads of this NfsSettingsGlobalSettings.
         :type: int
         """
+        
         self._rpc_minthreads = rpc_minthreads
 
     @property
@@ -166,6 +171,7 @@ class NfsSettingsGlobalSettings(object):
         :param service: The service of this NfsSettingsGlobalSettings.
         :type: bool
         """
+        
         self._service = service
 
     def to_dict(self):
@@ -183,6 +189,12 @@ class NfsSettingsGlobalSettings(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -200,14 +212,14 @@ class NfsSettingsGlobalSettings(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

@@ -2,7 +2,7 @@
 
 """
 ClusterApi.py
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@ from __future__ import absolute_import
 
 import sys
 import os
+import re
 
 # python 2 and python 3 compatibility library
 from six import iteritems
@@ -44,383 +45,6 @@ class ClusterApi(object):
             if not config.api_client:
                 config.api_client = ApiClient()
             self.api_client = config.api_client
-
-    def get_cluster_email(self, **kwargs):
-        """
-        
-        Get the cluster email notification settings.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_cluster_email(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: ClusterEmail
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_cluster_email" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/1/cluster/email'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='ClusterEmail',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def update_cluster_email(self, cluster_email, **kwargs):
-        """
-        
-        Modify the cluster email notification settings.  All input fields are optional, but one or more must be supplied.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_cluster_email(cluster_email, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param ClusterEmailExtended cluster_email:  (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['cluster_email']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_cluster_email" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'cluster_email' is set
-        if ('cluster_email' not in params) or (params['cluster_email'] is None):
-            raise ValueError("Missing the required parameter `cluster_email` when calling `update_cluster_email`")
-
-        resource_path = '/platform/1/cluster/email'.replace('{format}', 'json')
-        method = 'PUT'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'cluster_email' in params:
-            body_params = params['cluster_email']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_cluster_owner(self, **kwargs):
-        """
-        
-        Get the cluster contact info settings
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_cluster_owner(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: ClusterOwner
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_cluster_owner" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/1/cluster/owner'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='ClusterOwner',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def update_cluster_owner(self, cluster_owner, **kwargs):
-        """
-        
-        Modify the cluster contact info settings.  All input fields are optional, but one or more must be supplied.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_cluster_owner(cluster_owner, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param ClusterOwner cluster_owner:  (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['cluster_owner']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_cluster_owner" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'cluster_owner' is set
-        if ('cluster_owner' not in params) or (params['cluster_owner'] is None):
-            raise ValueError("Missing the required parameter `cluster_owner` when calling `update_cluster_owner`")
-
-        resource_path = '/platform/1/cluster/owner'.replace('{format}', 'json')
-        method = 'PUT'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'cluster_owner' in params:
-            body_params = params['cluster_owner']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_cluster_statfs(self, **kwargs):
-        """
-        
-        Retrieve the filesystem statistics.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_cluster_statfs(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: ClusterStatfs
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_cluster_statfs" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/1/cluster/statfs'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='ClusterStatfs',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
 
     def create_cluster_add_node_item(self, cluster_add_node_item, **kwargs):
         """
@@ -460,17 +84,16 @@ class ClusterApi(object):
         if ('cluster_add_node_item' not in params) or (params['cluster_add_node_item'] is None):
             raise ValueError("Missing the required parameter `cluster_add_node_item` when calling `create_cluster_add_node_item`")
 
-        resource_path = '/platform/3/cluster/add-node'.replace('{format}', 'json')
-        method = 'POST'
 
+        resource_path = '/platform/3/cluster/add-node'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'cluster_add_node_item' in params:
@@ -489,13 +112,13 @@ class ClusterApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'POST',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='Empty',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
@@ -516,7 +139,7 @@ class ClusterApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :return: Empty
+        :return: ClusterConfig
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -535,17 +158,16 @@ class ClusterApi(object):
         del params['kwargs']
 
 
-        resource_path = '/platform/3/cluster/config'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/3/cluster/config'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -562,14 +184,86 @@ class ClusterApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
-                                            response_type='Empty',
+                                            files=local_var_files,
+                                            response_type='ClusterConfig',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_cluster_email(self, **kwargs):
+        """
+        
+        Get the cluster email notification settings.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_cluster_email(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: ClusterEmail
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_cluster_email" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/1/cluster/email'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='ClusterEmail',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -608,17 +302,16 @@ class ClusterApi(object):
         del params['kwargs']
 
 
-        resource_path = '/platform/3/cluster/identity'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/3/cluster/identity'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -635,239 +328,14 @@ class ClusterApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='ClusterIdentity',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def update_cluster_identity(self, cluster_identity, **kwargs):
-        """
-        
-        Modify the login information.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_cluster_identity(cluster_identity, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param ClusterIdentity cluster_identity:  (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['cluster_identity']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_cluster_identity" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'cluster_identity' is set
-        if ('cluster_identity' not in params) or (params['cluster_identity'] is None):
-            raise ValueError("Missing the required parameter `cluster_identity` when calling `update_cluster_identity`")
-
-        resource_path = '/platform/3/cluster/identity'.replace('{format}', 'json')
-        method = 'PUT'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'cluster_identity' in params:
-            body_params = params['cluster_identity']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_cluster_nodes(self, **kwargs):
-        """
-        
-        List the nodes on this cluster.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_cluster_nodes(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: ClusterNodes
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_cluster_nodes" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/cluster/nodes'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='ClusterNodes',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_cluster_nodes_available(self, **kwargs):
-        """
-        
-        List all nodes that are available to add to this cluster.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_cluster_nodes_available(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: ClusterNodesAvailable
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_cluster_nodes_available" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/cluster/nodes-available'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='ClusterNodesAvailable',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -910,9 +378,8 @@ class ClusterApi(object):
         if ('cluster_node_id' not in params) or (params['cluster_node_id'] is None):
             raise ValueError("Missing the required parameter `cluster_node_id` when calling `get_cluster_node`")
 
-        resource_path = '/platform/3/cluster/nodes/{ClusterNodeId}'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/3/cluster/nodes/{ClusterNodeId}'.replace('{format}', 'json')
         path_params = {}
         if 'cluster_node_id' in params:
             path_params['ClusterNodeId'] = params['cluster_node_id']
@@ -921,8 +388,8 @@ class ClusterApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -939,22 +406,22 @@ class ClusterApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='ClusterNodes',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def update_cluster_node(self, cluster_node, cluster_node_id, **kwargs):
+    def get_cluster_nodes(self, **kwargs):
         """
         
-        Modify one or more node settings.
+        List the nodes on this cluster.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -962,18 +429,16 @@ class ClusterApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.update_cluster_node(cluster_node, cluster_node_id, callback=callback_function)
+        >>> thread = api.get_cluster_nodes(callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param ClusterNode cluster_node:  (required)
-        :param int cluster_node_id: Modify one or more node settings. (required)
-        :return: None
+        :return: ClusterNodes
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['cluster_node', 'cluster_node_id']
+        all_params = []
         all_params.append('callback')
 
         params = locals()
@@ -981,35 +446,24 @@ class ClusterApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method update_cluster_node" % key
+                    " to method get_cluster_nodes" % key
                 )
             params[key] = val
         del params['kwargs']
 
-        # verify the required parameter 'cluster_node' is set
-        if ('cluster_node' not in params) or (params['cluster_node'] is None):
-            raise ValueError("Missing the required parameter `cluster_node` when calling `update_cluster_node`")
-        # verify the required parameter 'cluster_node_id' is set
-        if ('cluster_node_id' not in params) or (params['cluster_node_id'] is None):
-            raise ValueError("Missing the required parameter `cluster_node_id` when calling `update_cluster_node`")
 
-        resource_path = '/platform/3/cluster/nodes/{ClusterNodeId}'.replace('{format}', 'json')
-        method = 'PUT'
 
+        resource_path = '/platform/3/cluster/nodes'.replace('{format}', 'json')
         path_params = {}
-        if 'cluster_node_id' in params:
-            path_params['ClusterNodeId'] = params['cluster_node_id']
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
-        if 'cluster_node' in params:
-            body_params = params['cluster_node']
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
@@ -1024,22 +478,22 @@ class ClusterApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
-                                            response_type=None,
+                                            files=local_var_files,
+                                            response_type='ClusterNodes',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def get_nodes_lnn_drives(self, lnn, **kwargs):
+    def get_cluster_nodes_available(self, **kwargs):
         """
         
-        List the drives on this node.
+        List all nodes that are available to add to this cluster.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1047,17 +501,16 @@ class ClusterApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.get_nodes_lnn_drives(lnn, callback=callback_function)
+        >>> thread = api.get_cluster_nodes_available(callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param int lnn:  (required)
-        :return: NodesLnnDrives
+        :return: ClusterNodesAvailable
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['lnn']
+        all_params = []
         all_params.append('callback')
 
         params = locals()
@@ -1065,28 +518,22 @@ class ClusterApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_nodes_lnn_drives" % key
+                    " to method get_cluster_nodes_available" % key
                 )
             params[key] = val
         del params['kwargs']
 
-        # verify the required parameter 'lnn' is set
-        if ('lnn' not in params) or (params['lnn'] is None):
-            raise ValueError("Missing the required parameter `lnn` when calling `get_nodes_lnn_drives`")
 
-        resource_path = '/platform/3/cluster/nodes/{Lnn}/drives'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/3/cluster/nodes-available'.replace('{format}', 'json')
         path_params = {}
-        if 'lnn' in params:
-            path_params['Lnn'] = params['lnn']
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -1103,22 +550,22 @@ class ClusterApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
-                                            response_type='NodesLnnDrives',
+                                            files=local_var_files,
+                                            response_type='ClusterNodesAvailable',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def get_nodes_lnn_drives_purposelist(self, lnn, **kwargs):
+    def get_cluster_owner(self, **kwargs):
         """
         
-        Lists the available purposes for drives in this node.
+        Get the cluster contact info settings
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1126,17 +573,16 @@ class ClusterApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.get_nodes_lnn_drives_purposelist(lnn, callback=callback_function)
+        >>> thread = api.get_cluster_owner(callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param int lnn:  (required)
-        :return: NodesLnnDrivesPurposelist
+        :return: ClusterOwner
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['lnn']
+        all_params = []
         all_params.append('callback')
 
         params = locals()
@@ -1144,28 +590,22 @@ class ClusterApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_nodes_lnn_drives_purposelist" % key
+                    " to method get_cluster_owner" % key
                 )
             params[key] = val
         del params['kwargs']
 
-        # verify the required parameter 'lnn' is set
-        if ('lnn' not in params) or (params['lnn'] is None):
-            raise ValueError("Missing the required parameter `lnn` when calling `get_nodes_lnn_drives_purposelist`")
 
-        resource_path = '/platform/3/cluster/nodes/{Lnn}/drives-purposelist'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/1/cluster/owner'.replace('{format}', 'json')
         path_params = {}
-        if 'lnn' in params:
-            path_params['Lnn'] = params['lnn']
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -1182,22 +622,22 @@ class ClusterApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
-                                            response_type='NodesLnnDrivesPurposelist',
+                                            files=local_var_files,
+                                            response_type='ClusterOwner',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def create_nodes_lnn_drives_driveid_add_item(self, nodes_lnn_drives_driveid_add_item, lnn, driveid, **kwargs):
+    def get_cluster_statfs(self, **kwargs):
         """
         
-        Add a drive to a node.
+        Retrieve the filesystem statistics.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1205,19 +645,16 @@ class ClusterApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.create_nodes_lnn_drives_driveid_add_item(nodes_lnn_drives_driveid_add_item, lnn, driveid, callback=callback_function)
+        >>> thread = api.get_cluster_statfs(callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param Empty nodes_lnn_drives_driveid_add_item:  (required)
-        :param int lnn:  (required)
-        :param str driveid:  (required)
-        :return: Empty
+        :return: ClusterStatfs
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['nodes_lnn_drives_driveid_add_item', 'lnn', 'driveid']
+        all_params = []
         all_params.append('callback')
 
         params = locals()
@@ -1225,123 +662,22 @@ class ClusterApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method create_nodes_lnn_drives_driveid_add_item" % key
+                    " to method get_cluster_statfs" % key
                 )
             params[key] = val
         del params['kwargs']
 
-        # verify the required parameter 'nodes_lnn_drives_driveid_add_item' is set
-        if ('nodes_lnn_drives_driveid_add_item' not in params) or (params['nodes_lnn_drives_driveid_add_item'] is None):
-            raise ValueError("Missing the required parameter `nodes_lnn_drives_driveid_add_item` when calling `create_nodes_lnn_drives_driveid_add_item`")
-        # verify the required parameter 'lnn' is set
-        if ('lnn' not in params) or (params['lnn'] is None):
-            raise ValueError("Missing the required parameter `lnn` when calling `create_nodes_lnn_drives_driveid_add_item`")
-        # verify the required parameter 'driveid' is set
-        if ('driveid' not in params) or (params['driveid'] is None):
-            raise ValueError("Missing the required parameter `driveid` when calling `create_nodes_lnn_drives_driveid_add_item`")
 
-        resource_path = '/platform/3/cluster/nodes/{Lnn}/drives/{Driveid}/add'.replace('{format}', 'json')
-        method = 'POST'
 
+        resource_path = '/platform/1/cluster/statfs'.replace('{format}', 'json')
         path_params = {}
-        if 'lnn' in params:
-            path_params['Lnn'] = params['lnn']
-        if 'driveid' in params:
-            path_params['Driveid'] = params['driveid']
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'nodes_lnn_drives_driveid_add_item' in params:
-            body_params = params['nodes_lnn_drives_driveid_add_item']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='Empty',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_nodes_lnn_drives_driveid_firmware(self, lnn, driveid, **kwargs):
-        """
-        
-        Retrieve drive firmware information.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_nodes_lnn_drives_driveid_firmware(lnn, driveid, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int lnn:  (required)
-        :param str driveid:  (required)
-        :return: NodesLnnDrivesDriveidFirmware
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['lnn', 'driveid']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_nodes_lnn_drives_driveid_firmware" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'lnn' is set
-        if ('lnn' not in params) or (params['lnn'] is None):
-            raise ValueError("Missing the required parameter `lnn` when calling `get_nodes_lnn_drives_driveid_firmware`")
-        # verify the required parameter 'driveid' is set
-        if ('driveid' not in params) or (params['driveid'] is None):
-            raise ValueError("Missing the required parameter `driveid` when calling `get_nodes_lnn_drives_driveid_firmware`")
-
-        resource_path = '/platform/3/cluster/nodes/{Lnn}/drives/{Driveid}/firmware'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'lnn' in params:
-            path_params['Lnn'] = params['lnn']
-        if 'driveid' in params:
-            path_params['Driveid'] = params['driveid']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -1358,1866 +694,14 @@ class ClusterApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
-                                            response_type='NodesLnnDrivesDriveidFirmware',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def list_nodes_lnn_drives_driveid_firmware_update(self, lnn, driveid, **kwargs):
-        """
-        
-        Retrieve firmware update information.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.list_nodes_lnn_drives_driveid_firmware_update(lnn, driveid, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int lnn:  (required)
-        :param str driveid:  (required)
-        :return: NodesLnnDrivesDriveidFirmwareUpdate
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['lnn', 'driveid']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_nodes_lnn_drives_driveid_firmware_update" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'lnn' is set
-        if ('lnn' not in params) or (params['lnn'] is None):
-            raise ValueError("Missing the required parameter `lnn` when calling `list_nodes_lnn_drives_driveid_firmware_update`")
-        # verify the required parameter 'driveid' is set
-        if ('driveid' not in params) or (params['driveid'] is None):
-            raise ValueError("Missing the required parameter `driveid` when calling `list_nodes_lnn_drives_driveid_firmware_update`")
-
-        resource_path = '/platform/3/cluster/nodes/{Lnn}/drives/{Driveid}/firmware/update'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'lnn' in params:
-            path_params['Lnn'] = params['lnn']
-        if 'driveid' in params:
-            path_params['Driveid'] = params['driveid']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='NodesLnnDrivesDriveidFirmwareUpdate',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def create_nodes_lnn_drives_driveid_firmware_update_item(self, nodes_lnn_drives_driveid_firmware_update_item, lnn, driveid, **kwargs):
-        """
-        
-        Start a drive firmware update.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_nodes_lnn_drives_driveid_firmware_update_item(nodes_lnn_drives_driveid_firmware_update_item, lnn, driveid, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param NodesLnnDrivesDriveidFirmwareUpdateItem nodes_lnn_drives_driveid_firmware_update_item:  (required)
-        :param int lnn:  (required)
-        :param str driveid:  (required)
-        :return: Empty
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['nodes_lnn_drives_driveid_firmware_update_item', 'lnn', 'driveid']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_nodes_lnn_drives_driveid_firmware_update_item" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'nodes_lnn_drives_driveid_firmware_update_item' is set
-        if ('nodes_lnn_drives_driveid_firmware_update_item' not in params) or (params['nodes_lnn_drives_driveid_firmware_update_item'] is None):
-            raise ValueError("Missing the required parameter `nodes_lnn_drives_driveid_firmware_update_item` when calling `create_nodes_lnn_drives_driveid_firmware_update_item`")
-        # verify the required parameter 'lnn' is set
-        if ('lnn' not in params) or (params['lnn'] is None):
-            raise ValueError("Missing the required parameter `lnn` when calling `create_nodes_lnn_drives_driveid_firmware_update_item`")
-        # verify the required parameter 'driveid' is set
-        if ('driveid' not in params) or (params['driveid'] is None):
-            raise ValueError("Missing the required parameter `driveid` when calling `create_nodes_lnn_drives_driveid_firmware_update_item`")
-
-        resource_path = '/platform/3/cluster/nodes/{Lnn}/drives/{Driveid}/firmware/update'.replace('{format}', 'json')
-        method = 'POST'
-
-        path_params = {}
-        if 'lnn' in params:
-            path_params['Lnn'] = params['lnn']
-        if 'driveid' in params:
-            path_params['Driveid'] = params['driveid']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'nodes_lnn_drives_driveid_firmware_update_item' in params:
-            body_params = params['nodes_lnn_drives_driveid_firmware_update_item']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='Empty',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def create_nodes_lnn_drives_driveid_format_item(self, nodes_lnn_drives_driveid_format_item, lnn, driveid, **kwargs):
-        """
-        
-        Format a drive for use by OneFS.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_nodes_lnn_drives_driveid_format_item(nodes_lnn_drives_driveid_format_item, lnn, driveid, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param NodesLnnDrivesDriveidFormatItem nodes_lnn_drives_driveid_format_item:  (required)
-        :param int lnn:  (required)
-        :param str driveid:  (required)
-        :return: Empty
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['nodes_lnn_drives_driveid_format_item', 'lnn', 'driveid']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_nodes_lnn_drives_driveid_format_item" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'nodes_lnn_drives_driveid_format_item' is set
-        if ('nodes_lnn_drives_driveid_format_item' not in params) or (params['nodes_lnn_drives_driveid_format_item'] is None):
-            raise ValueError("Missing the required parameter `nodes_lnn_drives_driveid_format_item` when calling `create_nodes_lnn_drives_driveid_format_item`")
-        # verify the required parameter 'lnn' is set
-        if ('lnn' not in params) or (params['lnn'] is None):
-            raise ValueError("Missing the required parameter `lnn` when calling `create_nodes_lnn_drives_driveid_format_item`")
-        # verify the required parameter 'driveid' is set
-        if ('driveid' not in params) or (params['driveid'] is None):
-            raise ValueError("Missing the required parameter `driveid` when calling `create_nodes_lnn_drives_driveid_format_item`")
-
-        resource_path = '/platform/3/cluster/nodes/{Lnn}/drives/{Driveid}/format'.replace('{format}', 'json')
-        method = 'POST'
-
-        path_params = {}
-        if 'lnn' in params:
-            path_params['Lnn'] = params['lnn']
-        if 'driveid' in params:
-            path_params['Driveid'] = params['driveid']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'nodes_lnn_drives_driveid_format_item' in params:
-            body_params = params['nodes_lnn_drives_driveid_format_item']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='Empty',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def create_nodes_lnn_drives_driveid_purpose_item(self, nodes_lnn_drives_driveid_purpose_item, lnn, driveid, **kwargs):
-        """
-        
-        Assign a drive to a specific use case.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_nodes_lnn_drives_driveid_purpose_item(nodes_lnn_drives_driveid_purpose_item, lnn, driveid, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param NodesLnnDrivesDriveidPurposeItem nodes_lnn_drives_driveid_purpose_item:  (required)
-        :param int lnn:  (required)
-        :param str driveid:  (required)
-        :return: Empty
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['nodes_lnn_drives_driveid_purpose_item', 'lnn', 'driveid']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_nodes_lnn_drives_driveid_purpose_item" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'nodes_lnn_drives_driveid_purpose_item' is set
-        if ('nodes_lnn_drives_driveid_purpose_item' not in params) or (params['nodes_lnn_drives_driveid_purpose_item'] is None):
-            raise ValueError("Missing the required parameter `nodes_lnn_drives_driveid_purpose_item` when calling `create_nodes_lnn_drives_driveid_purpose_item`")
-        # verify the required parameter 'lnn' is set
-        if ('lnn' not in params) or (params['lnn'] is None):
-            raise ValueError("Missing the required parameter `lnn` when calling `create_nodes_lnn_drives_driveid_purpose_item`")
-        # verify the required parameter 'driveid' is set
-        if ('driveid' not in params) or (params['driveid'] is None):
-            raise ValueError("Missing the required parameter `driveid` when calling `create_nodes_lnn_drives_driveid_purpose_item`")
-
-        resource_path = '/platform/3/cluster/nodes/{Lnn}/drives/{Driveid}/purpose'.replace('{format}', 'json')
-        method = 'POST'
-
-        path_params = {}
-        if 'lnn' in params:
-            path_params['Lnn'] = params['lnn']
-        if 'driveid' in params:
-            path_params['Driveid'] = params['driveid']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'nodes_lnn_drives_driveid_purpose_item' in params:
-            body_params = params['nodes_lnn_drives_driveid_purpose_item']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='Empty',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def create_nodes_lnn_drives_driveid_smartfail_item(self, nodes_lnn_drives_driveid_smartfail_item, lnn, driveid, **kwargs):
-        """
-        
-        Remove a drive from use by OneFS.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_nodes_lnn_drives_driveid_smartfail_item(nodes_lnn_drives_driveid_smartfail_item, lnn, driveid, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param Empty nodes_lnn_drives_driveid_smartfail_item:  (required)
-        :param int lnn:  (required)
-        :param str driveid:  (required)
-        :return: Empty
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['nodes_lnn_drives_driveid_smartfail_item', 'lnn', 'driveid']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_nodes_lnn_drives_driveid_smartfail_item" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'nodes_lnn_drives_driveid_smartfail_item' is set
-        if ('nodes_lnn_drives_driveid_smartfail_item' not in params) or (params['nodes_lnn_drives_driveid_smartfail_item'] is None):
-            raise ValueError("Missing the required parameter `nodes_lnn_drives_driveid_smartfail_item` when calling `create_nodes_lnn_drives_driveid_smartfail_item`")
-        # verify the required parameter 'lnn' is set
-        if ('lnn' not in params) or (params['lnn'] is None):
-            raise ValueError("Missing the required parameter `lnn` when calling `create_nodes_lnn_drives_driveid_smartfail_item`")
-        # verify the required parameter 'driveid' is set
-        if ('driveid' not in params) or (params['driveid'] is None):
-            raise ValueError("Missing the required parameter `driveid` when calling `create_nodes_lnn_drives_driveid_smartfail_item`")
-
-        resource_path = '/platform/3/cluster/nodes/{Lnn}/drives/{Driveid}/smartfail'.replace('{format}', 'json')
-        method = 'POST'
-
-        path_params = {}
-        if 'lnn' in params:
-            path_params['Lnn'] = params['lnn']
-        if 'driveid' in params:
-            path_params['Driveid'] = params['driveid']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'nodes_lnn_drives_driveid_smartfail_item' in params:
-            body_params = params['nodes_lnn_drives_driveid_smartfail_item']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='Empty',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def create_nodes_lnn_drives_driveid_stopfail_item(self, nodes_lnn_drives_driveid_stopfail_item, lnn, driveid, **kwargs):
-        """
-        
-        Stop restriping from a smartfailing drive.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_nodes_lnn_drives_driveid_stopfail_item(nodes_lnn_drives_driveid_stopfail_item, lnn, driveid, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param Empty nodes_lnn_drives_driveid_stopfail_item:  (required)
-        :param int lnn:  (required)
-        :param str driveid:  (required)
-        :return: Empty
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['nodes_lnn_drives_driveid_stopfail_item', 'lnn', 'driveid']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_nodes_lnn_drives_driveid_stopfail_item" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'nodes_lnn_drives_driveid_stopfail_item' is set
-        if ('nodes_lnn_drives_driveid_stopfail_item' not in params) or (params['nodes_lnn_drives_driveid_stopfail_item'] is None):
-            raise ValueError("Missing the required parameter `nodes_lnn_drives_driveid_stopfail_item` when calling `create_nodes_lnn_drives_driveid_stopfail_item`")
-        # verify the required parameter 'lnn' is set
-        if ('lnn' not in params) or (params['lnn'] is None):
-            raise ValueError("Missing the required parameter `lnn` when calling `create_nodes_lnn_drives_driveid_stopfail_item`")
-        # verify the required parameter 'driveid' is set
-        if ('driveid' not in params) or (params['driveid'] is None):
-            raise ValueError("Missing the required parameter `driveid` when calling `create_nodes_lnn_drives_driveid_stopfail_item`")
-
-        resource_path = '/platform/3/cluster/nodes/{Lnn}/drives/{Driveid}/stopfail'.replace('{format}', 'json')
-        method = 'POST'
-
-        path_params = {}
-        if 'lnn' in params:
-            path_params['Lnn'] = params['lnn']
-        if 'driveid' in params:
-            path_params['Driveid'] = params['driveid']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'nodes_lnn_drives_driveid_stopfail_item' in params:
-            body_params = params['nodes_lnn_drives_driveid_stopfail_item']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='Empty',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def create_nodes_lnn_drives_driveid_suspend_item(self, nodes_lnn_drives_driveid_suspend_item, lnn, driveid, **kwargs):
-        """
-        
-        Temporarily remove a drive from use by OneFS.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_nodes_lnn_drives_driveid_suspend_item(nodes_lnn_drives_driveid_suspend_item, lnn, driveid, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param Empty nodes_lnn_drives_driveid_suspend_item:  (required)
-        :param int lnn:  (required)
-        :param str driveid:  (required)
-        :return: Empty
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['nodes_lnn_drives_driveid_suspend_item', 'lnn', 'driveid']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_nodes_lnn_drives_driveid_suspend_item" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'nodes_lnn_drives_driveid_suspend_item' is set
-        if ('nodes_lnn_drives_driveid_suspend_item' not in params) or (params['nodes_lnn_drives_driveid_suspend_item'] is None):
-            raise ValueError("Missing the required parameter `nodes_lnn_drives_driveid_suspend_item` when calling `create_nodes_lnn_drives_driveid_suspend_item`")
-        # verify the required parameter 'lnn' is set
-        if ('lnn' not in params) or (params['lnn'] is None):
-            raise ValueError("Missing the required parameter `lnn` when calling `create_nodes_lnn_drives_driveid_suspend_item`")
-        # verify the required parameter 'driveid' is set
-        if ('driveid' not in params) or (params['driveid'] is None):
-            raise ValueError("Missing the required parameter `driveid` when calling `create_nodes_lnn_drives_driveid_suspend_item`")
-
-        resource_path = '/platform/3/cluster/nodes/{Lnn}/drives/{Driveid}/suspend'.replace('{format}', 'json')
-        method = 'POST'
-
-        path_params = {}
-        if 'lnn' in params:
-            path_params['Lnn'] = params['lnn']
-        if 'driveid' in params:
-            path_params['Driveid'] = params['driveid']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'nodes_lnn_drives_driveid_suspend_item' in params:
-            body_params = params['nodes_lnn_drives_driveid_suspend_item']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='Empty',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_nodes_lnn_drive(self, nodes_lnn_drive_id, lnn, **kwargs):
-        """
-        
-        Retrieve drive information.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_nodes_lnn_drive(nodes_lnn_drive_id, lnn, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str nodes_lnn_drive_id: Retrieve drive information. (required)
-        :param int lnn:  (required)
-        :return: NodesLnnDrives
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['nodes_lnn_drive_id', 'lnn']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_nodes_lnn_drive" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'nodes_lnn_drive_id' is set
-        if ('nodes_lnn_drive_id' not in params) or (params['nodes_lnn_drive_id'] is None):
-            raise ValueError("Missing the required parameter `nodes_lnn_drive_id` when calling `get_nodes_lnn_drive`")
-        # verify the required parameter 'lnn' is set
-        if ('lnn' not in params) or (params['lnn'] is None):
-            raise ValueError("Missing the required parameter `lnn` when calling `get_nodes_lnn_drive`")
-
-        resource_path = '/platform/3/cluster/nodes/{Lnn}/drives/{NodesLnnDriveId}'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'nodes_lnn_drive_id' in params:
-            path_params['NodesLnnDriveId'] = params['nodes_lnn_drive_id']
-        if 'lnn' in params:
-            path_params['Lnn'] = params['lnn']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='NodesLnnDrives',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_nodes_lnn_hardware(self, lnn, **kwargs):
-        """
-        
-        Retrieve node hardware identity information.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_nodes_lnn_hardware(lnn, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int lnn:  (required)
-        :return: NodesLnnHardware
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['lnn']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_nodes_lnn_hardware" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'lnn' is set
-        if ('lnn' not in params) or (params['lnn'] is None):
-            raise ValueError("Missing the required parameter `lnn` when calling `get_nodes_lnn_hardware`")
-
-        resource_path = '/platform/3/cluster/nodes/{Lnn}/hardware'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'lnn' in params:
-            path_params['Lnn'] = params['lnn']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='NodesLnnHardware',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_nodes_lnn_partitions(self, lnn, **kwargs):
-        """
-        
-        Retrieve node partition information.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_nodes_lnn_partitions(lnn, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int lnn:  (required)
-        :return: NodesLnnPartitions
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['lnn']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_nodes_lnn_partitions" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'lnn' is set
-        if ('lnn' not in params) or (params['lnn'] is None):
-            raise ValueError("Missing the required parameter `lnn` when calling `get_nodes_lnn_partitions`")
-
-        resource_path = '/platform/3/cluster/nodes/{Lnn}/partitions'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'lnn' in params:
-            path_params['Lnn'] = params['lnn']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='NodesLnnPartitions',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def create_nodes_lnn_reboot_item(self, nodes_lnn_reboot_item, lnn, **kwargs):
-        """
-        
-        Reboot the node specified by <LNN>.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_nodes_lnn_reboot_item(nodes_lnn_reboot_item, lnn, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param Empty nodes_lnn_reboot_item:  (required)
-        :param int lnn:  (required)
-        :return: Empty
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['nodes_lnn_reboot_item', 'lnn']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_nodes_lnn_reboot_item" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'nodes_lnn_reboot_item' is set
-        if ('nodes_lnn_reboot_item' not in params) or (params['nodes_lnn_reboot_item'] is None):
-            raise ValueError("Missing the required parameter `nodes_lnn_reboot_item` when calling `create_nodes_lnn_reboot_item`")
-        # verify the required parameter 'lnn' is set
-        if ('lnn' not in params) or (params['lnn'] is None):
-            raise ValueError("Missing the required parameter `lnn` when calling `create_nodes_lnn_reboot_item`")
-
-        resource_path = '/platform/3/cluster/nodes/{Lnn}/reboot'.replace('{format}', 'json')
-        method = 'POST'
-
-        path_params = {}
-        if 'lnn' in params:
-            path_params['Lnn'] = params['lnn']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'nodes_lnn_reboot_item' in params:
-            body_params = params['nodes_lnn_reboot_item']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='Empty',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_nodes_lnn_sensors(self, lnn, **kwargs):
-        """
-        
-        Retrieve node sensor information.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_nodes_lnn_sensors(lnn, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int lnn:  (required)
-        :return: NodesLnnSensors
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['lnn']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_nodes_lnn_sensors" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'lnn' is set
-        if ('lnn' not in params) or (params['lnn'] is None):
-            raise ValueError("Missing the required parameter `lnn` when calling `get_nodes_lnn_sensors`")
-
-        resource_path = '/platform/3/cluster/nodes/{Lnn}/sensors'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'lnn' in params:
-            path_params['Lnn'] = params['lnn']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='NodesLnnSensors',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def create_nodes_lnn_shutdown_item(self, nodes_lnn_shutdown_item, lnn, **kwargs):
-        """
-        
-        Shutdown the node specified by <LNN>.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_nodes_lnn_shutdown_item(nodes_lnn_shutdown_item, lnn, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param Empty nodes_lnn_shutdown_item:  (required)
-        :param int lnn:  (required)
-        :return: Empty
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['nodes_lnn_shutdown_item', 'lnn']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_nodes_lnn_shutdown_item" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'nodes_lnn_shutdown_item' is set
-        if ('nodes_lnn_shutdown_item' not in params) or (params['nodes_lnn_shutdown_item'] is None):
-            raise ValueError("Missing the required parameter `nodes_lnn_shutdown_item` when calling `create_nodes_lnn_shutdown_item`")
-        # verify the required parameter 'lnn' is set
-        if ('lnn' not in params) or (params['lnn'] is None):
-            raise ValueError("Missing the required parameter `lnn` when calling `create_nodes_lnn_shutdown_item`")
-
-        resource_path = '/platform/3/cluster/nodes/{Lnn}/shutdown'.replace('{format}', 'json')
-        method = 'POST'
-
-        path_params = {}
-        if 'lnn' in params:
-            path_params['Lnn'] = params['lnn']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'nodes_lnn_shutdown_item' in params:
-            body_params = params['nodes_lnn_shutdown_item']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='Empty',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_nodes_lnn_state(self, lnn, **kwargs):
-        """
-        
-        Retrieve node state information.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_nodes_lnn_state(lnn, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int lnn:  (required)
-        :return: NodesLnnState
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['lnn']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_nodes_lnn_state" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'lnn' is set
-        if ('lnn' not in params) or (params['lnn'] is None):
-            raise ValueError("Missing the required parameter `lnn` when calling `get_nodes_lnn_state`")
-
-        resource_path = '/platform/3/cluster/nodes/{Lnn}/state'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'lnn' in params:
-            path_params['Lnn'] = params['lnn']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='NodesLnnState',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_nodes_lnn_state_readonly(self, lnn, **kwargs):
-        """
-        
-        Retrieve node readonly state information.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_nodes_lnn_state_readonly(lnn, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int lnn:  (required)
-        :return: NodesLnnStateReadonly
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['lnn']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_nodes_lnn_state_readonly" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'lnn' is set
-        if ('lnn' not in params) or (params['lnn'] is None):
-            raise ValueError("Missing the required parameter `lnn` when calling `get_nodes_lnn_state_readonly`")
-
-        resource_path = '/platform/3/cluster/nodes/{Lnn}/state/readonly'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'lnn' in params:
-            path_params['Lnn'] = params['lnn']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='NodesLnnStateReadonly',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def update_nodes_lnn_state_readonly(self, nodes_lnn_state_readonly, lnn, **kwargs):
-        """
-        
-        Modify one or more node readonly state settings.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_nodes_lnn_state_readonly(nodes_lnn_state_readonly, lnn, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param NodesLnnStateReadonlyExtended nodes_lnn_state_readonly:  (required)
-        :param int lnn:  (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['nodes_lnn_state_readonly', 'lnn']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_nodes_lnn_state_readonly" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'nodes_lnn_state_readonly' is set
-        if ('nodes_lnn_state_readonly' not in params) or (params['nodes_lnn_state_readonly'] is None):
-            raise ValueError("Missing the required parameter `nodes_lnn_state_readonly` when calling `update_nodes_lnn_state_readonly`")
-        # verify the required parameter 'lnn' is set
-        if ('lnn' not in params) or (params['lnn'] is None):
-            raise ValueError("Missing the required parameter `lnn` when calling `update_nodes_lnn_state_readonly`")
-
-        resource_path = '/platform/3/cluster/nodes/{Lnn}/state/readonly'.replace('{format}', 'json')
-        method = 'PUT'
-
-        path_params = {}
-        if 'lnn' in params:
-            path_params['Lnn'] = params['lnn']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'nodes_lnn_state_readonly' in params:
-            body_params = params['nodes_lnn_state_readonly']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_nodes_lnn_state_servicelight(self, lnn, **kwargs):
-        """
-        
-        Retrieve node service light state information.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_nodes_lnn_state_servicelight(lnn, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int lnn:  (required)
-        :return: NodesLnnStateServicelight
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['lnn']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_nodes_lnn_state_servicelight" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'lnn' is set
-        if ('lnn' not in params) or (params['lnn'] is None):
-            raise ValueError("Missing the required parameter `lnn` when calling `get_nodes_lnn_state_servicelight`")
-
-        resource_path = '/platform/3/cluster/nodes/{Lnn}/state/servicelight'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'lnn' in params:
-            path_params['Lnn'] = params['lnn']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='NodesLnnStateServicelight',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def update_nodes_lnn_state_servicelight(self, nodes_lnn_state_servicelight, lnn, **kwargs):
-        """
-        
-        Modify one or more node service light state settings.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_nodes_lnn_state_servicelight(nodes_lnn_state_servicelight, lnn, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param NodesLnnStateServicelightExtended nodes_lnn_state_servicelight:  (required)
-        :param int lnn:  (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['nodes_lnn_state_servicelight', 'lnn']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_nodes_lnn_state_servicelight" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'nodes_lnn_state_servicelight' is set
-        if ('nodes_lnn_state_servicelight' not in params) or (params['nodes_lnn_state_servicelight'] is None):
-            raise ValueError("Missing the required parameter `nodes_lnn_state_servicelight` when calling `update_nodes_lnn_state_servicelight`")
-        # verify the required parameter 'lnn' is set
-        if ('lnn' not in params) or (params['lnn'] is None):
-            raise ValueError("Missing the required parameter `lnn` when calling `update_nodes_lnn_state_servicelight`")
-
-        resource_path = '/platform/3/cluster/nodes/{Lnn}/state/servicelight'.replace('{format}', 'json')
-        method = 'PUT'
-
-        path_params = {}
-        if 'lnn' in params:
-            path_params['Lnn'] = params['lnn']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'nodes_lnn_state_servicelight' in params:
-            body_params = params['nodes_lnn_state_servicelight']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_nodes_lnn_state_smartfail(self, lnn, **kwargs):
-        """
-        
-        Retrieve node smartfail state information.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_nodes_lnn_state_smartfail(lnn, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int lnn:  (required)
-        :return: NodesLnnStateSmartfail
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['lnn']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_nodes_lnn_state_smartfail" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'lnn' is set
-        if ('lnn' not in params) or (params['lnn'] is None):
-            raise ValueError("Missing the required parameter `lnn` when calling `get_nodes_lnn_state_smartfail`")
-
-        resource_path = '/platform/3/cluster/nodes/{Lnn}/state/smartfail'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'lnn' in params:
-            path_params['Lnn'] = params['lnn']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='NodesLnnStateSmartfail',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def update_nodes_lnn_state_smartfail(self, nodes_lnn_state_smartfail, lnn, **kwargs):
-        """
-        
-        Modify smartfail state of the node.  Only the 'smartfailed' body member has any effect on node smartfail state.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_nodes_lnn_state_smartfail(nodes_lnn_state_smartfail, lnn, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param NodesLnnStateSmartfailExtended nodes_lnn_state_smartfail:  (required)
-        :param int lnn:  (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['nodes_lnn_state_smartfail', 'lnn']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_nodes_lnn_state_smartfail" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'nodes_lnn_state_smartfail' is set
-        if ('nodes_lnn_state_smartfail' not in params) or (params['nodes_lnn_state_smartfail'] is None):
-            raise ValueError("Missing the required parameter `nodes_lnn_state_smartfail` when calling `update_nodes_lnn_state_smartfail`")
-        # verify the required parameter 'lnn' is set
-        if ('lnn' not in params) or (params['lnn'] is None):
-            raise ValueError("Missing the required parameter `lnn` when calling `update_nodes_lnn_state_smartfail`")
-
-        resource_path = '/platform/3/cluster/nodes/{Lnn}/state/smartfail'.replace('{format}', 'json')
-        method = 'PUT'
-
-        path_params = {}
-        if 'lnn' in params:
-            path_params['Lnn'] = params['lnn']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'nodes_lnn_state_smartfail' in params:
-            body_params = params['nodes_lnn_state_smartfail']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_nodes_lnn_status(self, lnn, **kwargs):
-        """
-        
-        Retrieve node status information.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_nodes_lnn_status(lnn, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int lnn:  (required)
-        :return: NodesLnnStatus
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['lnn']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_nodes_lnn_status" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'lnn' is set
-        if ('lnn' not in params) or (params['lnn'] is None):
-            raise ValueError("Missing the required parameter `lnn` when calling `get_nodes_lnn_status`")
-
-        resource_path = '/platform/3/cluster/nodes/{Lnn}/status'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'lnn' in params:
-            path_params['Lnn'] = params['lnn']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='NodesLnnStatus',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_nodes_lnn_status_batterystatus(self, lnn, **kwargs):
-        """
-        
-        Retrieve node battery status information.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_nodes_lnn_status_batterystatus(lnn, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int lnn:  (required)
-        :return: NodesLnnStatusBatterystatus
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['lnn']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_nodes_lnn_status_batterystatus" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'lnn' is set
-        if ('lnn' not in params) or (params['lnn'] is None):
-            raise ValueError("Missing the required parameter `lnn` when calling `get_nodes_lnn_status_batterystatus`")
-
-        resource_path = '/platform/3/cluster/nodes/{Lnn}/status/batterystatus'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'lnn' in params:
-            path_params['Lnn'] = params['lnn']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='NodesLnnStatusBatterystatus',
+                                            files=local_var_files,
+                                            response_type='ClusterStatfs',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -3237,7 +721,7 @@ class ClusterApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :return: Empty
+        :return: ClusterTime
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3256,17 +740,16 @@ class ClusterApi(object):
         del params['kwargs']
 
 
-        resource_path = '/platform/3/cluster/time'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/3/cluster/time'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -3283,93 +766,14 @@ class ClusterApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
-                                            response_type='Empty',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def update_cluster_time(self, cluster_time, **kwargs):
-        """
-        
-        Set cluster time.  Time will mostly be synchronized across nodes, but there may be slight drift.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_cluster_time(cluster_time, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param ClusterTime cluster_time:  (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['cluster_time']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_cluster_time" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'cluster_time' is set
-        if ('cluster_time' not in params) or (params['cluster_time'] is None):
-            raise ValueError("Missing the required parameter `cluster_time` when calling `update_cluster_time`")
-
-        resource_path = '/platform/3/cluster/time'.replace('{format}', 'json')
-        method = 'PUT'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'cluster_time' in params:
-            body_params = params['cluster_time']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
+                                            files=local_var_files,
+                                            response_type='ClusterTime',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -3408,17 +812,16 @@ class ClusterApi(object):
         del params['kwargs']
 
 
-        resource_path = '/platform/3/cluster/timezone'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/3/cluster/timezone'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -3435,22 +838,22 @@ class ClusterApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='ClusterTimezone',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def update_cluster_timezone(self, cluster_timezone, **kwargs):
+    def get_cluster_version(self, **kwargs):
         """
         
-        Set a new timezone for the cluster.
+        Retrieve the OneFS version as reported by each node.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -3458,17 +861,16 @@ class ClusterApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.update_cluster_timezone(cluster_timezone, callback=callback_function)
+        >>> thread = api.get_cluster_version(callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param ClusterTimezoneExtended cluster_timezone:  (required)
-        :return: None
+        :return: ClusterVersion
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['cluster_timezone']
+        all_params = []
         all_params.append('callback')
 
         params = locals()
@@ -3476,30 +878,24 @@ class ClusterApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method update_cluster_timezone" % key
+                    " to method get_cluster_version" % key
                 )
             params[key] = val
         del params['kwargs']
 
-        # verify the required parameter 'cluster_timezone' is set
-        if ('cluster_timezone' not in params) or (params['cluster_timezone'] is None):
-            raise ValueError("Missing the required parameter `cluster_timezone` when calling `update_cluster_timezone`")
 
-        resource_path = '/platform/3/cluster/timezone'.replace('{format}', 'json')
-        method = 'PUT'
 
+        resource_path = '/platform/3/cluster/version'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
-        if 'cluster_timezone' in params:
-            body_params = params['cluster_timezone']
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
@@ -3514,14 +910,14 @@ class ClusterApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
-                                            response_type=None,
+                                            files=local_var_files,
+                                            response_type='ClusterVersion',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -3570,9 +966,10 @@ class ClusterApi(object):
         if ('timezone_region_id' not in params) or (params['timezone_region_id'] is None):
             raise ValueError("Missing the required parameter `timezone_region_id` when calling `get_timezone_region`")
 
-        resource_path = '/platform/3/cluster/timezone/regions/{TimezoneRegionId}'.replace('{format}', 'json')
-        method = 'GET'
+        if 'limit' in params and params['limit'] < 1.0: 
+            raise ValueError("Invalid value for parameter `limit` when calling `get_timezone_region`, must be a value greater than or equal to `1.0`")
 
+        resource_path = '/platform/3/cluster/timezone/regions/{TimezoneRegionId}'.replace('{format}', 'json')
         path_params = {}
         if 'timezone_region_id' in params:
             path_params['TimezoneRegionId'] = params['timezone_region_id']
@@ -3593,8 +990,8 @@ class ClusterApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -3611,13 +1008,13 @@ class ClusterApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='TimezoneRegions',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
@@ -3657,17 +1054,16 @@ class ClusterApi(object):
         del params['kwargs']
 
 
-        resource_path = '/platform/3/cluster/timezone/settings'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/3/cluster/timezone/settings'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -3684,14 +1080,488 @@ class ClusterApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='TimezoneSettings',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def update_cluster_email(self, cluster_email, **kwargs):
+        """
+        
+        Modify the cluster email notification settings.  All input fields are optional, but one or more must be supplied.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_cluster_email(cluster_email, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param ClusterEmailExtended cluster_email:  (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['cluster_email']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_cluster_email" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'cluster_email' is set
+        if ('cluster_email' not in params) or (params['cluster_email'] is None):
+            raise ValueError("Missing the required parameter `cluster_email` when calling `update_cluster_email`")
+
+
+        resource_path = '/platform/1/cluster/email'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'cluster_email' in params:
+            body_params = params['cluster_email']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'PUT',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def update_cluster_identity(self, cluster_identity, **kwargs):
+        """
+        
+        Modify the login information.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_cluster_identity(cluster_identity, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param ClusterIdentity cluster_identity:  (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['cluster_identity']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_cluster_identity" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'cluster_identity' is set
+        if ('cluster_identity' not in params) or (params['cluster_identity'] is None):
+            raise ValueError("Missing the required parameter `cluster_identity` when calling `update_cluster_identity`")
+
+
+        resource_path = '/platform/3/cluster/identity'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'cluster_identity' in params:
+            body_params = params['cluster_identity']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'PUT',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def update_cluster_node(self, cluster_node, cluster_node_id, **kwargs):
+        """
+        
+        Modify one or more node settings.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_cluster_node(cluster_node, cluster_node_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param ClusterNode cluster_node:  (required)
+        :param int cluster_node_id: Modify one or more node settings. (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['cluster_node', 'cluster_node_id']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_cluster_node" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'cluster_node' is set
+        if ('cluster_node' not in params) or (params['cluster_node'] is None):
+            raise ValueError("Missing the required parameter `cluster_node` when calling `update_cluster_node`")
+        # verify the required parameter 'cluster_node_id' is set
+        if ('cluster_node_id' not in params) or (params['cluster_node_id'] is None):
+            raise ValueError("Missing the required parameter `cluster_node_id` when calling `update_cluster_node`")
+
+
+        resource_path = '/platform/3/cluster/nodes/{ClusterNodeId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'cluster_node_id' in params:
+            path_params['ClusterNodeId'] = params['cluster_node_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'cluster_node' in params:
+            body_params = params['cluster_node']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'PUT',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def update_cluster_owner(self, cluster_owner, **kwargs):
+        """
+        
+        Modify the cluster contact info settings.  All input fields are optional, but one or more must be supplied.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_cluster_owner(cluster_owner, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param ClusterOwner cluster_owner:  (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['cluster_owner']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_cluster_owner" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'cluster_owner' is set
+        if ('cluster_owner' not in params) or (params['cluster_owner'] is None):
+            raise ValueError("Missing the required parameter `cluster_owner` when calling `update_cluster_owner`")
+
+
+        resource_path = '/platform/1/cluster/owner'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'cluster_owner' in params:
+            body_params = params['cluster_owner']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'PUT',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def update_cluster_time(self, cluster_time, **kwargs):
+        """
+        
+        Set cluster time.  Time will mostly be synchronized across nodes, but there may be slight drift.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_cluster_time(cluster_time, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param ClusterTimeExtended cluster_time:  (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['cluster_time']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_cluster_time" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'cluster_time' is set
+        if ('cluster_time' not in params) or (params['cluster_time'] is None):
+            raise ValueError("Missing the required parameter `cluster_time` when calling `update_cluster_time`")
+
+
+        resource_path = '/platform/3/cluster/time'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'cluster_time' in params:
+            body_params = params['cluster_time']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'PUT',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def update_cluster_timezone(self, cluster_timezone, **kwargs):
+        """
+        
+        Set a new timezone for the cluster.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_cluster_timezone(cluster_timezone, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param ClusterTimezoneExtended cluster_timezone:  (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['cluster_timezone']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_cluster_timezone" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'cluster_timezone' is set
+        if ('cluster_timezone' not in params) or (params['cluster_timezone'] is None):
+            raise ValueError("Missing the required parameter `cluster_timezone` when calling `update_cluster_timezone`")
+
+
+        resource_path = '/platform/3/cluster/timezone'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'cluster_timezone' in params:
+            body_params = params['cluster_timezone']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'PUT',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -3734,17 +1604,16 @@ class ClusterApi(object):
         if ('timezone_settings' not in params) or (params['timezone_settings'] is None):
             raise ValueError("Missing the required parameter `timezone_settings` when calling `update_timezone_settings`")
 
-        resource_path = '/platform/3/cluster/timezone/settings'.replace('{format}', 'json')
-        method = 'PUT'
 
+        resource_path = '/platform/3/cluster/timezone/settings'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'timezone_settings' in params:
@@ -3763,87 +1632,14 @@ class ClusterApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'PUT',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_cluster_version(self, **kwargs):
-        """
-        
-        Retrieve the OneFS version as reported by each node.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_cluster_version(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: Empty
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_cluster_version" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/cluster/version'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='Empty',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response

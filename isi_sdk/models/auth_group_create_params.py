@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class AuthGroupCreateParams(object):
@@ -37,45 +38,23 @@ class AuthGroupCreateParams(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'name': 'str',
             'gid': 'int',
-            'members': 'list[GroupsGroupMember]',
+            'members': 'list[GroupMember]',
+            'name': 'str',
             'sid': 'str'
         }
 
         self.attribute_map = {
-            'name': 'name',
             'gid': 'gid',
             'members': 'members',
+            'name': 'name',
             'sid': 'sid'
         }
 
-        self._name = None
         self._gid = None
         self._members = None
+        self._name = None
         self._sid = None
-
-    @property
-    def name(self):
-        """
-        Gets the name of this AuthGroupCreateParams.
-        Specifies the group name.
-
-        :return: The name of this AuthGroupCreateParams.
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """
-        Sets the name of this AuthGroupCreateParams.
-        Specifies the group name.
-
-        :param name: The name of this AuthGroupCreateParams.
-        :type: str
-        """
-        self._name = name
 
     @property
     def gid(self):
@@ -97,6 +76,7 @@ class AuthGroupCreateParams(object):
         :param gid: The gid of this AuthGroupCreateParams.
         :type: int
         """
+        
         self._gid = gid
 
     @property
@@ -106,7 +86,7 @@ class AuthGroupCreateParams(object):
         Specifies the members of the group.
 
         :return: The members of this AuthGroupCreateParams.
-        :rtype: list[GroupsGroupMember]
+        :rtype: list[GroupMember]
         """
         return self._members
 
@@ -117,9 +97,33 @@ class AuthGroupCreateParams(object):
         Specifies the members of the group.
 
         :param members: The members of this AuthGroupCreateParams.
-        :type: list[GroupsGroupMember]
+        :type: list[GroupMember]
         """
+        
         self._members = members
+
+    @property
+    def name(self):
+        """
+        Gets the name of this AuthGroupCreateParams.
+        Specifies the group name.
+
+        :return: The name of this AuthGroupCreateParams.
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """
+        Sets the name of this AuthGroupCreateParams.
+        Specifies the group name.
+
+        :param name: The name of this AuthGroupCreateParams.
+        :type: str
+        """
+        
+        self._name = name
 
     @property
     def sid(self):
@@ -141,6 +145,7 @@ class AuthGroupCreateParams(object):
         :param sid: The sid of this AuthGroupCreateParams.
         :type: str
         """
+        
         self._sid = sid
 
     def to_dict(self):
@@ -158,6 +163,12 @@ class AuthGroupCreateParams(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -175,14 +186,14 @@ class AuthGroupCreateParams(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other
