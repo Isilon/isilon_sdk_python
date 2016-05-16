@@ -2,7 +2,7 @@
 
 """
 DebugApi.py
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@ from __future__ import absolute_import
 
 import sys
 import os
+import re
 
 # python 2 and python 3 compatibility library
 from six import iteritems
@@ -44,79 +45,6 @@ class DebugApi(object):
             if not config.api_client:
                 config.api_client = ApiClient()
             self.api_client = config.api_client
-
-    def get_debug_stats(self, **kwargs):
-        """
-        
-        List cumulative call statistics for each resource.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_debug_stats(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: DebugStats
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_debug_stats" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/1/debug/stats'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='DebugStats',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
 
     def delete_debug_stats(self, **kwargs):
         """
@@ -152,17 +80,16 @@ class DebugApi(object):
         del params['kwargs']
 
 
-        resource_path = '/platform/1/debug/stats'.replace('{format}', 'json')
-        method = 'DELETE'
 
+        resource_path = '/platform/1/debug/stats'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -179,14 +106,86 @@ class DebugApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'DELETE',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_debug_stats(self, **kwargs):
+        """
+        
+        List cumulative call statistics for each resource.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_debug_stats(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: DebugStats
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_debug_stats" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/1/debug/stats'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='DebugStats',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response

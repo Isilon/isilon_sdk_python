@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class SnapshotAliaseExtended(object):
@@ -37,29 +38,72 @@ class SnapshotAliaseExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
+            'created': 'int',
+            'id': 'int',
             'name': 'str',
             'target_id': 'int',
-            'id': 'int',
-            'target_name': 'str',
-            'created': 'int',
-            'target': 'str'
+            'target_name': 'str'
         }
 
         self.attribute_map = {
+            'created': 'created',
+            'id': 'id',
             'name': 'name',
             'target_id': 'target_id',
-            'id': 'id',
-            'target_name': 'target_name',
-            'created': 'created',
-            'target': 'target'
+            'target_name': 'target_name'
         }
 
+        self._created = None
+        self._id = None
         self._name = None
         self._target_id = None
-        self._id = None
         self._target_name = None
-        self._created = None
-        self._target = None
+
+    @property
+    def created(self):
+        """
+        Gets the created of this SnapshotAliaseExtended.
+        The Unix Epoch time the snapshot alias was created.
+
+        :return: The created of this SnapshotAliaseExtended.
+        :rtype: int
+        """
+        return self._created
+
+    @created.setter
+    def created(self, created):
+        """
+        Sets the created of this SnapshotAliaseExtended.
+        The Unix Epoch time the snapshot alias was created.
+
+        :param created: The created of this SnapshotAliaseExtended.
+        :type: int
+        """
+        
+        self._created = created
+
+    @property
+    def id(self):
+        """
+        Gets the id of this SnapshotAliaseExtended.
+        The system ID given to the snapshot alias.
+
+        :return: The id of this SnapshotAliaseExtended.
+        :rtype: int
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """
+        Sets the id of this SnapshotAliaseExtended.
+        The system ID given to the snapshot alias.
+
+        :param id: The id of this SnapshotAliaseExtended.
+        :type: int
+        """
+        
+        self._id = id
 
     @property
     def name(self):
@@ -81,6 +125,7 @@ class SnapshotAliaseExtended(object):
         :param name: The name of this SnapshotAliaseExtended.
         :type: str
         """
+        
         self._name = name
 
     @property
@@ -103,29 +148,8 @@ class SnapshotAliaseExtended(object):
         :param target_id: The target_id of this SnapshotAliaseExtended.
         :type: int
         """
+        
         self._target_id = target_id
-
-    @property
-    def id(self):
-        """
-        Gets the id of this SnapshotAliaseExtended.
-        The system ID given to the snapshot alias.
-
-        :return: The id of this SnapshotAliaseExtended.
-        :rtype: int
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this SnapshotAliaseExtended.
-        The system ID given to the snapshot alias.
-
-        :param id: The id of this SnapshotAliaseExtended.
-        :type: int
-        """
-        self._id = id
 
     @property
     def target_name(self):
@@ -147,51 +171,8 @@ class SnapshotAliaseExtended(object):
         :param target_name: The target_name of this SnapshotAliaseExtended.
         :type: str
         """
+        
         self._target_name = target_name
-
-    @property
-    def created(self):
-        """
-        Gets the created of this SnapshotAliaseExtended.
-        The Unix Epoch time the snapshot alias was created.
-
-        :return: The created of this SnapshotAliaseExtended.
-        :rtype: int
-        """
-        return self._created
-
-    @created.setter
-    def created(self, created):
-        """
-        Sets the created of this SnapshotAliaseExtended.
-        The Unix Epoch time the snapshot alias was created.
-
-        :param created: The created of this SnapshotAliaseExtended.
-        :type: int
-        """
-        self._created = created
-
-    @property
-    def target(self):
-        """
-        Gets the target of this SnapshotAliaseExtended.
-        Target snapshot for this snapshot alias.
-
-        :return: The target of this SnapshotAliaseExtended.
-        :rtype: str
-        """
-        return self._target
-
-    @target.setter
-    def target(self, target):
-        """
-        Sets the target of this SnapshotAliaseExtended.
-        Target snapshot for this snapshot alias.
-
-        :param target: The target of this SnapshotAliaseExtended.
-        :type: str
-        """
-        self._target = target
 
     def to_dict(self):
         """
@@ -208,6 +189,12 @@ class SnapshotAliaseExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -225,14 +212,14 @@ class SnapshotAliaseExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

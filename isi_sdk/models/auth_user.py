@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class AuthUser(object):
@@ -44,7 +45,7 @@ class AuthUser(object):
             'home_directory': 'str',
             'password': 'str',
             'password_expires': 'bool',
-            'primary_group': 'GroupsGroupMember',
+            'primary_group': 'GroupMember',
             'prompt_password_change': 'bool',
             'shell': 'str',
             'sid': 'str',
@@ -102,6 +103,7 @@ class AuthUser(object):
         :param email: The email of this AuthUser.
         :type: str
         """
+        
         self._email = email
 
     @property
@@ -124,6 +126,7 @@ class AuthUser(object):
         :param enabled: The enabled of this AuthUser.
         :type: bool
         """
+        
         self._enabled = enabled
 
     @property
@@ -146,6 +149,7 @@ class AuthUser(object):
         :param expiry: The expiry of this AuthUser.
         :type: int
         """
+        
         self._expiry = expiry
 
     @property
@@ -168,6 +172,7 @@ class AuthUser(object):
         :param gecos: The gecos of this AuthUser.
         :type: str
         """
+        
         self._gecos = gecos
 
     @property
@@ -190,6 +195,7 @@ class AuthUser(object):
         :param home_directory: The home_directory of this AuthUser.
         :type: str
         """
+        
         self._home_directory = home_directory
 
     @property
@@ -212,6 +218,7 @@ class AuthUser(object):
         :param password: The password of this AuthUser.
         :type: str
         """
+        
         self._password = password
 
     @property
@@ -234,6 +241,7 @@ class AuthUser(object):
         :param password_expires: The password_expires of this AuthUser.
         :type: bool
         """
+        
         self._password_expires = password_expires
 
     @property
@@ -243,7 +251,7 @@ class AuthUser(object):
         Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'.
 
         :return: The primary_group of this AuthUser.
-        :rtype: GroupsGroupMember
+        :rtype: GroupMember
         """
         return self._primary_group
 
@@ -254,8 +262,9 @@ class AuthUser(object):
         Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'.
 
         :param primary_group: The primary_group of this AuthUser.
-        :type: GroupsGroupMember
+        :type: GroupMember
         """
+        
         self._primary_group = primary_group
 
     @property
@@ -278,6 +287,7 @@ class AuthUser(object):
         :param prompt_password_change: The prompt_password_change of this AuthUser.
         :type: bool
         """
+        
         self._prompt_password_change = prompt_password_change
 
     @property
@@ -300,6 +310,7 @@ class AuthUser(object):
         :param shell: The shell of this AuthUser.
         :type: str
         """
+        
         self._shell = shell
 
     @property
@@ -322,6 +333,7 @@ class AuthUser(object):
         :param sid: The sid of this AuthUser.
         :type: str
         """
+        
         self._sid = sid
 
     @property
@@ -344,6 +356,7 @@ class AuthUser(object):
         :param uid: The uid of this AuthUser.
         :type: int
         """
+        
         self._uid = uid
 
     @property
@@ -366,6 +379,7 @@ class AuthUser(object):
         :param unlock: The unlock of this AuthUser.
         :type: bool
         """
+        
         self._unlock = unlock
 
     def to_dict(self):
@@ -383,6 +397,12 @@ class AuthUser(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -400,14 +420,14 @@ class AuthUser(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

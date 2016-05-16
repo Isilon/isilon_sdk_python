@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class SyncPolicy(object):
@@ -50,7 +51,7 @@ class SyncPolicy(object):
             'disable_stf': 'bool',
             'enabled': 'bool',
             'expected_dataloss': 'bool',
-            'file_matching_pattern': 'ReportsRidSubreportsSubreportPolicyFileMatchingPattern',
+            'file_matching_pattern': 'ReportSubreportPolicyFileMatchingPattern',
             'force_interface': 'bool',
             'job_delay': 'int',
             'log_level': 'str',
@@ -201,6 +202,7 @@ class SyncPolicy(object):
         :param accelerated_failback: The accelerated_failback of this SyncPolicy.
         :type: bool
         """
+        
         self._accelerated_failback = accelerated_failback
 
     @property
@@ -229,6 +231,7 @@ class SyncPolicy(object):
                 "Invalid value for `action`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._action = action
 
     @property
@@ -251,6 +254,7 @@ class SyncPolicy(object):
         :param burst_mode: The burst_mode of this SyncPolicy.
         :type: bool
         """
+        
         self._burst_mode = burst_mode
 
     @property
@@ -273,6 +277,7 @@ class SyncPolicy(object):
         :param changelist: The changelist of this SyncPolicy.
         :type: bool
         """
+        
         self._changelist = changelist
 
     @property
@@ -295,6 +300,7 @@ class SyncPolicy(object):
         :param check_integrity: The check_integrity of this SyncPolicy.
         :type: bool
         """
+        
         self._check_integrity = check_integrity
 
     @property
@@ -323,6 +329,7 @@ class SyncPolicy(object):
                 "Invalid value for `cloud_deep_copy`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._cloud_deep_copy = cloud_deep_copy
 
     @property
@@ -345,6 +352,7 @@ class SyncPolicy(object):
         :param conflicted: The conflicted of this SyncPolicy.
         :type: bool
         """
+        
         self._conflicted = conflicted
 
     @property
@@ -367,6 +375,7 @@ class SyncPolicy(object):
         :param description: The description of this SyncPolicy.
         :type: str
         """
+        
         self._description = description
 
     @property
@@ -389,6 +398,7 @@ class SyncPolicy(object):
         :param disable_file_split: The disable_file_split of this SyncPolicy.
         :type: bool
         """
+        
         self._disable_file_split = disable_file_split
 
     @property
@@ -411,6 +421,7 @@ class SyncPolicy(object):
         :param disable_fofb: The disable_fofb of this SyncPolicy.
         :type: bool
         """
+        
         self._disable_fofb = disable_fofb
 
     @property
@@ -433,6 +444,7 @@ class SyncPolicy(object):
         :param disable_stf: The disable_stf of this SyncPolicy.
         :type: bool
         """
+        
         self._disable_stf = disable_stf
 
     @property
@@ -455,6 +467,7 @@ class SyncPolicy(object):
         :param enabled: The enabled of this SyncPolicy.
         :type: bool
         """
+        
         self._enabled = enabled
 
     @property
@@ -477,6 +490,7 @@ class SyncPolicy(object):
         :param expected_dataloss: The expected_dataloss of this SyncPolicy.
         :type: bool
         """
+        
         self._expected_dataloss = expected_dataloss
 
     @property
@@ -486,7 +500,7 @@ class SyncPolicy(object):
         A file matching pattern, organized as an OR'ed set of AND'ed file criteria, for example ((a AND b) OR (x AND y)) used to define a set of files with specific properties.  Policies of type 'sync' cannot use 'path' or time criteria in their matching patterns, but policies of type 'copy' can use all listed criteria.
 
         :return: The file_matching_pattern of this SyncPolicy.
-        :rtype: ReportsRidSubreportsSubreportPolicyFileMatchingPattern
+        :rtype: ReportSubreportPolicyFileMatchingPattern
         """
         return self._file_matching_pattern
 
@@ -497,8 +511,9 @@ class SyncPolicy(object):
         A file matching pattern, organized as an OR'ed set of AND'ed file criteria, for example ((a AND b) OR (x AND y)) used to define a set of files with specific properties.  Policies of type 'sync' cannot use 'path' or time criteria in their matching patterns, but policies of type 'copy' can use all listed criteria.
 
         :param file_matching_pattern: The file_matching_pattern of this SyncPolicy.
-        :type: ReportsRidSubreportsSubreportPolicyFileMatchingPattern
+        :type: ReportSubreportPolicyFileMatchingPattern
         """
+        
         self._file_matching_pattern = file_matching_pattern
 
     @property
@@ -521,6 +536,7 @@ class SyncPolicy(object):
         :param force_interface: The force_interface of this SyncPolicy.
         :type: bool
         """
+        
         self._force_interface = force_interface
 
     @property
@@ -543,6 +559,12 @@ class SyncPolicy(object):
         :param job_delay: The job_delay of this SyncPolicy.
         :type: int
         """
+        
+        if not job_delay:
+            raise ValueError("Invalid value for `job_delay`, must not be `None`")
+        if job_delay < 0.0: 
+            raise ValueError("Invalid value for `job_delay`, must be a value greater than or equal to `0.0`")
+
         self._job_delay = job_delay
 
     @property
@@ -571,6 +593,7 @@ class SyncPolicy(object):
                 "Invalid value for `log_level`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._log_level = log_level
 
     @property
@@ -593,6 +616,7 @@ class SyncPolicy(object):
         :param log_removed_files: The log_removed_files of this SyncPolicy.
         :type: bool
         """
+        
         self._log_removed_files = log_removed_files
 
     @property
@@ -615,6 +639,7 @@ class SyncPolicy(object):
         :param name: The name of this SyncPolicy.
         :type: str
         """
+        
         self._name = name
 
     @property
@@ -637,6 +662,7 @@ class SyncPolicy(object):
         :param password: The password of this SyncPolicy.
         :type: str
         """
+        
         self._password = password
 
     @property
@@ -659,6 +685,7 @@ class SyncPolicy(object):
         :param priority: The priority of this SyncPolicy.
         :type: int
         """
+        
         self._priority = priority
 
     @property
@@ -681,6 +708,12 @@ class SyncPolicy(object):
         :param report_max_age: The report_max_age of this SyncPolicy.
         :type: int
         """
+        
+        if not report_max_age:
+            raise ValueError("Invalid value for `report_max_age`, must not be `None`")
+        if report_max_age < 0.0: 
+            raise ValueError("Invalid value for `report_max_age`, must be a value greater than or equal to `0.0`")
+
         self._report_max_age = report_max_age
 
     @property
@@ -703,6 +736,14 @@ class SyncPolicy(object):
         :param report_max_count: The report_max_count of this SyncPolicy.
         :type: int
         """
+        
+        if not report_max_count:
+            raise ValueError("Invalid value for `report_max_count`, must not be `None`")
+        if report_max_count > 2000.0: 
+            raise ValueError("Invalid value for `report_max_count`, must be a value less than or equal to `2000.0`")
+        if report_max_count < 1.0: 
+            raise ValueError("Invalid value for `report_max_count`, must be a value greater than or equal to `1.0`")
+
         self._report_max_count = report_max_count
 
     @property
@@ -725,6 +766,7 @@ class SyncPolicy(object):
         :param restrict_target_network: The restrict_target_network of this SyncPolicy.
         :type: bool
         """
+        
         self._restrict_target_network = restrict_target_network
 
     @property
@@ -747,6 +789,12 @@ class SyncPolicy(object):
         :param rpo_alert: The rpo_alert of this SyncPolicy.
         :type: int
         """
+        
+        if not rpo_alert:
+            raise ValueError("Invalid value for `rpo_alert`, must not be `None`")
+        if rpo_alert < 0.0: 
+            raise ValueError("Invalid value for `rpo_alert`, must be a value greater than or equal to `0.0`")
+
         self._rpo_alert = rpo_alert
 
     @property
@@ -769,6 +817,7 @@ class SyncPolicy(object):
         :param schedule: The schedule of this SyncPolicy.
         :type: str
         """
+        
         self._schedule = schedule
 
     @property
@@ -791,6 +840,7 @@ class SyncPolicy(object):
         :param skip_lookup: The skip_lookup of this SyncPolicy.
         :type: bool
         """
+        
         self._skip_lookup = skip_lookup
 
     @property
@@ -813,6 +863,7 @@ class SyncPolicy(object):
         :param skip_when_source_unmodified: The skip_when_source_unmodified of this SyncPolicy.
         :type: bool
         """
+        
         self._skip_when_source_unmodified = skip_when_source_unmodified
 
     @property
@@ -835,6 +886,7 @@ class SyncPolicy(object):
         :param snapshot_sync_existing: The snapshot_sync_existing of this SyncPolicy.
         :type: bool
         """
+        
         self._snapshot_sync_existing = snapshot_sync_existing
 
     @property
@@ -857,6 +909,7 @@ class SyncPolicy(object):
         :param snapshot_sync_pattern: The snapshot_sync_pattern of this SyncPolicy.
         :type: str
         """
+        
         self._snapshot_sync_pattern = snapshot_sync_pattern
 
     @property
@@ -879,6 +932,7 @@ class SyncPolicy(object):
         :param source_exclude_directories: The source_exclude_directories of this SyncPolicy.
         :type: list[str]
         """
+        
         self._source_exclude_directories = source_exclude_directories
 
     @property
@@ -901,6 +955,7 @@ class SyncPolicy(object):
         :param source_include_directories: The source_include_directories of this SyncPolicy.
         :type: list[str]
         """
+        
         self._source_include_directories = source_include_directories
 
     @property
@@ -923,6 +978,7 @@ class SyncPolicy(object):
         :param source_network: The source_network of this SyncPolicy.
         :type: SyncPolicySourceNetwork
         """
+        
         self._source_network = source_network
 
     @property
@@ -945,6 +1001,7 @@ class SyncPolicy(object):
         :param source_root_path: The source_root_path of this SyncPolicy.
         :type: str
         """
+        
         self._source_root_path = source_root_path
 
     @property
@@ -967,6 +1024,7 @@ class SyncPolicy(object):
         :param source_snapshot_archive: The source_snapshot_archive of this SyncPolicy.
         :type: bool
         """
+        
         self._source_snapshot_archive = source_snapshot_archive
 
     @property
@@ -989,6 +1047,12 @@ class SyncPolicy(object):
         :param source_snapshot_expiration: The source_snapshot_expiration of this SyncPolicy.
         :type: int
         """
+        
+        if not source_snapshot_expiration:
+            raise ValueError("Invalid value for `source_snapshot_expiration`, must not be `None`")
+        if source_snapshot_expiration < 0.0: 
+            raise ValueError("Invalid value for `source_snapshot_expiration`, must be a value greater than or equal to `0.0`")
+
         self._source_snapshot_expiration = source_snapshot_expiration
 
     @property
@@ -1011,6 +1075,7 @@ class SyncPolicy(object):
         :param source_snapshot_pattern: The source_snapshot_pattern of this SyncPolicy.
         :type: str
         """
+        
         self._source_snapshot_pattern = source_snapshot_pattern
 
     @property
@@ -1033,6 +1098,7 @@ class SyncPolicy(object):
         :param target_compare_initial_sync: The target_compare_initial_sync of this SyncPolicy.
         :type: bool
         """
+        
         self._target_compare_initial_sync = target_compare_initial_sync
 
     @property
@@ -1055,6 +1121,7 @@ class SyncPolicy(object):
         :param target_detect_modifications: The target_detect_modifications of this SyncPolicy.
         :type: bool
         """
+        
         self._target_detect_modifications = target_detect_modifications
 
     @property
@@ -1077,6 +1144,7 @@ class SyncPolicy(object):
         :param target_host: The target_host of this SyncPolicy.
         :type: str
         """
+        
         self._target_host = target_host
 
     @property
@@ -1099,6 +1167,7 @@ class SyncPolicy(object):
         :param target_path: The target_path of this SyncPolicy.
         :type: str
         """
+        
         self._target_path = target_path
 
     @property
@@ -1121,6 +1190,7 @@ class SyncPolicy(object):
         :param target_snapshot_alias: The target_snapshot_alias of this SyncPolicy.
         :type: str
         """
+        
         self._target_snapshot_alias = target_snapshot_alias
 
     @property
@@ -1143,6 +1213,7 @@ class SyncPolicy(object):
         :param target_snapshot_archive: The target_snapshot_archive of this SyncPolicy.
         :type: bool
         """
+        
         self._target_snapshot_archive = target_snapshot_archive
 
     @property
@@ -1165,6 +1236,12 @@ class SyncPolicy(object):
         :param target_snapshot_expiration: The target_snapshot_expiration of this SyncPolicy.
         :type: int
         """
+        
+        if not target_snapshot_expiration:
+            raise ValueError("Invalid value for `target_snapshot_expiration`, must not be `None`")
+        if target_snapshot_expiration < 0.0: 
+            raise ValueError("Invalid value for `target_snapshot_expiration`, must be a value greater than or equal to `0.0`")
+
         self._target_snapshot_expiration = target_snapshot_expiration
 
     @property
@@ -1187,6 +1264,7 @@ class SyncPolicy(object):
         :param target_snapshot_pattern: The target_snapshot_pattern of this SyncPolicy.
         :type: str
         """
+        
         self._target_snapshot_pattern = target_snapshot_pattern
 
     @property
@@ -1209,6 +1287,14 @@ class SyncPolicy(object):
         :param workers_per_node: The workers_per_node of this SyncPolicy.
         :type: int
         """
+        
+        if not workers_per_node:
+            raise ValueError("Invalid value for `workers_per_node`, must not be `None`")
+        if workers_per_node > 20.0: 
+            raise ValueError("Invalid value for `workers_per_node`, must be a value less than or equal to `20.0`")
+        if workers_per_node < 1.0: 
+            raise ValueError("Invalid value for `workers_per_node`, must be a value greater than or equal to `1.0`")
+
         self._workers_per_node = workers_per_node
 
     def to_dict(self):
@@ -1226,6 +1312,12 @@ class SyncPolicy(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -1243,14 +1335,14 @@ class SyncPolicy(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

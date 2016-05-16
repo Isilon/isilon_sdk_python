@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class Zone(object):
@@ -43,7 +44,7 @@ class Zone(object):
             'create_path': 'bool',
             'force_overlap': 'bool',
             'home_directory_umask': 'int',
-            'ifs_restricted': 'list[GroupsGroupMember]',
+            'ifs_restricted': 'list[GroupMember]',
             'map_untrusted': 'str',
             'name': 'str',
             'netbios_name': 'str',
@@ -105,6 +106,7 @@ class Zone(object):
         :param alternate_system_provider: The alternate_system_provider of this Zone.
         :type: str
         """
+        
         self._alternate_system_provider = alternate_system_provider
 
     @property
@@ -127,6 +129,7 @@ class Zone(object):
         :param auth_providers: The auth_providers of this Zone.
         :type: list[str]
         """
+        
         self._auth_providers = auth_providers
 
     @property
@@ -149,6 +152,7 @@ class Zone(object):
         :param cache_entry_expiry: The cache_entry_expiry of this Zone.
         :type: int
         """
+        
         self._cache_entry_expiry = cache_entry_expiry
 
     @property
@@ -171,6 +175,7 @@ class Zone(object):
         :param create_path: The create_path of this Zone.
         :type: bool
         """
+        
         self._create_path = create_path
 
     @property
@@ -193,6 +198,7 @@ class Zone(object):
         :param force_overlap: The force_overlap of this Zone.
         :type: bool
         """
+        
         self._force_overlap = force_overlap
 
     @property
@@ -215,6 +221,7 @@ class Zone(object):
         :param home_directory_umask: The home_directory_umask of this Zone.
         :type: int
         """
+        
         self._home_directory_umask = home_directory_umask
 
     @property
@@ -224,7 +231,7 @@ class Zone(object):
         Specifies a list of users and groups that have read and write access to /ifs.
 
         :return: The ifs_restricted of this Zone.
-        :rtype: list[GroupsGroupMember]
+        :rtype: list[GroupMember]
         """
         return self._ifs_restricted
 
@@ -235,8 +242,9 @@ class Zone(object):
         Specifies a list of users and groups that have read and write access to /ifs.
 
         :param ifs_restricted: The ifs_restricted of this Zone.
-        :type: list[GroupsGroupMember]
+        :type: list[GroupMember]
         """
+        
         self._ifs_restricted = ifs_restricted
 
     @property
@@ -259,6 +267,7 @@ class Zone(object):
         :param map_untrusted: The map_untrusted of this Zone.
         :type: str
         """
+        
         self._map_untrusted = map_untrusted
 
     @property
@@ -281,6 +290,7 @@ class Zone(object):
         :param name: The name of this Zone.
         :type: str
         """
+        
         self._name = name
 
     @property
@@ -303,6 +313,7 @@ class Zone(object):
         :param netbios_name: The netbios_name of this Zone.
         :type: str
         """
+        
         self._netbios_name = netbios_name
 
     @property
@@ -325,6 +336,7 @@ class Zone(object):
         :param path: The path of this Zone.
         :type: str
         """
+        
         self._path = path
 
     @property
@@ -347,6 +359,7 @@ class Zone(object):
         :param skeleton_directory: The skeleton_directory of this Zone.
         :type: str
         """
+        
         self._skeleton_directory = skeleton_directory
 
     @property
@@ -369,6 +382,7 @@ class Zone(object):
         :param system_provider: The system_provider of this Zone.
         :type: str
         """
+        
         self._system_provider = system_provider
 
     @property
@@ -391,6 +405,7 @@ class Zone(object):
         :param user_mapping_rules: The user_mapping_rules of this Zone.
         :type: list[str]
         """
+        
         self._user_mapping_rules = user_mapping_rules
 
     def to_dict(self):
@@ -408,6 +423,12 @@ class Zone(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -425,14 +446,14 @@ class Zone(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

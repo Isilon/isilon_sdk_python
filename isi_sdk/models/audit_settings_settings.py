@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class AuditSettingsSettings(object):
@@ -75,6 +76,7 @@ class AuditSettingsSettings(object):
         :param audit_failure: The audit_failure of this AuditSettingsSettings.
         :type: list[str]
         """
+        
         self._audit_failure = audit_failure
 
     @property
@@ -97,6 +99,7 @@ class AuditSettingsSettings(object):
         :param audit_success: The audit_success of this AuditSettingsSettings.
         :type: list[str]
         """
+        
         self._audit_success = audit_success
 
     @property
@@ -119,6 +122,7 @@ class AuditSettingsSettings(object):
         :param syslog_audit_events: The syslog_audit_events of this AuditSettingsSettings.
         :type: list[str]
         """
+        
         self._syslog_audit_events = syslog_audit_events
 
     @property
@@ -141,6 +145,7 @@ class AuditSettingsSettings(object):
         :param syslog_forwarding_enabled: The syslog_forwarding_enabled of this AuditSettingsSettings.
         :type: bool
         """
+        
         self._syslog_forwarding_enabled = syslog_forwarding_enabled
 
     def to_dict(self):
@@ -158,6 +163,12 @@ class AuditSettingsSettings(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -175,14 +186,14 @@ class AuditSettingsSettings(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

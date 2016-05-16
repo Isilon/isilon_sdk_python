@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class SnapshotSchedulesExtended(object):
@@ -37,20 +38,43 @@ class SnapshotSchedulesExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
+            'schedules': 'list[SnapshotScheduleExtended]',
             'resume': 'str',
-            'total': 'int',
-            'schedules': 'list[SnapshotScheduleExtended]'
+            'total': 'int'
         }
 
         self.attribute_map = {
+            'schedules': 'schedules',
             'resume': 'resume',
-            'total': 'total',
-            'schedules': 'schedules'
+            'total': 'total'
         }
 
+        self._schedules = None
         self._resume = None
         self._total = None
-        self._schedules = None
+
+    @property
+    def schedules(self):
+        """
+        Gets the schedules of this SnapshotSchedulesExtended.
+
+
+        :return: The schedules of this SnapshotSchedulesExtended.
+        :rtype: list[SnapshotScheduleExtended]
+        """
+        return self._schedules
+
+    @schedules.setter
+    def schedules(self, schedules):
+        """
+        Sets the schedules of this SnapshotSchedulesExtended.
+
+
+        :param schedules: The schedules of this SnapshotSchedulesExtended.
+        :type: list[SnapshotScheduleExtended]
+        """
+        
+        self._schedules = schedules
 
     @property
     def resume(self):
@@ -72,6 +96,7 @@ class SnapshotSchedulesExtended(object):
         :param resume: The resume of this SnapshotSchedulesExtended.
         :type: str
         """
+        
         self._resume = resume
 
     @property
@@ -94,29 +119,8 @@ class SnapshotSchedulesExtended(object):
         :param total: The total of this SnapshotSchedulesExtended.
         :type: int
         """
+        
         self._total = total
-
-    @property
-    def schedules(self):
-        """
-        Gets the schedules of this SnapshotSchedulesExtended.
-
-
-        :return: The schedules of this SnapshotSchedulesExtended.
-        :rtype: list[SnapshotScheduleExtended]
-        """
-        return self._schedules
-
-    @schedules.setter
-    def schedules(self, schedules):
-        """
-        Sets the schedules of this SnapshotSchedulesExtended.
-
-
-        :param schedules: The schedules of this SnapshotSchedulesExtended.
-        :type: list[SnapshotScheduleExtended]
-        """
-        self._schedules = schedules
 
     def to_dict(self):
         """
@@ -133,6 +137,12 @@ class SnapshotSchedulesExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -150,14 +160,14 @@ class SnapshotSchedulesExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

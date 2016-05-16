@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class NfsNlmSessionsExtended(object):
@@ -37,64 +38,17 @@ class NfsNlmSessionsExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'sessions': 'list[NfsNlmSessionsSession]',
-            'total': 'int',
-            'clients': 'list[NfsNlmSessionsSession]'
+            'clients': 'list[NfsNlmSessionsSession]',
+            'total': 'int'
         }
 
         self.attribute_map = {
-            'sessions': 'sessions',
-            'total': 'total',
-            'clients': 'clients'
+            'clients': 'clients',
+            'total': 'total'
         }
 
-        self._sessions = None
-        self._total = None
         self._clients = None
-
-    @property
-    def sessions(self):
-        """
-        Gets the sessions of this NfsNlmSessionsExtended.
-
-
-        :return: The sessions of this NfsNlmSessionsExtended.
-        :rtype: list[NfsNlmSessionsSession]
-        """
-        return self._sessions
-
-    @sessions.setter
-    def sessions(self, sessions):
-        """
-        Sets the sessions of this NfsNlmSessionsExtended.
-
-
-        :param sessions: The sessions of this NfsNlmSessionsExtended.
-        :type: list[NfsNlmSessionsSession]
-        """
-        self._sessions = sessions
-
-    @property
-    def total(self):
-        """
-        Gets the total of this NfsNlmSessionsExtended.
-        Total number of items available.
-
-        :return: The total of this NfsNlmSessionsExtended.
-        :rtype: int
-        """
-        return self._total
-
-    @total.setter
-    def total(self, total):
-        """
-        Sets the total of this NfsNlmSessionsExtended.
-        Total number of items available.
-
-        :param total: The total of this NfsNlmSessionsExtended.
-        :type: int
-        """
-        self._total = total
+        self._total = None
 
     @property
     def clients(self):
@@ -116,7 +70,31 @@ class NfsNlmSessionsExtended(object):
         :param clients: The clients of this NfsNlmSessionsExtended.
         :type: list[NfsNlmSessionsSession]
         """
+        
         self._clients = clients
+
+    @property
+    def total(self):
+        """
+        Gets the total of this NfsNlmSessionsExtended.
+        Total number of items available.
+
+        :return: The total of this NfsNlmSessionsExtended.
+        :rtype: int
+        """
+        return self._total
+
+    @total.setter
+    def total(self, total):
+        """
+        Sets the total of this NfsNlmSessionsExtended.
+        Total number of items available.
+
+        :param total: The total of this NfsNlmSessionsExtended.
+        :type: int
+        """
+        
+        self._total = total
 
     def to_dict(self):
         """
@@ -133,6 +111,12 @@ class NfsNlmSessionsExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -150,14 +134,14 @@ class NfsNlmSessionsExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

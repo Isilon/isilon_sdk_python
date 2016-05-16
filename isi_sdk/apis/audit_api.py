@@ -2,7 +2,7 @@
 
 """
 AuditApi.py
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@ from __future__ import absolute_import
 
 import sys
 import os
+import re
 
 # python 2 and python 3 compatibility library
 from six import iteritems
@@ -44,79 +45,6 @@ class AuditApi(object):
             if not config.api_client:
                 config.api_client = ApiClient()
             self.api_client = config.api_client
-
-    def list_audit_topics(self, **kwargs):
-        """
-        
-        Retrieve a list of audit topics.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.list_audit_topics(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: AuditTopicsExtended
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_audit_topics" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/1/audit/topics'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='AuditTopicsExtended',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
 
     def create_audit_topic(self, audit_topic, **kwargs):
         """
@@ -156,17 +84,16 @@ class AuditApi(object):
         if ('audit_topic' not in params) or (params['audit_topic'] is None):
             raise ValueError("Missing the required parameter `audit_topic` when calling `create_audit_topic`")
 
-        resource_path = '/platform/1/audit/topics'.replace('{format}', 'json')
-        method = 'POST'
 
+        resource_path = '/platform/1/audit/topics'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'audit_topic' in params:
@@ -185,14 +112,167 @@ class AuditApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'POST',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='CreateResponse',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def delete_audit_topic(self, audit_topic_id, **kwargs):
+        """
+        
+        Delete the audit topic.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.delete_audit_topic(audit_topic_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str audit_topic_id: Delete the audit topic. (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['audit_topic_id']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_audit_topic" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'audit_topic_id' is set
+        if ('audit_topic_id' not in params) or (params['audit_topic_id'] is None):
+            raise ValueError("Missing the required parameter `audit_topic_id` when calling `delete_audit_topic`")
+
+
+        resource_path = '/platform/1/audit/topics/{AuditTopicId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'audit_topic_id' in params:
+            path_params['AuditTopicId'] = params['audit_topic_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'DELETE',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_audit_settings(self, **kwargs):
+        """
+        
+        View per-Access Zone Audit settings.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_audit_settings(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str zone: Access zone which contains audit settings.
+        :return: AuditSettings
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['zone']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_audit_settings" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/3/audit/settings'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'zone' in params:
+            query_params['zone'] = params['zone']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='AuditSettings',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -235,9 +315,8 @@ class AuditApi(object):
         if ('audit_topic_id' not in params) or (params['audit_topic_id'] is None):
             raise ValueError("Missing the required parameter `audit_topic_id` when calling `get_audit_topic`")
 
-        resource_path = '/platform/1/audit/topics/{AuditTopicId}'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/1/audit/topics/{AuditTopicId}'.replace('{format}', 'json')
         path_params = {}
         if 'audit_topic_id' in params:
             path_params['AuditTopicId'] = params['audit_topic_id']
@@ -246,8 +325,8 @@ class AuditApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -264,14 +343,239 @@ class AuditApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='AuditTopics',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_settings_global(self, **kwargs):
+        """
+        
+        View Global Audit settings.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_settings_global(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: SettingsGlobalExtended
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_settings_global" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/3/audit/settings/global'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='SettingsGlobalExtended',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def list_audit_topics(self, **kwargs):
+        """
+        
+        Retrieve a list of audit topics.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.list_audit_topics(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: AuditTopicsExtended
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_audit_topics" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/1/audit/topics'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='AuditTopicsExtended',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def update_audit_settings(self, audit_settings, **kwargs):
+        """
+        
+        Modify per-Access Zone Audit settings.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_audit_settings(audit_settings, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param AuditSettingsSettings audit_settings:  (required)
+        :param str zone: Access zone which contains audit settings.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['audit_settings', 'zone']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_audit_settings" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'audit_settings' is set
+        if ('audit_settings' not in params) or (params['audit_settings'] is None):
+            raise ValueError("Missing the required parameter `audit_settings` when calling `update_audit_settings`")
+
+
+        resource_path = '/platform/3/audit/settings'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'zone' in params:
+            query_params['zone'] = params['zone']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'audit_settings' in params:
+            body_params = params['audit_settings']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'PUT',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -318,9 +622,8 @@ class AuditApi(object):
         if ('audit_topic_id' not in params) or (params['audit_topic_id'] is None):
             raise ValueError("Missing the required parameter `audit_topic_id` when calling `update_audit_topic`")
 
-        resource_path = '/platform/1/audit/topics/{AuditTopicId}'.replace('{format}', 'json')
-        method = 'PUT'
 
+        resource_path = '/platform/1/audit/topics/{AuditTopicId}'.replace('{format}', 'json')
         path_params = {}
         if 'audit_topic_id' in params:
             path_params['AuditTopicId'] = params['audit_topic_id']
@@ -329,8 +632,8 @@ class AuditApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'audit_topic' in params:
@@ -349,324 +652,14 @@ class AuditApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'PUT',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def delete_audit_topic(self, audit_topic_id, **kwargs):
-        """
-        
-        Delete the audit topic.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_audit_topic(audit_topic_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str audit_topic_id: Delete the audit topic. (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['audit_topic_id']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_audit_topic" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'audit_topic_id' is set
-        if ('audit_topic_id' not in params) or (params['audit_topic_id'] is None):
-            raise ValueError("Missing the required parameter `audit_topic_id` when calling `delete_audit_topic`")
-
-        resource_path = '/platform/1/audit/topics/{AuditTopicId}'.replace('{format}', 'json')
-        method = 'DELETE'
-
-        path_params = {}
-        if 'audit_topic_id' in params:
-            path_params['AuditTopicId'] = params['audit_topic_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_audit_settings(self, **kwargs):
-        """
-        
-        View per-Access Zone Audit settings.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_audit_settings(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str zone: Access zone which contains audit settings.
-        :return: AuditSettings
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['zone']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_audit_settings" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/audit/settings'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-        if 'zone' in params:
-            query_params['zone'] = params['zone']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='AuditSettings',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def update_audit_settings(self, audit_settings, **kwargs):
-        """
-        
-        Modify per-Access Zone Audit settings.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_audit_settings(audit_settings, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param AuditSettingsSettings audit_settings:  (required)
-        :param str zone: Access zone which contains audit settings.
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['audit_settings', 'zone']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_audit_settings" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'audit_settings' is set
-        if ('audit_settings' not in params) or (params['audit_settings'] is None):
-            raise ValueError("Missing the required parameter `audit_settings` when calling `update_audit_settings`")
-
-        resource_path = '/platform/3/audit/settings'.replace('{format}', 'json')
-        method = 'PUT'
-
-        path_params = {}
-
-        query_params = {}
-        if 'zone' in params:
-            query_params['zone'] = params['zone']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'audit_settings' in params:
-            body_params = params['audit_settings']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_settings_global(self, **kwargs):
-        """
-        
-        View Global Audit settings.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_settings_global(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: SettingsGlobalExtended
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_settings_global" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/audit/settings/global'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='SettingsGlobalExtended',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -709,17 +702,16 @@ class AuditApi(object):
         if ('settings_global' not in params) or (params['settings_global'] is None):
             raise ValueError("Missing the required parameter `settings_global` when calling `update_settings_global`")
 
-        resource_path = '/platform/3/audit/settings/global'.replace('{format}', 'json')
-        method = 'PUT'
 
+        resource_path = '/platform/3/audit/settings/global'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'settings_global' in params:
@@ -738,13 +730,13 @@ class AuditApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'PUT',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))

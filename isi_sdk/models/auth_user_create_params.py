@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class AuthUserCreateParams(object):
@@ -37,75 +38,145 @@ class AuthUserCreateParams(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'unlock': 'bool',
-            'home_directory': 'str',
-            'primary_group': 'GroupsGroupMember',
-            'prompt_password_change': 'bool',
+            'email': 'str',
             'enabled': 'bool',
+            'expiry': 'int',
+            'gecos': 'str',
+            'home_directory': 'str',
+            'password': 'str',
+            'password_expires': 'bool',
+            'primary_group': 'GroupMember',
+            'prompt_password_change': 'bool',
+            'shell': 'str',
             'sid': 'str',
             'uid': 'int',
-            'password': 'str',
-            'gecos': 'str',
-            'password_expires': 'bool',
-            'shell': 'str',
-            'name': 'str',
-            'expiry': 'int',
-            'email': 'str'
+            'unlock': 'bool',
+            'name': 'str'
         }
 
         self.attribute_map = {
-            'unlock': 'unlock',
+            'email': 'email',
+            'enabled': 'enabled',
+            'expiry': 'expiry',
+            'gecos': 'gecos',
             'home_directory': 'home_directory',
+            'password': 'password',
+            'password_expires': 'password_expires',
             'primary_group': 'primary_group',
             'prompt_password_change': 'prompt_password_change',
-            'enabled': 'enabled',
+            'shell': 'shell',
             'sid': 'sid',
             'uid': 'uid',
-            'password': 'password',
-            'gecos': 'gecos',
-            'password_expires': 'password_expires',
-            'shell': 'shell',
-            'name': 'name',
-            'expiry': 'expiry',
-            'email': 'email'
+            'unlock': 'unlock',
+            'name': 'name'
         }
 
-        self._unlock = None
+        self._email = None
+        self._enabled = None
+        self._expiry = None
+        self._gecos = None
         self._home_directory = None
+        self._password = None
+        self._password_expires = None
         self._primary_group = None
         self._prompt_password_change = None
-        self._enabled = None
+        self._shell = None
         self._sid = None
         self._uid = None
-        self._password = None
-        self._gecos = None
-        self._password_expires = None
-        self._shell = None
+        self._unlock = None
         self._name = None
-        self._expiry = None
-        self._email = None
 
     @property
-    def unlock(self):
+    def email(self):
         """
-        Gets the unlock of this AuthUserCreateParams.
-        If true, the user account should be unlocked.
+        Gets the email of this AuthUserCreateParams.
+        Specifies an email address for the user.
 
-        :return: The unlock of this AuthUserCreateParams.
+        :return: The email of this AuthUserCreateParams.
+        :rtype: str
+        """
+        return self._email
+
+    @email.setter
+    def email(self, email):
+        """
+        Sets the email of this AuthUserCreateParams.
+        Specifies an email address for the user.
+
+        :param email: The email of this AuthUserCreateParams.
+        :type: str
+        """
+        
+        self._email = email
+
+    @property
+    def enabled(self):
+        """
+        Gets the enabled of this AuthUserCreateParams.
+        If true, the authenticated user is enabled.
+
+        :return: The enabled of this AuthUserCreateParams.
         :rtype: bool
         """
-        return self._unlock
+        return self._enabled
 
-    @unlock.setter
-    def unlock(self, unlock):
+    @enabled.setter
+    def enabled(self, enabled):
         """
-        Sets the unlock of this AuthUserCreateParams.
-        If true, the user account should be unlocked.
+        Sets the enabled of this AuthUserCreateParams.
+        If true, the authenticated user is enabled.
 
-        :param unlock: The unlock of this AuthUserCreateParams.
+        :param enabled: The enabled of this AuthUserCreateParams.
         :type: bool
         """
-        self._unlock = unlock
+        
+        self._enabled = enabled
+
+    @property
+    def expiry(self):
+        """
+        Gets the expiry of this AuthUserCreateParams.
+        Specifies the Unix Epoch time when the auth user will expire.
+
+        :return: The expiry of this AuthUserCreateParams.
+        :rtype: int
+        """
+        return self._expiry
+
+    @expiry.setter
+    def expiry(self, expiry):
+        """
+        Sets the expiry of this AuthUserCreateParams.
+        Specifies the Unix Epoch time when the auth user will expire.
+
+        :param expiry: The expiry of this AuthUserCreateParams.
+        :type: int
+        """
+        
+        self._expiry = expiry
+
+    @property
+    def gecos(self):
+        """
+        Gets the gecos of this AuthUserCreateParams.
+        Specifies the GECOS value, which is usually the full name.
+
+        :return: The gecos of this AuthUserCreateParams.
+        :rtype: str
+        """
+        return self._gecos
+
+    @gecos.setter
+    def gecos(self, gecos):
+        """
+        Sets the gecos of this AuthUserCreateParams.
+        Specifies the GECOS value, which is usually the full name.
+
+        :param gecos: The gecos of this AuthUserCreateParams.
+        :type: str
+        """
+        
+        self._gecos = gecos
 
     @property
     def home_directory(self):
@@ -127,7 +198,54 @@ class AuthUserCreateParams(object):
         :param home_directory: The home_directory of this AuthUserCreateParams.
         :type: str
         """
+        
         self._home_directory = home_directory
+
+    @property
+    def password(self):
+        """
+        Gets the password of this AuthUserCreateParams.
+        Changes the password for the user.
+
+        :return: The password of this AuthUserCreateParams.
+        :rtype: str
+        """
+        return self._password
+
+    @password.setter
+    def password(self, password):
+        """
+        Sets the password of this AuthUserCreateParams.
+        Changes the password for the user.
+
+        :param password: The password of this AuthUserCreateParams.
+        :type: str
+        """
+        
+        self._password = password
+
+    @property
+    def password_expires(self):
+        """
+        Gets the password_expires of this AuthUserCreateParams.
+        If true, the password should expire.
+
+        :return: The password_expires of this AuthUserCreateParams.
+        :rtype: bool
+        """
+        return self._password_expires
+
+    @password_expires.setter
+    def password_expires(self, password_expires):
+        """
+        Sets the password_expires of this AuthUserCreateParams.
+        If true, the password should expire.
+
+        :param password_expires: The password_expires of this AuthUserCreateParams.
+        :type: bool
+        """
+        
+        self._password_expires = password_expires
 
     @property
     def primary_group(self):
@@ -136,7 +254,7 @@ class AuthUserCreateParams(object):
         Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'.
 
         :return: The primary_group of this AuthUserCreateParams.
-        :rtype: GroupsGroupMember
+        :rtype: GroupMember
         """
         return self._primary_group
 
@@ -147,8 +265,9 @@ class AuthUserCreateParams(object):
         Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'.
 
         :param primary_group: The primary_group of this AuthUserCreateParams.
-        :type: GroupsGroupMember
+        :type: GroupMember
         """
+        
         self._primary_group = primary_group
 
     @property
@@ -171,29 +290,31 @@ class AuthUserCreateParams(object):
         :param prompt_password_change: The prompt_password_change of this AuthUserCreateParams.
         :type: bool
         """
+        
         self._prompt_password_change = prompt_password_change
 
     @property
-    def enabled(self):
+    def shell(self):
         """
-        Gets the enabled of this AuthUserCreateParams.
-        If true, the authenticated user is enabled.
+        Gets the shell of this AuthUserCreateParams.
+        Specifies the shell for the user.
 
-        :return: The enabled of this AuthUserCreateParams.
-        :rtype: bool
+        :return: The shell of this AuthUserCreateParams.
+        :rtype: str
         """
-        return self._enabled
+        return self._shell
 
-    @enabled.setter
-    def enabled(self, enabled):
+    @shell.setter
+    def shell(self, shell):
         """
-        Sets the enabled of this AuthUserCreateParams.
-        If true, the authenticated user is enabled.
+        Sets the shell of this AuthUserCreateParams.
+        Specifies the shell for the user.
 
-        :param enabled: The enabled of this AuthUserCreateParams.
-        :type: bool
+        :param shell: The shell of this AuthUserCreateParams.
+        :type: str
         """
-        self._enabled = enabled
+        
+        self._shell = shell
 
     @property
     def sid(self):
@@ -215,6 +336,7 @@ class AuthUserCreateParams(object):
         :param sid: The sid of this AuthUserCreateParams.
         :type: str
         """
+        
         self._sid = sid
 
     @property
@@ -237,95 +359,31 @@ class AuthUserCreateParams(object):
         :param uid: The uid of this AuthUserCreateParams.
         :type: int
         """
+        
         self._uid = uid
 
     @property
-    def password(self):
+    def unlock(self):
         """
-        Gets the password of this AuthUserCreateParams.
-        Changes the password for the user.
+        Gets the unlock of this AuthUserCreateParams.
+        If true, the user account should be unlocked.
 
-        :return: The password of this AuthUserCreateParams.
-        :rtype: str
-        """
-        return self._password
-
-    @password.setter
-    def password(self, password):
-        """
-        Sets the password of this AuthUserCreateParams.
-        Changes the password for the user.
-
-        :param password: The password of this AuthUserCreateParams.
-        :type: str
-        """
-        self._password = password
-
-    @property
-    def gecos(self):
-        """
-        Gets the gecos of this AuthUserCreateParams.
-        Specifies the GECOS value, which is usually the full name.
-
-        :return: The gecos of this AuthUserCreateParams.
-        :rtype: str
-        """
-        return self._gecos
-
-    @gecos.setter
-    def gecos(self, gecos):
-        """
-        Sets the gecos of this AuthUserCreateParams.
-        Specifies the GECOS value, which is usually the full name.
-
-        :param gecos: The gecos of this AuthUserCreateParams.
-        :type: str
-        """
-        self._gecos = gecos
-
-    @property
-    def password_expires(self):
-        """
-        Gets the password_expires of this AuthUserCreateParams.
-        If true, the password should expire.
-
-        :return: The password_expires of this AuthUserCreateParams.
+        :return: The unlock of this AuthUserCreateParams.
         :rtype: bool
         """
-        return self._password_expires
+        return self._unlock
 
-    @password_expires.setter
-    def password_expires(self, password_expires):
+    @unlock.setter
+    def unlock(self, unlock):
         """
-        Sets the password_expires of this AuthUserCreateParams.
-        If true, the password should expire.
+        Sets the unlock of this AuthUserCreateParams.
+        If true, the user account should be unlocked.
 
-        :param password_expires: The password_expires of this AuthUserCreateParams.
+        :param unlock: The unlock of this AuthUserCreateParams.
         :type: bool
         """
-        self._password_expires = password_expires
-
-    @property
-    def shell(self):
-        """
-        Gets the shell of this AuthUserCreateParams.
-        Specifies the shell for the user.
-
-        :return: The shell of this AuthUserCreateParams.
-        :rtype: str
-        """
-        return self._shell
-
-    @shell.setter
-    def shell(self, shell):
-        """
-        Sets the shell of this AuthUserCreateParams.
-        Specifies the shell for the user.
-
-        :param shell: The shell of this AuthUserCreateParams.
-        :type: str
-        """
-        self._shell = shell
+        
+        self._unlock = unlock
 
     @property
     def name(self):
@@ -347,51 +405,8 @@ class AuthUserCreateParams(object):
         :param name: The name of this AuthUserCreateParams.
         :type: str
         """
+        
         self._name = name
-
-    @property
-    def expiry(self):
-        """
-        Gets the expiry of this AuthUserCreateParams.
-        Specifies the Unix Epoch time when the auth user will expire.
-
-        :return: The expiry of this AuthUserCreateParams.
-        :rtype: int
-        """
-        return self._expiry
-
-    @expiry.setter
-    def expiry(self, expiry):
-        """
-        Sets the expiry of this AuthUserCreateParams.
-        Specifies the Unix Epoch time when the auth user will expire.
-
-        :param expiry: The expiry of this AuthUserCreateParams.
-        :type: int
-        """
-        self._expiry = expiry
-
-    @property
-    def email(self):
-        """
-        Gets the email of this AuthUserCreateParams.
-        Specifies an email address for the user.
-
-        :return: The email of this AuthUserCreateParams.
-        :rtype: str
-        """
-        return self._email
-
-    @email.setter
-    def email(self, email):
-        """
-        Sets the email of this AuthUserCreateParams.
-        Specifies an email address for the user.
-
-        :param email: The email of this AuthUserCreateParams.
-        :type: str
-        """
-        self._email = email
 
     def to_dict(self):
         """
@@ -408,6 +423,12 @@ class AuthUserCreateParams(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -425,14 +446,14 @@ class AuthUserCreateParams(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

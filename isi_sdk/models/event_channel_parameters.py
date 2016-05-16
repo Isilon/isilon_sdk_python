@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class EventChannelParameters(object):
@@ -99,6 +100,7 @@ class EventChannelParameters(object):
         :param address: The address of this EventChannelParameters.
         :type: list[str]
         """
+        
         self._address = address
 
     @property
@@ -127,6 +129,7 @@ class EventChannelParameters(object):
                 "Invalid value for `batch`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._batch = batch
 
     @property
@@ -149,6 +152,7 @@ class EventChannelParameters(object):
         :param batch_period: The batch_period of this EventChannelParameters.
         :type: int
         """
+        
         self._batch_period = batch_period
 
     @property
@@ -171,6 +175,7 @@ class EventChannelParameters(object):
         :param custom_template: The custom_template of this EventChannelParameters.
         :type: str
         """
+        
         self._custom_template = custom_template
 
     @property
@@ -193,6 +198,7 @@ class EventChannelParameters(object):
         :param send_as: The send_as of this EventChannelParameters.
         :type: str
         """
+        
         self._send_as = send_as
 
     @property
@@ -215,6 +221,7 @@ class EventChannelParameters(object):
         :param smtp_host: The smtp_host of this EventChannelParameters.
         :type: str
         """
+        
         self._smtp_host = smtp_host
 
     @property
@@ -237,6 +244,7 @@ class EventChannelParameters(object):
         :param smtp_password: The smtp_password of this EventChannelParameters.
         :type: str
         """
+        
         self._smtp_password = smtp_password
 
     @property
@@ -259,6 +267,7 @@ class EventChannelParameters(object):
         :param smtp_port: The smtp_port of this EventChannelParameters.
         :type: int
         """
+        
         self._smtp_port = smtp_port
 
     @property
@@ -287,6 +296,7 @@ class EventChannelParameters(object):
                 "Invalid value for `smtp_security`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._smtp_security = smtp_security
 
     @property
@@ -309,6 +319,7 @@ class EventChannelParameters(object):
         :param smtp_use_auth: The smtp_use_auth of this EventChannelParameters.
         :type: bool
         """
+        
         self._smtp_use_auth = smtp_use_auth
 
     @property
@@ -331,6 +342,7 @@ class EventChannelParameters(object):
         :param smtp_username: The smtp_username of this EventChannelParameters.
         :type: str
         """
+        
         self._smtp_username = smtp_username
 
     @property
@@ -353,6 +365,7 @@ class EventChannelParameters(object):
         :param subject: The subject of this EventChannelParameters.
         :type: str
         """
+        
         self._subject = subject
 
     def to_dict(self):
@@ -370,6 +383,12 @@ class EventChannelParameters(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -387,14 +406,14 @@ class EventChannelParameters(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

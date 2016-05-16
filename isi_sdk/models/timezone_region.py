@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class TimezoneRegion(object):
@@ -75,6 +76,7 @@ class TimezoneRegion(object):
         :param comments: The comments of this TimezoneRegion.
         :type: str
         """
+        
         self._comments = comments
 
     @property
@@ -97,6 +99,7 @@ class TimezoneRegion(object):
         :param id: The id of this TimezoneRegion.
         :type: str
         """
+        
         self._id = id
 
     @property
@@ -119,6 +122,7 @@ class TimezoneRegion(object):
         :param region: The region of this TimezoneRegion.
         :type: str
         """
+        
         self._region = region
 
     @property
@@ -141,6 +145,7 @@ class TimezoneRegion(object):
         :param timezone: The timezone of this TimezoneRegion.
         :type: TimezoneRegionTimezone
         """
+        
         self._timezone = timezone
 
     def to_dict(self):
@@ -158,6 +163,12 @@ class TimezoneRegion(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -175,14 +186,14 @@ class TimezoneRegion(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

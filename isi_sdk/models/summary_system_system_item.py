@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class SummarySystemSystemItem(object):
@@ -105,6 +106,7 @@ class SummarySystemSystemItem(object):
         :param cpu: The cpu of this SummarySystemSystemItem.
         :type: float
         """
+        
         self._cpu = cpu
 
     @property
@@ -127,6 +129,7 @@ class SummarySystemSystemItem(object):
         :param disk_in: The disk_in of this SummarySystemSystemItem.
         :type: float
         """
+        
         self._disk_in = disk_in
 
     @property
@@ -149,6 +152,7 @@ class SummarySystemSystemItem(object):
         :param disk_out: The disk_out of this SummarySystemSystemItem.
         :type: float
         """
+        
         self._disk_out = disk_out
 
     @property
@@ -171,6 +175,7 @@ class SummarySystemSystemItem(object):
         :param ftp: The ftp of this SummarySystemSystemItem.
         :type: float
         """
+        
         self._ftp = ftp
 
     @property
@@ -193,6 +198,7 @@ class SummarySystemSystemItem(object):
         :param hdfs: The hdfs of this SummarySystemSystemItem.
         :type: float
         """
+        
         self._hdfs = hdfs
 
     @property
@@ -215,6 +221,7 @@ class SummarySystemSystemItem(object):
         :param http: The http of this SummarySystemSystemItem.
         :type: float
         """
+        
         self._http = http
 
     @property
@@ -237,6 +244,7 @@ class SummarySystemSystemItem(object):
         :param iscsi: The iscsi of this SummarySystemSystemItem.
         :type: float
         """
+        
         self._iscsi = iscsi
 
     @property
@@ -259,6 +267,7 @@ class SummarySystemSystemItem(object):
         :param net_in: The net_in of this SummarySystemSystemItem.
         :type: float
         """
+        
         self._net_in = net_in
 
     @property
@@ -281,6 +290,7 @@ class SummarySystemSystemItem(object):
         :param net_out: The net_out of this SummarySystemSystemItem.
         :type: float
         """
+        
         self._net_out = net_out
 
     @property
@@ -303,6 +313,7 @@ class SummarySystemSystemItem(object):
         :param nfs: The nfs of this SummarySystemSystemItem.
         :type: float
         """
+        
         self._nfs = nfs
 
     @property
@@ -325,6 +336,7 @@ class SummarySystemSystemItem(object):
         :param node: The node of this SummarySystemSystemItem.
         :type: str
         """
+        
         self._node = node
 
     @property
@@ -347,6 +359,7 @@ class SummarySystemSystemItem(object):
         :param smb: The smb of this SummarySystemSystemItem.
         :type: float
         """
+        
         self._smb = smb
 
     @property
@@ -369,6 +382,7 @@ class SummarySystemSystemItem(object):
         :param time: The time of this SummarySystemSystemItem.
         :type: int
         """
+        
         self._time = time
 
     @property
@@ -391,6 +405,7 @@ class SummarySystemSystemItem(object):
         :param total: The total of this SummarySystemSystemItem.
         :type: float
         """
+        
         self._total = total
 
     def to_dict(self):
@@ -408,6 +423,12 @@ class SummarySystemSystemItem(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -425,14 +446,14 @@ class SummarySystemSystemItem(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

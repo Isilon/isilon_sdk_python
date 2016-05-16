@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class StoragepoolNodepool(object):
@@ -78,6 +79,7 @@ class StoragepoolNodepool(object):
         :param l3: The l3 of this StoragepoolNodepool.
         :type: bool
         """
+        
         self._l3 = l3
 
     @property
@@ -100,6 +102,7 @@ class StoragepoolNodepool(object):
         :param lnns: The lnns of this StoragepoolNodepool.
         :type: list[int]
         """
+        
         self._lnns = lnns
 
     @property
@@ -122,6 +125,7 @@ class StoragepoolNodepool(object):
         :param name: The name of this StoragepoolNodepool.
         :type: str
         """
+        
         self._name = name
 
     @property
@@ -144,6 +148,7 @@ class StoragepoolNodepool(object):
         :param protection_policy: The protection_policy of this StoragepoolNodepool.
         :type: str
         """
+        
         self._protection_policy = protection_policy
 
     @property
@@ -166,6 +171,7 @@ class StoragepoolNodepool(object):
         :param tier: The tier of this StoragepoolNodepool.
         :type: str
         """
+        
         self._tier = tier
 
     def to_dict(self):
@@ -183,6 +189,12 @@ class StoragepoolNodepool(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -200,14 +212,14 @@ class StoragepoolNodepool(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

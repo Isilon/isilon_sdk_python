@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class NetworkRules(object):
@@ -38,7 +39,7 @@ class NetworkRules(object):
         """
         self.swagger_types = {
             'resume': 'str',
-            'rules': 'list[GroupnetsGroupnetSubnetsSubnetPoolsPoolRulesRule]',
+            'rules': 'list[PoolsPoolRulesRule]',
             'total': 'int'
         }
 
@@ -72,6 +73,7 @@ class NetworkRules(object):
         :param resume: The resume of this NetworkRules.
         :type: str
         """
+        
         self._resume = resume
 
     @property
@@ -81,7 +83,7 @@ class NetworkRules(object):
 
 
         :return: The rules of this NetworkRules.
-        :rtype: list[GroupnetsGroupnetSubnetsSubnetPoolsPoolRulesRule]
+        :rtype: list[PoolsPoolRulesRule]
         """
         return self._rules
 
@@ -92,8 +94,9 @@ class NetworkRules(object):
 
 
         :param rules: The rules of this NetworkRules.
-        :type: list[GroupnetsGroupnetSubnetsSubnetPoolsPoolRulesRule]
+        :type: list[PoolsPoolRulesRule]
         """
+        
         self._rules = rules
 
     @property
@@ -116,6 +119,7 @@ class NetworkRules(object):
         :param total: The total of this NetworkRules.
         :type: int
         """
+        
         self._total = total
 
     def to_dict(self):
@@ -133,6 +137,12 @@ class NetworkRules(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -150,14 +160,14 @@ class NetworkRules(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class StoragepoolStatusUnhealthyItem(object):
@@ -72,6 +73,7 @@ class StoragepoolStatusUnhealthyItem(object):
         :param affected: The affected of this StoragepoolStatusUnhealthyItem.
         :type: list[StoragepoolStatusUnhealthyItemAffectedItem]
         """
+        
         self._affected = affected
 
     @property
@@ -94,6 +96,7 @@ class StoragepoolStatusUnhealthyItem(object):
         :param diskpool: The diskpool of this StoragepoolStatusUnhealthyItem.
         :type: StoragepoolStatusUnhealthyItemDiskpool
         """
+        
         self._diskpool = diskpool
 
     @property
@@ -116,6 +119,7 @@ class StoragepoolStatusUnhealthyItem(object):
         :param health_flags: The health_flags of this StoragepoolStatusUnhealthyItem.
         :type: list[str]
         """
+        
         self._health_flags = health_flags
 
     def to_dict(self):
@@ -133,6 +137,12 @@ class StoragepoolStatusUnhealthyItem(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -150,14 +160,14 @@ class StoragepoolStatusUnhealthyItem(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

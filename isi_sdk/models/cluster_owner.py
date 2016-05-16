@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class ClusterOwner(object):
@@ -93,6 +94,7 @@ class ClusterOwner(object):
         :param company: The company of this ClusterOwner.
         :type: str
         """
+        
         self._company = company
 
     @property
@@ -115,6 +117,7 @@ class ClusterOwner(object):
         :param location: The location of this ClusterOwner.
         :type: str
         """
+        
         self._location = location
 
     @property
@@ -137,6 +140,7 @@ class ClusterOwner(object):
         :param primary_email: The primary_email of this ClusterOwner.
         :type: str
         """
+        
         self._primary_email = primary_email
 
     @property
@@ -159,6 +163,7 @@ class ClusterOwner(object):
         :param primary_name: The primary_name of this ClusterOwner.
         :type: str
         """
+        
         self._primary_name = primary_name
 
     @property
@@ -181,6 +186,7 @@ class ClusterOwner(object):
         :param primary_phone1: The primary_phone1 of this ClusterOwner.
         :type: str
         """
+        
         self._primary_phone1 = primary_phone1
 
     @property
@@ -203,6 +209,7 @@ class ClusterOwner(object):
         :param primary_phone2: The primary_phone2 of this ClusterOwner.
         :type: str
         """
+        
         self._primary_phone2 = primary_phone2
 
     @property
@@ -225,6 +232,7 @@ class ClusterOwner(object):
         :param secondary_email: The secondary_email of this ClusterOwner.
         :type: str
         """
+        
         self._secondary_email = secondary_email
 
     @property
@@ -247,6 +255,7 @@ class ClusterOwner(object):
         :param secondary_name: The secondary_name of this ClusterOwner.
         :type: str
         """
+        
         self._secondary_name = secondary_name
 
     @property
@@ -269,6 +278,7 @@ class ClusterOwner(object):
         :param secondary_phone1: The secondary_phone1 of this ClusterOwner.
         :type: str
         """
+        
         self._secondary_phone1 = secondary_phone1
 
     @property
@@ -291,6 +301,7 @@ class ClusterOwner(object):
         :param secondary_phone2: The secondary_phone2 of this ClusterOwner.
         :type: str
         """
+        
         self._secondary_phone2 = secondary_phone2
 
     def to_dict(self):
@@ -308,6 +319,12 @@ class ClusterOwner(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -325,14 +342,14 @@ class ClusterOwner(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

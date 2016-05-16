@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class StatisticsKey(object):
@@ -102,6 +103,7 @@ class StatisticsKey(object):
                 "Invalid value for `aggregation_type`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._aggregation_type = aggregation_type
 
     @property
@@ -124,6 +126,7 @@ class StatisticsKey(object):
         :param base_name: The base_name of this StatisticsKey.
         :type: str
         """
+        
         self._base_name = base_name
 
     @property
@@ -146,6 +149,7 @@ class StatisticsKey(object):
         :param default_cache_time: The default_cache_time of this StatisticsKey.
         :type: int
         """
+        
         self._default_cache_time = default_cache_time
 
     @property
@@ -168,6 +172,7 @@ class StatisticsKey(object):
         :param description: The description of this StatisticsKey.
         :type: str
         """
+        
         self._description = description
 
     @property
@@ -190,6 +195,7 @@ class StatisticsKey(object):
         :param key: The key of this StatisticsKey.
         :type: str
         """
+        
         self._key = key
 
     @property
@@ -212,6 +218,7 @@ class StatisticsKey(object):
         :param policies: The policies of this StatisticsKey.
         :type: list[StatisticsKeyPolicy]
         """
+        
         self._policies = policies
 
     @property
@@ -234,6 +241,7 @@ class StatisticsKey(object):
         :param policy_cache_time: The policy_cache_time of this StatisticsKey.
         :type: int
         """
+        
         self._policy_cache_time = policy_cache_time
 
     @property
@@ -256,6 +264,7 @@ class StatisticsKey(object):
         :param real_name: The real_name of this StatisticsKey.
         :type: str
         """
+        
         self._real_name = real_name
 
     @property
@@ -284,6 +293,7 @@ class StatisticsKey(object):
                 "Invalid value for `scope`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._scope = scope
 
     @property
@@ -306,6 +316,7 @@ class StatisticsKey(object):
         :param type: The type of this StatisticsKey.
         :type: str
         """
+        
         self._type = type
 
     @property
@@ -328,6 +339,7 @@ class StatisticsKey(object):
         :param units: The units of this StatisticsKey.
         :type: str
         """
+        
         self._units = units
 
     def to_dict(self):
@@ -345,6 +357,12 @@ class StatisticsKey(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -362,14 +380,14 @@ class StatisticsKey(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

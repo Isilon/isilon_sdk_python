@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class NetworkGroupnetsExtended(object):
@@ -37,42 +38,20 @@ class NetworkGroupnetsExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'resume': 'str',
             'groupnets': 'list[NetworkGroupnetExtended]',
+            'resume': 'str',
             'total': 'int'
         }
 
         self.attribute_map = {
-            'resume': 'resume',
             'groupnets': 'groupnets',
+            'resume': 'resume',
             'total': 'total'
         }
 
-        self._resume = None
         self._groupnets = None
+        self._resume = None
         self._total = None
-
-    @property
-    def resume(self):
-        """
-        Gets the resume of this NetworkGroupnetsExtended.
-        Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
-
-        :return: The resume of this NetworkGroupnetsExtended.
-        :rtype: str
-        """
-        return self._resume
-
-    @resume.setter
-    def resume(self, resume):
-        """
-        Sets the resume of this NetworkGroupnetsExtended.
-        Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
-
-        :param resume: The resume of this NetworkGroupnetsExtended.
-        :type: str
-        """
-        self._resume = resume
 
     @property
     def groupnets(self):
@@ -94,7 +73,31 @@ class NetworkGroupnetsExtended(object):
         :param groupnets: The groupnets of this NetworkGroupnetsExtended.
         :type: list[NetworkGroupnetExtended]
         """
+        
         self._groupnets = groupnets
+
+    @property
+    def resume(self):
+        """
+        Gets the resume of this NetworkGroupnetsExtended.
+        Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
+
+        :return: The resume of this NetworkGroupnetsExtended.
+        :rtype: str
+        """
+        return self._resume
+
+    @resume.setter
+    def resume(self, resume):
+        """
+        Sets the resume of this NetworkGroupnetsExtended.
+        Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
+
+        :param resume: The resume of this NetworkGroupnetsExtended.
+        :type: str
+        """
+        
+        self._resume = resume
 
     @property
     def total(self):
@@ -116,6 +119,7 @@ class NetworkGroupnetsExtended(object):
         :param total: The total of this NetworkGroupnetsExtended.
         :type: int
         """
+        
         self._total = total
 
     def to_dict(self):
@@ -133,6 +137,12 @@ class NetworkGroupnetsExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -150,14 +160,14 @@ class NetworkGroupnetsExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class EventEventlistsEventlistItemEvent(object):
@@ -90,6 +91,7 @@ class EventEventlistsEventlistItemEvent(object):
         :param devid: The devid of this EventEventlistsEventlistItemEvent.
         :type: int
         """
+        
         self._devid = devid
 
     @property
@@ -112,6 +114,7 @@ class EventEventlistsEventlistItemEvent(object):
         :param ended: The ended of this EventEventlistsEventlistItemEvent.
         :type: float
         """
+        
         self._ended = ended
 
     @property
@@ -134,6 +137,7 @@ class EventEventlistsEventlistItemEvent(object):
         :param event_id: The event_id of this EventEventlistsEventlistItemEvent.
         :type: int
         """
+        
         self._event_id = event_id
 
     @property
@@ -156,6 +160,7 @@ class EventEventlistsEventlistItemEvent(object):
         :param id: The id of this EventEventlistsEventlistItemEvent.
         :type: str
         """
+        
         self._id = id
 
     @property
@@ -178,6 +183,7 @@ class EventEventlistsEventlistItemEvent(object):
         :param message: The message of this EventEventlistsEventlistItemEvent.
         :type: str
         """
+        
         self._message = message
 
     @property
@@ -206,6 +212,7 @@ class EventEventlistsEventlistItemEvent(object):
                 "Invalid value for `severity`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._severity = severity
 
     @property
@@ -228,6 +235,7 @@ class EventEventlistsEventlistItemEvent(object):
         :param specifier: The specifier of this EventEventlistsEventlistItemEvent.
         :type: Empty
         """
+        
         self._specifier = specifier
 
     @property
@@ -250,6 +258,7 @@ class EventEventlistsEventlistItemEvent(object):
         :param time: The time of this EventEventlistsEventlistItemEvent.
         :type: int
         """
+        
         self._time = time
 
     @property
@@ -272,6 +281,7 @@ class EventEventlistsEventlistItemEvent(object):
         :param value: The value of this EventEventlistsEventlistItemEvent.
         :type: float
         """
+        
         self._value = value
 
     def to_dict(self):
@@ -289,6 +299,12 @@ class EventEventlistsEventlistItemEvent(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -306,14 +322,14 @@ class EventEventlistsEventlistItemEvent(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

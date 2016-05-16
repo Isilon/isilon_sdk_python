@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class ProvidersNis(object):
@@ -37,7 +38,7 @@ class ProvidersNis(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'nis': 'list[ProvidersNiExtended]'
+            'nis': 'list[ProvidersNisNisItem]'
         }
 
         self.attribute_map = {
@@ -53,7 +54,7 @@ class ProvidersNis(object):
 
 
         :return: The nis of this ProvidersNis.
-        :rtype: list[ProvidersNiExtended]
+        :rtype: list[ProvidersNisNisItem]
         """
         return self._nis
 
@@ -64,8 +65,9 @@ class ProvidersNis(object):
 
 
         :param nis: The nis of this ProvidersNis.
-        :type: list[ProvidersNiExtended]
+        :type: list[ProvidersNisNisItem]
         """
+        
         self._nis = nis
 
     def to_dict(self):
@@ -83,6 +85,12 @@ class ProvidersNis(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -100,14 +108,14 @@ class ProvidersNis(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

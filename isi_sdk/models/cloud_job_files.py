@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class CloudJobFiles(object):
@@ -87,6 +88,7 @@ class CloudJobFiles(object):
         :param file_matching_pattern: The file_matching_pattern of this CloudJobFiles.
         :type: Empty
         """
+        
         self._file_matching_pattern = file_matching_pattern
 
     @property
@@ -109,6 +111,7 @@ class CloudJobFiles(object):
         :param names: The names of this CloudJobFiles.
         :type: list[CloudJobFilesName]
         """
+        
         self._names = names
 
     @property
@@ -131,6 +134,7 @@ class CloudJobFiles(object):
         :param total: The total of this CloudJobFiles.
         :type: int
         """
+        
         self._total = total
 
     @property
@@ -153,6 +157,7 @@ class CloudJobFiles(object):
         :param total_canceled: The total_canceled of this CloudJobFiles.
         :type: int
         """
+        
         self._total_canceled = total_canceled
 
     @property
@@ -175,6 +180,7 @@ class CloudJobFiles(object):
         :param total_failed: The total_failed of this CloudJobFiles.
         :type: int
         """
+        
         self._total_failed = total_failed
 
     @property
@@ -197,6 +203,7 @@ class CloudJobFiles(object):
         :param total_pending: The total_pending of this CloudJobFiles.
         :type: int
         """
+        
         self._total_pending = total_pending
 
     @property
@@ -219,6 +226,7 @@ class CloudJobFiles(object):
         :param total_processing: The total_processing of this CloudJobFiles.
         :type: int
         """
+        
         self._total_processing = total_processing
 
     @property
@@ -241,6 +249,7 @@ class CloudJobFiles(object):
         :param total_succeeded: The total_succeeded of this CloudJobFiles.
         :type: int
         """
+        
         self._total_succeeded = total_succeeded
 
     def to_dict(self):
@@ -258,6 +267,12 @@ class CloudJobFiles(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -275,14 +290,14 @@ class CloudJobFiles(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

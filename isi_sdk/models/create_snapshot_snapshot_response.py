@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class CreateSnapshotSnapshotResponse(object):
@@ -108,6 +109,7 @@ class CreateSnapshotSnapshotResponse(object):
         :param alias: The alias of this CreateSnapshotSnapshotResponse.
         :type: str
         """
+        
         self._alias = alias
 
     @property
@@ -130,6 +132,7 @@ class CreateSnapshotSnapshotResponse(object):
         :param created: The created of this CreateSnapshotSnapshotResponse.
         :type: int
         """
+        
         self._created = created
 
     @property
@@ -152,6 +155,7 @@ class CreateSnapshotSnapshotResponse(object):
         :param expires: The expires of this CreateSnapshotSnapshotResponse.
         :type: int
         """
+        
         self._expires = expires
 
     @property
@@ -174,6 +178,7 @@ class CreateSnapshotSnapshotResponse(object):
         :param has_locks: The has_locks of this CreateSnapshotSnapshotResponse.
         :type: bool
         """
+        
         self._has_locks = has_locks
 
     @property
@@ -196,6 +201,7 @@ class CreateSnapshotSnapshotResponse(object):
         :param id: The id of this CreateSnapshotSnapshotResponse.
         :type: int
         """
+        
         self._id = id
 
     @property
@@ -218,6 +224,7 @@ class CreateSnapshotSnapshotResponse(object):
         :param name: The name of this CreateSnapshotSnapshotResponse.
         :type: str
         """
+        
         self._name = name
 
     @property
@@ -240,6 +247,7 @@ class CreateSnapshotSnapshotResponse(object):
         :param path: The path of this CreateSnapshotSnapshotResponse.
         :type: str
         """
+        
         self._path = path
 
     @property
@@ -262,6 +270,7 @@ class CreateSnapshotSnapshotResponse(object):
         :param pct_filesystem: The pct_filesystem of this CreateSnapshotSnapshotResponse.
         :type: float
         """
+        
         self._pct_filesystem = pct_filesystem
 
     @property
@@ -284,6 +293,7 @@ class CreateSnapshotSnapshotResponse(object):
         :param pct_reserve: The pct_reserve of this CreateSnapshotSnapshotResponse.
         :type: float
         """
+        
         self._pct_reserve = pct_reserve
 
     @property
@@ -306,6 +316,7 @@ class CreateSnapshotSnapshotResponse(object):
         :param schedule: The schedule of this CreateSnapshotSnapshotResponse.
         :type: str
         """
+        
         self._schedule = schedule
 
     @property
@@ -328,6 +339,7 @@ class CreateSnapshotSnapshotResponse(object):
         :param shadow_bytes: The shadow_bytes of this CreateSnapshotSnapshotResponse.
         :type: int
         """
+        
         self._shadow_bytes = shadow_bytes
 
     @property
@@ -350,6 +362,7 @@ class CreateSnapshotSnapshotResponse(object):
         :param size: The size of this CreateSnapshotSnapshotResponse.
         :type: int
         """
+        
         self._size = size
 
     @property
@@ -378,6 +391,7 @@ class CreateSnapshotSnapshotResponse(object):
                 "Invalid value for `state`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._state = state
 
     @property
@@ -400,6 +414,7 @@ class CreateSnapshotSnapshotResponse(object):
         :param target_id: The target_id of this CreateSnapshotSnapshotResponse.
         :type: int
         """
+        
         self._target_id = target_id
 
     @property
@@ -422,6 +437,7 @@ class CreateSnapshotSnapshotResponse(object):
         :param target_name: The target_name of this CreateSnapshotSnapshotResponse.
         :type: str
         """
+        
         self._target_name = target_name
 
     def to_dict(self):
@@ -439,6 +455,12 @@ class CreateSnapshotSnapshotResponse(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -456,14 +478,14 @@ class CreateSnapshotSnapshotResponse(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

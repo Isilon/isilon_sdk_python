@@ -2,7 +2,7 @@
 
 """
 RemotesupportApi.py
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@ from __future__ import absolute_import
 
 import sys
 import os
+import re
 
 # python 2 and python 3 compatibility library
 from six import iteritems
@@ -79,17 +80,16 @@ class RemotesupportApi(object):
         del params['kwargs']
 
 
-        resource_path = '/platform/1/remotesupport/connectemc'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/1/remotesupport/connectemc'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -106,13 +106,13 @@ class RemotesupportApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='RemotesupportConnectemc',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
@@ -156,17 +156,16 @@ class RemotesupportApi(object):
         if ('remotesupport_connectemc' not in params) or (params['remotesupport_connectemc'] is None):
             raise ValueError("Missing the required parameter `remotesupport_connectemc` when calling `update_remotesupport_connectemc`")
 
-        resource_path = '/platform/1/remotesupport/connectemc'.replace('{format}', 'json')
-        method = 'PUT'
 
+        resource_path = '/platform/1/remotesupport/connectemc'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'remotesupport_connectemc' in params:
@@ -185,13 +184,13 @@ class RemotesupportApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'PUT',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))

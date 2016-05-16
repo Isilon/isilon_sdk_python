@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class MappingIdentityCreateParams(object):
@@ -37,42 +38,17 @@ class MappingIdentityCreateParams(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'id': 'str',
-            'source': 'GroupsGroupMember',
-            'targets': 'list[MappingIdentityTarget]'
+            'source': 'GroupMember',
+            'targets': 'list[MappingIdentityTargetCreateParams]'
         }
 
         self.attribute_map = {
-            'id': 'id',
             'source': 'source',
             'targets': 'targets'
         }
 
-        self._id = None
         self._source = None
         self._targets = None
-
-    @property
-    def id(self):
-        """
-        Gets the id of this MappingIdentityCreateParams.
-        Specifies the identity mapping entry id.
-
-        :return: The id of this MappingIdentityCreateParams.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this MappingIdentityCreateParams.
-        Specifies the identity mapping entry id.
-
-        :param id: The id of this MappingIdentityCreateParams.
-        :type: str
-        """
-        self._id = id
 
     @property
     def source(self):
@@ -81,7 +57,7 @@ class MappingIdentityCreateParams(object):
         Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'.
 
         :return: The source of this MappingIdentityCreateParams.
-        :rtype: GroupsGroupMember
+        :rtype: GroupMember
         """
         return self._source
 
@@ -92,8 +68,9 @@ class MappingIdentityCreateParams(object):
         Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'.
 
         :param source: The source of this MappingIdentityCreateParams.
-        :type: GroupsGroupMember
+        :type: GroupMember
         """
+        
         self._source = source
 
     @property
@@ -103,7 +80,7 @@ class MappingIdentityCreateParams(object):
 
 
         :return: The targets of this MappingIdentityCreateParams.
-        :rtype: list[MappingIdentityTarget]
+        :rtype: list[MappingIdentityTargetCreateParams]
         """
         return self._targets
 
@@ -114,8 +91,9 @@ class MappingIdentityCreateParams(object):
 
 
         :param targets: The targets of this MappingIdentityCreateParams.
-        :type: list[MappingIdentityTarget]
+        :type: list[MappingIdentityTargetCreateParams]
         """
+        
         self._targets = targets
 
     def to_dict(self):
@@ -133,6 +111,12 @@ class MappingIdentityCreateParams(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -150,14 +134,14 @@ class MappingIdentityCreateParams(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

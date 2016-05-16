@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class NdmpSettingsGlobalGlobal(object):
@@ -81,6 +82,7 @@ class NdmpSettingsGlobalGlobal(object):
         :param bre_max_num_contexts: The bre_max_num_contexts of this NdmpSettingsGlobalGlobal.
         :type: int
         """
+        
         self._bre_max_num_contexts = bre_max_num_contexts
 
     @property
@@ -109,6 +111,7 @@ class NdmpSettingsGlobalGlobal(object):
                 "Invalid value for `dma`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._dma = dma
 
     @property
@@ -131,6 +134,7 @@ class NdmpSettingsGlobalGlobal(object):
         :param msb_context_retention_duration: The msb_context_retention_duration of this NdmpSettingsGlobalGlobal.
         :type: int
         """
+        
         self._msb_context_retention_duration = msb_context_retention_duration
 
     @property
@@ -153,6 +157,7 @@ class NdmpSettingsGlobalGlobal(object):
         :param msr_context_retention_duration: The msr_context_retention_duration of this NdmpSettingsGlobalGlobal.
         :type: int
         """
+        
         self._msr_context_retention_duration = msr_context_retention_duration
 
     @property
@@ -175,6 +180,7 @@ class NdmpSettingsGlobalGlobal(object):
         :param port: The port of this NdmpSettingsGlobalGlobal.
         :type: int
         """
+        
         self._port = port
 
     @property
@@ -197,6 +203,7 @@ class NdmpSettingsGlobalGlobal(object):
         :param service: The service of this NdmpSettingsGlobalGlobal.
         :type: bool
         """
+        
         self._service = service
 
     def to_dict(self):
@@ -214,6 +221,12 @@ class NdmpSettingsGlobalGlobal(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -231,14 +244,14 @@ class NdmpSettingsGlobalGlobal(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class NetworkGroupnet(object):
@@ -84,6 +85,12 @@ class NetworkGroupnet(object):
         :param description: The description of this NetworkGroupnet.
         :type: str
         """
+        
+        if not description:
+            raise ValueError("Invalid value for `description`, must not be `None`")
+        if len(description) > 128: 
+            raise ValueError("Invalid value for `description`, length must be less than `128`")
+
         self._description = description
 
     @property
@@ -106,6 +113,7 @@ class NetworkGroupnet(object):
         :param dns_cache_enabled: The dns_cache_enabled of this NetworkGroupnet.
         :type: bool
         """
+        
         self._dns_cache_enabled = dns_cache_enabled
 
     @property
@@ -128,6 +136,7 @@ class NetworkGroupnet(object):
         :param dns_options: The dns_options of this NetworkGroupnet.
         :type: list[str]
         """
+        
         self._dns_options = dns_options
 
     @property
@@ -150,6 +159,7 @@ class NetworkGroupnet(object):
         :param dns_search: The dns_search of this NetworkGroupnet.
         :type: list[str]
         """
+        
         self._dns_search = dns_search
 
     @property
@@ -172,6 +182,7 @@ class NetworkGroupnet(object):
         :param dns_servers: The dns_servers of this NetworkGroupnet.
         :type: list[str]
         """
+        
         self._dns_servers = dns_servers
 
     @property
@@ -194,6 +205,12 @@ class NetworkGroupnet(object):
         :param name: The name of this NetworkGroupnet.
         :type: str
         """
+        
+        if not name:
+            raise ValueError("Invalid value for `name`, must not be `None`")
+        if len(name) > 32: 
+            raise ValueError("Invalid value for `name`, length must be less than `32`")
+
         self._name = name
 
     @property
@@ -216,6 +233,7 @@ class NetworkGroupnet(object):
         :param server_side_dns_search: The server_side_dns_search of this NetworkGroupnet.
         :type: bool
         """
+        
         self._server_side_dns_search = server_side_dns_search
 
     def to_dict(self):
@@ -233,6 +251,12 @@ class NetworkGroupnet(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -250,14 +274,14 @@ class NetworkGroupnet(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class UpgradeCluster(object):
@@ -93,6 +94,7 @@ class UpgradeCluster(object):
         :param cluster_overview: The cluster_overview of this UpgradeCluster.
         :type: UpgradeClusterClusterOverview
         """
+        
         self._cluster_overview = cluster_overview
 
     @property
@@ -115,6 +117,7 @@ class UpgradeCluster(object):
         :param cluster_state: The cluster_state of this UpgradeCluster.
         :type: str
         """
+        
         self._cluster_state = cluster_state
 
     @property
@@ -137,13 +140,14 @@ class UpgradeCluster(object):
         :param finish_time: The finish_time of this UpgradeCluster.
         :type: str
         """
+        
         self._finish_time = finish_time
 
     @property
     def install_image_path(self):
         """
         Gets the install_image_path of this UpgradeCluster.
-        The location (path) of the upgrade image which must be within /ifs.\nNull if the cluster_state is 'committed' or 'upgraded.'
+        The location (path) of the upgrade image which must be within /ifs. Null if the cluster_state is 'committed' or 'upgraded.'
 
         :return: The install_image_path of this UpgradeCluster.
         :rtype: str
@@ -154,11 +158,12 @@ class UpgradeCluster(object):
     def install_image_path(self, install_image_path):
         """
         Sets the install_image_path of this UpgradeCluster.
-        The location (path) of the upgrade image which must be within /ifs.\nNull if the cluster_state is 'committed' or 'upgraded.'
+        The location (path) of the upgrade image which must be within /ifs. Null if the cluster_state is 'committed' or 'upgraded.'
 
         :param install_image_path: The install_image_path of this UpgradeCluster.
         :type: str
         """
+        
         self._install_image_path = install_image_path
 
     @property
@@ -181,6 +186,7 @@ class UpgradeCluster(object):
         :param onefs_version_current: The onefs_version_current of this UpgradeCluster.
         :type: ClusterNodesOnefsVersion
         """
+        
         self._onefs_version_current = onefs_version_current
 
     @property
@@ -203,6 +209,7 @@ class UpgradeCluster(object):
         :param onefs_version_upgrade: The onefs_version_upgrade of this UpgradeCluster.
         :type: ClusterNodesOnefsVersion
         """
+        
         self._onefs_version_upgrade = onefs_version_upgrade
 
     @property
@@ -225,6 +232,7 @@ class UpgradeCluster(object):
         :param patch_action: The patch_action of this UpgradeCluster.
         :type: str
         """
+        
         self._patch_action = patch_action
 
     @property
@@ -247,6 +255,7 @@ class UpgradeCluster(object):
         :param patch_name: The patch_name of this UpgradeCluster.
         :type: str
         """
+        
         self._patch_name = patch_name
 
     @property
@@ -269,6 +278,7 @@ class UpgradeCluster(object):
         :param start_time: The start_time of this UpgradeCluster.
         :type: str
         """
+        
         self._start_time = start_time
 
     @property
@@ -291,6 +301,7 @@ class UpgradeCluster(object):
         :param upgrade_settings: The upgrade_settings of this UpgradeCluster.
         :type: UpgradeClusterUpgradeSettings
         """
+        
         self._upgrade_settings = upgrade_settings
 
     def to_dict(self):
@@ -308,6 +319,12 @@ class UpgradeCluster(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -325,14 +342,14 @@ class UpgradeCluster(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

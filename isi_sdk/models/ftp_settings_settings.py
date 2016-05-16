@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class FtpSettingsSettings(object):
@@ -150,6 +151,14 @@ class FtpSettingsSettings(object):
         :param accept_timeout: The accept_timeout of this FtpSettingsSettings.
         :type: int
         """
+        
+        if not accept_timeout:
+            raise ValueError("Invalid value for `accept_timeout`, must not be `None`")
+        if accept_timeout > 600.0: 
+            raise ValueError("Invalid value for `accept_timeout`, must be a value less than or equal to `600.0`")
+        if accept_timeout < 30.0: 
+            raise ValueError("Invalid value for `accept_timeout`, must be a value greater than or equal to `30.0`")
+
         self._accept_timeout = accept_timeout
 
     @property
@@ -172,6 +181,7 @@ class FtpSettingsSettings(object):
         :param allow_anon_access: The allow_anon_access of this FtpSettingsSettings.
         :type: bool
         """
+        
         self._allow_anon_access = allow_anon_access
 
     @property
@@ -194,6 +204,7 @@ class FtpSettingsSettings(object):
         :param allow_anon_upload: The allow_anon_upload of this FtpSettingsSettings.
         :type: bool
         """
+        
         self._allow_anon_upload = allow_anon_upload
 
     @property
@@ -216,6 +227,7 @@ class FtpSettingsSettings(object):
         :param allow_dirlists: The allow_dirlists of this FtpSettingsSettings.
         :type: bool
         """
+        
         self._allow_dirlists = allow_dirlists
 
     @property
@@ -238,6 +250,7 @@ class FtpSettingsSettings(object):
         :param allow_downloads: The allow_downloads of this FtpSettingsSettings.
         :type: bool
         """
+        
         self._allow_downloads = allow_downloads
 
     @property
@@ -260,6 +273,7 @@ class FtpSettingsSettings(object):
         :param allow_local_access: The allow_local_access of this FtpSettingsSettings.
         :type: bool
         """
+        
         self._allow_local_access = allow_local_access
 
     @property
@@ -282,6 +296,7 @@ class FtpSettingsSettings(object):
         :param allow_writes: The allow_writes of this FtpSettingsSettings.
         :type: bool
         """
+        
         self._allow_writes = allow_writes
 
     @property
@@ -304,6 +319,7 @@ class FtpSettingsSettings(object):
         :param always_chdir_homedir: The always_chdir_homedir of this FtpSettingsSettings.
         :type: bool
         """
+        
         self._always_chdir_homedir = always_chdir_homedir
 
     @property
@@ -326,6 +342,7 @@ class FtpSettingsSettings(object):
         :param anon_chown_username: The anon_chown_username of this FtpSettingsSettings.
         :type: str
         """
+        
         self._anon_chown_username = anon_chown_username
 
     @property
@@ -348,6 +365,7 @@ class FtpSettingsSettings(object):
         :param anon_password_list: The anon_password_list of this FtpSettingsSettings.
         :type: list[str]
         """
+        
         self._anon_password_list = anon_password_list
 
     @property
@@ -370,6 +388,7 @@ class FtpSettingsSettings(object):
         :param anon_root_path: The anon_root_path of this FtpSettingsSettings.
         :type: str
         """
+        
         self._anon_root_path = anon_root_path
 
     @property
@@ -392,6 +411,14 @@ class FtpSettingsSettings(object):
         :param anon_umask: The anon_umask of this FtpSettingsSettings.
         :type: int
         """
+        
+        if not anon_umask:
+            raise ValueError("Invalid value for `anon_umask`, must not be `None`")
+        if anon_umask > 511.0: 
+            raise ValueError("Invalid value for `anon_umask`, must be a value less than or equal to `511.0`")
+        if anon_umask < 0.0: 
+            raise ValueError("Invalid value for `anon_umask`, must be a value greater than or equal to `0.0`")
+
         self._anon_umask = anon_umask
 
     @property
@@ -420,6 +447,7 @@ class FtpSettingsSettings(object):
                 "Invalid value for `ascii_mode`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._ascii_mode = ascii_mode
 
     @property
@@ -442,6 +470,7 @@ class FtpSettingsSettings(object):
         :param chroot_exception_list: The chroot_exception_list of this FtpSettingsSettings.
         :type: list[str]
         """
+        
         self._chroot_exception_list = chroot_exception_list
 
     @property
@@ -470,6 +499,7 @@ class FtpSettingsSettings(object):
                 "Invalid value for `chroot_local_mode`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._chroot_local_mode = chroot_local_mode
 
     @property
@@ -492,6 +522,14 @@ class FtpSettingsSettings(object):
         :param connect_timeout: The connect_timeout of this FtpSettingsSettings.
         :type: int
         """
+        
+        if not connect_timeout:
+            raise ValueError("Invalid value for `connect_timeout`, must not be `None`")
+        if connect_timeout > 600.0: 
+            raise ValueError("Invalid value for `connect_timeout`, must be a value less than or equal to `600.0`")
+        if connect_timeout < 30.0: 
+            raise ValueError("Invalid value for `connect_timeout`, must be a value greater than or equal to `30.0`")
+
         self._connect_timeout = connect_timeout
 
     @property
@@ -514,6 +552,14 @@ class FtpSettingsSettings(object):
         :param data_timeout: The data_timeout of this FtpSettingsSettings.
         :type: int
         """
+        
+        if not data_timeout:
+            raise ValueError("Invalid value for `data_timeout`, must not be `None`")
+        if data_timeout > 600.0: 
+            raise ValueError("Invalid value for `data_timeout`, must be a value less than or equal to `600.0`")
+        if data_timeout < 30.0: 
+            raise ValueError("Invalid value for `data_timeout`, must be a value greater than or equal to `30.0`")
+
         self._data_timeout = data_timeout
 
     @property
@@ -536,6 +582,7 @@ class FtpSettingsSettings(object):
         :param denied_user_list: The denied_user_list of this FtpSettingsSettings.
         :type: list[str]
         """
+        
         self._denied_user_list = denied_user_list
 
     @property
@@ -558,6 +605,7 @@ class FtpSettingsSettings(object):
         :param dirlist_localtime: The dirlist_localtime of this FtpSettingsSettings.
         :type: bool
         """
+        
         self._dirlist_localtime = dirlist_localtime
 
     @property
@@ -586,6 +634,7 @@ class FtpSettingsSettings(object):
                 "Invalid value for `dirlist_names`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._dirlist_names = dirlist_names
 
     @property
@@ -608,6 +657,14 @@ class FtpSettingsSettings(object):
         :param file_create_perm: The file_create_perm of this FtpSettingsSettings.
         :type: int
         """
+        
+        if not file_create_perm:
+            raise ValueError("Invalid value for `file_create_perm`, must not be `None`")
+        if file_create_perm > 511.0: 
+            raise ValueError("Invalid value for `file_create_perm`, must be a value less than or equal to `511.0`")
+        if file_create_perm < 0.0: 
+            raise ValueError("Invalid value for `file_create_perm`, must be a value greater than or equal to `0.0`")
+
         self._file_create_perm = file_create_perm
 
     @property
@@ -630,6 +687,7 @@ class FtpSettingsSettings(object):
         :param limit_anon_passwords: The limit_anon_passwords of this FtpSettingsSettings.
         :type: bool
         """
+        
         self._limit_anon_passwords = limit_anon_passwords
 
     @property
@@ -652,6 +710,7 @@ class FtpSettingsSettings(object):
         :param local_root_path: The local_root_path of this FtpSettingsSettings.
         :type: str
         """
+        
         self._local_root_path = local_root_path
 
     @property
@@ -674,6 +733,14 @@ class FtpSettingsSettings(object):
         :param local_umask: The local_umask of this FtpSettingsSettings.
         :type: int
         """
+        
+        if not local_umask:
+            raise ValueError("Invalid value for `local_umask`, must not be `None`")
+        if local_umask > 511.0: 
+            raise ValueError("Invalid value for `local_umask`, must be a value less than or equal to `511.0`")
+        if local_umask < 0.0: 
+            raise ValueError("Invalid value for `local_umask`, must be a value greater than or equal to `0.0`")
+
         self._local_umask = local_umask
 
     @property
@@ -696,6 +763,7 @@ class FtpSettingsSettings(object):
         :param server_to_server: The server_to_server of this FtpSettingsSettings.
         :type: bool
         """
+        
         self._server_to_server = server_to_server
 
     @property
@@ -718,6 +786,7 @@ class FtpSettingsSettings(object):
         :param service: The service of this FtpSettingsSettings.
         :type: bool
         """
+        
         self._service = service
 
     @property
@@ -740,6 +809,7 @@ class FtpSettingsSettings(object):
         :param session_support: The session_support of this FtpSettingsSettings.
         :type: bool
         """
+        
         self._session_support = session_support
 
     @property
@@ -762,6 +832,14 @@ class FtpSettingsSettings(object):
         :param session_timeout: The session_timeout of this FtpSettingsSettings.
         :type: int
         """
+        
+        if not session_timeout:
+            raise ValueError("Invalid value for `session_timeout`, must not be `None`")
+        if session_timeout > 600.0: 
+            raise ValueError("Invalid value for `session_timeout`, must be a value less than or equal to `600.0`")
+        if session_timeout < 30.0: 
+            raise ValueError("Invalid value for `session_timeout`, must be a value greater than or equal to `30.0`")
+
         self._session_timeout = session_timeout
 
     @property
@@ -784,6 +862,7 @@ class FtpSettingsSettings(object):
         :param user_config_dir: The user_config_dir of this FtpSettingsSettings.
         :type: str
         """
+        
         self._user_config_dir = user_config_dir
 
     def to_dict(self):
@@ -801,6 +880,12 @@ class FtpSettingsSettings(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -818,14 +903,14 @@ class FtpSettingsSettings(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

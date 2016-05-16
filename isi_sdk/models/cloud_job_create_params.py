@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class CloudJobCreateParams(object):
@@ -37,132 +38,32 @@ class CloudJobCreateParams(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'all': 'bool',
-            'directories': 'list[str]',
-            '_files': 'list[str]',
-            'state': 'str',
             'accounts': 'list[str]',
+            'directories': 'list[str]',
             'expiration_date': 'int',
             'file_matching_pattern': 'Empty',
-            'type': 'str',
-            'policy': 'str'
+            'files': 'list[str]',
+            'policy': 'str',
+            'type': 'str'
         }
 
         self.attribute_map = {
-            'all': 'all',
-            'directories': 'directories',
-            '_files': 'files',
-            'state': 'state',
             'accounts': 'accounts',
+            'directories': 'directories',
             'expiration_date': 'expiration_date',
             'file_matching_pattern': 'file_matching_pattern',
-            'type': 'type',
-            'policy': 'policy'
+            'files': 'files',
+            'policy': 'policy',
+            'type': 'type'
         }
 
-        self._all = None
-        self._directories = None
-        self.__files = None
-        self._state = None
         self._accounts = None
+        self._directories = None
         self._expiration_date = None
         self._file_matching_pattern = None
-        self._type = None
+        self._files = None
         self._policy = None
-
-    @property
-    def all(self):
-        """
-        Gets the all of this CloudJobCreateParams.
-        Whether to apply to the given operation type or to all jobs of the given operation type
-
-        :return: The all of this CloudJobCreateParams.
-        :rtype: bool
-        """
-        return self._all
-
-    @all.setter
-    def all(self, all):
-        """
-        Sets the all of this CloudJobCreateParams.
-        Whether to apply to the given operation type or to all jobs of the given operation type
-
-        :param all: The all of this CloudJobCreateParams.
-        :type: bool
-        """
-        self._all = all
-
-    @property
-    def directories(self):
-        """
-        Gets the directories of this CloudJobCreateParams.
-        Directories addressed by this job
-
-        :return: The directories of this CloudJobCreateParams.
-        :rtype: list[str]
-        """
-        return self._directories
-
-    @directories.setter
-    def directories(self, directories):
-        """
-        Sets the directories of this CloudJobCreateParams.
-        Directories addressed by this job
-
-        :param directories: The directories of this CloudJobCreateParams.
-        :type: list[str]
-        """
-        self._directories = directories
-
-    @property
-    def _files(self):
-        """
-        Gets the _files of this CloudJobCreateParams.
-        Filenames addressed by this job
-
-        :return: The _files of this CloudJobCreateParams.
-        :rtype: list[str]
-        """
-        return self.__files
-
-    @_files.setter
-    def _files(self, _files):
-        """
-        Sets the _files of this CloudJobCreateParams.
-        Filenames addressed by this job
-
-        :param _files: The _files of this CloudJobCreateParams.
-        :type: list[str]
-        """
-        self.__files = _files
-
-    @property
-    def state(self):
-        """
-        Gets the state of this CloudJobCreateParams.
-        The desired state of the job or operation
-
-        :return: The state of this CloudJobCreateParams.
-        :rtype: str
-        """
-        return self._state
-
-    @state.setter
-    def state(self, state):
-        """
-        Sets the state of this CloudJobCreateParams.
-        The desired state of the job or operation
-
-        :param state: The state of this CloudJobCreateParams.
-        :type: str
-        """
-        allowed_values = ["resume", "pause", "cancel"]
-        if state not in allowed_values:
-            raise ValueError(
-                "Invalid value for `state`, must be one of {0}"
-                .format(allowed_values)
-            )
-        self._state = state
+        self._type = None
 
     @property
     def accounts(self):
@@ -184,7 +85,31 @@ class CloudJobCreateParams(object):
         :param accounts: The accounts of this CloudJobCreateParams.
         :type: list[str]
         """
+        
         self._accounts = accounts
+
+    @property
+    def directories(self):
+        """
+        Gets the directories of this CloudJobCreateParams.
+        Directories addressed by this job
+
+        :return: The directories of this CloudJobCreateParams.
+        :rtype: list[str]
+        """
+        return self._directories
+
+    @directories.setter
+    def directories(self, directories):
+        """
+        Sets the directories of this CloudJobCreateParams.
+        Directories addressed by this job
+
+        :param directories: The directories of this CloudJobCreateParams.
+        :type: list[str]
+        """
+        
+        self._directories = directories
 
     @property
     def expiration_date(self):
@@ -206,6 +131,7 @@ class CloudJobCreateParams(object):
         :param expiration_date: The expiration_date of this CloudJobCreateParams.
         :type: int
         """
+        
         self._expiration_date = expiration_date
 
     @property
@@ -228,7 +154,54 @@ class CloudJobCreateParams(object):
         :param file_matching_pattern: The file_matching_pattern of this CloudJobCreateParams.
         :type: Empty
         """
+        
         self._file_matching_pattern = file_matching_pattern
+
+    @property
+    def files(self):
+        """
+        Gets the files of this CloudJobCreateParams.
+        Filenames addressed by this job
+
+        :return: The files of this CloudJobCreateParams.
+        :rtype: list[str]
+        """
+        return self._files
+
+    @files.setter
+    def files(self, files):
+        """
+        Sets the files of this CloudJobCreateParams.
+        Filenames addressed by this job
+
+        :param files: The files of this CloudJobCreateParams.
+        :type: list[str]
+        """
+        
+        self._files = files
+
+    @property
+    def policy(self):
+        """
+        Gets the policy of this CloudJobCreateParams.
+        The name of an existing cloudpool policy to apply to this job. (Only applicable for 'archive' jobs)
+
+        :return: The policy of this CloudJobCreateParams.
+        :rtype: str
+        """
+        return self._policy
+
+    @policy.setter
+    def policy(self, policy):
+        """
+        Sets the policy of this CloudJobCreateParams.
+        The name of an existing cloudpool policy to apply to this job. (Only applicable for 'archive' jobs)
+
+        :param policy: The policy of this CloudJobCreateParams.
+        :type: str
+        """
+        
+        self._policy = policy
 
     @property
     def type(self):
@@ -256,29 +229,8 @@ class CloudJobCreateParams(object):
                 "Invalid value for `type`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._type = type
-
-    @property
-    def policy(self):
-        """
-        Gets the policy of this CloudJobCreateParams.
-        The name of an existing cloudpool policy to apply to this job. (Only applicable for 'archive' jobs)
-
-        :return: The policy of this CloudJobCreateParams.
-        :rtype: str
-        """
-        return self._policy
-
-    @policy.setter
-    def policy(self, policy):
-        """
-        Sets the policy of this CloudJobCreateParams.
-        The name of an existing cloudpool policy to apply to this job. (Only applicable for 'archive' jobs)
-
-        :param policy: The policy of this CloudJobCreateParams.
-        :type: str
-        """
-        self._policy = policy
 
     def to_dict(self):
         """
@@ -295,6 +247,12 @@ class CloudJobCreateParams(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -312,14 +270,14 @@ class CloudJobCreateParams(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

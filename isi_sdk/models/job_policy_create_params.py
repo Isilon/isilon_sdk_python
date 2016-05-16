@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class JobPolicyCreateParams(object):
@@ -37,42 +38,20 @@ class JobPolicyCreateParams(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'name': 'str',
             'description': 'str',
-            'intervals': 'list[JobPolicyInterval]'
+            'intervals': 'list[JobPolicyInterval]',
+            'name': 'str'
         }
 
         self.attribute_map = {
-            'name': 'name',
             'description': 'description',
-            'intervals': 'intervals'
+            'intervals': 'intervals',
+            'name': 'name'
         }
 
-        self._name = None
         self._description = None
         self._intervals = None
-
-    @property
-    def name(self):
-        """
-        Gets the name of this JobPolicyCreateParams.
-        The name of the impact policy.
-
-        :return: The name of this JobPolicyCreateParams.
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """
-        Sets the name of this JobPolicyCreateParams.
-        The name of the impact policy.
-
-        :param name: The name of this JobPolicyCreateParams.
-        :type: str
-        """
-        self._name = name
+        self._name = None
 
     @property
     def description(self):
@@ -94,6 +73,7 @@ class JobPolicyCreateParams(object):
         :param description: The description of this JobPolicyCreateParams.
         :type: str
         """
+        
         self._description = description
 
     @property
@@ -116,7 +96,36 @@ class JobPolicyCreateParams(object):
         :param intervals: The intervals of this JobPolicyCreateParams.
         :type: list[JobPolicyInterval]
         """
+        
         self._intervals = intervals
+
+    @property
+    def name(self):
+        """
+        Gets the name of this JobPolicyCreateParams.
+        The name of the impact policy.
+
+        :return: The name of this JobPolicyCreateParams.
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """
+        Sets the name of this JobPolicyCreateParams.
+        The name of the impact policy.
+
+        :param name: The name of this JobPolicyCreateParams.
+        :type: str
+        """
+        
+        if not name:
+            raise ValueError("Invalid value for `name`, must not be `None`")
+        if len(name) < 1: 
+            raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")
+
+        self._name = name
 
     def to_dict(self):
         """
@@ -133,6 +142,12 @@ class JobPolicyCreateParams(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -150,14 +165,14 @@ class JobPolicyCreateParams(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

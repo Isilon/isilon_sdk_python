@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class SnapshotSnapshotExtended(object):
@@ -37,298 +38,56 @@ class SnapshotSnapshotExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'expires': 'int',
-            'target_name': 'str',
-            'created': 'int',
-            'target_id': 'int',
-            'shadow_bytes': 'int',
-            'has_locks': 'bool',
-            'path': 'str',
-            'schedule': 'str',
-            'pct_reserve': 'float',
-            'size': 'int',
-            'name': 'str',
             'alias': 'str',
+            'expires': 'int',
+            'name': 'str',
+            'created': 'int',
+            'has_locks': 'bool',
             'id': 'int',
+            'path': 'str',
+            'pct_filesystem': 'float',
+            'pct_reserve': 'float',
+            'schedule': 'str',
+            'shadow_bytes': 'int',
+            'size': 'int',
             'state': 'str',
-            'pct_filesystem': 'float'
+            'target_id': 'int',
+            'target_name': 'str'
         }
 
         self.attribute_map = {
-            'expires': 'expires',
-            'target_name': 'target_name',
-            'created': 'created',
-            'target_id': 'target_id',
-            'shadow_bytes': 'shadow_bytes',
-            'has_locks': 'has_locks',
-            'path': 'path',
-            'schedule': 'schedule',
-            'pct_reserve': 'pct_reserve',
-            'size': 'size',
-            'name': 'name',
             'alias': 'alias',
+            'expires': 'expires',
+            'name': 'name',
+            'created': 'created',
+            'has_locks': 'has_locks',
             'id': 'id',
+            'path': 'path',
+            'pct_filesystem': 'pct_filesystem',
+            'pct_reserve': 'pct_reserve',
+            'schedule': 'schedule',
+            'shadow_bytes': 'shadow_bytes',
+            'size': 'size',
             'state': 'state',
-            'pct_filesystem': 'pct_filesystem'
+            'target_id': 'target_id',
+            'target_name': 'target_name'
         }
 
-        self._expires = None
-        self._target_name = None
-        self._created = None
-        self._target_id = None
-        self._shadow_bytes = None
-        self._has_locks = None
-        self._path = None
-        self._schedule = None
-        self._pct_reserve = None
-        self._size = None
-        self._name = None
         self._alias = None
+        self._expires = None
+        self._name = None
+        self._created = None
+        self._has_locks = None
         self._id = None
-        self._state = None
+        self._path = None
         self._pct_filesystem = None
-
-    @property
-    def expires(self):
-        """
-        Gets the expires of this SnapshotSnapshotExtended.
-        The Unix Epoch time the snapshot will expire and be eligible for automatic deletion.
-
-        :return: The expires of this SnapshotSnapshotExtended.
-        :rtype: int
-        """
-        return self._expires
-
-    @expires.setter
-    def expires(self, expires):
-        """
-        Sets the expires of this SnapshotSnapshotExtended.
-        The Unix Epoch time the snapshot will expire and be eligible for automatic deletion.
-
-        :param expires: The expires of this SnapshotSnapshotExtended.
-        :type: int
-        """
-        self._expires = expires
-
-    @property
-    def target_name(self):
-        """
-        Gets the target_name of this SnapshotSnapshotExtended.
-        The name of the snapshot pointed to if this is an alias.
-
-        :return: The target_name of this SnapshotSnapshotExtended.
-        :rtype: str
-        """
-        return self._target_name
-
-    @target_name.setter
-    def target_name(self, target_name):
-        """
-        Sets the target_name of this SnapshotSnapshotExtended.
-        The name of the snapshot pointed to if this is an alias.
-
-        :param target_name: The target_name of this SnapshotSnapshotExtended.
-        :type: str
-        """
-        self._target_name = target_name
-
-    @property
-    def created(self):
-        """
-        Gets the created of this SnapshotSnapshotExtended.
-        The Unix Epoch time the snapshot was created.
-
-        :return: The created of this SnapshotSnapshotExtended.
-        :rtype: int
-        """
-        return self._created
-
-    @created.setter
-    def created(self, created):
-        """
-        Sets the created of this SnapshotSnapshotExtended.
-        The Unix Epoch time the snapshot was created.
-
-        :param created: The created of this SnapshotSnapshotExtended.
-        :type: int
-        """
-        self._created = created
-
-    @property
-    def target_id(self):
-        """
-        Gets the target_id of this SnapshotSnapshotExtended.
-        The ID of the snapshot pointed to if this is an alias.
-
-        :return: The target_id of this SnapshotSnapshotExtended.
-        :rtype: int
-        """
-        return self._target_id
-
-    @target_id.setter
-    def target_id(self, target_id):
-        """
-        Sets the target_id of this SnapshotSnapshotExtended.
-        The ID of the snapshot pointed to if this is an alias.
-
-        :param target_id: The target_id of this SnapshotSnapshotExtended.
-        :type: int
-        """
-        self._target_id = target_id
-
-    @property
-    def shadow_bytes(self):
-        """
-        Gets the shadow_bytes of this SnapshotSnapshotExtended.
-        The amount of shadow bytes referred to by this snapshot.
-
-        :return: The shadow_bytes of this SnapshotSnapshotExtended.
-        :rtype: int
-        """
-        return self._shadow_bytes
-
-    @shadow_bytes.setter
-    def shadow_bytes(self, shadow_bytes):
-        """
-        Sets the shadow_bytes of this SnapshotSnapshotExtended.
-        The amount of shadow bytes referred to by this snapshot.
-
-        :param shadow_bytes: The shadow_bytes of this SnapshotSnapshotExtended.
-        :type: int
-        """
-        self._shadow_bytes = shadow_bytes
-
-    @property
-    def has_locks(self):
-        """
-        Gets the has_locks of this SnapshotSnapshotExtended.
-        True if the snapshot has one or more locks present see, see the locks subresource of a snapshot for a list of locks.
-
-        :return: The has_locks of this SnapshotSnapshotExtended.
-        :rtype: bool
-        """
-        return self._has_locks
-
-    @has_locks.setter
-    def has_locks(self, has_locks):
-        """
-        Sets the has_locks of this SnapshotSnapshotExtended.
-        True if the snapshot has one or more locks present see, see the locks subresource of a snapshot for a list of locks.
-
-        :param has_locks: The has_locks of this SnapshotSnapshotExtended.
-        :type: bool
-        """
-        self._has_locks = has_locks
-
-    @property
-    def path(self):
-        """
-        Gets the path of this SnapshotSnapshotExtended.
-        The /ifs path snapshotted.
-
-        :return: The path of this SnapshotSnapshotExtended.
-        :rtype: str
-        """
-        return self._path
-
-    @path.setter
-    def path(self, path):
-        """
-        Sets the path of this SnapshotSnapshotExtended.
-        The /ifs path snapshotted.
-
-        :param path: The path of this SnapshotSnapshotExtended.
-        :type: str
-        """
-        self._path = path
-
-    @property
-    def schedule(self):
-        """
-        Gets the schedule of this SnapshotSnapshotExtended.
-        The name of the schedule used to create this snapshot, if applicable.
-
-        :return: The schedule of this SnapshotSnapshotExtended.
-        :rtype: str
-        """
-        return self._schedule
-
-    @schedule.setter
-    def schedule(self, schedule):
-        """
-        Sets the schedule of this SnapshotSnapshotExtended.
-        The name of the schedule used to create this snapshot, if applicable.
-
-        :param schedule: The schedule of this SnapshotSnapshotExtended.
-        :type: str
-        """
-        self._schedule = schedule
-
-    @property
-    def pct_reserve(self):
-        """
-        Gets the pct_reserve of this SnapshotSnapshotExtended.
-        Percentage of configured snapshot reserved used for storing this snapshot.
-
-        :return: The pct_reserve of this SnapshotSnapshotExtended.
-        :rtype: float
-        """
-        return self._pct_reserve
-
-    @pct_reserve.setter
-    def pct_reserve(self, pct_reserve):
-        """
-        Sets the pct_reserve of this SnapshotSnapshotExtended.
-        Percentage of configured snapshot reserved used for storing this snapshot.
-
-        :param pct_reserve: The pct_reserve of this SnapshotSnapshotExtended.
-        :type: float
-        """
-        self._pct_reserve = pct_reserve
-
-    @property
-    def size(self):
-        """
-        Gets the size of this SnapshotSnapshotExtended.
-        The amount of storage in bytes used to store this snapshot.
-
-        :return: The size of this SnapshotSnapshotExtended.
-        :rtype: int
-        """
-        return self._size
-
-    @size.setter
-    def size(self, size):
-        """
-        Sets the size of this SnapshotSnapshotExtended.
-        The amount of storage in bytes used to store this snapshot.
-
-        :param size: The size of this SnapshotSnapshotExtended.
-        :type: int
-        """
-        self._size = size
-
-    @property
-    def name(self):
-        """
-        Gets the name of this SnapshotSnapshotExtended.
-        The user or system supplied snapshot name. This will be null for snapshots pending delete.
-
-        :return: The name of this SnapshotSnapshotExtended.
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """
-        Sets the name of this SnapshotSnapshotExtended.
-        The user or system supplied snapshot name. This will be null for snapshots pending delete.
-
-        :param name: The name of this SnapshotSnapshotExtended.
-        :type: str
-        """
-        self._name = name
+        self._pct_reserve = None
+        self._schedule = None
+        self._shadow_bytes = None
+        self._size = None
+        self._state = None
+        self._target_id = None
+        self._target_name = None
 
     @property
     def alias(self):
@@ -350,7 +109,100 @@ class SnapshotSnapshotExtended(object):
         :param alias: The alias of this SnapshotSnapshotExtended.
         :type: str
         """
+        
         self._alias = alias
+
+    @property
+    def expires(self):
+        """
+        Gets the expires of this SnapshotSnapshotExtended.
+        The Unix Epoch time the snapshot will expire and be eligible for automatic deletion.
+
+        :return: The expires of this SnapshotSnapshotExtended.
+        :rtype: int
+        """
+        return self._expires
+
+    @expires.setter
+    def expires(self, expires):
+        """
+        Sets the expires of this SnapshotSnapshotExtended.
+        The Unix Epoch time the snapshot will expire and be eligible for automatic deletion.
+
+        :param expires: The expires of this SnapshotSnapshotExtended.
+        :type: int
+        """
+        
+        self._expires = expires
+
+    @property
+    def name(self):
+        """
+        Gets the name of this SnapshotSnapshotExtended.
+        The user or system supplied snapshot name. This will be null for snapshots pending delete.
+
+        :return: The name of this SnapshotSnapshotExtended.
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """
+        Sets the name of this SnapshotSnapshotExtended.
+        The user or system supplied snapshot name. This will be null for snapshots pending delete.
+
+        :param name: The name of this SnapshotSnapshotExtended.
+        :type: str
+        """
+        
+        self._name = name
+
+    @property
+    def created(self):
+        """
+        Gets the created of this SnapshotSnapshotExtended.
+        The Unix Epoch time the snapshot was created.
+
+        :return: The created of this SnapshotSnapshotExtended.
+        :rtype: int
+        """
+        return self._created
+
+    @created.setter
+    def created(self, created):
+        """
+        Sets the created of this SnapshotSnapshotExtended.
+        The Unix Epoch time the snapshot was created.
+
+        :param created: The created of this SnapshotSnapshotExtended.
+        :type: int
+        """
+        
+        self._created = created
+
+    @property
+    def has_locks(self):
+        """
+        Gets the has_locks of this SnapshotSnapshotExtended.
+        True if the snapshot has one or more locks present see, see the locks subresource of a snapshot for a list of locks.
+
+        :return: The has_locks of this SnapshotSnapshotExtended.
+        :rtype: bool
+        """
+        return self._has_locks
+
+    @has_locks.setter
+    def has_locks(self, has_locks):
+        """
+        Sets the has_locks of this SnapshotSnapshotExtended.
+        True if the snapshot has one or more locks present see, see the locks subresource of a snapshot for a list of locks.
+
+        :param has_locks: The has_locks of this SnapshotSnapshotExtended.
+        :type: bool
+        """
+        
+        self._has_locks = has_locks
 
     @property
     def id(self):
@@ -372,7 +224,146 @@ class SnapshotSnapshotExtended(object):
         :param id: The id of this SnapshotSnapshotExtended.
         :type: int
         """
+        
         self._id = id
+
+    @property
+    def path(self):
+        """
+        Gets the path of this SnapshotSnapshotExtended.
+        The /ifs path snapshotted.
+
+        :return: The path of this SnapshotSnapshotExtended.
+        :rtype: str
+        """
+        return self._path
+
+    @path.setter
+    def path(self, path):
+        """
+        Sets the path of this SnapshotSnapshotExtended.
+        The /ifs path snapshotted.
+
+        :param path: The path of this SnapshotSnapshotExtended.
+        :type: str
+        """
+        
+        self._path = path
+
+    @property
+    def pct_filesystem(self):
+        """
+        Gets the pct_filesystem of this SnapshotSnapshotExtended.
+        Percentage of /ifs used for storing this snapshot.
+
+        :return: The pct_filesystem of this SnapshotSnapshotExtended.
+        :rtype: float
+        """
+        return self._pct_filesystem
+
+    @pct_filesystem.setter
+    def pct_filesystem(self, pct_filesystem):
+        """
+        Sets the pct_filesystem of this SnapshotSnapshotExtended.
+        Percentage of /ifs used for storing this snapshot.
+
+        :param pct_filesystem: The pct_filesystem of this SnapshotSnapshotExtended.
+        :type: float
+        """
+        
+        self._pct_filesystem = pct_filesystem
+
+    @property
+    def pct_reserve(self):
+        """
+        Gets the pct_reserve of this SnapshotSnapshotExtended.
+        Percentage of configured snapshot reserved used for storing this snapshot.
+
+        :return: The pct_reserve of this SnapshotSnapshotExtended.
+        :rtype: float
+        """
+        return self._pct_reserve
+
+    @pct_reserve.setter
+    def pct_reserve(self, pct_reserve):
+        """
+        Sets the pct_reserve of this SnapshotSnapshotExtended.
+        Percentage of configured snapshot reserved used for storing this snapshot.
+
+        :param pct_reserve: The pct_reserve of this SnapshotSnapshotExtended.
+        :type: float
+        """
+        
+        self._pct_reserve = pct_reserve
+
+    @property
+    def schedule(self):
+        """
+        Gets the schedule of this SnapshotSnapshotExtended.
+        The name of the schedule used to create this snapshot, if applicable.
+
+        :return: The schedule of this SnapshotSnapshotExtended.
+        :rtype: str
+        """
+        return self._schedule
+
+    @schedule.setter
+    def schedule(self, schedule):
+        """
+        Sets the schedule of this SnapshotSnapshotExtended.
+        The name of the schedule used to create this snapshot, if applicable.
+
+        :param schedule: The schedule of this SnapshotSnapshotExtended.
+        :type: str
+        """
+        
+        self._schedule = schedule
+
+    @property
+    def shadow_bytes(self):
+        """
+        Gets the shadow_bytes of this SnapshotSnapshotExtended.
+        The amount of shadow bytes referred to by this snapshot.
+
+        :return: The shadow_bytes of this SnapshotSnapshotExtended.
+        :rtype: int
+        """
+        return self._shadow_bytes
+
+    @shadow_bytes.setter
+    def shadow_bytes(self, shadow_bytes):
+        """
+        Sets the shadow_bytes of this SnapshotSnapshotExtended.
+        The amount of shadow bytes referred to by this snapshot.
+
+        :param shadow_bytes: The shadow_bytes of this SnapshotSnapshotExtended.
+        :type: int
+        """
+        
+        self._shadow_bytes = shadow_bytes
+
+    @property
+    def size(self):
+        """
+        Gets the size of this SnapshotSnapshotExtended.
+        The amount of storage in bytes used to store this snapshot.
+
+        :return: The size of this SnapshotSnapshotExtended.
+        :rtype: int
+        """
+        return self._size
+
+    @size.setter
+    def size(self, size):
+        """
+        Sets the size of this SnapshotSnapshotExtended.
+        The amount of storage in bytes used to store this snapshot.
+
+        :param size: The size of this SnapshotSnapshotExtended.
+        :type: int
+        """
+        
+        self._size = size
 
     @property
     def state(self):
@@ -400,29 +391,54 @@ class SnapshotSnapshotExtended(object):
                 "Invalid value for `state`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._state = state
 
     @property
-    def pct_filesystem(self):
+    def target_id(self):
         """
-        Gets the pct_filesystem of this SnapshotSnapshotExtended.
-        Percentage of /ifs used for storing this snapshot.
+        Gets the target_id of this SnapshotSnapshotExtended.
+        The ID of the snapshot pointed to if this is an alias.
 
-        :return: The pct_filesystem of this SnapshotSnapshotExtended.
-        :rtype: float
+        :return: The target_id of this SnapshotSnapshotExtended.
+        :rtype: int
         """
-        return self._pct_filesystem
+        return self._target_id
 
-    @pct_filesystem.setter
-    def pct_filesystem(self, pct_filesystem):
+    @target_id.setter
+    def target_id(self, target_id):
         """
-        Sets the pct_filesystem of this SnapshotSnapshotExtended.
-        Percentage of /ifs used for storing this snapshot.
+        Sets the target_id of this SnapshotSnapshotExtended.
+        The ID of the snapshot pointed to if this is an alias.
 
-        :param pct_filesystem: The pct_filesystem of this SnapshotSnapshotExtended.
-        :type: float
+        :param target_id: The target_id of this SnapshotSnapshotExtended.
+        :type: int
         """
-        self._pct_filesystem = pct_filesystem
+        
+        self._target_id = target_id
+
+    @property
+    def target_name(self):
+        """
+        Gets the target_name of this SnapshotSnapshotExtended.
+        The name of the snapshot pointed to if this is an alias.
+
+        :return: The target_name of this SnapshotSnapshotExtended.
+        :rtype: str
+        """
+        return self._target_name
+
+    @target_name.setter
+    def target_name(self, target_name):
+        """
+        Sets the target_name of this SnapshotSnapshotExtended.
+        The name of the snapshot pointed to if this is an alias.
+
+        :param target_name: The target_name of this SnapshotSnapshotExtended.
+        :type: str
+        """
+        
+        self._target_name = target_name
 
     def to_dict(self):
         """
@@ -439,6 +455,12 @@ class SnapshotSnapshotExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -456,14 +478,14 @@ class SnapshotSnapshotExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

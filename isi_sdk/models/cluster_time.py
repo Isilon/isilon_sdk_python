@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class ClusterTime(object):
@@ -37,36 +38,89 @@ class ClusterTime(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'time': 'int'
+            'errors': 'list[ClusterTimeError]',
+            'nodes': 'list[ClusterTimeNode]',
+            'total': 'int'
         }
 
         self.attribute_map = {
-            'time': 'time'
+            'errors': 'errors',
+            'nodes': 'nodes',
+            'total': 'total'
         }
 
-        self._time = None
+        self._errors = None
+        self._nodes = None
+        self._total = None
 
     @property
-    def time(self):
+    def errors(self):
         """
-        Gets the time of this ClusterTime.
-        The current time on the cluster as a UNIX epoch (seconds since 1/1/1970), as reported by this node.
+        Gets the errors of this ClusterTime.
+        A list of errors encountered by the individual nodes involved in this request, or an empty list if there were no errors.
 
-        :return: The time of this ClusterTime.
+        :return: The errors of this ClusterTime.
+        :rtype: list[ClusterTimeError]
+        """
+        return self._errors
+
+    @errors.setter
+    def errors(self, errors):
+        """
+        Sets the errors of this ClusterTime.
+        A list of errors encountered by the individual nodes involved in this request, or an empty list if there were no errors.
+
+        :param errors: The errors of this ClusterTime.
+        :type: list[ClusterTimeError]
+        """
+        
+        self._errors = errors
+
+    @property
+    def nodes(self):
+        """
+        Gets the nodes of this ClusterTime.
+        The responses from the individual nodes involved in this request.
+
+        :return: The nodes of this ClusterTime.
+        :rtype: list[ClusterTimeNode]
+        """
+        return self._nodes
+
+    @nodes.setter
+    def nodes(self, nodes):
+        """
+        Sets the nodes of this ClusterTime.
+        The responses from the individual nodes involved in this request.
+
+        :param nodes: The nodes of this ClusterTime.
+        :type: list[ClusterTimeNode]
+        """
+        
+        self._nodes = nodes
+
+    @property
+    def total(self):
+        """
+        Gets the total of this ClusterTime.
+        The total number of nodes responding.
+
+        :return: The total of this ClusterTime.
         :rtype: int
         """
-        return self._time
+        return self._total
 
-    @time.setter
-    def time(self, time):
+    @total.setter
+    def total(self, total):
         """
-        Sets the time of this ClusterTime.
-        The current time on the cluster as a UNIX epoch (seconds since 1/1/1970), as reported by this node.
+        Sets the total of this ClusterTime.
+        The total number of nodes responding.
 
-        :param time: The time of this ClusterTime.
+        :param total: The total of this ClusterTime.
         :type: int
         """
-        self._time = time
+        
+        self._total = total
 
     def to_dict(self):
         """
@@ -83,6 +137,12 @@ class ClusterTime(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -100,14 +160,14 @@ class ClusterTime(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

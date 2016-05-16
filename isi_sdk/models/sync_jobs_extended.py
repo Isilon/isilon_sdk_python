@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class SyncJobsExtended(object):
@@ -37,20 +38,43 @@ class SyncJobsExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
+            'jobs': 'list[SyncJobExtended]',
             'resume': 'str',
-            'total': 'int',
-            'jobs': 'list[SyncJobExtended]'
+            'total': 'int'
         }
 
         self.attribute_map = {
+            'jobs': 'jobs',
             'resume': 'resume',
-            'total': 'total',
-            'jobs': 'jobs'
+            'total': 'total'
         }
 
+        self._jobs = None
         self._resume = None
         self._total = None
-        self._jobs = None
+
+    @property
+    def jobs(self):
+        """
+        Gets the jobs of this SyncJobsExtended.
+
+
+        :return: The jobs of this SyncJobsExtended.
+        :rtype: list[SyncJobExtended]
+        """
+        return self._jobs
+
+    @jobs.setter
+    def jobs(self, jobs):
+        """
+        Sets the jobs of this SyncJobsExtended.
+
+
+        :param jobs: The jobs of this SyncJobsExtended.
+        :type: list[SyncJobExtended]
+        """
+        
+        self._jobs = jobs
 
     @property
     def resume(self):
@@ -72,6 +96,7 @@ class SyncJobsExtended(object):
         :param resume: The resume of this SyncJobsExtended.
         :type: str
         """
+        
         self._resume = resume
 
     @property
@@ -94,29 +119,8 @@ class SyncJobsExtended(object):
         :param total: The total of this SyncJobsExtended.
         :type: int
         """
+        
         self._total = total
-
-    @property
-    def jobs(self):
-        """
-        Gets the jobs of this SyncJobsExtended.
-
-
-        :return: The jobs of this SyncJobsExtended.
-        :rtype: list[SyncJobExtended]
-        """
-        return self._jobs
-
-    @jobs.setter
-    def jobs(self, jobs):
-        """
-        Sets the jobs of this SyncJobsExtended.
-
-
-        :param jobs: The jobs of this SyncJobsExtended.
-        :type: list[SyncJobExtended]
-        """
-        self._jobs = jobs
 
     def to_dict(self):
         """
@@ -133,6 +137,12 @@ class SyncJobsExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -150,14 +160,14 @@ class SyncJobsExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

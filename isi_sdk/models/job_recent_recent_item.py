@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class JobRecentRecentItem(object):
@@ -129,6 +130,7 @@ class JobRecentRecentItem(object):
                 "Invalid value for `control_state`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._control_state = control_state
 
     @property
@@ -151,6 +153,7 @@ class JobRecentRecentItem(object):
         :param create_time: The create_time of this JobRecentRecentItem.
         :type: int
         """
+        
         self._create_time = create_time
 
     @property
@@ -173,6 +176,7 @@ class JobRecentRecentItem(object):
         :param current_phase: The current_phase of this JobRecentRecentItem.
         :type: int
         """
+        
         self._current_phase = current_phase
 
     @property
@@ -195,6 +199,7 @@ class JobRecentRecentItem(object):
         :param description: The description of this JobRecentRecentItem.
         :type: str
         """
+        
         self._description = description
 
     @property
@@ -217,6 +222,7 @@ class JobRecentRecentItem(object):
         :param end_time: The end_time of this JobRecentRecentItem.
         :type: int
         """
+        
         self._end_time = end_time
 
     @property
@@ -239,6 +245,12 @@ class JobRecentRecentItem(object):
         :param id: The id of this JobRecentRecentItem.
         :type: int
         """
+        
+        if not id:
+            raise ValueError("Invalid value for `id`, must not be `None`")
+        if id < 1.0: 
+            raise ValueError("Invalid value for `id`, must be a value greater than or equal to `1.0`")
+
         self._id = id
 
     @property
@@ -267,6 +279,7 @@ class JobRecentRecentItem(object):
                 "Invalid value for `impact`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._impact = impact
 
     @property
@@ -289,6 +302,7 @@ class JobRecentRecentItem(object):
         :param participants: The participants of this JobRecentRecentItem.
         :type: list[int]
         """
+        
         self._participants = participants
 
     @property
@@ -311,6 +325,7 @@ class JobRecentRecentItem(object):
         :param paths: The paths of this JobRecentRecentItem.
         :type: list[str]
         """
+        
         self._paths = paths
 
     @property
@@ -333,6 +348,7 @@ class JobRecentRecentItem(object):
         :param policy: The policy of this JobRecentRecentItem.
         :type: str
         """
+        
         self._policy = policy
 
     @property
@@ -355,6 +371,14 @@ class JobRecentRecentItem(object):
         :param priority: The priority of this JobRecentRecentItem.
         :type: int
         """
+        
+        if not priority:
+            raise ValueError("Invalid value for `priority`, must not be `None`")
+        if priority > 10.0: 
+            raise ValueError("Invalid value for `priority`, must be a value less than or equal to `10.0`")
+        if priority < 1.0: 
+            raise ValueError("Invalid value for `priority`, must be a value greater than or equal to `1.0`")
+
         self._priority = priority
 
     @property
@@ -377,6 +401,7 @@ class JobRecentRecentItem(object):
         :param progress: The progress of this JobRecentRecentItem.
         :type: str
         """
+        
         self._progress = progress
 
     @property
@@ -399,6 +424,7 @@ class JobRecentRecentItem(object):
         :param retries_remaining: The retries_remaining of this JobRecentRecentItem.
         :type: int
         """
+        
         self._retries_remaining = retries_remaining
 
     @property
@@ -421,6 +447,7 @@ class JobRecentRecentItem(object):
         :param running_time: The running_time of this JobRecentRecentItem.
         :type: int
         """
+        
         self._running_time = running_time
 
     @property
@@ -443,6 +470,7 @@ class JobRecentRecentItem(object):
         :param start_time: The start_time of this JobRecentRecentItem.
         :type: int
         """
+        
         self._start_time = start_time
 
     @property
@@ -471,6 +499,7 @@ class JobRecentRecentItem(object):
                 "Invalid value for `state`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._state = state
 
     @property
@@ -493,6 +522,7 @@ class JobRecentRecentItem(object):
         :param total_phases: The total_phases of this JobRecentRecentItem.
         :type: int
         """
+        
         self._total_phases = total_phases
 
     @property
@@ -515,6 +545,7 @@ class JobRecentRecentItem(object):
         :param type: The type of this JobRecentRecentItem.
         :type: str
         """
+        
         self._type = type
 
     @property
@@ -537,6 +568,7 @@ class JobRecentRecentItem(object):
         :param waiting_on: The waiting_on of this JobRecentRecentItem.
         :type: int
         """
+        
         self._waiting_on = waiting_on
 
     @property
@@ -565,6 +597,7 @@ class JobRecentRecentItem(object):
                 "Invalid value for `waiting_reason`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._waiting_reason = waiting_reason
 
     def to_dict(self):
@@ -582,6 +615,12 @@ class JobRecentRecentItem(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -599,14 +638,14 @@ class JobRecentRecentItem(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

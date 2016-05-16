@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class SnapshotChangelistsExtended(object):
@@ -37,63 +38,20 @@ class SnapshotChangelistsExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'snap2': 'int',
             'changelists': 'list[SnapshotChangelists]',
             'resume': 'str',
-            'root_path': 'str',
-            'total': 'int',
-            'job_id': 'int',
-            'id': 'str',
-            'num_entries': 'int',
-            'snap1': 'int',
-            'status': 'str'
+            'total': 'int'
         }
 
         self.attribute_map = {
-            'snap2': 'snap2',
             'changelists': 'changelists',
             'resume': 'resume',
-            'root_path': 'root_path',
-            'total': 'total',
-            'job_id': 'job_id',
-            'id': 'id',
-            'num_entries': 'num_entries',
-            'snap1': 'snap1',
-            'status': 'status'
+            'total': 'total'
         }
 
-        self._snap2 = None
         self._changelists = None
         self._resume = None
-        self._root_path = None
         self._total = None
-        self._job_id = None
-        self._id = None
-        self._num_entries = None
-        self._snap1 = None
-        self._status = None
-
-    @property
-    def snap2(self):
-        """
-        Gets the snap2 of this SnapshotChangelistsExtended.
-        The higher snapid used to compute the changelist.
-
-        :return: The snap2 of this SnapshotChangelistsExtended.
-        :rtype: int
-        """
-        return self._snap2
-
-    @snap2.setter
-    def snap2(self, snap2):
-        """
-        Sets the snap2 of this SnapshotChangelistsExtended.
-        The higher snapid used to compute the changelist.
-
-        :param snap2: The snap2 of this SnapshotChangelistsExtended.
-        :type: int
-        """
-        self._snap2 = snap2
 
     @property
     def changelists(self):
@@ -115,6 +73,7 @@ class SnapshotChangelistsExtended(object):
         :param changelists: The changelists of this SnapshotChangelistsExtended.
         :type: list[SnapshotChangelists]
         """
+        
         self._changelists = changelists
 
     @property
@@ -137,29 +96,8 @@ class SnapshotChangelistsExtended(object):
         :param resume: The resume of this SnapshotChangelistsExtended.
         :type: str
         """
+        
         self._resume = resume
-
-    @property
-    def root_path(self):
-        """
-        Gets the root_path of this SnapshotChangelistsExtended.
-        Root path of all LINs in changelist.
-
-        :return: The root_path of this SnapshotChangelistsExtended.
-        :rtype: str
-        """
-        return self._root_path
-
-    @root_path.setter
-    def root_path(self, root_path):
-        """
-        Sets the root_path of this SnapshotChangelistsExtended.
-        Root path of all LINs in changelist.
-
-        :param root_path: The root_path of this SnapshotChangelistsExtended.
-        :type: str
-        """
-        self._root_path = root_path
 
     @property
     def total(self):
@@ -181,117 +119,8 @@ class SnapshotChangelistsExtended(object):
         :param total: The total of this SnapshotChangelistsExtended.
         :type: int
         """
+        
         self._total = total
-
-    @property
-    def job_id(self):
-        """
-        Gets the job_id of this SnapshotChangelistsExtended.
-        The ID of the job which created the changelist.
-
-        :return: The job_id of this SnapshotChangelistsExtended.
-        :rtype: int
-        """
-        return self._job_id
-
-    @job_id.setter
-    def job_id(self, job_id):
-        """
-        Sets the job_id of this SnapshotChangelistsExtended.
-        The ID of the job which created the changelist.
-
-        :param job_id: The job_id of this SnapshotChangelistsExtended.
-        :type: int
-        """
-        self._job_id = job_id
-
-    @property
-    def id(self):
-        """
-        Gets the id of this SnapshotChangelistsExtended.
-        The system ID given to the changelist.
-
-        :return: The id of this SnapshotChangelistsExtended.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this SnapshotChangelistsExtended.
-        The system ID given to the changelist.
-
-        :param id: The id of this SnapshotChangelistsExtended.
-        :type: str
-        """
-        self._id = id
-
-    @property
-    def num_entries(self):
-        """
-        Gets the num_entries of this SnapshotChangelistsExtended.
-        Number of LIN entries in changelist.
-
-        :return: The num_entries of this SnapshotChangelistsExtended.
-        :rtype: int
-        """
-        return self._num_entries
-
-    @num_entries.setter
-    def num_entries(self, num_entries):
-        """
-        Sets the num_entries of this SnapshotChangelistsExtended.
-        Number of LIN entries in changelist.
-
-        :param num_entries: The num_entries of this SnapshotChangelistsExtended.
-        :type: int
-        """
-        self._num_entries = num_entries
-
-    @property
-    def snap1(self):
-        """
-        Gets the snap1 of this SnapshotChangelistsExtended.
-        The lower snapid used to compute the changelist.
-
-        :return: The snap1 of this SnapshotChangelistsExtended.
-        :rtype: int
-        """
-        return self._snap1
-
-    @snap1.setter
-    def snap1(self, snap1):
-        """
-        Sets the snap1 of this SnapshotChangelistsExtended.
-        The lower snapid used to compute the changelist.
-
-        :param snap1: The snap1 of this SnapshotChangelistsExtended.
-        :type: int
-        """
-        self._snap1 = snap1
-
-    @property
-    def status(self):
-        """
-        Gets the status of this SnapshotChangelistsExtended.
-        Status of changelist.
-
-        :return: The status of this SnapshotChangelistsExtended.
-        :rtype: str
-        """
-        return self._status
-
-    @status.setter
-    def status(self, status):
-        """
-        Sets the status of this SnapshotChangelistsExtended.
-        Status of changelist.
-
-        :param status: The status of this SnapshotChangelistsExtended.
-        :type: str
-        """
-        self._status = status
 
     def to_dict(self):
         """
@@ -308,6 +137,12 @@ class SnapshotChangelistsExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -325,14 +160,14 @@ class SnapshotChangelistsExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

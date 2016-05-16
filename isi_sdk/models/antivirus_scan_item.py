@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class AntivirusScanItem(object):
@@ -75,6 +76,12 @@ class AntivirusScanItem(object):
         :param file: The file of this AntivirusScanItem.
         :type: str
         """
+        
+        if not file:
+            raise ValueError("Invalid value for `file`, must not be `None`")
+        if len(file) < 1: 
+            raise ValueError("Invalid value for `file`, length must be greater than or equal to `1`")
+
         self._file = file
 
     @property
@@ -97,6 +104,7 @@ class AntivirusScanItem(object):
         :param force_run: The force_run of this AntivirusScanItem.
         :type: bool
         """
+        
         self._force_run = force_run
 
     @property
@@ -119,6 +127,12 @@ class AntivirusScanItem(object):
         :param policy: The policy of this AntivirusScanItem.
         :type: str
         """
+        
+        if not policy:
+            raise ValueError("Invalid value for `policy`, must not be `None`")
+        if len(policy) < 1: 
+            raise ValueError("Invalid value for `policy`, length must be greater than or equal to `1`")
+
         self._policy = policy
 
     @property
@@ -141,6 +155,12 @@ class AntivirusScanItem(object):
         :param report_id: The report_id of this AntivirusScanItem.
         :type: str
         """
+        
+        if not report_id:
+            raise ValueError("Invalid value for `report_id`, must not be `None`")
+        if len(report_id) < 1: 
+            raise ValueError("Invalid value for `report_id`, length must be greater than or equal to `1`")
+
         self._report_id = report_id
 
     def to_dict(self):
@@ -158,6 +178,12 @@ class AntivirusScanItem(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -175,14 +201,14 @@ class AntivirusScanItem(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

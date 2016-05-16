@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class AuthRoleExtended(object):
@@ -37,48 +38,26 @@ class AuthRoleExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'name': 'str',
             'description': 'str',
+            'members': 'list[GroupMember]',
+            'name': 'str',
             'privileges': 'list[AuthIdNtokenPrivilegeItem]',
-            'id': 'str',
-            'members': 'list[GroupsGroupMember]'
+            'id': 'str'
         }
 
         self.attribute_map = {
-            'name': 'name',
             'description': 'description',
+            'members': 'members',
+            'name': 'name',
             'privileges': 'privileges',
-            'id': 'id',
-            'members': 'members'
+            'id': 'id'
         }
 
-        self._name = None
         self._description = None
+        self._members = None
+        self._name = None
         self._privileges = None
         self._id = None
-        self._members = None
-
-    @property
-    def name(self):
-        """
-        Gets the name of this AuthRoleExtended.
-        Specifies the name of the role.
-
-        :return: The name of this AuthRoleExtended.
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """
-        Sets the name of this AuthRoleExtended.
-        Specifies the name of the role.
-
-        :param name: The name of this AuthRoleExtended.
-        :type: str
-        """
-        self._name = name
 
     @property
     def description(self):
@@ -100,7 +79,54 @@ class AuthRoleExtended(object):
         :param description: The description of this AuthRoleExtended.
         :type: str
         """
+        
         self._description = description
+
+    @property
+    def members(self):
+        """
+        Gets the members of this AuthRoleExtended.
+        Specifies the users or groups that have this role.
+
+        :return: The members of this AuthRoleExtended.
+        :rtype: list[GroupMember]
+        """
+        return self._members
+
+    @members.setter
+    def members(self, members):
+        """
+        Sets the members of this AuthRoleExtended.
+        Specifies the users or groups that have this role.
+
+        :param members: The members of this AuthRoleExtended.
+        :type: list[GroupMember]
+        """
+        
+        self._members = members
+
+    @property
+    def name(self):
+        """
+        Gets the name of this AuthRoleExtended.
+        Specifies the name of the role.
+
+        :return: The name of this AuthRoleExtended.
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """
+        Sets the name of this AuthRoleExtended.
+        Specifies the name of the role.
+
+        :param name: The name of this AuthRoleExtended.
+        :type: str
+        """
+        
+        self._name = name
 
     @property
     def privileges(self):
@@ -122,6 +148,7 @@ class AuthRoleExtended(object):
         :param privileges: The privileges of this AuthRoleExtended.
         :type: list[AuthIdNtokenPrivilegeItem]
         """
+        
         self._privileges = privileges
 
     @property
@@ -144,29 +171,8 @@ class AuthRoleExtended(object):
         :param id: The id of this AuthRoleExtended.
         :type: str
         """
+        
         self._id = id
-
-    @property
-    def members(self):
-        """
-        Gets the members of this AuthRoleExtended.
-        Specifies the users or groups that have this role.
-
-        :return: The members of this AuthRoleExtended.
-        :rtype: list[GroupsGroupMember]
-        """
-        return self._members
-
-    @members.setter
-    def members(self, members):
-        """
-        Sets the members of this AuthRoleExtended.
-        Specifies the users or groups that have this role.
-
-        :param members: The members of this AuthRoleExtended.
-        :type: list[GroupsGroupMember]
-        """
-        self._members = members
 
     def to_dict(self):
         """
@@ -183,6 +189,12 @@ class AuthRoleExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -200,14 +212,14 @@ class AuthRoleExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

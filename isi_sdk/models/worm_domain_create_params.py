@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class WormDomainCreateParams(object):
@@ -37,57 +38,63 @@ class WormDomainCreateParams(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'path': 'str',
-            'default_retention': 'int',
-            'privileged_delete': 'str',
-            'override_date': 'int',
             'autocommit_offset': 'int',
+            'default_retention': 'int',
             'max_retention': 'int',
             'min_retention': 'int',
-            'type': 'str'
+            'override_date': 'int',
+            'privileged_delete': 'str',
+            'type': 'str',
+            'path': 'str'
         }
 
         self.attribute_map = {
-            'path': 'path',
-            'default_retention': 'default_retention',
-            'privileged_delete': 'privileged_delete',
-            'override_date': 'override_date',
             'autocommit_offset': 'autocommit_offset',
+            'default_retention': 'default_retention',
             'max_retention': 'max_retention',
             'min_retention': 'min_retention',
-            'type': 'type'
+            'override_date': 'override_date',
+            'privileged_delete': 'privileged_delete',
+            'type': 'type',
+            'path': 'path'
         }
 
-        self._path = None
-        self._default_retention = None
-        self._privileged_delete = None
-        self._override_date = None
         self._autocommit_offset = None
+        self._default_retention = None
         self._max_retention = None
         self._min_retention = None
+        self._override_date = None
+        self._privileged_delete = None
         self._type = None
+        self._path = None
 
     @property
-    def path(self):
+    def autocommit_offset(self):
         """
-        Gets the path of this WormDomainCreateParams.
-        Specifies the root path of this domain. Files in this directory and all sub-directories will be protected.
+        Gets the autocommit_offset of this WormDomainCreateParams.
+        Specifies the autocommit time period for the domain in seconds.  After a file is in the domain without being modified for the specified time period, the file is automatically committed. If this parameter is set to null, there is no autocommit time, and files must be committed manually.
 
-        :return: The path of this WormDomainCreateParams.
-        :rtype: str
+        :return: The autocommit_offset of this WormDomainCreateParams.
+        :rtype: int
         """
-        return self._path
+        return self._autocommit_offset
 
-    @path.setter
-    def path(self, path):
+    @autocommit_offset.setter
+    def autocommit_offset(self, autocommit_offset):
         """
-        Sets the path of this WormDomainCreateParams.
-        Specifies the root path of this domain. Files in this directory and all sub-directories will be protected.
+        Sets the autocommit_offset of this WormDomainCreateParams.
+        Specifies the autocommit time period for the domain in seconds.  After a file is in the domain without being modified for the specified time period, the file is automatically committed. If this parameter is set to null, there is no autocommit time, and files must be committed manually.
 
-        :param path: The path of this WormDomainCreateParams.
-        :type: str
+        :param autocommit_offset: The autocommit_offset of this WormDomainCreateParams.
+        :type: int
         """
-        self._path = path
+        
+        if not autocommit_offset:
+            raise ValueError("Invalid value for `autocommit_offset`, must not be `None`")
+        if autocommit_offset < 0.0: 
+            raise ValueError("Invalid value for `autocommit_offset`, must be a value greater than or equal to `0.0`")
+
+        self._autocommit_offset = autocommit_offset
 
     @property
     def default_retention(self):
@@ -109,7 +116,97 @@ class WormDomainCreateParams(object):
         :param default_retention: The default_retention of this WormDomainCreateParams.
         :type: int
         """
+        
+        if not default_retention:
+            raise ValueError("Invalid value for `default_retention`, must not be `None`")
+        if default_retention < 0.0: 
+            raise ValueError("Invalid value for `default_retention`, must be a value greater than or equal to `0.0`")
+
         self._default_retention = default_retention
+
+    @property
+    def max_retention(self):
+        """
+        Gets the max_retention of this WormDomainCreateParams.
+        Specifies the maximum amount of time, in seconds, that a file in this domain will be protected. This setting will override the retention period of any file committed with a longer retention period. If this parameter is set to null, an infinite length retention period is set.
+
+        :return: The max_retention of this WormDomainCreateParams.
+        :rtype: int
+        """
+        return self._max_retention
+
+    @max_retention.setter
+    def max_retention(self, max_retention):
+        """
+        Sets the max_retention of this WormDomainCreateParams.
+        Specifies the maximum amount of time, in seconds, that a file in this domain will be protected. This setting will override the retention period of any file committed with a longer retention period. If this parameter is set to null, an infinite length retention period is set.
+
+        :param max_retention: The max_retention of this WormDomainCreateParams.
+        :type: int
+        """
+        
+        if not max_retention:
+            raise ValueError("Invalid value for `max_retention`, must not be `None`")
+        if max_retention < 0.0: 
+            raise ValueError("Invalid value for `max_retention`, must be a value greater than or equal to `0.0`")
+
+        self._max_retention = max_retention
+
+    @property
+    def min_retention(self):
+        """
+        Gets the min_retention of this WormDomainCreateParams.
+        Specifies the minimum amount of time, in seconds, that a file in this domain will be protected. This setting will override the retention period of any file committed with a shorter retention period. If this parameter is set to null, this minimum value is not enforced. This parameter can also be set to 'forever'.
+
+        :return: The min_retention of this WormDomainCreateParams.
+        :rtype: int
+        """
+        return self._min_retention
+
+    @min_retention.setter
+    def min_retention(self, min_retention):
+        """
+        Sets the min_retention of this WormDomainCreateParams.
+        Specifies the minimum amount of time, in seconds, that a file in this domain will be protected. This setting will override the retention period of any file committed with a shorter retention period. If this parameter is set to null, this minimum value is not enforced. This parameter can also be set to 'forever'.
+
+        :param min_retention: The min_retention of this WormDomainCreateParams.
+        :type: int
+        """
+        
+        if not min_retention:
+            raise ValueError("Invalid value for `min_retention`, must not be `None`")
+        if min_retention < 0.0: 
+            raise ValueError("Invalid value for `min_retention`, must be a value greater than or equal to `0.0`")
+
+        self._min_retention = min_retention
+
+    @property
+    def override_date(self):
+        """
+        Gets the override_date of this WormDomainCreateParams.
+        Specifies the override retention date for the domain. If this date is later than the retention date for any committed file, the file will remain protected until the override retention date.
+
+        :return: The override_date of this WormDomainCreateParams.
+        :rtype: int
+        """
+        return self._override_date
+
+    @override_date.setter
+    def override_date(self, override_date):
+        """
+        Sets the override_date of this WormDomainCreateParams.
+        Specifies the override retention date for the domain. If this date is later than the retention date for any committed file, the file will remain protected until the override retention date.
+
+        :param override_date: The override_date of this WormDomainCreateParams.
+        :type: int
+        """
+        
+        if not override_date:
+            raise ValueError("Invalid value for `override_date`, must not be `None`")
+        if override_date < 0.0: 
+            raise ValueError("Invalid value for `override_date`, must be a value greater than or equal to `0.0`")
+
+        self._override_date = override_date
 
     @property
     def privileged_delete(self):
@@ -137,95 +234,8 @@ class WormDomainCreateParams(object):
                 "Invalid value for `privileged_delete`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._privileged_delete = privileged_delete
-
-    @property
-    def override_date(self):
-        """
-        Gets the override_date of this WormDomainCreateParams.
-        Specifies the override retention date for the domain. If this date is later than the retention date for any committed file, the file will remain protected until the override retention date.
-
-        :return: The override_date of this WormDomainCreateParams.
-        :rtype: int
-        """
-        return self._override_date
-
-    @override_date.setter
-    def override_date(self, override_date):
-        """
-        Sets the override_date of this WormDomainCreateParams.
-        Specifies the override retention date for the domain. If this date is later than the retention date for any committed file, the file will remain protected until the override retention date.
-
-        :param override_date: The override_date of this WormDomainCreateParams.
-        :type: int
-        """
-        self._override_date = override_date
-
-    @property
-    def autocommit_offset(self):
-        """
-        Gets the autocommit_offset of this WormDomainCreateParams.
-        Specifies the autocommit time period for the domain in seconds.  After a file is in the domain without being modified for the specified time period, the file is automatically committed. If this parameter is set to null, there is no autocommit time, and files must be committed manually.
-
-        :return: The autocommit_offset of this WormDomainCreateParams.
-        :rtype: int
-        """
-        return self._autocommit_offset
-
-    @autocommit_offset.setter
-    def autocommit_offset(self, autocommit_offset):
-        """
-        Sets the autocommit_offset of this WormDomainCreateParams.
-        Specifies the autocommit time period for the domain in seconds.  After a file is in the domain without being modified for the specified time period, the file is automatically committed. If this parameter is set to null, there is no autocommit time, and files must be committed manually.
-
-        :param autocommit_offset: The autocommit_offset of this WormDomainCreateParams.
-        :type: int
-        """
-        self._autocommit_offset = autocommit_offset
-
-    @property
-    def max_retention(self):
-        """
-        Gets the max_retention of this WormDomainCreateParams.
-        Specifies the maximum amount of time, in seconds, that a file in this domain will be protected. This setting will override the retention period of any file committed with a longer retention period. If this parameter is set to null, an infinite length retention period is set.
-
-        :return: The max_retention of this WormDomainCreateParams.
-        :rtype: int
-        """
-        return self._max_retention
-
-    @max_retention.setter
-    def max_retention(self, max_retention):
-        """
-        Sets the max_retention of this WormDomainCreateParams.
-        Specifies the maximum amount of time, in seconds, that a file in this domain will be protected. This setting will override the retention period of any file committed with a longer retention period. If this parameter is set to null, an infinite length retention period is set.
-
-        :param max_retention: The max_retention of this WormDomainCreateParams.
-        :type: int
-        """
-        self._max_retention = max_retention
-
-    @property
-    def min_retention(self):
-        """
-        Gets the min_retention of this WormDomainCreateParams.
-        Specifies the minimum amount of time, in seconds, that a file in this domain will be protected. This setting will override the retention period of any file committed with a shorter retention period. If this parameter is set to null, this minimum value is not enforced. This parameter can also be set to 'forever'.
-
-        :return: The min_retention of this WormDomainCreateParams.
-        :rtype: int
-        """
-        return self._min_retention
-
-    @min_retention.setter
-    def min_retention(self, min_retention):
-        """
-        Sets the min_retention of this WormDomainCreateParams.
-        Specifies the minimum amount of time, in seconds, that a file in this domain will be protected. This setting will override the retention period of any file committed with a shorter retention period. If this parameter is set to null, this minimum value is not enforced. This parameter can also be set to 'forever'.
-
-        :param min_retention: The min_retention of this WormDomainCreateParams.
-        :type: int
-        """
-        self._min_retention = min_retention
 
     @property
     def type(self):
@@ -253,7 +263,31 @@ class WormDomainCreateParams(object):
                 "Invalid value for `type`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._type = type
+
+    @property
+    def path(self):
+        """
+        Gets the path of this WormDomainCreateParams.
+        Specifies the root path of this domain. Files in this directory and all sub-directories will be protected.
+
+        :return: The path of this WormDomainCreateParams.
+        :rtype: str
+        """
+        return self._path
+
+    @path.setter
+    def path(self, path):
+        """
+        Sets the path of this WormDomainCreateParams.
+        Specifies the root path of this domain. Files in this directory and all sub-directories will be protected.
+
+        :param path: The path of this WormDomainCreateParams.
+        :type: str
+        """
+        
+        self._path = path
 
     def to_dict(self):
         """
@@ -270,6 +304,12 @@ class WormDomainCreateParams(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -287,14 +327,14 @@ class WormDomainCreateParams(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

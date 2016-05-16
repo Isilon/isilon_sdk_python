@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class SyncReport(object):
@@ -78,7 +79,7 @@ class SyncReport(object):
             'network_bytes_to_target': 'int',
             'new_files_replicated': 'int',
             'num_retransmitted_files': 'int',
-            'phases': 'list[ReportsRidSubreportsSubreportPhase]',
+            'phases': 'list[ReportSubreportPhase]',
             'policy': 'SyncReportPolicy',
             'policy_action': 'str',
             'policy_id': 'str',
@@ -324,6 +325,7 @@ class SyncReport(object):
         :param action: The action of this SyncReport.
         :type: str
         """
+        
         self._action = action
 
     @property
@@ -346,6 +348,7 @@ class SyncReport(object):
         :param ads_streams_replicated: The ads_streams_replicated of this SyncReport.
         :type: int
         """
+        
         self._ads_streams_replicated = ads_streams_replicated
 
     @property
@@ -368,6 +371,7 @@ class SyncReport(object):
         :param block_specs_replicated: The block_specs_replicated of this SyncReport.
         :type: int
         """
+        
         self._block_specs_replicated = block_specs_replicated
 
     @property
@@ -390,6 +394,7 @@ class SyncReport(object):
         :param bytes_recoverable: The bytes_recoverable of this SyncReport.
         :type: int
         """
+        
         self._bytes_recoverable = bytes_recoverable
 
     @property
@@ -412,6 +417,7 @@ class SyncReport(object):
         :param bytes_transferred: The bytes_transferred of this SyncReport.
         :type: int
         """
+        
         self._bytes_transferred = bytes_transferred
 
     @property
@@ -434,6 +440,7 @@ class SyncReport(object):
         :param char_specs_replicated: The char_specs_replicated of this SyncReport.
         :type: int
         """
+        
         self._char_specs_replicated = char_specs_replicated
 
     @property
@@ -456,6 +463,7 @@ class SyncReport(object):
         :param corrected_lins: The corrected_lins of this SyncReport.
         :type: int
         """
+        
         self._corrected_lins = corrected_lins
 
     @property
@@ -478,6 +486,7 @@ class SyncReport(object):
         :param dead_node: The dead_node of this SyncReport.
         :type: bool
         """
+        
         self._dead_node = dead_node
 
     @property
@@ -500,6 +509,7 @@ class SyncReport(object):
         :param directories_replicated: The directories_replicated of this SyncReport.
         :type: int
         """
+        
         self._directories_replicated = directories_replicated
 
     @property
@@ -522,6 +532,7 @@ class SyncReport(object):
         :param dirs_changed: The dirs_changed of this SyncReport.
         :type: int
         """
+        
         self._dirs_changed = dirs_changed
 
     @property
@@ -544,6 +555,7 @@ class SyncReport(object):
         :param dirs_deleted: The dirs_deleted of this SyncReport.
         :type: int
         """
+        
         self._dirs_deleted = dirs_deleted
 
     @property
@@ -566,6 +578,7 @@ class SyncReport(object):
         :param dirs_moved: The dirs_moved of this SyncReport.
         :type: int
         """
+        
         self._dirs_moved = dirs_moved
 
     @property
@@ -588,6 +601,7 @@ class SyncReport(object):
         :param dirs_new: The dirs_new of this SyncReport.
         :type: int
         """
+        
         self._dirs_new = dirs_new
 
     @property
@@ -610,6 +624,7 @@ class SyncReport(object):
         :param duration: The duration of this SyncReport.
         :type: int
         """
+        
         self._duration = duration
 
     @property
@@ -632,6 +647,7 @@ class SyncReport(object):
         :param end_time: The end_time of this SyncReport.
         :type: int
         """
+        
         self._end_time = end_time
 
     @property
@@ -654,6 +670,7 @@ class SyncReport(object):
         :param error: The error of this SyncReport.
         :type: str
         """
+        
         self._error = error
 
     @property
@@ -676,6 +693,7 @@ class SyncReport(object):
         :param error_checksum_files_skipped: The error_checksum_files_skipped of this SyncReport.
         :type: int
         """
+        
         self._error_checksum_files_skipped = error_checksum_files_skipped
 
     @property
@@ -698,6 +716,7 @@ class SyncReport(object):
         :param error_io_files_skipped: The error_io_files_skipped of this SyncReport.
         :type: int
         """
+        
         self._error_io_files_skipped = error_io_files_skipped
 
     @property
@@ -720,6 +739,7 @@ class SyncReport(object):
         :param error_net_files_skipped: The error_net_files_skipped of this SyncReport.
         :type: int
         """
+        
         self._error_net_files_skipped = error_net_files_skipped
 
     @property
@@ -742,6 +762,7 @@ class SyncReport(object):
         :param errors: The errors of this SyncReport.
         :type: list[str]
         """
+        
         self._errors = errors
 
     @property
@@ -764,6 +785,7 @@ class SyncReport(object):
         :param failed_chunks: The failed_chunks of this SyncReport.
         :type: int
         """
+        
         self._failed_chunks = failed_chunks
 
     @property
@@ -786,6 +808,7 @@ class SyncReport(object):
         :param fifos_replicated: The fifos_replicated of this SyncReport.
         :type: int
         """
+        
         self._fifos_replicated = fifos_replicated
 
     @property
@@ -808,6 +831,7 @@ class SyncReport(object):
         :param file_data_bytes: The file_data_bytes of this SyncReport.
         :type: int
         """
+        
         self._file_data_bytes = file_data_bytes
 
     @property
@@ -830,6 +854,7 @@ class SyncReport(object):
         :param files_changed: The files_changed of this SyncReport.
         :type: int
         """
+        
         self._files_changed = files_changed
 
     @property
@@ -852,6 +877,7 @@ class SyncReport(object):
         :param files_linked: The files_linked of this SyncReport.
         :type: int
         """
+        
         self._files_linked = files_linked
 
     @property
@@ -874,6 +900,7 @@ class SyncReport(object):
         :param files_new: The files_new of this SyncReport.
         :type: int
         """
+        
         self._files_new = files_new
 
     @property
@@ -896,6 +923,7 @@ class SyncReport(object):
         :param files_selected: The files_selected of this SyncReport.
         :type: int
         """
+        
         self._files_selected = files_selected
 
     @property
@@ -918,6 +946,7 @@ class SyncReport(object):
         :param files_transferred: The files_transferred of this SyncReport.
         :type: int
         """
+        
         self._files_transferred = files_transferred
 
     @property
@@ -940,6 +969,7 @@ class SyncReport(object):
         :param files_unlinked: The files_unlinked of this SyncReport.
         :type: int
         """
+        
         self._files_unlinked = files_unlinked
 
     @property
@@ -962,6 +992,7 @@ class SyncReport(object):
         :param files_with_ads_replicated: The files_with_ads_replicated of this SyncReport.
         :type: int
         """
+        
         self._files_with_ads_replicated = files_with_ads_replicated
 
     @property
@@ -984,6 +1015,7 @@ class SyncReport(object):
         :param flipped_lins: The flipped_lins of this SyncReport.
         :type: int
         """
+        
         self._flipped_lins = flipped_lins
 
     @property
@@ -1006,6 +1038,7 @@ class SyncReport(object):
         :param hard_links_replicated: The hard_links_replicated of this SyncReport.
         :type: int
         """
+        
         self._hard_links_replicated = hard_links_replicated
 
     @property
@@ -1028,6 +1061,7 @@ class SyncReport(object):
         :param hash_exceptions_fixed: The hash_exceptions_fixed of this SyncReport.
         :type: int
         """
+        
         self._hash_exceptions_fixed = hash_exceptions_fixed
 
     @property
@@ -1050,6 +1084,7 @@ class SyncReport(object):
         :param hash_exceptions_found: The hash_exceptions_found of this SyncReport.
         :type: int
         """
+        
         self._hash_exceptions_found = hash_exceptions_found
 
     @property
@@ -1072,6 +1107,7 @@ class SyncReport(object):
         :param id: The id of this SyncReport.
         :type: str
         """
+        
         self._id = id
 
     @property
@@ -1094,6 +1130,7 @@ class SyncReport(object):
         :param job_id: The job_id of this SyncReport.
         :type: int
         """
+        
         self._job_id = job_id
 
     @property
@@ -1116,6 +1153,7 @@ class SyncReport(object):
         :param lins_total: The lins_total of this SyncReport.
         :type: int
         """
+        
         self._lins_total = lins_total
 
     @property
@@ -1138,6 +1176,7 @@ class SyncReport(object):
         :param network_bytes_to_source: The network_bytes_to_source of this SyncReport.
         :type: int
         """
+        
         self._network_bytes_to_source = network_bytes_to_source
 
     @property
@@ -1160,6 +1199,7 @@ class SyncReport(object):
         :param network_bytes_to_target: The network_bytes_to_target of this SyncReport.
         :type: int
         """
+        
         self._network_bytes_to_target = network_bytes_to_target
 
     @property
@@ -1182,6 +1222,7 @@ class SyncReport(object):
         :param new_files_replicated: The new_files_replicated of this SyncReport.
         :type: int
         """
+        
         self._new_files_replicated = new_files_replicated
 
     @property
@@ -1204,6 +1245,7 @@ class SyncReport(object):
         :param num_retransmitted_files: The num_retransmitted_files of this SyncReport.
         :type: int
         """
+        
         self._num_retransmitted_files = num_retransmitted_files
 
     @property
@@ -1213,7 +1255,7 @@ class SyncReport(object):
         Data for each phase of this job.
 
         :return: The phases of this SyncReport.
-        :rtype: list[ReportsRidSubreportsSubreportPhase]
+        :rtype: list[ReportSubreportPhase]
         """
         return self._phases
 
@@ -1224,8 +1266,9 @@ class SyncReport(object):
         Data for each phase of this job.
 
         :param phases: The phases of this SyncReport.
-        :type: list[ReportsRidSubreportsSubreportPhase]
+        :type: list[ReportSubreportPhase]
         """
+        
         self._phases = phases
 
     @property
@@ -1248,6 +1291,7 @@ class SyncReport(object):
         :param policy: The policy of this SyncReport.
         :type: SyncReportPolicy
         """
+        
         self._policy = policy
 
     @property
@@ -1276,6 +1320,7 @@ class SyncReport(object):
                 "Invalid value for `policy_action`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._policy_action = policy_action
 
     @property
@@ -1298,6 +1343,7 @@ class SyncReport(object):
         :param policy_id: The policy_id of this SyncReport.
         :type: str
         """
+        
         self._policy_id = policy_id
 
     @property
@@ -1320,6 +1366,7 @@ class SyncReport(object):
         :param policy_name: The policy_name of this SyncReport.
         :type: str
         """
+        
         self._policy_name = policy_name
 
     @property
@@ -1342,6 +1389,7 @@ class SyncReport(object):
         :param regular_files_replicated: The regular_files_replicated of this SyncReport.
         :type: int
         """
+        
         self._regular_files_replicated = regular_files_replicated
 
     @property
@@ -1364,6 +1412,7 @@ class SyncReport(object):
         :param resynced_lins: The resynced_lins of this SyncReport.
         :type: int
         """
+        
         self._resynced_lins = resynced_lins
 
     @property
@@ -1386,6 +1435,7 @@ class SyncReport(object):
         :param retransmitted_files: The retransmitted_files of this SyncReport.
         :type: list[str]
         """
+        
         self._retransmitted_files = retransmitted_files
 
     @property
@@ -1408,6 +1458,7 @@ class SyncReport(object):
         :param retry: The retry of this SyncReport.
         :type: int
         """
+        
         self._retry = retry
 
     @property
@@ -1430,6 +1481,7 @@ class SyncReport(object):
         :param running_chunks: The running_chunks of this SyncReport.
         :type: int
         """
+        
         self._running_chunks = running_chunks
 
     @property
@@ -1452,6 +1504,7 @@ class SyncReport(object):
         :param sockets_replicated: The sockets_replicated of this SyncReport.
         :type: int
         """
+        
         self._sockets_replicated = sockets_replicated
 
     @property
@@ -1474,6 +1527,7 @@ class SyncReport(object):
         :param source_bytes_recovered: The source_bytes_recovered of this SyncReport.
         :type: int
         """
+        
         self._source_bytes_recovered = source_bytes_recovered
 
     @property
@@ -1496,6 +1550,7 @@ class SyncReport(object):
         :param source_directories_created: The source_directories_created of this SyncReport.
         :type: int
         """
+        
         self._source_directories_created = source_directories_created
 
     @property
@@ -1518,6 +1573,7 @@ class SyncReport(object):
         :param source_directories_deleted: The source_directories_deleted of this SyncReport.
         :type: int
         """
+        
         self._source_directories_deleted = source_directories_deleted
 
     @property
@@ -1540,6 +1596,7 @@ class SyncReport(object):
         :param source_directories_linked: The source_directories_linked of this SyncReport.
         :type: int
         """
+        
         self._source_directories_linked = source_directories_linked
 
     @property
@@ -1562,6 +1619,7 @@ class SyncReport(object):
         :param source_directories_unlinked: The source_directories_unlinked of this SyncReport.
         :type: int
         """
+        
         self._source_directories_unlinked = source_directories_unlinked
 
     @property
@@ -1584,6 +1642,7 @@ class SyncReport(object):
         :param source_directories_visited: The source_directories_visited of this SyncReport.
         :type: int
         """
+        
         self._source_directories_visited = source_directories_visited
 
     @property
@@ -1606,6 +1665,7 @@ class SyncReport(object):
         :param source_files_deleted: The source_files_deleted of this SyncReport.
         :type: int
         """
+        
         self._source_files_deleted = source_files_deleted
 
     @property
@@ -1628,6 +1688,7 @@ class SyncReport(object):
         :param source_files_linked: The source_files_linked of this SyncReport.
         :type: int
         """
+        
         self._source_files_linked = source_files_linked
 
     @property
@@ -1650,6 +1711,7 @@ class SyncReport(object):
         :param source_files_unlinked: The source_files_unlinked of this SyncReport.
         :type: int
         """
+        
         self._source_files_unlinked = source_files_unlinked
 
     @property
@@ -1672,6 +1734,7 @@ class SyncReport(object):
         :param sparse_data_bytes: The sparse_data_bytes of this SyncReport.
         :type: int
         """
+        
         self._sparse_data_bytes = sparse_data_bytes
 
     @property
@@ -1694,6 +1757,7 @@ class SyncReport(object):
         :param start_time: The start_time of this SyncReport.
         :type: int
         """
+        
         self._start_time = start_time
 
     @property
@@ -1722,6 +1786,7 @@ class SyncReport(object):
                 "Invalid value for `state`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._state = state
 
     @property
@@ -1744,6 +1809,7 @@ class SyncReport(object):
         :param subreport_count: The subreport_count of this SyncReport.
         :type: int
         """
+        
         self._subreport_count = subreport_count
 
     @property
@@ -1766,6 +1832,7 @@ class SyncReport(object):
         :param succeeded_chunks: The succeeded_chunks of this SyncReport.
         :type: int
         """
+        
         self._succeeded_chunks = succeeded_chunks
 
     @property
@@ -1788,6 +1855,7 @@ class SyncReport(object):
         :param symlinks_replicated: The symlinks_replicated of this SyncReport.
         :type: int
         """
+        
         self._symlinks_replicated = symlinks_replicated
 
     @property
@@ -1816,6 +1884,7 @@ class SyncReport(object):
                 "Invalid value for `sync_type`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._sync_type = sync_type
 
     @property
@@ -1838,6 +1907,7 @@ class SyncReport(object):
         :param target_bytes_recovered: The target_bytes_recovered of this SyncReport.
         :type: int
         """
+        
         self._target_bytes_recovered = target_bytes_recovered
 
     @property
@@ -1860,6 +1930,7 @@ class SyncReport(object):
         :param target_directories_created: The target_directories_created of this SyncReport.
         :type: int
         """
+        
         self._target_directories_created = target_directories_created
 
     @property
@@ -1882,6 +1953,7 @@ class SyncReport(object):
         :param target_directories_deleted: The target_directories_deleted of this SyncReport.
         :type: int
         """
+        
         self._target_directories_deleted = target_directories_deleted
 
     @property
@@ -1904,6 +1976,7 @@ class SyncReport(object):
         :param target_directories_linked: The target_directories_linked of this SyncReport.
         :type: int
         """
+        
         self._target_directories_linked = target_directories_linked
 
     @property
@@ -1926,6 +1999,7 @@ class SyncReport(object):
         :param target_directories_unlinked: The target_directories_unlinked of this SyncReport.
         :type: int
         """
+        
         self._target_directories_unlinked = target_directories_unlinked
 
     @property
@@ -1948,6 +2022,7 @@ class SyncReport(object):
         :param target_files_deleted: The target_files_deleted of this SyncReport.
         :type: int
         """
+        
         self._target_files_deleted = target_files_deleted
 
     @property
@@ -1970,6 +2045,7 @@ class SyncReport(object):
         :param target_files_linked: The target_files_linked of this SyncReport.
         :type: int
         """
+        
         self._target_files_linked = target_files_linked
 
     @property
@@ -1992,6 +2068,7 @@ class SyncReport(object):
         :param target_files_unlinked: The target_files_unlinked of this SyncReport.
         :type: int
         """
+        
         self._target_files_unlinked = target_files_unlinked
 
     @property
@@ -2014,6 +2091,7 @@ class SyncReport(object):
         :param target_snapshots: The target_snapshots of this SyncReport.
         :type: list[str]
         """
+        
         self._target_snapshots = target_snapshots
 
     @property
@@ -2036,6 +2114,7 @@ class SyncReport(object):
         :param total_chunks: The total_chunks of this SyncReport.
         :type: int
         """
+        
         self._total_chunks = total_chunks
 
     @property
@@ -2058,6 +2137,7 @@ class SyncReport(object):
         :param total_data_bytes: The total_data_bytes of this SyncReport.
         :type: int
         """
+        
         self._total_data_bytes = total_data_bytes
 
     @property
@@ -2080,6 +2160,7 @@ class SyncReport(object):
         :param total_files: The total_files of this SyncReport.
         :type: int
         """
+        
         self._total_files = total_files
 
     @property
@@ -2102,6 +2183,7 @@ class SyncReport(object):
         :param total_network_bytes: The total_network_bytes of this SyncReport.
         :type: int
         """
+        
         self._total_network_bytes = total_network_bytes
 
     @property
@@ -2124,6 +2206,7 @@ class SyncReport(object):
         :param total_phases: The total_phases of this SyncReport.
         :type: int
         """
+        
         self._total_phases = total_phases
 
     @property
@@ -2146,6 +2229,7 @@ class SyncReport(object):
         :param unchanged_data_bytes: The unchanged_data_bytes of this SyncReport.
         :type: int
         """
+        
         self._unchanged_data_bytes = unchanged_data_bytes
 
     @property
@@ -2168,6 +2252,7 @@ class SyncReport(object):
         :param up_to_date_files_skipped: The up_to_date_files_skipped of this SyncReport.
         :type: int
         """
+        
         self._up_to_date_files_skipped = up_to_date_files_skipped
 
     @property
@@ -2190,6 +2275,7 @@ class SyncReport(object):
         :param updated_files_replicated: The updated_files_replicated of this SyncReport.
         :type: int
         """
+        
         self._updated_files_replicated = updated_files_replicated
 
     @property
@@ -2212,6 +2298,7 @@ class SyncReport(object):
         :param user_conflict_files_skipped: The user_conflict_files_skipped of this SyncReport.
         :type: int
         """
+        
         self._user_conflict_files_skipped = user_conflict_files_skipped
 
     @property
@@ -2234,6 +2321,7 @@ class SyncReport(object):
         :param warnings: The warnings of this SyncReport.
         :type: list[str]
         """
+        
         self._warnings = warnings
 
     def to_dict(self):
@@ -2251,6 +2339,12 @@ class SyncReport(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -2268,14 +2362,14 @@ class SyncReport(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

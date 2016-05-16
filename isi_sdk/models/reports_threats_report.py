@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class ReportsThreatsReport(object):
@@ -84,6 +85,7 @@ class ReportsThreatsReport(object):
         :param file: The file of this ReportsThreatsReport.
         :type: str
         """
+        
         self._file = file
 
     @property
@@ -106,6 +108,7 @@ class ReportsThreatsReport(object):
         :param id: The id of this ReportsThreatsReport.
         :type: str
         """
+        
         self._id = id
 
     @property
@@ -128,6 +131,7 @@ class ReportsThreatsReport(object):
         :param policy_id: The policy_id of this ReportsThreatsReport.
         :type: str
         """
+        
         self._policy_id = policy_id
 
     @property
@@ -150,6 +154,7 @@ class ReportsThreatsReport(object):
         :param remediation: The remediation of this ReportsThreatsReport.
         :type: str
         """
+        
         self._remediation = remediation
 
     @property
@@ -172,6 +177,7 @@ class ReportsThreatsReport(object):
         :param scan_id: The scan_id of this ReportsThreatsReport.
         :type: str
         """
+        
         self._scan_id = scan_id
 
     @property
@@ -194,6 +200,7 @@ class ReportsThreatsReport(object):
         :param threat: The threat of this ReportsThreatsReport.
         :type: str
         """
+        
         self._threat = threat
 
     @property
@@ -216,6 +223,7 @@ class ReportsThreatsReport(object):
         :param time: The time of this ReportsThreatsReport.
         :type: int
         """
+        
         self._time = time
 
     def to_dict(self):
@@ -233,6 +241,12 @@ class ReportsThreatsReport(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -250,14 +264,14 @@ class ReportsThreatsReport(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class CloudAccount(object):
@@ -93,6 +94,7 @@ class CloudAccount(object):
         :param account_id: The account_id of this CloudAccount.
         :type: str
         """
+        
         self._account_id = account_id
 
     @property
@@ -115,6 +117,7 @@ class CloudAccount(object):
         :param account_username: The account_username of this CloudAccount.
         :type: str
         """
+        
         self._account_username = account_username
 
     @property
@@ -137,6 +140,7 @@ class CloudAccount(object):
         :param birth_cluster_id: The birth_cluster_id of this CloudAccount.
         :type: str
         """
+        
         self._birth_cluster_id = birth_cluster_id
 
     @property
@@ -159,6 +163,7 @@ class CloudAccount(object):
         :param enabled: The enabled of this CloudAccount.
         :type: bool
         """
+        
         self._enabled = enabled
 
     @property
@@ -181,6 +186,7 @@ class CloudAccount(object):
         :param key: The key of this CloudAccount.
         :type: str
         """
+        
         self._key = key
 
     @property
@@ -203,6 +209,7 @@ class CloudAccount(object):
         :param name: The name of this CloudAccount.
         :type: str
         """
+        
         self._name = name
 
     @property
@@ -225,6 +232,7 @@ class CloudAccount(object):
         :param skip_ssl_validation: The skip_ssl_validation of this CloudAccount.
         :type: bool
         """
+        
         self._skip_ssl_validation = skip_ssl_validation
 
     @property
@@ -247,6 +255,7 @@ class CloudAccount(object):
         :param storage_region: The storage_region of this CloudAccount.
         :type: str
         """
+        
         self._storage_region = storage_region
 
     @property
@@ -269,6 +278,7 @@ class CloudAccount(object):
         :param telemetry_bucket: The telemetry_bucket of this CloudAccount.
         :type: str
         """
+        
         self._telemetry_bucket = telemetry_bucket
 
     @property
@@ -291,6 +301,7 @@ class CloudAccount(object):
         :param uri: The uri of this CloudAccount.
         :type: str
         """
+        
         self._uri = uri
 
     def to_dict(self):
@@ -308,6 +319,12 @@ class CloudAccount(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -325,14 +342,14 @@ class CloudAccount(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

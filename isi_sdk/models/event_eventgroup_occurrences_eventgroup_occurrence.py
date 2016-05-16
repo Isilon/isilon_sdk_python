@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class EventEventgroupOccurrencesEventgroupOccurrence(object):
@@ -108,6 +109,7 @@ class EventEventgroupOccurrencesEventgroupOccurrence(object):
         :param causes: The causes of this EventEventgroupOccurrencesEventgroupOccurrence.
         :type: list[ERRORUNKNOWN]
         """
+        
         self._causes = causes
 
     @property
@@ -130,6 +132,7 @@ class EventEventgroupOccurrencesEventgroupOccurrence(object):
         :param channels: The channels of this EventEventgroupOccurrencesEventgroupOccurrence.
         :type: list[str]
         """
+        
         self._channels = channels
 
     @property
@@ -152,6 +155,7 @@ class EventEventgroupOccurrencesEventgroupOccurrence(object):
         :param event_count: The event_count of this EventEventgroupOccurrencesEventgroupOccurrence.
         :type: int
         """
+        
         self._event_count = event_count
 
     @property
@@ -174,6 +178,7 @@ class EventEventgroupOccurrencesEventgroupOccurrence(object):
         :param eventgroup_instance: The eventgroup_instance of this EventEventgroupOccurrencesEventgroupOccurrence.
         :type: str
         """
+        
         self._eventgroup_instance = eventgroup_instance
 
     @property
@@ -196,6 +201,7 @@ class EventEventgroupOccurrencesEventgroupOccurrence(object):
         :param id: The id of this EventEventgroupOccurrencesEventgroupOccurrence.
         :type: str
         """
+        
         self._id = id
 
     @property
@@ -218,6 +224,7 @@ class EventEventgroupOccurrencesEventgroupOccurrence(object):
         :param ignore: The ignore of this EventEventgroupOccurrencesEventgroupOccurrence.
         :type: bool
         """
+        
         self._ignore = ignore
 
     @property
@@ -240,6 +247,7 @@ class EventEventgroupOccurrencesEventgroupOccurrence(object):
         :param ignore_time: The ignore_time of this EventEventgroupOccurrencesEventgroupOccurrence.
         :type: int
         """
+        
         self._ignore_time = ignore_time
 
     @property
@@ -262,6 +270,7 @@ class EventEventgroupOccurrencesEventgroupOccurrence(object):
         :param last_event: The last_event of this EventEventgroupOccurrencesEventgroupOccurrence.
         :type: int
         """
+        
         self._last_event = last_event
 
     @property
@@ -284,6 +293,7 @@ class EventEventgroupOccurrencesEventgroupOccurrence(object):
         :param resolve_time: The resolve_time of this EventEventgroupOccurrencesEventgroupOccurrence.
         :type: int
         """
+        
         self._resolve_time = resolve_time
 
     @property
@@ -306,6 +316,7 @@ class EventEventgroupOccurrencesEventgroupOccurrence(object):
         :param resolved: The resolved of this EventEventgroupOccurrencesEventgroupOccurrence.
         :type: bool
         """
+        
         self._resolved = resolved
 
     @property
@@ -328,6 +339,7 @@ class EventEventgroupOccurrencesEventgroupOccurrence(object):
         :param resolver: The resolver of this EventEventgroupOccurrencesEventgroupOccurrence.
         :type: str
         """
+        
         self._resolver = resolver
 
     @property
@@ -350,6 +362,7 @@ class EventEventgroupOccurrencesEventgroupOccurrence(object):
         :param sequence: The sequence of this EventEventgroupOccurrencesEventgroupOccurrence.
         :type: int
         """
+        
         self._sequence = sequence
 
     @property
@@ -372,6 +385,7 @@ class EventEventgroupOccurrencesEventgroupOccurrence(object):
         :param severity: The severity of this EventEventgroupOccurrencesEventgroupOccurrence.
         :type: str
         """
+        
         self._severity = severity
 
     @property
@@ -394,6 +408,7 @@ class EventEventgroupOccurrencesEventgroupOccurrence(object):
         :param specifier: The specifier of this EventEventgroupOccurrencesEventgroupOccurrence.
         :type: Empty
         """
+        
         self._specifier = specifier
 
     @property
@@ -416,6 +431,7 @@ class EventEventgroupOccurrencesEventgroupOccurrence(object):
         :param time_noticed: The time_noticed of this EventEventgroupOccurrencesEventgroupOccurrence.
         :type: int
         """
+        
         self._time_noticed = time_noticed
 
     def to_dict(self):
@@ -433,6 +449,12 @@ class EventEventgroupOccurrencesEventgroupOccurrence(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -450,14 +472,14 @@ class EventEventgroupOccurrencesEventgroupOccurrence(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

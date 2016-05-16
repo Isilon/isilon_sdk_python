@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class CreateAntivirusScanItemResponse(object):
@@ -53,7 +54,7 @@ class CreateAntivirusScanItemResponse(object):
     def report_id(self):
         """
         Gets the report_id of this CreateAntivirusScanItemResponse.
-        The ID for the report for this scan. A report ID will be generated if one is not provided.
+        The ID for the report for this scan. A report ID will be generated if one is not provided. 
 
         :return: The report_id of this CreateAntivirusScanItemResponse.
         :rtype: str
@@ -64,11 +65,12 @@ class CreateAntivirusScanItemResponse(object):
     def report_id(self, report_id):
         """
         Sets the report_id of this CreateAntivirusScanItemResponse.
-        The ID for the report for this scan. A report ID will be generated if one is not provided.
+        The ID for the report for this scan. A report ID will be generated if one is not provided. 
 
         :param report_id: The report_id of this CreateAntivirusScanItemResponse.
         :type: str
         """
+        
         self._report_id = report_id
 
     @property
@@ -91,6 +93,7 @@ class CreateAntivirusScanItemResponse(object):
         :param result: The result of this CreateAntivirusScanItemResponse.
         :type: str
         """
+        
         self._result = result
 
     def to_dict(self):
@@ -108,6 +111,12 @@ class CreateAntivirusScanItemResponse(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -125,14 +134,14 @@ class CreateAntivirusScanItemResponse(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

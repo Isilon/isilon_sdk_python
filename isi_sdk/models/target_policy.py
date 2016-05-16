@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class TargetPolicy(object):
@@ -99,6 +100,7 @@ class TargetPolicy(object):
                 "Invalid value for `failover_failback_state`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._failover_failback_state = failover_failback_state
 
     @property
@@ -121,6 +123,7 @@ class TargetPolicy(object):
         :param id: The id of this TargetPolicy.
         :type: str
         """
+        
         self._id = id
 
     @property
@@ -149,6 +152,7 @@ class TargetPolicy(object):
                 "Invalid value for `last_job_state`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._last_job_state = last_job_state
 
     @property
@@ -171,6 +175,7 @@ class TargetPolicy(object):
         :param last_source_coordinator_ip: The last_source_coordinator_ip of this TargetPolicy.
         :type: str
         """
+        
         self._last_source_coordinator_ip = last_source_coordinator_ip
 
     @property
@@ -193,6 +198,7 @@ class TargetPolicy(object):
         :param last_update_from_source: The last_update_from_source of this TargetPolicy.
         :type: int
         """
+        
         self._last_update_from_source = last_update_from_source
 
     @property
@@ -215,6 +221,7 @@ class TargetPolicy(object):
         :param legacy_policy: The legacy_policy of this TargetPolicy.
         :type: bool
         """
+        
         self._legacy_policy = legacy_policy
 
     @property
@@ -237,6 +244,7 @@ class TargetPolicy(object):
         :param name: The name of this TargetPolicy.
         :type: str
         """
+        
         self._name = name
 
     @property
@@ -259,6 +267,7 @@ class TargetPolicy(object):
         :param source_cluster_guid: The source_cluster_guid of this TargetPolicy.
         :type: str
         """
+        
         self._source_cluster_guid = source_cluster_guid
 
     @property
@@ -281,6 +290,7 @@ class TargetPolicy(object):
         :param source_host: The source_host of this TargetPolicy.
         :type: str
         """
+        
         self._source_host = source_host
 
     @property
@@ -303,6 +313,7 @@ class TargetPolicy(object):
         :param target_path: The target_path of this TargetPolicy.
         :type: str
         """
+        
         self._target_path = target_path
 
     def to_dict(self):
@@ -320,6 +331,12 @@ class TargetPolicy(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -337,14 +354,14 @@ class TargetPolicy(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

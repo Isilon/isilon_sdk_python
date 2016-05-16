@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class ClusterNodeHardware(object):
@@ -138,6 +139,7 @@ class ClusterNodeHardware(object):
         :param chassis: The chassis of this ClusterNodeHardware.
         :type: str
         """
+        
         self._chassis = chassis
 
     @property
@@ -160,6 +162,7 @@ class ClusterNodeHardware(object):
         :param chassis_code: The chassis_code of this ClusterNodeHardware.
         :type: str
         """
+        
         self._chassis_code = chassis_code
 
     @property
@@ -182,6 +185,7 @@ class ClusterNodeHardware(object):
         :param chassis_count: The chassis_count of this ClusterNodeHardware.
         :type: str
         """
+        
         self._chassis_count = chassis_count
 
     @property
@@ -204,6 +208,7 @@ class ClusterNodeHardware(object):
         :param _class: The _class of this ClusterNodeHardware.
         :type: str
         """
+        
         self.__class = _class
 
     @property
@@ -226,6 +231,7 @@ class ClusterNodeHardware(object):
         :param configuration_id: The configuration_id of this ClusterNodeHardware.
         :type: str
         """
+        
         self._configuration_id = configuration_id
 
     @property
@@ -248,6 +254,7 @@ class ClusterNodeHardware(object):
         :param cpu: The cpu of this ClusterNodeHardware.
         :type: str
         """
+        
         self._cpu = cpu
 
     @property
@@ -270,6 +277,7 @@ class ClusterNodeHardware(object):
         :param disk_controller: The disk_controller of this ClusterNodeHardware.
         :type: str
         """
+        
         self._disk_controller = disk_controller
 
     @property
@@ -292,6 +300,7 @@ class ClusterNodeHardware(object):
         :param disk_expander: The disk_expander of this ClusterNodeHardware.
         :type: str
         """
+        
         self._disk_expander = disk_expander
 
     @property
@@ -314,6 +323,7 @@ class ClusterNodeHardware(object):
         :param family_code: The family_code of this ClusterNodeHardware.
         :type: str
         """
+        
         self._family_code = family_code
 
     @property
@@ -336,6 +346,7 @@ class ClusterNodeHardware(object):
         :param flash_drive: The flash_drive of this ClusterNodeHardware.
         :type: str
         """
+        
         self._flash_drive = flash_drive
 
     @property
@@ -358,6 +369,7 @@ class ClusterNodeHardware(object):
         :param generation_code: The generation_code of this ClusterNodeHardware.
         :type: str
         """
+        
         self._generation_code = generation_code
 
     @property
@@ -380,6 +392,7 @@ class ClusterNodeHardware(object):
         :param hwgen: The hwgen of this ClusterNodeHardware.
         :type: str
         """
+        
         self._hwgen = hwgen
 
     @property
@@ -402,6 +415,7 @@ class ClusterNodeHardware(object):
         :param imb_version: The imb_version of this ClusterNodeHardware.
         :type: str
         """
+        
         self._imb_version = imb_version
 
     @property
@@ -424,6 +438,7 @@ class ClusterNodeHardware(object):
         :param infiniband: The infiniband of this ClusterNodeHardware.
         :type: str
         """
+        
         self._infiniband = infiniband
 
     @property
@@ -446,6 +461,7 @@ class ClusterNodeHardware(object):
         :param lcd_version: The lcd_version of this ClusterNodeHardware.
         :type: str
         """
+        
         self._lcd_version = lcd_version
 
     @property
@@ -468,6 +484,7 @@ class ClusterNodeHardware(object):
         :param motherboard: The motherboard of this ClusterNodeHardware.
         :type: str
         """
+        
         self._motherboard = motherboard
 
     @property
@@ -490,6 +507,7 @@ class ClusterNodeHardware(object):
         :param net_interfaces: The net_interfaces of this ClusterNodeHardware.
         :type: str
         """
+        
         self._net_interfaces = net_interfaces
 
     @property
@@ -512,6 +530,7 @@ class ClusterNodeHardware(object):
         :param nvram: The nvram of this ClusterNodeHardware.
         :type: str
         """
+        
         self._nvram = nvram
 
     @property
@@ -534,6 +553,7 @@ class ClusterNodeHardware(object):
         :param powersupplies: The powersupplies of this ClusterNodeHardware.
         :type: list[str]
         """
+        
         self._powersupplies = powersupplies
 
     @property
@@ -556,6 +576,7 @@ class ClusterNodeHardware(object):
         :param processor: The processor of this ClusterNodeHardware.
         :type: str
         """
+        
         self._processor = processor
 
     @property
@@ -578,6 +599,7 @@ class ClusterNodeHardware(object):
         :param product: The product of this ClusterNodeHardware.
         :type: str
         """
+        
         self._product = product
 
     @property
@@ -600,6 +622,7 @@ class ClusterNodeHardware(object):
         :param ram: The ram of this ClusterNodeHardware.
         :type: int
         """
+        
         self._ram = ram
 
     @property
@@ -622,6 +645,7 @@ class ClusterNodeHardware(object):
         :param serial_number: The serial_number of this ClusterNodeHardware.
         :type: str
         """
+        
         self._serial_number = serial_number
 
     @property
@@ -644,6 +668,7 @@ class ClusterNodeHardware(object):
         :param series: The series of this ClusterNodeHardware.
         :type: str
         """
+        
         self._series = series
 
     @property
@@ -666,6 +691,7 @@ class ClusterNodeHardware(object):
         :param storage_class: The storage_class of this ClusterNodeHardware.
         :type: str
         """
+        
         self._storage_class = storage_class
 
     def to_dict(self):
@@ -683,6 +709,12 @@ class ClusterNodeHardware(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -700,14 +732,14 @@ class ClusterNodeHardware(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

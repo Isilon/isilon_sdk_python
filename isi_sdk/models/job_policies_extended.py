@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class JobPoliciesExtended(object):
@@ -39,20 +40,17 @@ class JobPoliciesExtended(object):
         self.swagger_types = {
             'policies': 'list[JobPoliciesType]',
             'resume': 'str',
-            'types': 'list[JobPoliciesType]',
             'total': 'int'
         }
 
         self.attribute_map = {
             'policies': 'policies',
             'resume': 'resume',
-            'types': 'types',
             'total': 'total'
         }
 
         self._policies = None
         self._resume = None
-        self._types = None
         self._total = None
 
     @property
@@ -75,6 +73,7 @@ class JobPoliciesExtended(object):
         :param policies: The policies of this JobPoliciesExtended.
         :type: list[JobPoliciesType]
         """
+        
         self._policies = policies
 
     @property
@@ -97,29 +96,8 @@ class JobPoliciesExtended(object):
         :param resume: The resume of this JobPoliciesExtended.
         :type: str
         """
+        
         self._resume = resume
-
-    @property
-    def types(self):
-        """
-        Gets the types of this JobPoliciesExtended.
-
-
-        :return: The types of this JobPoliciesExtended.
-        :rtype: list[JobPoliciesType]
-        """
-        return self._types
-
-    @types.setter
-    def types(self, types):
-        """
-        Sets the types of this JobPoliciesExtended.
-
-
-        :param types: The types of this JobPoliciesExtended.
-        :type: list[JobPoliciesType]
-        """
-        self._types = types
 
     @property
     def total(self):
@@ -141,6 +119,7 @@ class JobPoliciesExtended(object):
         :param total: The total of this JobPoliciesExtended.
         :type: int
         """
+        
         self._total = total
 
     def to_dict(self):
@@ -158,6 +137,12 @@ class JobPoliciesExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -175,14 +160,14 @@ class JobPoliciesExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

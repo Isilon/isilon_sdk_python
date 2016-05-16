@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class SyncPolicyCreateParams(object):
@@ -37,369 +38,169 @@ class SyncPolicyCreateParams(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'target_compare_initial_sync': 'bool',
-            'check_integrity': 'bool',
-            'source_snapshot_archive': 'bool',
-            'description': 'str',
-            'disable_fofb': 'bool',
-            'disable_file_split': 'bool',
-            'enabled': 'bool',
-            'snapshot_sync_pattern': 'str',
-            'password': 'str',
-            'burst_mode': 'bool',
-            'action': 'str',
-            'target_snapshot_archive': 'bool',
-            'source_network': 'SyncPolicySourceNetwork',
-            'file_matching_pattern': 'ReportsRidSubreportsSubreportPolicyFileMatchingPattern',
-            'target_snapshot_pattern': 'str',
-            'conflicted': 'bool',
-            'disable_stf': 'bool',
-            'source_root_path': 'str',
-            'restrict_target_network': 'bool',
             'accelerated_failback': 'bool',
-            'source_snapshot_pattern': 'str',
-            'skip_when_source_unmodified': 'bool',
-            'log_level': 'str',
-            'job_delay': 'int',
-            'report_max_count': 'int',
-            'report_max_age': 'int',
-            'priority': 'int',
-            'target_host': 'str',
-            'target_snapshot_alias': 'str',
-            'source_exclude_directories': 'list[str]',
-            'target_path': 'str',
-            'cloud_deep_copy': 'str',
-            'schedule': 'str',
-            'source_include_directories': 'list[str]',
-            'skip_lookup': 'bool',
+            'action': 'str',
+            'burst_mode': 'bool',
             'changelist': 'bool',
-            'force_interface': 'bool',
-            'source_snapshot_expiration': 'int',
-            'target_detect_modifications': 'bool',
-            'workers_per_node': 'int',
-            'name': 'str',
-            'rpo_alert': 'int',
-            'log_removed_files': 'bool',
-            'target_snapshot_expiration': 'int',
+            'check_integrity': 'bool',
+            'cloud_deep_copy': 'str',
+            'description': 'str',
+            'disable_file_split': 'bool',
+            'disable_fofb': 'bool',
+            'disable_stf': 'bool',
+            'enabled': 'bool',
             'expected_dataloss': 'bool',
-            'snapshot_sync_existing': 'bool'
+            'file_matching_pattern': 'ReportSubreportPolicyFileMatchingPattern',
+            'force_interface': 'bool',
+            'job_delay': 'int',
+            'log_level': 'str',
+            'log_removed_files': 'bool',
+            'name': 'str',
+            'password': 'str',
+            'priority': 'int',
+            'report_max_age': 'int',
+            'report_max_count': 'int',
+            'restrict_target_network': 'bool',
+            'rpo_alert': 'int',
+            'schedule': 'str',
+            'skip_lookup': 'bool',
+            'skip_when_source_unmodified': 'bool',
+            'snapshot_sync_existing': 'bool',
+            'snapshot_sync_pattern': 'str',
+            'source_exclude_directories': 'list[str]',
+            'source_include_directories': 'list[str]',
+            'source_network': 'SyncPolicySourceNetwork',
+            'source_root_path': 'str',
+            'source_snapshot_archive': 'bool',
+            'source_snapshot_expiration': 'int',
+            'source_snapshot_pattern': 'str',
+            'target_compare_initial_sync': 'bool',
+            'target_detect_modifications': 'bool',
+            'target_host': 'str',
+            'target_path': 'str',
+            'target_snapshot_alias': 'str',
+            'target_snapshot_archive': 'bool',
+            'target_snapshot_expiration': 'int',
+            'target_snapshot_pattern': 'str',
+            'workers_per_node': 'int'
         }
 
         self.attribute_map = {
-            'target_compare_initial_sync': 'target_compare_initial_sync',
-            'check_integrity': 'check_integrity',
-            'source_snapshot_archive': 'source_snapshot_archive',
-            'description': 'description',
-            'disable_fofb': 'disable_fofb',
-            'disable_file_split': 'disable_file_split',
-            'enabled': 'enabled',
-            'snapshot_sync_pattern': 'snapshot_sync_pattern',
-            'password': 'password',
-            'burst_mode': 'burst_mode',
-            'action': 'action',
-            'target_snapshot_archive': 'target_snapshot_archive',
-            'source_network': 'source_network',
-            'file_matching_pattern': 'file_matching_pattern',
-            'target_snapshot_pattern': 'target_snapshot_pattern',
-            'conflicted': 'conflicted',
-            'disable_stf': 'disable_stf',
-            'source_root_path': 'source_root_path',
-            'restrict_target_network': 'restrict_target_network',
             'accelerated_failback': 'accelerated_failback',
-            'source_snapshot_pattern': 'source_snapshot_pattern',
-            'skip_when_source_unmodified': 'skip_when_source_unmodified',
-            'log_level': 'log_level',
-            'job_delay': 'job_delay',
-            'report_max_count': 'report_max_count',
-            'report_max_age': 'report_max_age',
-            'priority': 'priority',
-            'target_host': 'target_host',
-            'target_snapshot_alias': 'target_snapshot_alias',
-            'source_exclude_directories': 'source_exclude_directories',
-            'target_path': 'target_path',
-            'cloud_deep_copy': 'cloud_deep_copy',
-            'schedule': 'schedule',
-            'source_include_directories': 'source_include_directories',
-            'skip_lookup': 'skip_lookup',
+            'action': 'action',
+            'burst_mode': 'burst_mode',
             'changelist': 'changelist',
-            'force_interface': 'force_interface',
-            'source_snapshot_expiration': 'source_snapshot_expiration',
-            'target_detect_modifications': 'target_detect_modifications',
-            'workers_per_node': 'workers_per_node',
-            'name': 'name',
-            'rpo_alert': 'rpo_alert',
-            'log_removed_files': 'log_removed_files',
-            'target_snapshot_expiration': 'target_snapshot_expiration',
+            'check_integrity': 'check_integrity',
+            'cloud_deep_copy': 'cloud_deep_copy',
+            'description': 'description',
+            'disable_file_split': 'disable_file_split',
+            'disable_fofb': 'disable_fofb',
+            'disable_stf': 'disable_stf',
+            'enabled': 'enabled',
             'expected_dataloss': 'expected_dataloss',
-            'snapshot_sync_existing': 'snapshot_sync_existing'
+            'file_matching_pattern': 'file_matching_pattern',
+            'force_interface': 'force_interface',
+            'job_delay': 'job_delay',
+            'log_level': 'log_level',
+            'log_removed_files': 'log_removed_files',
+            'name': 'name',
+            'password': 'password',
+            'priority': 'priority',
+            'report_max_age': 'report_max_age',
+            'report_max_count': 'report_max_count',
+            'restrict_target_network': 'restrict_target_network',
+            'rpo_alert': 'rpo_alert',
+            'schedule': 'schedule',
+            'skip_lookup': 'skip_lookup',
+            'skip_when_source_unmodified': 'skip_when_source_unmodified',
+            'snapshot_sync_existing': 'snapshot_sync_existing',
+            'snapshot_sync_pattern': 'snapshot_sync_pattern',
+            'source_exclude_directories': 'source_exclude_directories',
+            'source_include_directories': 'source_include_directories',
+            'source_network': 'source_network',
+            'source_root_path': 'source_root_path',
+            'source_snapshot_archive': 'source_snapshot_archive',
+            'source_snapshot_expiration': 'source_snapshot_expiration',
+            'source_snapshot_pattern': 'source_snapshot_pattern',
+            'target_compare_initial_sync': 'target_compare_initial_sync',
+            'target_detect_modifications': 'target_detect_modifications',
+            'target_host': 'target_host',
+            'target_path': 'target_path',
+            'target_snapshot_alias': 'target_snapshot_alias',
+            'target_snapshot_archive': 'target_snapshot_archive',
+            'target_snapshot_expiration': 'target_snapshot_expiration',
+            'target_snapshot_pattern': 'target_snapshot_pattern',
+            'workers_per_node': 'workers_per_node'
         }
 
-        self._target_compare_initial_sync = None
-        self._check_integrity = None
-        self._source_snapshot_archive = None
-        self._description = None
-        self._disable_fofb = None
-        self._disable_file_split = None
-        self._enabled = None
-        self._snapshot_sync_pattern = None
-        self._password = None
-        self._burst_mode = None
-        self._action = None
-        self._target_snapshot_archive = None
-        self._source_network = None
-        self._file_matching_pattern = None
-        self._target_snapshot_pattern = None
-        self._conflicted = None
-        self._disable_stf = None
-        self._source_root_path = None
-        self._restrict_target_network = None
         self._accelerated_failback = None
-        self._source_snapshot_pattern = None
-        self._skip_when_source_unmodified = None
-        self._log_level = None
-        self._job_delay = None
-        self._report_max_count = None
-        self._report_max_age = None
-        self._priority = None
-        self._target_host = None
-        self._target_snapshot_alias = None
-        self._source_exclude_directories = None
-        self._target_path = None
-        self._cloud_deep_copy = None
-        self._schedule = None
-        self._source_include_directories = None
-        self._skip_lookup = None
+        self._action = None
+        self._burst_mode = None
         self._changelist = None
-        self._force_interface = None
-        self._source_snapshot_expiration = None
-        self._target_detect_modifications = None
-        self._workers_per_node = None
-        self._name = None
-        self._rpo_alert = None
-        self._log_removed_files = None
-        self._target_snapshot_expiration = None
+        self._check_integrity = None
+        self._cloud_deep_copy = None
+        self._description = None
+        self._disable_file_split = None
+        self._disable_fofb = None
+        self._disable_stf = None
+        self._enabled = None
         self._expected_dataloss = None
+        self._file_matching_pattern = None
+        self._force_interface = None
+        self._job_delay = None
+        self._log_level = None
+        self._log_removed_files = None
+        self._name = None
+        self._password = None
+        self._priority = None
+        self._report_max_age = None
+        self._report_max_count = None
+        self._restrict_target_network = None
+        self._rpo_alert = None
+        self._schedule = None
+        self._skip_lookup = None
+        self._skip_when_source_unmodified = None
         self._snapshot_sync_existing = None
+        self._snapshot_sync_pattern = None
+        self._source_exclude_directories = None
+        self._source_include_directories = None
+        self._source_network = None
+        self._source_root_path = None
+        self._source_snapshot_archive = None
+        self._source_snapshot_expiration = None
+        self._source_snapshot_pattern = None
+        self._target_compare_initial_sync = None
+        self._target_detect_modifications = None
+        self._target_host = None
+        self._target_path = None
+        self._target_snapshot_alias = None
+        self._target_snapshot_archive = None
+        self._target_snapshot_expiration = None
+        self._target_snapshot_pattern = None
+        self._workers_per_node = None
 
     @property
-    def target_compare_initial_sync(self):
+    def accelerated_failback(self):
         """
-        Gets the target_compare_initial_sync of this SyncPolicyCreateParams.
-        If true, the target creates diffs against the original sync.
+        Gets the accelerated_failback of this SyncPolicyCreateParams.
+        If set to true, SyncIQ will perform failback configuration tasks during the next job run, rather than waiting to perform those tasks during the failback process. Performing these tasks ahead of time will increase the speed of failback operations.
 
-        :return: The target_compare_initial_sync of this SyncPolicyCreateParams.
+        :return: The accelerated_failback of this SyncPolicyCreateParams.
         :rtype: bool
         """
-        return self._target_compare_initial_sync
+        return self._accelerated_failback
 
-    @target_compare_initial_sync.setter
-    def target_compare_initial_sync(self, target_compare_initial_sync):
+    @accelerated_failback.setter
+    def accelerated_failback(self, accelerated_failback):
         """
-        Sets the target_compare_initial_sync of this SyncPolicyCreateParams.
-        If true, the target creates diffs against the original sync.
+        Sets the accelerated_failback of this SyncPolicyCreateParams.
+        If set to true, SyncIQ will perform failback configuration tasks during the next job run, rather than waiting to perform those tasks during the failback process. Performing these tasks ahead of time will increase the speed of failback operations.
 
-        :param target_compare_initial_sync: The target_compare_initial_sync of this SyncPolicyCreateParams.
+        :param accelerated_failback: The accelerated_failback of this SyncPolicyCreateParams.
         :type: bool
         """
-        self._target_compare_initial_sync = target_compare_initial_sync
-
-    @property
-    def check_integrity(self):
-        """
-        Gets the check_integrity of this SyncPolicyCreateParams.
-        If true, the sync target performs cyclic redundancy checks (CRC) on the data as it is received.
-
-        :return: The check_integrity of this SyncPolicyCreateParams.
-        :rtype: bool
-        """
-        return self._check_integrity
-
-    @check_integrity.setter
-    def check_integrity(self, check_integrity):
-        """
-        Sets the check_integrity of this SyncPolicyCreateParams.
-        If true, the sync target performs cyclic redundancy checks (CRC) on the data as it is received.
-
-        :param check_integrity: The check_integrity of this SyncPolicyCreateParams.
-        :type: bool
-        """
-        self._check_integrity = check_integrity
-
-    @property
-    def source_snapshot_archive(self):
-        """
-        Gets the source_snapshot_archive of this SyncPolicyCreateParams.
-        If true, archival snapshots of the source data will be taken on the source cluster before a sync.
-
-        :return: The source_snapshot_archive of this SyncPolicyCreateParams.
-        :rtype: bool
-        """
-        return self._source_snapshot_archive
-
-    @source_snapshot_archive.setter
-    def source_snapshot_archive(self, source_snapshot_archive):
-        """
-        Sets the source_snapshot_archive of this SyncPolicyCreateParams.
-        If true, archival snapshots of the source data will be taken on the source cluster before a sync.
-
-        :param source_snapshot_archive: The source_snapshot_archive of this SyncPolicyCreateParams.
-        :type: bool
-        """
-        self._source_snapshot_archive = source_snapshot_archive
-
-    @property
-    def description(self):
-        """
-        Gets the description of this SyncPolicyCreateParams.
-        User-assigned description of this sync policy.
-
-        :return: The description of this SyncPolicyCreateParams.
-        :rtype: str
-        """
-        return self._description
-
-    @description.setter
-    def description(self, description):
-        """
-        Sets the description of this SyncPolicyCreateParams.
-        User-assigned description of this sync policy.
-
-        :param description: The description of this SyncPolicyCreateParams.
-        :type: str
-        """
-        self._description = description
-
-    @property
-    def disable_fofb(self):
-        """
-        Gets the disable_fofb of this SyncPolicyCreateParams.
-        NOTE: This field should not be changed without the help of Isilon support.  Enable/disable sync failover/failback.
-
-        :return: The disable_fofb of this SyncPolicyCreateParams.
-        :rtype: bool
-        """
-        return self._disable_fofb
-
-    @disable_fofb.setter
-    def disable_fofb(self, disable_fofb):
-        """
-        Sets the disable_fofb of this SyncPolicyCreateParams.
-        NOTE: This field should not be changed without the help of Isilon support.  Enable/disable sync failover/failback.
-
-        :param disable_fofb: The disable_fofb of this SyncPolicyCreateParams.
-        :type: bool
-        """
-        self._disable_fofb = disable_fofb
-
-    @property
-    def disable_file_split(self):
-        """
-        Gets the disable_file_split of this SyncPolicyCreateParams.
-        NOTE: This field should not be changed without the help of Isilon support.  If true, the 7.2+ file splitting capability will be disabled.
-
-        :return: The disable_file_split of this SyncPolicyCreateParams.
-        :rtype: bool
-        """
-        return self._disable_file_split
-
-    @disable_file_split.setter
-    def disable_file_split(self, disable_file_split):
-        """
-        Sets the disable_file_split of this SyncPolicyCreateParams.
-        NOTE: This field should not be changed without the help of Isilon support.  If true, the 7.2+ file splitting capability will be disabled.
-
-        :param disable_file_split: The disable_file_split of this SyncPolicyCreateParams.
-        :type: bool
-        """
-        self._disable_file_split = disable_file_split
-
-    @property
-    def enabled(self):
-        """
-        Gets the enabled of this SyncPolicyCreateParams.
-        If true, jobs will be automatically run based on this policy, according to its schedule.
-
-        :return: The enabled of this SyncPolicyCreateParams.
-        :rtype: bool
-        """
-        return self._enabled
-
-    @enabled.setter
-    def enabled(self, enabled):
-        """
-        Sets the enabled of this SyncPolicyCreateParams.
-        If true, jobs will be automatically run based on this policy, according to its schedule.
-
-        :param enabled: The enabled of this SyncPolicyCreateParams.
-        :type: bool
-        """
-        self._enabled = enabled
-
-    @property
-    def snapshot_sync_pattern(self):
-        """
-        Gets the snapshot_sync_pattern of this SyncPolicyCreateParams.
-        The naming pattern that a snapshot must match to trigger a sync when the schedule is when-snapshot-taken (default is \"*\").
-
-        :return: The snapshot_sync_pattern of this SyncPolicyCreateParams.
-        :rtype: str
-        """
-        return self._snapshot_sync_pattern
-
-    @snapshot_sync_pattern.setter
-    def snapshot_sync_pattern(self, snapshot_sync_pattern):
-        """
-        Sets the snapshot_sync_pattern of this SyncPolicyCreateParams.
-        The naming pattern that a snapshot must match to trigger a sync when the schedule is when-snapshot-taken (default is \"*\").
-
-        :param snapshot_sync_pattern: The snapshot_sync_pattern of this SyncPolicyCreateParams.
-        :type: str
-        """
-        self._snapshot_sync_pattern = snapshot_sync_pattern
-
-    @property
-    def password(self):
-        """
-        Gets the password of this SyncPolicyCreateParams.
-        The password for the target cluster.  This field is not readable.
-
-        :return: The password of this SyncPolicyCreateParams.
-        :rtype: str
-        """
-        return self._password
-
-    @password.setter
-    def password(self, password):
-        """
-        Sets the password of this SyncPolicyCreateParams.
-        The password for the target cluster.  This field is not readable.
-
-        :param password: The password of this SyncPolicyCreateParams.
-        :type: str
-        """
-        self._password = password
-
-    @property
-    def burst_mode(self):
-        """
-        Gets the burst_mode of this SyncPolicyCreateParams.
-        NOTE: This field should not be changed without the help of Isilon support.  Enable/disable UDP-based data transfer.
-
-        :return: The burst_mode of this SyncPolicyCreateParams.
-        :rtype: bool
-        """
-        return self._burst_mode
-
-    @burst_mode.setter
-    def burst_mode(self, burst_mode):
-        """
-        Sets the burst_mode of this SyncPolicyCreateParams.
-        NOTE: This field should not be changed without the help of Isilon support.  Enable/disable UDP-based data transfer.
-
-        :param burst_mode: The burst_mode of this SyncPolicyCreateParams.
-        :type: bool
-        """
-        self._burst_mode = burst_mode
+        
+        self._accelerated_failback = accelerated_failback
 
     @property
     def action(self):
@@ -427,453 +228,77 @@ class SyncPolicyCreateParams(object):
                 "Invalid value for `action`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._action = action
 
     @property
-    def target_snapshot_archive(self):
+    def burst_mode(self):
         """
-        Gets the target_snapshot_archive of this SyncPolicyCreateParams.
-        If true, archival snapshots of the target data will be taken on the target cluster after successful sync completions.
+        Gets the burst_mode of this SyncPolicyCreateParams.
+        NOTE: This field should not be changed without the help of Isilon support.  Enable/disable UDP-based data transfer.
 
-        :return: The target_snapshot_archive of this SyncPolicyCreateParams.
+        :return: The burst_mode of this SyncPolicyCreateParams.
         :rtype: bool
         """
-        return self._target_snapshot_archive
+        return self._burst_mode
 
-    @target_snapshot_archive.setter
-    def target_snapshot_archive(self, target_snapshot_archive):
+    @burst_mode.setter
+    def burst_mode(self, burst_mode):
         """
-        Sets the target_snapshot_archive of this SyncPolicyCreateParams.
-        If true, archival snapshots of the target data will be taken on the target cluster after successful sync completions.
+        Sets the burst_mode of this SyncPolicyCreateParams.
+        NOTE: This field should not be changed without the help of Isilon support.  Enable/disable UDP-based data transfer.
 
-        :param target_snapshot_archive: The target_snapshot_archive of this SyncPolicyCreateParams.
+        :param burst_mode: The burst_mode of this SyncPolicyCreateParams.
         :type: bool
         """
-        self._target_snapshot_archive = target_snapshot_archive
+        
+        self._burst_mode = burst_mode
 
     @property
-    def source_network(self):
+    def changelist(self):
         """
-        Gets the source_network of this SyncPolicyCreateParams.
-        Restricts replication policies on the local cluster to running on the specified subnet and pool.
+        Gets the changelist of this SyncPolicyCreateParams.
+        If true, retain previous source snapshot and incremental repstate, both of which are required for changelist creation.
 
-        :return: The source_network of this SyncPolicyCreateParams.
-        :rtype: SyncPolicySourceNetwork
-        """
-        return self._source_network
-
-    @source_network.setter
-    def source_network(self, source_network):
-        """
-        Sets the source_network of this SyncPolicyCreateParams.
-        Restricts replication policies on the local cluster to running on the specified subnet and pool.
-
-        :param source_network: The source_network of this SyncPolicyCreateParams.
-        :type: SyncPolicySourceNetwork
-        """
-        self._source_network = source_network
-
-    @property
-    def file_matching_pattern(self):
-        """
-        Gets the file_matching_pattern of this SyncPolicyCreateParams.
-        A file matching pattern, organized as an OR'ed set of AND'ed file criteria, for example ((a AND b) OR (x AND y)) used to define a set of files with specific properties.  Policies of type 'sync' cannot use 'path' or time criteria in their matching patterns, but policies of type 'copy' can use all listed criteria.
-
-        :return: The file_matching_pattern of this SyncPolicyCreateParams.
-        :rtype: ReportsRidSubreportsSubreportPolicyFileMatchingPattern
-        """
-        return self._file_matching_pattern
-
-    @file_matching_pattern.setter
-    def file_matching_pattern(self, file_matching_pattern):
-        """
-        Sets the file_matching_pattern of this SyncPolicyCreateParams.
-        A file matching pattern, organized as an OR'ed set of AND'ed file criteria, for example ((a AND b) OR (x AND y)) used to define a set of files with specific properties.  Policies of type 'sync' cannot use 'path' or time criteria in their matching patterns, but policies of type 'copy' can use all listed criteria.
-
-        :param file_matching_pattern: The file_matching_pattern of this SyncPolicyCreateParams.
-        :type: ReportsRidSubreportsSubreportPolicyFileMatchingPattern
-        """
-        self._file_matching_pattern = file_matching_pattern
-
-    @property
-    def target_snapshot_pattern(self):
-        """
-        Gets the target_snapshot_pattern of this SyncPolicyCreateParams.
-        The name pattern for snapshots taken on the target cluster after the sync completes.  A value of @DEFAULT will reset this field to the default creation value.
-
-        :return: The target_snapshot_pattern of this SyncPolicyCreateParams.
-        :rtype: str
-        """
-        return self._target_snapshot_pattern
-
-    @target_snapshot_pattern.setter
-    def target_snapshot_pattern(self, target_snapshot_pattern):
-        """
-        Sets the target_snapshot_pattern of this SyncPolicyCreateParams.
-        The name pattern for snapshots taken on the target cluster after the sync completes.  A value of @DEFAULT will reset this field to the default creation value.
-
-        :param target_snapshot_pattern: The target_snapshot_pattern of this SyncPolicyCreateParams.
-        :type: str
-        """
-        self._target_snapshot_pattern = target_snapshot_pattern
-
-    @property
-    def conflicted(self):
-        """
-        Gets the conflicted of this SyncPolicyCreateParams.
-        NOTE: This field should not be changed without the help of Isilon support.  If true, the most recent run of this policy encountered an error and this policy will not start any more scheduled jobs until this field is manually set back to 'false'.
-
-        :return: The conflicted of this SyncPolicyCreateParams.
+        :return: The changelist of this SyncPolicyCreateParams.
         :rtype: bool
         """
-        return self._conflicted
+        return self._changelist
 
-    @conflicted.setter
-    def conflicted(self, conflicted):
+    @changelist.setter
+    def changelist(self, changelist):
         """
-        Sets the conflicted of this SyncPolicyCreateParams.
-        NOTE: This field should not be changed without the help of Isilon support.  If true, the most recent run of this policy encountered an error and this policy will not start any more scheduled jobs until this field is manually set back to 'false'.
+        Sets the changelist of this SyncPolicyCreateParams.
+        If true, retain previous source snapshot and incremental repstate, both of which are required for changelist creation.
 
-        :param conflicted: The conflicted of this SyncPolicyCreateParams.
+        :param changelist: The changelist of this SyncPolicyCreateParams.
         :type: bool
         """
-        self._conflicted = conflicted
+        
+        self._changelist = changelist
 
     @property
-    def disable_stf(self):
+    def check_integrity(self):
         """
-        Gets the disable_stf of this SyncPolicyCreateParams.
-        NOTE: This field should not be changed without the help of Isilon support.  Enable/disable the 6.5+ STF based data transfer and uses only treewalk.
+        Gets the check_integrity of this SyncPolicyCreateParams.
+        If true, the sync target performs cyclic redundancy checks (CRC) on the data as it is received.
 
-        :return: The disable_stf of this SyncPolicyCreateParams.
+        :return: The check_integrity of this SyncPolicyCreateParams.
         :rtype: bool
         """
-        return self._disable_stf
+        return self._check_integrity
 
-    @disable_stf.setter
-    def disable_stf(self, disable_stf):
+    @check_integrity.setter
+    def check_integrity(self, check_integrity):
         """
-        Sets the disable_stf of this SyncPolicyCreateParams.
-        NOTE: This field should not be changed without the help of Isilon support.  Enable/disable the 6.5+ STF based data transfer and uses only treewalk.
+        Sets the check_integrity of this SyncPolicyCreateParams.
+        If true, the sync target performs cyclic redundancy checks (CRC) on the data as it is received.
 
-        :param disable_stf: The disable_stf of this SyncPolicyCreateParams.
+        :param check_integrity: The check_integrity of this SyncPolicyCreateParams.
         :type: bool
         """
-        self._disable_stf = disable_stf
-
-    @property
-    def source_root_path(self):
-        """
-        Gets the source_root_path of this SyncPolicyCreateParams.
-        The root directory on the source cluster the files will be synced from.  Modifying this field will result in a full synchronization of all data.
-
-        :return: The source_root_path of this SyncPolicyCreateParams.
-        :rtype: str
-        """
-        return self._source_root_path
-
-    @source_root_path.setter
-    def source_root_path(self, source_root_path):
-        """
-        Sets the source_root_path of this SyncPolicyCreateParams.
-        The root directory on the source cluster the files will be synced from.  Modifying this field will result in a full synchronization of all data.
-
-        :param source_root_path: The source_root_path of this SyncPolicyCreateParams.
-        :type: str
-        """
-        self._source_root_path = source_root_path
-
-    @property
-    def restrict_target_network(self):
-        """
-        Gets the restrict_target_network of this SyncPolicyCreateParams.
-        If you specify true, and you specify a SmartConnect zone in the \"target_host\" field, replication policies will connect only to nodes in the specified SmartConnect zone.  If you specify false, replication policies are not restricted to specific nodes on the target cluster.
-
-        :return: The restrict_target_network of this SyncPolicyCreateParams.
-        :rtype: bool
-        """
-        return self._restrict_target_network
-
-    @restrict_target_network.setter
-    def restrict_target_network(self, restrict_target_network):
-        """
-        Sets the restrict_target_network of this SyncPolicyCreateParams.
-        If you specify true, and you specify a SmartConnect zone in the \"target_host\" field, replication policies will connect only to nodes in the specified SmartConnect zone.  If you specify false, replication policies are not restricted to specific nodes on the target cluster.
-
-        :param restrict_target_network: The restrict_target_network of this SyncPolicyCreateParams.
-        :type: bool
-        """
-        self._restrict_target_network = restrict_target_network
-
-    @property
-    def accelerated_failback(self):
-        """
-        Gets the accelerated_failback of this SyncPolicyCreateParams.
-        If set to true, SyncIQ will perform failback configuration tasks during the next job run, rather than waiting to perform those tasks during the failback process. Performing these tasks ahead of time will increase the speed of failback operations.
-
-        :return: The accelerated_failback of this SyncPolicyCreateParams.
-        :rtype: bool
-        """
-        return self._accelerated_failback
-
-    @accelerated_failback.setter
-    def accelerated_failback(self, accelerated_failback):
-        """
-        Sets the accelerated_failback of this SyncPolicyCreateParams.
-        If set to true, SyncIQ will perform failback configuration tasks during the next job run, rather than waiting to perform those tasks during the failback process. Performing these tasks ahead of time will increase the speed of failback operations.
-
-        :param accelerated_failback: The accelerated_failback of this SyncPolicyCreateParams.
-        :type: bool
-        """
-        self._accelerated_failback = accelerated_failback
-
-    @property
-    def source_snapshot_pattern(self):
-        """
-        Gets the source_snapshot_pattern of this SyncPolicyCreateParams.
-        The name pattern for snapshots taken on the source cluster before a sync.
-
-        :return: The source_snapshot_pattern of this SyncPolicyCreateParams.
-        :rtype: str
-        """
-        return self._source_snapshot_pattern
-
-    @source_snapshot_pattern.setter
-    def source_snapshot_pattern(self, source_snapshot_pattern):
-        """
-        Sets the source_snapshot_pattern of this SyncPolicyCreateParams.
-        The name pattern for snapshots taken on the source cluster before a sync.
-
-        :param source_snapshot_pattern: The source_snapshot_pattern of this SyncPolicyCreateParams.
-        :type: str
-        """
-        self._source_snapshot_pattern = source_snapshot_pattern
-
-    @property
-    def skip_when_source_unmodified(self):
-        """
-        Gets the skip_when_source_unmodified of this SyncPolicyCreateParams.
-        If true and --schedule is set to a time/date, the policy will not run if no changes have been made to the contents of the source directory since the last job successfully completed.
-
-        :return: The skip_when_source_unmodified of this SyncPolicyCreateParams.
-        :rtype: bool
-        """
-        return self._skip_when_source_unmodified
-
-    @skip_when_source_unmodified.setter
-    def skip_when_source_unmodified(self, skip_when_source_unmodified):
-        """
-        Sets the skip_when_source_unmodified of this SyncPolicyCreateParams.
-        If true and --schedule is set to a time/date, the policy will not run if no changes have been made to the contents of the source directory since the last job successfully completed.
-
-        :param skip_when_source_unmodified: The skip_when_source_unmodified of this SyncPolicyCreateParams.
-        :type: bool
-        """
-        self._skip_when_source_unmodified = skip_when_source_unmodified
-
-    @property
-    def log_level(self):
-        """
-        Gets the log_level of this SyncPolicyCreateParams.
-        Severity an event must reach before it is logged.
-
-        :return: The log_level of this SyncPolicyCreateParams.
-        :rtype: str
-        """
-        return self._log_level
-
-    @log_level.setter
-    def log_level(self, log_level):
-        """
-        Sets the log_level of this SyncPolicyCreateParams.
-        Severity an event must reach before it is logged.
-
-        :param log_level: The log_level of this SyncPolicyCreateParams.
-        :type: str
-        """
-        allowed_values = ["fatal", "error", "notice", "info", "copy", "debug", "trace"]
-        if log_level not in allowed_values:
-            raise ValueError(
-                "Invalid value for `log_level`, must be one of {0}"
-                .format(allowed_values)
-            )
-        self._log_level = log_level
-
-    @property
-    def job_delay(self):
-        """
-        Gets the job_delay of this SyncPolicyCreateParams.
-        If --schedule is set to When-Source-Modified, the duration to wait after a modification is made before starting a job (default is 0 seconds).
-
-        :return: The job_delay of this SyncPolicyCreateParams.
-        :rtype: int
-        """
-        return self._job_delay
-
-    @job_delay.setter
-    def job_delay(self, job_delay):
-        """
-        Sets the job_delay of this SyncPolicyCreateParams.
-        If --schedule is set to When-Source-Modified, the duration to wait after a modification is made before starting a job (default is 0 seconds).
-
-        :param job_delay: The job_delay of this SyncPolicyCreateParams.
-        :type: int
-        """
-        self._job_delay = job_delay
-
-    @property
-    def report_max_count(self):
-        """
-        Gets the report_max_count of this SyncPolicyCreateParams.
-        Maximum number of policy reports that will be stored on the system.
-
-        :return: The report_max_count of this SyncPolicyCreateParams.
-        :rtype: int
-        """
-        return self._report_max_count
-
-    @report_max_count.setter
-    def report_max_count(self, report_max_count):
-        """
-        Sets the report_max_count of this SyncPolicyCreateParams.
-        Maximum number of policy reports that will be stored on the system.
-
-        :param report_max_count: The report_max_count of this SyncPolicyCreateParams.
-        :type: int
-        """
-        self._report_max_count = report_max_count
-
-    @property
-    def report_max_age(self):
-        """
-        Gets the report_max_age of this SyncPolicyCreateParams.
-        Length of time (in seconds) a policy report will be stored.
-
-        :return: The report_max_age of this SyncPolicyCreateParams.
-        :rtype: int
-        """
-        return self._report_max_age
-
-    @report_max_age.setter
-    def report_max_age(self, report_max_age):
-        """
-        Sets the report_max_age of this SyncPolicyCreateParams.
-        Length of time (in seconds) a policy report will be stored.
-
-        :param report_max_age: The report_max_age of this SyncPolicyCreateParams.
-        :type: int
-        """
-        self._report_max_age = report_max_age
-
-    @property
-    def priority(self):
-        """
-        Gets the priority of this SyncPolicyCreateParams.
-        Determines the priority level of a policy. Policies with higher priority will have precedence to run over lower priority policies. Valid range is [0, 1]. Default is 0.
-
-        :return: The priority of this SyncPolicyCreateParams.
-        :rtype: int
-        """
-        return self._priority
-
-    @priority.setter
-    def priority(self, priority):
-        """
-        Sets the priority of this SyncPolicyCreateParams.
-        Determines the priority level of a policy. Policies with higher priority will have precedence to run over lower priority policies. Valid range is [0, 1]. Default is 0.
-
-        :param priority: The priority of this SyncPolicyCreateParams.
-        :type: int
-        """
-        self._priority = priority
-
-    @property
-    def target_host(self):
-        """
-        Gets the target_host of this SyncPolicyCreateParams.
-        Hostname or IP address of sync target cluster.  Modifying the target cluster host can result in the policy being unrunnable if the new target does not match the current target association.
-
-        :return: The target_host of this SyncPolicyCreateParams.
-        :rtype: str
-        """
-        return self._target_host
-
-    @target_host.setter
-    def target_host(self, target_host):
-        """
-        Sets the target_host of this SyncPolicyCreateParams.
-        Hostname or IP address of sync target cluster.  Modifying the target cluster host can result in the policy being unrunnable if the new target does not match the current target association.
-
-        :param target_host: The target_host of this SyncPolicyCreateParams.
-        :type: str
-        """
-        self._target_host = target_host
-
-    @property
-    def target_snapshot_alias(self):
-        """
-        Gets the target_snapshot_alias of this SyncPolicyCreateParams.
-        The alias of the snapshot taken on the target cluster after the sync completes. A value of @DEFAULT will reset this field to the default creation value.
-
-        :return: The target_snapshot_alias of this SyncPolicyCreateParams.
-        :rtype: str
-        """
-        return self._target_snapshot_alias
-
-    @target_snapshot_alias.setter
-    def target_snapshot_alias(self, target_snapshot_alias):
-        """
-        Sets the target_snapshot_alias of this SyncPolicyCreateParams.
-        The alias of the snapshot taken on the target cluster after the sync completes. A value of @DEFAULT will reset this field to the default creation value.
-
-        :param target_snapshot_alias: The target_snapshot_alias of this SyncPolicyCreateParams.
-        :type: str
-        """
-        self._target_snapshot_alias = target_snapshot_alias
-
-    @property
-    def source_exclude_directories(self):
-        """
-        Gets the source_exclude_directories of this SyncPolicyCreateParams.
-        Directories that will be excluded from the sync.  Modifying this field will result in a full synchronization of all data.
-
-        :return: The source_exclude_directories of this SyncPolicyCreateParams.
-        :rtype: list[str]
-        """
-        return self._source_exclude_directories
-
-    @source_exclude_directories.setter
-    def source_exclude_directories(self, source_exclude_directories):
-        """
-        Sets the source_exclude_directories of this SyncPolicyCreateParams.
-        Directories that will be excluded from the sync.  Modifying this field will result in a full synchronization of all data.
-
-        :param source_exclude_directories: The source_exclude_directories of this SyncPolicyCreateParams.
-        :type: list[str]
-        """
-        self._source_exclude_directories = source_exclude_directories
-
-    @property
-    def target_path(self):
-        """
-        Gets the target_path of this SyncPolicyCreateParams.
-        Absolute filesystem path on the target cluster for the sync destination.
-
-        :return: The target_path of this SyncPolicyCreateParams.
-        :rtype: str
-        """
-        return self._target_path
-
-    @target_path.setter
-    def target_path(self, target_path):
-        """
-        Sets the target_path of this SyncPolicyCreateParams.
-        Absolute filesystem path on the target cluster for the sync destination.
-
-        :param target_path: The target_path of this SyncPolicyCreateParams.
-        :type: str
-        """
-        self._target_path = target_path
+        
+        self._check_integrity = check_integrity
 
     @property
     def cloud_deep_copy(self):
@@ -901,271 +326,123 @@ class SyncPolicyCreateParams(object):
                 "Invalid value for `cloud_deep_copy`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._cloud_deep_copy = cloud_deep_copy
 
     @property
-    def schedule(self):
+    def description(self):
         """
-        Gets the schedule of this SyncPolicyCreateParams.
-        The schedule on which new jobs will be run for this policy.
+        Gets the description of this SyncPolicyCreateParams.
+        User-assigned description of this sync policy.
 
-        :return: The schedule of this SyncPolicyCreateParams.
+        :return: The description of this SyncPolicyCreateParams.
         :rtype: str
         """
-        return self._schedule
+        return self._description
 
-    @schedule.setter
-    def schedule(self, schedule):
+    @description.setter
+    def description(self, description):
         """
-        Sets the schedule of this SyncPolicyCreateParams.
-        The schedule on which new jobs will be run for this policy.
+        Sets the description of this SyncPolicyCreateParams.
+        User-assigned description of this sync policy.
 
-        :param schedule: The schedule of this SyncPolicyCreateParams.
+        :param description: The description of this SyncPolicyCreateParams.
         :type: str
         """
-        self._schedule = schedule
+        
+        self._description = description
 
     @property
-    def source_include_directories(self):
+    def disable_file_split(self):
         """
-        Gets the source_include_directories of this SyncPolicyCreateParams.
-        Directories that will be included in the sync.  Modifying this field will result in a full synchronization of all data.
+        Gets the disable_file_split of this SyncPolicyCreateParams.
+        NOTE: This field should not be changed without the help of Isilon support.  If true, the 7.2+ file splitting capability will be disabled.
 
-        :return: The source_include_directories of this SyncPolicyCreateParams.
-        :rtype: list[str]
-        """
-        return self._source_include_directories
-
-    @source_include_directories.setter
-    def source_include_directories(self, source_include_directories):
-        """
-        Sets the source_include_directories of this SyncPolicyCreateParams.
-        Directories that will be included in the sync.  Modifying this field will result in a full synchronization of all data.
-
-        :param source_include_directories: The source_include_directories of this SyncPolicyCreateParams.
-        :type: list[str]
-        """
-        self._source_include_directories = source_include_directories
-
-    @property
-    def skip_lookup(self):
-        """
-        Gets the skip_lookup of this SyncPolicyCreateParams.
-        Skip DNS lookup of target IPs.
-
-        :return: The skip_lookup of this SyncPolicyCreateParams.
+        :return: The disable_file_split of this SyncPolicyCreateParams.
         :rtype: bool
         """
-        return self._skip_lookup
+        return self._disable_file_split
 
-    @skip_lookup.setter
-    def skip_lookup(self, skip_lookup):
+    @disable_file_split.setter
+    def disable_file_split(self, disable_file_split):
         """
-        Sets the skip_lookup of this SyncPolicyCreateParams.
-        Skip DNS lookup of target IPs.
+        Sets the disable_file_split of this SyncPolicyCreateParams.
+        NOTE: This field should not be changed without the help of Isilon support.  If true, the 7.2+ file splitting capability will be disabled.
 
-        :param skip_lookup: The skip_lookup of this SyncPolicyCreateParams.
+        :param disable_file_split: The disable_file_split of this SyncPolicyCreateParams.
         :type: bool
         """
-        self._skip_lookup = skip_lookup
+        
+        self._disable_file_split = disable_file_split
 
     @property
-    def changelist(self):
+    def disable_fofb(self):
         """
-        Gets the changelist of this SyncPolicyCreateParams.
-        If true, retain previous source snapshot and incremental repstate, both of which are required for changelist creation.
+        Gets the disable_fofb of this SyncPolicyCreateParams.
+        NOTE: This field should not be changed without the help of Isilon support.  Enable/disable sync failover/failback.
 
-        :return: The changelist of this SyncPolicyCreateParams.
+        :return: The disable_fofb of this SyncPolicyCreateParams.
         :rtype: bool
         """
-        return self._changelist
+        return self._disable_fofb
 
-    @changelist.setter
-    def changelist(self, changelist):
+    @disable_fofb.setter
+    def disable_fofb(self, disable_fofb):
         """
-        Sets the changelist of this SyncPolicyCreateParams.
-        If true, retain previous source snapshot and incremental repstate, both of which are required for changelist creation.
+        Sets the disable_fofb of this SyncPolicyCreateParams.
+        NOTE: This field should not be changed without the help of Isilon support.  Enable/disable sync failover/failback.
 
-        :param changelist: The changelist of this SyncPolicyCreateParams.
+        :param disable_fofb: The disable_fofb of this SyncPolicyCreateParams.
         :type: bool
         """
-        self._changelist = changelist
+        
+        self._disable_fofb = disable_fofb
 
     @property
-    def force_interface(self):
+    def disable_stf(self):
         """
-        Gets the force_interface of this SyncPolicyCreateParams.
-        NOTE: This field should not be changed without the help of Isilon support.  Determines whether data is sent only through the subnet and pool specified in the \"source_network\" field. This option can be useful if there are multiple interfaces for the given source subnet.  If you enable this option, the net.inet.ip.choose_ifa_by_ipsrc sysctl should be set.
+        Gets the disable_stf of this SyncPolicyCreateParams.
+        NOTE: This field should not be changed without the help of Isilon support.  Enable/disable the 6.5+ STF based data transfer and uses only treewalk.
 
-        :return: The force_interface of this SyncPolicyCreateParams.
+        :return: The disable_stf of this SyncPolicyCreateParams.
         :rtype: bool
         """
-        return self._force_interface
+        return self._disable_stf
 
-    @force_interface.setter
-    def force_interface(self, force_interface):
+    @disable_stf.setter
+    def disable_stf(self, disable_stf):
         """
-        Sets the force_interface of this SyncPolicyCreateParams.
-        NOTE: This field should not be changed without the help of Isilon support.  Determines whether data is sent only through the subnet and pool specified in the \"source_network\" field. This option can be useful if there are multiple interfaces for the given source subnet.  If you enable this option, the net.inet.ip.choose_ifa_by_ipsrc sysctl should be set.
+        Sets the disable_stf of this SyncPolicyCreateParams.
+        NOTE: This field should not be changed without the help of Isilon support.  Enable/disable the 6.5+ STF based data transfer and uses only treewalk.
 
-        :param force_interface: The force_interface of this SyncPolicyCreateParams.
+        :param disable_stf: The disable_stf of this SyncPolicyCreateParams.
         :type: bool
         """
-        self._force_interface = force_interface
+        
+        self._disable_stf = disable_stf
 
     @property
-    def source_snapshot_expiration(self):
+    def enabled(self):
         """
-        Gets the source_snapshot_expiration of this SyncPolicyCreateParams.
-        The length of time in seconds to keep snapshots on the source cluster.
+        Gets the enabled of this SyncPolicyCreateParams.
+        If true, jobs will be automatically run based on this policy, according to its schedule.
 
-        :return: The source_snapshot_expiration of this SyncPolicyCreateParams.
-        :rtype: int
-        """
-        return self._source_snapshot_expiration
-
-    @source_snapshot_expiration.setter
-    def source_snapshot_expiration(self, source_snapshot_expiration):
-        """
-        Sets the source_snapshot_expiration of this SyncPolicyCreateParams.
-        The length of time in seconds to keep snapshots on the source cluster.
-
-        :param source_snapshot_expiration: The source_snapshot_expiration of this SyncPolicyCreateParams.
-        :type: int
-        """
-        self._source_snapshot_expiration = source_snapshot_expiration
-
-    @property
-    def target_detect_modifications(self):
-        """
-        Gets the target_detect_modifications of this SyncPolicyCreateParams.
-        If true, target cluster will detect if files have been changed on the target by legacy tree walk syncs.
-
-        :return: The target_detect_modifications of this SyncPolicyCreateParams.
+        :return: The enabled of this SyncPolicyCreateParams.
         :rtype: bool
         """
-        return self._target_detect_modifications
+        return self._enabled
 
-    @target_detect_modifications.setter
-    def target_detect_modifications(self, target_detect_modifications):
+    @enabled.setter
+    def enabled(self, enabled):
         """
-        Sets the target_detect_modifications of this SyncPolicyCreateParams.
-        If true, target cluster will detect if files have been changed on the target by legacy tree walk syncs.
+        Sets the enabled of this SyncPolicyCreateParams.
+        If true, jobs will be automatically run based on this policy, according to its schedule.
 
-        :param target_detect_modifications: The target_detect_modifications of this SyncPolicyCreateParams.
+        :param enabled: The enabled of this SyncPolicyCreateParams.
         :type: bool
         """
-        self._target_detect_modifications = target_detect_modifications
-
-    @property
-    def workers_per_node(self):
-        """
-        Gets the workers_per_node of this SyncPolicyCreateParams.
-        The number of worker threads on a node performing a sync.
-
-        :return: The workers_per_node of this SyncPolicyCreateParams.
-        :rtype: int
-        """
-        return self._workers_per_node
-
-    @workers_per_node.setter
-    def workers_per_node(self, workers_per_node):
-        """
-        Sets the workers_per_node of this SyncPolicyCreateParams.
-        The number of worker threads on a node performing a sync.
-
-        :param workers_per_node: The workers_per_node of this SyncPolicyCreateParams.
-        :type: int
-        """
-        self._workers_per_node = workers_per_node
-
-    @property
-    def name(self):
-        """
-        Gets the name of this SyncPolicyCreateParams.
-        User-assigned name of this sync policy.
-
-        :return: The name of this SyncPolicyCreateParams.
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """
-        Sets the name of this SyncPolicyCreateParams.
-        User-assigned name of this sync policy.
-
-        :param name: The name of this SyncPolicyCreateParams.
-        :type: str
-        """
-        self._name = name
-
-    @property
-    def rpo_alert(self):
-        """
-        Gets the rpo_alert of this SyncPolicyCreateParams.
-        If --schedule is set to a time/date, an alert is created if the specified RPO for this policy is exceeded. The default value is 0, which will not generate RPO alerts.
-
-        :return: The rpo_alert of this SyncPolicyCreateParams.
-        :rtype: int
-        """
-        return self._rpo_alert
-
-    @rpo_alert.setter
-    def rpo_alert(self, rpo_alert):
-        """
-        Sets the rpo_alert of this SyncPolicyCreateParams.
-        If --schedule is set to a time/date, an alert is created if the specified RPO for this policy is exceeded. The default value is 0, which will not generate RPO alerts.
-
-        :param rpo_alert: The rpo_alert of this SyncPolicyCreateParams.
-        :type: int
-        """
-        self._rpo_alert = rpo_alert
-
-    @property
-    def log_removed_files(self):
-        """
-        Gets the log_removed_files of this SyncPolicyCreateParams.
-        If true, the system will log any files or directories that are deleted due to a sync.
-
-        :return: The log_removed_files of this SyncPolicyCreateParams.
-        :rtype: bool
-        """
-        return self._log_removed_files
-
-    @log_removed_files.setter
-    def log_removed_files(self, log_removed_files):
-        """
-        Sets the log_removed_files of this SyncPolicyCreateParams.
-        If true, the system will log any files or directories that are deleted due to a sync.
-
-        :param log_removed_files: The log_removed_files of this SyncPolicyCreateParams.
-        :type: bool
-        """
-        self._log_removed_files = log_removed_files
-
-    @property
-    def target_snapshot_expiration(self):
-        """
-        Gets the target_snapshot_expiration of this SyncPolicyCreateParams.
-        The length of time in seconds to keep snapshots on the target cluster.
-
-        :return: The target_snapshot_expiration of this SyncPolicyCreateParams.
-        :rtype: int
-        """
-        return self._target_snapshot_expiration
-
-    @target_snapshot_expiration.setter
-    def target_snapshot_expiration(self, target_snapshot_expiration):
-        """
-        Sets the target_snapshot_expiration of this SyncPolicyCreateParams.
-        The length of time in seconds to keep snapshots on the target cluster.
-
-        :param target_snapshot_expiration: The target_snapshot_expiration of this SyncPolicyCreateParams.
-        :type: int
-        """
-        self._target_snapshot_expiration = target_snapshot_expiration
+        
+        self._enabled = enabled
 
     @property
     def expected_dataloss(self):
@@ -1187,7 +464,381 @@ class SyncPolicyCreateParams(object):
         :param expected_dataloss: The expected_dataloss of this SyncPolicyCreateParams.
         :type: bool
         """
+        
         self._expected_dataloss = expected_dataloss
+
+    @property
+    def file_matching_pattern(self):
+        """
+        Gets the file_matching_pattern of this SyncPolicyCreateParams.
+        A file matching pattern, organized as an OR'ed set of AND'ed file criteria, for example ((a AND b) OR (x AND y)) used to define a set of files with specific properties.  Policies of type 'sync' cannot use 'path' or time criteria in their matching patterns, but policies of type 'copy' can use all listed criteria.
+
+        :return: The file_matching_pattern of this SyncPolicyCreateParams.
+        :rtype: ReportSubreportPolicyFileMatchingPattern
+        """
+        return self._file_matching_pattern
+
+    @file_matching_pattern.setter
+    def file_matching_pattern(self, file_matching_pattern):
+        """
+        Sets the file_matching_pattern of this SyncPolicyCreateParams.
+        A file matching pattern, organized as an OR'ed set of AND'ed file criteria, for example ((a AND b) OR (x AND y)) used to define a set of files with specific properties.  Policies of type 'sync' cannot use 'path' or time criteria in their matching patterns, but policies of type 'copy' can use all listed criteria.
+
+        :param file_matching_pattern: The file_matching_pattern of this SyncPolicyCreateParams.
+        :type: ReportSubreportPolicyFileMatchingPattern
+        """
+        
+        self._file_matching_pattern = file_matching_pattern
+
+    @property
+    def force_interface(self):
+        """
+        Gets the force_interface of this SyncPolicyCreateParams.
+        NOTE: This field should not be changed without the help of Isilon support.  Determines whether data is sent only through the subnet and pool specified in the \"source_network\" field. This option can be useful if there are multiple interfaces for the given source subnet.  If you enable this option, the net.inet.ip.choose_ifa_by_ipsrc sysctl should be set.
+
+        :return: The force_interface of this SyncPolicyCreateParams.
+        :rtype: bool
+        """
+        return self._force_interface
+
+    @force_interface.setter
+    def force_interface(self, force_interface):
+        """
+        Sets the force_interface of this SyncPolicyCreateParams.
+        NOTE: This field should not be changed without the help of Isilon support.  Determines whether data is sent only through the subnet and pool specified in the \"source_network\" field. This option can be useful if there are multiple interfaces for the given source subnet.  If you enable this option, the net.inet.ip.choose_ifa_by_ipsrc sysctl should be set.
+
+        :param force_interface: The force_interface of this SyncPolicyCreateParams.
+        :type: bool
+        """
+        
+        self._force_interface = force_interface
+
+    @property
+    def job_delay(self):
+        """
+        Gets the job_delay of this SyncPolicyCreateParams.
+        If --schedule is set to When-Source-Modified, the duration to wait after a modification is made before starting a job (default is 0 seconds).
+
+        :return: The job_delay of this SyncPolicyCreateParams.
+        :rtype: int
+        """
+        return self._job_delay
+
+    @job_delay.setter
+    def job_delay(self, job_delay):
+        """
+        Sets the job_delay of this SyncPolicyCreateParams.
+        If --schedule is set to When-Source-Modified, the duration to wait after a modification is made before starting a job (default is 0 seconds).
+
+        :param job_delay: The job_delay of this SyncPolicyCreateParams.
+        :type: int
+        """
+        
+        if not job_delay:
+            raise ValueError("Invalid value for `job_delay`, must not be `None`")
+        if job_delay < 0.0: 
+            raise ValueError("Invalid value for `job_delay`, must be a value greater than or equal to `0.0`")
+
+        self._job_delay = job_delay
+
+    @property
+    def log_level(self):
+        """
+        Gets the log_level of this SyncPolicyCreateParams.
+        Severity an event must reach before it is logged.
+
+        :return: The log_level of this SyncPolicyCreateParams.
+        :rtype: str
+        """
+        return self._log_level
+
+    @log_level.setter
+    def log_level(self, log_level):
+        """
+        Sets the log_level of this SyncPolicyCreateParams.
+        Severity an event must reach before it is logged.
+
+        :param log_level: The log_level of this SyncPolicyCreateParams.
+        :type: str
+        """
+        allowed_values = ["fatal", "error", "notice", "info", "copy", "debug", "trace"]
+        if log_level not in allowed_values:
+            raise ValueError(
+                "Invalid value for `log_level`, must be one of {0}"
+                .format(allowed_values)
+            )
+
+        self._log_level = log_level
+
+    @property
+    def log_removed_files(self):
+        """
+        Gets the log_removed_files of this SyncPolicyCreateParams.
+        If true, the system will log any files or directories that are deleted due to a sync.
+
+        :return: The log_removed_files of this SyncPolicyCreateParams.
+        :rtype: bool
+        """
+        return self._log_removed_files
+
+    @log_removed_files.setter
+    def log_removed_files(self, log_removed_files):
+        """
+        Sets the log_removed_files of this SyncPolicyCreateParams.
+        If true, the system will log any files or directories that are deleted due to a sync.
+
+        :param log_removed_files: The log_removed_files of this SyncPolicyCreateParams.
+        :type: bool
+        """
+        
+        self._log_removed_files = log_removed_files
+
+    @property
+    def name(self):
+        """
+        Gets the name of this SyncPolicyCreateParams.
+        User-assigned name of this sync policy.
+
+        :return: The name of this SyncPolicyCreateParams.
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """
+        Sets the name of this SyncPolicyCreateParams.
+        User-assigned name of this sync policy.
+
+        :param name: The name of this SyncPolicyCreateParams.
+        :type: str
+        """
+        
+        self._name = name
+
+    @property
+    def password(self):
+        """
+        Gets the password of this SyncPolicyCreateParams.
+        The password for the target cluster.  This field is not readable.
+
+        :return: The password of this SyncPolicyCreateParams.
+        :rtype: str
+        """
+        return self._password
+
+    @password.setter
+    def password(self, password):
+        """
+        Sets the password of this SyncPolicyCreateParams.
+        The password for the target cluster.  This field is not readable.
+
+        :param password: The password of this SyncPolicyCreateParams.
+        :type: str
+        """
+        
+        self._password = password
+
+    @property
+    def priority(self):
+        """
+        Gets the priority of this SyncPolicyCreateParams.
+        Determines the priority level of a policy. Policies with higher priority will have precedence to run over lower priority policies. Valid range is [0, 1]. Default is 0.
+
+        :return: The priority of this SyncPolicyCreateParams.
+        :rtype: int
+        """
+        return self._priority
+
+    @priority.setter
+    def priority(self, priority):
+        """
+        Sets the priority of this SyncPolicyCreateParams.
+        Determines the priority level of a policy. Policies with higher priority will have precedence to run over lower priority policies. Valid range is [0, 1]. Default is 0.
+
+        :param priority: The priority of this SyncPolicyCreateParams.
+        :type: int
+        """
+        
+        self._priority = priority
+
+    @property
+    def report_max_age(self):
+        """
+        Gets the report_max_age of this SyncPolicyCreateParams.
+        Length of time (in seconds) a policy report will be stored.
+
+        :return: The report_max_age of this SyncPolicyCreateParams.
+        :rtype: int
+        """
+        return self._report_max_age
+
+    @report_max_age.setter
+    def report_max_age(self, report_max_age):
+        """
+        Sets the report_max_age of this SyncPolicyCreateParams.
+        Length of time (in seconds) a policy report will be stored.
+
+        :param report_max_age: The report_max_age of this SyncPolicyCreateParams.
+        :type: int
+        """
+        
+        if not report_max_age:
+            raise ValueError("Invalid value for `report_max_age`, must not be `None`")
+        if report_max_age < 0.0: 
+            raise ValueError("Invalid value for `report_max_age`, must be a value greater than or equal to `0.0`")
+
+        self._report_max_age = report_max_age
+
+    @property
+    def report_max_count(self):
+        """
+        Gets the report_max_count of this SyncPolicyCreateParams.
+        Maximum number of policy reports that will be stored on the system.
+
+        :return: The report_max_count of this SyncPolicyCreateParams.
+        :rtype: int
+        """
+        return self._report_max_count
+
+    @report_max_count.setter
+    def report_max_count(self, report_max_count):
+        """
+        Sets the report_max_count of this SyncPolicyCreateParams.
+        Maximum number of policy reports that will be stored on the system.
+
+        :param report_max_count: The report_max_count of this SyncPolicyCreateParams.
+        :type: int
+        """
+        
+        if not report_max_count:
+            raise ValueError("Invalid value for `report_max_count`, must not be `None`")
+        if report_max_count > 2000.0: 
+            raise ValueError("Invalid value for `report_max_count`, must be a value less than or equal to `2000.0`")
+        if report_max_count < 1.0: 
+            raise ValueError("Invalid value for `report_max_count`, must be a value greater than or equal to `1.0`")
+
+        self._report_max_count = report_max_count
+
+    @property
+    def restrict_target_network(self):
+        """
+        Gets the restrict_target_network of this SyncPolicyCreateParams.
+        If you specify true, and you specify a SmartConnect zone in the \"target_host\" field, replication policies will connect only to nodes in the specified SmartConnect zone.  If you specify false, replication policies are not restricted to specific nodes on the target cluster.
+
+        :return: The restrict_target_network of this SyncPolicyCreateParams.
+        :rtype: bool
+        """
+        return self._restrict_target_network
+
+    @restrict_target_network.setter
+    def restrict_target_network(self, restrict_target_network):
+        """
+        Sets the restrict_target_network of this SyncPolicyCreateParams.
+        If you specify true, and you specify a SmartConnect zone in the \"target_host\" field, replication policies will connect only to nodes in the specified SmartConnect zone.  If you specify false, replication policies are not restricted to specific nodes on the target cluster.
+
+        :param restrict_target_network: The restrict_target_network of this SyncPolicyCreateParams.
+        :type: bool
+        """
+        
+        self._restrict_target_network = restrict_target_network
+
+    @property
+    def rpo_alert(self):
+        """
+        Gets the rpo_alert of this SyncPolicyCreateParams.
+        If --schedule is set to a time/date, an alert is created if the specified RPO for this policy is exceeded. The default value is 0, which will not generate RPO alerts.
+
+        :return: The rpo_alert of this SyncPolicyCreateParams.
+        :rtype: int
+        """
+        return self._rpo_alert
+
+    @rpo_alert.setter
+    def rpo_alert(self, rpo_alert):
+        """
+        Sets the rpo_alert of this SyncPolicyCreateParams.
+        If --schedule is set to a time/date, an alert is created if the specified RPO for this policy is exceeded. The default value is 0, which will not generate RPO alerts.
+
+        :param rpo_alert: The rpo_alert of this SyncPolicyCreateParams.
+        :type: int
+        """
+        
+        if not rpo_alert:
+            raise ValueError("Invalid value for `rpo_alert`, must not be `None`")
+        if rpo_alert < 0.0: 
+            raise ValueError("Invalid value for `rpo_alert`, must be a value greater than or equal to `0.0`")
+
+        self._rpo_alert = rpo_alert
+
+    @property
+    def schedule(self):
+        """
+        Gets the schedule of this SyncPolicyCreateParams.
+        The schedule on which new jobs will be run for this policy.
+
+        :return: The schedule of this SyncPolicyCreateParams.
+        :rtype: str
+        """
+        return self._schedule
+
+    @schedule.setter
+    def schedule(self, schedule):
+        """
+        Sets the schedule of this SyncPolicyCreateParams.
+        The schedule on which new jobs will be run for this policy.
+
+        :param schedule: The schedule of this SyncPolicyCreateParams.
+        :type: str
+        """
+        
+        self._schedule = schedule
+
+    @property
+    def skip_lookup(self):
+        """
+        Gets the skip_lookup of this SyncPolicyCreateParams.
+        Skip DNS lookup of target IPs.
+
+        :return: The skip_lookup of this SyncPolicyCreateParams.
+        :rtype: bool
+        """
+        return self._skip_lookup
+
+    @skip_lookup.setter
+    def skip_lookup(self, skip_lookup):
+        """
+        Sets the skip_lookup of this SyncPolicyCreateParams.
+        Skip DNS lookup of target IPs.
+
+        :param skip_lookup: The skip_lookup of this SyncPolicyCreateParams.
+        :type: bool
+        """
+        
+        self._skip_lookup = skip_lookup
+
+    @property
+    def skip_when_source_unmodified(self):
+        """
+        Gets the skip_when_source_unmodified of this SyncPolicyCreateParams.
+        If true and --schedule is set to a time/date, the policy will not run if no changes have been made to the contents of the source directory since the last job successfully completed.
+
+        :return: The skip_when_source_unmodified of this SyncPolicyCreateParams.
+        :rtype: bool
+        """
+        return self._skip_when_source_unmodified
+
+    @skip_when_source_unmodified.setter
+    def skip_when_source_unmodified(self, skip_when_source_unmodified):
+        """
+        Sets the skip_when_source_unmodified of this SyncPolicyCreateParams.
+        If true and --schedule is set to a time/date, the policy will not run if no changes have been made to the contents of the source directory since the last job successfully completed.
+
+        :param skip_when_source_unmodified: The skip_when_source_unmodified of this SyncPolicyCreateParams.
+        :type: bool
+        """
+        
+        self._skip_when_source_unmodified = skip_when_source_unmodified
 
     @property
     def snapshot_sync_existing(self):
@@ -1209,7 +860,416 @@ class SyncPolicyCreateParams(object):
         :param snapshot_sync_existing: The snapshot_sync_existing of this SyncPolicyCreateParams.
         :type: bool
         """
+        
         self._snapshot_sync_existing = snapshot_sync_existing
+
+    @property
+    def snapshot_sync_pattern(self):
+        """
+        Gets the snapshot_sync_pattern of this SyncPolicyCreateParams.
+        The naming pattern that a snapshot must match to trigger a sync when the schedule is when-snapshot-taken (default is \"*\").
+
+        :return: The snapshot_sync_pattern of this SyncPolicyCreateParams.
+        :rtype: str
+        """
+        return self._snapshot_sync_pattern
+
+    @snapshot_sync_pattern.setter
+    def snapshot_sync_pattern(self, snapshot_sync_pattern):
+        """
+        Sets the snapshot_sync_pattern of this SyncPolicyCreateParams.
+        The naming pattern that a snapshot must match to trigger a sync when the schedule is when-snapshot-taken (default is \"*\").
+
+        :param snapshot_sync_pattern: The snapshot_sync_pattern of this SyncPolicyCreateParams.
+        :type: str
+        """
+        
+        self._snapshot_sync_pattern = snapshot_sync_pattern
+
+    @property
+    def source_exclude_directories(self):
+        """
+        Gets the source_exclude_directories of this SyncPolicyCreateParams.
+        Directories that will be excluded from the sync.  Modifying this field will result in a full synchronization of all data.
+
+        :return: The source_exclude_directories of this SyncPolicyCreateParams.
+        :rtype: list[str]
+        """
+        return self._source_exclude_directories
+
+    @source_exclude_directories.setter
+    def source_exclude_directories(self, source_exclude_directories):
+        """
+        Sets the source_exclude_directories of this SyncPolicyCreateParams.
+        Directories that will be excluded from the sync.  Modifying this field will result in a full synchronization of all data.
+
+        :param source_exclude_directories: The source_exclude_directories of this SyncPolicyCreateParams.
+        :type: list[str]
+        """
+        
+        self._source_exclude_directories = source_exclude_directories
+
+    @property
+    def source_include_directories(self):
+        """
+        Gets the source_include_directories of this SyncPolicyCreateParams.
+        Directories that will be included in the sync.  Modifying this field will result in a full synchronization of all data.
+
+        :return: The source_include_directories of this SyncPolicyCreateParams.
+        :rtype: list[str]
+        """
+        return self._source_include_directories
+
+    @source_include_directories.setter
+    def source_include_directories(self, source_include_directories):
+        """
+        Sets the source_include_directories of this SyncPolicyCreateParams.
+        Directories that will be included in the sync.  Modifying this field will result in a full synchronization of all data.
+
+        :param source_include_directories: The source_include_directories of this SyncPolicyCreateParams.
+        :type: list[str]
+        """
+        
+        self._source_include_directories = source_include_directories
+
+    @property
+    def source_network(self):
+        """
+        Gets the source_network of this SyncPolicyCreateParams.
+        Restricts replication policies on the local cluster to running on the specified subnet and pool.
+
+        :return: The source_network of this SyncPolicyCreateParams.
+        :rtype: SyncPolicySourceNetwork
+        """
+        return self._source_network
+
+    @source_network.setter
+    def source_network(self, source_network):
+        """
+        Sets the source_network of this SyncPolicyCreateParams.
+        Restricts replication policies on the local cluster to running on the specified subnet and pool.
+
+        :param source_network: The source_network of this SyncPolicyCreateParams.
+        :type: SyncPolicySourceNetwork
+        """
+        
+        self._source_network = source_network
+
+    @property
+    def source_root_path(self):
+        """
+        Gets the source_root_path of this SyncPolicyCreateParams.
+        The root directory on the source cluster the files will be synced from.  Modifying this field will result in a full synchronization of all data.
+
+        :return: The source_root_path of this SyncPolicyCreateParams.
+        :rtype: str
+        """
+        return self._source_root_path
+
+    @source_root_path.setter
+    def source_root_path(self, source_root_path):
+        """
+        Sets the source_root_path of this SyncPolicyCreateParams.
+        The root directory on the source cluster the files will be synced from.  Modifying this field will result in a full synchronization of all data.
+
+        :param source_root_path: The source_root_path of this SyncPolicyCreateParams.
+        :type: str
+        """
+        
+        self._source_root_path = source_root_path
+
+    @property
+    def source_snapshot_archive(self):
+        """
+        Gets the source_snapshot_archive of this SyncPolicyCreateParams.
+        If true, archival snapshots of the source data will be taken on the source cluster before a sync.
+
+        :return: The source_snapshot_archive of this SyncPolicyCreateParams.
+        :rtype: bool
+        """
+        return self._source_snapshot_archive
+
+    @source_snapshot_archive.setter
+    def source_snapshot_archive(self, source_snapshot_archive):
+        """
+        Sets the source_snapshot_archive of this SyncPolicyCreateParams.
+        If true, archival snapshots of the source data will be taken on the source cluster before a sync.
+
+        :param source_snapshot_archive: The source_snapshot_archive of this SyncPolicyCreateParams.
+        :type: bool
+        """
+        
+        self._source_snapshot_archive = source_snapshot_archive
+
+    @property
+    def source_snapshot_expiration(self):
+        """
+        Gets the source_snapshot_expiration of this SyncPolicyCreateParams.
+        The length of time in seconds to keep snapshots on the source cluster.
+
+        :return: The source_snapshot_expiration of this SyncPolicyCreateParams.
+        :rtype: int
+        """
+        return self._source_snapshot_expiration
+
+    @source_snapshot_expiration.setter
+    def source_snapshot_expiration(self, source_snapshot_expiration):
+        """
+        Sets the source_snapshot_expiration of this SyncPolicyCreateParams.
+        The length of time in seconds to keep snapshots on the source cluster.
+
+        :param source_snapshot_expiration: The source_snapshot_expiration of this SyncPolicyCreateParams.
+        :type: int
+        """
+        
+        if not source_snapshot_expiration:
+            raise ValueError("Invalid value for `source_snapshot_expiration`, must not be `None`")
+        if source_snapshot_expiration < 0.0: 
+            raise ValueError("Invalid value for `source_snapshot_expiration`, must be a value greater than or equal to `0.0`")
+
+        self._source_snapshot_expiration = source_snapshot_expiration
+
+    @property
+    def source_snapshot_pattern(self):
+        """
+        Gets the source_snapshot_pattern of this SyncPolicyCreateParams.
+        The name pattern for snapshots taken on the source cluster before a sync.
+
+        :return: The source_snapshot_pattern of this SyncPolicyCreateParams.
+        :rtype: str
+        """
+        return self._source_snapshot_pattern
+
+    @source_snapshot_pattern.setter
+    def source_snapshot_pattern(self, source_snapshot_pattern):
+        """
+        Sets the source_snapshot_pattern of this SyncPolicyCreateParams.
+        The name pattern for snapshots taken on the source cluster before a sync.
+
+        :param source_snapshot_pattern: The source_snapshot_pattern of this SyncPolicyCreateParams.
+        :type: str
+        """
+        
+        self._source_snapshot_pattern = source_snapshot_pattern
+
+    @property
+    def target_compare_initial_sync(self):
+        """
+        Gets the target_compare_initial_sync of this SyncPolicyCreateParams.
+        If true, the target creates diffs against the original sync.
+
+        :return: The target_compare_initial_sync of this SyncPolicyCreateParams.
+        :rtype: bool
+        """
+        return self._target_compare_initial_sync
+
+    @target_compare_initial_sync.setter
+    def target_compare_initial_sync(self, target_compare_initial_sync):
+        """
+        Sets the target_compare_initial_sync of this SyncPolicyCreateParams.
+        If true, the target creates diffs against the original sync.
+
+        :param target_compare_initial_sync: The target_compare_initial_sync of this SyncPolicyCreateParams.
+        :type: bool
+        """
+        
+        self._target_compare_initial_sync = target_compare_initial_sync
+
+    @property
+    def target_detect_modifications(self):
+        """
+        Gets the target_detect_modifications of this SyncPolicyCreateParams.
+        If true, target cluster will detect if files have been changed on the target by legacy tree walk syncs.
+
+        :return: The target_detect_modifications of this SyncPolicyCreateParams.
+        :rtype: bool
+        """
+        return self._target_detect_modifications
+
+    @target_detect_modifications.setter
+    def target_detect_modifications(self, target_detect_modifications):
+        """
+        Sets the target_detect_modifications of this SyncPolicyCreateParams.
+        If true, target cluster will detect if files have been changed on the target by legacy tree walk syncs.
+
+        :param target_detect_modifications: The target_detect_modifications of this SyncPolicyCreateParams.
+        :type: bool
+        """
+        
+        self._target_detect_modifications = target_detect_modifications
+
+    @property
+    def target_host(self):
+        """
+        Gets the target_host of this SyncPolicyCreateParams.
+        Hostname or IP address of sync target cluster.  Modifying the target cluster host can result in the policy being unrunnable if the new target does not match the current target association.
+
+        :return: The target_host of this SyncPolicyCreateParams.
+        :rtype: str
+        """
+        return self._target_host
+
+    @target_host.setter
+    def target_host(self, target_host):
+        """
+        Sets the target_host of this SyncPolicyCreateParams.
+        Hostname or IP address of sync target cluster.  Modifying the target cluster host can result in the policy being unrunnable if the new target does not match the current target association.
+
+        :param target_host: The target_host of this SyncPolicyCreateParams.
+        :type: str
+        """
+        
+        self._target_host = target_host
+
+    @property
+    def target_path(self):
+        """
+        Gets the target_path of this SyncPolicyCreateParams.
+        Absolute filesystem path on the target cluster for the sync destination.
+
+        :return: The target_path of this SyncPolicyCreateParams.
+        :rtype: str
+        """
+        return self._target_path
+
+    @target_path.setter
+    def target_path(self, target_path):
+        """
+        Sets the target_path of this SyncPolicyCreateParams.
+        Absolute filesystem path on the target cluster for the sync destination.
+
+        :param target_path: The target_path of this SyncPolicyCreateParams.
+        :type: str
+        """
+        
+        self._target_path = target_path
+
+    @property
+    def target_snapshot_alias(self):
+        """
+        Gets the target_snapshot_alias of this SyncPolicyCreateParams.
+        The alias of the snapshot taken on the target cluster after the sync completes. A value of @DEFAULT will reset this field to the default creation value.
+
+        :return: The target_snapshot_alias of this SyncPolicyCreateParams.
+        :rtype: str
+        """
+        return self._target_snapshot_alias
+
+    @target_snapshot_alias.setter
+    def target_snapshot_alias(self, target_snapshot_alias):
+        """
+        Sets the target_snapshot_alias of this SyncPolicyCreateParams.
+        The alias of the snapshot taken on the target cluster after the sync completes. A value of @DEFAULT will reset this field to the default creation value.
+
+        :param target_snapshot_alias: The target_snapshot_alias of this SyncPolicyCreateParams.
+        :type: str
+        """
+        
+        self._target_snapshot_alias = target_snapshot_alias
+
+    @property
+    def target_snapshot_archive(self):
+        """
+        Gets the target_snapshot_archive of this SyncPolicyCreateParams.
+        If true, archival snapshots of the target data will be taken on the target cluster after successful sync completions.
+
+        :return: The target_snapshot_archive of this SyncPolicyCreateParams.
+        :rtype: bool
+        """
+        return self._target_snapshot_archive
+
+    @target_snapshot_archive.setter
+    def target_snapshot_archive(self, target_snapshot_archive):
+        """
+        Sets the target_snapshot_archive of this SyncPolicyCreateParams.
+        If true, archival snapshots of the target data will be taken on the target cluster after successful sync completions.
+
+        :param target_snapshot_archive: The target_snapshot_archive of this SyncPolicyCreateParams.
+        :type: bool
+        """
+        
+        self._target_snapshot_archive = target_snapshot_archive
+
+    @property
+    def target_snapshot_expiration(self):
+        """
+        Gets the target_snapshot_expiration of this SyncPolicyCreateParams.
+        The length of time in seconds to keep snapshots on the target cluster.
+
+        :return: The target_snapshot_expiration of this SyncPolicyCreateParams.
+        :rtype: int
+        """
+        return self._target_snapshot_expiration
+
+    @target_snapshot_expiration.setter
+    def target_snapshot_expiration(self, target_snapshot_expiration):
+        """
+        Sets the target_snapshot_expiration of this SyncPolicyCreateParams.
+        The length of time in seconds to keep snapshots on the target cluster.
+
+        :param target_snapshot_expiration: The target_snapshot_expiration of this SyncPolicyCreateParams.
+        :type: int
+        """
+        
+        if not target_snapshot_expiration:
+            raise ValueError("Invalid value for `target_snapshot_expiration`, must not be `None`")
+        if target_snapshot_expiration < 0.0: 
+            raise ValueError("Invalid value for `target_snapshot_expiration`, must be a value greater than or equal to `0.0`")
+
+        self._target_snapshot_expiration = target_snapshot_expiration
+
+    @property
+    def target_snapshot_pattern(self):
+        """
+        Gets the target_snapshot_pattern of this SyncPolicyCreateParams.
+        The name pattern for snapshots taken on the target cluster after the sync completes.  A value of @DEFAULT will reset this field to the default creation value.
+
+        :return: The target_snapshot_pattern of this SyncPolicyCreateParams.
+        :rtype: str
+        """
+        return self._target_snapshot_pattern
+
+    @target_snapshot_pattern.setter
+    def target_snapshot_pattern(self, target_snapshot_pattern):
+        """
+        Sets the target_snapshot_pattern of this SyncPolicyCreateParams.
+        The name pattern for snapshots taken on the target cluster after the sync completes.  A value of @DEFAULT will reset this field to the default creation value.
+
+        :param target_snapshot_pattern: The target_snapshot_pattern of this SyncPolicyCreateParams.
+        :type: str
+        """
+        
+        self._target_snapshot_pattern = target_snapshot_pattern
+
+    @property
+    def workers_per_node(self):
+        """
+        Gets the workers_per_node of this SyncPolicyCreateParams.
+        The number of worker threads on a node performing a sync.
+
+        :return: The workers_per_node of this SyncPolicyCreateParams.
+        :rtype: int
+        """
+        return self._workers_per_node
+
+    @workers_per_node.setter
+    def workers_per_node(self, workers_per_node):
+        """
+        Sets the workers_per_node of this SyncPolicyCreateParams.
+        The number of worker threads on a node performing a sync.
+
+        :param workers_per_node: The workers_per_node of this SyncPolicyCreateParams.
+        :type: int
+        """
+        
+        if not workers_per_node:
+            raise ValueError("Invalid value for `workers_per_node`, must not be `None`")
+        if workers_per_node > 20.0: 
+            raise ValueError("Invalid value for `workers_per_node`, must be a value less than or equal to `20.0`")
+        if workers_per_node < 1.0: 
+            raise ValueError("Invalid value for `workers_per_node`, must be a value greater than or equal to `1.0`")
+
+        self._workers_per_node = workers_per_node
 
     def to_dict(self):
         """
@@ -1226,6 +1286,12 @@ class SyncPolicyCreateParams(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -1243,14 +1309,14 @@ class SyncPolicyCreateParams(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

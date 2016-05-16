@@ -2,7 +2,7 @@
 
 """
 StatisticsApi.py
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@ from __future__ import absolute_import
 
 import sys
 import os
+import re
 
 # python 2 and python 3 compatibility library
 from six import iteritems
@@ -86,9 +87,8 @@ class StatisticsApi(object):
         del params['kwargs']
 
 
-        resource_path = '/platform/1/statistics/current'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/1/statistics/current'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
@@ -109,8 +109,8 @@ class StatisticsApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -127,13 +127,13 @@ class StatisticsApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='StatisticsCurrent',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
@@ -185,9 +185,8 @@ class StatisticsApi(object):
         del params['kwargs']
 
 
-        resource_path = '/platform/1/statistics/history'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/1/statistics/history'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
@@ -218,8 +217,8 @@ class StatisticsApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -236,99 +235,14 @@ class StatisticsApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='StatisticsHistory',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_statistics_keys(self, **kwargs):
-        """
-        
-        List meta-data for matching keys.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_statistics_keys(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param bool count: Only count matching keys, do not return meta-data.
-        :param int limit: Return no more than this many results at once (see resume).
-        :param bool queryable: Only list keys that can/cannot be queries. Default is true.
-        :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
-        :return: StatisticsKeysExtended
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['count', 'limit', 'queryable', 'resume']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_statistics_keys" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/1/statistics/keys'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-        if 'count' in params:
-            query_params['count'] = params['count']
-        if 'limit' in params:
-            query_params['limit'] = params['limit']
-        if 'queryable' in params:
-            query_params['queryable'] = params['queryable']
-        if 'resume' in params:
-            query_params['resume'] = params['resume']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='StatisticsKeysExtended',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -371,9 +285,8 @@ class StatisticsApi(object):
         if ('statistics_key_id' not in params) or (params['statistics_key_id'] is None):
             raise ValueError("Missing the required parameter `statistics_key_id` when calling `get_statistics_key`")
 
-        resource_path = '/platform/1/statistics/keys/{StatisticsKeyId}'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/1/statistics/keys/{StatisticsKeyId}'.replace('{format}', 'json')
         path_params = {}
         if 'statistics_key_id' in params:
             path_params['StatisticsKeyId'] = params['statistics_key_id']
@@ -382,8 +295,8 @@ class StatisticsApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -400,22 +313,22 @@ class StatisticsApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='StatisticsKeys',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def get_statistics_protocols(self, **kwargs):
+    def get_statistics_keys(self, **kwargs):
         """
         
-        Retrieve protocol list.
+        List meta-data for matching keys.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -423,16 +336,20 @@ class StatisticsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.get_statistics_protocols(callback=callback_function)
+        >>> thread = api.get_statistics_keys(callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :return: StatisticsProtocols
+        :param bool count: Only count matching keys, do not return meta-data.
+        :param int limit: Return no more than this many results at once (see resume).
+        :param bool queryable: Only list keys that can/cannot be queries. Default is true.
+        :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
+        :return: StatisticsKeysExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = []
+        all_params = ['count', 'limit', 'queryable', 'resume']
         all_params.append('callback')
 
         params = locals()
@@ -440,23 +357,32 @@ class StatisticsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_statistics_protocols" % key
+                    " to method get_statistics_keys" % key
                 )
             params[key] = val
         del params['kwargs']
 
 
-        resource_path = '/platform/1/statistics/protocols'.replace('{format}', 'json')
-        method = 'GET'
+        if 'limit' in params and params['limit'] < 1.0: 
+            raise ValueError("Invalid value for parameter `limit` when calling `get_statistics_keys`, must be a value greater than or equal to `1.0`")
 
+        resource_path = '/platform/1/statistics/keys'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
+        if 'count' in params:
+            query_params['count'] = params['count']
+        if 'limit' in params:
+            query_params['limit'] = params['limit']
+        if 'queryable' in params:
+            query_params['queryable'] = params['queryable']
+        if 'resume' in params:
+            query_params['resume'] = params['resume']
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -473,14 +399,14 @@ class StatisticsApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
-                                            response_type='StatisticsProtocols',
+                                            files=local_var_files,
+                                            response_type='StatisticsKeysExtended',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -519,17 +445,16 @@ class StatisticsApi(object):
         del params['kwargs']
 
 
-        resource_path = '/platform/3/statistics/operations'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/3/statistics/operations'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -546,14 +471,86 @@ class StatisticsApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='StatisticsOperations',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_statistics_protocols(self, **kwargs):
+        """
+        
+        Retrieve protocol list.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_statistics_protocols(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: StatisticsProtocols
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_statistics_protocols" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/1/statistics/protocols'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='StatisticsProtocols',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -606,9 +603,8 @@ class StatisticsApi(object):
         del params['kwargs']
 
 
-        resource_path = '/platform/3/statistics/summary/client'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/3/statistics/summary/client'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
@@ -643,8 +639,8 @@ class StatisticsApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -661,13 +657,13 @@ class StatisticsApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='SummaryClient',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
@@ -712,9 +708,8 @@ class StatisticsApi(object):
         del params['kwargs']
 
 
-        resource_path = '/platform/3/statistics/summary/drive'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/3/statistics/summary/drive'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
@@ -731,8 +726,8 @@ class StatisticsApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -749,13 +744,13 @@ class StatisticsApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='SummaryDrive',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
@@ -806,9 +801,8 @@ class StatisticsApi(object):
         del params['kwargs']
 
 
-        resource_path = '/platform/3/statistics/summary/heat'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/3/statistics/summary/heat'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
@@ -837,8 +831,8 @@ class StatisticsApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -855,13 +849,13 @@ class StatisticsApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='SummaryHeat',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
@@ -910,9 +904,8 @@ class StatisticsApi(object):
         del params['kwargs']
 
 
-        resource_path = '/platform/3/statistics/summary/protocol'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/3/statistics/summary/protocol'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
@@ -937,8 +930,8 @@ class StatisticsApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -955,13 +948,13 @@ class StatisticsApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='SummaryProtocol',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
@@ -1006,9 +999,8 @@ class StatisticsApi(object):
         del params['kwargs']
 
 
-        resource_path = '/platform/3/statistics/summary/system'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/3/statistics/summary/system'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
@@ -1025,8 +1017,8 @@ class StatisticsApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -1043,13 +1035,13 @@ class StatisticsApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='SummarySystem',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))

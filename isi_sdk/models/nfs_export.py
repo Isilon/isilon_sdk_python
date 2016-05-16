@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class NfsExport(object):
@@ -207,6 +208,7 @@ class NfsExport(object):
         :param all_dirs: The all_dirs of this NfsExport.
         :type: bool
         """
+        
         self._all_dirs = all_dirs
 
     @property
@@ -229,6 +231,7 @@ class NfsExport(object):
         :param block_size: The block_size of this NfsExport.
         :type: int
         """
+        
         self._block_size = block_size
 
     @property
@@ -251,6 +254,7 @@ class NfsExport(object):
         :param can_set_time: The can_set_time of this NfsExport.
         :type: bool
         """
+        
         self._can_set_time = can_set_time
 
     @property
@@ -273,6 +277,7 @@ class NfsExport(object):
         :param case_insensitive: The case_insensitive of this NfsExport.
         :type: bool
         """
+        
         self._case_insensitive = case_insensitive
 
     @property
@@ -295,6 +300,7 @@ class NfsExport(object):
         :param case_preserving: The case_preserving of this NfsExport.
         :type: bool
         """
+        
         self._case_preserving = case_preserving
 
     @property
@@ -317,6 +323,7 @@ class NfsExport(object):
         :param chown_restricted: The chown_restricted of this NfsExport.
         :type: bool
         """
+        
         self._chown_restricted = chown_restricted
 
     @property
@@ -339,6 +346,7 @@ class NfsExport(object):
         :param clients: The clients of this NfsExport.
         :type: list[str]
         """
+        
         self._clients = clients
 
     @property
@@ -361,6 +369,7 @@ class NfsExport(object):
         :param commit_asynchronous: The commit_asynchronous of this NfsExport.
         :type: bool
         """
+        
         self._commit_asynchronous = commit_asynchronous
 
     @property
@@ -383,6 +392,7 @@ class NfsExport(object):
         :param description: The description of this NfsExport.
         :type: str
         """
+        
         self._description = description
 
     @property
@@ -405,6 +415,7 @@ class NfsExport(object):
         :param directory_transfer_size: The directory_transfer_size of this NfsExport.
         :type: int
         """
+        
         self._directory_transfer_size = directory_transfer_size
 
     @property
@@ -427,6 +438,7 @@ class NfsExport(object):
         :param encoding: The encoding of this NfsExport.
         :type: str
         """
+        
         self._encoding = encoding
 
     @property
@@ -449,6 +461,7 @@ class NfsExport(object):
         :param link_max: The link_max of this NfsExport.
         :type: int
         """
+        
         self._link_max = link_max
 
     @property
@@ -471,6 +484,7 @@ class NfsExport(object):
         :param map_all: The map_all of this NfsExport.
         :type: NfsExportMapAll
         """
+        
         self._map_all = map_all
 
     @property
@@ -493,6 +507,7 @@ class NfsExport(object):
         :param map_failure: The map_failure of this NfsExport.
         :type: NfsExportMapAll
         """
+        
         self._map_failure = map_failure
 
     @property
@@ -515,6 +530,7 @@ class NfsExport(object):
         :param map_full: The map_full of this NfsExport.
         :type: bool
         """
+        
         self._map_full = map_full
 
     @property
@@ -537,6 +553,7 @@ class NfsExport(object):
         :param map_lookup_uid: The map_lookup_uid of this NfsExport.
         :type: bool
         """
+        
         self._map_lookup_uid = map_lookup_uid
 
     @property
@@ -559,6 +576,7 @@ class NfsExport(object):
         :param map_non_root: The map_non_root of this NfsExport.
         :type: NfsExportMapAll
         """
+        
         self._map_non_root = map_non_root
 
     @property
@@ -581,6 +599,7 @@ class NfsExport(object):
         :param map_retry: The map_retry of this NfsExport.
         :type: bool
         """
+        
         self._map_retry = map_retry
 
     @property
@@ -603,6 +622,7 @@ class NfsExport(object):
         :param map_root: The map_root of this NfsExport.
         :type: NfsExportMapAll
         """
+        
         self._map_root = map_root
 
     @property
@@ -625,6 +645,7 @@ class NfsExport(object):
         :param max_file_size: The max_file_size of this NfsExport.
         :type: int
         """
+        
         self._max_file_size = max_file_size
 
     @property
@@ -647,6 +668,7 @@ class NfsExport(object):
         :param name_max_size: The name_max_size of this NfsExport.
         :type: int
         """
+        
         self._name_max_size = name_max_size
 
     @property
@@ -669,6 +691,7 @@ class NfsExport(object):
         :param no_truncate: The no_truncate of this NfsExport.
         :type: bool
         """
+        
         self._no_truncate = no_truncate
 
     @property
@@ -691,6 +714,7 @@ class NfsExport(object):
         :param paths: The paths of this NfsExport.
         :type: list[str]
         """
+        
         self._paths = paths
 
     @property
@@ -713,6 +737,7 @@ class NfsExport(object):
         :param read_only: The read_only of this NfsExport.
         :type: bool
         """
+        
         self._read_only = read_only
 
     @property
@@ -735,6 +760,7 @@ class NfsExport(object):
         :param read_only_clients: The read_only_clients of this NfsExport.
         :type: list[str]
         """
+        
         self._read_only_clients = read_only_clients
 
     @property
@@ -757,6 +783,7 @@ class NfsExport(object):
         :param read_transfer_max_size: The read_transfer_max_size of this NfsExport.
         :type: int
         """
+        
         self._read_transfer_max_size = read_transfer_max_size
 
     @property
@@ -779,6 +806,7 @@ class NfsExport(object):
         :param read_transfer_multiple: The read_transfer_multiple of this NfsExport.
         :type: int
         """
+        
         self._read_transfer_multiple = read_transfer_multiple
 
     @property
@@ -801,6 +829,7 @@ class NfsExport(object):
         :param read_transfer_size: The read_transfer_size of this NfsExport.
         :type: int
         """
+        
         self._read_transfer_size = read_transfer_size
 
     @property
@@ -823,6 +852,7 @@ class NfsExport(object):
         :param read_write_clients: The read_write_clients of this NfsExport.
         :type: list[str]
         """
+        
         self._read_write_clients = read_write_clients
 
     @property
@@ -845,6 +875,7 @@ class NfsExport(object):
         :param readdirplus: The readdirplus of this NfsExport.
         :type: bool
         """
+        
         self._readdirplus = readdirplus
 
     @property
@@ -867,6 +898,7 @@ class NfsExport(object):
         :param readdirplus_prefetch: The readdirplus_prefetch of this NfsExport.
         :type: int
         """
+        
         self._readdirplus_prefetch = readdirplus_prefetch
 
     @property
@@ -889,6 +921,7 @@ class NfsExport(object):
         :param return_32bit_file_ids: The return_32bit_file_ids of this NfsExport.
         :type: bool
         """
+        
         self._return_32bit_file_ids = return_32bit_file_ids
 
     @property
@@ -911,6 +944,7 @@ class NfsExport(object):
         :param root_clients: The root_clients of this NfsExport.
         :type: list[str]
         """
+        
         self._root_clients = root_clients
 
     @property
@@ -933,6 +967,7 @@ class NfsExport(object):
         :param security_flavors: The security_flavors of this NfsExport.
         :type: list[str]
         """
+        
         self._security_flavors = security_flavors
 
     @property
@@ -955,6 +990,7 @@ class NfsExport(object):
         :param setattr_asynchronous: The setattr_asynchronous of this NfsExport.
         :type: bool
         """
+        
         self._setattr_asynchronous = setattr_asynchronous
 
     @property
@@ -977,6 +1013,7 @@ class NfsExport(object):
         :param snapshot: The snapshot of this NfsExport.
         :type: str
         """
+        
         self._snapshot = snapshot
 
     @property
@@ -999,6 +1036,7 @@ class NfsExport(object):
         :param symlinks: The symlinks of this NfsExport.
         :type: bool
         """
+        
         self._symlinks = symlinks
 
     @property
@@ -1021,6 +1059,7 @@ class NfsExport(object):
         :param time_delta: The time_delta of this NfsExport.
         :type: float
         """
+        
         self._time_delta = time_delta
 
     @property
@@ -1049,6 +1088,7 @@ class NfsExport(object):
                 "Invalid value for `write_datasync_action`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._write_datasync_action = write_datasync_action
 
     @property
@@ -1077,6 +1117,7 @@ class NfsExport(object):
                 "Invalid value for `write_datasync_reply`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._write_datasync_reply = write_datasync_reply
 
     @property
@@ -1105,6 +1146,7 @@ class NfsExport(object):
                 "Invalid value for `write_filesync_action`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._write_filesync_action = write_filesync_action
 
     @property
@@ -1133,6 +1175,7 @@ class NfsExport(object):
                 "Invalid value for `write_filesync_reply`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._write_filesync_reply = write_filesync_reply
 
     @property
@@ -1155,6 +1198,7 @@ class NfsExport(object):
         :param write_transfer_max_size: The write_transfer_max_size of this NfsExport.
         :type: int
         """
+        
         self._write_transfer_max_size = write_transfer_max_size
 
     @property
@@ -1177,6 +1221,7 @@ class NfsExport(object):
         :param write_transfer_multiple: The write_transfer_multiple of this NfsExport.
         :type: int
         """
+        
         self._write_transfer_multiple = write_transfer_multiple
 
     @property
@@ -1199,6 +1244,7 @@ class NfsExport(object):
         :param write_transfer_size: The write_transfer_size of this NfsExport.
         :type: int
         """
+        
         self._write_transfer_size = write_transfer_size
 
     @property
@@ -1227,6 +1273,7 @@ class NfsExport(object):
                 "Invalid value for `write_unstable_action`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._write_unstable_action = write_unstable_action
 
     @property
@@ -1255,6 +1302,7 @@ class NfsExport(object):
                 "Invalid value for `write_unstable_reply`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._write_unstable_reply = write_unstable_reply
 
     @property
@@ -1277,6 +1325,7 @@ class NfsExport(object):
         :param zone: The zone of this NfsExport.
         :type: str
         """
+        
         self._zone = zone
 
     def to_dict(self):
@@ -1294,6 +1343,12 @@ class NfsExport(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -1311,14 +1366,14 @@ class NfsExport(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

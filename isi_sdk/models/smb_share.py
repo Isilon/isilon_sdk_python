@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class SmbShare(object):
@@ -69,7 +70,7 @@ class SmbShare(object):
             'oplocks': 'bool',
             'path': 'str',
             'permissions': 'list[SmbSharePermission]',
-            'run_as_root': 'list[GroupsGroupMember]',
+            'run_as_root': 'list[GroupMember]',
             'strict_ca_lockout': 'bool',
             'strict_flush': 'bool',
             'strict_locking': 'bool',
@@ -174,6 +175,7 @@ class SmbShare(object):
         :param access_based_enumeration: The access_based_enumeration of this SmbShare.
         :type: bool
         """
+        
         self._access_based_enumeration = access_based_enumeration
 
     @property
@@ -196,6 +198,7 @@ class SmbShare(object):
         :param access_based_enumeration_root_only: The access_based_enumeration_root_only of this SmbShare.
         :type: bool
         """
+        
         self._access_based_enumeration_root_only = access_based_enumeration_root_only
 
     @property
@@ -218,6 +221,7 @@ class SmbShare(object):
         :param allow_delete_readonly: The allow_delete_readonly of this SmbShare.
         :type: bool
         """
+        
         self._allow_delete_readonly = allow_delete_readonly
 
     @property
@@ -240,6 +244,7 @@ class SmbShare(object):
         :param allow_execute_always: The allow_execute_always of this SmbShare.
         :type: bool
         """
+        
         self._allow_execute_always = allow_execute_always
 
     @property
@@ -262,6 +267,7 @@ class SmbShare(object):
         :param allow_variable_expansion: The allow_variable_expansion of this SmbShare.
         :type: bool
         """
+        
         self._allow_variable_expansion = allow_variable_expansion
 
     @property
@@ -284,6 +290,7 @@ class SmbShare(object):
         :param auto_create_directory: The auto_create_directory of this SmbShare.
         :type: bool
         """
+        
         self._auto_create_directory = auto_create_directory
 
     @property
@@ -306,6 +313,7 @@ class SmbShare(object):
         :param browsable: The browsable of this SmbShare.
         :type: bool
         """
+        
         self._browsable = browsable
 
     @property
@@ -328,6 +336,12 @@ class SmbShare(object):
         :param ca_timeout: The ca_timeout of this SmbShare.
         :type: int
         """
+        
+        if not ca_timeout:
+            raise ValueError("Invalid value for `ca_timeout`, must not be `None`")
+        if ca_timeout < 2.0: 
+            raise ValueError("Invalid value for `ca_timeout`, must be a value greater than or equal to `2.0`")
+
         self._ca_timeout = ca_timeout
 
     @property
@@ -356,6 +370,7 @@ class SmbShare(object):
                 "Invalid value for `ca_write_integrity`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._ca_write_integrity = ca_write_integrity
 
     @property
@@ -384,6 +399,7 @@ class SmbShare(object):
                 "Invalid value for `change_notify`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._change_notify = change_notify
 
     @property
@@ -412,6 +428,7 @@ class SmbShare(object):
                 "Invalid value for `create_permissions`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._create_permissions = create_permissions
 
     @property
@@ -440,6 +457,7 @@ class SmbShare(object):
                 "Invalid value for `csc_policy`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._csc_policy = csc_policy
 
     @property
@@ -462,6 +480,7 @@ class SmbShare(object):
         :param description: The description of this SmbShare.
         :type: str
         """
+        
         self._description = description
 
     @property
@@ -484,6 +503,7 @@ class SmbShare(object):
         :param directory_create_mask: The directory_create_mask of this SmbShare.
         :type: int
         """
+        
         self._directory_create_mask = directory_create_mask
 
     @property
@@ -506,6 +526,7 @@ class SmbShare(object):
         :param directory_create_mode: The directory_create_mode of this SmbShare.
         :type: int
         """
+        
         self._directory_create_mode = directory_create_mode
 
     @property
@@ -528,6 +549,7 @@ class SmbShare(object):
         :param file_create_mask: The file_create_mask of this SmbShare.
         :type: int
         """
+        
         self._file_create_mask = file_create_mask
 
     @property
@@ -550,6 +572,7 @@ class SmbShare(object):
         :param file_create_mode: The file_create_mode of this SmbShare.
         :type: int
         """
+        
         self._file_create_mode = file_create_mode
 
     @property
@@ -572,6 +595,7 @@ class SmbShare(object):
         :param file_filter_extensions: The file_filter_extensions of this SmbShare.
         :type: list[str]
         """
+        
         self._file_filter_extensions = file_filter_extensions
 
     @property
@@ -600,6 +624,7 @@ class SmbShare(object):
                 "Invalid value for `file_filter_type`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._file_filter_type = file_filter_type
 
     @property
@@ -622,6 +647,7 @@ class SmbShare(object):
         :param file_filtering_enabled: The file_filtering_enabled of this SmbShare.
         :type: bool
         """
+        
         self._file_filtering_enabled = file_filtering_enabled
 
     @property
@@ -644,6 +670,7 @@ class SmbShare(object):
         :param hide_dot_files: The hide_dot_files of this SmbShare.
         :type: bool
         """
+        
         self._hide_dot_files = hide_dot_files
 
     @property
@@ -666,6 +693,7 @@ class SmbShare(object):
         :param host_acl: The host_acl of this SmbShare.
         :type: list[str]
         """
+        
         self._host_acl = host_acl
 
     @property
@@ -694,6 +722,7 @@ class SmbShare(object):
                 "Invalid value for `impersonate_guest`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._impersonate_guest = impersonate_guest
 
     @property
@@ -716,6 +745,7 @@ class SmbShare(object):
         :param impersonate_user: The impersonate_user of this SmbShare.
         :type: str
         """
+        
         self._impersonate_user = impersonate_user
 
     @property
@@ -738,6 +768,7 @@ class SmbShare(object):
         :param inheritable_path_acl: The inheritable_path_acl of this SmbShare.
         :type: bool
         """
+        
         self._inheritable_path_acl = inheritable_path_acl
 
     @property
@@ -760,6 +791,7 @@ class SmbShare(object):
         :param mangle_byte_start: The mangle_byte_start of this SmbShare.
         :type: int
         """
+        
         self._mangle_byte_start = mangle_byte_start
 
     @property
@@ -782,6 +814,7 @@ class SmbShare(object):
         :param mangle_map: The mangle_map of this SmbShare.
         :type: list[str]
         """
+        
         self._mangle_map = mangle_map
 
     @property
@@ -804,6 +837,7 @@ class SmbShare(object):
         :param name: The name of this SmbShare.
         :type: str
         """
+        
         self._name = name
 
     @property
@@ -826,6 +860,7 @@ class SmbShare(object):
         :param ntfs_acl_support: The ntfs_acl_support of this SmbShare.
         :type: bool
         """
+        
         self._ntfs_acl_support = ntfs_acl_support
 
     @property
@@ -848,6 +883,7 @@ class SmbShare(object):
         :param oplocks: The oplocks of this SmbShare.
         :type: bool
         """
+        
         self._oplocks = oplocks
 
     @property
@@ -870,6 +906,7 @@ class SmbShare(object):
         :param path: The path of this SmbShare.
         :type: str
         """
+        
         self._path = path
 
     @property
@@ -892,6 +929,7 @@ class SmbShare(object):
         :param permissions: The permissions of this SmbShare.
         :type: list[SmbSharePermission]
         """
+        
         self._permissions = permissions
 
     @property
@@ -901,7 +939,7 @@ class SmbShare(object):
         Allow account to run as root.
 
         :return: The run_as_root of this SmbShare.
-        :rtype: list[GroupsGroupMember]
+        :rtype: list[GroupMember]
         """
         return self._run_as_root
 
@@ -912,8 +950,9 @@ class SmbShare(object):
         Allow account to run as root.
 
         :param run_as_root: The run_as_root of this SmbShare.
-        :type: list[GroupsGroupMember]
+        :type: list[GroupMember]
         """
+        
         self._run_as_root = run_as_root
 
     @property
@@ -936,6 +975,7 @@ class SmbShare(object):
         :param strict_ca_lockout: The strict_ca_lockout of this SmbShare.
         :type: bool
         """
+        
         self._strict_ca_lockout = strict_ca_lockout
 
     @property
@@ -958,6 +998,7 @@ class SmbShare(object):
         :param strict_flush: The strict_flush of this SmbShare.
         :type: bool
         """
+        
         self._strict_flush = strict_flush
 
     @property
@@ -980,6 +1021,7 @@ class SmbShare(object):
         :param strict_locking: The strict_locking of this SmbShare.
         :type: bool
         """
+        
         self._strict_locking = strict_locking
 
     @property
@@ -1002,6 +1044,7 @@ class SmbShare(object):
         :param zone: The zone of this SmbShare.
         :type: str
         """
+        
         self._zone = zone
 
     def to_dict(self):
@@ -1019,6 +1062,12 @@ class SmbShare(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -1036,14 +1085,14 @@ class SmbShare(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

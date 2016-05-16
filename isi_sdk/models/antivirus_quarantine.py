@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class AntivirusQuarantine(object):
@@ -81,6 +82,7 @@ class AntivirusQuarantine(object):
         :param file: The file of this AntivirusQuarantine.
         :type: str
         """
+        
         self._file = file
 
     @property
@@ -103,6 +105,7 @@ class AntivirusQuarantine(object):
         :param last_istag: The last_istag of this AntivirusQuarantine.
         :type: str
         """
+        
         self._last_istag = last_istag
 
     @property
@@ -125,6 +128,7 @@ class AntivirusQuarantine(object):
         :param last_scan: The last_scan of this AntivirusQuarantine.
         :type: int
         """
+        
         self._last_scan = last_scan
 
     @property
@@ -147,6 +151,7 @@ class AntivirusQuarantine(object):
         :param quarantined: The quarantined of this AntivirusQuarantine.
         :type: bool
         """
+        
         self._quarantined = quarantined
 
     @property
@@ -169,6 +174,7 @@ class AntivirusQuarantine(object):
         :param scan_result: The scan_result of this AntivirusQuarantine.
         :type: str
         """
+        
         self._scan_result = scan_result
 
     @property
@@ -197,6 +203,7 @@ class AntivirusQuarantine(object):
                 "Invalid value for `scan_status`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._scan_status = scan_status
 
     def to_dict(self):
@@ -214,6 +221,12 @@ class AntivirusQuarantine(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -231,14 +244,14 @@ class AntivirusQuarantine(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

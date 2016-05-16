@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class SettingsMappingMappingSettings(object):
@@ -90,6 +91,7 @@ class SettingsMappingMappingSettings(object):
         :param cache_entry_expiry: The cache_entry_expiry of this SettingsMappingMappingSettings.
         :type: int
         """
+        
         self._cache_entry_expiry = cache_entry_expiry
 
     @property
@@ -112,6 +114,7 @@ class SettingsMappingMappingSettings(object):
         :param gid_range_enabled: The gid_range_enabled of this SettingsMappingMappingSettings.
         :type: bool
         """
+        
         self._gid_range_enabled = gid_range_enabled
 
     @property
@@ -134,6 +137,7 @@ class SettingsMappingMappingSettings(object):
         :param gid_range_max: The gid_range_max of this SettingsMappingMappingSettings.
         :type: int
         """
+        
         self._gid_range_max = gid_range_max
 
     @property
@@ -156,6 +160,7 @@ class SettingsMappingMappingSettings(object):
         :param gid_range_min: The gid_range_min of this SettingsMappingMappingSettings.
         :type: int
         """
+        
         self._gid_range_min = gid_range_min
 
     @property
@@ -178,6 +183,7 @@ class SettingsMappingMappingSettings(object):
         :param gid_range_next: The gid_range_next of this SettingsMappingMappingSettings.
         :type: int
         """
+        
         self._gid_range_next = gid_range_next
 
     @property
@@ -200,6 +206,7 @@ class SettingsMappingMappingSettings(object):
         :param uid_range_enabled: The uid_range_enabled of this SettingsMappingMappingSettings.
         :type: bool
         """
+        
         self._uid_range_enabled = uid_range_enabled
 
     @property
@@ -222,6 +229,7 @@ class SettingsMappingMappingSettings(object):
         :param uid_range_max: The uid_range_max of this SettingsMappingMappingSettings.
         :type: int
         """
+        
         self._uid_range_max = uid_range_max
 
     @property
@@ -244,6 +252,7 @@ class SettingsMappingMappingSettings(object):
         :param uid_range_min: The uid_range_min of this SettingsMappingMappingSettings.
         :type: int
         """
+        
         self._uid_range_min = uid_range_min
 
     @property
@@ -266,6 +275,7 @@ class SettingsMappingMappingSettings(object):
         :param uid_range_next: The uid_range_next of this SettingsMappingMappingSettings.
         :type: int
         """
+        
         self._uid_range_next = uid_range_next
 
     def to_dict(self):
@@ -283,6 +293,12 @@ class SettingsMappingMappingSettings(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -300,14 +316,14 @@ class SettingsMappingMappingSettings(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

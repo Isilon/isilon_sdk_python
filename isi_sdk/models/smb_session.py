@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class SmbSession(object):
@@ -90,6 +91,7 @@ class SmbSession(object):
         :param active_time: The active_time of this SmbSession.
         :type: int
         """
+        
         self._active_time = active_time
 
     @property
@@ -112,6 +114,7 @@ class SmbSession(object):
         :param client_type: The client_type of this SmbSession.
         :type: str
         """
+        
         self._client_type = client_type
 
     @property
@@ -134,6 +137,7 @@ class SmbSession(object):
         :param computer: The computer of this SmbSession.
         :type: str
         """
+        
         self._computer = computer
 
     @property
@@ -156,6 +160,7 @@ class SmbSession(object):
         :param encryption: The encryption of this SmbSession.
         :type: bool
         """
+        
         self._encryption = encryption
 
     @property
@@ -178,6 +183,7 @@ class SmbSession(object):
         :param guest_login: The guest_login of this SmbSession.
         :type: bool
         """
+        
         self._guest_login = guest_login
 
     @property
@@ -200,6 +206,7 @@ class SmbSession(object):
         :param id: The id of this SmbSession.
         :type: int
         """
+        
         self._id = id
 
     @property
@@ -222,6 +229,7 @@ class SmbSession(object):
         :param idle_time: The idle_time of this SmbSession.
         :type: int
         """
+        
         self._idle_time = idle_time
 
     @property
@@ -244,6 +252,7 @@ class SmbSession(object):
         :param openfiles: The openfiles of this SmbSession.
         :type: int
         """
+        
         self._openfiles = openfiles
 
     @property
@@ -266,6 +275,7 @@ class SmbSession(object):
         :param user: The user of this SmbSession.
         :type: str
         """
+        
         self._user = user
 
     def to_dict(self):
@@ -283,6 +293,12 @@ class SmbSession(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -300,14 +316,14 @@ class SmbSession(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class AntivirusSettingsSettings(object):
@@ -102,6 +103,7 @@ class AntivirusSettingsSettings(object):
         :param fail_open: The fail_open of this AntivirusSettingsSettings.
         :type: bool
         """
+        
         self._fail_open = fail_open
 
     @property
@@ -124,6 +126,7 @@ class AntivirusSettingsSettings(object):
         :param glob_filters: The glob_filters of this AntivirusSettingsSettings.
         :type: list[str]
         """
+        
         self._glob_filters = glob_filters
 
     @property
@@ -146,6 +149,7 @@ class AntivirusSettingsSettings(object):
         :param glob_filters_enabled: The glob_filters_enabled of this AntivirusSettingsSettings.
         :type: bool
         """
+        
         self._glob_filters_enabled = glob_filters_enabled
 
     @property
@@ -168,6 +172,7 @@ class AntivirusSettingsSettings(object):
         :param glob_filters_include: The glob_filters_include of this AntivirusSettingsSettings.
         :type: bool
         """
+        
         self._glob_filters_include = glob_filters_include
 
     @property
@@ -190,6 +195,7 @@ class AntivirusSettingsSettings(object):
         :param path_prefixes: The path_prefixes of this AntivirusSettingsSettings.
         :type: list[str]
         """
+        
         self._path_prefixes = path_prefixes
 
     @property
@@ -212,6 +218,7 @@ class AntivirusSettingsSettings(object):
         :param quarantine: The quarantine of this AntivirusSettingsSettings.
         :type: bool
         """
+        
         self._quarantine = quarantine
 
     @property
@@ -234,6 +241,7 @@ class AntivirusSettingsSettings(object):
         :param repair: The repair of this AntivirusSettingsSettings.
         :type: bool
         """
+        
         self._repair = repair
 
     @property
@@ -256,6 +264,12 @@ class AntivirusSettingsSettings(object):
         :param report_expiry: The report_expiry of this AntivirusSettingsSettings.
         :type: int
         """
+        
+        if not report_expiry:
+            raise ValueError("Invalid value for `report_expiry`, must not be `None`")
+        if report_expiry < 0.0: 
+            raise ValueError("Invalid value for `report_expiry`, must be a value greater than or equal to `0.0`")
+
         self._report_expiry = report_expiry
 
     @property
@@ -278,6 +292,7 @@ class AntivirusSettingsSettings(object):
         :param scan_on_close: The scan_on_close of this AntivirusSettingsSettings.
         :type: bool
         """
+        
         self._scan_on_close = scan_on_close
 
     @property
@@ -300,6 +315,7 @@ class AntivirusSettingsSettings(object):
         :param scan_on_open: The scan_on_open of this AntivirusSettingsSettings.
         :type: bool
         """
+        
         self._scan_on_open = scan_on_open
 
     @property
@@ -322,6 +338,12 @@ class AntivirusSettingsSettings(object):
         :param scan_size_maximum: The scan_size_maximum of this AntivirusSettingsSettings.
         :type: int
         """
+        
+        if not scan_size_maximum:
+            raise ValueError("Invalid value for `scan_size_maximum`, must not be `None`")
+        if scan_size_maximum < 0.0: 
+            raise ValueError("Invalid value for `scan_size_maximum`, must be a value greater than or equal to `0.0`")
+
         self._scan_size_maximum = scan_size_maximum
 
     @property
@@ -344,6 +366,7 @@ class AntivirusSettingsSettings(object):
         :param service: The service of this AntivirusSettingsSettings.
         :type: bool
         """
+        
         self._service = service
 
     @property
@@ -366,6 +389,7 @@ class AntivirusSettingsSettings(object):
         :param truncate: The truncate of this AntivirusSettingsSettings.
         :type: bool
         """
+        
         self._truncate = truncate
 
     def to_dict(self):
@@ -383,6 +407,12 @@ class AntivirusSettingsSettings(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -400,14 +430,14 @@ class AntivirusSettingsSettings(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

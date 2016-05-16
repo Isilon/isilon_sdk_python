@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class SummaryDriveDriveItem(object):
@@ -111,6 +112,7 @@ class SummaryDriveDriveItem(object):
         :param access_latency: The access_latency of this SummaryDriveDriveItem.
         :type: float
         """
+        
         self._access_latency = access_latency
 
     @property
@@ -133,6 +135,7 @@ class SummaryDriveDriveItem(object):
         :param access_slow: The access_slow of this SummaryDriveDriveItem.
         :type: float
         """
+        
         self._access_slow = access_slow
 
     @property
@@ -155,6 +158,7 @@ class SummaryDriveDriveItem(object):
         :param busy: The busy of this SummaryDriveDriveItem.
         :type: float
         """
+        
         self._busy = busy
 
     @property
@@ -177,6 +181,7 @@ class SummaryDriveDriveItem(object):
         :param bytes_in: The bytes_in of this SummaryDriveDriveItem.
         :type: float
         """
+        
         self._bytes_in = bytes_in
 
     @property
@@ -199,6 +204,7 @@ class SummaryDriveDriveItem(object):
         :param bytes_out: The bytes_out of this SummaryDriveDriveItem.
         :type: float
         """
+        
         self._bytes_out = bytes_out
 
     @property
@@ -221,6 +227,7 @@ class SummaryDriveDriveItem(object):
         :param drive_id: The drive_id of this SummaryDriveDriveItem.
         :type: str
         """
+        
         self._drive_id = drive_id
 
     @property
@@ -243,6 +250,7 @@ class SummaryDriveDriveItem(object):
         :param iosched_latency: The iosched_latency of this SummaryDriveDriveItem.
         :type: float
         """
+        
         self._iosched_latency = iosched_latency
 
     @property
@@ -265,6 +273,7 @@ class SummaryDriveDriveItem(object):
         :param iosched_queue: The iosched_queue of this SummaryDriveDriveItem.
         :type: float
         """
+        
         self._iosched_queue = iosched_queue
 
     @property
@@ -287,6 +296,7 @@ class SummaryDriveDriveItem(object):
         :param time: The time of this SummaryDriveDriveItem.
         :type: int
         """
+        
         self._time = time
 
     @property
@@ -309,6 +319,7 @@ class SummaryDriveDriveItem(object):
         :param type: The type of this SummaryDriveDriveItem.
         :type: str
         """
+        
         self._type = type
 
     @property
@@ -331,6 +342,7 @@ class SummaryDriveDriveItem(object):
         :param used_bytes_percent: The used_bytes_percent of this SummaryDriveDriveItem.
         :type: float
         """
+        
         self._used_bytes_percent = used_bytes_percent
 
     @property
@@ -353,6 +365,7 @@ class SummaryDriveDriveItem(object):
         :param used_inodes: The used_inodes of this SummaryDriveDriveItem.
         :type: float
         """
+        
         self._used_inodes = used_inodes
 
     @property
@@ -375,6 +388,7 @@ class SummaryDriveDriveItem(object):
         :param xfer_size_in: The xfer_size_in of this SummaryDriveDriveItem.
         :type: float
         """
+        
         self._xfer_size_in = xfer_size_in
 
     @property
@@ -397,6 +411,7 @@ class SummaryDriveDriveItem(object):
         :param xfer_size_out: The xfer_size_out of this SummaryDriveDriveItem.
         :type: float
         """
+        
         self._xfer_size_out = xfer_size_out
 
     @property
@@ -419,6 +434,7 @@ class SummaryDriveDriveItem(object):
         :param xfers_in: The xfers_in of this SummaryDriveDriveItem.
         :type: float
         """
+        
         self._xfers_in = xfers_in
 
     @property
@@ -441,6 +457,7 @@ class SummaryDriveDriveItem(object):
         :param xfers_out: The xfers_out of this SummaryDriveDriveItem.
         :type: float
         """
+        
         self._xfers_out = xfers_out
 
     def to_dict(self):
@@ -458,6 +475,12 @@ class SummaryDriveDriveItem(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -475,14 +498,14 @@ class SummaryDriveDriveItem(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

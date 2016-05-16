@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class SmbSettingsShareSettings(object):
@@ -147,6 +148,7 @@ class SmbSettingsShareSettings(object):
         :param access_based_enumeration: The access_based_enumeration of this SmbSettingsShareSettings.
         :type: bool
         """
+        
         self._access_based_enumeration = access_based_enumeration
 
     @property
@@ -169,6 +171,7 @@ class SmbSettingsShareSettings(object):
         :param access_based_enumeration_root_only: The access_based_enumeration_root_only of this SmbSettingsShareSettings.
         :type: bool
         """
+        
         self._access_based_enumeration_root_only = access_based_enumeration_root_only
 
     @property
@@ -191,6 +194,7 @@ class SmbSettingsShareSettings(object):
         :param allow_delete_readonly: The allow_delete_readonly of this SmbSettingsShareSettings.
         :type: bool
         """
+        
         self._allow_delete_readonly = allow_delete_readonly
 
     @property
@@ -213,6 +217,7 @@ class SmbSettingsShareSettings(object):
         :param allow_execute_always: The allow_execute_always of this SmbSettingsShareSettings.
         :type: bool
         """
+        
         self._allow_execute_always = allow_execute_always
 
     @property
@@ -235,6 +240,12 @@ class SmbSettingsShareSettings(object):
         :param ca_timeout: The ca_timeout of this SmbSettingsShareSettings.
         :type: int
         """
+        
+        if not ca_timeout:
+            raise ValueError("Invalid value for `ca_timeout`, must not be `None`")
+        if ca_timeout < 2.0: 
+            raise ValueError("Invalid value for `ca_timeout`, must be a value greater than or equal to `2.0`")
+
         self._ca_timeout = ca_timeout
 
     @property
@@ -263,6 +274,7 @@ class SmbSettingsShareSettings(object):
                 "Invalid value for `ca_write_integrity`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._ca_write_integrity = ca_write_integrity
 
     @property
@@ -291,6 +303,7 @@ class SmbSettingsShareSettings(object):
                 "Invalid value for `change_notify`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._change_notify = change_notify
 
     @property
@@ -319,6 +332,7 @@ class SmbSettingsShareSettings(object):
                 "Invalid value for `create_permissions`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._create_permissions = create_permissions
 
     @property
@@ -347,6 +361,7 @@ class SmbSettingsShareSettings(object):
                 "Invalid value for `csc_policy`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._csc_policy = csc_policy
 
     @property
@@ -369,6 +384,14 @@ class SmbSettingsShareSettings(object):
         :param directory_create_mask: The directory_create_mask of this SmbSettingsShareSettings.
         :type: int
         """
+        
+        if not directory_create_mask:
+            raise ValueError("Invalid value for `directory_create_mask`, must not be `None`")
+        if directory_create_mask > 511.0: 
+            raise ValueError("Invalid value for `directory_create_mask`, must be a value less than or equal to `511.0`")
+        if directory_create_mask < 0.0: 
+            raise ValueError("Invalid value for `directory_create_mask`, must be a value greater than or equal to `0.0`")
+
         self._directory_create_mask = directory_create_mask
 
     @property
@@ -391,6 +414,14 @@ class SmbSettingsShareSettings(object):
         :param directory_create_mode: The directory_create_mode of this SmbSettingsShareSettings.
         :type: int
         """
+        
+        if not directory_create_mode:
+            raise ValueError("Invalid value for `directory_create_mode`, must not be `None`")
+        if directory_create_mode > 511.0: 
+            raise ValueError("Invalid value for `directory_create_mode`, must be a value less than or equal to `511.0`")
+        if directory_create_mode < 0.0: 
+            raise ValueError("Invalid value for `directory_create_mode`, must be a value greater than or equal to `0.0`")
+
         self._directory_create_mode = directory_create_mode
 
     @property
@@ -413,6 +444,14 @@ class SmbSettingsShareSettings(object):
         :param file_create_mask: The file_create_mask of this SmbSettingsShareSettings.
         :type: int
         """
+        
+        if not file_create_mask:
+            raise ValueError("Invalid value for `file_create_mask`, must not be `None`")
+        if file_create_mask > 511.0: 
+            raise ValueError("Invalid value for `file_create_mask`, must be a value less than or equal to `511.0`")
+        if file_create_mask < 0.0: 
+            raise ValueError("Invalid value for `file_create_mask`, must be a value greater than or equal to `0.0`")
+
         self._file_create_mask = file_create_mask
 
     @property
@@ -435,6 +474,14 @@ class SmbSettingsShareSettings(object):
         :param file_create_mode: The file_create_mode of this SmbSettingsShareSettings.
         :type: int
         """
+        
+        if not file_create_mode:
+            raise ValueError("Invalid value for `file_create_mode`, must not be `None`")
+        if file_create_mode > 511.0: 
+            raise ValueError("Invalid value for `file_create_mode`, must be a value less than or equal to `511.0`")
+        if file_create_mode < 0.0: 
+            raise ValueError("Invalid value for `file_create_mode`, must be a value greater than or equal to `0.0`")
+
         self._file_create_mode = file_create_mode
 
     @property
@@ -457,6 +504,7 @@ class SmbSettingsShareSettings(object):
         :param file_filter_extensions: The file_filter_extensions of this SmbSettingsShareSettings.
         :type: list[str]
         """
+        
         self._file_filter_extensions = file_filter_extensions
 
     @property
@@ -485,6 +533,7 @@ class SmbSettingsShareSettings(object):
                 "Invalid value for `file_filter_type`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._file_filter_type = file_filter_type
 
     @property
@@ -507,6 +556,7 @@ class SmbSettingsShareSettings(object):
         :param file_filtering_enabled: The file_filtering_enabled of this SmbSettingsShareSettings.
         :type: bool
         """
+        
         self._file_filtering_enabled = file_filtering_enabled
 
     @property
@@ -529,6 +579,7 @@ class SmbSettingsShareSettings(object):
         :param hide_dot_files: The hide_dot_files of this SmbSettingsShareSettings.
         :type: bool
         """
+        
         self._hide_dot_files = hide_dot_files
 
     @property
@@ -551,6 +602,7 @@ class SmbSettingsShareSettings(object):
         :param host_acl: The host_acl of this SmbSettingsShareSettings.
         :type: list[str]
         """
+        
         self._host_acl = host_acl
 
     @property
@@ -579,6 +631,7 @@ class SmbSettingsShareSettings(object):
                 "Invalid value for `impersonate_guest`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._impersonate_guest = impersonate_guest
 
     @property
@@ -601,6 +654,7 @@ class SmbSettingsShareSettings(object):
         :param impersonate_user: The impersonate_user of this SmbSettingsShareSettings.
         :type: str
         """
+        
         self._impersonate_user = impersonate_user
 
     @property
@@ -623,6 +677,14 @@ class SmbSettingsShareSettings(object):
         :param mangle_byte_start: The mangle_byte_start of this SmbSettingsShareSettings.
         :type: int
         """
+        
+        if not mangle_byte_start:
+            raise ValueError("Invalid value for `mangle_byte_start`, must not be `None`")
+        if mangle_byte_start > 65535.0: 
+            raise ValueError("Invalid value for `mangle_byte_start`, must be a value less than or equal to `65535.0`")
+        if mangle_byte_start < 256.0: 
+            raise ValueError("Invalid value for `mangle_byte_start`, must be a value greater than or equal to `256.0`")
+
         self._mangle_byte_start = mangle_byte_start
 
     @property
@@ -645,6 +707,7 @@ class SmbSettingsShareSettings(object):
         :param mangle_map: The mangle_map of this SmbSettingsShareSettings.
         :type: list[str]
         """
+        
         self._mangle_map = mangle_map
 
     @property
@@ -667,6 +730,7 @@ class SmbSettingsShareSettings(object):
         :param ntfs_acl_support: The ntfs_acl_support of this SmbSettingsShareSettings.
         :type: bool
         """
+        
         self._ntfs_acl_support = ntfs_acl_support
 
     @property
@@ -689,6 +753,7 @@ class SmbSettingsShareSettings(object):
         :param oplocks: The oplocks of this SmbSettingsShareSettings.
         :type: bool
         """
+        
         self._oplocks = oplocks
 
     @property
@@ -711,6 +776,7 @@ class SmbSettingsShareSettings(object):
         :param strict_ca_lockout: The strict_ca_lockout of this SmbSettingsShareSettings.
         :type: bool
         """
+        
         self._strict_ca_lockout = strict_ca_lockout
 
     @property
@@ -733,6 +799,7 @@ class SmbSettingsShareSettings(object):
         :param strict_flush: The strict_flush of this SmbSettingsShareSettings.
         :type: bool
         """
+        
         self._strict_flush = strict_flush
 
     @property
@@ -755,6 +822,7 @@ class SmbSettingsShareSettings(object):
         :param strict_locking: The strict_locking of this SmbSettingsShareSettings.
         :type: bool
         """
+        
         self._strict_locking = strict_locking
 
     @property
@@ -777,6 +845,7 @@ class SmbSettingsShareSettings(object):
         :param zone: The zone of this SmbSettingsShareSettings.
         :type: str
         """
+        
         self._zone = zone
 
     def to_dict(self):
@@ -794,6 +863,12 @@ class SmbSettingsShareSettings(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -811,14 +886,14 @@ class SmbSettingsShareSettings(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class HdfsSettingsSettings(object):
@@ -90,6 +91,7 @@ class HdfsSettingsSettings(object):
         :param ambari_namenode: The ambari_namenode of this HdfsSettingsSettings.
         :type: str
         """
+        
         self._ambari_namenode = ambari_namenode
 
     @property
@@ -112,6 +114,7 @@ class HdfsSettingsSettings(object):
         :param ambari_server: The ambari_server of this HdfsSettingsSettings.
         :type: str
         """
+        
         self._ambari_server = ambari_server
 
     @property
@@ -140,6 +143,7 @@ class HdfsSettingsSettings(object):
                 "Invalid value for `authentication_mode`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._authentication_mode = authentication_mode
 
     @property
@@ -162,6 +166,7 @@ class HdfsSettingsSettings(object):
         :param default_block_size: The default_block_size of this HdfsSettingsSettings.
         :type: int
         """
+        
         self._default_block_size = default_block_size
 
     @property
@@ -190,6 +195,7 @@ class HdfsSettingsSettings(object):
                 "Invalid value for `default_checksum_type`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._default_checksum_type = default_checksum_type
 
     @property
@@ -212,6 +218,7 @@ class HdfsSettingsSettings(object):
         :param odp_version: The odp_version of this HdfsSettingsSettings.
         :type: str
         """
+        
         self._odp_version = odp_version
 
     @property
@@ -234,6 +241,7 @@ class HdfsSettingsSettings(object):
         :param root_directory: The root_directory of this HdfsSettingsSettings.
         :type: str
         """
+        
         self._root_directory = root_directory
 
     @property
@@ -256,6 +264,7 @@ class HdfsSettingsSettings(object):
         :param service: The service of this HdfsSettingsSettings.
         :type: bool
         """
+        
         self._service = service
 
     @property
@@ -278,6 +287,7 @@ class HdfsSettingsSettings(object):
         :param webhdfs_enabled: The webhdfs_enabled of this HdfsSettingsSettings.
         :type: bool
         """
+        
         self._webhdfs_enabled = webhdfs_enabled
 
     def to_dict(self):
@@ -295,6 +305,12 @@ class HdfsSettingsSettings(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -312,14 +328,14 @@ class HdfsSettingsSettings(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

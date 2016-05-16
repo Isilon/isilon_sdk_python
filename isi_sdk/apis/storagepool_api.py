@@ -2,7 +2,7 @@
 
 """
 StoragepoolApi.py
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@ from __future__ import absolute_import
 
 import sys
 import os
+import re
 
 # python 2 and python 3 compatibility library
 from six import iteritems
@@ -44,79 +45,6 @@ class StoragepoolApi(object):
             if not config.api_client:
                 config.api_client = ApiClient()
             self.api_client = config.api_client
-
-    def list_compatibilities_class_active(self, **kwargs):
-        """
-        
-        Get a list of active compatibilities
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.list_compatibilities_class_active(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: CompatibilitiesClassActiveExtended
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_compatibilities_class_active" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/1/storagepool/compatibilities/class/active'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='CompatibilitiesClassActiveExtended',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
 
     def create_compatibilities_class_active_item(self, compatibilities_class_active_item, **kwargs):
         """
@@ -156,17 +84,16 @@ class StoragepoolApi(object):
         if ('compatibilities_class_active_item' not in params) or (params['compatibilities_class_active_item'] is None):
             raise ValueError("Missing the required parameter `compatibilities_class_active_item` when calling `create_compatibilities_class_active_item`")
 
-        resource_path = '/platform/1/storagepool/compatibilities/class/active'.replace('{format}', 'json')
-        method = 'POST'
 
+        resource_path = '/platform/1/storagepool/compatibilities/class/active'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'compatibilities_class_active_item' in params:
@@ -185,22 +112,22 @@ class StoragepoolApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'POST',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='CreateCompatibilitiesClassActiveItemResponse',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def get_compatibilities_class_active_id(self, compatibilities_class_active_id, **kwargs):
+    def create_compatibilities_ssd_active_item(self, compatibilities_ssd_active_item, **kwargs):
         """
         
-        Get an active compatibilities by id
+        Create a new ssd compatibility
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -208,17 +135,17 @@ class StoragepoolApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.get_compatibilities_class_active_id(compatibilities_class_active_id, callback=callback_function)
+        >>> thread = api.create_compatibilities_ssd_active_item(compatibilities_ssd_active_item, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str compatibilities_class_active_id: Get an active compatibilities by id (required)
-        :return: CompatibilitiesClassActive
+        :param CompatibilitiesSsdActiveItem compatibilities_ssd_active_item:  (required)
+        :return: CreateCompatibilitiesClassActiveItemResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['compatibilities_class_active_id']
+        all_params = ['compatibilities_ssd_active_item']
         all_params.append('callback')
 
         params = locals()
@@ -226,30 +153,29 @@ class StoragepoolApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_compatibilities_class_active_id" % key
+                    " to method create_compatibilities_ssd_active_item" % key
                 )
             params[key] = val
         del params['kwargs']
 
-        # verify the required parameter 'compatibilities_class_active_id' is set
-        if ('compatibilities_class_active_id' not in params) or (params['compatibilities_class_active_id'] is None):
-            raise ValueError("Missing the required parameter `compatibilities_class_active_id` when calling `get_compatibilities_class_active_id`")
+        # verify the required parameter 'compatibilities_ssd_active_item' is set
+        if ('compatibilities_ssd_active_item' not in params) or (params['compatibilities_ssd_active_item'] is None):
+            raise ValueError("Missing the required parameter `compatibilities_ssd_active_item` when calling `create_compatibilities_ssd_active_item`")
 
-        resource_path = '/platform/1/storagepool/compatibilities/class/active/{CompatibilitiesClassActiveId}'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/3/storagepool/compatibilities/ssd/active'.replace('{format}', 'json')
         path_params = {}
-        if 'compatibilities_class_active_id' in params:
-            path_params['CompatibilitiesClassActiveId'] = params['compatibilities_class_active_id']
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
+        if 'compatibilities_ssd_active_item' in params:
+            body_params = params['compatibilities_ssd_active_item']
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
@@ -264,22 +190,22 @@ class StoragepoolApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'POST',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
-                                            response_type='CompatibilitiesClassActive',
+                                            files=local_var_files,
+                                            response_type='CreateCompatibilitiesClassActiveItemResponse',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def delete_compatibilities_class_active_id(self, compatibilities_class_active_id, **kwargs):
+    def create_storagepool_nodepool(self, storagepool_nodepool, **kwargs):
         """
         
-        Delete an active compatibility by id
+        Create a new node pool.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -287,17 +213,17 @@ class StoragepoolApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.delete_compatibilities_class_active_id(compatibilities_class_active_id, callback=callback_function)
+        >>> thread = api.create_storagepool_nodepool(storagepool_nodepool, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str compatibilities_class_active_id: Delete an active compatibility by id (required)
-        :return: None
+        :param StoragepoolNodepool storagepool_nodepool:  (required)
+        :return: CreateStoragepoolTierResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['compatibilities_class_active_id']
+        all_params = ['storagepool_nodepool']
         all_params.append('callback')
 
         params = locals()
@@ -305,30 +231,29 @@ class StoragepoolApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method delete_compatibilities_class_active_id" % key
+                    " to method create_storagepool_nodepool" % key
                 )
             params[key] = val
         del params['kwargs']
 
-        # verify the required parameter 'compatibilities_class_active_id' is set
-        if ('compatibilities_class_active_id' not in params) or (params['compatibilities_class_active_id'] is None):
-            raise ValueError("Missing the required parameter `compatibilities_class_active_id` when calling `delete_compatibilities_class_active_id`")
+        # verify the required parameter 'storagepool_nodepool' is set
+        if ('storagepool_nodepool' not in params) or (params['storagepool_nodepool'] is None):
+            raise ValueError("Missing the required parameter `storagepool_nodepool` when calling `create_storagepool_nodepool`")
 
-        resource_path = '/platform/1/storagepool/compatibilities/class/active/{CompatibilitiesClassActiveId}'.replace('{format}', 'json')
-        method = 'DELETE'
 
+        resource_path = '/platform/3/storagepool/nodepools'.replace('{format}', 'json')
         path_params = {}
-        if 'compatibilities_class_active_id' in params:
-            path_params['CompatibilitiesClassActiveId'] = params['compatibilities_class_active_id']
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
+        if 'storagepool_nodepool' in params:
+            body_params = params['storagepool_nodepool']
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
@@ -343,537 +268,14 @@ class StoragepoolApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'POST',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_compatibilities_class_available(self, **kwargs):
-        """
-        
-        Get a list of available compatibilities
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_compatibilities_class_available(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: CompatibilitiesClassAvailable
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_compatibilities_class_available" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/1/storagepool/compatibilities/class/available'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='CompatibilitiesClassAvailable',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_compatibilities_ssd_available(self, **kwargs):
-        """
-        
-        Get a list of available ssd compatibilities
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_compatibilities_ssd_available(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: CompatibilitiesSsdAvailable
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_compatibilities_ssd_available" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/1/storagepool/compatibilities/ssd/available'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='CompatibilitiesSsdAvailable',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_storagepool_settings(self, **kwargs):
-        """
-        
-        List all settings.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_storagepool_settings(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: StoragepoolSettings
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_storagepool_settings" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/1/storagepool/settings'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='StoragepoolSettings',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def update_storagepool_settings(self, storagepool_settings, **kwargs):
-        """
-        
-        Modify one or more settings.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_storagepool_settings(storagepool_settings, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param StoragepoolSettingsExtended storagepool_settings:  (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['storagepool_settings']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_storagepool_settings" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'storagepool_settings' is set
-        if ('storagepool_settings' not in params) or (params['storagepool_settings'] is None):
-            raise ValueError("Missing the required parameter `storagepool_settings` when calling `update_storagepool_settings`")
-
-        resource_path = '/platform/1/storagepool/settings'.replace('{format}', 'json')
-        method = 'PUT'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'storagepool_settings' in params:
-            body_params = params['storagepool_settings']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_storagepool_status(self, **kwargs):
-        """
-        
-        List any health conditions detected.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_storagepool_status(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: StoragepoolStatus
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_storagepool_status" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/1/storagepool/status'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='StoragepoolStatus',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_storagepool_suggested_protection_nid(self, storagepool_suggested_protection_nid, **kwargs):
-        """
-        
-        Retrieve the suggested protection policy.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_storagepool_suggested_protection_nid(storagepool_suggested_protection_nid, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str storagepool_suggested_protection_nid: Retrieve the suggested protection policy. (required)
-        :return: StoragepoolSuggestedProtection
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['storagepool_suggested_protection_nid']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_storagepool_suggested_protection_nid" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'storagepool_suggested_protection_nid' is set
-        if ('storagepool_suggested_protection_nid' not in params) or (params['storagepool_suggested_protection_nid'] is None):
-            raise ValueError("Missing the required parameter `storagepool_suggested_protection_nid` when calling `get_storagepool_suggested_protection_nid`")
-
-        resource_path = '/platform/1/storagepool/suggested_protection/{StoragepoolSuggestedProtectionNid}'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'storagepool_suggested_protection_nid' in params:
-            path_params['StoragepoolSuggestedProtectionNid'] = params['storagepool_suggested_protection_nid']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='StoragepoolSuggestedProtection',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def list_storagepool_tiers(self, **kwargs):
-        """
-        
-        List all tiers.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.list_storagepool_tiers(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: StoragepoolTiersExtended
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_storagepool_tiers" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/1/storagepool/tiers'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='StoragepoolTiersExtended',
+                                            files=local_var_files,
+                                            response_type='CreateStoragepoolTierResponse',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -916,17 +318,16 @@ class StoragepoolApi(object):
         if ('storagepool_tier' not in params) or (params['storagepool_tier'] is None):
             raise ValueError("Missing the required parameter `storagepool_tier` when calling `create_storagepool_tier`")
 
-        resource_path = '/platform/1/storagepool/tiers'.replace('{format}', 'json')
-        method = 'POST'
 
+        resource_path = '/platform/1/storagepool/tiers'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'storagepool_tier' in params:
@@ -945,22 +346,22 @@ class StoragepoolApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'POST',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='CreateStoragepoolTierResponse',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def delete_storagepool_tiers(self, **kwargs):
+    def delete_compatibilities_class_active_by_id(self, compatibilities_class_active_id, **kwargs):
         """
         
-        Delete all tiers.
+        Delete an active compatibility by id
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -968,16 +369,17 @@ class StoragepoolApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.delete_storagepool_tiers(callback=callback_function)
+        >>> thread = api.delete_compatibilities_class_active_by_id(compatibilities_class_active_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
+        :param str compatibilities_class_active_id: Delete an active compatibility by id (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = []
+        all_params = ['compatibilities_class_active_id']
         all_params.append('callback')
 
         params = locals()
@@ -985,23 +387,27 @@ class StoragepoolApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method delete_storagepool_tiers" % key
+                    " to method delete_compatibilities_class_active_by_id" % key
                 )
             params[key] = val
         del params['kwargs']
 
+        # verify the required parameter 'compatibilities_class_active_id' is set
+        if ('compatibilities_class_active_id' not in params) or (params['compatibilities_class_active_id'] is None):
+            raise ValueError("Missing the required parameter `compatibilities_class_active_id` when calling `delete_compatibilities_class_active_by_id`")
 
-        resource_path = '/platform/1/storagepool/tiers'.replace('{format}', 'json')
-        method = 'DELETE'
 
+        resource_path = '/platform/1/storagepool/compatibilities/class/active/{CompatibilitiesClassActiveId}'.replace('{format}', 'json')
         path_params = {}
+        if 'compatibilities_class_active_id' in params:
+            path_params['CompatibilitiesClassActiveId'] = params['compatibilities_class_active_id']
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -1018,22 +424,22 @@ class StoragepoolApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'DELETE',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def get_storagepool_tier(self, storagepool_tier_id, **kwargs):
+    def delete_compatibilities_ssd_active_by_id(self, compatibilities_ssd_active_id, **kwargs):
         """
         
-        Retrieve tier information.
+        Delete an active ssd compatibility by id
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1041,97 +447,17 @@ class StoragepoolApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.get_storagepool_tier(storagepool_tier_id, callback=callback_function)
+        >>> thread = api.delete_compatibilities_ssd_active_by_id(compatibilities_ssd_active_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str storagepool_tier_id: Retrieve tier information. (required)
-        :return: StoragepoolTiers
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['storagepool_tier_id']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_storagepool_tier" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'storagepool_tier_id' is set
-        if ('storagepool_tier_id' not in params) or (params['storagepool_tier_id'] is None):
-            raise ValueError("Missing the required parameter `storagepool_tier_id` when calling `get_storagepool_tier`")
-
-        resource_path = '/platform/1/storagepool/tiers/{StoragepoolTierId}'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'storagepool_tier_id' in params:
-            path_params['StoragepoolTierId'] = params['storagepool_tier_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='StoragepoolTiers',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def update_storagepool_tier(self, storagepool_tier, storagepool_tier_id, **kwargs):
-        """
-        
-        Modify tier. All input fields are optional, but one or more must be supplied.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_storagepool_tier(storagepool_tier, storagepool_tier_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param StoragepoolTier storagepool_tier:  (required)
-        :param str storagepool_tier_id: Modify tier. All input fields are optional, but one or more must be supplied. (required)
+        :param str compatibilities_ssd_active_id: Delete an active ssd compatibility by id (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['storagepool_tier', 'storagepool_tier_id']
+        all_params = ['compatibilities_ssd_active_id']
         all_params.append('callback')
 
         params = locals()
@@ -1139,35 +465,29 @@ class StoragepoolApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method update_storagepool_tier" % key
+                    " to method delete_compatibilities_ssd_active_by_id" % key
                 )
             params[key] = val
         del params['kwargs']
 
-        # verify the required parameter 'storagepool_tier' is set
-        if ('storagepool_tier' not in params) or (params['storagepool_tier'] is None):
-            raise ValueError("Missing the required parameter `storagepool_tier` when calling `update_storagepool_tier`")
-        # verify the required parameter 'storagepool_tier_id' is set
-        if ('storagepool_tier_id' not in params) or (params['storagepool_tier_id'] is None):
-            raise ValueError("Missing the required parameter `storagepool_tier_id` when calling `update_storagepool_tier`")
+        # verify the required parameter 'compatibilities_ssd_active_id' is set
+        if ('compatibilities_ssd_active_id' not in params) or (params['compatibilities_ssd_active_id'] is None):
+            raise ValueError("Missing the required parameter `compatibilities_ssd_active_id` when calling `delete_compatibilities_ssd_active_by_id`")
 
-        resource_path = '/platform/1/storagepool/tiers/{StoragepoolTierId}'.replace('{format}', 'json')
-        method = 'PUT'
 
+        resource_path = '/platform/3/storagepool/compatibilities/ssd/active/{CompatibilitiesSsdActiveId}'.replace('{format}', 'json')
         path_params = {}
-        if 'storagepool_tier_id' in params:
-            path_params['StoragepoolTierId'] = params['storagepool_tier_id']
+        if 'compatibilities_ssd_active_id' in params:
+            path_params['CompatibilitiesSsdActiveId'] = params['compatibilities_ssd_active_id']
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
-        if 'storagepool_tier' in params:
-            body_params = params['storagepool_tier']
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
@@ -1182,13 +502,91 @@ class StoragepoolApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'DELETE',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
+                                            response_type=None,
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def delete_storagepool_nodepool(self, storagepool_nodepool_id, **kwargs):
+        """
+        
+        Delete node pool.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.delete_storagepool_nodepool(storagepool_nodepool_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str storagepool_nodepool_id: Delete node pool. (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storagepool_nodepool_id']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_storagepool_nodepool" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'storagepool_nodepool_id' is set
+        if ('storagepool_nodepool_id' not in params) or (params['storagepool_nodepool_id'] is None):
+            raise ValueError("Missing the required parameter `storagepool_nodepool_id` when calling `delete_storagepool_nodepool`")
+
+
+        resource_path = '/platform/3/storagepool/nodepools/{StoragepoolNodepoolId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'storagepool_nodepool_id' in params:
+            path_params['StoragepoolNodepoolId'] = params['storagepool_nodepool_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'DELETE',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
                                             response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
@@ -1232,9 +630,8 @@ class StoragepoolApi(object):
         if ('storagepool_tier_id' not in params) or (params['storagepool_tier_id'] is None):
             raise ValueError("Missing the required parameter `storagepool_tier_id` when calling `delete_storagepool_tier`")
 
-        resource_path = '/platform/1/storagepool/tiers/{StoragepoolTierId}'.replace('{format}', 'json')
-        method = 'DELETE'
 
+        resource_path = '/platform/1/storagepool/tiers/{StoragepoolTierId}'.replace('{format}', 'json')
         path_params = {}
         if 'storagepool_tier_id' in params:
             path_params['StoragepoolTierId'] = params['storagepool_tier_id']
@@ -1243,8 +640,8 @@ class StoragepoolApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -1261,22 +658,22 @@ class StoragepoolApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'DELETE',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def get_storagepool_unprovisioned(self, **kwargs):
+    def delete_storagepool_tiers(self, **kwargs):
         """
         
-        Get the unprovisioned nodes and drives
+        Delete all tiers.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1284,11 +681,11 @@ class StoragepoolApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.get_storagepool_unprovisioned(callback=callback_function)
+        >>> thread = api.delete_storagepool_tiers(callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :return: StoragepoolUnprovisioned
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1301,23 +698,22 @@ class StoragepoolApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_storagepool_unprovisioned" % key
+                    " to method delete_storagepool_tiers" % key
                 )
             params[key] = val
         del params['kwargs']
 
 
-        resource_path = '/platform/1/storagepool/unprovisioned'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/1/storagepool/tiers'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -1334,22 +730,22 @@ class StoragepoolApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'DELETE',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
-                                            response_type='StoragepoolUnprovisioned',
+                                            files=local_var_files,
+                                            response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def list_compatibilities_ssd_active(self, **kwargs):
+    def get_compatibilities_class_active_by_id(self, compatibilities_class_active_id, **kwargs):
         """
         
-        Get a list of active ssd compatibilities
+        Get an active compatibilities by id
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1357,11 +753,89 @@ class StoragepoolApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.list_compatibilities_ssd_active(callback=callback_function)
+        >>> thread = api.get_compatibilities_class_active_by_id(compatibilities_class_active_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :return: CompatibilitiesSsdActiveExtended
+        :param str compatibilities_class_active_id: Get an active compatibilities by id (required)
+        :return: CompatibilitiesClassActive
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['compatibilities_class_active_id']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_compatibilities_class_active_by_id" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'compatibilities_class_active_id' is set
+        if ('compatibilities_class_active_id' not in params) or (params['compatibilities_class_active_id'] is None):
+            raise ValueError("Missing the required parameter `compatibilities_class_active_id` when calling `get_compatibilities_class_active_by_id`")
+
+
+        resource_path = '/platform/1/storagepool/compatibilities/class/active/{CompatibilitiesClassActiveId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'compatibilities_class_active_id' in params:
+            path_params['CompatibilitiesClassActiveId'] = params['compatibilities_class_active_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='CompatibilitiesClassActive',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_compatibilities_class_available(self, **kwargs):
+        """
+        
+        Get a list of available compatibilities
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_compatibilities_class_available(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: CompatibilitiesClassAvailable
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1374,23 +848,22 @@ class StoragepoolApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method list_compatibilities_ssd_active" % key
+                    " to method get_compatibilities_class_available" % key
                 )
             params[key] = val
         del params['kwargs']
 
 
-        resource_path = '/platform/3/storagepool/compatibilities/ssd/active'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/1/storagepool/compatibilities/class/available'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -1407,98 +880,19 @@ class StoragepoolApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
-                                            response_type='CompatibilitiesSsdActiveExtended',
+                                            files=local_var_files,
+                                            response_type='CompatibilitiesClassAvailable',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def create_compatibilities_ssd_active_item(self, compatibilities_ssd_active_item, **kwargs):
-        """
-        
-        Create a new ssd compatibility
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_compatibilities_ssd_active_item(compatibilities_ssd_active_item, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param CompatibilitiesSsdActiveItem compatibilities_ssd_active_item:  (required)
-        :return: CreateCompatibilitiesClassActiveItemResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['compatibilities_ssd_active_item']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_compatibilities_ssd_active_item" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'compatibilities_ssd_active_item' is set
-        if ('compatibilities_ssd_active_item' not in params) or (params['compatibilities_ssd_active_item'] is None):
-            raise ValueError("Missing the required parameter `compatibilities_ssd_active_item` when calling `create_compatibilities_ssd_active_item`")
-
-        resource_path = '/platform/3/storagepool/compatibilities/ssd/active'.replace('{format}', 'json')
-        method = 'POST'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'compatibilities_ssd_active_item' in params:
-            body_params = params['compatibilities_ssd_active_item']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='CreateCompatibilitiesClassActiveItemResponse',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_compatibilities_ssd_active_id(self, compatibilities_ssd_active_id, **kwargs):
+    def get_compatibilities_ssd_active_by_id(self, compatibilities_ssd_active_id, **kwargs):
         """
         
         Get a active ssd compatibilities by id
@@ -1509,7 +903,7 @@ class StoragepoolApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.get_compatibilities_ssd_active_id(compatibilities_ssd_active_id, callback=callback_function)
+        >>> thread = api.get_compatibilities_ssd_active_by_id(compatibilities_ssd_active_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -1527,18 +921,17 @@ class StoragepoolApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_compatibilities_ssd_active_id" % key
+                    " to method get_compatibilities_ssd_active_by_id" % key
                 )
             params[key] = val
         del params['kwargs']
 
         # verify the required parameter 'compatibilities_ssd_active_id' is set
         if ('compatibilities_ssd_active_id' not in params) or (params['compatibilities_ssd_active_id'] is None):
-            raise ValueError("Missing the required parameter `compatibilities_ssd_active_id` when calling `get_compatibilities_ssd_active_id`")
+            raise ValueError("Missing the required parameter `compatibilities_ssd_active_id` when calling `get_compatibilities_ssd_active_by_id`")
+
 
         resource_path = '/platform/3/storagepool/compatibilities/ssd/active/{CompatibilitiesSsdActiveId}'.replace('{format}', 'json')
-        method = 'GET'
-
         path_params = {}
         if 'compatibilities_ssd_active_id' in params:
             path_params['CompatibilitiesSsdActiveId'] = params['compatibilities_ssd_active_id']
@@ -1547,8 +940,8 @@ class StoragepoolApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -1565,22 +958,22 @@ class StoragepoolApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='CompatibilitiesSsdActive',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def update_compatibilities_ssd_active_id(self, compatibilities_ssd_active_id_params, compatibilities_ssd_active_id, **kwargs):
+    def get_compatibilities_ssd_available(self, **kwargs):
         """
         
-        Modify an ssd compatibility by id
+        Get a list of available ssd compatibilities
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1588,175 +981,11 @@ class StoragepoolApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.update_compatibilities_ssd_active_id(compatibilities_ssd_active_id_params, compatibilities_ssd_active_id, callback=callback_function)
+        >>> thread = api.get_compatibilities_ssd_available(callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param CompatibilitiesSsdActiveIdParams compatibilities_ssd_active_id_params:  (required)
-        :param str compatibilities_ssd_active_id: Modify an ssd compatibility by id (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['compatibilities_ssd_active_id_params', 'compatibilities_ssd_active_id']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_compatibilities_ssd_active_id" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'compatibilities_ssd_active_id_params' is set
-        if ('compatibilities_ssd_active_id_params' not in params) or (params['compatibilities_ssd_active_id_params'] is None):
-            raise ValueError("Missing the required parameter `compatibilities_ssd_active_id_params` when calling `update_compatibilities_ssd_active_id`")
-        # verify the required parameter 'compatibilities_ssd_active_id' is set
-        if ('compatibilities_ssd_active_id' not in params) or (params['compatibilities_ssd_active_id'] is None):
-            raise ValueError("Missing the required parameter `compatibilities_ssd_active_id` when calling `update_compatibilities_ssd_active_id`")
-
-        resource_path = '/platform/3/storagepool/compatibilities/ssd/active/{CompatibilitiesSsdActiveId}'.replace('{format}', 'json')
-        method = 'PUT'
-
-        path_params = {}
-        if 'compatibilities_ssd_active_id' in params:
-            path_params['CompatibilitiesSsdActiveId'] = params['compatibilities_ssd_active_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'compatibilities_ssd_active_id_params' in params:
-            body_params = params['compatibilities_ssd_active_id_params']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def delete_compatibilities_ssd_active_id(self, compatibilities_ssd_active_id, **kwargs):
-        """
-        
-        Delete an active ssd compatibility by id
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_compatibilities_ssd_active_id(compatibilities_ssd_active_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str compatibilities_ssd_active_id: Delete an active ssd compatibility by id (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['compatibilities_ssd_active_id']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_compatibilities_ssd_active_id" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'compatibilities_ssd_active_id' is set
-        if ('compatibilities_ssd_active_id' not in params) or (params['compatibilities_ssd_active_id'] is None):
-            raise ValueError("Missing the required parameter `compatibilities_ssd_active_id` when calling `delete_compatibilities_ssd_active_id`")
-
-        resource_path = '/platform/3/storagepool/compatibilities/ssd/active/{CompatibilitiesSsdActiveId}'.replace('{format}', 'json')
-        method = 'DELETE'
-
-        path_params = {}
-        if 'compatibilities_ssd_active_id' in params:
-            path_params['CompatibilitiesSsdActiveId'] = params['compatibilities_ssd_active_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def list_storagepool_nodepools(self, **kwargs):
-        """
-        
-        List all node pools.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.list_storagepool_nodepools(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: StoragepoolNodepoolsExtended
+        :return: CompatibilitiesSsdAvailable
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1769,23 +998,22 @@ class StoragepoolApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method list_storagepool_nodepools" % key
+                    " to method get_compatibilities_ssd_available" % key
                 )
             params[key] = val
         del params['kwargs']
 
 
-        resource_path = '/platform/3/storagepool/nodepools'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/1/storagepool/compatibilities/ssd/available'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -1802,93 +1030,14 @@ class StoragepoolApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
-                                            response_type='StoragepoolNodepoolsExtended',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def create_storagepool_nodepool(self, storagepool_nodepool, **kwargs):
-        """
-        
-        Create a new node pool.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_storagepool_nodepool(storagepool_nodepool, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param StoragepoolNodepool storagepool_nodepool:  (required)
-        :return: CreateStoragepoolTierResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['storagepool_nodepool']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_storagepool_nodepool" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'storagepool_nodepool' is set
-        if ('storagepool_nodepool' not in params) or (params['storagepool_nodepool'] is None):
-            raise ValueError("Missing the required parameter `storagepool_nodepool` when calling `create_storagepool_nodepool`")
-
-        resource_path = '/platform/3/storagepool/nodepools'.replace('{format}', 'json')
-        method = 'POST'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'storagepool_nodepool' in params:
-            body_params = params['storagepool_nodepool']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='CreateStoragepoolTierResponse',
+                                            files=local_var_files,
+                                            response_type='CompatibilitiesSsdAvailable',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -1931,9 +1080,8 @@ class StoragepoolApi(object):
         if ('storagepool_nodepool_id' not in params) or (params['storagepool_nodepool_id'] is None):
             raise ValueError("Missing the required parameter `storagepool_nodepool_id` when calling `get_storagepool_nodepool`")
 
-        resource_path = '/platform/3/storagepool/nodepools/{StoragepoolNodepoolId}'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/3/storagepool/nodepools/{StoragepoolNodepoolId}'.replace('{format}', 'json')
         path_params = {}
         if 'storagepool_nodepool_id' in params:
             path_params['StoragepoolNodepoolId'] = params['storagepool_nodepool_id']
@@ -1942,8 +1090,8 @@ class StoragepoolApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -1960,14 +1108,830 @@ class StoragepoolApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='StoragepoolNodepools',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_storagepool_settings(self, **kwargs):
+        """
+        
+        List all settings.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_storagepool_settings(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: StoragepoolSettings
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_storagepool_settings" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/1/storagepool/settings'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='StoragepoolSettings',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_storagepool_status(self, **kwargs):
+        """
+        
+        List any health conditions detected.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_storagepool_status(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: StoragepoolStatus
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_storagepool_status" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/1/storagepool/status'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='StoragepoolStatus',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_storagepool_storagepools(self, **kwargs):
+        """
+        
+        List all storage pools.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_storagepool_storagepools(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: StoragepoolStoragepools
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_storagepool_storagepools" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/3/storagepool/storagepools'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='StoragepoolStoragepools',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_storagepool_suggested_protection_nid(self, storagepool_suggested_protection_nid, **kwargs):
+        """
+        
+        Retrieve the suggested protection policy.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_storagepool_suggested_protection_nid(storagepool_suggested_protection_nid, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str storagepool_suggested_protection_nid: Retrieve the suggested protection policy. (required)
+        :return: StoragepoolSuggestedProtection
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storagepool_suggested_protection_nid']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_storagepool_suggested_protection_nid" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'storagepool_suggested_protection_nid' is set
+        if ('storagepool_suggested_protection_nid' not in params) or (params['storagepool_suggested_protection_nid'] is None):
+            raise ValueError("Missing the required parameter `storagepool_suggested_protection_nid` when calling `get_storagepool_suggested_protection_nid`")
+
+
+        resource_path = '/platform/3/storagepool/suggested-protection/{StoragepoolSuggestedProtectionNid}'.replace('{format}', 'json')
+        path_params = {}
+        if 'storagepool_suggested_protection_nid' in params:
+            path_params['StoragepoolSuggestedProtectionNid'] = params['storagepool_suggested_protection_nid']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='StoragepoolSuggestedProtection',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_storagepool_tier(self, storagepool_tier_id, **kwargs):
+        """
+        
+        Retrieve tier information.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_storagepool_tier(storagepool_tier_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str storagepool_tier_id: Retrieve tier information. (required)
+        :return: StoragepoolTiers
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storagepool_tier_id']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_storagepool_tier" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'storagepool_tier_id' is set
+        if ('storagepool_tier_id' not in params) or (params['storagepool_tier_id'] is None):
+            raise ValueError("Missing the required parameter `storagepool_tier_id` when calling `get_storagepool_tier`")
+
+
+        resource_path = '/platform/1/storagepool/tiers/{StoragepoolTierId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'storagepool_tier_id' in params:
+            path_params['StoragepoolTierId'] = params['storagepool_tier_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='StoragepoolTiers',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_storagepool_unprovisioned(self, **kwargs):
+        """
+        
+        Get the unprovisioned nodes and drives
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_storagepool_unprovisioned(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: StoragepoolUnprovisioned
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_storagepool_unprovisioned" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/1/storagepool/unprovisioned'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='StoragepoolUnprovisioned',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def list_compatibilities_class_active(self, **kwargs):
+        """
+        
+        Get a list of active compatibilities
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.list_compatibilities_class_active(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: CompatibilitiesClassActiveExtended
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_compatibilities_class_active" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/1/storagepool/compatibilities/class/active'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='CompatibilitiesClassActiveExtended',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def list_compatibilities_ssd_active(self, **kwargs):
+        """
+        
+        Get a list of active ssd compatibilities
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.list_compatibilities_ssd_active(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: CompatibilitiesSsdActiveExtended
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_compatibilities_ssd_active" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/3/storagepool/compatibilities/ssd/active'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='CompatibilitiesSsdActiveExtended',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def list_storagepool_nodepools(self, **kwargs):
+        """
+        
+        List all node pools.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.list_storagepool_nodepools(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: StoragepoolNodepoolsExtended
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_storagepool_nodepools" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/3/storagepool/nodepools'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='StoragepoolNodepoolsExtended',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def list_storagepool_tiers(self, **kwargs):
+        """
+        
+        List all tiers.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.list_storagepool_tiers(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: StoragepoolTiersExtended
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_storagepool_tiers" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/1/storagepool/tiers'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='StoragepoolTiersExtended',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def update_compatibilities_ssd_active_by_id(self, compatibilities_ssd_active_id_params, compatibilities_ssd_active_id, **kwargs):
+        """
+        
+        Modify an ssd compatibility by id
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_compatibilities_ssd_active_by_id(compatibilities_ssd_active_id_params, compatibilities_ssd_active_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param CompatibilitiesSsdActiveIdParams compatibilities_ssd_active_id_params:  (required)
+        :param str compatibilities_ssd_active_id: Modify an ssd compatibility by id (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['compatibilities_ssd_active_id_params', 'compatibilities_ssd_active_id']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_compatibilities_ssd_active_by_id" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'compatibilities_ssd_active_id_params' is set
+        if ('compatibilities_ssd_active_id_params' not in params) or (params['compatibilities_ssd_active_id_params'] is None):
+            raise ValueError("Missing the required parameter `compatibilities_ssd_active_id_params` when calling `update_compatibilities_ssd_active_by_id`")
+        # verify the required parameter 'compatibilities_ssd_active_id' is set
+        if ('compatibilities_ssd_active_id' not in params) or (params['compatibilities_ssd_active_id'] is None):
+            raise ValueError("Missing the required parameter `compatibilities_ssd_active_id` when calling `update_compatibilities_ssd_active_by_id`")
+
+
+        resource_path = '/platform/3/storagepool/compatibilities/ssd/active/{CompatibilitiesSsdActiveId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'compatibilities_ssd_active_id' in params:
+            path_params['CompatibilitiesSsdActiveId'] = params['compatibilities_ssd_active_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'compatibilities_ssd_active_id_params' in params:
+            body_params = params['compatibilities_ssd_active_id_params']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'PUT',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -2014,9 +1978,8 @@ class StoragepoolApi(object):
         if ('storagepool_nodepool_id' not in params) or (params['storagepool_nodepool_id'] is None):
             raise ValueError("Missing the required parameter `storagepool_nodepool_id` when calling `update_storagepool_nodepool`")
 
-        resource_path = '/platform/3/storagepool/nodepools/{StoragepoolNodepoolId}'.replace('{format}', 'json')
-        method = 'PUT'
 
+        resource_path = '/platform/3/storagepool/nodepools/{StoragepoolNodepoolId}'.replace('{format}', 'json')
         path_params = {}
         if 'storagepool_nodepool_id' in params:
             path_params['StoragepoolNodepoolId'] = params['storagepool_nodepool_id']
@@ -2025,8 +1988,8 @@ class StoragepoolApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'storagepool_nodepool' in params:
@@ -2045,22 +2008,22 @@ class StoragepoolApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'PUT',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def delete_storagepool_nodepool(self, storagepool_nodepool_id, **kwargs):
+    def update_storagepool_settings(self, storagepool_settings, **kwargs):
         """
         
-        Delete node pool.
+        Modify one or more settings.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -2068,17 +2031,17 @@ class StoragepoolApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.delete_storagepool_nodepool(storagepool_nodepool_id, callback=callback_function)
+        >>> thread = api.update_storagepool_settings(storagepool_settings, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str storagepool_nodepool_id: Delete node pool. (required)
+        :param StoragepoolSettingsExtended storagepool_settings:  (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['storagepool_nodepool_id']
+        all_params = ['storagepool_settings']
         all_params.append('callback')
 
         params = locals()
@@ -2086,30 +2049,29 @@ class StoragepoolApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method delete_storagepool_nodepool" % key
+                    " to method update_storagepool_settings" % key
                 )
             params[key] = val
         del params['kwargs']
 
-        # verify the required parameter 'storagepool_nodepool_id' is set
-        if ('storagepool_nodepool_id' not in params) or (params['storagepool_nodepool_id'] is None):
-            raise ValueError("Missing the required parameter `storagepool_nodepool_id` when calling `delete_storagepool_nodepool`")
+        # verify the required parameter 'storagepool_settings' is set
+        if ('storagepool_settings' not in params) or (params['storagepool_settings'] is None):
+            raise ValueError("Missing the required parameter `storagepool_settings` when calling `update_storagepool_settings`")
 
-        resource_path = '/platform/3/storagepool/nodepools/{StoragepoolNodepoolId}'.replace('{format}', 'json')
-        method = 'DELETE'
 
+        resource_path = '/platform/1/storagepool/settings'.replace('{format}', 'json')
         path_params = {}
-        if 'storagepool_nodepool_id' in params:
-            path_params['StoragepoolNodepoolId'] = params['storagepool_nodepool_id']
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
+        if 'storagepool_settings' in params:
+            body_params = params['storagepool_settings']
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
@@ -2124,22 +2086,22 @@ class StoragepoolApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'PUT',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def get_storagepool_storagepools(self, **kwargs):
+    def update_storagepool_tier(self, storagepool_tier, storagepool_tier_id, **kwargs):
         """
         
-        List all storage pools.
+        Modify tier. All input fields are optional, but one or more must be supplied.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -2147,16 +2109,18 @@ class StoragepoolApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.get_storagepool_storagepools(callback=callback_function)
+        >>> thread = api.update_storagepool_tier(storagepool_tier, storagepool_tier_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :return: StoragepoolStoragepools
+        :param StoragepoolTier storagepool_tier:  (required)
+        :param str storagepool_tier_id: Modify tier. All input fields are optional, but one or more must be supplied. (required)
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = []
+        all_params = ['storagepool_tier', 'storagepool_tier_id']
         all_params.append('callback')
 
         params = locals()
@@ -2164,25 +2128,34 @@ class StoragepoolApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_storagepool_storagepools" % key
+                    " to method update_storagepool_tier" % key
                 )
             params[key] = val
         del params['kwargs']
 
+        # verify the required parameter 'storagepool_tier' is set
+        if ('storagepool_tier' not in params) or (params['storagepool_tier'] is None):
+            raise ValueError("Missing the required parameter `storagepool_tier` when calling `update_storagepool_tier`")
+        # verify the required parameter 'storagepool_tier_id' is set
+        if ('storagepool_tier_id' not in params) or (params['storagepool_tier_id'] is None):
+            raise ValueError("Missing the required parameter `storagepool_tier_id` when calling `update_storagepool_tier`")
 
-        resource_path = '/platform/3/storagepool/storagepools'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/1/storagepool/tiers/{StoragepoolTierId}'.replace('{format}', 'json')
         path_params = {}
+        if 'storagepool_tier_id' in params:
+            path_params['StoragepoolTierId'] = params['storagepool_tier_id']
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
+        if 'storagepool_tier' in params:
+            body_params = params['storagepool_tier']
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
@@ -2197,93 +2170,14 @@ class StoragepoolApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'PUT',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
-                                            response_type='StoragepoolStoragepools',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_storagepool_suggested_protection_nid_1(self, storagepool_suggested_protection_nid, **kwargs):
-        """
-        
-        Retrieve the suggested protection policy.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_storagepool_suggested_protection_nid_1(storagepool_suggested_protection_nid, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str storagepool_suggested_protection_nid: Retrieve the suggested protection policy. (required)
-        :return: StoragepoolSuggestedProtection
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['storagepool_suggested_protection_nid']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_storagepool_suggested_protection_nid_1" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'storagepool_suggested_protection_nid' is set
-        if ('storagepool_suggested_protection_nid' not in params) or (params['storagepool_suggested_protection_nid'] is None):
-            raise ValueError("Missing the required parameter `storagepool_suggested_protection_nid` when calling `get_storagepool_suggested_protection_nid_1`")
-
-        resource_path = '/platform/3/storagepool/suggested-protection/{StoragepoolSuggestedProtectionNid}'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'storagepool_suggested_protection_nid' in params:
-            path_params['StoragepoolSuggestedProtectionNid'] = params['storagepool_suggested_protection_nid']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='StoragepoolSuggestedProtection',
+                                            files=local_var_files,
+                                            response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response

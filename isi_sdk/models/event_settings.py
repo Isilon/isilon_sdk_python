@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class EventSettings(object):
@@ -75,6 +76,7 @@ class EventSettings(object):
         :param heartbeat_interval: The heartbeat_interval of this EventSettings.
         :type: str
         """
+        
         self._heartbeat_interval = heartbeat_interval
 
     @property
@@ -97,6 +99,7 @@ class EventSettings(object):
         :param maintenance: The maintenance of this EventSettings.
         :type: EventSettingsMaintenance
         """
+        
         self._maintenance = maintenance
 
     @property
@@ -119,6 +122,7 @@ class EventSettings(object):
         :param retention_days: The retention_days of this EventSettings.
         :type: int
         """
+        
         self._retention_days = retention_days
 
     @property
@@ -141,6 +145,7 @@ class EventSettings(object):
         :param storage_limit: The storage_limit of this EventSettings.
         :type: int
         """
+        
         self._storage_limit = storage_limit
 
     def to_dict(self):
@@ -158,6 +163,12 @@ class EventSettings(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -175,14 +186,14 @@ class EventSettings(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

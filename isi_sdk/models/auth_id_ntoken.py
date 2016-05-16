@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class AuthIdNtoken(object):
@@ -37,18 +38,18 @@ class AuthIdNtoken(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'additional_id': 'list[GroupsGroupMember]',
-            'gid': 'GroupsGroupMember',
-            'group_sid': 'GroupsGroupMember',
+            'additional_id': 'list[GroupMember]',
+            'gid': 'GroupMember',
+            'group_sid': 'GroupMember',
             'ifs_restricted': 'bool',
             'local_address': 'str',
-            'on_disk_group_id': 'GroupsGroupMember',
-            'on_disk_user_id': 'GroupsGroupMember',
+            'on_disk_group_id': 'GroupMember',
+            'on_disk_user_id': 'GroupMember',
             'privilege': 'list[AuthIdNtokenPrivilegeItem]',
             'protocol': 'int',
             'remote_address': 'str',
-            'uid': 'GroupsGroupMember',
-            'user_sid': 'GroupsGroupMember',
+            'uid': 'GroupMember',
+            'user_sid': 'GroupMember',
             'zid': 'int',
             'zone_id': 'str'
         }
@@ -92,7 +93,7 @@ class AuthIdNtoken(object):
         Specifies additional UIDs, GIDs, and SIDs.
 
         :return: The additional_id of this AuthIdNtoken.
-        :rtype: list[GroupsGroupMember]
+        :rtype: list[GroupMember]
         """
         return self._additional_id
 
@@ -103,8 +104,9 @@ class AuthIdNtoken(object):
         Specifies additional UIDs, GIDs, and SIDs.
 
         :param additional_id: The additional_id of this AuthIdNtoken.
-        :type: list[GroupsGroupMember]
+        :type: list[GroupMember]
         """
+        
         self._additional_id = additional_id
 
     @property
@@ -114,7 +116,7 @@ class AuthIdNtoken(object):
         Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'.
 
         :return: The gid of this AuthIdNtoken.
-        :rtype: GroupsGroupMember
+        :rtype: GroupMember
         """
         return self._gid
 
@@ -125,8 +127,9 @@ class AuthIdNtoken(object):
         Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'.
 
         :param gid: The gid of this AuthIdNtoken.
-        :type: GroupsGroupMember
+        :type: GroupMember
         """
+        
         self._gid = gid
 
     @property
@@ -136,7 +139,7 @@ class AuthIdNtoken(object):
         Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'.
 
         :return: The group_sid of this AuthIdNtoken.
-        :rtype: GroupsGroupMember
+        :rtype: GroupMember
         """
         return self._group_sid
 
@@ -147,8 +150,9 @@ class AuthIdNtoken(object):
         Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'.
 
         :param group_sid: The group_sid of this AuthIdNtoken.
-        :type: GroupsGroupMember
+        :type: GroupMember
         """
+        
         self._group_sid = group_sid
 
     @property
@@ -171,6 +175,7 @@ class AuthIdNtoken(object):
         :param ifs_restricted: The ifs_restricted of this AuthIdNtoken.
         :type: bool
         """
+        
         self._ifs_restricted = ifs_restricted
 
     @property
@@ -193,6 +198,7 @@ class AuthIdNtoken(object):
         :param local_address: The local_address of this AuthIdNtoken.
         :type: str
         """
+        
         self._local_address = local_address
 
     @property
@@ -202,7 +208,7 @@ class AuthIdNtoken(object):
         Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'.
 
         :return: The on_disk_group_id of this AuthIdNtoken.
-        :rtype: GroupsGroupMember
+        :rtype: GroupMember
         """
         return self._on_disk_group_id
 
@@ -213,8 +219,9 @@ class AuthIdNtoken(object):
         Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'.
 
         :param on_disk_group_id: The on_disk_group_id of this AuthIdNtoken.
-        :type: GroupsGroupMember
+        :type: GroupMember
         """
+        
         self._on_disk_group_id = on_disk_group_id
 
     @property
@@ -224,7 +231,7 @@ class AuthIdNtoken(object):
         Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'.
 
         :return: The on_disk_user_id of this AuthIdNtoken.
-        :rtype: GroupsGroupMember
+        :rtype: GroupMember
         """
         return self._on_disk_user_id
 
@@ -235,8 +242,9 @@ class AuthIdNtoken(object):
         Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'.
 
         :param on_disk_user_id: The on_disk_user_id of this AuthIdNtoken.
-        :type: GroupsGroupMember
+        :type: GroupMember
         """
+        
         self._on_disk_user_id = on_disk_user_id
 
     @property
@@ -259,6 +267,7 @@ class AuthIdNtoken(object):
         :param privilege: The privilege of this AuthIdNtoken.
         :type: list[AuthIdNtokenPrivilegeItem]
         """
+        
         self._privilege = privilege
 
     @property
@@ -281,6 +290,7 @@ class AuthIdNtoken(object):
         :param protocol: The protocol of this AuthIdNtoken.
         :type: int
         """
+        
         self._protocol = protocol
 
     @property
@@ -303,6 +313,7 @@ class AuthIdNtoken(object):
         :param remote_address: The remote_address of this AuthIdNtoken.
         :type: str
         """
+        
         self._remote_address = remote_address
 
     @property
@@ -312,7 +323,7 @@ class AuthIdNtoken(object):
         Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'.
 
         :return: The uid of this AuthIdNtoken.
-        :rtype: GroupsGroupMember
+        :rtype: GroupMember
         """
         return self._uid
 
@@ -323,8 +334,9 @@ class AuthIdNtoken(object):
         Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'.
 
         :param uid: The uid of this AuthIdNtoken.
-        :type: GroupsGroupMember
+        :type: GroupMember
         """
+        
         self._uid = uid
 
     @property
@@ -334,7 +346,7 @@ class AuthIdNtoken(object):
         Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'.
 
         :return: The user_sid of this AuthIdNtoken.
-        :rtype: GroupsGroupMember
+        :rtype: GroupMember
         """
         return self._user_sid
 
@@ -345,8 +357,9 @@ class AuthIdNtoken(object):
         Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'.
 
         :param user_sid: The user_sid of this AuthIdNtoken.
-        :type: GroupsGroupMember
+        :type: GroupMember
         """
+        
         self._user_sid = user_sid
 
     @property
@@ -369,6 +382,7 @@ class AuthIdNtoken(object):
         :param zid: The zid of this AuthIdNtoken.
         :type: int
         """
+        
         self._zid = zid
 
     @property
@@ -391,6 +405,7 @@ class AuthIdNtoken(object):
         :param zone_id: The zone_id of this AuthIdNtoken.
         :type: str
         """
+        
         self._zone_id = zone_id
 
     def to_dict(self):
@@ -408,6 +423,12 @@ class AuthIdNtoken(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -425,14 +446,14 @@ class AuthIdNtoken(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

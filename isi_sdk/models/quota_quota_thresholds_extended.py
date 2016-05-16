@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class QuotaQuotaThresholdsExtended(object):
@@ -37,107 +38,41 @@ class QuotaQuotaThresholdsExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'advisory_exceeded': 'bool',
-            'hard_last_exceeded': 'int',
-            'soft_grace': 'int',
             'advisory': 'int',
-            'soft_exceeded': 'bool',
-            'advisory_last_exceeded': 'int',
             'hard': 'int',
             'soft': 'int',
+            'soft_grace': 'int',
+            'advisory_exceeded': 'bool',
+            'advisory_last_exceeded': 'int',
             'hard_exceeded': 'bool',
+            'hard_last_exceeded': 'int',
+            'soft_exceeded': 'bool',
             'soft_last_exceeded': 'int'
         }
 
         self.attribute_map = {
-            'advisory_exceeded': 'advisory_exceeded',
-            'hard_last_exceeded': 'hard_last_exceeded',
-            'soft_grace': 'soft_grace',
             'advisory': 'advisory',
-            'soft_exceeded': 'soft_exceeded',
-            'advisory_last_exceeded': 'advisory_last_exceeded',
             'hard': 'hard',
             'soft': 'soft',
+            'soft_grace': 'soft_grace',
+            'advisory_exceeded': 'advisory_exceeded',
+            'advisory_last_exceeded': 'advisory_last_exceeded',
             'hard_exceeded': 'hard_exceeded',
+            'hard_last_exceeded': 'hard_last_exceeded',
+            'soft_exceeded': 'soft_exceeded',
             'soft_last_exceeded': 'soft_last_exceeded'
         }
 
-        self._advisory_exceeded = None
-        self._hard_last_exceeded = None
-        self._soft_grace = None
         self._advisory = None
-        self._soft_exceeded = None
-        self._advisory_last_exceeded = None
         self._hard = None
         self._soft = None
+        self._soft_grace = None
+        self._advisory_exceeded = None
+        self._advisory_last_exceeded = None
         self._hard_exceeded = None
+        self._hard_last_exceeded = None
+        self._soft_exceeded = None
         self._soft_last_exceeded = None
-
-    @property
-    def advisory_exceeded(self):
-        """
-        Gets the advisory_exceeded of this QuotaQuotaThresholdsExtended.
-        True if the advisory threshold has been hit.
-
-        :return: The advisory_exceeded of this QuotaQuotaThresholdsExtended.
-        :rtype: bool
-        """
-        return self._advisory_exceeded
-
-    @advisory_exceeded.setter
-    def advisory_exceeded(self, advisory_exceeded):
-        """
-        Sets the advisory_exceeded of this QuotaQuotaThresholdsExtended.
-        True if the advisory threshold has been hit.
-
-        :param advisory_exceeded: The advisory_exceeded of this QuotaQuotaThresholdsExtended.
-        :type: bool
-        """
-        self._advisory_exceeded = advisory_exceeded
-
-    @property
-    def hard_last_exceeded(self):
-        """
-        Gets the hard_last_exceeded of this QuotaQuotaThresholdsExtended.
-        Time at which hard threshold was hit.
-
-        :return: The hard_last_exceeded of this QuotaQuotaThresholdsExtended.
-        :rtype: int
-        """
-        return self._hard_last_exceeded
-
-    @hard_last_exceeded.setter
-    def hard_last_exceeded(self, hard_last_exceeded):
-        """
-        Sets the hard_last_exceeded of this QuotaQuotaThresholdsExtended.
-        Time at which hard threshold was hit.
-
-        :param hard_last_exceeded: The hard_last_exceeded of this QuotaQuotaThresholdsExtended.
-        :type: int
-        """
-        self._hard_last_exceeded = hard_last_exceeded
-
-    @property
-    def soft_grace(self):
-        """
-        Gets the soft_grace of this QuotaQuotaThresholdsExtended.
-        Time in seconds after which the soft threshold has been hit before writes will be denied.
-
-        :return: The soft_grace of this QuotaQuotaThresholdsExtended.
-        :rtype: int
-        """
-        return self._soft_grace
-
-    @soft_grace.setter
-    def soft_grace(self, soft_grace):
-        """
-        Sets the soft_grace of this QuotaQuotaThresholdsExtended.
-        Time in seconds after which the soft threshold has been hit before writes will be denied.
-
-        :param soft_grace: The soft_grace of this QuotaQuotaThresholdsExtended.
-        :type: int
-        """
-        self._soft_grace = soft_grace
 
     @property
     def advisory(self):
@@ -159,51 +94,13 @@ class QuotaQuotaThresholdsExtended(object):
         :param advisory: The advisory of this QuotaQuotaThresholdsExtended.
         :type: int
         """
+        
+        if not advisory:
+            raise ValueError("Invalid value for `advisory`, must not be `None`")
+        if advisory < 1.0: 
+            raise ValueError("Invalid value for `advisory`, must be a value greater than or equal to `1.0`")
+
         self._advisory = advisory
-
-    @property
-    def soft_exceeded(self):
-        """
-        Gets the soft_exceeded of this QuotaQuotaThresholdsExtended.
-        True if the soft threshold has been hit.
-
-        :return: The soft_exceeded of this QuotaQuotaThresholdsExtended.
-        :rtype: bool
-        """
-        return self._soft_exceeded
-
-    @soft_exceeded.setter
-    def soft_exceeded(self, soft_exceeded):
-        """
-        Sets the soft_exceeded of this QuotaQuotaThresholdsExtended.
-        True if the soft threshold has been hit.
-
-        :param soft_exceeded: The soft_exceeded of this QuotaQuotaThresholdsExtended.
-        :type: bool
-        """
-        self._soft_exceeded = soft_exceeded
-
-    @property
-    def advisory_last_exceeded(self):
-        """
-        Gets the advisory_last_exceeded of this QuotaQuotaThresholdsExtended.
-        Time at which advisory threshold was hit.
-
-        :return: The advisory_last_exceeded of this QuotaQuotaThresholdsExtended.
-        :rtype: int
-        """
-        return self._advisory_last_exceeded
-
-    @advisory_last_exceeded.setter
-    def advisory_last_exceeded(self, advisory_last_exceeded):
-        """
-        Sets the advisory_last_exceeded of this QuotaQuotaThresholdsExtended.
-        Time at which advisory threshold was hit.
-
-        :param advisory_last_exceeded: The advisory_last_exceeded of this QuotaQuotaThresholdsExtended.
-        :type: int
-        """
-        self._advisory_last_exceeded = advisory_last_exceeded
 
     @property
     def hard(self):
@@ -225,6 +122,12 @@ class QuotaQuotaThresholdsExtended(object):
         :param hard: The hard of this QuotaQuotaThresholdsExtended.
         :type: int
         """
+        
+        if not hard:
+            raise ValueError("Invalid value for `hard`, must not be `None`")
+        if hard < 1.0: 
+            raise ValueError("Invalid value for `hard`, must be a value greater than or equal to `1.0`")
+
         self._hard = hard
 
     @property
@@ -247,7 +150,87 @@ class QuotaQuotaThresholdsExtended(object):
         :param soft: The soft of this QuotaQuotaThresholdsExtended.
         :type: int
         """
+        
+        if not soft:
+            raise ValueError("Invalid value for `soft`, must not be `None`")
+        if soft < 1.0: 
+            raise ValueError("Invalid value for `soft`, must be a value greater than or equal to `1.0`")
+
         self._soft = soft
+
+    @property
+    def soft_grace(self):
+        """
+        Gets the soft_grace of this QuotaQuotaThresholdsExtended.
+        Time in seconds after which the soft threshold has been hit before writes will be denied.
+
+        :return: The soft_grace of this QuotaQuotaThresholdsExtended.
+        :rtype: int
+        """
+        return self._soft_grace
+
+    @soft_grace.setter
+    def soft_grace(self, soft_grace):
+        """
+        Sets the soft_grace of this QuotaQuotaThresholdsExtended.
+        Time in seconds after which the soft threshold has been hit before writes will be denied.
+
+        :param soft_grace: The soft_grace of this QuotaQuotaThresholdsExtended.
+        :type: int
+        """
+        
+        if not soft_grace:
+            raise ValueError("Invalid value for `soft_grace`, must not be `None`")
+        if soft_grace < 1.0: 
+            raise ValueError("Invalid value for `soft_grace`, must be a value greater than or equal to `1.0`")
+
+        self._soft_grace = soft_grace
+
+    @property
+    def advisory_exceeded(self):
+        """
+        Gets the advisory_exceeded of this QuotaQuotaThresholdsExtended.
+        True if the advisory threshold has been hit.
+
+        :return: The advisory_exceeded of this QuotaQuotaThresholdsExtended.
+        :rtype: bool
+        """
+        return self._advisory_exceeded
+
+    @advisory_exceeded.setter
+    def advisory_exceeded(self, advisory_exceeded):
+        """
+        Sets the advisory_exceeded of this QuotaQuotaThresholdsExtended.
+        True if the advisory threshold has been hit.
+
+        :param advisory_exceeded: The advisory_exceeded of this QuotaQuotaThresholdsExtended.
+        :type: bool
+        """
+        
+        self._advisory_exceeded = advisory_exceeded
+
+    @property
+    def advisory_last_exceeded(self):
+        """
+        Gets the advisory_last_exceeded of this QuotaQuotaThresholdsExtended.
+        Time at which advisory threshold was hit.
+
+        :return: The advisory_last_exceeded of this QuotaQuotaThresholdsExtended.
+        :rtype: int
+        """
+        return self._advisory_last_exceeded
+
+    @advisory_last_exceeded.setter
+    def advisory_last_exceeded(self, advisory_last_exceeded):
+        """
+        Sets the advisory_last_exceeded of this QuotaQuotaThresholdsExtended.
+        Time at which advisory threshold was hit.
+
+        :param advisory_last_exceeded: The advisory_last_exceeded of this QuotaQuotaThresholdsExtended.
+        :type: int
+        """
+        
+        self._advisory_last_exceeded = advisory_last_exceeded
 
     @property
     def hard_exceeded(self):
@@ -269,7 +252,54 @@ class QuotaQuotaThresholdsExtended(object):
         :param hard_exceeded: The hard_exceeded of this QuotaQuotaThresholdsExtended.
         :type: bool
         """
+        
         self._hard_exceeded = hard_exceeded
+
+    @property
+    def hard_last_exceeded(self):
+        """
+        Gets the hard_last_exceeded of this QuotaQuotaThresholdsExtended.
+        Time at which hard threshold was hit.
+
+        :return: The hard_last_exceeded of this QuotaQuotaThresholdsExtended.
+        :rtype: int
+        """
+        return self._hard_last_exceeded
+
+    @hard_last_exceeded.setter
+    def hard_last_exceeded(self, hard_last_exceeded):
+        """
+        Sets the hard_last_exceeded of this QuotaQuotaThresholdsExtended.
+        Time at which hard threshold was hit.
+
+        :param hard_last_exceeded: The hard_last_exceeded of this QuotaQuotaThresholdsExtended.
+        :type: int
+        """
+        
+        self._hard_last_exceeded = hard_last_exceeded
+
+    @property
+    def soft_exceeded(self):
+        """
+        Gets the soft_exceeded of this QuotaQuotaThresholdsExtended.
+        True if the soft threshold has been hit.
+
+        :return: The soft_exceeded of this QuotaQuotaThresholdsExtended.
+        :rtype: bool
+        """
+        return self._soft_exceeded
+
+    @soft_exceeded.setter
+    def soft_exceeded(self, soft_exceeded):
+        """
+        Sets the soft_exceeded of this QuotaQuotaThresholdsExtended.
+        True if the soft threshold has been hit.
+
+        :param soft_exceeded: The soft_exceeded of this QuotaQuotaThresholdsExtended.
+        :type: bool
+        """
+        
+        self._soft_exceeded = soft_exceeded
 
     @property
     def soft_last_exceeded(self):
@@ -291,6 +321,7 @@ class QuotaQuotaThresholdsExtended(object):
         :param soft_last_exceeded: The soft_last_exceeded of this QuotaQuotaThresholdsExtended.
         :type: int
         """
+        
         self._soft_last_exceeded = soft_last_exceeded
 
     def to_dict(self):
@@ -308,6 +339,12 @@ class QuotaQuotaThresholdsExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -325,14 +362,14 @@ class QuotaQuotaThresholdsExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

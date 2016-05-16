@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class NfsSettingsExportSettings(object):
@@ -189,6 +190,7 @@ class NfsSettingsExportSettings(object):
         :param all_dirs: The all_dirs of this NfsSettingsExportSettings.
         :type: bool
         """
+        
         self._all_dirs = all_dirs
 
     @property
@@ -211,6 +213,7 @@ class NfsSettingsExportSettings(object):
         :param block_size: The block_size of this NfsSettingsExportSettings.
         :type: int
         """
+        
         self._block_size = block_size
 
     @property
@@ -233,6 +236,7 @@ class NfsSettingsExportSettings(object):
         :param can_set_time: The can_set_time of this NfsSettingsExportSettings.
         :type: bool
         """
+        
         self._can_set_time = can_set_time
 
     @property
@@ -255,6 +259,7 @@ class NfsSettingsExportSettings(object):
         :param case_insensitive: The case_insensitive of this NfsSettingsExportSettings.
         :type: bool
         """
+        
         self._case_insensitive = case_insensitive
 
     @property
@@ -277,6 +282,7 @@ class NfsSettingsExportSettings(object):
         :param case_preserving: The case_preserving of this NfsSettingsExportSettings.
         :type: bool
         """
+        
         self._case_preserving = case_preserving
 
     @property
@@ -299,6 +305,7 @@ class NfsSettingsExportSettings(object):
         :param chown_restricted: The chown_restricted of this NfsSettingsExportSettings.
         :type: bool
         """
+        
         self._chown_restricted = chown_restricted
 
     @property
@@ -321,6 +328,7 @@ class NfsSettingsExportSettings(object):
         :param commit_asynchronous: The commit_asynchronous of this NfsSettingsExportSettings.
         :type: bool
         """
+        
         self._commit_asynchronous = commit_asynchronous
 
     @property
@@ -343,6 +351,7 @@ class NfsSettingsExportSettings(object):
         :param directory_transfer_size: The directory_transfer_size of this NfsSettingsExportSettings.
         :type: int
         """
+        
         self._directory_transfer_size = directory_transfer_size
 
     @property
@@ -365,6 +374,7 @@ class NfsSettingsExportSettings(object):
         :param encoding: The encoding of this NfsSettingsExportSettings.
         :type: str
         """
+        
         self._encoding = encoding
 
     @property
@@ -387,6 +397,7 @@ class NfsSettingsExportSettings(object):
         :param link_max: The link_max of this NfsSettingsExportSettings.
         :type: int
         """
+        
         self._link_max = link_max
 
     @property
@@ -409,6 +420,7 @@ class NfsSettingsExportSettings(object):
         :param map_all: The map_all of this NfsSettingsExportSettings.
         :type: NfsExportMapAll
         """
+        
         self._map_all = map_all
 
     @property
@@ -431,6 +443,7 @@ class NfsSettingsExportSettings(object):
         :param map_failure: The map_failure of this NfsSettingsExportSettings.
         :type: NfsExportMapAll
         """
+        
         self._map_failure = map_failure
 
     @property
@@ -453,6 +466,7 @@ class NfsSettingsExportSettings(object):
         :param map_full: The map_full of this NfsSettingsExportSettings.
         :type: bool
         """
+        
         self._map_full = map_full
 
     @property
@@ -475,6 +489,7 @@ class NfsSettingsExportSettings(object):
         :param map_lookup_uid: The map_lookup_uid of this NfsSettingsExportSettings.
         :type: bool
         """
+        
         self._map_lookup_uid = map_lookup_uid
 
     @property
@@ -497,6 +512,7 @@ class NfsSettingsExportSettings(object):
         :param map_non_root: The map_non_root of this NfsSettingsExportSettings.
         :type: NfsExportMapAll
         """
+        
         self._map_non_root = map_non_root
 
     @property
@@ -519,6 +535,7 @@ class NfsSettingsExportSettings(object):
         :param map_retry: The map_retry of this NfsSettingsExportSettings.
         :type: bool
         """
+        
         self._map_retry = map_retry
 
     @property
@@ -541,6 +558,7 @@ class NfsSettingsExportSettings(object):
         :param map_root: The map_root of this NfsSettingsExportSettings.
         :type: NfsExportMapAll
         """
+        
         self._map_root = map_root
 
     @property
@@ -563,6 +581,7 @@ class NfsSettingsExportSettings(object):
         :param max_file_size: The max_file_size of this NfsSettingsExportSettings.
         :type: int
         """
+        
         self._max_file_size = max_file_size
 
     @property
@@ -585,6 +604,7 @@ class NfsSettingsExportSettings(object):
         :param name_max_size: The name_max_size of this NfsSettingsExportSettings.
         :type: int
         """
+        
         self._name_max_size = name_max_size
 
     @property
@@ -607,6 +627,7 @@ class NfsSettingsExportSettings(object):
         :param no_truncate: The no_truncate of this NfsSettingsExportSettings.
         :type: bool
         """
+        
         self._no_truncate = no_truncate
 
     @property
@@ -629,6 +650,7 @@ class NfsSettingsExportSettings(object):
         :param read_only: The read_only of this NfsSettingsExportSettings.
         :type: bool
         """
+        
         self._read_only = read_only
 
     @property
@@ -651,6 +673,7 @@ class NfsSettingsExportSettings(object):
         :param read_transfer_max_size: The read_transfer_max_size of this NfsSettingsExportSettings.
         :type: int
         """
+        
         self._read_transfer_max_size = read_transfer_max_size
 
     @property
@@ -673,6 +696,7 @@ class NfsSettingsExportSettings(object):
         :param read_transfer_multiple: The read_transfer_multiple of this NfsSettingsExportSettings.
         :type: int
         """
+        
         self._read_transfer_multiple = read_transfer_multiple
 
     @property
@@ -695,6 +719,7 @@ class NfsSettingsExportSettings(object):
         :param read_transfer_size: The read_transfer_size of this NfsSettingsExportSettings.
         :type: int
         """
+        
         self._read_transfer_size = read_transfer_size
 
     @property
@@ -717,6 +742,7 @@ class NfsSettingsExportSettings(object):
         :param readdirplus: The readdirplus of this NfsSettingsExportSettings.
         :type: bool
         """
+        
         self._readdirplus = readdirplus
 
     @property
@@ -739,6 +765,7 @@ class NfsSettingsExportSettings(object):
         :param readdirplus_prefetch: The readdirplus_prefetch of this NfsSettingsExportSettings.
         :type: int
         """
+        
         self._readdirplus_prefetch = readdirplus_prefetch
 
     @property
@@ -761,6 +788,7 @@ class NfsSettingsExportSettings(object):
         :param return_32bit_file_ids: The return_32bit_file_ids of this NfsSettingsExportSettings.
         :type: bool
         """
+        
         self._return_32bit_file_ids = return_32bit_file_ids
 
     @property
@@ -783,6 +811,7 @@ class NfsSettingsExportSettings(object):
         :param security_flavors: The security_flavors of this NfsSettingsExportSettings.
         :type: list[str]
         """
+        
         self._security_flavors = security_flavors
 
     @property
@@ -805,6 +834,7 @@ class NfsSettingsExportSettings(object):
         :param setattr_asynchronous: The setattr_asynchronous of this NfsSettingsExportSettings.
         :type: bool
         """
+        
         self._setattr_asynchronous = setattr_asynchronous
 
     @property
@@ -827,6 +857,7 @@ class NfsSettingsExportSettings(object):
         :param snapshot: The snapshot of this NfsSettingsExportSettings.
         :type: str
         """
+        
         self._snapshot = snapshot
 
     @property
@@ -849,6 +880,7 @@ class NfsSettingsExportSettings(object):
         :param symlinks: The symlinks of this NfsSettingsExportSettings.
         :type: bool
         """
+        
         self._symlinks = symlinks
 
     @property
@@ -871,6 +903,7 @@ class NfsSettingsExportSettings(object):
         :param time_delta: The time_delta of this NfsSettingsExportSettings.
         :type: float
         """
+        
         self._time_delta = time_delta
 
     @property
@@ -899,6 +932,7 @@ class NfsSettingsExportSettings(object):
                 "Invalid value for `write_datasync_action`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._write_datasync_action = write_datasync_action
 
     @property
@@ -927,6 +961,7 @@ class NfsSettingsExportSettings(object):
                 "Invalid value for `write_datasync_reply`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._write_datasync_reply = write_datasync_reply
 
     @property
@@ -955,6 +990,7 @@ class NfsSettingsExportSettings(object):
                 "Invalid value for `write_filesync_action`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._write_filesync_action = write_filesync_action
 
     @property
@@ -983,6 +1019,7 @@ class NfsSettingsExportSettings(object):
                 "Invalid value for `write_filesync_reply`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._write_filesync_reply = write_filesync_reply
 
     @property
@@ -1005,6 +1042,7 @@ class NfsSettingsExportSettings(object):
         :param write_transfer_max_size: The write_transfer_max_size of this NfsSettingsExportSettings.
         :type: int
         """
+        
         self._write_transfer_max_size = write_transfer_max_size
 
     @property
@@ -1027,6 +1065,7 @@ class NfsSettingsExportSettings(object):
         :param write_transfer_multiple: The write_transfer_multiple of this NfsSettingsExportSettings.
         :type: int
         """
+        
         self._write_transfer_multiple = write_transfer_multiple
 
     @property
@@ -1049,6 +1088,7 @@ class NfsSettingsExportSettings(object):
         :param write_transfer_size: The write_transfer_size of this NfsSettingsExportSettings.
         :type: int
         """
+        
         self._write_transfer_size = write_transfer_size
 
     @property
@@ -1077,6 +1117,7 @@ class NfsSettingsExportSettings(object):
                 "Invalid value for `write_unstable_action`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._write_unstable_action = write_unstable_action
 
     @property
@@ -1105,6 +1146,7 @@ class NfsSettingsExportSettings(object):
                 "Invalid value for `write_unstable_reply`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._write_unstable_reply = write_unstable_reply
 
     @property
@@ -1127,6 +1169,7 @@ class NfsSettingsExportSettings(object):
         :param zone: The zone of this NfsSettingsExportSettings.
         :type: str
         """
+        
         self._zone = zone
 
     def to_dict(self):
@@ -1144,6 +1187,12 @@ class NfsSettingsExportSettings(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -1161,14 +1210,14 @@ class NfsSettingsExportSettings(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

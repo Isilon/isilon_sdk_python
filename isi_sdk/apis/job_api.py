@@ -2,7 +2,7 @@
 
 """
 JobApi.py
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@ from __future__ import absolute_import
 
 import sys
 import os
+import re
 
 # python 2 and python 3 compatibility library
 from six import iteritems
@@ -45,10 +46,10 @@ class JobApi(object):
                 config.api_client = ApiClient()
             self.api_client = config.api_client
 
-    def get_job_job_summary(self, **kwargs):
+    def create_job_job(self, job_job, **kwargs):
         """
         
-        View job engine status.
+        Queue a new instance of a job type.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -56,16 +57,17 @@ class JobApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.get_job_job_summary(callback=callback_function)
+        >>> thread = api.create_job_job(job_job, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :return: JobJobSummary
+        :param JobJobCreateParams job_job:  (required)
+        :return: CreateJobJobResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = []
+        all_params = ['job_job']
         all_params.append('callback')
 
         params = locals()
@@ -73,25 +75,29 @@ class JobApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_job_job_summary" % key
+                    " to method create_job_job" % key
                 )
             params[key] = val
         del params['kwargs']
 
+        # verify the required parameter 'job_job' is set
+        if ('job_job' not in params) or (params['job_job'] is None):
+            raise ValueError("Missing the required parameter `job_job` when calling `create_job_job`")
 
-        resource_path = '/platform/1/job/job-summary'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/3/job/jobs'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
+        if 'job_job' in params:
+            body_params = params['job_job']
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
@@ -106,99 +112,14 @@ class JobApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'POST',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
-                                            response_type='JobJobSummary',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def list_job_policies(self, **kwargs):
-        """
-        
-        List job impact policies.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.list_job_policies(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str sort: The field that will be used for sorting.
-        :param int limit: Return no more than this many results at once (see resume).
-        :param str dir: The direction of the sort.
-        :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
-        :return: JobPoliciesExtended
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['sort', 'limit', 'dir', 'resume']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_job_policies" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/1/job/policies'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-        if 'sort' in params:
-            query_params['sort'] = params['sort']
-        if 'limit' in params:
-            query_params['limit'] = params['limit']
-        if 'dir' in params:
-            query_params['dir'] = params['dir']
-        if 'resume' in params:
-            query_params['resume'] = params['resume']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='JobPoliciesExtended',
+                                            files=local_var_files,
+                                            response_type='CreateJobJobResponse',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -241,17 +162,16 @@ class JobApi(object):
         if ('job_policy' not in params) or (params['job_policy'] is None):
             raise ValueError("Missing the required parameter `job_policy` when calling `create_job_policy`")
 
+
         resource_path = '/platform/1/job/policies'.replace('{format}', 'json')
-        method = 'POST'
-
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'job_policy' in params:
@@ -270,178 +190,14 @@ class JobApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'POST',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='CreateResponse',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_job_policy(self, job_policy_id, **kwargs):
-        """
-        
-        View a single job impact policy.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_job_policy(job_policy_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str job_policy_id: View a single job impact policy. (required)
-        :return: JobPolicies
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['job_policy_id']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_job_policy" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'job_policy_id' is set
-        if ('job_policy_id' not in params) or (params['job_policy_id'] is None):
-            raise ValueError("Missing the required parameter `job_policy_id` when calling `get_job_policy`")
-
-        resource_path = '/platform/1/job/policies/{JobPolicyId}'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'job_policy_id' in params:
-            path_params['JobPolicyId'] = params['job_policy_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='JobPolicies',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def update_job_policy(self, job_policy, job_policy_id, **kwargs):
-        """
-        
-        Modify a job impact policy.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_job_policy(job_policy, job_policy_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param JobPolicy job_policy:  (required)
-        :param str job_policy_id: Modify a job impact policy. (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['job_policy', 'job_policy_id']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_job_policy" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'job_policy' is set
-        if ('job_policy' not in params) or (params['job_policy'] is None):
-            raise ValueError("Missing the required parameter `job_policy` when calling `update_job_policy`")
-        # verify the required parameter 'job_policy_id' is set
-        if ('job_policy_id' not in params) or (params['job_policy_id'] is None):
-            raise ValueError("Missing the required parameter `job_policy_id` when calling `update_job_policy`")
-
-        resource_path = '/platform/1/job/policies/{JobPolicyId}'.replace('{format}', 'json')
-        method = 'PUT'
-
-        path_params = {}
-        if 'job_policy_id' in params:
-            path_params['JobPolicyId'] = params['job_policy_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'job_policy' in params:
-            body_params = params['job_policy']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -484,9 +240,8 @@ class JobApi(object):
         if ('job_policy_id' not in params) or (params['job_policy_id'] is None):
             raise ValueError("Missing the required parameter `job_policy_id` when calling `delete_job_policy`")
 
-        resource_path = '/platform/1/job/policies/{JobPolicyId}'.replace('{format}', 'json')
-        method = 'DELETE'
 
+        resource_path = '/platform/1/job/policies/{JobPolicyId}'.replace('{format}', 'json')
         path_params = {}
         if 'job_policy_id' in params:
             path_params['JobPolicyId'] = params['job_policy_id']
@@ -495,8 +250,8 @@ class JobApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -513,332 +268,13 @@ class JobApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'DELETE',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_job_statistics(self, **kwargs):
-        """
-        
-        View job engine statistics.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_job_statistics(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: JobStatistics
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_job_statistics" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/1/job/statistics'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='JobStatistics',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_job_types(self, **kwargs):
-        """
-        
-        List job types.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_job_types(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str sort: The field that will be used for sorting.
-        :param bool show_all: Whether to show all job types, including hidden ones.  Defaults to false.
-        :param str dir: The direction of the sort.
-        :return: JobTypesExtended
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['sort', 'show_all', 'dir']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_job_types" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/1/job/types'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-        if 'sort' in params:
-            query_params['sort'] = params['sort']
-        if 'show_all' in params:
-            query_params['show_all'] = params['show_all']
-        if 'dir' in params:
-            query_params['dir'] = params['dir']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='JobTypesExtended',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_job_type(self, job_type_id, **kwargs):
-        """
-        
-        Retrieve job type information.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_job_type(job_type_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str job_type_id: Retrieve job type information. (required)
-        :return: JobTypes
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['job_type_id']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_job_type" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'job_type_id' is set
-        if ('job_type_id' not in params) or (params['job_type_id'] is None):
-            raise ValueError("Missing the required parameter `job_type_id` when calling `get_job_type`")
-
-        resource_path = '/platform/1/job/types/{JobTypeId}'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'job_type_id' in params:
-            path_params['JobTypeId'] = params['job_type_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='JobTypes',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def update_job_type(self, job_type, job_type_id, **kwargs):
-        """
-        
-        Modify the job type.  All input fields are optional, but one or more must be supplied.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_job_type(job_type, job_type_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param JobType job_type:  (required)
-        :param str job_type_id: Modify the job type.  All input fields are optional, but one or more must be supplied. (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['job_type', 'job_type_id']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_job_type" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'job_type' is set
-        if ('job_type' not in params) or (params['job_type'] is None):
-            raise ValueError("Missing the required parameter `job_type` when calling `update_job_type`")
-        # verify the required parameter 'job_type_id' is set
-        if ('job_type_id' not in params) or (params['job_type_id'] is None):
-            raise ValueError("Missing the required parameter `job_type_id` when calling `update_job_type`")
-
-        resource_path = '/platform/1/job/types/{JobTypeId}'.replace('{format}', 'json')
-        method = 'PUT'
-
-        path_params = {}
-        if 'job_type_id' in params:
-            path_params['JobTypeId'] = params['job_type_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'job_type' in params:
-            body_params = params['job_type']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
@@ -887,9 +323,10 @@ class JobApi(object):
         del params['kwargs']
 
 
-        resource_path = '/platform/3/job/events'.replace('{format}', 'json')
-        method = 'GET'
+        if 'limit' in params and params['limit'] < 1.0: 
+            raise ValueError("Invalid value for parameter `limit` when calling `get_job_events`, must be a value greater than or equal to `1.0`")
 
+        resource_path = '/platform/3/job/events'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
@@ -914,8 +351,8 @@ class JobApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -932,184 +369,14 @@ class JobApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='JobEvents',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def list_job_jobs(self, **kwargs):
-        """
-        
-        List running and paused jobs.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.list_job_jobs(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str sort: The field that will be used for sorting.
-        :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
-        :param bool batch: If true, other arguments are ignored, and the query will return all results, unsorted, as quickly as possible.
-        :param str state: Limit the results to jobs in the specified state.
-        :param int limit: Return no more than this many results at once (see resume).
-        :param str dir: The direction of the sort.
-        :return: JobJobsExtended
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['sort', 'resume', 'batch', 'state', 'limit', 'dir']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_job_jobs" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/job/jobs'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-        if 'sort' in params:
-            query_params['sort'] = params['sort']
-        if 'resume' in params:
-            query_params['resume'] = params['resume']
-        if 'batch' in params:
-            query_params['batch'] = params['batch']
-        if 'state' in params:
-            query_params['state'] = params['state']
-        if 'limit' in params:
-            query_params['limit'] = params['limit']
-        if 'dir' in params:
-            query_params['dir'] = params['dir']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='JobJobsExtended',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def create_job_job(self, job_job, **kwargs):
-        """
-        
-        Queue a new instance of a job type.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_job_job(job_job, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param JobJobCreateParams job_job:  (required)
-        :return: CreateJobJobResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['job_job']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_job_job" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'job_job' is set
-        if ('job_job' not in params) or (params['job_job'] is None):
-            raise ValueError("Missing the required parameter `job_job` when calling `create_job_job`")
-
-        resource_path = '/platform/3/job/jobs'.replace('{format}', 'json')
-        method = 'POST'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'job_job' in params:
-            body_params = params['job_job']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='CreateJobJobResponse',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -1152,9 +419,8 @@ class JobApi(object):
         if ('job_job_id' not in params) or (params['job_job_id'] is None):
             raise ValueError("Missing the required parameter `job_job_id` when calling `get_job_job`")
 
-        resource_path = '/platform/3/job/jobs/{JobJobId}'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/3/job/jobs/{JobJobId}'.replace('{format}', 'json')
         path_params = {}
         if 'job_job_id' in params:
             path_params['JobJobId'] = params['job_job_id']
@@ -1163,8 +429,8 @@ class JobApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -1181,22 +447,22 @@ class JobApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='JobJobs',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def update_job_job(self, job_job, job_job_id, **kwargs):
+    def get_job_job_summary(self, **kwargs):
         """
         
-        Modify a running or paused job instance.  All input fields are optional, but one or more must be supplied.
+        View job engine status.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1204,18 +470,16 @@ class JobApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.update_job_job(job_job, job_job_id, callback=callback_function)
+        >>> thread = api.get_job_job_summary(callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param JobJob job_job:  (required)
-        :param str job_job_id: Modify a running or paused job instance.  All input fields are optional, but one or more must be supplied. (required)
-        :return: None
+        :return: JobJobSummary
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['job_job', 'job_job_id']
+        all_params = []
         all_params.append('callback')
 
         params = locals()
@@ -1223,35 +487,24 @@ class JobApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method update_job_job" % key
+                    " to method get_job_job_summary" % key
                 )
             params[key] = val
         del params['kwargs']
 
-        # verify the required parameter 'job_job' is set
-        if ('job_job' not in params) or (params['job_job'] is None):
-            raise ValueError("Missing the required parameter `job_job` when calling `update_job_job`")
-        # verify the required parameter 'job_job_id' is set
-        if ('job_job_id' not in params) or (params['job_job_id'] is None):
-            raise ValueError("Missing the required parameter `job_job_id` when calling `update_job_job`")
 
-        resource_path = '/platform/3/job/jobs/{JobJobId}'.replace('{format}', 'json')
-        method = 'PUT'
 
+        resource_path = '/platform/1/job/job-summary'.replace('{format}', 'json')
         path_params = {}
-        if 'job_job_id' in params:
-            path_params['JobJobId'] = params['job_job_id']
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
-        if 'job_job' in params:
-            body_params = params['job_job']
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
@@ -1266,14 +519,92 @@ class JobApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
-                                            response_type=None,
+                                            files=local_var_files,
+                                            response_type='JobJobSummary',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_job_policy(self, job_policy_id, **kwargs):
+        """
+        
+        View a single job impact policy.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_job_policy(job_policy_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str job_policy_id: View a single job impact policy. (required)
+        :return: JobPolicies
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['job_policy_id']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_job_policy" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'job_policy_id' is set
+        if ('job_policy_id' not in params) or (params['job_policy_id'] is None):
+            raise ValueError("Missing the required parameter `job_policy_id` when calling `get_job_policy`")
+
+
+        resource_path = '/platform/1/job/policies/{JobPolicyId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'job_policy_id' in params:
+            path_params['JobPolicyId'] = params['job_policy_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='JobPolicies',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -1314,9 +645,8 @@ class JobApi(object):
         del params['kwargs']
 
 
-        resource_path = '/platform/3/job/recent'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/3/job/recent'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
@@ -1327,8 +657,8 @@ class JobApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -1345,13 +675,13 @@ class JobApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='JobRecent',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
@@ -1398,9 +728,10 @@ class JobApi(object):
         del params['kwargs']
 
 
-        resource_path = '/platform/3/job/reports'.replace('{format}', 'json')
-        method = 'GET'
+        if 'limit' in params and params['limit'] < 1.0: 
+            raise ValueError("Invalid value for parameter `limit` when calling `get_job_reports`, must be a value greater than or equal to `1.0`")
 
+        resource_path = '/platform/3/job/reports'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
@@ -1421,8 +752,8 @@ class JobApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -1439,14 +770,675 @@ class JobApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='JobReports',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_job_statistics(self, **kwargs):
+        """
+        
+        View job engine statistics.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_job_statistics(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: JobStatistics
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_job_statistics" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/1/job/statistics'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='JobStatistics',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_job_type(self, job_type_id, **kwargs):
+        """
+        
+        Retrieve job type information.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_job_type(job_type_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str job_type_id: Retrieve job type information. (required)
+        :return: JobTypes
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['job_type_id']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_job_type" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'job_type_id' is set
+        if ('job_type_id' not in params) or (params['job_type_id'] is None):
+            raise ValueError("Missing the required parameter `job_type_id` when calling `get_job_type`")
+
+
+        resource_path = '/platform/1/job/types/{JobTypeId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'job_type_id' in params:
+            path_params['JobTypeId'] = params['job_type_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='JobTypes',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_job_types(self, **kwargs):
+        """
+        
+        List job types.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_job_types(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str sort: The field that will be used for sorting.
+        :param bool show_all: Whether to show all job types, including hidden ones.  Defaults to false.
+        :param str dir: The direction of the sort.
+        :return: JobTypesExtended
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['sort', 'show_all', 'dir']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_job_types" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/1/job/types'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'sort' in params:
+            query_params['sort'] = params['sort']
+        if 'show_all' in params:
+            query_params['show_all'] = params['show_all']
+        if 'dir' in params:
+            query_params['dir'] = params['dir']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='JobTypesExtended',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def list_job_jobs(self, **kwargs):
+        """
+        
+        List running and paused jobs.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.list_job_jobs(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str sort: The field that will be used for sorting.
+        :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
+        :param bool batch: If true, other arguments are ignored, and the query will return all results, unsorted, as quickly as possible.
+        :param str state: Limit the results to jobs in the specified state.
+        :param int limit: Return no more than this many results at once (see resume).
+        :param str dir: The direction of the sort.
+        :return: JobJobsExtended
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['sort', 'resume', 'batch', 'state', 'limit', 'dir']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_job_jobs" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+        if 'limit' in params and params['limit'] < 1.0: 
+            raise ValueError("Invalid value for parameter `limit` when calling `list_job_jobs`, must be a value greater than or equal to `1.0`")
+
+        resource_path = '/platform/3/job/jobs'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'sort' in params:
+            query_params['sort'] = params['sort']
+        if 'resume' in params:
+            query_params['resume'] = params['resume']
+        if 'batch' in params:
+            query_params['batch'] = params['batch']
+        if 'state' in params:
+            query_params['state'] = params['state']
+        if 'limit' in params:
+            query_params['limit'] = params['limit']
+        if 'dir' in params:
+            query_params['dir'] = params['dir']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='JobJobsExtended',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def list_job_policies(self, **kwargs):
+        """
+        
+        List job impact policies.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.list_job_policies(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str sort: The field that will be used for sorting.
+        :param int limit: Return no more than this many results at once (see resume).
+        :param str dir: The direction of the sort.
+        :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
+        :return: JobPoliciesExtended
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['sort', 'limit', 'dir', 'resume']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_job_policies" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+        if 'limit' in params and params['limit'] < 1.0: 
+            raise ValueError("Invalid value for parameter `limit` when calling `list_job_policies`, must be a value greater than or equal to `1.0`")
+
+        resource_path = '/platform/1/job/policies'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'sort' in params:
+            query_params['sort'] = params['sort']
+        if 'limit' in params:
+            query_params['limit'] = params['limit']
+        if 'dir' in params:
+            query_params['dir'] = params['dir']
+        if 'resume' in params:
+            query_params['resume'] = params['resume']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='JobPoliciesExtended',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def update_job_job(self, job_job, job_job_id, **kwargs):
+        """
+        
+        Modify a running or paused job instance.  All input fields are optional, but one or more must be supplied.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_job_job(job_job, job_job_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param JobJob job_job:  (required)
+        :param str job_job_id: Modify a running or paused job instance.  All input fields are optional, but one or more must be supplied. (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['job_job', 'job_job_id']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_job_job" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'job_job' is set
+        if ('job_job' not in params) or (params['job_job'] is None):
+            raise ValueError("Missing the required parameter `job_job` when calling `update_job_job`")
+        # verify the required parameter 'job_job_id' is set
+        if ('job_job_id' not in params) or (params['job_job_id'] is None):
+            raise ValueError("Missing the required parameter `job_job_id` when calling `update_job_job`")
+
+
+        resource_path = '/platform/3/job/jobs/{JobJobId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'job_job_id' in params:
+            path_params['JobJobId'] = params['job_job_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'job_job' in params:
+            body_params = params['job_job']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'PUT',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def update_job_policy(self, job_policy, job_policy_id, **kwargs):
+        """
+        
+        Modify a job impact policy.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_job_policy(job_policy, job_policy_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param JobPolicy job_policy:  (required)
+        :param str job_policy_id: Modify a job impact policy. (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['job_policy', 'job_policy_id']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_job_policy" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'job_policy' is set
+        if ('job_policy' not in params) or (params['job_policy'] is None):
+            raise ValueError("Missing the required parameter `job_policy` when calling `update_job_policy`")
+        # verify the required parameter 'job_policy_id' is set
+        if ('job_policy_id' not in params) or (params['job_policy_id'] is None):
+            raise ValueError("Missing the required parameter `job_policy_id` when calling `update_job_policy`")
+
+
+        resource_path = '/platform/1/job/policies/{JobPolicyId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'job_policy_id' in params:
+            path_params['JobPolicyId'] = params['job_policy_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'job_policy' in params:
+            body_params = params['job_policy']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'PUT',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def update_job_type(self, job_type, job_type_id, **kwargs):
+        """
+        
+        Modify the job type.  All input fields are optional, but one or more must be supplied.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_job_type(job_type, job_type_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param JobType job_type:  (required)
+        :param str job_type_id: Modify the job type.  All input fields are optional, but one or more must be supplied. (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['job_type', 'job_type_id']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_job_type" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'job_type' is set
+        if ('job_type' not in params) or (params['job_type'] is None):
+            raise ValueError("Missing the required parameter `job_type` when calling `update_job_type`")
+        # verify the required parameter 'job_type_id' is set
+        if ('job_type_id' not in params) or (params['job_type_id'] is None):
+            raise ValueError("Missing the required parameter `job_type_id` when calling `update_job_type`")
+
+
+        resource_path = '/platform/1/job/types/{JobTypeId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'job_type_id' in params:
+            path_params['JobTypeId'] = params['job_type_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'job_type' in params:
+            body_params = params['job_type']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'PUT',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response

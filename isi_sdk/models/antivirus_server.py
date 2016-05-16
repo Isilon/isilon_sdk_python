@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class AntivirusServer(object):
@@ -72,6 +73,7 @@ class AntivirusServer(object):
         :param description: The description of this AntivirusServer.
         :type: str
         """
+        
         self._description = description
 
     @property
@@ -94,6 +96,7 @@ class AntivirusServer(object):
         :param enabled: The enabled of this AntivirusServer.
         :type: bool
         """
+        
         self._enabled = enabled
 
     @property
@@ -116,6 +119,12 @@ class AntivirusServer(object):
         :param url: The url of this AntivirusServer.
         :type: str
         """
+        
+        if not url:
+            raise ValueError("Invalid value for `url`, must not be `None`")
+        if len(url) < 1: 
+            raise ValueError("Invalid value for `url`, length must be greater than or equal to `1`")
+
         self._url = url
 
     def to_dict(self):
@@ -133,6 +142,12 @@ class AntivirusServer(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -150,14 +165,14 @@ class AntivirusServer(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

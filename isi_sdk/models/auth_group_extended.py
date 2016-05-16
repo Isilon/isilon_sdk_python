@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class AuthGroupExtended(object):
@@ -38,46 +39,46 @@ class AuthGroupExtended(object):
         """
         self.swagger_types = {
             'gid': 'int',
-            'generated_gid': 'bool',
-            'provider': 'str',
-            'domain': 'str',
-            'dns_domain': 'str',
-            'name': 'str',
             'dn': 'str',
+            'dns_domain': 'str',
+            'domain': 'str',
+            'generated_gid': 'bool',
             'id': 'str',
-            'member_of': 'list[GroupsGroupMember]',
-            'type': 'str',
+            'member_of': 'list[GroupMember]',
+            'name': 'str',
+            'provider': 'str',
             'sam_account_name': 'str',
-            'sid': 'GroupsGroupMember'
+            'sid': 'GroupMember',
+            'type': 'str'
         }
 
         self.attribute_map = {
             'gid': 'gid',
-            'generated_gid': 'generated_gid',
-            'provider': 'provider',
-            'domain': 'domain',
-            'dns_domain': 'dns_domain',
-            'name': 'name',
             'dn': 'dn',
+            'dns_domain': 'dns_domain',
+            'domain': 'domain',
+            'generated_gid': 'generated_gid',
             'id': 'id',
             'member_of': 'member_of',
-            'type': 'type',
+            'name': 'name',
+            'provider': 'provider',
             'sam_account_name': 'sam_account_name',
-            'sid': 'sid'
+            'sid': 'sid',
+            'type': 'type'
         }
 
         self._gid = None
-        self._generated_gid = None
-        self._provider = None
-        self._domain = None
-        self._dns_domain = None
-        self._name = None
         self._dn = None
+        self._dns_domain = None
+        self._domain = None
+        self._generated_gid = None
         self._id = None
         self._member_of = None
-        self._type = None
+        self._name = None
+        self._provider = None
         self._sam_account_name = None
         self._sid = None
+        self._type = None
 
     @property
     def gid(self):
@@ -99,117 +100,8 @@ class AuthGroupExtended(object):
         :param gid: The gid of this AuthGroupExtended.
         :type: int
         """
+        
         self._gid = gid
-
-    @property
-    def generated_gid(self):
-        """
-        Gets the generated_gid of this AuthGroupExtended.
-        If true, the GID was generated.
-
-        :return: The generated_gid of this AuthGroupExtended.
-        :rtype: bool
-        """
-        return self._generated_gid
-
-    @generated_gid.setter
-    def generated_gid(self, generated_gid):
-        """
-        Sets the generated_gid of this AuthGroupExtended.
-        If true, the GID was generated.
-
-        :param generated_gid: The generated_gid of this AuthGroupExtended.
-        :type: bool
-        """
-        self._generated_gid = generated_gid
-
-    @property
-    def provider(self):
-        """
-        Gets the provider of this AuthGroupExtended.
-        Specifies the authentication provider that the object belongs to.
-
-        :return: The provider of this AuthGroupExtended.
-        :rtype: str
-        """
-        return self._provider
-
-    @provider.setter
-    def provider(self, provider):
-        """
-        Sets the provider of this AuthGroupExtended.
-        Specifies the authentication provider that the object belongs to.
-
-        :param provider: The provider of this AuthGroupExtended.
-        :type: str
-        """
-        self._provider = provider
-
-    @property
-    def domain(self):
-        """
-        Gets the domain of this AuthGroupExtended.
-        Specifies the domain that the object is part of.
-
-        :return: The domain of this AuthGroupExtended.
-        :rtype: str
-        """
-        return self._domain
-
-    @domain.setter
-    def domain(self, domain):
-        """
-        Sets the domain of this AuthGroupExtended.
-        Specifies the domain that the object is part of.
-
-        :param domain: The domain of this AuthGroupExtended.
-        :type: str
-        """
-        self._domain = domain
-
-    @property
-    def dns_domain(self):
-        """
-        Gets the dns_domain of this AuthGroupExtended.
-        Specifies the DNS domain.
-
-        :return: The dns_domain of this AuthGroupExtended.
-        :rtype: str
-        """
-        return self._dns_domain
-
-    @dns_domain.setter
-    def dns_domain(self, dns_domain):
-        """
-        Sets the dns_domain of this AuthGroupExtended.
-        Specifies the DNS domain.
-
-        :param dns_domain: The dns_domain of this AuthGroupExtended.
-        :type: str
-        """
-        self._dns_domain = dns_domain
-
-    @property
-    def name(self):
-        """
-        Gets the name of this AuthGroupExtended.
-        Specifies a user or group name.
-
-        :return: The name of this AuthGroupExtended.
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """
-        Sets the name of this AuthGroupExtended.
-        Specifies a user or group name.
-
-        :param name: The name of this AuthGroupExtended.
-        :type: str
-        """
-        self._name = name
 
     @property
     def dn(self):
@@ -231,7 +123,77 @@ class AuthGroupExtended(object):
         :param dn: The dn of this AuthGroupExtended.
         :type: str
         """
+        
         self._dn = dn
+
+    @property
+    def dns_domain(self):
+        """
+        Gets the dns_domain of this AuthGroupExtended.
+        Specifies the DNS domain.
+
+        :return: The dns_domain of this AuthGroupExtended.
+        :rtype: str
+        """
+        return self._dns_domain
+
+    @dns_domain.setter
+    def dns_domain(self, dns_domain):
+        """
+        Sets the dns_domain of this AuthGroupExtended.
+        Specifies the DNS domain.
+
+        :param dns_domain: The dns_domain of this AuthGroupExtended.
+        :type: str
+        """
+        
+        self._dns_domain = dns_domain
+
+    @property
+    def domain(self):
+        """
+        Gets the domain of this AuthGroupExtended.
+        Specifies the domain that the object is part of.
+
+        :return: The domain of this AuthGroupExtended.
+        :rtype: str
+        """
+        return self._domain
+
+    @domain.setter
+    def domain(self, domain):
+        """
+        Sets the domain of this AuthGroupExtended.
+        Specifies the domain that the object is part of.
+
+        :param domain: The domain of this AuthGroupExtended.
+        :type: str
+        """
+        
+        self._domain = domain
+
+    @property
+    def generated_gid(self):
+        """
+        Gets the generated_gid of this AuthGroupExtended.
+        If true, the GID was generated.
+
+        :return: The generated_gid of this AuthGroupExtended.
+        :rtype: bool
+        """
+        return self._generated_gid
+
+    @generated_gid.setter
+    def generated_gid(self, generated_gid):
+        """
+        Sets the generated_gid of this AuthGroupExtended.
+        If true, the GID was generated.
+
+        :param generated_gid: The generated_gid of this AuthGroupExtended.
+        :type: bool
+        """
+        
+        self._generated_gid = generated_gid
 
     @property
     def id(self):
@@ -253,6 +215,7 @@ class AuthGroupExtended(object):
         :param id: The id of this AuthGroupExtended.
         :type: str
         """
+        
         self._id = id
 
     @property
@@ -262,7 +225,7 @@ class AuthGroupExtended(object):
 
 
         :return: The member_of of this AuthGroupExtended.
-        :rtype: list[GroupsGroupMember]
+        :rtype: list[GroupMember]
         """
         return self._member_of
 
@@ -273,31 +236,56 @@ class AuthGroupExtended(object):
 
 
         :param member_of: The member_of of this AuthGroupExtended.
-        :type: list[GroupsGroupMember]
+        :type: list[GroupMember]
         """
+        
         self._member_of = member_of
 
     @property
-    def type(self):
+    def name(self):
         """
-        Gets the type of this AuthGroupExtended.
-        Specifies the object type.
+        Gets the name of this AuthGroupExtended.
+        Specifies a user or group name.
 
-        :return: The type of this AuthGroupExtended.
+        :return: The name of this AuthGroupExtended.
         :rtype: str
         """
-        return self._type
+        return self._name
 
-    @type.setter
-    def type(self, type):
+    @name.setter
+    def name(self, name):
         """
-        Sets the type of this AuthGroupExtended.
-        Specifies the object type.
+        Sets the name of this AuthGroupExtended.
+        Specifies a user or group name.
 
-        :param type: The type of this AuthGroupExtended.
+        :param name: The name of this AuthGroupExtended.
         :type: str
         """
-        self._type = type
+        
+        self._name = name
+
+    @property
+    def provider(self):
+        """
+        Gets the provider of this AuthGroupExtended.
+        Specifies the authentication provider that the object belongs to.
+
+        :return: The provider of this AuthGroupExtended.
+        :rtype: str
+        """
+        return self._provider
+
+    @provider.setter
+    def provider(self, provider):
+        """
+        Sets the provider of this AuthGroupExtended.
+        Specifies the authentication provider that the object belongs to.
+
+        :param provider: The provider of this AuthGroupExtended.
+        :type: str
+        """
+        
+        self._provider = provider
 
     @property
     def sam_account_name(self):
@@ -319,6 +307,7 @@ class AuthGroupExtended(object):
         :param sam_account_name: The sam_account_name of this AuthGroupExtended.
         :type: str
         """
+        
         self._sam_account_name = sam_account_name
 
     @property
@@ -328,7 +317,7 @@ class AuthGroupExtended(object):
         Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'.
 
         :return: The sid of this AuthGroupExtended.
-        :rtype: GroupsGroupMember
+        :rtype: GroupMember
         """
         return self._sid
 
@@ -339,9 +328,33 @@ class AuthGroupExtended(object):
         Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'.
 
         :param sid: The sid of this AuthGroupExtended.
-        :type: GroupsGroupMember
+        :type: GroupMember
         """
+        
         self._sid = sid
+
+    @property
+    def type(self):
+        """
+        Gets the type of this AuthGroupExtended.
+        Specifies the object type.
+
+        :return: The type of this AuthGroupExtended.
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """
+        Sets the type of this AuthGroupExtended.
+        Specifies the object type.
+
+        :param type: The type of this AuthGroupExtended.
+        :type: str
+        """
+        
+        self._type = type
 
     def to_dict(self):
         """
@@ -358,6 +371,12 @@ class AuthGroupExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -375,14 +394,14 @@ class AuthGroupExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

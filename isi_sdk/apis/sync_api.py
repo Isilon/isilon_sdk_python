@@ -2,7 +2,7 @@
 
 """
 SyncApi.py
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@ from __future__ import absolute_import
 
 import sys
 import os
+import re
 
 # python 2 and python 3 compatibility library
 from six import iteritems
@@ -45,10 +46,10 @@ class SyncApi(object):
                 config.api_client = ApiClient()
             self.api_client = config.api_client
 
-    def get_history_file(self, **kwargs):
+    def create_sync_job(self, sync_job, **kwargs):
         """
         
-        List file operations performance data.
+        Start a SyncIQ job.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -56,249 +57,17 @@ class SyncApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.get_history_file(callback=callback_function)
+        >>> thread = api.create_sync_job(sync_job, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param int begin: Begin timestamp for time-series report.
-        :param int end: End timestamp for time-series report.
-        :return: HistoryFile
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['begin', 'end']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_history_file" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/1/sync/history/file'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-        if 'begin' in params:
-            query_params['begin'] = params['begin']
-        if 'end' in params:
-            query_params['end'] = params['end']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='HistoryFile',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_history_network(self, **kwargs):
-        """
-        
-        List network operations performance data.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_history_network(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int begin: Begin timestamp for time-series report.
-        :param int end: End timestamp for time-series report.
-        :return: HistoryFile
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['begin', 'end']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_history_network" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/1/sync/history/network'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-        if 'begin' in params:
-            query_params['begin'] = params['begin']
-        if 'end' in params:
-            query_params['end'] = params['end']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='HistoryFile',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_sync_license(self, **kwargs):
-        """
-        
-        Retrieve license information.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_sync_license(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: LicenseLicense
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_sync_license" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/1/sync/license'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='LicenseLicense',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def create_policies_policy_reset_item(self, policies_policy_reset_item, policy, **kwargs):
-        """
-        
-        Reset a SyncIQ policy incremental state and force a full sync/copy.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_policies_policy_reset_item(policies_policy_reset_item, policy, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param Empty policies_policy_reset_item:  (required)
-        :param str policy:  (required)
+        :param SyncJobCreateParams sync_job:  (required)
         :return: CreateResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['policies_policy_reset_item', 'policy']
+        all_params = ['sync_job']
         all_params.append('callback')
 
         params = locals()
@@ -306,35 +75,29 @@ class SyncApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method create_policies_policy_reset_item" % key
+                    " to method create_sync_job" % key
                 )
             params[key] = val
         del params['kwargs']
 
-        # verify the required parameter 'policies_policy_reset_item' is set
-        if ('policies_policy_reset_item' not in params) or (params['policies_policy_reset_item'] is None):
-            raise ValueError("Missing the required parameter `policies_policy_reset_item` when calling `create_policies_policy_reset_item`")
-        # verify the required parameter 'policy' is set
-        if ('policy' not in params) or (params['policy'] is None):
-            raise ValueError("Missing the required parameter `policy` when calling `create_policies_policy_reset_item`")
+        # verify the required parameter 'sync_job' is set
+        if ('sync_job' not in params) or (params['sync_job'] is None):
+            raise ValueError("Missing the required parameter `sync_job` when calling `create_sync_job`")
 
-        resource_path = '/platform/1/sync/policies/{Policy}/reset'.replace('{format}', 'json')
-        method = 'POST'
 
+        resource_path = '/platform/3/sync/jobs'.replace('{format}', 'json')
         path_params = {}
-        if 'policy' in params:
-            path_params['Policy'] = params['policy']
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
-        if 'policies_policy_reset_item' in params:
-            body_params = params['policies_policy_reset_item']
+        if 'sync_job' in params:
+            body_params = params['sync_job']
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
@@ -349,22 +112,22 @@ class SyncApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'POST',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='CreateResponse',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def get_sync_reports(self, **kwargs):
+    def create_sync_policy(self, sync_policy, **kwargs):
         """
         
-        Get a list of SyncIQ reports.  By default 10 reports are returned per policy, unless otherwise specified by 'reports_per_policy'.
+        Create a SyncIQ policy.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -372,24 +135,17 @@ class SyncApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.get_sync_reports(callback=callback_function)
+        >>> thread = api.create_sync_policy(sync_policy, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str sort: The field that will be used for sorting.
-        :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
-        :param int newer_than: Filter the returned reports to include only those whose jobs started more recently than the specified number of days ago.
-        :param str policy_name: Filter the returned reports to include only those with this policy name.
-        :param str state: Filter the returned reports to include only those whose jobs are in this state.
-        :param int limit: Return no more than this many results at once (see resume).
-        :param int reports_per_policy: If specified, only the N most recent reports will be returned per policy.  If no other query args are present this argument defaults to 10.
-        :param str dir: The direction of the sort.
-        :return: SyncReportsExtended
+        :param SyncPolicyCreateParams sync_policy:  (required)
+        :return: CreateResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['sort', 'resume', 'newer_than', 'policy_name', 'state', 'limit', 'reports_per_policy', 'dir']
+        all_params = ['sync_policy']
         all_params.append('callback')
 
         params = locals()
@@ -397,41 +153,29 @@ class SyncApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_sync_reports" % key
+                    " to method create_sync_policy" % key
                 )
             params[key] = val
         del params['kwargs']
 
+        # verify the required parameter 'sync_policy' is set
+        if ('sync_policy' not in params) or (params['sync_policy'] is None):
+            raise ValueError("Missing the required parameter `sync_policy` when calling `create_sync_policy`")
 
-        resource_path = '/platform/1/sync/reports'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/3/sync/policies'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
-        if 'sort' in params:
-            query_params['sort'] = params['sort']
-        if 'resume' in params:
-            query_params['resume'] = params['resume']
-        if 'newer_than' in params:
-            query_params['newer_than'] = params['newer_than']
-        if 'policy_name' in params:
-            query_params['policy_name'] = params['policy_name']
-        if 'state' in params:
-            query_params['state'] = params['state']
-        if 'limit' in params:
-            query_params['limit'] = params['limit']
-        if 'reports_per_policy' in params:
-            query_params['reports_per_policy'] = params['reports_per_policy']
-        if 'dir' in params:
-            query_params['dir'] = params['dir']
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
+        if 'sync_policy' in params:
+            body_params = params['sync_policy']
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
@@ -446,87 +190,14 @@ class SyncApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'POST',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
-                                            response_type='SyncReportsExtended',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def list_sync_reports_rotate(self, **kwargs):
-        """
-        
-        Whether the rotation is still running or not.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.list_sync_reports_rotate(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: SyncReportsRotate
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_sync_reports_rotate" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/1/sync/reports-rotate'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='SyncReportsRotate',
+                                            files=local_var_files,
+                                            response_type='CreateResponse',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -569,17 +240,16 @@ class SyncApi(object):
         if ('sync_reports_rotate_item' not in params) or (params['sync_reports_rotate_item'] is None):
             raise ValueError("Missing the required parameter `sync_reports_rotate_item` when calling `create_sync_reports_rotate_item`")
 
-        resource_path = '/platform/1/sync/reports-rotate'.replace('{format}', 'json')
-        method = 'POST'
 
+        resource_path = '/platform/1/sync/reports-rotate'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'sync_reports_rotate_item' in params:
@@ -598,22 +268,22 @@ class SyncApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'POST',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='CreateSyncReportsRotateItemResponse',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def get_reports_rid_subreports(self, rid, **kwargs):
+    def create_sync_rule(self, sync_rule, **kwargs):
         """
         
-        Get a list of SyncIQ subreports for a report.
+        Create a new SyncIQ performance rule.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -621,367 +291,17 @@ class SyncApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.get_reports_rid_subreports(rid, callback=callback_function)
+        >>> thread = api.create_sync_rule(sync_rule, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str rid:  (required)
-        :param str sort: The field that will be used for sorting.
-        :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
-        :param int newer_than: Filter the returned reports to include only those whose jobs started more recently than the specified number of days ago.
-        :param str state: Filter the returned reports to include only those whose jobs are in this state.
-        :param int limit: Return no more than this many results at once (see resume).
-        :param str dir: The direction of the sort.
-        :return: ReportsRidSubreportsExtended
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['rid', 'sort', 'resume', 'newer_than', 'state', 'limit', 'dir']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_reports_rid_subreports" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'rid' is set
-        if ('rid' not in params) or (params['rid'] is None):
-            raise ValueError("Missing the required parameter `rid` when calling `get_reports_rid_subreports`")
-
-        resource_path = '/platform/1/sync/reports/{Rid}/subreports'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'rid' in params:
-            path_params['Rid'] = params['rid']
-
-        query_params = {}
-        if 'sort' in params:
-            query_params['sort'] = params['sort']
-        if 'resume' in params:
-            query_params['resume'] = params['resume']
-        if 'newer_than' in params:
-            query_params['newer_than'] = params['newer_than']
-        if 'state' in params:
-            query_params['state'] = params['state']
-        if 'limit' in params:
-            query_params['limit'] = params['limit']
-        if 'dir' in params:
-            query_params['dir'] = params['dir']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='ReportsRidSubreportsExtended',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_reports_rid_subreport(self, reports_rid_subreport_id, rid, **kwargs):
-        """
-        
-        View a single SyncIQ subreport.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_reports_rid_subreport(reports_rid_subreport_id, rid, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str reports_rid_subreport_id: View a single SyncIQ subreport. (required)
-        :param str rid:  (required)
-        :return: ReportsRidSubreports
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['reports_rid_subreport_id', 'rid']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_reports_rid_subreport" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'reports_rid_subreport_id' is set
-        if ('reports_rid_subreport_id' not in params) or (params['reports_rid_subreport_id'] is None):
-            raise ValueError("Missing the required parameter `reports_rid_subreport_id` when calling `get_reports_rid_subreport`")
-        # verify the required parameter 'rid' is set
-        if ('rid' not in params) or (params['rid'] is None):
-            raise ValueError("Missing the required parameter `rid` when calling `get_reports_rid_subreport`")
-
-        resource_path = '/platform/1/sync/reports/{Rid}/subreports/{ReportsRidSubreportId}'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'reports_rid_subreport_id' in params:
-            path_params['ReportsRidSubreportId'] = params['reports_rid_subreport_id']
-        if 'rid' in params:
-            path_params['Rid'] = params['rid']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='ReportsRidSubreports',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_sync_report(self, sync_report_id, **kwargs):
-        """
-        
-        View a single SyncIQ report.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_sync_report(sync_report_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str sync_report_id: View a single SyncIQ report. (required)
-        :return: SyncReports
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['sync_report_id']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_sync_report" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'sync_report_id' is set
-        if ('sync_report_id' not in params) or (params['sync_report_id'] is None):
-            raise ValueError("Missing the required parameter `sync_report_id` when calling `get_sync_report`")
-
-        resource_path = '/platform/1/sync/reports/{SyncReportId}'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'sync_report_id' in params:
-            path_params['SyncReportId'] = params['sync_report_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='SyncReports',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_target_policies(self, **kwargs):
-        """
-        
-        List all SyncIQ target policies.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_target_policies(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str sort: The field that will be used for sorting.
-        :param str target_path: Filter the returned policies to include only those with this target path.
-        :param int limit: Return no more than this many results at once (see resume).
-        :param str dir: The direction of the sort.
-        :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
-        :return: TargetPoliciesExtended
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['sort', 'target_path', 'limit', 'dir', 'resume']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_target_policies" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/1/sync/target/policies'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-        if 'sort' in params:
-            query_params['sort'] = params['sort']
-        if 'target_path' in params:
-            query_params['target_path'] = params['target_path']
-        if 'limit' in params:
-            query_params['limit'] = params['limit']
-        if 'dir' in params:
-            query_params['dir'] = params['dir']
-        if 'resume' in params:
-            query_params['resume'] = params['resume']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='TargetPoliciesExtended',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def create_target_policies_policy_cancel_item(self, target_policies_policy_cancel_item, policy, **kwargs):
-        """
-        
-        Cancel the most recent SyncIQ job for this policy from the target side.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_target_policies_policy_cancel_item(target_policies_policy_cancel_item, policy, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param Empty target_policies_policy_cancel_item:  (required)
-        :param str policy:  (required)
+        :param SyncRuleCreateParams sync_rule:  (required)
         :return: CreateResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['target_policies_policy_cancel_item', 'policy']
+        all_params = ['sync_rule']
         all_params.append('callback')
 
         params = locals()
@@ -989,35 +309,29 @@ class SyncApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method create_target_policies_policy_cancel_item" % key
+                    " to method create_sync_rule" % key
                 )
             params[key] = val
         del params['kwargs']
 
-        # verify the required parameter 'target_policies_policy_cancel_item' is set
-        if ('target_policies_policy_cancel_item' not in params) or (params['target_policies_policy_cancel_item'] is None):
-            raise ValueError("Missing the required parameter `target_policies_policy_cancel_item` when calling `create_target_policies_policy_cancel_item`")
-        # verify the required parameter 'policy' is set
-        if ('policy' not in params) or (params['policy'] is None):
-            raise ValueError("Missing the required parameter `policy` when calling `create_target_policies_policy_cancel_item`")
+        # verify the required parameter 'sync_rule' is set
+        if ('sync_rule' not in params) or (params['sync_rule'] is None):
+            raise ValueError("Missing the required parameter `sync_rule` when calling `create_sync_rule`")
 
-        resource_path = '/platform/1/sync/target/policies/{Policy}/cancel'.replace('{format}', 'json')
-        method = 'POST'
 
+        resource_path = '/platform/3/sync/rules'.replace('{format}', 'json')
         path_params = {}
-        if 'policy' in params:
-            path_params['Policy'] = params['policy']
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
-        if 'target_policies_policy_cancel_item' in params:
-            body_params = params['target_policies_policy_cancel_item']
+        if 'sync_rule' in params:
+            body_params = params['sync_rule']
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
@@ -1032,22 +346,22 @@ class SyncApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'POST',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='CreateResponse',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def get_target_policy(self, target_policy_id, **kwargs):
+    def delete_sync_policies(self, **kwargs):
         """
         
-        View a single SyncIQ target policy.
+        Delete all SyncIQ policies.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1055,17 +369,18 @@ class SyncApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.get_target_policy(target_policy_id, callback=callback_function)
+        >>> thread = api.delete_sync_policies(callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str target_policy_id: View a single SyncIQ target policy. (required)
-        :return: TargetPolicies
+        :param bool local_only: Skip deleting the policy association on the target.
+        :param bool force: Ignore any running jobs when preparing to delete a policy.
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['target_policy_id']
+        all_params = ['local_only', 'force']
         all_params.append('callback')
 
         params = locals()
@@ -1073,28 +388,26 @@ class SyncApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_target_policy" % key
+                    " to method delete_sync_policies" % key
                 )
             params[key] = val
         del params['kwargs']
 
-        # verify the required parameter 'target_policy_id' is set
-        if ('target_policy_id' not in params) or (params['target_policy_id'] is None):
-            raise ValueError("Missing the required parameter `target_policy_id` when calling `get_target_policy`")
 
-        resource_path = '/platform/1/sync/target/policies/{TargetPolicyId}'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/3/sync/policies'.replace('{format}', 'json')
         path_params = {}
-        if 'target_policy_id' in params:
-            path_params['TargetPolicyId'] = params['target_policy_id']
 
         query_params = {}
+        if 'local_only' in params:
+            query_params['local_only'] = params['local_only']
+        if 'force' in params:
+            query_params['force'] = params['force']
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -1111,14 +424,251 @@ class SyncApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'DELETE',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
-                                            response_type='TargetPolicies',
+                                            files=local_var_files,
+                                            response_type=None,
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def delete_sync_policy(self, sync_policy_id, **kwargs):
+        """
+        
+        Delete a single SyncIQ policy.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.delete_sync_policy(sync_policy_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str sync_policy_id: Delete a single SyncIQ policy. (required)
+        :param bool local_only: Skip deleting the policy association on the target.
+        :param bool force: Ignore any running jobs when preparing to delete a policy.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['sync_policy_id', 'local_only', 'force']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_sync_policy" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'sync_policy_id' is set
+        if ('sync_policy_id' not in params) or (params['sync_policy_id'] is None):
+            raise ValueError("Missing the required parameter `sync_policy_id` when calling `delete_sync_policy`")
+
+
+        resource_path = '/platform/3/sync/policies/{SyncPolicyId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'sync_policy_id' in params:
+            path_params['SyncPolicyId'] = params['sync_policy_id']
+
+        query_params = {}
+        if 'local_only' in params:
+            query_params['local_only'] = params['local_only']
+        if 'force' in params:
+            query_params['force'] = params['force']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'DELETE',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def delete_sync_rule(self, sync_rule_id, **kwargs):
+        """
+        
+        Delete a single SyncIQ performance rule.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.delete_sync_rule(sync_rule_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str sync_rule_id: Delete a single SyncIQ performance rule. (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['sync_rule_id']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_sync_rule" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'sync_rule_id' is set
+        if ('sync_rule_id' not in params) or (params['sync_rule_id'] is None):
+            raise ValueError("Missing the required parameter `sync_rule_id` when calling `delete_sync_rule`")
+
+
+        resource_path = '/platform/3/sync/rules/{SyncRuleId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'sync_rule_id' in params:
+            path_params['SyncRuleId'] = params['sync_rule_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'DELETE',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def delete_sync_rules(self, **kwargs):
+        """
+        
+        Delete all SyncIQ performance rules or all rules of a specified type.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.delete_sync_rules(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str type: Delete all rules of the specified rule type only.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['type']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_sync_rules" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/3/sync/rules'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'type' in params:
+            query_params['type'] = params['type']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'DELETE',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -1162,9 +712,8 @@ class SyncApi(object):
         if ('target_policy_id' not in params) or (params['target_policy_id'] is None):
             raise ValueError("Missing the required parameter `target_policy_id` when calling `delete_target_policy`")
 
-        resource_path = '/platform/1/sync/target/policies/{TargetPolicyId}'.replace('{format}', 'json')
-        method = 'DELETE'
 
+        resource_path = '/platform/1/sync/target/policies/{TargetPolicyId}'.replace('{format}', 'json')
         path_params = {}
         if 'target_policy_id' in params:
             path_params['TargetPolicyId'] = params['target_policy_id']
@@ -1175,8 +724,8 @@ class SyncApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -1193,22 +742,22 @@ class SyncApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'DELETE',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def get_target_reports(self, **kwargs):
+    def get_history_cpu(self, **kwargs):
         """
         
-        Get a list of SyncIQ target reports.  By default 10 reports are returned per policy, unless otherwise specified by 'reports_per_policy'.
+        List cpu performance data.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1216,7 +765,625 @@ class SyncApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.get_target_reports(callback=callback_function)
+        >>> thread = api.get_history_cpu(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int begin: Begin timestamp for time-series report.
+        :param int end: End timestamp for time-series report.
+        :return: HistoryFile
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['begin', 'end']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_history_cpu" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/3/sync/history/cpu'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'begin' in params:
+            query_params['begin'] = params['begin']
+        if 'end' in params:
+            query_params['end'] = params['end']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='HistoryFile',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_history_file(self, **kwargs):
+        """
+        
+        List file operations performance data.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_history_file(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int begin: Begin timestamp for time-series report.
+        :param int end: End timestamp for time-series report.
+        :return: HistoryFile
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['begin', 'end']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_history_file" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/1/sync/history/file'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'begin' in params:
+            query_params['begin'] = params['begin']
+        if 'end' in params:
+            query_params['end'] = params['end']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='HistoryFile',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_history_network(self, **kwargs):
+        """
+        
+        List network operations performance data.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_history_network(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int begin: Begin timestamp for time-series report.
+        :param int end: End timestamp for time-series report.
+        :return: HistoryFile
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['begin', 'end']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_history_network" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/1/sync/history/network'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'begin' in params:
+            query_params['begin'] = params['begin']
+        if 'end' in params:
+            query_params['end'] = params['end']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='HistoryFile',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_history_worker(self, **kwargs):
+        """
+        
+        List worker performance data.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_history_worker(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int begin: Begin timestamp for time-series report.
+        :param int end: End timestamp for time-series report.
+        :return: HistoryFile
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['begin', 'end']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_history_worker" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/3/sync/history/worker'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'begin' in params:
+            query_params['begin'] = params['begin']
+        if 'end' in params:
+            query_params['end'] = params['end']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='HistoryFile',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_sync_job(self, sync_job_id, **kwargs):
+        """
+        
+        View a single SyncIQ job.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_sync_job(sync_job_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str sync_job_id: View a single SyncIQ job. (required)
+        :return: SyncJobs
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['sync_job_id']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_sync_job" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'sync_job_id' is set
+        if ('sync_job_id' not in params) or (params['sync_job_id'] is None):
+            raise ValueError("Missing the required parameter `sync_job_id` when calling `get_sync_job`")
+
+
+        resource_path = '/platform/3/sync/jobs/{SyncJobId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'sync_job_id' in params:
+            path_params['SyncJobId'] = params['sync_job_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='SyncJobs',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_sync_license(self, **kwargs):
+        """
+        
+        Retrieve license information.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_sync_license(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: LicenseLicense
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_sync_license" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/1/sync/license'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='LicenseLicense',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_sync_policy(self, sync_policy_id, **kwargs):
+        """
+        
+        View a single SyncIQ policy.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_sync_policy(sync_policy_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str sync_policy_id: View a single SyncIQ policy. (required)
+        :return: SyncPolicies
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['sync_policy_id']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_sync_policy" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'sync_policy_id' is set
+        if ('sync_policy_id' not in params) or (params['sync_policy_id'] is None):
+            raise ValueError("Missing the required parameter `sync_policy_id` when calling `get_sync_policy`")
+
+
+        resource_path = '/platform/3/sync/policies/{SyncPolicyId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'sync_policy_id' in params:
+            path_params['SyncPolicyId'] = params['sync_policy_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='SyncPolicies',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_sync_report(self, sync_report_id, **kwargs):
+        """
+        
+        View a single SyncIQ report.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_sync_report(sync_report_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str sync_report_id: View a single SyncIQ report. (required)
+        :return: SyncReports
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['sync_report_id']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_sync_report" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'sync_report_id' is set
+        if ('sync_report_id' not in params) or (params['sync_report_id'] is None):
+            raise ValueError("Missing the required parameter `sync_report_id` when calling `get_sync_report`")
+
+
+        resource_path = '/platform/1/sync/reports/{SyncReportId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'sync_report_id' in params:
+            path_params['SyncReportId'] = params['sync_report_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='SyncReports',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_sync_reports(self, **kwargs):
+        """
+        
+        Get a list of SyncIQ reports.  By default 10 reports are returned per policy, unless otherwise specified by 'reports_per_policy'.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_sync_reports(callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -1226,9 +1393,9 @@ class SyncApi(object):
         :param str policy_name: Filter the returned reports to include only those with this policy name.
         :param str state: Filter the returned reports to include only those whose jobs are in this state.
         :param int limit: Return no more than this many results at once (see resume).
-        :param int reports_per_policy: If specified, only the N most recent reports will be returned per policy.  If no other query args are present this argument defaults to 10.
+        :param int reports_per_policy: If specified, only the N most recent reports will be returned per policy.  If no other query args are present this argument defaults to 10. 
         :param str dir: The direction of the sort.
-        :return: TargetReportsExtended
+        :return: SyncReportsExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1241,15 +1408,16 @@ class SyncApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_target_reports" % key
+                    " to method get_sync_reports" % key
                 )
             params[key] = val
         del params['kwargs']
 
 
-        resource_path = '/platform/1/sync/target/reports'.replace('{format}', 'json')
-        method = 'GET'
+        if 'limit' in params and params['limit'] < 1.0: 
+            raise ValueError("Invalid value for parameter `limit` when calling `get_sync_reports`, must be a value greater than or equal to `1.0`")
 
+        resource_path = '/platform/1/sync/reports'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
@@ -1272,8 +1440,8 @@ class SyncApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -1290,22 +1458,22 @@ class SyncApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
-                                            response_type='TargetReportsExtended',
+                                            files=local_var_files,
+                                            response_type='SyncReportsExtended',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def get_target_reports_rid_subreports(self, rid, **kwargs):
+    def get_sync_rule(self, sync_rule_id, **kwargs):
         """
         
-        Get a list of SyncIQ target subreports for a report.
+        View a single SyncIQ performance rule.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1313,23 +1481,17 @@ class SyncApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.get_target_reports_rid_subreports(rid, callback=callback_function)
+        >>> thread = api.get_sync_rule(sync_rule_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str rid:  (required)
-        :param str sort: The field that will be used for sorting.
-        :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
-        :param int newer_than: Filter the returned reports to include only those whose jobs started more recently than the specified number of days ago.
-        :param str state: Filter the returned reports to include only those whose jobs are in this state.
-        :param int limit: Return no more than this many results at once (see resume).
-        :param str dir: The direction of the sort.
-        :return: TargetReportsRidSubreportsExtended
+        :param str sync_rule_id: View a single SyncIQ performance rule. (required)
+        :return: SyncRules
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['rid', 'sort', 'resume', 'newer_than', 'state', 'limit', 'dir']
+        all_params = ['sync_rule_id']
         all_params.append('callback')
 
         params = locals()
@@ -1337,40 +1499,188 @@ class SyncApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_target_reports_rid_subreports" % key
+                    " to method get_sync_rule" % key
                 )
             params[key] = val
         del params['kwargs']
 
-        # verify the required parameter 'rid' is set
-        if ('rid' not in params) or (params['rid'] is None):
-            raise ValueError("Missing the required parameter `rid` when calling `get_target_reports_rid_subreports`")
+        # verify the required parameter 'sync_rule_id' is set
+        if ('sync_rule_id' not in params) or (params['sync_rule_id'] is None):
+            raise ValueError("Missing the required parameter `sync_rule_id` when calling `get_sync_rule`")
 
-        resource_path = '/platform/1/sync/target/reports/{Rid}/subreports'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/3/sync/rules/{SyncRuleId}'.replace('{format}', 'json')
         path_params = {}
-        if 'rid' in params:
-            path_params['Rid'] = params['rid']
+        if 'sync_rule_id' in params:
+            path_params['SyncRuleId'] = params['sync_rule_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='SyncRules',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_sync_settings(self, **kwargs):
+        """
+        
+        Retrieve the global SyncIQ settings.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_sync_settings(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: SyncSettings
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_sync_settings" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/3/sync/settings'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='SyncSettings',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_target_policies(self, **kwargs):
+        """
+        
+        List all SyncIQ target policies.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_target_policies(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str sort: The field that will be used for sorting.
+        :param str target_path: Filter the returned policies to include only those with this target path.
+        :param int limit: Return no more than this many results at once (see resume).
+        :param str dir: The direction of the sort.
+        :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
+        :return: TargetPoliciesExtended
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['sort', 'target_path', 'limit', 'dir', 'resume']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_target_policies" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+        if 'limit' in params and params['limit'] < 1.0: 
+            raise ValueError("Invalid value for parameter `limit` when calling `get_target_policies`, must be a value greater than or equal to `1.0`")
+
+        resource_path = '/platform/1/sync/target/policies'.replace('{format}', 'json')
+        path_params = {}
 
         query_params = {}
         if 'sort' in params:
             query_params['sort'] = params['sort']
-        if 'resume' in params:
-            query_params['resume'] = params['resume']
-        if 'newer_than' in params:
-            query_params['newer_than'] = params['newer_than']
-        if 'state' in params:
-            query_params['state'] = params['state']
+        if 'target_path' in params:
+            query_params['target_path'] = params['target_path']
         if 'limit' in params:
             query_params['limit'] = params['limit']
         if 'dir' in params:
             query_params['dir'] = params['dir']
+        if 'resume' in params:
+            query_params['resume'] = params['resume']
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -1387,22 +1697,22 @@ class SyncApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
-                                            response_type='TargetReportsRidSubreportsExtended',
+                                            files=local_var_files,
+                                            response_type='TargetPoliciesExtended',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def get_target_reports_rid_subreport(self, target_reports_rid_subreport_id, rid, **kwargs):
+    def get_target_policy(self, target_policy_id, **kwargs):
         """
         
-        View a single SyncIQ target subreport.
+        View a single SyncIQ target policy.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1410,18 +1720,17 @@ class SyncApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.get_target_reports_rid_subreport(target_reports_rid_subreport_id, rid, callback=callback_function)
+        >>> thread = api.get_target_policy(target_policy_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str target_reports_rid_subreport_id: View a single SyncIQ target subreport. (required)
-        :param str rid:  (required)
-        :return: TargetReportsRidSubreports
+        :param str target_policy_id: View a single SyncIQ target policy. (required)
+        :return: TargetPolicies
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['target_reports_rid_subreport_id', 'rid']
+        all_params = ['target_policy_id']
         all_params.append('callback')
 
         params = locals()
@@ -1429,33 +1738,27 @@ class SyncApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_target_reports_rid_subreport" % key
+                    " to method get_target_policy" % key
                 )
             params[key] = val
         del params['kwargs']
 
-        # verify the required parameter 'target_reports_rid_subreport_id' is set
-        if ('target_reports_rid_subreport_id' not in params) or (params['target_reports_rid_subreport_id'] is None):
-            raise ValueError("Missing the required parameter `target_reports_rid_subreport_id` when calling `get_target_reports_rid_subreport`")
-        # verify the required parameter 'rid' is set
-        if ('rid' not in params) or (params['rid'] is None):
-            raise ValueError("Missing the required parameter `rid` when calling `get_target_reports_rid_subreport`")
+        # verify the required parameter 'target_policy_id' is set
+        if ('target_policy_id' not in params) or (params['target_policy_id'] is None):
+            raise ValueError("Missing the required parameter `target_policy_id` when calling `get_target_policy`")
 
-        resource_path = '/platform/1/sync/target/reports/{Rid}/subreports/{TargetReportsRidSubreportId}'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/1/sync/target/policies/{TargetPolicyId}'.replace('{format}', 'json')
         path_params = {}
-        if 'target_reports_rid_subreport_id' in params:
-            path_params['TargetReportsRidSubreportId'] = params['target_reports_rid_subreport_id']
-        if 'rid' in params:
-            path_params['Rid'] = params['rid']
+        if 'target_policy_id' in params:
+            path_params['TargetPolicyId'] = params['target_policy_id']
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -1472,14 +1775,14 @@ class SyncApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
-                                            response_type='TargetReportsRidSubreports',
+                                            files=local_var_files,
+                                            response_type='TargetPolicies',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -1522,9 +1825,8 @@ class SyncApi(object):
         if ('target_report_id' not in params) or (params['target_report_id'] is None):
             raise ValueError("Missing the required parameter `target_report_id` when calling `get_target_report`")
 
-        resource_path = '/platform/1/sync/target/reports/{TargetReportId}'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/1/sync/target/reports/{TargetReportId}'.replace('{format}', 'json')
         path_params = {}
         if 'target_report_id' in params:
             path_params['TargetReportId'] = params['target_report_id']
@@ -1533,8 +1835,8 @@ class SyncApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -1551,22 +1853,22 @@ class SyncApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='TargetReports',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def get_history_cpu(self, **kwargs):
+    def get_target_reports(self, **kwargs):
         """
         
-        List cpu performance data.
+        Get a list of SyncIQ target reports.  By default 10 reports are returned per policy, unless otherwise specified by 'reports_per_policy'.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1574,18 +1876,24 @@ class SyncApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.get_history_cpu(callback=callback_function)
+        >>> thread = api.get_target_reports(callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param int begin: Begin timestamp for time-series report.
-        :param int end: End timestamp for time-series report.
-        :return: HistoryFile
+        :param str sort: The field that will be used for sorting.
+        :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
+        :param int newer_than: Filter the returned reports to include only those whose jobs started more recently than the specified number of days ago.
+        :param str policy_name: Filter the returned reports to include only those with this policy name.
+        :param str state: Filter the returned reports to include only those whose jobs are in this state.
+        :param int limit: Return no more than this many results at once (see resume).
+        :param int reports_per_policy: If specified, only the N most recent reports will be returned per policy.  If no other query args are present this argument defaults to 10. 
+        :param str dir: The direction of the sort.
+        :return: TargetReportsExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['begin', 'end']
+        all_params = ['sort', 'resume', 'newer_than', 'policy_name', 'state', 'limit', 'reports_per_policy', 'dir']
         all_params.append('callback')
 
         params = locals()
@@ -1593,27 +1901,40 @@ class SyncApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_history_cpu" % key
+                    " to method get_target_reports" % key
                 )
             params[key] = val
         del params['kwargs']
 
 
-        resource_path = '/platform/3/sync/history/cpu'.replace('{format}', 'json')
-        method = 'GET'
+        if 'limit' in params and params['limit'] < 1.0: 
+            raise ValueError("Invalid value for parameter `limit` when calling `get_target_reports`, must be a value greater than or equal to `1.0`")
 
+        resource_path = '/platform/1/sync/target/reports'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
-        if 'begin' in params:
-            query_params['begin'] = params['begin']
-        if 'end' in params:
-            query_params['end'] = params['end']
+        if 'sort' in params:
+            query_params['sort'] = params['sort']
+        if 'resume' in params:
+            query_params['resume'] = params['resume']
+        if 'newer_than' in params:
+            query_params['newer_than'] = params['newer_than']
+        if 'policy_name' in params:
+            query_params['policy_name'] = params['policy_name']
+        if 'state' in params:
+            query_params['state'] = params['state']
+        if 'limit' in params:
+            query_params['limit'] = params['limit']
+        if 'reports_per_policy' in params:
+            query_params['reports_per_policy'] = params['reports_per_policy']
+        if 'dir' in params:
+            query_params['dir'] = params['dir']
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -1630,93 +1951,14 @@ class SyncApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
-                                            response_type='HistoryFile',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_history_worker(self, **kwargs):
-        """
-        
-        List worker performance data.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_history_worker(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int begin: Begin timestamp for time-series report.
-        :param int end: End timestamp for time-series report.
-        :return: HistoryFile
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['begin', 'end']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_history_worker" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/sync/history/worker'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-        if 'begin' in params:
-            query_params['begin'] = params['begin']
-        if 'end' in params:
-            query_params['end'] = params['end']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='HistoryFile',
+                                            files=local_var_files,
+                                            response_type='TargetReportsExtended',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -1760,9 +2002,10 @@ class SyncApi(object):
         del params['kwargs']
 
 
-        resource_path = '/platform/3/sync/jobs'.replace('{format}', 'json')
-        method = 'GET'
+        if 'limit' in params and params['limit'] < 1.0: 
+            raise ValueError("Invalid value for parameter `limit` when calling `list_sync_jobs`, must be a value greater than or equal to `1.0`")
 
+        resource_path = '/platform/3/sync/jobs'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
@@ -1779,8 +2022,8 @@ class SyncApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -1797,22 +2040,22 @@ class SyncApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='SyncJobsExtended',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def create_sync_job(self, sync_job, **kwargs):
+    def list_sync_policies(self, **kwargs):
         """
         
-        Start a SyncIQ job.
+        List all SyncIQ policies.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1820,17 +2063,21 @@ class SyncApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.create_sync_job(sync_job, callback=callback_function)
+        >>> thread = api.list_sync_policies(callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param SyncJobCreateParams sync_job:  (required)
-        :return: CreateResponse
+        :param str sort: The field that will be used for sorting.
+        :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
+        :param int limit: Return no more than this many results at once (see resume).
+        :param str dir: The direction of the sort.
+        :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
+        :return: SyncPoliciesExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['sync_job']
+        all_params = ['sort', 'scope', 'limit', 'dir', 'resume']
         all_params.append('callback')
 
         params = locals()
@@ -1838,30 +2085,36 @@ class SyncApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method create_sync_job" % key
+                    " to method list_sync_policies" % key
                 )
             params[key] = val
         del params['kwargs']
 
-        # verify the required parameter 'sync_job' is set
-        if ('sync_job' not in params) or (params['sync_job'] is None):
-            raise ValueError("Missing the required parameter `sync_job` when calling `create_sync_job`")
 
-        resource_path = '/platform/3/sync/jobs'.replace('{format}', 'json')
-        method = 'POST'
+        if 'limit' in params and params['limit'] < 1.0: 
+            raise ValueError("Invalid value for parameter `limit` when calling `list_sync_policies`, must be a value greater than or equal to `1.0`")
 
+        resource_path = '/platform/3/sync/policies'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
+        if 'sort' in params:
+            query_params['sort'] = params['sort']
+        if 'scope' in params:
+            query_params['scope'] = params['scope']
+        if 'limit' in params:
+            query_params['limit'] = params['limit']
+        if 'dir' in params:
+            query_params['dir'] = params['dir']
+        if 'resume' in params:
+            query_params['resume'] = params['resume']
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
-        if 'sync_job' in params:
-            body_params = params['sync_job']
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
@@ -1876,22 +2129,22 @@ class SyncApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
-                                            response_type='CreateResponse',
+                                            files=local_var_files,
+                                            response_type='SyncPoliciesExtended',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def get_sync_job(self, sync_job_id, **kwargs):
+    def list_sync_reports_rotate(self, **kwargs):
         """
         
-        View a single SyncIQ job.
+        Whether the rotation is still running or not.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1899,17 +2152,16 @@ class SyncApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.get_sync_job(sync_job_id, callback=callback_function)
+        >>> thread = api.list_sync_reports_rotate(callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str sync_job_id: View a single SyncIQ job. (required)
-        :return: SyncJobs
+        :return: SyncReportsRotate
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['sync_job_id']
+        all_params = []
         all_params.append('callback')
 
         params = locals()
@@ -1917,28 +2169,22 @@ class SyncApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_sync_job" % key
+                    " to method list_sync_reports_rotate" % key
                 )
             params[key] = val
         del params['kwargs']
 
-        # verify the required parameter 'sync_job_id' is set
-        if ('sync_job_id' not in params) or (params['sync_job_id'] is None):
-            raise ValueError("Missing the required parameter `sync_job_id` when calling `get_sync_job`")
 
-        resource_path = '/platform/3/sync/jobs/{SyncJobId}'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/1/sync/reports-rotate'.replace('{format}', 'json')
         path_params = {}
-        if 'sync_job_id' in params:
-            path_params['SyncJobId'] = params['sync_job_id']
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -1955,14 +2201,103 @@ class SyncApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
-                                            response_type='SyncJobs',
+                                            files=local_var_files,
+                                            response_type='SyncReportsRotate',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def list_sync_rules(self, **kwargs):
+        """
+        
+        List all SyncIQ performance rules.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.list_sync_rules(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str sort: The field that will be used for sorting.
+        :param str type: Filter the returned rules to include only those with this rule type.
+        :param int limit: Return no more than this many results at once (see resume).
+        :param str dir: The direction of the sort.
+        :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
+        :return: SyncRulesExtended
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['sort', 'type', 'limit', 'dir', 'resume']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_sync_rules" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+        if 'limit' in params and params['limit'] < 1.0: 
+            raise ValueError("Invalid value for parameter `limit` when calling `list_sync_rules`, must be a value greater than or equal to `1.0`")
+
+        resource_path = '/platform/3/sync/rules'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'sort' in params:
+            query_params['sort'] = params['sort']
+        if 'type' in params:
+            query_params['type'] = params['type']
+        if 'limit' in params:
+            query_params['limit'] = params['limit']
+        if 'dir' in params:
+            query_params['dir'] = params['dir']
+        if 'resume' in params:
+            query_params['resume'] = params['resume']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='SyncRulesExtended',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -2009,9 +2344,8 @@ class SyncApi(object):
         if ('sync_job_id' not in params) or (params['sync_job_id'] is None):
             raise ValueError("Missing the required parameter `sync_job_id` when calling `update_sync_job`")
 
-        resource_path = '/platform/3/sync/jobs/{SyncJobId}'.replace('{format}', 'json')
-        method = 'PUT'
 
+        resource_path = '/platform/3/sync/jobs/{SyncJobId}'.replace('{format}', 'json')
         path_params = {}
         if 'sync_job_id' in params:
             path_params['SyncJobId'] = params['sync_job_id']
@@ -2020,8 +2354,8 @@ class SyncApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'sync_job' in params:
@@ -2040,339 +2374,14 @@ class SyncApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'PUT',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def list_sync_policies(self, **kwargs):
-        """
-        
-        List all SyncIQ policies.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.list_sync_policies(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str sort: The field that will be used for sorting.
-        :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
-        :param int limit: Return no more than this many results at once (see resume).
-        :param str dir: The direction of the sort.
-        :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
-        :return: SyncPoliciesExtended
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['sort', 'scope', 'limit', 'dir', 'resume']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_sync_policies" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/sync/policies'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-        if 'sort' in params:
-            query_params['sort'] = params['sort']
-        if 'scope' in params:
-            query_params['scope'] = params['scope']
-        if 'limit' in params:
-            query_params['limit'] = params['limit']
-        if 'dir' in params:
-            query_params['dir'] = params['dir']
-        if 'resume' in params:
-            query_params['resume'] = params['resume']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='SyncPoliciesExtended',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def create_sync_policy(self, sync_policy, **kwargs):
-        """
-        
-        Create a SyncIQ policy.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_sync_policy(sync_policy, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param SyncPolicyCreateParams sync_policy:  (required)
-        :return: CreateResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['sync_policy']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_sync_policy" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'sync_policy' is set
-        if ('sync_policy' not in params) or (params['sync_policy'] is None):
-            raise ValueError("Missing the required parameter `sync_policy` when calling `create_sync_policy`")
-
-        resource_path = '/platform/3/sync/policies'.replace('{format}', 'json')
-        method = 'POST'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'sync_policy' in params:
-            body_params = params['sync_policy']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='CreateResponse',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def delete_sync_policies(self, **kwargs):
-        """
-        
-        Delete all SyncIQ policies.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_sync_policies(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param bool local_only: Skip deleting the policy association on the target.
-        :param bool force: Ignore any running jobs when preparing to delete a policy.
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['local_only', 'force']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_sync_policies" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/sync/policies'.replace('{format}', 'json')
-        method = 'DELETE'
-
-        path_params = {}
-
-        query_params = {}
-        if 'local_only' in params:
-            query_params['local_only'] = params['local_only']
-        if 'force' in params:
-            query_params['force'] = params['force']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_sync_policy(self, sync_policy_id, **kwargs):
-        """
-        
-        View a single SyncIQ policy.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_sync_policy(sync_policy_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str sync_policy_id: View a single SyncIQ policy. (required)
-        :return: SyncPolicies
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['sync_policy_id']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_sync_policy" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'sync_policy_id' is set
-        if ('sync_policy_id' not in params) or (params['sync_policy_id'] is None):
-            raise ValueError("Missing the required parameter `sync_policy_id` when calling `get_sync_policy`")
-
-        resource_path = '/platform/3/sync/policies/{SyncPolicyId}'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'sync_policy_id' in params:
-            path_params['SyncPolicyId'] = params['sync_policy_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='SyncPolicies',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -2419,9 +2428,8 @@ class SyncApi(object):
         if ('sync_policy_id' not in params) or (params['sync_policy_id'] is None):
             raise ValueError("Missing the required parameter `sync_policy_id` when calling `update_sync_policy`")
 
-        resource_path = '/platform/3/sync/policies/{SyncPolicyId}'.replace('{format}', 'json')
-        method = 'PUT'
 
+        resource_path = '/platform/3/sync/policies/{SyncPolicyId}'.replace('{format}', 'json')
         path_params = {}
         if 'sync_policy_id' in params:
             path_params['SyncPolicyId'] = params['sync_policy_id']
@@ -2430,8 +2438,8 @@ class SyncApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'sync_policy' in params:
@@ -2450,421 +2458,14 @@ class SyncApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'PUT',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def delete_sync_policy(self, sync_policy_id, **kwargs):
-        """
-        
-        Delete a single SyncIQ policy.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_sync_policy(sync_policy_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str sync_policy_id: Delete a single SyncIQ policy. (required)
-        :param bool local_only: Skip deleting the policy association on the target.
-        :param bool force: Ignore any running jobs when preparing to delete a policy.
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['sync_policy_id', 'local_only', 'force']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_sync_policy" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'sync_policy_id' is set
-        if ('sync_policy_id' not in params) or (params['sync_policy_id'] is None):
-            raise ValueError("Missing the required parameter `sync_policy_id` when calling `delete_sync_policy`")
-
-        resource_path = '/platform/3/sync/policies/{SyncPolicyId}'.replace('{format}', 'json')
-        method = 'DELETE'
-
-        path_params = {}
-        if 'sync_policy_id' in params:
-            path_params['SyncPolicyId'] = params['sync_policy_id']
-
-        query_params = {}
-        if 'local_only' in params:
-            query_params['local_only'] = params['local_only']
-        if 'force' in params:
-            query_params['force'] = params['force']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def list_sync_rules(self, **kwargs):
-        """
-        
-        List all SyncIQ performance rules.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.list_sync_rules(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str sort: The field that will be used for sorting.
-        :param str type: Filter the returned rules to include only those with this rule type.
-        :param int limit: Return no more than this many results at once (see resume).
-        :param str dir: The direction of the sort.
-        :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
-        :return: SyncRulesExtended
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['sort', 'type', 'limit', 'dir', 'resume']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_sync_rules" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/sync/rules'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-        if 'sort' in params:
-            query_params['sort'] = params['sort']
-        if 'type' in params:
-            query_params['type'] = params['type']
-        if 'limit' in params:
-            query_params['limit'] = params['limit']
-        if 'dir' in params:
-            query_params['dir'] = params['dir']
-        if 'resume' in params:
-            query_params['resume'] = params['resume']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='SyncRulesExtended',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def create_sync_rule(self, sync_rule, **kwargs):
-        """
-        
-        Create a new SyncIQ performance rule.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_sync_rule(sync_rule, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param SyncRuleCreateParams sync_rule:  (required)
-        :return: CreateResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['sync_rule']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_sync_rule" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'sync_rule' is set
-        if ('sync_rule' not in params) or (params['sync_rule'] is None):
-            raise ValueError("Missing the required parameter `sync_rule` when calling `create_sync_rule`")
-
-        resource_path = '/platform/3/sync/rules'.replace('{format}', 'json')
-        method = 'POST'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'sync_rule' in params:
-            body_params = params['sync_rule']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='CreateResponse',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def delete_sync_rules(self, **kwargs):
-        """
-        
-        Delete all SyncIQ performance rules or all rules of a specified type.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_sync_rules(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str type: Delete all rules of the specified rule type only.
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['type']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_sync_rules" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/sync/rules'.replace('{format}', 'json')
-        method = 'DELETE'
-
-        path_params = {}
-
-        query_params = {}
-        if 'type' in params:
-            query_params['type'] = params['type']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_sync_rule(self, sync_rule_id, **kwargs):
-        """
-        
-        View a single SyncIQ performance rule.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_sync_rule(sync_rule_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str sync_rule_id: View a single SyncIQ performance rule. (required)
-        :return: SyncRules
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['sync_rule_id']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_sync_rule" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'sync_rule_id' is set
-        if ('sync_rule_id' not in params) or (params['sync_rule_id'] is None):
-            raise ValueError("Missing the required parameter `sync_rule_id` when calling `get_sync_rule`")
-
-        resource_path = '/platform/3/sync/rules/{SyncRuleId}'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'sync_rule_id' in params:
-            path_params['SyncRuleId'] = params['sync_rule_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='SyncRules',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -2911,9 +2512,8 @@ class SyncApi(object):
         if ('sync_rule_id' not in params) or (params['sync_rule_id'] is None):
             raise ValueError("Missing the required parameter `sync_rule_id` when calling `update_sync_rule`")
 
-        resource_path = '/platform/3/sync/rules/{SyncRuleId}'.replace('{format}', 'json')
-        method = 'PUT'
 
+        resource_path = '/platform/3/sync/rules/{SyncRuleId}'.replace('{format}', 'json')
         path_params = {}
         if 'sync_rule_id' in params:
             path_params['SyncRuleId'] = params['sync_rule_id']
@@ -2922,8 +2522,8 @@ class SyncApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'sync_rule' in params:
@@ -2942,166 +2542,14 @@ class SyncApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'PUT',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def delete_sync_rule(self, sync_rule_id, **kwargs):
-        """
-        
-        Delete a single SyncIQ performance rule.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_sync_rule(sync_rule_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str sync_rule_id: Delete a single SyncIQ performance rule. (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['sync_rule_id']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_sync_rule" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'sync_rule_id' is set
-        if ('sync_rule_id' not in params) or (params['sync_rule_id'] is None):
-            raise ValueError("Missing the required parameter `sync_rule_id` when calling `delete_sync_rule`")
-
-        resource_path = '/platform/3/sync/rules/{SyncRuleId}'.replace('{format}', 'json')
-        method = 'DELETE'
-
-        path_params = {}
-        if 'sync_rule_id' in params:
-            path_params['SyncRuleId'] = params['sync_rule_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_sync_settings(self, **kwargs):
-        """
-        
-        Retrieve the global SyncIQ settings.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_sync_settings(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: SyncSettings
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_sync_settings" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/sync/settings'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='SyncSettings',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -3144,17 +2592,16 @@ class SyncApi(object):
         if ('sync_settings' not in params) or (params['sync_settings'] is None):
             raise ValueError("Missing the required parameter `sync_settings` when calling `update_sync_settings`")
 
-        resource_path = '/platform/3/sync/settings'.replace('{format}', 'json')
-        method = 'PUT'
 
+        resource_path = '/platform/3/sync/settings'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'sync_settings' in params:
@@ -3173,13 +2620,13 @@ class SyncApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'PUT',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))

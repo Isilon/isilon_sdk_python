@@ -2,7 +2,7 @@
 
 """
 QuotaApi.py
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@ from __future__ import absolute_import
 
 import sys
 import os
+import re
 
 # python 2 and python 3 compatibility library
 from six import iteritems
@@ -44,6 +45,870 @@ class QuotaApi(object):
             if not config.api_client:
                 config.api_client = ApiClient()
             self.api_client = config.api_client
+
+    def create_quota_quota(self, quota_quota, **kwargs):
+        """
+        
+        Create a new quota.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.create_quota_quota(quota_quota, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param QuotaQuotaCreateParams quota_quota:  (required)
+        :param str zone: Optional named zone to use for user and group resolution.
+        :return: CreateResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['quota_quota', 'zone']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_quota_quota" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'quota_quota' is set
+        if ('quota_quota' not in params) or (params['quota_quota'] is None):
+            raise ValueError("Missing the required parameter `quota_quota` when calling `create_quota_quota`")
+
+
+        resource_path = '/platform/1/quota/quotas'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'zone' in params:
+            query_params['zone'] = params['zone']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'quota_quota' in params:
+            body_params = params['quota_quota']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'POST',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='CreateResponse',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def create_quota_report(self, quota_report, **kwargs):
+        """
+        
+        Create a new report. The type of this report is 'manual'; it is also sometimes called 'live' or 'ad-hoc'.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.create_quota_report(quota_report, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param Empty quota_report:  (required)
+        :return: CreateQuotaReportResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['quota_report']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_quota_report" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'quota_report' is set
+        if ('quota_report' not in params) or (params['quota_report'] is None):
+            raise ValueError("Missing the required parameter `quota_report` when calling `create_quota_report`")
+
+
+        resource_path = '/platform/1/quota/reports'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'quota_report' in params:
+            body_params = params['quota_report']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'POST',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='CreateQuotaReportResponse',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def create_settings_mapping(self, settings_mapping, **kwargs):
+        """
+        
+        Create a new rule. The new rule must not conflict with an existing rule (e.g. match both the type and domain fields).
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.create_settings_mapping(settings_mapping, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param SettingsMappingExtended settings_mapping:  (required)
+        :return: CreateResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['settings_mapping']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_settings_mapping" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'settings_mapping' is set
+        if ('settings_mapping' not in params) or (params['settings_mapping'] is None):
+            raise ValueError("Missing the required parameter `settings_mapping` when calling `create_settings_mapping`")
+
+
+        resource_path = '/platform/1/quota/settings/mappings'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'settings_mapping' in params:
+            body_params = params['settings_mapping']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'POST',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='CreateResponse',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def create_settings_notification(self, settings_notification, **kwargs):
+        """
+        
+        Create a new global notification rule.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.create_settings_notification(settings_notification, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param SettingsNotificationCreateParams settings_notification:  (required)
+        :return: CreateResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['settings_notification']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_settings_notification" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'settings_notification' is set
+        if ('settings_notification' not in params) or (params['settings_notification'] is None):
+            raise ValueError("Missing the required parameter `settings_notification` when calling `create_settings_notification`")
+
+
+        resource_path = '/platform/1/quota/settings/notifications'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'settings_notification' in params:
+            body_params = params['settings_notification']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'POST',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='CreateResponse',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def delete_quota_quota(self, quota_quota_id, **kwargs):
+        """
+        
+        Delete the quota.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.delete_quota_quota(quota_quota_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str quota_quota_id: Delete the quota. (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['quota_quota_id']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_quota_quota" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'quota_quota_id' is set
+        if ('quota_quota_id' not in params) or (params['quota_quota_id'] is None):
+            raise ValueError("Missing the required parameter `quota_quota_id` when calling `delete_quota_quota`")
+
+
+        resource_path = '/platform/1/quota/quotas/{QuotaQuotaId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'quota_quota_id' in params:
+            path_params['QuotaQuotaId'] = params['quota_quota_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'DELETE',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def delete_quota_quotas(self, **kwargs):
+        """
+        
+        Delete all or matching quotas.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.delete_quota_quotas(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param bool enforced: Only delete quotas with this enforcement (non-accounting).
+        :param bool include_snapshots: Only delete quotas with this setting for include_snapshots.
+        :param bool recurse_path_children: If used with the path argument, delete all quotas at that path or any descendent sub-directory.
+        :param bool recurse_path_parents: If used with the path argument, delete all quotas at that path or any parent directory.
+        :param str persona: Only delete user or group quotas matching this persona (must be used with the corresponding type argument).  Format is <PERSONA_TYPE>:<string/integer>, where PERSONA_TYPE is one of USER, GROUP, SID, ID, or GID.
+        :param str path: Only delete quotas matching this path (see also recurse_path_*).
+        :param str type: Only delete quotas matching this type.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['enforced', 'include_snapshots', 'recurse_path_children', 'recurse_path_parents', 'persona', 'path', 'type']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_quota_quotas" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/1/quota/quotas'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'enforced' in params:
+            query_params['enforced'] = params['enforced']
+        if 'include_snapshots' in params:
+            query_params['include_snapshots'] = params['include_snapshots']
+        if 'recurse_path_children' in params:
+            query_params['recurse_path_children'] = params['recurse_path_children']
+        if 'recurse_path_parents' in params:
+            query_params['recurse_path_parents'] = params['recurse_path_parents']
+        if 'persona' in params:
+            query_params['persona'] = params['persona']
+        if 'path' in params:
+            query_params['path'] = params['path']
+        if 'type' in params:
+            query_params['type'] = params['type']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'DELETE',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def delete_quota_report(self, quota_report_id, **kwargs):
+        """
+        
+        Delete the report.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.delete_quota_report(quota_report_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str quota_report_id: Delete the report. (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['quota_report_id']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_quota_report" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'quota_report_id' is set
+        if ('quota_report_id' not in params) or (params['quota_report_id'] is None):
+            raise ValueError("Missing the required parameter `quota_report_id` when calling `delete_quota_report`")
+
+
+        resource_path = '/platform/1/quota/reports/{QuotaReportId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'quota_report_id' in params:
+            path_params['QuotaReportId'] = params['quota_report_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'DELETE',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def delete_settings_mapping(self, settings_mapping_id, **kwargs):
+        """
+        
+        Delete the mapping.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.delete_settings_mapping(settings_mapping_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str settings_mapping_id: Delete the mapping. (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['settings_mapping_id']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_settings_mapping" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'settings_mapping_id' is set
+        if ('settings_mapping_id' not in params) or (params['settings_mapping_id'] is None):
+            raise ValueError("Missing the required parameter `settings_mapping_id` when calling `delete_settings_mapping`")
+
+
+        resource_path = '/platform/1/quota/settings/mappings/{SettingsMappingId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'settings_mapping_id' in params:
+            path_params['SettingsMappingId'] = params['settings_mapping_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'DELETE',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def delete_settings_mappings(self, **kwargs):
+        """
+        
+        Delete all rules.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.delete_settings_mappings(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_settings_mappings" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/1/quota/settings/mappings'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'DELETE',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def delete_settings_notification(self, settings_notification_id, **kwargs):
+        """
+        
+        Delete the notification rule.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.delete_settings_notification(settings_notification_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str settings_notification_id: Delete the notification rule. (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['settings_notification_id']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_settings_notification" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'settings_notification_id' is set
+        if ('settings_notification_id' not in params) or (params['settings_notification_id'] is None):
+            raise ValueError("Missing the required parameter `settings_notification_id` when calling `delete_settings_notification`")
+
+
+        resource_path = '/platform/1/quota/settings/notifications/{SettingsNotificationId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'settings_notification_id' in params:
+            path_params['SettingsNotificationId'] = params['settings_notification_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'DELETE',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def delete_settings_notifications(self, **kwargs):
+        """
+        
+        Delete all rules.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.delete_settings_notifications(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_settings_notifications" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/1/quota/settings/notifications'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'DELETE',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
 
     def get_quota_license(self, **kwargs):
         """
@@ -79,17 +944,16 @@ class QuotaApi(object):
         del params['kwargs']
 
 
-        resource_path = '/platform/1/quota/license'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/1/quota/license'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -106,14 +970,479 @@ class QuotaApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='LicenseLicense',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_quota_quota(self, quota_quota_id, **kwargs):
+        """
+        
+        Retrieve quota information.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_quota_quota(quota_quota_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str quota_quota_id: Retrieve quota information. (required)
+        :param bool resolve_names: If true, resolve group and user names in personas.
+        :param str zone: Optional named zone to use for user and group resolution.
+        :return: QuotaQuotas
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['quota_quota_id', 'resolve_names', 'zone']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_quota_quota" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'quota_quota_id' is set
+        if ('quota_quota_id' not in params) or (params['quota_quota_id'] is None):
+            raise ValueError("Missing the required parameter `quota_quota_id` when calling `get_quota_quota`")
+
+
+        resource_path = '/platform/1/quota/quotas/{QuotaQuotaId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'quota_quota_id' in params:
+            path_params['QuotaQuotaId'] = params['quota_quota_id']
+
+        query_params = {}
+        if 'resolve_names' in params:
+            query_params['resolve_names'] = params['resolve_names']
+        if 'zone' in params:
+            query_params['zone'] = params['zone']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='QuotaQuotas',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_quota_quotas_summary(self, **kwargs):
+        """
+        
+        Return summary information about quotas.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_quota_quotas_summary(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: QuotaQuotasSummary
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_quota_quotas_summary" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/1/quota/quotas-summary'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='QuotaQuotasSummary',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_quota_report(self, quota_report_id, **kwargs):
+        """
+        
+        Retrieve report data (XML) or contents (meta-data).
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_quota_report(quota_report_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str quota_report_id: Retrieve report data (XML) or contents (meta-data). (required)
+        :param bool contents: Display JSON meta-data contents instead of report data.
+        :return: ReportAbout
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['quota_report_id', 'contents']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_quota_report" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'quota_report_id' is set
+        if ('quota_report_id' not in params) or (params['quota_report_id'] is None):
+            raise ValueError("Missing the required parameter `quota_report_id` when calling `get_quota_report`")
+
+
+        resource_path = '/platform/1/quota/reports/{QuotaReportId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'quota_report_id' in params:
+            path_params['QuotaReportId'] = params['quota_report_id']
+
+        query_params = {}
+        if 'contents' in params:
+            query_params['contents'] = params['contents']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='ReportAbout',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_settings_mapping(self, settings_mapping_id, **kwargs):
+        """
+        
+        Retrieve the mapping information.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_settings_mapping(settings_mapping_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str settings_mapping_id: Retrieve the mapping information. (required)
+        :return: SettingsMappings
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['settings_mapping_id']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_settings_mapping" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'settings_mapping_id' is set
+        if ('settings_mapping_id' not in params) or (params['settings_mapping_id'] is None):
+            raise ValueError("Missing the required parameter `settings_mapping_id` when calling `get_settings_mapping`")
+
+
+        resource_path = '/platform/1/quota/settings/mappings/{SettingsMappingId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'settings_mapping_id' in params:
+            path_params['SettingsMappingId'] = params['settings_mapping_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='SettingsMappings',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_settings_notification(self, settings_notification_id, **kwargs):
+        """
+        
+        Retrieve notification rule information.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_settings_notification(settings_notification_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str settings_notification_id: Retrieve notification rule information. (required)
+        :return: SettingsNotifications
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['settings_notification_id']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_settings_notification" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'settings_notification_id' is set
+        if ('settings_notification_id' not in params) or (params['settings_notification_id'] is None):
+            raise ValueError("Missing the required parameter `settings_notification_id` when calling `get_settings_notification`")
+
+
+        resource_path = '/platform/1/quota/settings/notifications/{SettingsNotificationId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'settings_notification_id' in params:
+            path_params['SettingsNotificationId'] = params['settings_notification_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='SettingsNotifications',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_settings_reports(self, **kwargs):
+        """
+        
+        List all settings.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_settings_reports(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: SettingsReports
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_settings_reports" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/1/quota/settings/reports'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='SettingsReports',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -165,9 +1494,10 @@ class QuotaApi(object):
         del params['kwargs']
 
 
-        resource_path = '/platform/1/quota/quotas'.replace('{format}', 'json')
-        method = 'GET'
+        if 'limit' in params and params['limit'] < 1.0: 
+            raise ValueError("Invalid value for parameter `limit` when calling `list_quota_quotas`, must be a value greater than or equal to `1.0`")
 
+        resource_path = '/platform/1/quota/quotas'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
@@ -200,8 +1530,8 @@ class QuotaApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -218,22 +1548,22 @@ class QuotaApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='QuotaQuotasExtended',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def create_quota_quota(self, quota_quota, **kwargs):
+    def list_quota_reports(self, **kwargs):
         """
         
-        Create a new quota.
+        List all or matching reports.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -241,18 +1571,22 @@ class QuotaApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.create_quota_quota(quota_quota, callback=callback_function)
+        >>> thread = api.list_quota_reports(callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param QuotaQuotaCreateParams quota_quota:  (required)
-        :param str zone: Optional named zone to use for user and group resolution.
-        :return: CreateResponse
+        :param str sort: Order results by this field.
+        :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
+        :param str generated: Only list reports matching this source.
+        :param int limit: Return no more than this many results at once (see resume).
+        :param str type: Only list reports matching this type.
+        :param str dir: The direction of the sort.
+        :return: QuotaReports
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['quota_quota', 'zone']
+        all_params = ['sort', 'resume', 'generated', 'limit', 'type', 'dir']
         all_params.append('callback')
 
         params = locals()
@@ -260,124 +1594,36 @@ class QuotaApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method create_quota_quota" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'quota_quota' is set
-        if ('quota_quota' not in params) or (params['quota_quota'] is None):
-            raise ValueError("Missing the required parameter `quota_quota` when calling `create_quota_quota`")
-
-        resource_path = '/platform/1/quota/quotas'.replace('{format}', 'json')
-        method = 'POST'
-
-        path_params = {}
-
-        query_params = {}
-        if 'zone' in params:
-            query_params['zone'] = params['zone']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'quota_quota' in params:
-            body_params = params['quota_quota']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='CreateResponse',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def delete_quota_quotas(self, **kwargs):
-        """
-        
-        Delete all or matching quotas.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_quota_quotas(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param bool enforced: Only delete quotas with this enforcement (non-accounting).
-        :param bool include_snapshots: Only delete quotas with this setting for include_snapshots.
-        :param bool recurse_path_children: If used with the path argument, delete all quotas at that path or any descendent sub-directory.
-        :param bool recurse_path_parents: If used with the path argument, delete all quotas at that path or any parent directory.
-        :param str persona: Only delete user or group quotas matching this persona (must be used with the corresponding type argument).  Format is <PERSONA_TYPE>:<string/integer>, where PERSONA_TYPE is one of USER, GROUP, SID, ID, or GID.
-        :param str path: Only delete quotas matching this path (see also recurse_path_*).
-        :param str type: Only delete quotas matching this type.
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['enforced', 'include_snapshots', 'recurse_path_children', 'recurse_path_parents', 'persona', 'path', 'type']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_quota_quotas" % key
+                    " to method list_quota_reports" % key
                 )
             params[key] = val
         del params['kwargs']
 
 
-        resource_path = '/platform/1/quota/quotas'.replace('{format}', 'json')
-        method = 'DELETE'
+        if 'limit' in params and params['limit'] < 1.0: 
+            raise ValueError("Invalid value for parameter `limit` when calling `list_quota_reports`, must be a value greater than or equal to `1.0`")
 
+        resource_path = '/platform/1/quota/reports'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
-        if 'enforced' in params:
-            query_params['enforced'] = params['enforced']
-        if 'include_snapshots' in params:
-            query_params['include_snapshots'] = params['include_snapshots']
-        if 'recurse_path_children' in params:
-            query_params['recurse_path_children'] = params['recurse_path_children']
-        if 'recurse_path_parents' in params:
-            query_params['recurse_path_parents'] = params['recurse_path_parents']
-        if 'persona' in params:
-            query_params['persona'] = params['persona']
-        if 'path' in params:
-            query_params['path'] = params['path']
+        if 'sort' in params:
+            query_params['sort'] = params['sort']
+        if 'resume' in params:
+            query_params['resume'] = params['resume']
+        if 'generated' in params:
+            query_params['generated'] = params['generated']
+        if 'limit' in params:
+            query_params['limit'] = params['limit']
         if 'type' in params:
             query_params['type'] = params['type']
+        if 'dir' in params:
+            query_params['dir'] = params['dir']
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -394,22 +1640,22 @@ class QuotaApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
-                                            response_type=None,
+                                            files=local_var_files,
+                                            response_type='QuotaReports',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def get_quota_quotas_summary(self, **kwargs):
+    def list_settings_mappings(self, **kwargs):
         """
         
-        Return summary information about quotas.
+        List all rules.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -417,11 +1663,11 @@ class QuotaApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.get_quota_quotas_summary(callback=callback_function)
+        >>> thread = api.list_settings_mappings(callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :return: QuotaQuotasSummary
+        :return: SettingsMappings
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -434,23 +1680,22 @@ class QuotaApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_quota_quotas_summary" % key
+                    " to method list_settings_mappings" % key
                 )
             params[key] = val
         del params['kwargs']
 
 
-        resource_path = '/platform/1/quota/quotas-summary'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/1/quota/settings/mappings'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -467,19 +1712,19 @@ class QuotaApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
-                                            response_type='QuotaQuotasSummary',
+                                            files=local_var_files,
+                                            response_type='SettingsMappings',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
 
-    def list_quotas_qid_notifications(self, qid, **kwargs):
+    def list_settings_notifications(self, **kwargs):
         """
         
         List all rules.
@@ -490,17 +1735,16 @@ class QuotaApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.list_quotas_qid_notifications(qid, callback=callback_function)
+        >>> thread = api.list_settings_notifications(callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str qid:  (required)
-        :return: QuotasQidNotificationsExtended
+        :return: SettingsNotificationsExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['qid']
+        all_params = []
         all_params.append('callback')
 
         params = locals()
@@ -508,28 +1752,22 @@ class QuotaApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method list_quotas_qid_notifications" % key
+                    " to method list_settings_notifications" % key
                 )
             params[key] = val
         del params['kwargs']
 
-        # verify the required parameter 'qid' is set
-        if ('qid' not in params) or (params['qid'] is None):
-            raise ValueError("Missing the required parameter `qid` when calling `list_quotas_qid_notifications`")
 
-        resource_path = '/platform/1/quota/quotas/{Qid}/notifications'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/1/quota/settings/notifications'.replace('{format}', 'json')
         path_params = {}
-        if 'qid' in params:
-            path_params['Qid'] = params['qid']
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -546,609 +1784,14 @@ class QuotaApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
-                                            response_type='QuotasQidNotificationsExtended',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def update_quotas_qid_notifications(self, quotas_qid_notifications, qid, **kwargs):
-        """
-        
-        This method creates an empty set of rules so that the global rules are not used. The input must be an empty JSON object.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_quotas_qid_notifications(quotas_qid_notifications, qid, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param Empty quotas_qid_notifications:  (required)
-        :param str qid:  (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['quotas_qid_notifications', 'qid']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_quotas_qid_notifications" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'quotas_qid_notifications' is set
-        if ('quotas_qid_notifications' not in params) or (params['quotas_qid_notifications'] is None):
-            raise ValueError("Missing the required parameter `quotas_qid_notifications` when calling `update_quotas_qid_notifications`")
-        # verify the required parameter 'qid' is set
-        if ('qid' not in params) or (params['qid'] is None):
-            raise ValueError("Missing the required parameter `qid` when calling `update_quotas_qid_notifications`")
-
-        resource_path = '/platform/1/quota/quotas/{Qid}/notifications'.replace('{format}', 'json')
-        method = 'PUT'
-
-        path_params = {}
-        if 'qid' in params:
-            path_params['Qid'] = params['qid']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'quotas_qid_notifications' in params:
-            body_params = params['quotas_qid_notifications']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def create_quotas_qid_notification(self, quotas_qid_notification, qid, **kwargs):
-        """
-        
-        Create a new notification rule specific to this quota.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_quotas_qid_notification(quotas_qid_notification, qid, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param QuotasQidNotificationCreateParams quotas_qid_notification:  (required)
-        :param str qid:  (required)
-        :return: CreateResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['quotas_qid_notification', 'qid']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_quotas_qid_notification" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'quotas_qid_notification' is set
-        if ('quotas_qid_notification' not in params) or (params['quotas_qid_notification'] is None):
-            raise ValueError("Missing the required parameter `quotas_qid_notification` when calling `create_quotas_qid_notification`")
-        # verify the required parameter 'qid' is set
-        if ('qid' not in params) or (params['qid'] is None):
-            raise ValueError("Missing the required parameter `qid` when calling `create_quotas_qid_notification`")
-
-        resource_path = '/platform/1/quota/quotas/{Qid}/notifications'.replace('{format}', 'json')
-        method = 'POST'
-
-        path_params = {}
-        if 'qid' in params:
-            path_params['Qid'] = params['qid']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'quotas_qid_notification' in params:
-            body_params = params['quotas_qid_notification']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='CreateResponse',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def delete_quotas_qid_notifications(self, qid, **kwargs):
-        """
-        
-        Delete all quota specific rules. The quota will then use the global rules.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_quotas_qid_notifications(qid, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str qid:  (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['qid']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_quotas_qid_notifications" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'qid' is set
-        if ('qid' not in params) or (params['qid'] is None):
-            raise ValueError("Missing the required parameter `qid` when calling `delete_quotas_qid_notifications`")
-
-        resource_path = '/platform/1/quota/quotas/{Qid}/notifications'.replace('{format}', 'json')
-        method = 'DELETE'
-
-        path_params = {}
-        if 'qid' in params:
-            path_params['Qid'] = params['qid']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_quotas_qid_notification(self, quotas_qid_notification_id, qid, **kwargs):
-        """
-        
-        Retrieve notification rule information.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_quotas_qid_notification(quotas_qid_notification_id, qid, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str quotas_qid_notification_id: Retrieve notification rule information. (required)
-        :param str qid:  (required)
-        :return: QuotasQidNotifications
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['quotas_qid_notification_id', 'qid']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_quotas_qid_notification" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'quotas_qid_notification_id' is set
-        if ('quotas_qid_notification_id' not in params) or (params['quotas_qid_notification_id'] is None):
-            raise ValueError("Missing the required parameter `quotas_qid_notification_id` when calling `get_quotas_qid_notification`")
-        # verify the required parameter 'qid' is set
-        if ('qid' not in params) or (params['qid'] is None):
-            raise ValueError("Missing the required parameter `qid` when calling `get_quotas_qid_notification`")
-
-        resource_path = '/platform/1/quota/quotas/{Qid}/notifications/{QuotasQidNotificationId}'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'quotas_qid_notification_id' in params:
-            path_params['QuotasQidNotificationId'] = params['quotas_qid_notification_id']
-        if 'qid' in params:
-            path_params['Qid'] = params['qid']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='QuotasQidNotifications',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def update_quotas_qid_notification(self, quotas_qid_notification, quotas_qid_notification_id, qid, **kwargs):
-        """
-        
-        Modify notification rule. All input fields are optional, but one or must be supplied.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_quotas_qid_notification(quotas_qid_notification, quotas_qid_notification_id, qid, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param QuotasQidNotification quotas_qid_notification:  (required)
-        :param str quotas_qid_notification_id: Modify notification rule. All input fields are optional, but one or must be supplied. (required)
-        :param str qid:  (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['quotas_qid_notification', 'quotas_qid_notification_id', 'qid']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_quotas_qid_notification" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'quotas_qid_notification' is set
-        if ('quotas_qid_notification' not in params) or (params['quotas_qid_notification'] is None):
-            raise ValueError("Missing the required parameter `quotas_qid_notification` when calling `update_quotas_qid_notification`")
-        # verify the required parameter 'quotas_qid_notification_id' is set
-        if ('quotas_qid_notification_id' not in params) or (params['quotas_qid_notification_id'] is None):
-            raise ValueError("Missing the required parameter `quotas_qid_notification_id` when calling `update_quotas_qid_notification`")
-        # verify the required parameter 'qid' is set
-        if ('qid' not in params) or (params['qid'] is None):
-            raise ValueError("Missing the required parameter `qid` when calling `update_quotas_qid_notification`")
-
-        resource_path = '/platform/1/quota/quotas/{Qid}/notifications/{QuotasQidNotificationId}'.replace('{format}', 'json')
-        method = 'PUT'
-
-        path_params = {}
-        if 'quotas_qid_notification_id' in params:
-            path_params['QuotasQidNotificationId'] = params['quotas_qid_notification_id']
-        if 'qid' in params:
-            path_params['Qid'] = params['qid']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'quotas_qid_notification' in params:
-            body_params = params['quotas_qid_notification']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def delete_quotas_qid_notification(self, quotas_qid_notification_id, qid, **kwargs):
-        """
-        
-        Delete the notification rule.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_quotas_qid_notification(quotas_qid_notification_id, qid, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str quotas_qid_notification_id: Delete the notification rule. (required)
-        :param str qid:  (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['quotas_qid_notification_id', 'qid']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_quotas_qid_notification" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'quotas_qid_notification_id' is set
-        if ('quotas_qid_notification_id' not in params) or (params['quotas_qid_notification_id'] is None):
-            raise ValueError("Missing the required parameter `quotas_qid_notification_id` when calling `delete_quotas_qid_notification`")
-        # verify the required parameter 'qid' is set
-        if ('qid' not in params) or (params['qid'] is None):
-            raise ValueError("Missing the required parameter `qid` when calling `delete_quotas_qid_notification`")
-
-        resource_path = '/platform/1/quota/quotas/{Qid}/notifications/{QuotasQidNotificationId}'.replace('{format}', 'json')
-        method = 'DELETE'
-
-        path_params = {}
-        if 'quotas_qid_notification_id' in params:
-            path_params['QuotasQidNotificationId'] = params['quotas_qid_notification_id']
-        if 'qid' in params:
-            path_params['Qid'] = params['qid']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_quota_quota(self, quota_quota_id, **kwargs):
-        """
-        
-        Retrieve quota information.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_quota_quota(quota_quota_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str quota_quota_id: Retrieve quota information. (required)
-        :param bool resolve_names: If true, resolve group and user names in personas.
-        :param str zone: Optional named zone to use for user and group resolution.
-        :return: QuotaQuotas
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['quota_quota_id', 'resolve_names', 'zone']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_quota_quota" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'quota_quota_id' is set
-        if ('quota_quota_id' not in params) or (params['quota_quota_id'] is None):
-            raise ValueError("Missing the required parameter `quota_quota_id` when calling `get_quota_quota`")
-
-        resource_path = '/platform/1/quota/quotas/{QuotaQuotaId}'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'quota_quota_id' in params:
-            path_params['QuotaQuotaId'] = params['quota_quota_id']
-
-        query_params = {}
-        if 'resolve_names' in params:
-            query_params['resolve_names'] = params['resolve_names']
-        if 'zone' in params:
-            query_params['zone'] = params['zone']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='QuotaQuotas',
+                                            files=local_var_files,
+                                            response_type='SettingsNotificationsExtended',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -1195,9 +1838,8 @@ class QuotaApi(object):
         if ('quota_quota_id' not in params) or (params['quota_quota_id'] is None):
             raise ValueError("Missing the required parameter `quota_quota_id` when calling `update_quota_quota`")
 
-        resource_path = '/platform/1/quota/quotas/{QuotaQuotaId}'.replace('{format}', 'json')
-        method = 'PUT'
 
+        resource_path = '/platform/1/quota/quotas/{QuotaQuotaId}'.replace('{format}', 'json')
         path_params = {}
         if 'quota_quota_id' in params:
             path_params['QuotaQuotaId'] = params['quota_quota_id']
@@ -1206,8 +1848,8 @@ class QuotaApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'quota_quota' in params:
@@ -1226,807 +1868,14 @@ class QuotaApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'PUT',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def delete_quota_quota(self, quota_quota_id, **kwargs):
-        """
-        
-        Delete the quota.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_quota_quota(quota_quota_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str quota_quota_id: Delete the quota. (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['quota_quota_id']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_quota_quota" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'quota_quota_id' is set
-        if ('quota_quota_id' not in params) or (params['quota_quota_id'] is None):
-            raise ValueError("Missing the required parameter `quota_quota_id` when calling `delete_quota_quota`")
-
-        resource_path = '/platform/1/quota/quotas/{QuotaQuotaId}'.replace('{format}', 'json')
-        method = 'DELETE'
-
-        path_params = {}
-        if 'quota_quota_id' in params:
-            path_params['QuotaQuotaId'] = params['quota_quota_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def list_quota_reports(self, **kwargs):
-        """
-        
-        List all or matching reports.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.list_quota_reports(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str sort: Order results by this field.
-        :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
-        :param str generated: Only list reports matching this source.
-        :param int limit: Return no more than this many results at once (see resume).
-        :param str type: Only list reports matching this type.
-        :param str dir: The direction of the sort.
-        :return: QuotaReports
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['sort', 'resume', 'generated', 'limit', 'type', 'dir']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_quota_reports" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/1/quota/reports'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-        if 'sort' in params:
-            query_params['sort'] = params['sort']
-        if 'resume' in params:
-            query_params['resume'] = params['resume']
-        if 'generated' in params:
-            query_params['generated'] = params['generated']
-        if 'limit' in params:
-            query_params['limit'] = params['limit']
-        if 'type' in params:
-            query_params['type'] = params['type']
-        if 'dir' in params:
-            query_params['dir'] = params['dir']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='QuotaReports',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def create_quota_report(self, quota_report, **kwargs):
-        """
-        
-        Create a new report. The type of this report is 'manual'; it is also sometimes called 'live' or 'ad-hoc'.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_quota_report(quota_report, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param Empty quota_report:  (required)
-        :return: CreateQuotaReportResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['quota_report']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_quota_report" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'quota_report' is set
-        if ('quota_report' not in params) or (params['quota_report'] is None):
-            raise ValueError("Missing the required parameter `quota_report` when calling `create_quota_report`")
-
-        resource_path = '/platform/1/quota/reports'.replace('{format}', 'json')
-        method = 'POST'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'quota_report' in params:
-            body_params = params['quota_report']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='CreateQuotaReportResponse',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_quota_report(self, quota_report_id, **kwargs):
-        """
-        
-        Retrieve report data (XML) or contents (meta-data).
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_quota_report(quota_report_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str quota_report_id: Retrieve report data (XML) or contents (meta-data). (required)
-        :param bool contents: Display JSON meta-data contents instead of report data.
-        :return: ReportsRidAbout
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['quota_report_id', 'contents']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_quota_report" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'quota_report_id' is set
-        if ('quota_report_id' not in params) or (params['quota_report_id'] is None):
-            raise ValueError("Missing the required parameter `quota_report_id` when calling `get_quota_report`")
-
-        resource_path = '/platform/1/quota/reports/{QuotaReportId}'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'quota_report_id' in params:
-            path_params['QuotaReportId'] = params['quota_report_id']
-
-        query_params = {}
-        if 'contents' in params:
-            query_params['contents'] = params['contents']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='ReportsRidAbout',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def delete_quota_report(self, quota_report_id, **kwargs):
-        """
-        
-        Delete the report.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_quota_report(quota_report_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str quota_report_id: Delete the report. (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['quota_report_id']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_quota_report" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'quota_report_id' is set
-        if ('quota_report_id' not in params) or (params['quota_report_id'] is None):
-            raise ValueError("Missing the required parameter `quota_report_id` when calling `delete_quota_report`")
-
-        resource_path = '/platform/1/quota/reports/{QuotaReportId}'.replace('{format}', 'json')
-        method = 'DELETE'
-
-        path_params = {}
-        if 'quota_report_id' in params:
-            path_params['QuotaReportId'] = params['quota_report_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_reports_rid_about(self, rid, **kwargs):
-        """
-        
-        Retrieve report meta-data information.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_reports_rid_about(rid, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str rid:  (required)
-        :return: ReportsRidAbout
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['rid']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_reports_rid_about" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'rid' is set
-        if ('rid' not in params) or (params['rid'] is None):
-            raise ValueError("Missing the required parameter `rid` when calling `get_reports_rid_about`")
-
-        resource_path = '/platform/1/quota/reports/{Rid}/about'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'rid' in params:
-            path_params['Rid'] = params['rid']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='ReportsRidAbout',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def list_settings_mappings(self, **kwargs):
-        """
-        
-        List all rules.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.list_settings_mappings(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: SettingsMappings
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_settings_mappings" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/1/quota/settings/mappings'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='SettingsMappings',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def create_settings_mapping(self, settings_mapping, **kwargs):
-        """
-        
-        Create a new rule. The new rule must not conflict with an existing rule (e.g. match both the type and domain fields).
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_settings_mapping(settings_mapping, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param SettingsMappingCreateParams settings_mapping:  (required)
-        :return: CreateResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['settings_mapping']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_settings_mapping" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'settings_mapping' is set
-        if ('settings_mapping' not in params) or (params['settings_mapping'] is None):
-            raise ValueError("Missing the required parameter `settings_mapping` when calling `create_settings_mapping`")
-
-        resource_path = '/platform/1/quota/settings/mappings'.replace('{format}', 'json')
-        method = 'POST'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'settings_mapping' in params:
-            body_params = params['settings_mapping']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='CreateResponse',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def delete_settings_mappings(self, **kwargs):
-        """
-        
-        Delete all rules.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_settings_mappings(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_settings_mappings" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/1/quota/settings/mappings'.replace('{format}', 'json')
-        method = 'DELETE'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_settings_mapping(self, settings_mapping_id, **kwargs):
-        """
-        
-        Retrieve the mapping information.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_settings_mapping(settings_mapping_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str settings_mapping_id: Retrieve the mapping information. (required)
-        :return: SettingsMappings
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['settings_mapping_id']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_settings_mapping" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'settings_mapping_id' is set
-        if ('settings_mapping_id' not in params) or (params['settings_mapping_id'] is None):
-            raise ValueError("Missing the required parameter `settings_mapping_id` when calling `get_settings_mapping`")
-
-        resource_path = '/platform/1/quota/settings/mappings/{SettingsMappingId}'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'settings_mapping_id' in params:
-            path_params['SettingsMappingId'] = params['settings_mapping_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='SettingsMappings',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -2073,9 +1922,8 @@ class QuotaApi(object):
         if ('settings_mapping_id' not in params) or (params['settings_mapping_id'] is None):
             raise ValueError("Missing the required parameter `settings_mapping_id` when calling `update_settings_mapping`")
 
-        resource_path = '/platform/1/quota/settings/mappings/{SettingsMappingId}'.replace('{format}', 'json')
-        method = 'PUT'
 
+        resource_path = '/platform/1/quota/settings/mappings/{SettingsMappingId}'.replace('{format}', 'json')
         path_params = {}
         if 'settings_mapping_id' in params:
             path_params['SettingsMappingId'] = params['settings_mapping_id']
@@ -2084,8 +1932,8 @@ class QuotaApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'settings_mapping' in params:
@@ -2104,397 +1952,14 @@ class QuotaApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'PUT',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def delete_settings_mapping(self, settings_mapping_id, **kwargs):
-        """
-        
-        Delete the mapping.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_settings_mapping(settings_mapping_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str settings_mapping_id: Delete the mapping. (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['settings_mapping_id']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_settings_mapping" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'settings_mapping_id' is set
-        if ('settings_mapping_id' not in params) or (params['settings_mapping_id'] is None):
-            raise ValueError("Missing the required parameter `settings_mapping_id` when calling `delete_settings_mapping`")
-
-        resource_path = '/platform/1/quota/settings/mappings/{SettingsMappingId}'.replace('{format}', 'json')
-        method = 'DELETE'
-
-        path_params = {}
-        if 'settings_mapping_id' in params:
-            path_params['SettingsMappingId'] = params['settings_mapping_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def list_settings_notifications(self, **kwargs):
-        """
-        
-        List all rules.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.list_settings_notifications(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: SettingsNotifications
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_settings_notifications" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/1/quota/settings/notifications'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='SettingsNotifications',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def create_settings_notification(self, settings_notification, **kwargs):
-        """
-        
-        Create a new global notification rule.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_settings_notification(settings_notification, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param SettingsNotification settings_notification:  (required)
-        :return: CreateResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['settings_notification']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_settings_notification" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'settings_notification' is set
-        if ('settings_notification' not in params) or (params['settings_notification'] is None):
-            raise ValueError("Missing the required parameter `settings_notification` when calling `create_settings_notification`")
-
-        resource_path = '/platform/1/quota/settings/notifications'.replace('{format}', 'json')
-        method = 'POST'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'settings_notification' in params:
-            body_params = params['settings_notification']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='CreateResponse',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def delete_settings_notifications(self, **kwargs):
-        """
-        
-        Delete all rules.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_settings_notifications(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_settings_notifications" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/1/quota/settings/notifications'.replace('{format}', 'json')
-        method = 'DELETE'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_settings_notification(self, settings_notification_id, **kwargs):
-        """
-        
-        Retrieve notification rule information.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_settings_notification(settings_notification_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str settings_notification_id: Retrieve notification rule information. (required)
-        :return: QuotasQidNotifications
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['settings_notification_id']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_settings_notification" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'settings_notification_id' is set
-        if ('settings_notification_id' not in params) or (params['settings_notification_id'] is None):
-            raise ValueError("Missing the required parameter `settings_notification_id` when calling `get_settings_notification`")
-
-        resource_path = '/platform/1/quota/settings/notifications/{SettingsNotificationId}'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'settings_notification_id' in params:
-            path_params['SettingsNotificationId'] = params['settings_notification_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='QuotasQidNotifications',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -2514,7 +1979,7 @@ class QuotaApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param QuotasQidNotification settings_notification:  (required)
+        :param QuotaNotification settings_notification:  (required)
         :param str settings_notification_id: Modify notification rule. All input fields are optional, but one or must be supplied. (required)
         :return: None
                  If the method is called asynchronously,
@@ -2541,9 +2006,8 @@ class QuotaApi(object):
         if ('settings_notification_id' not in params) or (params['settings_notification_id'] is None):
             raise ValueError("Missing the required parameter `settings_notification_id` when calling `update_settings_notification`")
 
-        resource_path = '/platform/1/quota/settings/notifications/{SettingsNotificationId}'.replace('{format}', 'json')
-        method = 'PUT'
 
+        resource_path = '/platform/1/quota/settings/notifications/{SettingsNotificationId}'.replace('{format}', 'json')
         path_params = {}
         if 'settings_notification_id' in params:
             path_params['SettingsNotificationId'] = params['settings_notification_id']
@@ -2552,8 +2016,8 @@ class QuotaApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'settings_notification' in params:
@@ -2572,166 +2036,14 @@ class QuotaApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'PUT',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def delete_settings_notification(self, settings_notification_id, **kwargs):
-        """
-        
-        Delete the notification rule.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_settings_notification(settings_notification_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str settings_notification_id: Delete the notification rule. (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['settings_notification_id']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_settings_notification" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'settings_notification_id' is set
-        if ('settings_notification_id' not in params) or (params['settings_notification_id'] is None):
-            raise ValueError("Missing the required parameter `settings_notification_id` when calling `delete_settings_notification`")
-
-        resource_path = '/platform/1/quota/settings/notifications/{SettingsNotificationId}'.replace('{format}', 'json')
-        method = 'DELETE'
-
-        path_params = {}
-        if 'settings_notification_id' in params:
-            path_params['SettingsNotificationId'] = params['settings_notification_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_settings_reports(self, **kwargs):
-        """
-        
-        List all settings.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_settings_reports(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: SettingsReports
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_settings_reports" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/1/quota/settings/reports'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='SettingsReports',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -2774,17 +2086,16 @@ class QuotaApi(object):
         if ('settings_reports' not in params) or (params['settings_reports'] is None):
             raise ValueError("Missing the required parameter `settings_reports` when calling `update_settings_reports`")
 
-        resource_path = '/platform/1/quota/settings/reports'.replace('{format}', 'json')
-        method = 'PUT'
 
+        resource_path = '/platform/1/quota/settings/reports'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'settings_reports' in params:
@@ -2803,13 +2114,13 @@ class QuotaApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'PUT',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))

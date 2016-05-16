@@ -2,7 +2,7 @@
 
 """
 UpgradeApi.py
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@ from __future__ import absolute_import
 
 import sys
 import os
+import re
 
 # python 2 and python 3 compatibility library
 from six import iteritems
@@ -44,79 +45,6 @@ class UpgradeApi(object):
             if not config.api_client:
                 config.api_client = ApiClient()
             self.api_client = config.api_client
-
-    def get_upgrade_cluster(self, **kwargs):
-        """
-        
-        Cluster wide upgrade status info.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_upgrade_cluster(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: UpgradeCluster
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_upgrade_cluster" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/upgrade/cluster'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='UpgradeCluster',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
 
     def create_cluster_add_remaining_node(self, cluster_add_remaining_node, **kwargs):
         """
@@ -156,17 +84,16 @@ class UpgradeApi(object):
         if ('cluster_add_remaining_node' not in params) or (params['cluster_add_remaining_node'] is None):
             raise ValueError("Missing the required parameter `cluster_add_remaining_node` when calling `create_cluster_add_remaining_node`")
 
-        resource_path = '/platform/3/upgrade/cluster/add_remaining_nodes'.replace('{format}', 'json')
-        method = 'POST'
 
+        resource_path = '/platform/3/upgrade/cluster/add_remaining_nodes'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'cluster_add_remaining_node' in params:
@@ -185,13 +112,13 @@ class UpgradeApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'POST',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='Empty',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
@@ -235,17 +162,16 @@ class UpgradeApi(object):
         if ('cluster_archive_item' not in params) or (params['cluster_archive_item'] is None):
             raise ValueError("Missing the required parameter `cluster_archive_item` when calling `create_cluster_archive_item`")
 
-        resource_path = '/platform/3/upgrade/cluster/archive'.replace('{format}', 'json')
-        method = 'POST'
 
+        resource_path = '/platform/3/upgrade/cluster/archive'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'cluster_archive_item' in params:
@@ -264,13 +190,13 @@ class UpgradeApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'POST',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='Empty',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
@@ -314,17 +240,16 @@ class UpgradeApi(object):
         if ('cluster_assess_item' not in params) or (params['cluster_assess_item'] is None):
             raise ValueError("Missing the required parameter `cluster_assess_item` when calling `create_cluster_assess_item`")
 
-        resource_path = '/platform/3/upgrade/cluster/assess'.replace('{format}', 'json')
-        method = 'POST'
 
+        resource_path = '/platform/3/upgrade/cluster/assess'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'cluster_assess_item' in params:
@@ -343,13 +268,13 @@ class UpgradeApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'POST',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='Empty',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
@@ -393,17 +318,16 @@ class UpgradeApi(object):
         if ('cluster_commit_item' not in params) or (params['cluster_commit_item'] is None):
             raise ValueError("Missing the required parameter `cluster_commit_item` when calling `create_cluster_commit_item`")
 
-        resource_path = '/platform/3/upgrade/cluster/commit'.replace('{format}', 'json')
-        method = 'POST'
 
+        resource_path = '/platform/3/upgrade/cluster/commit'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'cluster_commit_item' in params:
@@ -422,13 +346,13 @@ class UpgradeApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'POST',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='Empty',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
@@ -472,17 +396,16 @@ class UpgradeApi(object):
         if ('cluster_firmware_assess_item' not in params) or (params['cluster_firmware_assess_item'] is None):
             raise ValueError("Missing the required parameter `cluster_firmware_assess_item` when calling `create_cluster_firmware_assess_item`")
 
-        resource_path = '/platform/3/upgrade/cluster/firmware/assess'.replace('{format}', 'json')
-        method = 'POST'
 
+        resource_path = '/platform/3/upgrade/cluster/firmware/assess'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'cluster_firmware_assess_item' in params:
@@ -501,166 +424,14 @@ class UpgradeApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'POST',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='Empty',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_cluster_firmware_progress(self, **kwargs):
-        """
-        
-        Cluster wide firmware upgrade status info.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_cluster_firmware_progress(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: ClusterFirmwareProgress
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_cluster_firmware_progress" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/upgrade/cluster/firmware/progress'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='ClusterFirmwareProgress',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_cluster_firmware_status(self, **kwargs):
-        """
-        
-        The firmware status for the cluster.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_cluster_firmware_status(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param bool devices: Show devices. If false, this returns an empty list. Default is false.
-        :param bool package: Show package. If false, this returns an empty list.Default is false.
-        :return: ClusterFirmwareStatus
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['devices', 'package']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_cluster_firmware_status" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/upgrade/cluster/firmware/status'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-        if 'devices' in params:
-            query_params['devices'] = params['devices']
-        if 'package' in params:
-            query_params['package'] = params['package']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='ClusterFirmwareStatus',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -703,17 +474,16 @@ class UpgradeApi(object):
         if ('cluster_firmware_upgrade_item' not in params) or (params['cluster_firmware_upgrade_item'] is None):
             raise ValueError("Missing the required parameter `cluster_firmware_upgrade_item` when calling `create_cluster_firmware_upgrade_item`")
 
-        resource_path = '/platform/3/upgrade/cluster/firmware/upgrade'.replace('{format}', 'json')
-        method = 'POST'
 
+        resource_path = '/platform/3/upgrade/cluster/firmware/upgrade'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'cluster_firmware_upgrade_item' in params:
@@ -732,251 +502,14 @@ class UpgradeApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'POST',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='Empty',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_cluster_nodes(self, **kwargs):
-        """
-        
-        View information about nodes during an upgrade, rollback, or pre-upgrade assessment.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_cluster_nodes(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :return: ClusterNodesExtended
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_cluster_nodes" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/platform/3/upgrade/cluster/nodes'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='ClusterNodesExtended',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_cluster_node(self, cluster_node_id, **kwargs):
-        """
-        
-        The node details useful during an upgrade or assessment.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_cluster_node(cluster_node_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int cluster_node_id: The node details useful during an upgrade or assessment. (required)
-        :return: ClusterNodesExtended
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['cluster_node_id']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_cluster_node" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'cluster_node_id' is set
-        if ('cluster_node_id' not in params) or (params['cluster_node_id'] is None):
-            raise ValueError("Missing the required parameter `cluster_node_id` when calling `get_cluster_node`")
-
-        resource_path = '/platform/3/upgrade/cluster/nodes/{ClusterNodeId}'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'cluster_node_id' in params:
-            path_params['ClusterNodeId'] = params['cluster_node_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='ClusterNodesExtended',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_cluster_nodes_lnn_firmware_status(self, lnn, **kwargs):
-        """
-        
-        The firmware status for the node.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_cluster_nodes_lnn_firmware_status(lnn, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int lnn:  (required)
-        :param bool devices: Show devices. If false, this returns an empty list. Default is false.
-        :param bool package: Show package. If false, this returns an empty list.Default is false.
-        :return: ClusterNodesLnnFirmwareStatus
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['lnn', 'devices', 'package']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_cluster_nodes_lnn_firmware_status" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'lnn' is set
-        if ('lnn' not in params) or (params['lnn'] is None):
-            raise ValueError("Missing the required parameter `lnn` when calling `get_cluster_nodes_lnn_firmware_status`")
-
-        resource_path = '/platform/3/upgrade/cluster/nodes/{Lnn}/firmware/status'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'lnn' in params:
-            path_params['Lnn'] = params['lnn']
-
-        query_params = {}
-        if 'devices' in params:
-            query_params['devices'] = params['devices']
-        if 'package' in params:
-            query_params['package'] = params['package']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='ClusterNodesLnnFirmwareStatus',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -1019,17 +552,16 @@ class UpgradeApi(object):
         if ('cluster_patch_abort_item' not in params) or (params['cluster_patch_abort_item'] is None):
             raise ValueError("Missing the required parameter `cluster_patch_abort_item` when calling `create_cluster_patch_abort_item`")
 
-        resource_path = '/platform/3/upgrade/cluster/patch/abort'.replace('{format}', 'json')
-        method = 'POST'
 
+        resource_path = '/platform/3/upgrade/cluster/patch/abort'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'cluster_patch_abort_item' in params:
@@ -1048,13 +580,13 @@ class UpgradeApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'POST',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='Empty',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
@@ -1098,17 +630,16 @@ class UpgradeApi(object):
         if ('cluster_retry_last_action_item' not in params) or (params['cluster_retry_last_action_item'] is None):
             raise ValueError("Missing the required parameter `cluster_retry_last_action_item` when calling `create_cluster_retry_last_action_item`")
 
-        resource_path = '/platform/3/upgrade/cluster/retry_last_action'.replace('{format}', 'json')
-        method = 'POST'
 
+        resource_path = '/platform/3/upgrade/cluster/retry_last_action'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'cluster_retry_last_action_item' in params:
@@ -1127,13 +658,13 @@ class UpgradeApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'POST',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='Empty',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
@@ -1177,17 +708,16 @@ class UpgradeApi(object):
         if ('cluster_rollback_item' not in params) or (params['cluster_rollback_item'] is None):
             raise ValueError("Missing the required parameter `cluster_rollback_item` when calling `create_cluster_rollback_item`")
 
-        resource_path = '/platform/3/upgrade/cluster/rollback'.replace('{format}', 'json')
-        method = 'POST'
 
+        resource_path = '/platform/3/upgrade/cluster/rollback'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'cluster_rollback_item' in params:
@@ -1206,93 +736,14 @@ class UpgradeApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'POST',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='Empty',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def update_cluster_upgrade(self, cluster_upgrade, **kwargs):
-        """
-        
-        Add nodes to a running upgrade.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_cluster_upgrade(cluster_upgrade, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param ClusterUpgrade cluster_upgrade:  (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['cluster_upgrade']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_cluster_upgrade" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'cluster_upgrade' is set
-        if ('cluster_upgrade' not in params) or (params['cluster_upgrade'] is None):
-            raise ValueError("Missing the required parameter `cluster_upgrade` when calling `update_cluster_upgrade`")
-
-        resource_path = '/platform/3/upgrade/cluster/upgrade'.replace('{format}', 'json')
-        method = 'PUT'
-
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-        if 'cluster_upgrade' in params:
-            body_params = params['cluster_upgrade']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -1335,17 +786,16 @@ class UpgradeApi(object):
         if ('cluster_upgrade_item' not in params) or (params['cluster_upgrade_item'] is None):
             raise ValueError("Missing the required parameter `cluster_upgrade_item` when calling `create_cluster_upgrade_item`")
 
-        resource_path = '/platform/3/upgrade/cluster/upgrade'.replace('{format}', 'json')
-        method = 'POST'
 
+        resource_path = '/platform/3/upgrade/cluster/upgrade'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'cluster_upgrade_item' in params:
@@ -1364,14 +814,464 @@ class UpgradeApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'POST',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='Empty',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_cluster_firmware_progress(self, **kwargs):
+        """
+        
+        Cluster wide firmware upgrade status info.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_cluster_firmware_progress(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: ClusterFirmwareProgress
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_cluster_firmware_progress" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/3/upgrade/cluster/firmware/progress'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='ClusterFirmwareProgress',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_cluster_firmware_status(self, **kwargs):
+        """
+        
+        The firmware status for the cluster.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_cluster_firmware_status(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param bool devices: Show devices. If false, this returns an empty list. Default is false.
+        :param bool package: Show package. If false, this returns an empty list.Default is false.
+        :return: ClusterFirmwareStatus
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['devices', 'package']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_cluster_firmware_status" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/3/upgrade/cluster/firmware/status'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'devices' in params:
+            query_params['devices'] = params['devices']
+        if 'package' in params:
+            query_params['package'] = params['package']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='ClusterFirmwareStatus',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_cluster_node(self, cluster_node_id, **kwargs):
+        """
+        
+        The node details useful during an upgrade or assessment.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_cluster_node(cluster_node_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int cluster_node_id: The node details useful during an upgrade or assessment. (required)
+        :return: ClusterNodesExtended
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['cluster_node_id']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_cluster_node" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'cluster_node_id' is set
+        if ('cluster_node_id' not in params) or (params['cluster_node_id'] is None):
+            raise ValueError("Missing the required parameter `cluster_node_id` when calling `get_cluster_node`")
+
+
+        resource_path = '/platform/3/upgrade/cluster/nodes/{ClusterNodeId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'cluster_node_id' in params:
+            path_params['ClusterNodeId'] = params['cluster_node_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='ClusterNodesExtended',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_cluster_nodes(self, **kwargs):
+        """
+        
+        View information about nodes during an upgrade, rollback, or pre-upgrade assessment.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_cluster_nodes(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: ClusterNodesExtended
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_cluster_nodes" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/3/upgrade/cluster/nodes'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='ClusterNodesExtended',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_upgrade_cluster(self, **kwargs):
+        """
+        
+        Cluster wide upgrade status info.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_upgrade_cluster(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: UpgradeCluster
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_upgrade_cluster" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+
+        resource_path = '/platform/3/upgrade/cluster'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='UpgradeCluster',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def update_cluster_upgrade(self, cluster_upgrade, **kwargs):
+        """
+        
+        Add nodes to a running upgrade.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_cluster_upgrade(cluster_upgrade, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param ClusterUpgrade cluster_upgrade:  (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['cluster_upgrade']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_cluster_upgrade" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'cluster_upgrade' is set
+        if ('cluster_upgrade' not in params) or (params['cluster_upgrade'] is None):
+            raise ValueError("Missing the required parameter `cluster_upgrade` when calling `update_cluster_upgrade`")
+
+
+        resource_path = '/platform/3/upgrade/cluster/upgrade'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'cluster_upgrade' in params:
+            body_params = params['cluster_upgrade']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'PUT',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response

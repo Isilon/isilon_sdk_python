@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class WormDomainExtended(object):
@@ -37,188 +38,78 @@ class WormDomainExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'override_date': 'int',
-            'max_retention': 'int',
-            'type': 'str',
-            'lin': 'int',
-            'path': 'str',
-            'incomplete': 'bool',
-            'default_retention': 'int',
-            'total_modifies': 'int',
-            'privileged_delete': 'str',
             'autocommit_offset': 'int',
-            'id': 'int',
+            'default_retention': 'int',
+            'max_retention': 'int',
             'min_retention': 'int',
-            'max_modifies': 'int'
+            'override_date': 'int',
+            'privileged_delete': 'str',
+            'type': 'str',
+            'id': 'int',
+            'incomplete': 'bool',
+            'lin': 'int',
+            'max_modifies': 'int',
+            'path': 'str',
+            'total_modifies': 'int'
         }
 
         self.attribute_map = {
-            'override_date': 'override_date',
-            'max_retention': 'max_retention',
-            'type': 'type',
-            'lin': 'lin',
-            'path': 'path',
-            'incomplete': 'incomplete',
-            'default_retention': 'default_retention',
-            'total_modifies': 'total_modifies',
-            'privileged_delete': 'privileged_delete',
             'autocommit_offset': 'autocommit_offset',
-            'id': 'id',
+            'default_retention': 'default_retention',
+            'max_retention': 'max_retention',
             'min_retention': 'min_retention',
-            'max_modifies': 'max_modifies'
+            'override_date': 'override_date',
+            'privileged_delete': 'privileged_delete',
+            'type': 'type',
+            'id': 'id',
+            'incomplete': 'incomplete',
+            'lin': 'lin',
+            'max_modifies': 'max_modifies',
+            'path': 'path',
+            'total_modifies': 'total_modifies'
         }
 
-        self._override_date = None
-        self._max_retention = None
-        self._type = None
-        self._lin = None
-        self._path = None
-        self._incomplete = None
-        self._default_retention = None
-        self._total_modifies = None
-        self._privileged_delete = None
         self._autocommit_offset = None
-        self._id = None
+        self._default_retention = None
+        self._max_retention = None
         self._min_retention = None
+        self._override_date = None
+        self._privileged_delete = None
+        self._type = None
+        self._id = None
+        self._incomplete = None
+        self._lin = None
         self._max_modifies = None
+        self._path = None
+        self._total_modifies = None
 
     @property
-    def override_date(self):
+    def autocommit_offset(self):
         """
-        Gets the override_date of this WormDomainExtended.
-        Specifies the override retention date for the domain. If this date is later than the retention date for any committed file, the file will remain protected until the override retention date.
+        Gets the autocommit_offset of this WormDomainExtended.
+        Specifies the autocommit time period for the domain in seconds.  After a file is in the domain without being modified for the specified time period, the file is automatically committed. If this parameter is set to null, there is no autocommit time, and files must be committed manually.
 
-        :return: The override_date of this WormDomainExtended.
+        :return: The autocommit_offset of this WormDomainExtended.
         :rtype: int
         """
-        return self._override_date
+        return self._autocommit_offset
 
-    @override_date.setter
-    def override_date(self, override_date):
+    @autocommit_offset.setter
+    def autocommit_offset(self, autocommit_offset):
         """
-        Sets the override_date of this WormDomainExtended.
-        Specifies the override retention date for the domain. If this date is later than the retention date for any committed file, the file will remain protected until the override retention date.
+        Sets the autocommit_offset of this WormDomainExtended.
+        Specifies the autocommit time period for the domain in seconds.  After a file is in the domain without being modified for the specified time period, the file is automatically committed. If this parameter is set to null, there is no autocommit time, and files must be committed manually.
 
-        :param override_date: The override_date of this WormDomainExtended.
+        :param autocommit_offset: The autocommit_offset of this WormDomainExtended.
         :type: int
         """
-        self._override_date = override_date
+        
+        if not autocommit_offset:
+            raise ValueError("Invalid value for `autocommit_offset`, must not be `None`")
+        if autocommit_offset < 0.0: 
+            raise ValueError("Invalid value for `autocommit_offset`, must be a value greater than or equal to `0.0`")
 
-    @property
-    def max_retention(self):
-        """
-        Gets the max_retention of this WormDomainExtended.
-        Specifies the maximum amount of time, in seconds, that a file in this domain will be protected. This setting will override the retention period of any file committed with a longer retention period. If this parameter is set to null, an infinite length retention period is set.
-
-        :return: The max_retention of this WormDomainExtended.
-        :rtype: int
-        """
-        return self._max_retention
-
-    @max_retention.setter
-    def max_retention(self, max_retention):
-        """
-        Sets the max_retention of this WormDomainExtended.
-        Specifies the maximum amount of time, in seconds, that a file in this domain will be protected. This setting will override the retention period of any file committed with a longer retention period. If this parameter is set to null, an infinite length retention period is set.
-
-        :param max_retention: The max_retention of this WormDomainExtended.
-        :type: int
-        """
-        self._max_retention = max_retention
-
-    @property
-    def type(self):
-        """
-        Gets the type of this WormDomainExtended.
-        Specifies whether the domain is an enterprise domain or a compliance domain. Compliance domains can not be created on enterprise clusters. Enterprise and compliance domains can be created on compliance clusters.
-
-        :return: The type of this WormDomainExtended.
-        :rtype: str
-        """
-        return self._type
-
-    @type.setter
-    def type(self, type):
-        """
-        Sets the type of this WormDomainExtended.
-        Specifies whether the domain is an enterprise domain or a compliance domain. Compliance domains can not be created on enterprise clusters. Enterprise and compliance domains can be created on compliance clusters.
-
-        :param type: The type of this WormDomainExtended.
-        :type: str
-        """
-        allowed_values = ["enterprise", "compliance"]
-        if type not in allowed_values:
-            raise ValueError(
-                "Invalid value for `type`, must be one of {0}"
-                .format(allowed_values)
-            )
-        self._type = type
-
-    @property
-    def lin(self):
-        """
-        Gets the lin of this WormDomainExtended.
-        Specifies the logical inode number (LIN) for the root of this domain.
-
-        :return: The lin of this WormDomainExtended.
-        :rtype: int
-        """
-        return self._lin
-
-    @lin.setter
-    def lin(self, lin):
-        """
-        Sets the lin of this WormDomainExtended.
-        Specifies the logical inode number (LIN) for the root of this domain.
-
-        :param lin: The lin of this WormDomainExtended.
-        :type: int
-        """
-        self._lin = lin
-
-    @property
-    def path(self):
-        """
-        Gets the path of this WormDomainExtended.
-        Specifies the root path of this domain. Files in this directory and all sub-directories will be protected.
-
-        :return: The path of this WormDomainExtended.
-        :rtype: str
-        """
-        return self._path
-
-    @path.setter
-    def path(self, path):
-        """
-        Sets the path of this WormDomainExtended.
-        Specifies the root path of this domain. Files in this directory and all sub-directories will be protected.
-
-        :param path: The path of this WormDomainExtended.
-        :type: str
-        """
-        self._path = path
-
-    @property
-    def incomplete(self):
-        """
-        Gets the incomplete of this WormDomainExtended.
-        True if OneFS is still in the process of creating this domain and is unable to prevent files from being modified or deleted. If false, indicates that the domain is fully created and is able to prevent files from being modified or deleted.
-
-        :return: The incomplete of this WormDomainExtended.
-        :rtype: bool
-        """
-        return self._incomplete
-
-    @incomplete.setter
-    def incomplete(self, incomplete):
-        """
-        Sets the incomplete of this WormDomainExtended.
-        True if OneFS is still in the process of creating this domain and is unable to prevent files from being modified or deleted. If false, indicates that the domain is fully created and is able to prevent files from being modified or deleted.
-
-        :param incomplete: The incomplete of this WormDomainExtended.
-        :type: bool
-        """
-        self._incomplete = incomplete
+        self._autocommit_offset = autocommit_offset
 
     @property
     def default_retention(self):
@@ -240,29 +131,97 @@ class WormDomainExtended(object):
         :param default_retention: The default_retention of this WormDomainExtended.
         :type: int
         """
+        
+        if not default_retention:
+            raise ValueError("Invalid value for `default_retention`, must not be `None`")
+        if default_retention < 0.0: 
+            raise ValueError("Invalid value for `default_retention`, must be a value greater than or equal to `0.0`")
+
         self._default_retention = default_retention
 
     @property
-    def total_modifies(self):
+    def max_retention(self):
         """
-        Gets the total_modifies of this WormDomainExtended.
-        Specifies the number of times this domain has been modified and the number of times the attributes for the domain have changed. A SmartLock domain can be modified a fixed number of times as defined by the 'max_modifies' parameter.
+        Gets the max_retention of this WormDomainExtended.
+        Specifies the maximum amount of time, in seconds, that a file in this domain will be protected. This setting will override the retention period of any file committed with a longer retention period. If this parameter is set to null, an infinite length retention period is set.
 
-        :return: The total_modifies of this WormDomainExtended.
+        :return: The max_retention of this WormDomainExtended.
         :rtype: int
         """
-        return self._total_modifies
+        return self._max_retention
 
-    @total_modifies.setter
-    def total_modifies(self, total_modifies):
+    @max_retention.setter
+    def max_retention(self, max_retention):
         """
-        Sets the total_modifies of this WormDomainExtended.
-        Specifies the number of times this domain has been modified and the number of times the attributes for the domain have changed. A SmartLock domain can be modified a fixed number of times as defined by the 'max_modifies' parameter.
+        Sets the max_retention of this WormDomainExtended.
+        Specifies the maximum amount of time, in seconds, that a file in this domain will be protected. This setting will override the retention period of any file committed with a longer retention period. If this parameter is set to null, an infinite length retention period is set.
 
-        :param total_modifies: The total_modifies of this WormDomainExtended.
+        :param max_retention: The max_retention of this WormDomainExtended.
         :type: int
         """
-        self._total_modifies = total_modifies
+        
+        if not max_retention:
+            raise ValueError("Invalid value for `max_retention`, must not be `None`")
+        if max_retention < 0.0: 
+            raise ValueError("Invalid value for `max_retention`, must be a value greater than or equal to `0.0`")
+
+        self._max_retention = max_retention
+
+    @property
+    def min_retention(self):
+        """
+        Gets the min_retention of this WormDomainExtended.
+        Specifies the minimum amount of time, in seconds, that a file in this domain will be protected. This setting will override the retention period of any file committed with a shorter retention period. If this parameter is set to null, this minimum value is not enforced. This parameter can also be set to 'forever'.
+
+        :return: The min_retention of this WormDomainExtended.
+        :rtype: int
+        """
+        return self._min_retention
+
+    @min_retention.setter
+    def min_retention(self, min_retention):
+        """
+        Sets the min_retention of this WormDomainExtended.
+        Specifies the minimum amount of time, in seconds, that a file in this domain will be protected. This setting will override the retention period of any file committed with a shorter retention period. If this parameter is set to null, this minimum value is not enforced. This parameter can also be set to 'forever'.
+
+        :param min_retention: The min_retention of this WormDomainExtended.
+        :type: int
+        """
+        
+        if not min_retention:
+            raise ValueError("Invalid value for `min_retention`, must not be `None`")
+        if min_retention < 0.0: 
+            raise ValueError("Invalid value for `min_retention`, must be a value greater than or equal to `0.0`")
+
+        self._min_retention = min_retention
+
+    @property
+    def override_date(self):
+        """
+        Gets the override_date of this WormDomainExtended.
+        Specifies the override retention date for the domain. If this date is later than the retention date for any committed file, the file will remain protected until the override retention date.
+
+        :return: The override_date of this WormDomainExtended.
+        :rtype: int
+        """
+        return self._override_date
+
+    @override_date.setter
+    def override_date(self, override_date):
+        """
+        Sets the override_date of this WormDomainExtended.
+        Specifies the override retention date for the domain. If this date is later than the retention date for any committed file, the file will remain protected until the override retention date.
+
+        :param override_date: The override_date of this WormDomainExtended.
+        :type: int
+        """
+        
+        if not override_date:
+            raise ValueError("Invalid value for `override_date`, must not be `None`")
+        if override_date < 0.0: 
+            raise ValueError("Invalid value for `override_date`, must be a value greater than or equal to `0.0`")
+
+        self._override_date = override_date
 
     @property
     def privileged_delete(self):
@@ -290,29 +249,37 @@ class WormDomainExtended(object):
                 "Invalid value for `privileged_delete`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._privileged_delete = privileged_delete
 
     @property
-    def autocommit_offset(self):
+    def type(self):
         """
-        Gets the autocommit_offset of this WormDomainExtended.
-        Specifies the autocommit time period for the domain in seconds.  After a file is in the domain without being modified for the specified time period, the file is automatically committed. If this parameter is set to null, there is no autocommit time, and files must be committed manually.
+        Gets the type of this WormDomainExtended.
+        Specifies whether the domain is an enterprise domain or a compliance domain. Compliance domains can not be created on enterprise clusters. Enterprise and compliance domains can be created on compliance clusters.
 
-        :return: The autocommit_offset of this WormDomainExtended.
-        :rtype: int
+        :return: The type of this WormDomainExtended.
+        :rtype: str
         """
-        return self._autocommit_offset
+        return self._type
 
-    @autocommit_offset.setter
-    def autocommit_offset(self, autocommit_offset):
+    @type.setter
+    def type(self, type):
         """
-        Sets the autocommit_offset of this WormDomainExtended.
-        Specifies the autocommit time period for the domain in seconds.  After a file is in the domain without being modified for the specified time period, the file is automatically committed. If this parameter is set to null, there is no autocommit time, and files must be committed manually.
+        Sets the type of this WormDomainExtended.
+        Specifies whether the domain is an enterprise domain or a compliance domain. Compliance domains can not be created on enterprise clusters. Enterprise and compliance domains can be created on compliance clusters.
 
-        :param autocommit_offset: The autocommit_offset of this WormDomainExtended.
-        :type: int
+        :param type: The type of this WormDomainExtended.
+        :type: str
         """
-        self._autocommit_offset = autocommit_offset
+        allowed_values = ["enterprise", "compliance"]
+        if type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `type`, must be one of {0}"
+                .format(allowed_values)
+            )
+
+        self._type = type
 
     @property
     def id(self):
@@ -334,29 +301,54 @@ class WormDomainExtended(object):
         :param id: The id of this WormDomainExtended.
         :type: int
         """
+        
         self._id = id
 
     @property
-    def min_retention(self):
+    def incomplete(self):
         """
-        Gets the min_retention of this WormDomainExtended.
-        Specifies the minimum amount of time, in seconds, that a file in this domain will be protected. This setting will override the retention period of any file committed with a shorter retention period. If this parameter is set to null, this minimum value is not enforced. This parameter can also be set to 'forever'.
+        Gets the incomplete of this WormDomainExtended.
+        True if OneFS is still in the process of creating this domain and is unable to prevent files from being modified or deleted. If false, indicates that the domain is fully created and is able to prevent files from being modified or deleted.
 
-        :return: The min_retention of this WormDomainExtended.
+        :return: The incomplete of this WormDomainExtended.
+        :rtype: bool
+        """
+        return self._incomplete
+
+    @incomplete.setter
+    def incomplete(self, incomplete):
+        """
+        Sets the incomplete of this WormDomainExtended.
+        True if OneFS is still in the process of creating this domain and is unable to prevent files from being modified or deleted. If false, indicates that the domain is fully created and is able to prevent files from being modified or deleted.
+
+        :param incomplete: The incomplete of this WormDomainExtended.
+        :type: bool
+        """
+        
+        self._incomplete = incomplete
+
+    @property
+    def lin(self):
+        """
+        Gets the lin of this WormDomainExtended.
+        Specifies the logical inode number (LIN) for the root of this domain.
+
+        :return: The lin of this WormDomainExtended.
         :rtype: int
         """
-        return self._min_retention
+        return self._lin
 
-    @min_retention.setter
-    def min_retention(self, min_retention):
+    @lin.setter
+    def lin(self, lin):
         """
-        Sets the min_retention of this WormDomainExtended.
-        Specifies the minimum amount of time, in seconds, that a file in this domain will be protected. This setting will override the retention period of any file committed with a shorter retention period. If this parameter is set to null, this minimum value is not enforced. This parameter can also be set to 'forever'.
+        Sets the lin of this WormDomainExtended.
+        Specifies the logical inode number (LIN) for the root of this domain.
 
-        :param min_retention: The min_retention of this WormDomainExtended.
+        :param lin: The lin of this WormDomainExtended.
         :type: int
         """
-        self._min_retention = min_retention
+        
+        self._lin = lin
 
     @property
     def max_modifies(self):
@@ -378,7 +370,54 @@ class WormDomainExtended(object):
         :param max_modifies: The max_modifies of this WormDomainExtended.
         :type: int
         """
+        
         self._max_modifies = max_modifies
+
+    @property
+    def path(self):
+        """
+        Gets the path of this WormDomainExtended.
+        Specifies the root path of this domain. Files in this directory and all sub-directories will be protected.
+
+        :return: The path of this WormDomainExtended.
+        :rtype: str
+        """
+        return self._path
+
+    @path.setter
+    def path(self, path):
+        """
+        Sets the path of this WormDomainExtended.
+        Specifies the root path of this domain. Files in this directory and all sub-directories will be protected.
+
+        :param path: The path of this WormDomainExtended.
+        :type: str
+        """
+        
+        self._path = path
+
+    @property
+    def total_modifies(self):
+        """
+        Gets the total_modifies of this WormDomainExtended.
+        Specifies the number of times this domain has been modified and the number of times the attributes for the domain have changed. A SmartLock domain can be modified a fixed number of times as defined by the 'max_modifies' parameter.
+
+        :return: The total_modifies of this WormDomainExtended.
+        :rtype: int
+        """
+        return self._total_modifies
+
+    @total_modifies.setter
+    def total_modifies(self, total_modifies):
+        """
+        Sets the total_modifies of this WormDomainExtended.
+        Specifies the number of times this domain has been modified and the number of times the attributes for the domain have changed. A SmartLock domain can be modified a fixed number of times as defined by the 'max_modifies' parameter.
+
+        :param total_modifies: The total_modifies of this WormDomainExtended.
+        :type: int
+        """
+        
+        self._total_modifies = total_modifies
 
     def to_dict(self):
         """
@@ -395,6 +434,12 @@ class WormDomainExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -412,14 +457,14 @@ class WormDomainExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

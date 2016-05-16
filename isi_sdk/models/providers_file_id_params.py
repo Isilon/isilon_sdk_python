@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class ProvidersFileIdParams(object):
@@ -159,6 +160,7 @@ class ProvidersFileIdParams(object):
         :param authentication: The authentication of this ProvidersFileIdParams.
         :type: bool
         """
+        
         self._authentication = authentication
 
     @property
@@ -181,6 +183,7 @@ class ProvidersFileIdParams(object):
         :param create_home_directory: The create_home_directory of this ProvidersFileIdParams.
         :type: bool
         """
+        
         self._create_home_directory = create_home_directory
 
     @property
@@ -203,6 +206,7 @@ class ProvidersFileIdParams(object):
         :param enabled: The enabled of this ProvidersFileIdParams.
         :type: bool
         """
+        
         self._enabled = enabled
 
     @property
@@ -225,6 +229,7 @@ class ProvidersFileIdParams(object):
         :param enumerate_groups: The enumerate_groups of this ProvidersFileIdParams.
         :type: bool
         """
+        
         self._enumerate_groups = enumerate_groups
 
     @property
@@ -247,6 +252,7 @@ class ProvidersFileIdParams(object):
         :param enumerate_users: The enumerate_users of this ProvidersFileIdParams.
         :type: bool
         """
+        
         self._enumerate_users = enumerate_users
 
     @property
@@ -269,6 +275,7 @@ class ProvidersFileIdParams(object):
         :param findable_groups: The findable_groups of this ProvidersFileIdParams.
         :type: list[str]
         """
+        
         self._findable_groups = findable_groups
 
     @property
@@ -291,6 +298,7 @@ class ProvidersFileIdParams(object):
         :param findable_users: The findable_users of this ProvidersFileIdParams.
         :type: list[str]
         """
+        
         self._findable_users = findable_users
 
     @property
@@ -313,6 +321,7 @@ class ProvidersFileIdParams(object):
         :param group_domain: The group_domain of this ProvidersFileIdParams.
         :type: str
         """
+        
         self._group_domain = group_domain
 
     @property
@@ -335,6 +344,7 @@ class ProvidersFileIdParams(object):
         :param group_file: The group_file of this ProvidersFileIdParams.
         :type: str
         """
+        
         self._group_file = group_file
 
     @property
@@ -357,6 +367,7 @@ class ProvidersFileIdParams(object):
         :param home_directory_template: The home_directory_template of this ProvidersFileIdParams.
         :type: str
         """
+        
         self._home_directory_template = home_directory_template
 
     @property
@@ -379,6 +390,7 @@ class ProvidersFileIdParams(object):
         :param listable_groups: The listable_groups of this ProvidersFileIdParams.
         :type: list[str]
         """
+        
         self._listable_groups = listable_groups
 
     @property
@@ -401,6 +413,7 @@ class ProvidersFileIdParams(object):
         :param listable_users: The listable_users of this ProvidersFileIdParams.
         :type: list[str]
         """
+        
         self._listable_users = listable_users
 
     @property
@@ -423,6 +436,7 @@ class ProvidersFileIdParams(object):
         :param login_shell: The login_shell of this ProvidersFileIdParams.
         :type: str
         """
+        
         self._login_shell = login_shell
 
     @property
@@ -445,6 +459,7 @@ class ProvidersFileIdParams(object):
         :param modifiable_groups: The modifiable_groups of this ProvidersFileIdParams.
         :type: list[str]
         """
+        
         self._modifiable_groups = modifiable_groups
 
     @property
@@ -467,6 +482,7 @@ class ProvidersFileIdParams(object):
         :param modifiable_users: The modifiable_users of this ProvidersFileIdParams.
         :type: list[str]
         """
+        
         self._modifiable_users = modifiable_users
 
     @property
@@ -489,6 +505,7 @@ class ProvidersFileIdParams(object):
         :param name: The name of this ProvidersFileIdParams.
         :type: str
         """
+        
         self._name = name
 
     @property
@@ -511,6 +528,7 @@ class ProvidersFileIdParams(object):
         :param netgroup_file: The netgroup_file of this ProvidersFileIdParams.
         :type: str
         """
+        
         self._netgroup_file = netgroup_file
 
     @property
@@ -533,6 +551,7 @@ class ProvidersFileIdParams(object):
         :param normalize_groups: The normalize_groups of this ProvidersFileIdParams.
         :type: bool
         """
+        
         self._normalize_groups = normalize_groups
 
     @property
@@ -555,6 +574,7 @@ class ProvidersFileIdParams(object):
         :param normalize_users: The normalize_users of this ProvidersFileIdParams.
         :type: bool
         """
+        
         self._normalize_users = normalize_users
 
     @property
@@ -583,6 +603,7 @@ class ProvidersFileIdParams(object):
                 "Invalid value for `ntlm_support`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._ntlm_support = ntlm_support
 
     @property
@@ -605,6 +626,7 @@ class ProvidersFileIdParams(object):
         :param password_file: The password_file of this ProvidersFileIdParams.
         :type: str
         """
+        
         self._password_file = password_file
 
     @property
@@ -627,6 +649,7 @@ class ProvidersFileIdParams(object):
         :param provider_domain: The provider_domain of this ProvidersFileIdParams.
         :type: str
         """
+        
         self._provider_domain = provider_domain
 
     @property
@@ -649,6 +672,7 @@ class ProvidersFileIdParams(object):
         :param restrict_findable: The restrict_findable of this ProvidersFileIdParams.
         :type: bool
         """
+        
         self._restrict_findable = restrict_findable
 
     @property
@@ -671,6 +695,7 @@ class ProvidersFileIdParams(object):
         :param restrict_listable: The restrict_listable of this ProvidersFileIdParams.
         :type: bool
         """
+        
         self._restrict_listable = restrict_listable
 
     @property
@@ -693,6 +718,7 @@ class ProvidersFileIdParams(object):
         :param restrict_modifiable: The restrict_modifiable of this ProvidersFileIdParams.
         :type: bool
         """
+        
         self._restrict_modifiable = restrict_modifiable
 
     @property
@@ -715,6 +741,7 @@ class ProvidersFileIdParams(object):
         :param unfindable_groups: The unfindable_groups of this ProvidersFileIdParams.
         :type: list[str]
         """
+        
         self._unfindable_groups = unfindable_groups
 
     @property
@@ -737,6 +764,7 @@ class ProvidersFileIdParams(object):
         :param unfindable_users: The unfindable_users of this ProvidersFileIdParams.
         :type: list[str]
         """
+        
         self._unfindable_users = unfindable_users
 
     @property
@@ -759,6 +787,7 @@ class ProvidersFileIdParams(object):
         :param unlistable_groups: The unlistable_groups of this ProvidersFileIdParams.
         :type: list[str]
         """
+        
         self._unlistable_groups = unlistable_groups
 
     @property
@@ -781,6 +810,7 @@ class ProvidersFileIdParams(object):
         :param unlistable_users: The unlistable_users of this ProvidersFileIdParams.
         :type: list[str]
         """
+        
         self._unlistable_users = unlistable_users
 
     @property
@@ -803,6 +833,7 @@ class ProvidersFileIdParams(object):
         :param unmodifiable_groups: The unmodifiable_groups of this ProvidersFileIdParams.
         :type: list[str]
         """
+        
         self._unmodifiable_groups = unmodifiable_groups
 
     @property
@@ -825,6 +856,7 @@ class ProvidersFileIdParams(object):
         :param unmodifiable_users: The unmodifiable_users of this ProvidersFileIdParams.
         :type: list[str]
         """
+        
         self._unmodifiable_users = unmodifiable_users
 
     @property
@@ -847,6 +879,7 @@ class ProvidersFileIdParams(object):
         :param user_domain: The user_domain of this ProvidersFileIdParams.
         :type: str
         """
+        
         self._user_domain = user_domain
 
     def to_dict(self):
@@ -864,6 +897,12 @@ class ProvidersFileIdParams(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -881,14 +920,14 @@ class ProvidersFileIdParams(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

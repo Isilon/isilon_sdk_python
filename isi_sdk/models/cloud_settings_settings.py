@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class CloudSettingsSettings(object):
@@ -108,6 +109,7 @@ class CloudSettingsSettings(object):
         :param cloud_policy_defaults: The cloud_policy_defaults of this CloudSettingsSettings.
         :type: Empty
         """
+        
         self._cloud_policy_defaults = cloud_policy_defaults
 
     @property
@@ -130,6 +132,7 @@ class CloudSettingsSettings(object):
         :param retry_coefficient_archive: The retry_coefficient_archive of this CloudSettingsSettings.
         :type: str
         """
+        
         self._retry_coefficient_archive = retry_coefficient_archive
 
     @property
@@ -152,6 +155,7 @@ class CloudSettingsSettings(object):
         :param retry_coefficient_cache_invalidation: The retry_coefficient_cache_invalidation of this CloudSettingsSettings.
         :type: str
         """
+        
         self._retry_coefficient_cache_invalidation = retry_coefficient_cache_invalidation
 
     @property
@@ -174,6 +178,7 @@ class CloudSettingsSettings(object):
         :param retry_coefficient_cloud_garbage_collection: The retry_coefficient_cloud_garbage_collection of this CloudSettingsSettings.
         :type: str
         """
+        
         self._retry_coefficient_cloud_garbage_collection = retry_coefficient_cloud_garbage_collection
 
     @property
@@ -196,6 +201,7 @@ class CloudSettingsSettings(object):
         :param retry_coefficient_local_garbage_collection: The retry_coefficient_local_garbage_collection of this CloudSettingsSettings.
         :type: str
         """
+        
         self._retry_coefficient_local_garbage_collection = retry_coefficient_local_garbage_collection
 
     @property
@@ -218,6 +224,7 @@ class CloudSettingsSettings(object):
         :param retry_coefficient_read_ahead: The retry_coefficient_read_ahead of this CloudSettingsSettings.
         :type: str
         """
+        
         self._retry_coefficient_read_ahead = retry_coefficient_read_ahead
 
     @property
@@ -240,6 +247,7 @@ class CloudSettingsSettings(object):
         :param retry_coefficient_recall: The retry_coefficient_recall of this CloudSettingsSettings.
         :type: str
         """
+        
         self._retry_coefficient_recall = retry_coefficient_recall
 
     @property
@@ -262,6 +270,7 @@ class CloudSettingsSettings(object):
         :param retry_coefficient_writeback: The retry_coefficient_writeback of this CloudSettingsSettings.
         :type: str
         """
+        
         self._retry_coefficient_writeback = retry_coefficient_writeback
 
     @property
@@ -284,6 +293,7 @@ class CloudSettingsSettings(object):
         :param sleep_timeout_archive: The sleep_timeout_archive of this CloudSettingsSettings.
         :type: CloudSettingsSettingsSleepTimeoutCloudGarbageCollection
         """
+        
         self._sleep_timeout_archive = sleep_timeout_archive
 
     @property
@@ -306,6 +316,7 @@ class CloudSettingsSettings(object):
         :param sleep_timeout_cache_invalidation: The sleep_timeout_cache_invalidation of this CloudSettingsSettings.
         :type: CloudSettingsSettingsSleepTimeoutCloudGarbageCollection
         """
+        
         self._sleep_timeout_cache_invalidation = sleep_timeout_cache_invalidation
 
     @property
@@ -328,6 +339,7 @@ class CloudSettingsSettings(object):
         :param sleep_timeout_cloud_garbage_collection: The sleep_timeout_cloud_garbage_collection of this CloudSettingsSettings.
         :type: CloudSettingsSettingsSleepTimeoutCloudGarbageCollection
         """
+        
         self._sleep_timeout_cloud_garbage_collection = sleep_timeout_cloud_garbage_collection
 
     @property
@@ -350,6 +362,7 @@ class CloudSettingsSettings(object):
         :param sleep_timeout_local_garbage_collection: The sleep_timeout_local_garbage_collection of this CloudSettingsSettings.
         :type: CloudSettingsSettingsSleepTimeoutCloudGarbageCollection
         """
+        
         self._sleep_timeout_local_garbage_collection = sleep_timeout_local_garbage_collection
 
     @property
@@ -372,6 +385,7 @@ class CloudSettingsSettings(object):
         :param sleep_timeout_read_ahead: The sleep_timeout_read_ahead of this CloudSettingsSettings.
         :type: CloudSettingsSettingsSleepTimeoutCloudGarbageCollection
         """
+        
         self._sleep_timeout_read_ahead = sleep_timeout_read_ahead
 
     @property
@@ -394,6 +408,7 @@ class CloudSettingsSettings(object):
         :param sleep_timeout_recall: The sleep_timeout_recall of this CloudSettingsSettings.
         :type: CloudSettingsSettingsSleepTimeoutCloudGarbageCollection
         """
+        
         self._sleep_timeout_recall = sleep_timeout_recall
 
     @property
@@ -416,6 +431,7 @@ class CloudSettingsSettings(object):
         :param sleep_timeout_writeback: The sleep_timeout_writeback of this CloudSettingsSettings.
         :type: CloudSettingsSettingsSleepTimeoutCloudGarbageCollection
         """
+        
         self._sleep_timeout_writeback = sleep_timeout_writeback
 
     def to_dict(self):
@@ -433,6 +449,12 @@ class CloudSettingsSettings(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -450,14 +472,14 @@ class CloudSettingsSettings(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

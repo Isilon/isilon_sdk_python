@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class SnapshotChangelists(object):
@@ -84,6 +85,7 @@ class SnapshotChangelists(object):
         :param id: The id of this SnapshotChangelists.
         :type: str
         """
+        
         self._id = id
 
     @property
@@ -106,6 +108,7 @@ class SnapshotChangelists(object):
         :param job_id: The job_id of this SnapshotChangelists.
         :type: int
         """
+        
         self._job_id = job_id
 
     @property
@@ -128,6 +131,7 @@ class SnapshotChangelists(object):
         :param num_entries: The num_entries of this SnapshotChangelists.
         :type: int
         """
+        
         self._num_entries = num_entries
 
     @property
@@ -150,6 +154,7 @@ class SnapshotChangelists(object):
         :param root_path: The root_path of this SnapshotChangelists.
         :type: str
         """
+        
         self._root_path = root_path
 
     @property
@@ -172,6 +177,7 @@ class SnapshotChangelists(object):
         :param snap1: The snap1 of this SnapshotChangelists.
         :type: int
         """
+        
         self._snap1 = snap1
 
     @property
@@ -194,6 +200,7 @@ class SnapshotChangelists(object):
         :param snap2: The snap2 of this SnapshotChangelists.
         :type: int
         """
+        
         self._snap2 = snap2
 
     @property
@@ -216,6 +223,7 @@ class SnapshotChangelists(object):
         :param status: The status of this SnapshotChangelists.
         :type: str
         """
+        
         self._status = status
 
     def to_dict(self):
@@ -233,6 +241,12 @@ class SnapshotChangelists(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -250,14 +264,14 @@ class SnapshotChangelists(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

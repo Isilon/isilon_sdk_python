@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class QuotaQuotasExtended(object):
@@ -37,39 +38,17 @@ class QuotaQuotasExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'resume': 'str',
-            'quotas': 'list[QuotaQuotaExtended]'
+            'quotas': 'list[QuotaQuotaExtended]',
+            'resume': 'str'
         }
 
         self.attribute_map = {
-            'resume': 'resume',
-            'quotas': 'quotas'
+            'quotas': 'quotas',
+            'resume': 'resume'
         }
 
-        self._resume = None
         self._quotas = None
-
-    @property
-    def resume(self):
-        """
-        Gets the resume of this QuotaQuotasExtended.
-        Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
-
-        :return: The resume of this QuotaQuotasExtended.
-        :rtype: str
-        """
-        return self._resume
-
-    @resume.setter
-    def resume(self, resume):
-        """
-        Sets the resume of this QuotaQuotasExtended.
-        Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
-
-        :param resume: The resume of this QuotaQuotasExtended.
-        :type: str
-        """
-        self._resume = resume
+        self._resume = None
 
     @property
     def quotas(self):
@@ -91,7 +70,31 @@ class QuotaQuotasExtended(object):
         :param quotas: The quotas of this QuotaQuotasExtended.
         :type: list[QuotaQuotaExtended]
         """
+        
         self._quotas = quotas
+
+    @property
+    def resume(self):
+        """
+        Gets the resume of this QuotaQuotasExtended.
+        Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
+
+        :return: The resume of this QuotaQuotasExtended.
+        :rtype: str
+        """
+        return self._resume
+
+    @resume.setter
+    def resume(self, resume):
+        """
+        Sets the resume of this QuotaQuotasExtended.
+        Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
+
+        :param resume: The resume of this QuotaQuotasExtended.
+        :type: str
+        """
+        
+        self._resume = resume
 
     def to_dict(self):
         """
@@ -108,6 +111,12 @@ class QuotaQuotasExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -125,14 +134,14 @@ class QuotaQuotasExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

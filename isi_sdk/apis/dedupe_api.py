@@ -2,7 +2,7 @@
 
 """
 DedupeApi.py
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@ from __future__ import absolute_import
 
 import sys
 import os
+import re
 
 # python 2 and python 3 compatibility library
 from six import iteritems
@@ -79,17 +80,16 @@ class DedupeApi(object):
         del params['kwargs']
 
 
-        resource_path = '/platform/1/dedupe/dedupe-summary'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/1/dedupe/dedupe-summary'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -106,14 +106,95 @@ class DedupeApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='DedupeDedupeSummary',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_dedupe_report(self, dedupe_report_id, **kwargs):
+        """
+        
+        Retrieve a report for a single dedupe job.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_dedupe_report(dedupe_report_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str dedupe_report_id: Retrieve a report for a single dedupe job. (required)
+        :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
+        :return: DedupeReports
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['dedupe_report_id', 'scope']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_dedupe_report" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'dedupe_report_id' is set
+        if ('dedupe_report_id' not in params) or (params['dedupe_report_id'] is None):
+            raise ValueError("Missing the required parameter `dedupe_report_id` when calling `get_dedupe_report`")
+
+
+        resource_path = '/platform/1/dedupe/reports/{DedupeReportId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'dedupe_report_id' in params:
+            path_params['DedupeReportId'] = params['dedupe_report_id']
+
+        query_params = {}
+        if 'scope' in params:
+            query_params['scope'] = params['scope']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['basic_auth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='DedupeReports',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -160,9 +241,10 @@ class DedupeApi(object):
         del params['kwargs']
 
 
-        resource_path = '/platform/1/dedupe/reports'.replace('{format}', 'json')
-        method = 'GET'
+        if 'limit' in params and params['limit'] < 1.0: 
+            raise ValueError("Invalid value for parameter `limit` when calling `get_dedupe_reports`, must be a value greater than or equal to `1.0`")
 
+        resource_path = '/platform/1/dedupe/reports'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
@@ -185,8 +267,8 @@ class DedupeApi(object):
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -203,96 +285,14 @@ class DedupeApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='DedupeReportsExtended',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_dedupe_report(self, dedupe_report_id, **kwargs):
-        """
-        
-        Retrieve a report for a single dedupe job.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_dedupe_report(dedupe_report_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str dedupe_report_id: Retrieve a report for a single dedupe job. (required)
-        :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
-        :return: DedupeReports
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['dedupe_report_id', 'scope']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_dedupe_report" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'dedupe_report_id' is set
-        if ('dedupe_report_id' not in params) or (params['dedupe_report_id'] is None):
-            raise ValueError("Missing the required parameter `dedupe_report_id` when calling `get_dedupe_report`")
-
-        resource_path = '/platform/1/dedupe/reports/{DedupeReportId}'.replace('{format}', 'json')
-        method = 'GET'
-
-        path_params = {}
-        if 'dedupe_report_id' in params:
-            path_params['DedupeReportId'] = params['dedupe_report_id']
-
-        query_params = {}
-        if 'scope' in params:
-            query_params['scope'] = params['scope']
-
-        header_params = {}
-
-        form_params = {}
-        files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['basic_auth']
-
-        response = self.api_client.call_api(resource_path, method,
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=files,
-                                            response_type='DedupeReports',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -331,17 +331,16 @@ class DedupeApi(object):
         del params['kwargs']
 
 
-        resource_path = '/platform/1/dedupe/settings'.replace('{format}', 'json')
-        method = 'GET'
 
+        resource_path = '/platform/1/dedupe/settings'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
 
@@ -358,13 +357,13 @@ class DedupeApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type='DedupeSettings',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
@@ -408,17 +407,16 @@ class DedupeApi(object):
         if ('dedupe_settings' not in params) or (params['dedupe_settings'] is None):
             raise ValueError("Missing the required parameter `dedupe_settings` when calling `update_dedupe_settings`")
 
-        resource_path = '/platform/1/dedupe/settings'.replace('{format}', 'json')
-        method = 'PUT'
 
+        resource_path = '/platform/1/dedupe/settings'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
 
         header_params = {}
 
-        form_params = {}
-        files = {}
+        form_params = []
+        local_var_files = {}
 
         body_params = None
         if 'dedupe_settings' in params:
@@ -437,13 +435,13 @@ class DedupeApi(object):
         # Authentication setting
         auth_settings = ['basic_auth']
 
-        response = self.api_client.call_api(resource_path, method,
+        response = self.api_client.call_api(resource_path, 'PUT',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
-                                            files=files,
+                                            files=local_var_files,
                                             response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))

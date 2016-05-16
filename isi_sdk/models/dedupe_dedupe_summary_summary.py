@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class DedupeDedupeSummarySummary(object):
@@ -84,6 +85,7 @@ class DedupeDedupeSummarySummary(object):
         :param block_size: The block_size of this DedupeDedupeSummarySummary.
         :type: float
         """
+        
         self._block_size = block_size
 
     @property
@@ -106,6 +108,7 @@ class DedupeDedupeSummarySummary(object):
         :param estimated_physical_blocks: The estimated_physical_blocks of this DedupeDedupeSummarySummary.
         :type: float
         """
+        
         self._estimated_physical_blocks = estimated_physical_blocks
 
     @property
@@ -128,6 +131,7 @@ class DedupeDedupeSummarySummary(object):
         :param estimated_saved_blocks: The estimated_saved_blocks of this DedupeDedupeSummarySummary.
         :type: float
         """
+        
         self._estimated_saved_blocks = estimated_saved_blocks
 
     @property
@@ -150,6 +154,7 @@ class DedupeDedupeSummarySummary(object):
         :param logical_blocks: The logical_blocks of this DedupeDedupeSummarySummary.
         :type: float
         """
+        
         self._logical_blocks = logical_blocks
 
     @property
@@ -172,6 +177,7 @@ class DedupeDedupeSummarySummary(object):
         :param saved_logical_blocks: The saved_logical_blocks of this DedupeDedupeSummarySummary.
         :type: float
         """
+        
         self._saved_logical_blocks = saved_logical_blocks
 
     @property
@@ -194,6 +200,7 @@ class DedupeDedupeSummarySummary(object):
         :param total_blocks: The total_blocks of this DedupeDedupeSummarySummary.
         :type: float
         """
+        
         self._total_blocks = total_blocks
 
     @property
@@ -216,6 +223,7 @@ class DedupeDedupeSummarySummary(object):
         :param used_blocks: The used_blocks of this DedupeDedupeSummarySummary.
         :type: float
         """
+        
         self._used_blocks = used_blocks
 
     def to_dict(self):
@@ -233,6 +241,12 @@ class DedupeDedupeSummarySummary(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -250,14 +264,14 @@ class DedupeDedupeSummarySummary(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class SettingsNotification(object):
@@ -43,6 +44,7 @@ class SettingsNotification(object):
             'condition': 'str',
             'email_template': 'str',
             'holdoff': 'int',
+            'id': 'str',
             'schedule': 'str',
             'threshold': 'str'
         }
@@ -54,6 +56,7 @@ class SettingsNotification(object):
             'condition': 'condition',
             'email_template': 'email_template',
             'holdoff': 'holdoff',
+            'id': 'id',
             'schedule': 'schedule',
             'threshold': 'threshold'
         }
@@ -64,6 +67,7 @@ class SettingsNotification(object):
         self._condition = None
         self._email_template = None
         self._holdoff = None
+        self._id = None
         self._schedule = None
         self._threshold = None
 
@@ -87,6 +91,7 @@ class SettingsNotification(object):
         :param action_alert: The action_alert of this SettingsNotification.
         :type: bool
         """
+        
         self._action_alert = action_alert
 
     @property
@@ -109,6 +114,7 @@ class SettingsNotification(object):
         :param action_email_address: The action_email_address of this SettingsNotification.
         :type: str
         """
+        
         self._action_email_address = action_email_address
 
     @property
@@ -131,6 +137,7 @@ class SettingsNotification(object):
         :param action_email_owner: The action_email_owner of this SettingsNotification.
         :type: bool
         """
+        
         self._action_email_owner = action_email_owner
 
     @property
@@ -159,6 +166,7 @@ class SettingsNotification(object):
                 "Invalid value for `condition`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._condition = condition
 
     @property
@@ -181,6 +189,7 @@ class SettingsNotification(object):
         :param email_template: The email_template of this SettingsNotification.
         :type: str
         """
+        
         self._email_template = email_template
 
     @property
@@ -203,7 +212,31 @@ class SettingsNotification(object):
         :param holdoff: The holdoff of this SettingsNotification.
         :type: int
         """
+        
         self._holdoff = holdoff
+
+    @property
+    def id(self):
+        """
+        Gets the id of this SettingsNotification.
+        The system ID given to the rule.
+
+        :return: The id of this SettingsNotification.
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """
+        Sets the id of this SettingsNotification.
+        The system ID given to the rule.
+
+        :param id: The id of this SettingsNotification.
+        :type: str
+        """
+        
+        self._id = id
 
     @property
     def schedule(self):
@@ -225,6 +258,7 @@ class SettingsNotification(object):
         :param schedule: The schedule of this SettingsNotification.
         :type: str
         """
+        
         self._schedule = schedule
 
     @property
@@ -253,6 +287,7 @@ class SettingsNotification(object):
                 "Invalid value for `threshold`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._threshold = threshold
 
     def to_dict(self):
@@ -270,6 +305,12 @@ class SettingsNotification(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -287,14 +328,14 @@ class SettingsNotification(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

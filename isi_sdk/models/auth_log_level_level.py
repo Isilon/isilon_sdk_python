@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class AuthLogLevelLevel(object):
@@ -75,6 +76,7 @@ class AuthLogLevelLevel(object):
                 "Invalid value for `lsass_level`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._lsass_level = lsass_level
 
     @property
@@ -103,6 +105,7 @@ class AuthLogLevelLevel(object):
                 "Invalid value for `netlogon_level`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._netlogon_level = netlogon_level
 
     def to_dict(self):
@@ -120,6 +123,12 @@ class AuthLogLevelLevel(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -137,14 +146,14 @@ class AuthLogLevelLevel(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

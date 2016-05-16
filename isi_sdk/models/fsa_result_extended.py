@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class FsaResultExtended(object):
@@ -37,88 +38,44 @@ class FsaResultExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'delete_link': 'str',
-            'properties_link': 'str',
             'pinned': 'bool',
-            'size': 'int',
-            'end_time': 'int',
-            'fsa_state': 'str',
             'begin_time': 'int',
             'content_path': 'str',
+            'delete_link': 'str',
+            'end_time': 'int',
+            'fsa_state': 'str',
             'id': 'int',
             'job_state': 'list[str]',
+            'properties_link': 'str',
+            'size': 'int',
             'version': 'int'
         }
 
         self.attribute_map = {
-            'delete_link': 'delete_link',
-            'properties_link': 'properties_link',
             'pinned': 'pinned',
-            'size': 'size',
-            'end_time': 'end_time',
-            'fsa_state': 'fsa_state',
             'begin_time': 'begin_time',
             'content_path': 'content_path',
+            'delete_link': 'delete_link',
+            'end_time': 'end_time',
+            'fsa_state': 'fsa_state',
             'id': 'id',
             'job_state': 'job_state',
+            'properties_link': 'properties_link',
+            'size': 'size',
             'version': 'version'
         }
 
-        self._delete_link = None
-        self._properties_link = None
         self._pinned = None
-        self._size = None
-        self._end_time = None
-        self._fsa_state = None
         self._begin_time = None
         self._content_path = None
+        self._delete_link = None
+        self._end_time = None
+        self._fsa_state = None
         self._id = None
         self._job_state = None
+        self._properties_link = None
+        self._size = None
         self._version = None
-
-    @property
-    def delete_link(self):
-        """
-        Gets the delete_link of this FsaResultExtended.
-        Resource to call with DELETE to remove results..
-
-        :return: The delete_link of this FsaResultExtended.
-        :rtype: str
-        """
-        return self._delete_link
-
-    @delete_link.setter
-    def delete_link(self, delete_link):
-        """
-        Sets the delete_link of this FsaResultExtended.
-        Resource to call with DELETE to remove results..
-
-        :param delete_link: The delete_link of this FsaResultExtended.
-        :type: str
-        """
-        self._delete_link = delete_link
-
-    @property
-    def properties_link(self):
-        """
-        Gets the properties_link of this FsaResultExtended.
-        Resource to call to get result properties.
-
-        :return: The properties_link of this FsaResultExtended.
-        :rtype: str
-        """
-        return self._properties_link
-
-    @properties_link.setter
-    def properties_link(self, properties_link):
-        """
-        Sets the properties_link of this FsaResultExtended.
-        Resource to call to get result properties.
-
-        :param properties_link: The properties_link of this FsaResultExtended.
-        :type: str
-        """
-        self._properties_link = properties_link
 
     @property
     def pinned(self):
@@ -140,29 +97,77 @@ class FsaResultExtended(object):
         :param pinned: The pinned of this FsaResultExtended.
         :type: bool
         """
+        
         self._pinned = pinned
 
     @property
-    def size(self):
+    def begin_time(self):
         """
-        Gets the size of this FsaResultExtended.
-        Size of the result set database in bytes.
+        Gets the begin_time of this FsaResultExtended.
+        Unix Epoch time of start of results collection job.
 
-        :return: The size of this FsaResultExtended.
+        :return: The begin_time of this FsaResultExtended.
         :rtype: int
         """
-        return self._size
+        return self._begin_time
 
-    @size.setter
-    def size(self, size):
+    @begin_time.setter
+    def begin_time(self, begin_time):
         """
-        Sets the size of this FsaResultExtended.
-        Size of the result set database in bytes.
+        Sets the begin_time of this FsaResultExtended.
+        Unix Epoch time of start of results collection job.
 
-        :param size: The size of this FsaResultExtended.
+        :param begin_time: The begin_time of this FsaResultExtended.
         :type: int
         """
-        self._size = size
+        
+        self._begin_time = begin_time
+
+    @property
+    def content_path(self):
+        """
+        Gets the content_path of this FsaResultExtended.
+        Path to results database.
+
+        :return: The content_path of this FsaResultExtended.
+        :rtype: str
+        """
+        return self._content_path
+
+    @content_path.setter
+    def content_path(self, content_path):
+        """
+        Sets the content_path of this FsaResultExtended.
+        Path to results database.
+
+        :param content_path: The content_path of this FsaResultExtended.
+        :type: str
+        """
+        
+        self._content_path = content_path
+
+    @property
+    def delete_link(self):
+        """
+        Gets the delete_link of this FsaResultExtended.
+        Resource to call with DELETE to remove results..
+
+        :return: The delete_link of this FsaResultExtended.
+        :rtype: str
+        """
+        return self._delete_link
+
+    @delete_link.setter
+    def delete_link(self, delete_link):
+        """
+        Sets the delete_link of this FsaResultExtended.
+        Resource to call with DELETE to remove results..
+
+        :param delete_link: The delete_link of this FsaResultExtended.
+        :type: str
+        """
+        
+        self._delete_link = delete_link
 
     @property
     def end_time(self):
@@ -184,6 +189,7 @@ class FsaResultExtended(object):
         :param end_time: The end_time of this FsaResultExtended.
         :type: int
         """
+        
         self._end_time = end_time
 
     @property
@@ -212,51 +218,8 @@ class FsaResultExtended(object):
                 "Invalid value for `fsa_state`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._fsa_state = fsa_state
-
-    @property
-    def begin_time(self):
-        """
-        Gets the begin_time of this FsaResultExtended.
-        Unix Epoch time of start of results collection job.
-
-        :return: The begin_time of this FsaResultExtended.
-        :rtype: int
-        """
-        return self._begin_time
-
-    @begin_time.setter
-    def begin_time(self, begin_time):
-        """
-        Sets the begin_time of this FsaResultExtended.
-        Unix Epoch time of start of results collection job.
-
-        :param begin_time: The begin_time of this FsaResultExtended.
-        :type: int
-        """
-        self._begin_time = begin_time
-
-    @property
-    def content_path(self):
-        """
-        Gets the content_path of this FsaResultExtended.
-        Path to results database.
-
-        :return: The content_path of this FsaResultExtended.
-        :rtype: str
-        """
-        return self._content_path
-
-    @content_path.setter
-    def content_path(self, content_path):
-        """
-        Sets the content_path of this FsaResultExtended.
-        Path to results database.
-
-        :param content_path: The content_path of this FsaResultExtended.
-        :type: str
-        """
-        self._content_path = content_path
 
     @property
     def id(self):
@@ -278,6 +241,7 @@ class FsaResultExtended(object):
         :param id: The id of this FsaResultExtended.
         :type: int
         """
+        
         self._id = id
 
     @property
@@ -300,7 +264,54 @@ class FsaResultExtended(object):
         :param job_state: The job_state of this FsaResultExtended.
         :type: list[str]
         """
+        
         self._job_state = job_state
+
+    @property
+    def properties_link(self):
+        """
+        Gets the properties_link of this FsaResultExtended.
+        Resource to call to get result properties.
+
+        :return: The properties_link of this FsaResultExtended.
+        :rtype: str
+        """
+        return self._properties_link
+
+    @properties_link.setter
+    def properties_link(self, properties_link):
+        """
+        Sets the properties_link of this FsaResultExtended.
+        Resource to call to get result properties.
+
+        :param properties_link: The properties_link of this FsaResultExtended.
+        :type: str
+        """
+        
+        self._properties_link = properties_link
+
+    @property
+    def size(self):
+        """
+        Gets the size of this FsaResultExtended.
+        Size of the result set database in bytes.
+
+        :return: The size of this FsaResultExtended.
+        :rtype: int
+        """
+        return self._size
+
+    @size.setter
+    def size(self, size):
+        """
+        Sets the size of this FsaResultExtended.
+        Size of the result set database in bytes.
+
+        :param size: The size of this FsaResultExtended.
+        :type: int
+        """
+        
+        self._size = size
 
     @property
     def version(self):
@@ -322,6 +333,7 @@ class FsaResultExtended(object):
         :param version: The version of this FsaResultExtended.
         :type: int
         """
+        
         self._version = version
 
     def to_dict(self):
@@ -339,6 +351,12 @@ class FsaResultExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -356,14 +374,14 @@ class FsaResultExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

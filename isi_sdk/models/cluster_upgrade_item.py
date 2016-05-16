@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class ClusterUpgradeItem(object):
@@ -75,6 +76,7 @@ class ClusterUpgradeItem(object):
         :param install_image_path: The install_image_path of this ClusterUpgradeItem.
         :type: str
         """
+        
         self._install_image_path = install_image_path
 
     @property
@@ -97,6 +99,7 @@ class ClusterUpgradeItem(object):
         :param nodes_to_rolling_upgrade: The nodes_to_rolling_upgrade of this ClusterUpgradeItem.
         :type: list[int]
         """
+        
         self._nodes_to_rolling_upgrade = nodes_to_rolling_upgrade
 
     @property
@@ -119,6 +122,7 @@ class ClusterUpgradeItem(object):
         :param skip_optional: The skip_optional of this ClusterUpgradeItem.
         :type: bool
         """
+        
         self._skip_optional = skip_optional
 
     @property
@@ -141,6 +145,7 @@ class ClusterUpgradeItem(object):
         :param upgrade_type: The upgrade_type of this ClusterUpgradeItem.
         :type: str
         """
+        
         self._upgrade_type = upgrade_type
 
     def to_dict(self):
@@ -158,6 +163,12 @@ class ClusterUpgradeItem(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -175,14 +186,14 @@ class ClusterUpgradeItem(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

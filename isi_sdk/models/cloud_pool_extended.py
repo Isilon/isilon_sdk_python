@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class CloudPoolExtended(object):
@@ -37,148 +38,38 @@ class CloudPoolExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'birth_cluster_id': 'str',
-            'vendor': 'str',
-            'state_details': 'str',
-            'name': 'str',
-            'description': 'str',
             'accounts': 'list[str]',
+            'birth_cluster_id': 'str',
+            'description': 'str',
+            'name': 'str',
+            'vendor': 'str',
             'id': 'str',
             'state': 'str',
+            'state_details': 'str',
             'type': 'str'
         }
 
         self.attribute_map = {
-            'birth_cluster_id': 'birth_cluster_id',
-            'vendor': 'vendor',
-            'state_details': 'state_details',
-            'name': 'name',
-            'description': 'description',
             'accounts': 'accounts',
+            'birth_cluster_id': 'birth_cluster_id',
+            'description': 'description',
+            'name': 'name',
+            'vendor': 'vendor',
             'id': 'id',
             'state': 'state',
+            'state_details': 'state_details',
             'type': 'type'
         }
 
-        self._birth_cluster_id = None
-        self._vendor = None
-        self._state_details = None
-        self._name = None
-        self._description = None
         self._accounts = None
+        self._birth_cluster_id = None
+        self._description = None
+        self._name = None
+        self._vendor = None
         self._id = None
         self._state = None
+        self._state_details = None
         self._type = None
-
-    @property
-    def birth_cluster_id(self):
-        """
-        Gets the birth_cluster_id of this CloudPoolExtended.
-        The guid of the cluster where this pool was created
-
-        :return: The birth_cluster_id of this CloudPoolExtended.
-        :rtype: str
-        """
-        return self._birth_cluster_id
-
-    @birth_cluster_id.setter
-    def birth_cluster_id(self, birth_cluster_id):
-        """
-        Sets the birth_cluster_id of this CloudPoolExtended.
-        The guid of the cluster where this pool was created
-
-        :param birth_cluster_id: The birth_cluster_id of this CloudPoolExtended.
-        :type: str
-        """
-        self._birth_cluster_id = birth_cluster_id
-
-    @property
-    def vendor(self):
-        """
-        Gets the vendor of this CloudPoolExtended.
-        A string identifier of the cloud services vendor
-
-        :return: The vendor of this CloudPoolExtended.
-        :rtype: str
-        """
-        return self._vendor
-
-    @vendor.setter
-    def vendor(self, vendor):
-        """
-        Sets the vendor of this CloudPoolExtended.
-        A string identifier of the cloud services vendor
-
-        :param vendor: The vendor of this CloudPoolExtended.
-        :type: str
-        """
-        self._vendor = vendor
-
-    @property
-    def state_details(self):
-        """
-        Gets the state_details of this CloudPoolExtended.
-        Gives further information to describe the state of this pool
-
-        :return: The state_details of this CloudPoolExtended.
-        :rtype: str
-        """
-        return self._state_details
-
-    @state_details.setter
-    def state_details(self, state_details):
-        """
-        Sets the state_details of this CloudPoolExtended.
-        Gives further information to describe the state of this pool
-
-        :param state_details: The state_details of this CloudPoolExtended.
-        :type: str
-        """
-        self._state_details = state_details
-
-    @property
-    def name(self):
-        """
-        Gets the name of this CloudPoolExtended.
-        A unique name for this pool
-
-        :return: The name of this CloudPoolExtended.
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """
-        Sets the name of this CloudPoolExtended.
-        A unique name for this pool
-
-        :param name: The name of this CloudPoolExtended.
-        :type: str
-        """
-        self._name = name
-
-    @property
-    def description(self):
-        """
-        Gets the description of this CloudPoolExtended.
-        A brief description of this pool
-
-        :return: The description of this CloudPoolExtended.
-        :rtype: str
-        """
-        return self._description
-
-    @description.setter
-    def description(self, description):
-        """
-        Sets the description of this CloudPoolExtended.
-        A brief description of this pool
-
-        :param description: The description of this CloudPoolExtended.
-        :type: str
-        """
-        self._description = description
 
     @property
     def accounts(self):
@@ -200,7 +91,100 @@ class CloudPoolExtended(object):
         :param accounts: The accounts of this CloudPoolExtended.
         :type: list[str]
         """
+        
         self._accounts = accounts
+
+    @property
+    def birth_cluster_id(self):
+        """
+        Gets the birth_cluster_id of this CloudPoolExtended.
+        The guid of the cluster where this pool was created
+
+        :return: The birth_cluster_id of this CloudPoolExtended.
+        :rtype: str
+        """
+        return self._birth_cluster_id
+
+    @birth_cluster_id.setter
+    def birth_cluster_id(self, birth_cluster_id):
+        """
+        Sets the birth_cluster_id of this CloudPoolExtended.
+        The guid of the cluster where this pool was created
+
+        :param birth_cluster_id: The birth_cluster_id of this CloudPoolExtended.
+        :type: str
+        """
+        
+        self._birth_cluster_id = birth_cluster_id
+
+    @property
+    def description(self):
+        """
+        Gets the description of this CloudPoolExtended.
+        A brief description of this pool
+
+        :return: The description of this CloudPoolExtended.
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """
+        Sets the description of this CloudPoolExtended.
+        A brief description of this pool
+
+        :param description: The description of this CloudPoolExtended.
+        :type: str
+        """
+        
+        self._description = description
+
+    @property
+    def name(self):
+        """
+        Gets the name of this CloudPoolExtended.
+        A unique name for this pool
+
+        :return: The name of this CloudPoolExtended.
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """
+        Sets the name of this CloudPoolExtended.
+        A unique name for this pool
+
+        :param name: The name of this CloudPoolExtended.
+        :type: str
+        """
+        
+        self._name = name
+
+    @property
+    def vendor(self):
+        """
+        Gets the vendor of this CloudPoolExtended.
+        A string identifier of the cloud services vendor
+
+        :return: The vendor of this CloudPoolExtended.
+        :rtype: str
+        """
+        return self._vendor
+
+    @vendor.setter
+    def vendor(self, vendor):
+        """
+        Sets the vendor of this CloudPoolExtended.
+        A string identifier of the cloud services vendor
+
+        :param vendor: The vendor of this CloudPoolExtended.
+        :type: str
+        """
+        
+        self._vendor = vendor
 
     @property
     def id(self):
@@ -222,6 +206,7 @@ class CloudPoolExtended(object):
         :param id: The id of this CloudPoolExtended.
         :type: str
         """
+        
         self._id = id
 
     @property
@@ -250,7 +235,31 @@ class CloudPoolExtended(object):
                 "Invalid value for `state`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._state = state
+
+    @property
+    def state_details(self):
+        """
+        Gets the state_details of this CloudPoolExtended.
+        Gives further information to describe the state of this pool
+
+        :return: The state_details of this CloudPoolExtended.
+        :rtype: str
+        """
+        return self._state_details
+
+    @state_details.setter
+    def state_details(self, state_details):
+        """
+        Sets the state_details of this CloudPoolExtended.
+        Gives further information to describe the state of this pool
+
+        :param state_details: The state_details of this CloudPoolExtended.
+        :type: str
+        """
+        
+        self._state_details = state_details
 
     @property
     def type(self):
@@ -278,6 +287,7 @@ class CloudPoolExtended(object):
                 "Invalid value for `type`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._type = type
 
     def to_dict(self):
@@ -295,6 +305,12 @@ class CloudPoolExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -312,14 +328,14 @@ class CloudPoolExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

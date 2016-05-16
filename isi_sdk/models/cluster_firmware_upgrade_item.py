@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class ClusterFirmwareUpgradeItem(object):
@@ -87,6 +88,7 @@ class ClusterFirmwareUpgradeItem(object):
         :param exclude_device: The exclude_device of this ClusterFirmwareUpgradeItem.
         :type: str
         """
+        
         self._exclude_device = exclude_device
 
     @property
@@ -109,6 +111,7 @@ class ClusterFirmwareUpgradeItem(object):
         :param exclude_type: The exclude_type of this ClusterFirmwareUpgradeItem.
         :type: str
         """
+        
         self._exclude_type = exclude_type
 
     @property
@@ -131,6 +134,7 @@ class ClusterFirmwareUpgradeItem(object):
         :param include_device: The include_device of this ClusterFirmwareUpgradeItem.
         :type: str
         """
+        
         self._include_device = include_device
 
     @property
@@ -153,6 +157,7 @@ class ClusterFirmwareUpgradeItem(object):
         :param include_type: The include_type of this ClusterFirmwareUpgradeItem.
         :type: str
         """
+        
         self._include_type = include_type
 
     @property
@@ -175,6 +180,7 @@ class ClusterFirmwareUpgradeItem(object):
         :param no_burn: The no_burn of this ClusterFirmwareUpgradeItem.
         :type: bool
         """
+        
         self._no_burn = no_burn
 
     @property
@@ -197,6 +203,7 @@ class ClusterFirmwareUpgradeItem(object):
         :param no_reboot: The no_reboot of this ClusterFirmwareUpgradeItem.
         :type: bool
         """
+        
         self._no_reboot = no_reboot
 
     @property
@@ -219,6 +226,7 @@ class ClusterFirmwareUpgradeItem(object):
         :param no_verify: The no_verify of this ClusterFirmwareUpgradeItem.
         :type: bool
         """
+        
         self._no_verify = no_verify
 
     @property
@@ -241,6 +249,7 @@ class ClusterFirmwareUpgradeItem(object):
         :param nodes_to_upgrade: The nodes_to_upgrade of this ClusterFirmwareUpgradeItem.
         :type: list[int]
         """
+        
         self._nodes_to_upgrade = nodes_to_upgrade
 
     def to_dict(self):
@@ -258,6 +267,12 @@ class ClusterFirmwareUpgradeItem(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -275,14 +290,14 @@ class ClusterFirmwareUpgradeItem(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

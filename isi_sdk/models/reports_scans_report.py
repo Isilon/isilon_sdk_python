@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class ReportsScansReport(object):
@@ -40,7 +41,7 @@ class ReportsScansReport(object):
             'bytes_sent': 'int',
             'duration': 'int',
             'end': 'int',
-            '_files': 'int',
+            'files': 'int',
             'id': 'str',
             'infections': 'int',
             'job_id': 'int',
@@ -54,7 +55,7 @@ class ReportsScansReport(object):
             'bytes_sent': 'bytes_sent',
             'duration': 'duration',
             'end': 'end',
-            '_files': 'files',
+            'files': 'files',
             'id': 'id',
             'infections': 'infections',
             'job_id': 'job_id',
@@ -67,7 +68,7 @@ class ReportsScansReport(object):
         self._bytes_sent = None
         self._duration = None
         self._end = None
-        self.__files = None
+        self._files = None
         self._id = None
         self._infections = None
         self._job_id = None
@@ -96,6 +97,7 @@ class ReportsScansReport(object):
         :param bytes_sent: The bytes_sent of this ReportsScansReport.
         :type: int
         """
+        
         self._bytes_sent = bytes_sent
 
     @property
@@ -118,6 +120,7 @@ class ReportsScansReport(object):
         :param duration: The duration of this ReportsScansReport.
         :type: int
         """
+        
         self._duration = duration
 
     @property
@@ -140,29 +143,31 @@ class ReportsScansReport(object):
         :param end: The end of this ReportsScansReport.
         :type: int
         """
+        
         self._end = end
 
     @property
-    def _files(self):
+    def files(self):
         """
-        Gets the _files of this ReportsScansReport.
+        Gets the files of this ReportsScansReport.
         The number of file scanned.
 
-        :return: The _files of this ReportsScansReport.
+        :return: The files of this ReportsScansReport.
         :rtype: int
         """
-        return self.__files
+        return self._files
 
-    @_files.setter
-    def _files(self, _files):
+    @files.setter
+    def files(self, files):
         """
-        Sets the _files of this ReportsScansReport.
+        Sets the files of this ReportsScansReport.
         The number of file scanned.
 
-        :param _files: The _files of this ReportsScansReport.
+        :param files: The files of this ReportsScansReport.
         :type: int
         """
-        self.__files = _files
+        
+        self._files = files
 
     @property
     def id(self):
@@ -184,6 +189,7 @@ class ReportsScansReport(object):
         :param id: The id of this ReportsScansReport.
         :type: str
         """
+        
         self._id = id
 
     @property
@@ -206,6 +212,7 @@ class ReportsScansReport(object):
         :param infections: The infections of this ReportsScansReport.
         :type: int
         """
+        
         self._infections = infections
 
     @property
@@ -228,6 +235,7 @@ class ReportsScansReport(object):
         :param job_id: The job_id of this ReportsScansReport.
         :type: int
         """
+        
         self._job_id = job_id
 
     @property
@@ -250,6 +258,7 @@ class ReportsScansReport(object):
         :param policy_id: The policy_id of this ReportsScansReport.
         :type: str
         """
+        
         self._policy_id = policy_id
 
     @property
@@ -272,6 +281,7 @@ class ReportsScansReport(object):
         :param size: The size of this ReportsScansReport.
         :type: int
         """
+        
         self._size = size
 
     @property
@@ -294,6 +304,7 @@ class ReportsScansReport(object):
         :param start: The start of this ReportsScansReport.
         :type: int
         """
+        
         self._start = start
 
     @property
@@ -316,6 +327,7 @@ class ReportsScansReport(object):
         :param status: The status of this ReportsScansReport.
         :type: str
         """
+        
         self._status = status
 
     def to_dict(self):
@@ -333,6 +345,12 @@ class ReportsScansReport(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -350,14 +368,14 @@ class ReportsScansReport(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

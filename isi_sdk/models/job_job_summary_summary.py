@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class JobJobSummarySummary(object):
@@ -87,6 +88,7 @@ class JobJobSummarySummary(object):
         :param cluster_is_degraded: The cluster_is_degraded of this JobJobSummarySummary.
         :type: bool
         """
+        
         self._cluster_is_degraded = cluster_is_degraded
 
     @property
@@ -109,6 +111,7 @@ class JobJobSummarySummary(object):
         :param connected: The connected of this JobJobSummarySummary.
         :type: bool
         """
+        
         self._connected = connected
 
     @property
@@ -131,6 +134,7 @@ class JobJobSummarySummary(object):
         :param coordinator: The coordinator of this JobJobSummarySummary.
         :type: int
         """
+        
         self._coordinator = coordinator
 
     @property
@@ -153,6 +157,7 @@ class JobJobSummarySummary(object):
         :param disconnected_nodes: The disconnected_nodes of this JobJobSummarySummary.
         :type: list[int]
         """
+        
         self._disconnected_nodes = disconnected_nodes
 
     @property
@@ -175,6 +180,7 @@ class JobJobSummarySummary(object):
         :param down_or_read_only_nodes: The down_or_read_only_nodes of this JobJobSummarySummary.
         :type: bool
         """
+        
         self._down_or_read_only_nodes = down_or_read_only_nodes
 
     @property
@@ -197,6 +203,7 @@ class JobJobSummarySummary(object):
         :param next_jid: The next_jid of this JobJobSummarySummary.
         :type: int
         """
+        
         self._next_jid = next_jid
 
     @property
@@ -219,6 +226,7 @@ class JobJobSummarySummary(object):
         :param run_degraded: The run_degraded of this JobJobSummarySummary.
         :type: bool
         """
+        
         self._run_degraded = run_degraded
 
     @property
@@ -241,6 +249,7 @@ class JobJobSummarySummary(object):
         :param stats_ready: The stats_ready of this JobJobSummarySummary.
         :type: bool
         """
+        
         self._stats_ready = stats_ready
 
     def to_dict(self):
@@ -258,6 +267,12 @@ class JobJobSummarySummary(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -275,14 +290,14 @@ class JobJobSummarySummary(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

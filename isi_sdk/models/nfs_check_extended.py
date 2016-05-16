@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class NfsCheckExtended(object):
@@ -37,64 +38,14 @@ class NfsCheckExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'messages': 'str',
-            'id': 'int',
             'checks': 'list[NfsCheck]'
         }
 
         self.attribute_map = {
-            'messages': 'messages',
-            'id': 'id',
             'checks': 'checks'
         }
 
-        self._messages = None
-        self._id = None
         self._checks = None
-
-    @property
-    def messages(self):
-        """
-        Gets the messages of this NfsCheckExtended.
-        The message about the export.
-
-        :return: The messages of this NfsCheckExtended.
-        :rtype: str
-        """
-        return self._messages
-
-    @messages.setter
-    def messages(self, messages):
-        """
-        Sets the messages of this NfsCheckExtended.
-        The message about the export.
-
-        :param messages: The messages of this NfsCheckExtended.
-        :type: str
-        """
-        self._messages = messages
-
-    @property
-    def id(self):
-        """
-        Gets the id of this NfsCheckExtended.
-        The ID of the export.
-
-        :return: The id of this NfsCheckExtended.
-        :rtype: int
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this NfsCheckExtended.
-        The ID of the export.
-
-        :param id: The id of this NfsCheckExtended.
-        :type: int
-        """
-        self._id = id
 
     @property
     def checks(self):
@@ -116,6 +67,7 @@ class NfsCheckExtended(object):
         :param checks: The checks of this NfsCheckExtended.
         :type: list[NfsCheck]
         """
+        
         self._checks = checks
 
     def to_dict(self):
@@ -133,6 +85,12 @@ class NfsCheckExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -150,14 +108,14 @@ class NfsCheckExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

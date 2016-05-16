@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class StoragepoolStoragepool(object):
@@ -96,6 +97,7 @@ class StoragepoolStoragepool(object):
         :param can_enable_l3: The can_enable_l3 of this StoragepoolStoragepool.
         :type: bool
         """
+        
         self._can_enable_l3 = can_enable_l3
 
     @property
@@ -118,6 +120,7 @@ class StoragepoolStoragepool(object):
         :param children: The children of this StoragepoolStoragepool.
         :type: list[str]
         """
+        
         self._children = children
 
     @property
@@ -140,6 +143,7 @@ class StoragepoolStoragepool(object):
         :param id: The id of this StoragepoolStoragepool.
         :type: int
         """
+        
         self._id = id
 
     @property
@@ -162,6 +166,7 @@ class StoragepoolStoragepool(object):
         :param l3: The l3 of this StoragepoolStoragepool.
         :type: bool
         """
+        
         self._l3 = l3
 
     @property
@@ -190,6 +195,7 @@ class StoragepoolStoragepool(object):
                 "Invalid value for `l3_status`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._l3_status = l3_status
 
     @property
@@ -212,6 +218,7 @@ class StoragepoolStoragepool(object):
         :param lnns: The lnns of this StoragepoolStoragepool.
         :type: list[int]
         """
+        
         self._lnns = lnns
 
     @property
@@ -234,6 +241,7 @@ class StoragepoolStoragepool(object):
         :param manual: The manual of this StoragepoolStoragepool.
         :type: bool
         """
+        
         self._manual = manual
 
     @property
@@ -256,6 +264,7 @@ class StoragepoolStoragepool(object):
         :param name: The name of this StoragepoolStoragepool.
         :type: str
         """
+        
         self._name = name
 
     @property
@@ -278,6 +287,7 @@ class StoragepoolStoragepool(object):
         :param protection_policy: The protection_policy of this StoragepoolStoragepool.
         :type: str
         """
+        
         self._protection_policy = protection_policy
 
     @property
@@ -306,6 +316,7 @@ class StoragepoolStoragepool(object):
                 "Invalid value for `type`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._type = type
 
     @property
@@ -328,6 +339,7 @@ class StoragepoolStoragepool(object):
         :param usage: The usage of this StoragepoolStoragepool.
         :type: StoragepoolTierUsage
         """
+        
         self._usage = usage
 
     def to_dict(self):
@@ -345,6 +357,12 @@ class StoragepoolStoragepool(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -362,14 +380,14 @@ class StoragepoolStoragepool(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

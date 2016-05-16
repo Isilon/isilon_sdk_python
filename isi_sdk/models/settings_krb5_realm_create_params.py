@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class SettingsKrb5RealmCreateParams(object):
@@ -37,92 +38,26 @@ class SettingsKrb5RealmCreateParams(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'is_default_realm': 'bool',
-            'realm': 'str',
-            'kdc': 'list[str]',
             'admin_server': 'str',
-            'default_domain': 'str'
+            'default_domain': 'str',
+            'is_default_realm': 'bool',
+            'kdc': 'list[str]',
+            'realm': 'str'
         }
 
         self.attribute_map = {
-            'is_default_realm': 'is_default_realm',
-            'realm': 'realm',
-            'kdc': 'kdc',
             'admin_server': 'admin_server',
-            'default_domain': 'default_domain'
+            'default_domain': 'default_domain',
+            'is_default_realm': 'is_default_realm',
+            'kdc': 'kdc',
+            'realm': 'realm'
         }
 
-        self._is_default_realm = None
-        self._realm = None
-        self._kdc = None
         self._admin_server = None
         self._default_domain = None
-
-    @property
-    def is_default_realm(self):
-        """
-        Gets the is_default_realm of this SettingsKrb5RealmCreateParams.
-        If true, indicates that the realm is the default.
-
-        :return: The is_default_realm of this SettingsKrb5RealmCreateParams.
-        :rtype: bool
-        """
-        return self._is_default_realm
-
-    @is_default_realm.setter
-    def is_default_realm(self, is_default_realm):
-        """
-        Sets the is_default_realm of this SettingsKrb5RealmCreateParams.
-        If true, indicates that the realm is the default.
-
-        :param is_default_realm: The is_default_realm of this SettingsKrb5RealmCreateParams.
-        :type: bool
-        """
-        self._is_default_realm = is_default_realm
-
-    @property
-    def realm(self):
-        """
-        Gets the realm of this SettingsKrb5RealmCreateParams.
-        Specifies the name of the realm.
-
-        :return: The realm of this SettingsKrb5RealmCreateParams.
-        :rtype: str
-        """
-        return self._realm
-
-    @realm.setter
-    def realm(self, realm):
-        """
-        Sets the realm of this SettingsKrb5RealmCreateParams.
-        Specifies the name of the realm.
-
-        :param realm: The realm of this SettingsKrb5RealmCreateParams.
-        :type: str
-        """
-        self._realm = realm
-
-    @property
-    def kdc(self):
-        """
-        Gets the kdc of this SettingsKrb5RealmCreateParams.
-        Specifies the list of KDC hostnames.
-
-        :return: The kdc of this SettingsKrb5RealmCreateParams.
-        :rtype: list[str]
-        """
-        return self._kdc
-
-    @kdc.setter
-    def kdc(self, kdc):
-        """
-        Sets the kdc of this SettingsKrb5RealmCreateParams.
-        Specifies the list of KDC hostnames.
-
-        :param kdc: The kdc of this SettingsKrb5RealmCreateParams.
-        :type: list[str]
-        """
-        self._kdc = kdc
+        self._is_default_realm = None
+        self._kdc = None
+        self._realm = None
 
     @property
     def admin_server(self):
@@ -144,6 +79,7 @@ class SettingsKrb5RealmCreateParams(object):
         :param admin_server: The admin_server of this SettingsKrb5RealmCreateParams.
         :type: str
         """
+        
         self._admin_server = admin_server
 
     @property
@@ -166,7 +102,77 @@ class SettingsKrb5RealmCreateParams(object):
         :param default_domain: The default_domain of this SettingsKrb5RealmCreateParams.
         :type: str
         """
+        
         self._default_domain = default_domain
+
+    @property
+    def is_default_realm(self):
+        """
+        Gets the is_default_realm of this SettingsKrb5RealmCreateParams.
+        If true, indicates that the realm is the default.
+
+        :return: The is_default_realm of this SettingsKrb5RealmCreateParams.
+        :rtype: bool
+        """
+        return self._is_default_realm
+
+    @is_default_realm.setter
+    def is_default_realm(self, is_default_realm):
+        """
+        Sets the is_default_realm of this SettingsKrb5RealmCreateParams.
+        If true, indicates that the realm is the default.
+
+        :param is_default_realm: The is_default_realm of this SettingsKrb5RealmCreateParams.
+        :type: bool
+        """
+        
+        self._is_default_realm = is_default_realm
+
+    @property
+    def kdc(self):
+        """
+        Gets the kdc of this SettingsKrb5RealmCreateParams.
+        Specifies the list of KDC hostnames.
+
+        :return: The kdc of this SettingsKrb5RealmCreateParams.
+        :rtype: list[str]
+        """
+        return self._kdc
+
+    @kdc.setter
+    def kdc(self, kdc):
+        """
+        Sets the kdc of this SettingsKrb5RealmCreateParams.
+        Specifies the list of KDC hostnames.
+
+        :param kdc: The kdc of this SettingsKrb5RealmCreateParams.
+        :type: list[str]
+        """
+        
+        self._kdc = kdc
+
+    @property
+    def realm(self):
+        """
+        Gets the realm of this SettingsKrb5RealmCreateParams.
+        Specifies the name of the realm.
+
+        :return: The realm of this SettingsKrb5RealmCreateParams.
+        :rtype: str
+        """
+        return self._realm
+
+    @realm.setter
+    def realm(self, realm):
+        """
+        Sets the realm of this SettingsKrb5RealmCreateParams.
+        Specifies the name of the realm.
+
+        :param realm: The realm of this SettingsKrb5RealmCreateParams.
+        :type: str
+        """
+        
+        self._realm = realm
 
     def to_dict(self):
         """
@@ -183,6 +189,12 @@ class SettingsKrb5RealmCreateParams(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -200,14 +212,14 @@ class SettingsKrb5RealmCreateParams(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

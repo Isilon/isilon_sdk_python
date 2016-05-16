@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class SyncSettingsSettings(object):
@@ -96,6 +97,7 @@ class SyncSettingsSettings(object):
         :param burst_memory_constraint: The burst_memory_constraint of this SyncSettingsSettings.
         :type: int
         """
+        
         self._burst_memory_constraint = burst_memory_constraint
 
     @property
@@ -118,6 +120,7 @@ class SyncSettingsSettings(object):
         :param burst_socket_buffer_size: The burst_socket_buffer_size of this SyncSettingsSettings.
         :type: int
         """
+        
         self._burst_socket_buffer_size = burst_socket_buffer_size
 
     @property
@@ -140,6 +143,7 @@ class SyncSettingsSettings(object):
         :param force_interface: The force_interface of this SyncSettingsSettings.
         :type: bool
         """
+        
         self._force_interface = force_interface
 
     @property
@@ -162,6 +166,7 @@ class SyncSettingsSettings(object):
         :param max_concurrent_jobs: The max_concurrent_jobs of this SyncSettingsSettings.
         :type: int
         """
+        
         self._max_concurrent_jobs = max_concurrent_jobs
 
     @property
@@ -184,6 +189,7 @@ class SyncSettingsSettings(object):
         :param report_email: The report_email of this SyncSettingsSettings.
         :type: list[str]
         """
+        
         self._report_email = report_email
 
     @property
@@ -206,6 +212,7 @@ class SyncSettingsSettings(object):
         :param report_max_age: The report_max_age of this SyncSettingsSettings.
         :type: int
         """
+        
         self._report_max_age = report_max_age
 
     @property
@@ -228,6 +235,14 @@ class SyncSettingsSettings(object):
         :param report_max_count: The report_max_count of this SyncSettingsSettings.
         :type: int
         """
+        
+        if not report_max_count:
+            raise ValueError("Invalid value for `report_max_count`, must not be `None`")
+        if report_max_count > 2000.0: 
+            raise ValueError("Invalid value for `report_max_count`, must be a value less than or equal to `2000.0`")
+        if report_max_count < 1.0: 
+            raise ValueError("Invalid value for `report_max_count`, must be a value greater than or equal to `1.0`")
+
         self._report_max_count = report_max_count
 
     @property
@@ -250,6 +265,7 @@ class SyncSettingsSettings(object):
         :param restrict_target_network: The restrict_target_network of this SyncSettingsSettings.
         :type: bool
         """
+        
         self._restrict_target_network = restrict_target_network
 
     @property
@@ -272,6 +288,7 @@ class SyncSettingsSettings(object):
         :param rpo_alerts: The rpo_alerts of this SyncSettingsSettings.
         :type: bool
         """
+        
         self._rpo_alerts = rpo_alerts
 
     @property
@@ -300,6 +317,7 @@ class SyncSettingsSettings(object):
                 "Invalid value for `service`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._service = service
 
     @property
@@ -322,6 +340,7 @@ class SyncSettingsSettings(object):
         :param source_network: The source_network of this SyncSettingsSettings.
         :type: SyncPolicySourceNetwork
         """
+        
         self._source_network = source_network
 
     def to_dict(self):
@@ -339,6 +358,12 @@ class SyncSettingsSettings(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -356,14 +381,14 @@ class SyncSettingsSettings(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

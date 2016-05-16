@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class FsaSettingsSettings(object):
@@ -84,6 +85,7 @@ class FsaSettingsSettings(object):
         :param default_template: The default_template of this FsaSettingsSettings.
         :type: str
         """
+        
         self._default_template = default_template
 
     @property
@@ -106,6 +108,7 @@ class FsaSettingsSettings(object):
         :param disk_usage_depth: The disk_usage_depth of this FsaSettingsSettings.
         :type: int
         """
+        
         self._disk_usage_depth = disk_usage_depth
 
     @property
@@ -128,6 +131,7 @@ class FsaSettingsSettings(object):
         :param max_age: The max_age of this FsaSettingsSettings.
         :type: int
         """
+        
         self._max_age = max_age
 
     @property
@@ -150,6 +154,7 @@ class FsaSettingsSettings(object):
         :param max_count: The max_count of this FsaSettingsSettings.
         :type: int
         """
+        
         self._max_count = max_count
 
     @property
@@ -172,6 +177,7 @@ class FsaSettingsSettings(object):
         :param squash_depth: The squash_depth of this FsaSettingsSettings.
         :type: int
         """
+        
         self._squash_depth = squash_depth
 
     @property
@@ -194,6 +200,7 @@ class FsaSettingsSettings(object):
         :param top_n_max: The top_n_max of this FsaSettingsSettings.
         :type: int
         """
+        
         self._top_n_max = top_n_max
 
     @property
@@ -216,6 +223,7 @@ class FsaSettingsSettings(object):
         :param use_snapshot: The use_snapshot of this FsaSettingsSettings.
         :type: bool
         """
+        
         self._use_snapshot = use_snapshot
 
     def to_dict(self):
@@ -233,6 +241,12 @@ class FsaSettingsSettings(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -250,14 +264,14 @@ class FsaSettingsSettings(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other

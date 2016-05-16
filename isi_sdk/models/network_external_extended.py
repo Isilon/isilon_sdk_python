@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ Copyright 2015 SmartBear Software
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class NetworkExternalExtended(object):
@@ -37,67 +38,20 @@ class NetworkExternalExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'sc_rebalance_delay': 'int',
-            'settings': 'list[NetworkExternalSetting]',
             'sbr': 'bool',
+            'sc_rebalance_delay': 'int',
             'tcp_ports': 'list[int]'
         }
 
         self.attribute_map = {
-            'sc_rebalance_delay': 'sc_rebalance_delay',
-            'settings': 'settings',
             'sbr': 'sbr',
+            'sc_rebalance_delay': 'sc_rebalance_delay',
             'tcp_ports': 'tcp_ports'
         }
 
-        self._sc_rebalance_delay = None
-        self._settings = None
         self._sbr = None
+        self._sc_rebalance_delay = None
         self._tcp_ports = None
-
-    @property
-    def sc_rebalance_delay(self):
-        """
-        Gets the sc_rebalance_delay of this NetworkExternalExtended.
-        Delay in seconds for IP rebalance.
-
-        :return: The sc_rebalance_delay of this NetworkExternalExtended.
-        :rtype: int
-        """
-        return self._sc_rebalance_delay
-
-    @sc_rebalance_delay.setter
-    def sc_rebalance_delay(self, sc_rebalance_delay):
-        """
-        Sets the sc_rebalance_delay of this NetworkExternalExtended.
-        Delay in seconds for IP rebalance.
-
-        :param sc_rebalance_delay: The sc_rebalance_delay of this NetworkExternalExtended.
-        :type: int
-        """
-        self._sc_rebalance_delay = sc_rebalance_delay
-
-    @property
-    def settings(self):
-        """
-        Gets the settings of this NetworkExternalExtended.
-
-
-        :return: The settings of this NetworkExternalExtended.
-        :rtype: list[NetworkExternalSetting]
-        """
-        return self._settings
-
-    @settings.setter
-    def settings(self, settings):
-        """
-        Sets the settings of this NetworkExternalExtended.
-
-
-        :param settings: The settings of this NetworkExternalExtended.
-        :type: list[NetworkExternalSetting]
-        """
-        self._settings = settings
 
     @property
     def sbr(self):
@@ -119,7 +73,38 @@ class NetworkExternalExtended(object):
         :param sbr: The sbr of this NetworkExternalExtended.
         :type: bool
         """
+        
         self._sbr = sbr
+
+    @property
+    def sc_rebalance_delay(self):
+        """
+        Gets the sc_rebalance_delay of this NetworkExternalExtended.
+        Delay in seconds for IP rebalance.
+
+        :return: The sc_rebalance_delay of this NetworkExternalExtended.
+        :rtype: int
+        """
+        return self._sc_rebalance_delay
+
+    @sc_rebalance_delay.setter
+    def sc_rebalance_delay(self, sc_rebalance_delay):
+        """
+        Sets the sc_rebalance_delay of this NetworkExternalExtended.
+        Delay in seconds for IP rebalance.
+
+        :param sc_rebalance_delay: The sc_rebalance_delay of this NetworkExternalExtended.
+        :type: int
+        """
+        
+        if not sc_rebalance_delay:
+            raise ValueError("Invalid value for `sc_rebalance_delay`, must not be `None`")
+        if sc_rebalance_delay > 10.0: 
+            raise ValueError("Invalid value for `sc_rebalance_delay`, must be a value less than or equal to `10.0`")
+        if sc_rebalance_delay < 0.0: 
+            raise ValueError("Invalid value for `sc_rebalance_delay`, must be a value greater than or equal to `0.0`")
+
+        self._sc_rebalance_delay = sc_rebalance_delay
 
     @property
     def tcp_ports(self):
@@ -141,6 +126,7 @@ class NetworkExternalExtended(object):
         :param tcp_ports: The tcp_ports of this NetworkExternalExtended.
         :type: list[int]
         """
+        
         self._tcp_ports = tcp_ports
 
     def to_dict(self):
@@ -158,6 +144,12 @@ class NetworkExternalExtended(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -175,14 +167,14 @@ class NetworkExternalExtended(object):
         """
         return self.to_str()
 
-    def __eq__(self, other): 
+    def __eq__(self, other):
         """
         Returns true if both objects are equal
         """
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
-        """ 
+        """
         Returns true if both objects are not equal
         """
         return not self == other
