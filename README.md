@@ -28,7 +28,7 @@ You can install the isi_sdk Python library from Github using the pip command.
 ```sh
 pip install git+https://github.com/Isilon/isilon_sdk_8_0_python.git
 ```
-(you may need to run `pip` with root permission: `sudo pip install git+https://github.com/isilon/isilon_sdk_python_8_0.git`)
+(you may need to run `pip` with root permission: `sudo pip install git+https://github.com/Isilon/isilon_sdk_8_0_python.git`)
 
 Then import the package:
 ```python
