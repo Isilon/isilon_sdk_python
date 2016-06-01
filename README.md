@@ -67,8 +67,8 @@ isi_sdk.configuration.verify_ssl = False
 
 # configure host
 host = "https://<ip_address>:8080"
-api_client = isi_sdk_python.ApiClient(host)
-protocols_api = isi_sdk_python.ProtocolsApi(api_client)
+api_client = isi_sdk.ApiClient(host)
+protocols_api = isi_sdk.ProtocolsApi(api_client)
 
 # get all exports
 try:
