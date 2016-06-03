@@ -38,9 +38,9 @@ class ClusterNodeStateExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'readonly': 'Empty',
-            'servicelight': 'ClusterNodeStateServicelight',
-            'smartfail': 'ClusterNodeStateSmartfail'
+            'readonly': 'NodeStateReadonlyExtended',
+            'servicelight': 'ClusterNodeStateServicelightExtended',
+            'smartfail': 'NodeStateSmartfailExtended'
         }
 
         self.attribute_map = {
@@ -60,7 +60,7 @@ class ClusterNodeStateExtended(object):
         Node readonly state.
 
         :return: The readonly of this ClusterNodeStateExtended.
-        :rtype: Empty
+        :rtype: NodeStateReadonlyExtended
         """
         return self._readonly
 
@@ -71,7 +71,7 @@ class ClusterNodeStateExtended(object):
         Node readonly state.
 
         :param readonly: The readonly of this ClusterNodeStateExtended.
-        :type: Empty
+        :type: NodeStateReadonlyExtended
         """
         
         self._readonly = readonly
@@ -83,7 +83,7 @@ class ClusterNodeStateExtended(object):
         Node service light state.
 
         :return: The servicelight of this ClusterNodeStateExtended.
-        :rtype: ClusterNodeStateServicelight
+        :rtype: ClusterNodeStateServicelightExtended
         """
         return self._servicelight
 
@@ -94,7 +94,7 @@ class ClusterNodeStateExtended(object):
         Node service light state.
 
         :param servicelight: The servicelight of this ClusterNodeStateExtended.
-        :type: ClusterNodeStateServicelight
+        :type: ClusterNodeStateServicelightExtended
         """
         
         self._servicelight = servicelight
@@ -106,7 +106,7 @@ class ClusterNodeStateExtended(object):
         Node smartfail state.
 
         :return: The smartfail of this ClusterNodeStateExtended.
-        :rtype: ClusterNodeStateSmartfail
+        :rtype: NodeStateSmartfailExtended
         """
         return self._smartfail
 
@@ -117,7 +117,7 @@ class ClusterNodeStateExtended(object):
         Node smartfail state.
 
         :param smartfail: The smartfail of this ClusterNodeStateExtended.
-        :type: ClusterNodeStateSmartfail
+        :type: NodeStateSmartfailExtended
         """
         
         self._smartfail = smartfail

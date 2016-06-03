@@ -207,7 +207,7 @@ isi_sdk.configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = isi_sdk.SnapshotApi()
-snapshot_schedule = isi_sdk.SnapshotSchedule() # SnapshotSchedule | 
+snapshot_schedule = isi_sdk.SnapshotScheduleCreateParams() # SnapshotScheduleCreateParams | 
 
 try: 
     api_response = api_instance.create_snapshot_schedule(snapshot_schedule)
@@ -220,7 +220,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **snapshot_schedule** | [**SnapshotSchedule**](SnapshotSchedule.md)|  | 
+ **snapshot_schedule** | [**SnapshotScheduleCreateParams**](SnapshotScheduleCreateParams.md)|  | 
 
 ### Return type
 
@@ -238,7 +238,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_snapshot_snapshot**
-> CreateSnapshotSnapshotResponse create_snapshot_snapshot(snapshot_snapshot)
+> SnapshotSnapshotExtended create_snapshot_snapshot(snapshot_snapshot)
 
 
 
@@ -274,7 +274,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateSnapshotSnapshotResponse**](CreateSnapshotSnapshotResponse.md)
+[**SnapshotSnapshotExtended**](SnapshotSnapshotExtended.md)
 
 ### Authorization
 
@@ -1507,7 +1507,7 @@ isi_sdk.configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = isi_sdk.SnapshotApi()
-snapshot_settings = isi_sdk.SnapshotSettingsSettings() # SnapshotSettingsSettings | 
+snapshot_settings = isi_sdk.SnapshotSettingsExtended() # SnapshotSettingsExtended | 
 
 try: 
     api_instance.update_snapshot_settings(snapshot_settings)
@@ -1519,7 +1519,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **snapshot_settings** | [**SnapshotSettingsSettings**](SnapshotSettingsSettings.md)|  | 
+ **snapshot_settings** | [**SnapshotSettingsExtended**](SnapshotSettingsExtended.md)|  | 
 
 ### Return type
 

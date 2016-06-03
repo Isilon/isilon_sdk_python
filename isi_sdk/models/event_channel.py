@@ -198,7 +198,7 @@ class EventChannel(object):
         :type: str
         """
         allowed_values = ["connectemc", "smtp", "snmp"]
-        if type not in allowed_values:
+        if type is not None and type not in allowed_values:
             raise ValueError(
                 "Invalid value for `type`, must be one of {0}"
                 .format(allowed_values)

@@ -91,7 +91,7 @@ isi_sdk.configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = isi_sdk.NetworkApi()
-network_groupnet = isi_sdk.NetworkGroupnet() # NetworkGroupnet | 
+network_groupnet = isi_sdk.NetworkGroupnetCreateParams() # NetworkGroupnetCreateParams | 
 
 try: 
     api_response = api_instance.create_network_groupnet(network_groupnet)
@@ -104,7 +104,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **network_groupnet** | [**NetworkGroupnet**](NetworkGroupnet.md)|  | 
+ **network_groupnet** | [**NetworkGroupnetCreateParams**](NetworkGroupnetCreateParams.md)|  | 
 
 ### Return type
 
@@ -489,7 +489,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_network_rules**
-> NetworkRules get_network_rules(sort=sort, subnet=subnet, resume=resume, limit=limit, dir=dir, groupnet=groupnet, pool=pool)
+> PoolsPoolRulesExtended get_network_rules(sort=sort, subnet=subnet, resume=resume, limit=limit, dir=dir, groupnet=groupnet, pool=pool)
 
 
 
@@ -537,7 +537,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**NetworkRules**](NetworkRules.md)
+[**PoolsPoolRulesExtended**](PoolsPoolRulesExtended.md)
 
 ### Authorization
 
@@ -551,7 +551,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_network_subnets**
-> NetworkSubnets get_network_subnets(sort=sort, groupnet=groupnet, limit=limit, dir=dir, resume=resume)
+> GroupnetSubnetsExtended get_network_subnets(sort=sort, groupnet=groupnet, limit=limit, dir=dir, resume=resume)
 
 
 
@@ -595,7 +595,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**NetworkSubnets**](NetworkSubnets.md)
+[**GroupnetSubnetsExtended**](GroupnetSubnetsExtended.md)
 
 ### Authorization
 
@@ -684,7 +684,7 @@ isi_sdk.configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = isi_sdk.NetworkApi()
-network_dnscache = isi_sdk.NetworkDnscacheSetting() # NetworkDnscacheSetting | 
+network_dnscache = isi_sdk.NetworkDnscacheExtended() # NetworkDnscacheExtended | 
 
 try: 
     api_instance.update_network_dnscache(network_dnscache)
@@ -696,7 +696,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **network_dnscache** | [**NetworkDnscacheSetting**](NetworkDnscacheSetting.md)|  | 
+ **network_dnscache** | [**NetworkDnscacheExtended**](NetworkDnscacheExtended.md)|  | 
 
 ### Return type
 

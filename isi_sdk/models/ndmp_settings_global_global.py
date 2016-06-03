@@ -106,7 +106,7 @@ class NdmpSettingsGlobalGlobal(object):
         :type: str
         """
         allowed_values = ["generic", "atempo", "bakbone", "commvault", "emc", "symantec", "tivoli", "symantec-netbackup", "symantec-backupexec"]
-        if dma not in allowed_values:
+        if dma is not None and dma not in allowed_values:
             raise ValueError(
                 "Invalid value for `dma`, must be one of {0}"
                 .format(allowed_values)

@@ -104,9 +104,7 @@ class WormDomainExtended(object):
         :type: int
         """
         
-        if not autocommit_offset:
-            raise ValueError("Invalid value for `autocommit_offset`, must not be `None`")
-        if autocommit_offset < 0.0: 
+        if autocommit_offset is not None and autocommit_offset < 0.0:
             raise ValueError("Invalid value for `autocommit_offset`, must be a value greater than or equal to `0.0`")
 
         self._autocommit_offset = autocommit_offset
@@ -132,9 +130,7 @@ class WormDomainExtended(object):
         :type: int
         """
         
-        if not default_retention:
-            raise ValueError("Invalid value for `default_retention`, must not be `None`")
-        if default_retention < 0.0: 
+        if default_retention is not None and default_retention < 0.0:
             raise ValueError("Invalid value for `default_retention`, must be a value greater than or equal to `0.0`")
 
         self._default_retention = default_retention
@@ -160,9 +156,7 @@ class WormDomainExtended(object):
         :type: int
         """
         
-        if not max_retention:
-            raise ValueError("Invalid value for `max_retention`, must not be `None`")
-        if max_retention < 0.0: 
+        if max_retention is not None and max_retention < 0.0:
             raise ValueError("Invalid value for `max_retention`, must be a value greater than or equal to `0.0`")
 
         self._max_retention = max_retention
@@ -188,9 +182,7 @@ class WormDomainExtended(object):
         :type: int
         """
         
-        if not min_retention:
-            raise ValueError("Invalid value for `min_retention`, must not be `None`")
-        if min_retention < 0.0: 
+        if min_retention is not None and min_retention < 0.0:
             raise ValueError("Invalid value for `min_retention`, must be a value greater than or equal to `0.0`")
 
         self._min_retention = min_retention
@@ -216,9 +208,7 @@ class WormDomainExtended(object):
         :type: int
         """
         
-        if not override_date:
-            raise ValueError("Invalid value for `override_date`, must not be `None`")
-        if override_date < 0.0: 
+        if override_date is not None and override_date < 0.0:
             raise ValueError("Invalid value for `override_date`, must be a value greater than or equal to `0.0`")
 
         self._override_date = override_date
@@ -244,7 +234,7 @@ class WormDomainExtended(object):
         :type: str
         """
         allowed_values = ["on", "off", "disabled"]
-        if privileged_delete not in allowed_values:
+        if privileged_delete is not None and privileged_delete not in allowed_values:
             raise ValueError(
                 "Invalid value for `privileged_delete`, must be one of {0}"
                 .format(allowed_values)
@@ -273,7 +263,7 @@ class WormDomainExtended(object):
         :type: str
         """
         allowed_values = ["enterprise", "compliance"]
-        if type not in allowed_values:
+        if type is not None and type not in allowed_values:
             raise ValueError(
                 "Invalid value for `type`, must be one of {0}"
                 .format(allowed_values)

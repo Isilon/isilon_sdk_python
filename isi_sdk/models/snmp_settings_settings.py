@@ -86,9 +86,7 @@ class SnmpSettingsSettings(object):
         :type: str
         """
         
-        if not read_only_community:
-            raise ValueError("Invalid value for `read_only_community`, must not be `None`")
-        if len(read_only_community) < 1: 
+        if read_only_community is not None and len(read_only_community) < 1:
             raise ValueError("Invalid value for `read_only_community`, length must be greater than or equal to `1`")
 
         self._read_only_community = read_only_community
@@ -183,9 +181,7 @@ class SnmpSettingsSettings(object):
         :type: str
         """
         
-        if not snmp_v3_read_only_user:
-            raise ValueError("Invalid value for `snmp_v3_read_only_user`, must not be `None`")
-        if len(snmp_v3_read_only_user) < 1: 
+        if snmp_v3_read_only_user is not None and len(snmp_v3_read_only_user) < 1:
             raise ValueError("Invalid value for `snmp_v3_read_only_user`, length must be greater than or equal to `1`")
 
         self._snmp_v3_read_only_user = snmp_v3_read_only_user
@@ -211,11 +207,9 @@ class SnmpSettingsSettings(object):
         :type: str
         """
         
-        if not system_contact:
-            raise ValueError("Invalid value for `system_contact`, must not be `None`")
-        if len(system_contact) < 1: 
+        if system_contact is not None and len(system_contact) < 1:
             raise ValueError("Invalid value for `system_contact`, length must be greater than or equal to `1`")
-        if not re.search('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$', system_contact): 
+        if system_contact is not None and not re.search('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$', system_contact):
             raise ValueError("Invalid value for `system_contact`, must be a follow pattern or equal to `/^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$/`")
 
         self._system_contact = system_contact
@@ -241,9 +235,7 @@ class SnmpSettingsSettings(object):
         :type: str
         """
         
-        if not system_location:
-            raise ValueError("Invalid value for `system_location`, must not be `None`")
-        if len(system_location) < 1: 
+        if system_location is not None and len(system_location) < 1:
             raise ValueError("Invalid value for `system_location`, length must be greater than or equal to `1`")
 
         self._system_location = system_location

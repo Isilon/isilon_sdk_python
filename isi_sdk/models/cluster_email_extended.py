@@ -95,7 +95,7 @@ class ClusterEmailExtended(object):
         :type: str
         """
         allowed_values = ["all", "severity", "category", "none"]
-        if batch_mode not in allowed_values:
+        if batch_mode is not None and batch_mode not in allowed_values:
             raise ValueError(
                 "Invalid value for `batch_mode`, must be one of {0}"
                 .format(allowed_values)
@@ -216,7 +216,7 @@ class ClusterEmailExtended(object):
         :type: str
         """
         allowed_values = ["none", "starttls"]
-        if smtp_auth_security not in allowed_values:
+        if smtp_auth_security is not None and smtp_auth_security not in allowed_values:
             raise ValueError(
                 "Invalid value for `smtp_auth_security`, must be one of {0}"
                 .format(allowed_values)

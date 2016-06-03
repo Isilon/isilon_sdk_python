@@ -433,7 +433,7 @@ class ClusterApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :return: ClusterNodes
+        :return: ClusterNodesExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -485,7 +485,7 @@ class ClusterApi(object):
                                             body=body_params,
                                             post_params=form_params,
                                             files=local_var_files,
-                                            response_type='ClusterNodes',
+                                            response_type='ClusterNodesExtended',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -1185,7 +1185,7 @@ class ClusterApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param ClusterIdentity cluster_identity:  (required)
+        :param ClusterIdentityExtended cluster_identity:  (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.

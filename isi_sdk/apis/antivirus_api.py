@@ -61,7 +61,7 @@ class AntivirusApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param AntivirusPolicy antivirus_policy:  (required)
+        :param AntivirusPolicyCreateParams antivirus_policy:  (required)
         :return: CreateResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -217,7 +217,7 @@ class AntivirusApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param AntivirusServer antivirus_server:  (required)
+        :param AntivirusServerCreateParams antivirus_server:  (required)
         :return: CreateResponse
                  If the method is called asynchronously,
                  returns the request thread.

@@ -26,16 +26,16 @@ Name | Type | Description | Notes
 **file_filtering_enabled** | **bool** | Enables file filtering on this zone. | [optional] 
 **hide_dot_files** | **bool** | Hide files and directories that begin with a period &#39;.&#39;. | [optional] 
 **host_acl** | **list[str]** | An ACL expressing which hosts are allowed access. A deny clause must be the final entry. | [optional] 
-**id** | **str** | Share ID. | 
+**id** | **str** | Share ID. | [optional] 
 **impersonate_guest** | **str** | Specify the condition in which user access is done as the guest account. | [optional] 
 **impersonate_user** | **str** | User account to be used as guest account. | [optional] 
 **inheritable_path_acl** | **bool** | Set the inheritable ACL on the share path. | [optional] 
 **mangle_byte_start** | **int** | Specifies the wchar_t starting point for automatic byte mangling. | [optional] 
 **mangle_map** | **list[str]** | Character mangle map. | [optional] 
-**name** | **str** | Share name. | 
+**name** | **str** | Share name. | [optional] 
 **ntfs_acl_support** | **bool** | Support NTFS ACLs on files and directories. | [optional] 
 **oplocks** | **bool** | Support oplocks. | [optional] 
-**path** | **str** | Path of share within /ifs. | 
+**path** | **str** | Path of share within /ifs. | [optional] 
 **permissions** | [**list[SmbSharePermission]**](SmbSharePermission.md) | Specifies an ordered list of permission modifications. | [optional] 
 **run_as_root** | [**list[GroupMember]**](GroupMember.md) | Allow account to run as root. | [optional] 
 **strict_ca_lockout** | **bool** | Specifies if persistent opens would do strict lockout on the share. | [optional] 

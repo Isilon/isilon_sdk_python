@@ -38,156 +38,41 @@ class StoragepoolNodepoolExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
+            'can_enable_l3': 'bool',
+            'id': 'int',
             'l3': 'bool',
+            'l3_status': 'str',
             'lnns': 'list[int]',
+            'manual': 'bool',
             'name': 'str',
             'protection_policy': 'str',
             'tier': 'str',
-            'can_enable_l3': 'bool',
-            'id': 'int',
-            'l3_status': 'str',
-            'manual': 'bool',
             'usage': 'StoragepoolTierUsage'
         }
 
         self.attribute_map = {
+            'can_enable_l3': 'can_enable_l3',
+            'id': 'id',
             'l3': 'l3',
+            'l3_status': 'l3_status',
             'lnns': 'lnns',
+            'manual': 'manual',
             'name': 'name',
             'protection_policy': 'protection_policy',
             'tier': 'tier',
-            'can_enable_l3': 'can_enable_l3',
-            'id': 'id',
-            'l3_status': 'l3_status',
-            'manual': 'manual',
             'usage': 'usage'
         }
 
+        self._can_enable_l3 = None
+        self._id = None
         self._l3 = None
+        self._l3_status = None
         self._lnns = None
+        self._manual = None
         self._name = None
         self._protection_policy = None
         self._tier = None
-        self._can_enable_l3 = None
-        self._id = None
-        self._l3_status = None
-        self._manual = None
         self._usage = None
-
-    @property
-    def l3(self):
-        """
-        Gets the l3 of this StoragepoolNodepoolExtended.
-        Use SSDs in this node pool for L3 cache.
-
-        :return: The l3 of this StoragepoolNodepoolExtended.
-        :rtype: bool
-        """
-        return self._l3
-
-    @l3.setter
-    def l3(self, l3):
-        """
-        Sets the l3 of this StoragepoolNodepoolExtended.
-        Use SSDs in this node pool for L3 cache.
-
-        :param l3: The l3 of this StoragepoolNodepoolExtended.
-        :type: bool
-        """
-        
-        self._l3 = l3
-
-    @property
-    def lnns(self):
-        """
-        Gets the lnns of this StoragepoolNodepoolExtended.
-        The nodes that are part of this node pool.
-
-        :return: The lnns of this StoragepoolNodepoolExtended.
-        :rtype: list[int]
-        """
-        return self._lnns
-
-    @lnns.setter
-    def lnns(self, lnns):
-        """
-        Sets the lnns of this StoragepoolNodepoolExtended.
-        The nodes that are part of this node pool.
-
-        :param lnns: The lnns of this StoragepoolNodepoolExtended.
-        :type: list[int]
-        """
-        
-        self._lnns = lnns
-
-    @property
-    def name(self):
-        """
-        Gets the name of this StoragepoolNodepoolExtended.
-        The node pool name.
-
-        :return: The name of this StoragepoolNodepoolExtended.
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """
-        Sets the name of this StoragepoolNodepoolExtended.
-        The node pool name.
-
-        :param name: The name of this StoragepoolNodepoolExtended.
-        :type: str
-        """
-        
-        self._name = name
-
-    @property
-    def protection_policy(self):
-        """
-        Gets the protection_policy of this StoragepoolNodepoolExtended.
-        The node pool protection policy.
-
-        :return: The protection_policy of this StoragepoolNodepoolExtended.
-        :rtype: str
-        """
-        return self._protection_policy
-
-    @protection_policy.setter
-    def protection_policy(self, protection_policy):
-        """
-        Sets the protection_policy of this StoragepoolNodepoolExtended.
-        The node pool protection policy.
-
-        :param protection_policy: The protection_policy of this StoragepoolNodepoolExtended.
-        :type: str
-        """
-        
-        self._protection_policy = protection_policy
-
-    @property
-    def tier(self):
-        """
-        Gets the tier of this StoragepoolNodepoolExtended.
-        The name or ID of the node pool's tier, if it is in a tier.
-
-        :return: The tier of this StoragepoolNodepoolExtended.
-        :rtype: str
-        """
-        return self._tier
-
-    @tier.setter
-    def tier(self, tier):
-        """
-        Sets the tier of this StoragepoolNodepoolExtended.
-        The name or ID of the node pool's tier, if it is in a tier.
-
-        :param tier: The tier of this StoragepoolNodepoolExtended.
-        :type: str
-        """
-        
-        self._tier = tier
 
     @property
     def can_enable_l3(self):
@@ -236,6 +121,29 @@ class StoragepoolNodepoolExtended(object):
         self._id = id
 
     @property
+    def l3(self):
+        """
+        Gets the l3 of this StoragepoolNodepoolExtended.
+        Use SSDs in this node pool for L3 cache.
+
+        :return: The l3 of this StoragepoolNodepoolExtended.
+        :rtype: bool
+        """
+        return self._l3
+
+    @l3.setter
+    def l3(self, l3):
+        """
+        Sets the l3 of this StoragepoolNodepoolExtended.
+        Use SSDs in this node pool for L3 cache.
+
+        :param l3: The l3 of this StoragepoolNodepoolExtended.
+        :type: bool
+        """
+        
+        self._l3 = l3
+
+    @property
     def l3_status(self):
         """
         Gets the l3_status of this StoragepoolNodepoolExtended.
@@ -265,6 +173,29 @@ class StoragepoolNodepoolExtended(object):
         self._l3_status = l3_status
 
     @property
+    def lnns(self):
+        """
+        Gets the lnns of this StoragepoolNodepoolExtended.
+        The nodes that are part of this node pool.
+
+        :return: The lnns of this StoragepoolNodepoolExtended.
+        :rtype: list[int]
+        """
+        return self._lnns
+
+    @lnns.setter
+    def lnns(self, lnns):
+        """
+        Sets the lnns of this StoragepoolNodepoolExtended.
+        The nodes that are part of this node pool.
+
+        :param lnns: The lnns of this StoragepoolNodepoolExtended.
+        :type: list[int]
+        """
+        
+        self._lnns = lnns
+
+    @property
     def manual(self):
         """
         Gets the manual of this StoragepoolNodepoolExtended.
@@ -286,6 +217,75 @@ class StoragepoolNodepoolExtended(object):
         """
         
         self._manual = manual
+
+    @property
+    def name(self):
+        """
+        Gets the name of this StoragepoolNodepoolExtended.
+        The node pool name.
+
+        :return: The name of this StoragepoolNodepoolExtended.
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """
+        Sets the name of this StoragepoolNodepoolExtended.
+        The node pool name.
+
+        :param name: The name of this StoragepoolNodepoolExtended.
+        :type: str
+        """
+        
+        self._name = name
+
+    @property
+    def protection_policy(self):
+        """
+        Gets the protection_policy of this StoragepoolNodepoolExtended.
+        The underlying protection policy.
+
+        :return: The protection_policy of this StoragepoolNodepoolExtended.
+        :rtype: str
+        """
+        return self._protection_policy
+
+    @protection_policy.setter
+    def protection_policy(self, protection_policy):
+        """
+        Sets the protection_policy of this StoragepoolNodepoolExtended.
+        The underlying protection policy.
+
+        :param protection_policy: The protection_policy of this StoragepoolNodepoolExtended.
+        :type: str
+        """
+        
+        self._protection_policy = protection_policy
+
+    @property
+    def tier(self):
+        """
+        Gets the tier of this StoragepoolNodepoolExtended.
+        The name (if named) or system ID of the node pool's tier, if it is in a tier. Otherwise null.
+
+        :return: The tier of this StoragepoolNodepoolExtended.
+        :rtype: str
+        """
+        return self._tier
+
+    @tier.setter
+    def tier(self, tier):
+        """
+        Sets the tier of this StoragepoolNodepoolExtended.
+        The name (if named) or system ID of the node pool's tier, if it is in a tier. Otherwise null.
+
+        :param tier: The tier of this StoragepoolNodepoolExtended.
+        :type: str
+        """
+        
+        self._tier = tier
 
     @property
     def usage(self):

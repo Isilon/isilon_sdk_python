@@ -161,7 +161,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_zones**
-> Zones list_zones()
+> ZonesExtended list_zones()
 
 
 
@@ -193,7 +193,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Zones**](Zones.md)
+[**ZonesExtended**](ZonesExtended.md)
 
 ### Authorization
 

@@ -125,7 +125,7 @@ isi_sdk.configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = isi_sdk.ProtocolsApi()
-hdfs_proxyuser = isi_sdk.HdfsProxyuser() # HdfsProxyuser | 
+hdfs_proxyuser = isi_sdk.HdfsProxyuserCreateParams() # HdfsProxyuserCreateParams | 
 
 try: 
     api_response = api_instance.create_hdfs_proxyuser(hdfs_proxyuser)
@@ -138,7 +138,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **hdfs_proxyuser** | [**HdfsProxyuser**](HdfsProxyuser.md)|  | 
+ **hdfs_proxyuser** | [**HdfsProxyuserCreateParams**](HdfsProxyuserCreateParams.md)|  | 
 
 ### Return type
 
@@ -175,7 +175,7 @@ isi_sdk.configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = isi_sdk.ProtocolsApi()
-hdfs_rack = isi_sdk.HdfsRack() # HdfsRack | 
+hdfs_rack = isi_sdk.HdfsRackCreateParams() # HdfsRackCreateParams | 
 
 try: 
     api_response = api_instance.create_hdfs_rack(hdfs_rack)
@@ -188,7 +188,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **hdfs_rack** | [**HdfsRack**](HdfsRack.md)|  | 
+ **hdfs_rack** | [**HdfsRackCreateParams**](HdfsRackCreateParams.md)|  | 
 
 ### Return type
 
@@ -275,7 +275,7 @@ isi_sdk.configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = isi_sdk.ProtocolsApi()
-nfs_aliase = isi_sdk.NfsAliase() # NfsAliase | 
+nfs_aliase = isi_sdk.NfsAliaseCreateParams() # NfsAliaseCreateParams | 
 zone = 'zone_example' # str | Access zone (optional)
 
 try: 
@@ -289,7 +289,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **nfs_aliase** | [**NfsAliase**](NfsAliase.md)|  | 
+ **nfs_aliase** | [**NfsAliaseCreateParams**](NfsAliaseCreateParams.md)|  | 
  **zone** | **str**| Access zone | [optional] 
 
 ### Return type
@@ -327,7 +327,7 @@ isi_sdk.configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = isi_sdk.ProtocolsApi()
-nfs_export = isi_sdk.NfsExport() # NfsExport | 
+nfs_export = isi_sdk.NfsExportCreateParams() # NfsExportCreateParams | 
 force = true # bool | If true, the export will be created even if it conflicts with another export. (optional)
 zone = 'zone_example' # str | Access zone (optional)
 
@@ -342,7 +342,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **nfs_export** | [**NfsExport**](NfsExport.md)|  | 
+ **nfs_export** | [**NfsExportCreateParams**](NfsExportCreateParams.md)|  | 
  **force** | **bool**| If true, the export will be created even if it conflicts with another export. | [optional] 
  **zone** | **str**| Access zone | [optional] 
 

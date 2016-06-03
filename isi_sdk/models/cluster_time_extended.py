@@ -70,10 +70,10 @@ class ClusterTimeExtended(object):
         
         if not time:
             raise ValueError("Invalid value for `time`, must not be `None`")
-        if time > 9.223372036854776E18: 
-            raise ValueError("Invalid value for `time`, must be a value less than or equal to `9.223372036854776E18`")
-        if time < -9.223372036854776E18: 
-            raise ValueError("Invalid value for `time`, must be a value greater than or equal to `-9.223372036854776E18`")
+        if time > 4.294967295E9:
+            raise ValueError("Invalid value for `time`, must be a value less than or equal to `4.294967295E9`")
+        if time < 0.0:
+            raise ValueError("Invalid value for `time`, must be a value greater than or equal to `0.0`")
 
         self._time = time
 

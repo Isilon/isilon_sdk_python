@@ -621,7 +621,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_cluster_node**
-> ClusterNodesExtended get_cluster_node(cluster_node_id)
+> ClusterNodesExtendedExtended get_cluster_node(cluster_node_id)
 
 
 
@@ -657,7 +657,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ClusterNodesExtended**](ClusterNodesExtended.md)
+[**ClusterNodesExtendedExtended**](ClusterNodesExtendedExtended.md)
 
 ### Authorization
 
@@ -671,7 +671,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_cluster_nodes**
-> ClusterNodesExtended get_cluster_nodes()
+> ClusterNodesExtendedExtendedExtended get_cluster_nodes()
 
 
 
@@ -703,7 +703,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**ClusterNodesExtended**](ClusterNodesExtended.md)
+[**ClusterNodesExtendedExtendedExtended**](ClusterNodesExtendedExtendedExtended.md)
 
 ### Authorization
 

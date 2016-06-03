@@ -145,7 +145,7 @@ class NetworkGroupnetsApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param SubnetsSubnetPool subnets_subnet_pool:  (required)
+        :param SubnetsSubnetPoolCreateParams subnets_subnet_pool:  (required)
         :param str groupnet:  (required)
         :param str subnet:  (required)
         :param bool force: force creating this pool even if it causes an MTU conflict.

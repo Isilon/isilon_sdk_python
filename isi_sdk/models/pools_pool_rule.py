@@ -77,9 +77,7 @@ class PoolsPoolRule(object):
         :type: str
         """
         
-        if not description:
-            raise ValueError("Invalid value for `description`, must not be `None`")
-        if len(description) > 128: 
+        if description is not None and len(description) > 128: 
             raise ValueError("Invalid value for `description`, length must be less than `128`")
 
         self._description = description
@@ -128,9 +126,7 @@ class PoolsPoolRule(object):
         :type: str
         """
         
-        if not name:
-            raise ValueError("Invalid value for `name`, must not be `None`")
-        if len(name) > 32: 
+        if name is not None and len(name) > 32: 
             raise ValueError("Invalid value for `name`, length must be less than `32`")
 
         self._name = name
@@ -156,7 +152,7 @@ class PoolsPoolRule(object):
         :type: str
         """
         allowed_values = ["any", "storage", "accelerator", "storage-i", "accelerator-i", "backup-accelerator"]
-        if node_type not in allowed_values:
+        if node_type is not None and node_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `node_type`, must be one of {0}"
                 .format(allowed_values)

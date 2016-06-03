@@ -74,9 +74,7 @@ class NtpSettingsSettings(object):
         :type: int
         """
         
-        if not chimers:
-            raise ValueError("Invalid value for `chimers`, must not be `None`")
-        if chimers < 1.0: 
+        if chimers is not None and chimers < 1.0:
             raise ValueError("Invalid value for `chimers`, must be a value greater than or equal to `1.0`")
 
         self._chimers = chimers

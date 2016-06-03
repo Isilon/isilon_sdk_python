@@ -265,9 +265,7 @@ class AntivirusSettingsSettings(object):
         :type: int
         """
         
-        if not report_expiry:
-            raise ValueError("Invalid value for `report_expiry`, must not be `None`")
-        if report_expiry < 0.0: 
+        if report_expiry is not None and report_expiry < 0.0:
             raise ValueError("Invalid value for `report_expiry`, must be a value greater than or equal to `0.0`")
 
         self._report_expiry = report_expiry
@@ -339,9 +337,7 @@ class AntivirusSettingsSettings(object):
         :type: int
         """
         
-        if not scan_size_maximum:
-            raise ValueError("Invalid value for `scan_size_maximum`, must not be `None`")
-        if scan_size_maximum < 0.0: 
+        if scan_size_maximum is not None and scan_size_maximum < 0.0:
             raise ValueError("Invalid value for `scan_size_maximum`, must be a value greater than or equal to `0.0`")
 
         self._scan_size_maximum = scan_size_maximum

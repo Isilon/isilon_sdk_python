@@ -61,7 +61,7 @@ class ProtocolsApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param HdfsProxyuser hdfs_proxyuser:  (required)
+        :param HdfsProxyuserCreateParams hdfs_proxyuser:  (required)
         :return: CreateResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -139,7 +139,7 @@ class ProtocolsApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param HdfsRack hdfs_rack:  (required)
+        :param HdfsRackCreateParams hdfs_rack:  (required)
         :return: CreateResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -295,7 +295,7 @@ class ProtocolsApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param NfsAliase nfs_aliase:  (required)
+        :param NfsAliaseCreateParams nfs_aliase:  (required)
         :param str zone: Access zone
         :return: CreateNfsAliaseResponse
                  If the method is called asynchronously,
@@ -376,7 +376,7 @@ class ProtocolsApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param NfsExport nfs_export:  (required)
+        :param NfsExportCreateParams nfs_export:  (required)
         :param bool force: If true, the export will be created even if it conflicts with another export.
         :param str zone: Access zone
         :return: CreateQuotaReportResponse

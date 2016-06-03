@@ -50,7 +50,7 @@ isi_sdk.configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = isi_sdk.EventApi()
-event_alert_condition = isi_sdk.EventAlertConditionsAlertCondition() # EventAlertConditionsAlertCondition | 
+event_alert_condition = isi_sdk.EventAlertConditionCreateParams() # EventAlertConditionCreateParams | 
 
 try: 
     api_response = api_instance.create_event_alert_condition(event_alert_condition)
@@ -63,7 +63,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **event_alert_condition** | [**EventAlertConditionsAlertCondition**](EventAlertConditionsAlertCondition.md)|  | 
+ **event_alert_condition** | [**EventAlertConditionCreateParams**](EventAlertConditionCreateParams.md)|  | 
 
 ### Return type
 
@@ -100,7 +100,7 @@ isi_sdk.configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = isi_sdk.EventApi()
-event_channel = isi_sdk.EventChannelsAlertCondition() # EventChannelsAlertCondition | 
+event_channel = isi_sdk.EventChannelCreateParams() # EventChannelCreateParams | 
 
 try: 
     api_response = api_instance.create_event_channel(event_channel)
@@ -113,7 +113,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **event_channel** | [**EventChannelsAlertCondition**](EventChannelsAlertCondition.md)|  | 
+ **event_channel** | [**EventChannelCreateParams**](EventChannelCreateParams.md)|  | 
 
 ### Return type
 

@@ -1092,7 +1092,7 @@ class NfsExportExtended(object):
         :type: str
         """
         allowed_values = ["DATASYNC", "FILESYNC", "UNSTABLE"]
-        if write_datasync_action not in allowed_values:
+        if write_datasync_action is not None and write_datasync_action not in allowed_values:
             raise ValueError(
                 "Invalid value for `write_datasync_action`, must be one of {0}"
                 .format(allowed_values)
@@ -1121,7 +1121,7 @@ class NfsExportExtended(object):
         :type: str
         """
         allowed_values = ["DATASYNC", "FILESYNC", "UNSTABLE"]
-        if write_datasync_reply not in allowed_values:
+        if write_datasync_reply is not None and write_datasync_reply not in allowed_values:
             raise ValueError(
                 "Invalid value for `write_datasync_reply`, must be one of {0}"
                 .format(allowed_values)
@@ -1150,7 +1150,7 @@ class NfsExportExtended(object):
         :type: str
         """
         allowed_values = ["DATASYNC", "FILESYNC", "UNSTABLE"]
-        if write_filesync_action not in allowed_values:
+        if write_filesync_action is not None and write_filesync_action not in allowed_values:
             raise ValueError(
                 "Invalid value for `write_filesync_action`, must be one of {0}"
                 .format(allowed_values)
@@ -1179,7 +1179,7 @@ class NfsExportExtended(object):
         :type: str
         """
         allowed_values = ["DATASYNC", "FILESYNC", "UNSTABLE"]
-        if write_filesync_reply not in allowed_values:
+        if write_filesync_reply is not None and write_filesync_reply not in allowed_values:
             raise ValueError(
                 "Invalid value for `write_filesync_reply`, must be one of {0}"
                 .format(allowed_values)
@@ -1277,7 +1277,7 @@ class NfsExportExtended(object):
         :type: str
         """
         allowed_values = ["DATASYNC", "FILESYNC", "UNSTABLE"]
-        if write_unstable_action not in allowed_values:
+        if write_unstable_action is not None and write_unstable_action not in allowed_values:
             raise ValueError(
                 "Invalid value for `write_unstable_action`, must be one of {0}"
                 .format(allowed_values)
@@ -1306,7 +1306,7 @@ class NfsExportExtended(object):
         :type: str
         """
         allowed_values = ["DATASYNC", "FILESYNC", "UNSTABLE"]
-        if write_unstable_reply not in allowed_values:
+        if write_unstable_reply is not None and write_unstable_reply not in allowed_values:
             raise ValueError(
                 "Invalid value for `write_unstable_reply`, must be one of {0}"
                 .format(allowed_values)

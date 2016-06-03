@@ -38,7 +38,7 @@ class ProvidersAdsExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'ads': 'list[ProvidersAdsAdsItem]'
+            'ads': 'list[ProvidersAdsAdsItemExtended]'
         }
 
         self.attribute_map = {
@@ -54,7 +54,7 @@ class ProvidersAdsExtended(object):
 
 
         :return: The ads of this ProvidersAdsExtended.
-        :rtype: list[ProvidersAdsAdsItem]
+        :rtype: list[ProvidersAdsAdsItemExtended]
         """
         return self._ads
 
@@ -65,7 +65,7 @@ class ProvidersAdsExtended(object):
 
 
         :param ads: The ads of this ProvidersAdsExtended.
-        :type: list[ProvidersAdsAdsItem]
+        :type: list[ProvidersAdsAdsItemExtended]
         """
         
         self._ads = ads

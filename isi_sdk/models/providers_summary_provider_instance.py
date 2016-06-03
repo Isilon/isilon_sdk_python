@@ -279,7 +279,7 @@ class ProvidersSummaryProviderInstance(object):
         :type: str
         """
         allowed_values = ["offline", "active", "online", "initializing", "joining", "disabled"]
-        if status not in allowed_values:
+        if status is not None and status not in allowed_values:
             raise ValueError(
                 "Invalid value for `status`, must be one of {0}"
                 .format(allowed_values)
@@ -308,7 +308,7 @@ class ProvidersSummaryProviderInstance(object):
         :type: str
         """
         allowed_values = ["file", "ldap", "local", "nis", "ads", "krb5", "unknown"]
-        if type not in allowed_values:
+        if type is not None and type not in allowed_values:
             raise ValueError(
                 "Invalid value for `type`, must be one of {0}"
                 .format(allowed_values)

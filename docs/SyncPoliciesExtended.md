@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**policies** | [**list[SyncPolicyExtended]**](SyncPolicyExtended.md) |  | [optional] 
+**policies** | [**list[SyncPolicyExtendedExtended]**](SyncPolicyExtendedExtended.md) |  | [optional] 
 **resume** | **str** | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). | [optional] 
 **total** | **int** | Total number of items available. | [optional] 
 

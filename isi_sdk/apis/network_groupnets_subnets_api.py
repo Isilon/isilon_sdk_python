@@ -157,7 +157,7 @@ class NetworkGroupnetsSubnetsApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param PoolsPoolRule pools_pool_rule:  (required)
+        :param PoolsPoolRuleCreateParams pools_pool_rule:  (required)
         :param str groupnet:  (required)
         :param str subnet:  (required)
         :param str pool:  (required)

@@ -62,7 +62,7 @@ class WormApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param WormDomainCreateParams worm_domain:  (required)
-        :return: CreateWormDomainResponse
+        :return: WormDomainExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -119,7 +119,7 @@ class WormApi(object):
                                             body=body_params,
                                             post_params=form_params,
                                             files=local_var_files,
-                                            response_type='CreateWormDomainResponse',
+                                            response_type='WormDomainExtended',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response

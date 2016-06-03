@@ -97,7 +97,7 @@ class FileFilterSettings(object):
         :type: str
         """
         allowed_values = ["deny", "allow"]
-        if file_filter_type not in allowed_values:
+        if file_filter_type is not None and file_filter_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `file_filter_type`, must be one of {0}"
                 .format(allowed_values)

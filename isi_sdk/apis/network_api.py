@@ -139,7 +139,7 @@ class NetworkApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param NetworkGroupnet network_groupnet:  (required)
+        :param NetworkGroupnetCreateParams network_groupnet:  (required)
         :return: CreateResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -795,7 +795,7 @@ class NetworkApi(object):
         :param str dir: The direction of the sort.
         :param str groupnet: Name of the groupnet to list rules from.
         :param str pool: Name of the pool to list rules from.
-        :return: NetworkRules
+        :return: PoolsPoolRulesExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -863,7 +863,7 @@ class NetworkApi(object):
                                             body=body_params,
                                             post_params=form_params,
                                             files=local_var_files,
-                                            response_type='NetworkRules',
+                                            response_type='PoolsPoolRulesExtended',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -888,7 +888,7 @@ class NetworkApi(object):
         :param int limit: Return no more than this many results at once (see resume).
         :param str dir: The direction of the sort.
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
-        :return: NetworkSubnets
+        :return: GroupnetSubnetsExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -952,7 +952,7 @@ class NetworkApi(object):
                                             body=body_params,
                                             post_params=form_params,
                                             files=local_var_files,
-                                            response_type='NetworkSubnets',
+                                            response_type='GroupnetSubnetsExtended',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -1058,7 +1058,7 @@ class NetworkApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param NetworkDnscacheSetting network_dnscache:  (required)
+        :param NetworkDnscacheExtended network_dnscache:  (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.

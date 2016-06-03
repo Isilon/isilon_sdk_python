@@ -138,11 +138,9 @@ class ClusterVersionNode(object):
         :type: int
         """
         
-        if not id:
-            raise ValueError("Invalid value for `id`, must not be `None`")
-        if id > 4.294967295E9: 
+        if id is not None  and id > 4.294967295E9:
             raise ValueError("Invalid value for `id`, must be a value less than or equal to `4.294967295E9`")
-        if id < 0.0: 
+        if id is not None and id < 0.0:
             raise ValueError("Invalid value for `id`, must be a value greater than or equal to `0.0`")
 
         self._id = id
@@ -168,11 +166,9 @@ class ClusterVersionNode(object):
         :type: int
         """
         
-        if not lnn:
-            raise ValueError("Invalid value for `lnn`, must not be `None`")
-        if lnn > 4.294967295E9: 
+        if lnn is not None  and lnn > 4.294967295E9:
             raise ValueError("Invalid value for `lnn`, must be a value less than or equal to `4.294967295E9`")
-        if lnn < 0.0: 
+        if lnn is not None and lnn < 0.0:
             raise ValueError("Invalid value for `lnn`, must be a value greater than or equal to `0.0`")
 
         self._lnn = lnn
@@ -244,11 +240,9 @@ class ClusterVersionNode(object):
         :type: int
         """
         
-        if not status:
-            raise ValueError("Invalid value for `status`, must not be `None`")
-        if status > 4.294967295E9: 
+        if status is not None  and status > 4.294967295E9:
             raise ValueError("Invalid value for `status`, must be a value less than or equal to `4.294967295E9`")
-        if status < 0.0: 
+        if status is not None and status < 0.0:
             raise ValueError("Invalid value for `status`, must be a value greater than or equal to `0.0`")
 
         self._status = status

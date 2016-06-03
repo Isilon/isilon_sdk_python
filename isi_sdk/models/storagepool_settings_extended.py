@@ -98,7 +98,7 @@ class StoragepoolSettingsExtended(object):
         :type: str
         """
         allowed_values = ["all", "files_at_default", "none"]
-        if automatically_manage_io_optimization not in allowed_values:
+        if automatically_manage_io_optimization is not None and automatically_manage_io_optimization not in allowed_values:
             raise ValueError(
                 "Invalid value for `automatically_manage_io_optimization`, must be one of {0}"
                 .format(allowed_values)
@@ -127,7 +127,7 @@ class StoragepoolSettingsExtended(object):
         :type: str
         """
         allowed_values = ["all", "files_at_default", "none"]
-        if automatically_manage_protection not in allowed_values:
+        if automatically_manage_protection is not None and automatically_manage_protection not in allowed_values:
             raise ValueError(
                 "Invalid value for `automatically_manage_protection`, must be one of {0}"
                 .format(allowed_values)
@@ -317,11 +317,9 @@ class StoragepoolSettingsExtended(object):
         :type: int
         """
         
-        if not virtual_hot_spare_limit_drives:
-            raise ValueError("Invalid value for `virtual_hot_spare_limit_drives`, must not be `None`")
-        if virtual_hot_spare_limit_drives > 4.0: 
+        if virtual_hot_spare_limit_drives is not None  and virtual_hot_spare_limit_drives > 4.0:
             raise ValueError("Invalid value for `virtual_hot_spare_limit_drives`, must be a value less than or equal to `4.0`")
-        if virtual_hot_spare_limit_drives < 0.0: 
+        if virtual_hot_spare_limit_drives is not None and virtual_hot_spare_limit_drives < 0.0:
             raise ValueError("Invalid value for `virtual_hot_spare_limit_drives`, must be a value greater than or equal to `0.0`")
 
         self._virtual_hot_spare_limit_drives = virtual_hot_spare_limit_drives
@@ -347,11 +345,9 @@ class StoragepoolSettingsExtended(object):
         :type: int
         """
         
-        if not virtual_hot_spare_limit_percent:
-            raise ValueError("Invalid value for `virtual_hot_spare_limit_percent`, must not be `None`")
-        if virtual_hot_spare_limit_percent > 20.0: 
+        if virtual_hot_spare_limit_percent is not None  and virtual_hot_spare_limit_percent > 20.0:
             raise ValueError("Invalid value for `virtual_hot_spare_limit_percent`, must be a value less than or equal to `20.0`")
-        if virtual_hot_spare_limit_percent < 0.0: 
+        if virtual_hot_spare_limit_percent is not None and virtual_hot_spare_limit_percent < 0.0:
             raise ValueError("Invalid value for `virtual_hot_spare_limit_percent`, must be a value greater than or equal to `0.0`")
 
         self._virtual_hot_spare_limit_percent = virtual_hot_spare_limit_percent

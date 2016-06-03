@@ -88,7 +88,7 @@ isi_sdk.configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = isi_sdk.NetworkGroupnetsApi()
-subnets_subnet_pool = isi_sdk.SubnetsSubnetPool() # SubnetsSubnetPool | 
+subnets_subnet_pool = isi_sdk.SubnetsSubnetPoolCreateParams() # SubnetsSubnetPoolCreateParams | 
 groupnet = 'groupnet_example' # str | 
 subnet = 'subnet_example' # str | 
 force = true # bool | force creating this pool even if it causes an MTU conflict. (optional)
@@ -104,7 +104,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **subnets_subnet_pool** | [**SubnetsSubnetPool**](SubnetsSubnetPool.md)|  | 
+ **subnets_subnet_pool** | [**SubnetsSubnetPoolCreateParams**](SubnetsSubnetPoolCreateParams.md)|  | 
  **groupnet** | **str**|  | 
  **subnet** | **str**|  | 
  **force** | **bool**| force creating this pool even if it causes an MTU conflict. | [optional] 

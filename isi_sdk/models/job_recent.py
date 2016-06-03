@@ -38,7 +38,7 @@ class JobRecent(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'recent': 'list[JobRecentRecentItem]',
+            'recent': 'list[JobJobExtended]',
             'total': 'int'
         }
 
@@ -57,7 +57,7 @@ class JobRecent(object):
 
 
         :return: The recent of this JobRecent.
-        :rtype: list[JobRecentRecentItem]
+        :rtype: list[JobJobExtended]
         """
         return self._recent
 
@@ -68,7 +68,7 @@ class JobRecent(object):
 
 
         :param recent: The recent of this JobRecent.
-        :type: list[JobRecentRecentItem]
+        :type: list[JobJobExtended]
         """
         
         self._recent = recent

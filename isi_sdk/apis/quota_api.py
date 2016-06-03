@@ -220,7 +220,7 @@ class QuotaApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param SettingsMappingExtended settings_mapping:  (required)
+        :param SettingsMappingExtendedExtended settings_mapping:  (required)
         :return: CreateResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -298,7 +298,7 @@ class QuotaApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param SettingsNotificationCreateParams settings_notification:  (required)
+        :param QuotaNotificationCreateParams settings_notification:  (required)
         :return: CreateResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1313,7 +1313,7 @@ class QuotaApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str settings_notification_id: Retrieve notification rule information. (required)
-        :return: SettingsNotifications
+        :return: QuotaNotifications
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1370,7 +1370,7 @@ class QuotaApi(object):
                                             body=body_params,
                                             post_params=form_params,
                                             files=local_var_files,
-                                            response_type='SettingsNotifications',
+                                            response_type='QuotaNotifications',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -1739,7 +1739,7 @@ class QuotaApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :return: SettingsNotificationsExtended
+        :return: QuotaNotificationsExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1791,7 +1791,7 @@ class QuotaApi(object):
                                             body=body_params,
                                             post_params=form_params,
                                             files=local_var_files,
-                                            response_type='SettingsNotificationsExtended',
+                                            response_type='QuotaNotificationsExtended',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -2063,7 +2063,7 @@ class QuotaApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param SettingsReportsSettings settings_reports:  (required)
+        :param SettingsReportsExtended settings_reports:  (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.

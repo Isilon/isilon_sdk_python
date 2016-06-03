@@ -95,9 +95,7 @@ class QuotaQuotaThresholdsExtended(object):
         :type: int
         """
         
-        if not advisory:
-            raise ValueError("Invalid value for `advisory`, must not be `None`")
-        if advisory < 1.0: 
+        if advisory is not None and advisory < 1.0:
             raise ValueError("Invalid value for `advisory`, must be a value greater than or equal to `1.0`")
 
         self._advisory = advisory
@@ -123,9 +121,7 @@ class QuotaQuotaThresholdsExtended(object):
         :type: int
         """
         
-        if not hard:
-            raise ValueError("Invalid value for `hard`, must not be `None`")
-        if hard < 1.0: 
+        if hard is not None and hard < 1.0:
             raise ValueError("Invalid value for `hard`, must be a value greater than or equal to `1.0`")
 
         self._hard = hard
@@ -151,9 +147,7 @@ class QuotaQuotaThresholdsExtended(object):
         :type: int
         """
         
-        if not soft:
-            raise ValueError("Invalid value for `soft`, must not be `None`")
-        if soft < 1.0: 
+        if soft is not None and soft < 1.0:
             raise ValueError("Invalid value for `soft`, must be a value greater than or equal to `1.0`")
 
         self._soft = soft
@@ -179,9 +173,7 @@ class QuotaQuotaThresholdsExtended(object):
         :type: int
         """
         
-        if not soft_grace:
-            raise ValueError("Invalid value for `soft_grace`, must not be `None`")
-        if soft_grace < 1.0: 
+        if soft_grace is not None and soft_grace < 1.0:
             raise ValueError("Invalid value for `soft_grace`, must be a value greater than or equal to `1.0`")
 
         self._soft_grace = soft_grace

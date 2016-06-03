@@ -38,7 +38,7 @@ class NetworkPools(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'pools': 'list[SubnetsSubnetPoolsPool]',
+            'pools': 'list[NetworkPool]',
             'resume': 'str',
             'total': 'int'
         }
@@ -60,7 +60,7 @@ class NetworkPools(object):
 
 
         :return: The pools of this NetworkPools.
-        :rtype: list[SubnetsSubnetPoolsPool]
+        :rtype: list[NetworkPool]
         """
         return self._pools
 
@@ -71,7 +71,7 @@ class NetworkPools(object):
 
 
         :param pools: The pools of this NetworkPools.
-        :type: list[SubnetsSubnetPoolsPool]
+        :type: list[NetworkPool]
         """
         
         self._pools = pools

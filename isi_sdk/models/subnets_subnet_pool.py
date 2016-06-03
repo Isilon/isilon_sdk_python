@@ -113,9 +113,7 @@ class SubnetsSubnetPool(object):
         :type: str
         """
         
-        if not access_zone:
-            raise ValueError("Invalid value for `access_zone`, must not be `None`")
-        if len(access_zone) < 1: 
+        if access_zone is not None and len(access_zone) < 1:
             raise ValueError("Invalid value for `access_zone`, length must be greater than or equal to `1`")
 
         self._access_zone = access_zone
@@ -141,7 +139,7 @@ class SubnetsSubnetPool(object):
         :type: str
         """
         allowed_values = ["roundrobin", "failover", "lacp", "fec"]
-        if aggregation_mode not in allowed_values:
+        if aggregation_mode is not None and aggregation_mode not in allowed_values:
             raise ValueError(
                 "Invalid value for `aggregation_mode`, must be one of {0}"
                 .format(allowed_values)
@@ -170,7 +168,7 @@ class SubnetsSubnetPool(object):
         :type: str
         """
         allowed_values = ["dynamic", "static"]
-        if alloc_method not in allowed_values:
+        if alloc_method is not None and alloc_method not in allowed_values:
             raise ValueError(
                 "Invalid value for `alloc_method`, must be one of {0}"
                 .format(allowed_values)
@@ -199,9 +197,7 @@ class SubnetsSubnetPool(object):
         :type: str
         """
         
-        if not description:
-            raise ValueError("Invalid value for `description`, must not be `None`")
-        if len(description) > 128: 
+        if description is not None and len(description) > 128: 
             raise ValueError("Invalid value for `description`, length must be less than `128`")
 
         self._description = description
@@ -250,9 +246,7 @@ class SubnetsSubnetPool(object):
         :type: str
         """
         
-        if not name:
-            raise ValueError("Invalid value for `name`, must not be `None`")
-        if len(name) > 32: 
+        if name is not None and len(name) > 32: 
             raise ValueError("Invalid value for `name`, length must be less than `32`")
 
         self._name = name
@@ -301,7 +295,7 @@ class SubnetsSubnetPool(object):
         :type: str
         """
         allowed_values = ["auto", "manual"]
-        if rebalance_policy not in allowed_values:
+        if rebalance_policy is not None and rebalance_policy not in allowed_values:
             raise ValueError(
                 "Invalid value for `rebalance_policy`, must be one of {0}"
                 .format(allowed_values)
@@ -330,11 +324,9 @@ class SubnetsSubnetPool(object):
         :type: int
         """
         
-        if not sc_auto_unsuspend_delay:
-            raise ValueError("Invalid value for `sc_auto_unsuspend_delay`, must not be `None`")
-        if sc_auto_unsuspend_delay > 86400.0: 
+        if sc_auto_unsuspend_delay is not None  and sc_auto_unsuspend_delay > 86400.0:
             raise ValueError("Invalid value for `sc_auto_unsuspend_delay`, must be a value less than or equal to `86400.0`")
-        if sc_auto_unsuspend_delay < 0.0: 
+        if sc_auto_unsuspend_delay is not None and sc_auto_unsuspend_delay < 0.0:
             raise ValueError("Invalid value for `sc_auto_unsuspend_delay`, must be a value greater than or equal to `0.0`")
 
         self._sc_auto_unsuspend_delay = sc_auto_unsuspend_delay
@@ -360,7 +352,7 @@ class SubnetsSubnetPool(object):
         :type: str
         """
         allowed_values = ["round_robin", "conn_count", "throughput", "cpu_usage"]
-        if sc_connect_policy not in allowed_values:
+        if sc_connect_policy is not None and sc_connect_policy not in allowed_values:
             raise ValueError(
                 "Invalid value for `sc_connect_policy`, must be one of {0}"
                 .format(allowed_values)
@@ -435,7 +427,7 @@ class SubnetsSubnetPool(object):
         :type: str
         """
         allowed_values = ["round_robin", "conn_count", "throughput", "cpu_usage"]
-        if sc_failover_policy not in allowed_values:
+        if sc_failover_policy is not None and sc_failover_policy not in allowed_values:
             raise ValueError(
                 "Invalid value for `sc_failover_policy`, must be one of {0}"
                 .format(allowed_values)
@@ -487,11 +479,9 @@ class SubnetsSubnetPool(object):
         :type: int
         """
         
-        if not sc_ttl:
-            raise ValueError("Invalid value for `sc_ttl`, must not be `None`")
-        if sc_ttl > 2.147483647E9: 
+        if sc_ttl is not None  and sc_ttl > 2.147483647E9:
             raise ValueError("Invalid value for `sc_ttl`, must be a value less than or equal to `2.147483647E9`")
-        if sc_ttl < 0.0: 
+        if sc_ttl is not None and sc_ttl < 0.0:
             raise ValueError("Invalid value for `sc_ttl`, must be a value greater than or equal to `0.0`")
 
         self._sc_ttl = sc_ttl

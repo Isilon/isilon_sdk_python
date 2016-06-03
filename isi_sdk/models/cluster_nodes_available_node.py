@@ -175,7 +175,7 @@ class ClusterNodesAvailableNode(object):
         :type: str
         """
         allowed_values = ["available", "waiting", "error", "error_permanent", "working", "rebooting", "exiting"]
-        if status not in allowed_values:
+        if status is not None and status not in allowed_values:
             raise ValueError(
                 "Invalid value for `status`, must be one of {0}"
                 .format(allowed_values)

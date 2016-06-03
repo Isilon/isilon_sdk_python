@@ -38,7 +38,7 @@ class FilepoolPolicy(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'actions': 'list[FilepoolDefaultPolicyDefaultPolicyAction]',
+            'actions': 'list[FilepoolDefaultPolicyAction]',
             'apply_order': 'int',
             'description': 'str',
             'file_matching_pattern': 'FilepoolPolicyFileMatchingPattern',
@@ -66,7 +66,7 @@ class FilepoolPolicy(object):
         A list of actions to be taken for matching files
 
         :return: The actions of this FilepoolPolicy.
-        :rtype: list[FilepoolDefaultPolicyDefaultPolicyAction]
+        :rtype: list[FilepoolDefaultPolicyAction]
         """
         return self._actions
 
@@ -77,7 +77,7 @@ class FilepoolPolicy(object):
         A list of actions to be taken for matching files
 
         :param actions: The actions of this FilepoolPolicy.
-        :type: list[FilepoolDefaultPolicyDefaultPolicyAction]
+        :type: list[FilepoolDefaultPolicyAction]
         """
         
         self._actions = actions

@@ -97,11 +97,9 @@ class JobJob(object):
         :type: int
         """
         
-        if not priority:
-            raise ValueError("Invalid value for `priority`, must not be `None`")
-        if priority > 10.0: 
+        if priority is not None  and priority > 10.0:
             raise ValueError("Invalid value for `priority`, must be a value less than or equal to `10.0`")
-        if priority < 1.0: 
+        if priority is not None and priority < 1.0:
             raise ValueError("Invalid value for `priority`, must be a value greater than or equal to `1.0`")
 
         self._priority = priority
@@ -127,7 +125,7 @@ class JobJob(object):
         :type: str
         """
         allowed_values = ["run", "pause", "cancel"]
-        if state not in allowed_values:
+        if state is not None and state not in allowed_values:
             raise ValueError(
                 "Invalid value for `state`, must be one of {0}"
                 .format(allowed_values)

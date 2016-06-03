@@ -38,7 +38,7 @@ class ZonesSummaryExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'summary': 'ZonesSummarySummary'
+            'summary': 'ZonesSummarySummaryExtended'
         }
 
         self.attribute_map = {
@@ -54,7 +54,7 @@ class ZonesSummaryExtended(object):
         The summary of a collection of objects.
 
         :return: The summary of this ZonesSummaryExtended.
-        :rtype: ZonesSummarySummary
+        :rtype: ZonesSummarySummaryExtended
         """
         return self._summary
 
@@ -65,7 +65,7 @@ class ZonesSummaryExtended(object):
         The summary of a collection of objects.
 
         :param summary: The summary of this ZonesSummaryExtended.
-        :type: ZonesSummarySummary
+        :type: ZonesSummarySummaryExtended
         """
         
         self._summary = summary

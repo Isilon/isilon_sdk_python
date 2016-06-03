@@ -226,7 +226,7 @@ class SyncPolicy(object):
         :type: str
         """
         allowed_values = ["copy", "sync"]
-        if action not in allowed_values:
+        if action is not None and action not in allowed_values:
             raise ValueError(
                 "Invalid value for `action`, must be one of {0}"
                 .format(allowed_values)
@@ -324,7 +324,7 @@ class SyncPolicy(object):
         :type: str
         """
         allowed_values = ["deny", "allow", "force"]
-        if cloud_deep_copy not in allowed_values:
+        if cloud_deep_copy is not None and cloud_deep_copy not in allowed_values:
             raise ValueError(
                 "Invalid value for `cloud_deep_copy`, must be one of {0}"
                 .format(allowed_values)
@@ -560,9 +560,7 @@ class SyncPolicy(object):
         :type: int
         """
         
-        if not job_delay:
-            raise ValueError("Invalid value for `job_delay`, must not be `None`")
-        if job_delay < 0.0: 
+        if job_delay is not None and job_delay < 0.0:
             raise ValueError("Invalid value for `job_delay`, must be a value greater than or equal to `0.0`")
 
         self._job_delay = job_delay
@@ -588,7 +586,7 @@ class SyncPolicy(object):
         :type: str
         """
         allowed_values = ["fatal", "error", "notice", "info", "copy", "debug", "trace"]
-        if log_level not in allowed_values:
+        if log_level is not None and log_level not in allowed_values:
             raise ValueError(
                 "Invalid value for `log_level`, must be one of {0}"
                 .format(allowed_values)
@@ -709,9 +707,7 @@ class SyncPolicy(object):
         :type: int
         """
         
-        if not report_max_age:
-            raise ValueError("Invalid value for `report_max_age`, must not be `None`")
-        if report_max_age < 0.0: 
+        if report_max_age is not None and report_max_age < 0.0:
             raise ValueError("Invalid value for `report_max_age`, must be a value greater than or equal to `0.0`")
 
         self._report_max_age = report_max_age
@@ -737,11 +733,9 @@ class SyncPolicy(object):
         :type: int
         """
         
-        if not report_max_count:
-            raise ValueError("Invalid value for `report_max_count`, must not be `None`")
-        if report_max_count > 2000.0: 
+        if report_max_count is not None  and report_max_count > 2000.0:
             raise ValueError("Invalid value for `report_max_count`, must be a value less than or equal to `2000.0`")
-        if report_max_count < 1.0: 
+        if report_max_count is not None and report_max_count < 1.0:
             raise ValueError("Invalid value for `report_max_count`, must be a value greater than or equal to `1.0`")
 
         self._report_max_count = report_max_count
@@ -790,9 +784,7 @@ class SyncPolicy(object):
         :type: int
         """
         
-        if not rpo_alert:
-            raise ValueError("Invalid value for `rpo_alert`, must not be `None`")
-        if rpo_alert < 0.0: 
+        if rpo_alert is not None and rpo_alert < 0.0:
             raise ValueError("Invalid value for `rpo_alert`, must be a value greater than or equal to `0.0`")
 
         self._rpo_alert = rpo_alert
@@ -1048,9 +1040,7 @@ class SyncPolicy(object):
         :type: int
         """
         
-        if not source_snapshot_expiration:
-            raise ValueError("Invalid value for `source_snapshot_expiration`, must not be `None`")
-        if source_snapshot_expiration < 0.0: 
+        if source_snapshot_expiration is not None and source_snapshot_expiration < 0.0:
             raise ValueError("Invalid value for `source_snapshot_expiration`, must be a value greater than or equal to `0.0`")
 
         self._source_snapshot_expiration = source_snapshot_expiration
@@ -1237,9 +1227,7 @@ class SyncPolicy(object):
         :type: int
         """
         
-        if not target_snapshot_expiration:
-            raise ValueError("Invalid value for `target_snapshot_expiration`, must not be `None`")
-        if target_snapshot_expiration < 0.0: 
+        if target_snapshot_expiration is not None and target_snapshot_expiration < 0.0:
             raise ValueError("Invalid value for `target_snapshot_expiration`, must be a value greater than or equal to `0.0`")
 
         self._target_snapshot_expiration = target_snapshot_expiration
@@ -1288,11 +1276,9 @@ class SyncPolicy(object):
         :type: int
         """
         
-        if not workers_per_node:
-            raise ValueError("Invalid value for `workers_per_node`, must not be `None`")
-        if workers_per_node > 20.0: 
+        if workers_per_node is not None  and workers_per_node > 20.0:
             raise ValueError("Invalid value for `workers_per_node`, must be a value less than or equal to `20.0`")
-        if workers_per_node < 1.0: 
+        if workers_per_node is not None and workers_per_node < 1.0:
             raise ValueError("Invalid value for `workers_per_node`, must be a value greater than or equal to `1.0`")
 
         self._workers_per_node = workers_per_node

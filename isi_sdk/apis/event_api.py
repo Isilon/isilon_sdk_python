@@ -61,7 +61,7 @@ class EventApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param EventAlertConditionsAlertCondition event_alert_condition:  (required)
+        :param EventAlertConditionCreateParams event_alert_condition:  (required)
         :return: CreateResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -139,7 +139,7 @@ class EventApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param EventChannelsAlertCondition event_channel:  (required)
+        :param EventChannelCreateParams event_channel:  (required)
         :return: CreateResponse
                  If the method is called asynchronously,
                  returns the request thread.

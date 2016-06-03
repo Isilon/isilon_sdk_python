@@ -236,11 +236,9 @@ class SyncSettingsSettings(object):
         :type: int
         """
         
-        if not report_max_count:
-            raise ValueError("Invalid value for `report_max_count`, must not be `None`")
-        if report_max_count > 2000.0: 
+        if report_max_count is not None  and report_max_count > 2000.0:
             raise ValueError("Invalid value for `report_max_count`, must be a value less than or equal to `2000.0`")
-        if report_max_count < 1.0: 
+        if report_max_count is not None and report_max_count < 1.0:
             raise ValueError("Invalid value for `report_max_count`, must be a value greater than or equal to `1.0`")
 
         self._report_max_count = report_max_count
@@ -312,7 +310,7 @@ class SyncSettingsSettings(object):
         :type: str
         """
         allowed_values = ["on", "off", "paused"]
-        if service not in allowed_values:
+        if service is not None and service not in allowed_values:
             raise ValueError(
                 "Invalid value for `service`, must be one of {0}"
                 .format(allowed_values)

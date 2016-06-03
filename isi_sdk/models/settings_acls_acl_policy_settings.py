@@ -107,7 +107,7 @@ class SettingsAclsAclPolicySettings(object):
         :type: str
         """
         allowed_values = ["unix", "windows"]
-        if access not in allowed_values:
+        if access is not None and access not in allowed_values:
             raise ValueError(
                 "Invalid value for `access`, must be one of {0}"
                 .format(allowed_values)
@@ -136,7 +136,7 @@ class SettingsAclsAclPolicySettings(object):
         :type: str
         """
         allowed_values = ["approx", "777"]
-        if calcmode not in allowed_values:
+        if calcmode is not None and calcmode not in allowed_values:
             raise ValueError(
                 "Invalid value for `calcmode`, must be one of {0}"
                 .format(allowed_values)
@@ -165,7 +165,7 @@ class SettingsAclsAclPolicySettings(object):
         :type: str
         """
         allowed_values = ["group_aces", "group_only"]
-        if calcmode_group not in allowed_values:
+        if calcmode_group is not None and calcmode_group not in allowed_values:
             raise ValueError(
                 "Invalid value for `calcmode_group`, must be one of {0}"
                 .format(allowed_values)
@@ -194,7 +194,7 @@ class SettingsAclsAclPolicySettings(object):
         :type: str
         """
         allowed_values = ["owner_aces", "owner_only"]
-        if calcmode_owner not in allowed_values:
+        if calcmode_owner is not None and calcmode_owner not in allowed_values:
             raise ValueError(
                 "Invalid value for `calcmode_owner`, must be one of {0}"
                 .format(allowed_values)
@@ -223,7 +223,7 @@ class SettingsAclsAclPolicySettings(object):
         :type: str
         """
         allowed_values = ["remove", "replace", "replace_users_and_groups", "merge", "deny", "ignore"]
-        if chmod not in allowed_values:
+        if chmod is not None and chmod not in allowed_values:
             raise ValueError(
                 "Invalid value for `chmod`, must be one of {0}"
                 .format(allowed_values)
@@ -252,7 +252,7 @@ class SettingsAclsAclPolicySettings(object):
         :type: str
         """
         allowed_values = ["default", "remove"]
-        if chmod_007 not in allowed_values:
+        if chmod_007 is not None and chmod_007 not in allowed_values:
             raise ValueError(
                 "Invalid value for `chmod_007`, must be one of {0}"
                 .format(allowed_values)
@@ -281,7 +281,7 @@ class SettingsAclsAclPolicySettings(object):
         :type: str
         """
         allowed_values = ["yes", "no"]
-        if chmod_inheritable not in allowed_values:
+        if chmod_inheritable is not None and chmod_inheritable not in allowed_values:
             raise ValueError(
                 "Invalid value for `chmod_inheritable`, must be one of {0}"
                 .format(allowed_values)
@@ -310,7 +310,7 @@ class SettingsAclsAclPolicySettings(object):
         :type: str
         """
         allowed_values = ["owner_group_and_acl", "owner_group_only", "ignore"]
-        if chown not in allowed_values:
+        if chown is not None and chown not in allowed_values:
             raise ValueError(
                 "Invalid value for `chown`, must be one of {0}"
                 .format(allowed_values)
@@ -339,7 +339,7 @@ class SettingsAclsAclPolicySettings(object):
         :type: str
         """
         allowed_values = ["allow", "disallow"]
-        if create_over_smb not in allowed_values:
+        if create_over_smb is not None and create_over_smb not in allowed_values:
             raise ValueError(
                 "Invalid value for `create_over_smb`, must be one of {0}"
                 .format(allowed_values)
@@ -368,7 +368,7 @@ class SettingsAclsAclPolicySettings(object):
         :type: str
         """
         allowed_values = ["deny_smb", "deny_smb_and_nfs"]
-        if dos_attr not in allowed_values:
+        if dos_attr is not None and dos_attr not in allowed_values:
             raise ValueError(
                 "Invalid value for `dos_attr`, must be one of {0}"
                 .format(allowed_values)
@@ -397,7 +397,7 @@ class SettingsAclsAclPolicySettings(object):
         :type: str
         """
         allowed_values = ["native", "parent", "creator"]
-        if group_owner_inheritance not in allowed_values:
+        if group_owner_inheritance is not None and group_owner_inheritance not in allowed_values:
             raise ValueError(
                 "Invalid value for `group_owner_inheritance`, must be one of {0}"
                 .format(allowed_values)
@@ -426,7 +426,7 @@ class SettingsAclsAclPolicySettings(object):
         :type: str
         """
         allowed_values = ["retain", "full_control"]
-        if rwx not in allowed_values:
+        if rwx is not None and rwx not in allowed_values:
             raise ValueError(
                 "Invalid value for `rwx`, must be one of {0}"
                 .format(allowed_values)
@@ -455,7 +455,7 @@ class SettingsAclsAclPolicySettings(object):
         :type: str
         """
         allowed_values = ["none", "remove"]
-        if synthetic_denies not in allowed_values:
+        if synthetic_denies is not None and synthetic_denies not in allowed_values:
             raise ValueError(
                 "Invalid value for `synthetic_denies`, must be one of {0}"
                 .format(allowed_values)
@@ -484,7 +484,7 @@ class SettingsAclsAclPolicySettings(object):
         :type: str
         """
         allowed_values = ["only_owner", "owner_and_write"]
-        if utimes not in allowed_values:
+        if utimes is not None and utimes not in allowed_values:
             raise ValueError(
                 "Invalid value for `utimes`, must be one of {0}"
                 .format(allowed_values)

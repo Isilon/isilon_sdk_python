@@ -16,8 +16,8 @@ Name | Type | Description | Notes
 **dirs_deleted** | **int** | The number of directories deleted by this job. | 
 **dirs_moved** | **int** | The number of directories moved by this job. | 
 **dirs_new** | **int** | The number of directories created by this job. | 
-**duration** | **int** | The amount of time in seconds between when the job was started and when it ended.  If the job has not yet ended, this is the amount of time since the job started.  This field is null if the job has not yet started. | 
-**end_time** | **int** | The time the job ended in unix epoch seconds. The field is null if the job hasn&#39;t ended. | 
+**duration** | **int** | The amount of time in seconds between when the job was started and when it ended.  If the job has not yet ended, this is the amount of time since the job started.  This field is null if the job has not yet started. | [optional] 
+**end_time** | **int** | The time the job ended in unix epoch seconds. The field is null if the job hasn&#39;t ended. | [optional] 
 **error** | **str** | The primary error message for this job. | 
 **error_checksum_files_skipped** | **int** | The number of files with checksum errors skipped by this job. | 
 **error_io_files_skipped** | **int** | The number of files with io errors skipped by this job. | 
@@ -38,7 +38,7 @@ Name | Type | Description | Notes
 **hash_exceptions_fixed** | **int** | The number of hash exceptions fixed by this job. | 
 **hash_exceptions_found** | **int** | The number of hash exceptions found by this job. | 
 **id** | **str** | A unique identifier for this object. | 
-**job_id** | **int** | The ID of the job. | 
+**job_id** | **int** | The ID of the job. | [optional] 
 **lins_total** | **int** | The number of LINs transferred by this job. | 
 **network_bytes_to_source** | **int** | The total number of bytes sent to the source by this job. | 
 **network_bytes_to_target** | **int** | The total number of bytes sent to the target by this job. | 
@@ -64,7 +64,7 @@ Name | Type | Description | Notes
 **source_files_unlinked** | **int** | The number of files unlinked on the source. | 
 **source_host** | **str** | Hostname or IP address of sync source cluster. | 
 **sparse_data_bytes** | **int** | The number of sparse data bytes transferred by this job. | 
-**start_time** | **int** | The time the job started in unix epoch seconds. The field is null if the job hasn&#39;t started. | 
+**start_time** | **int** | The time the job started in unix epoch seconds. The field is null if the job hasn&#39;t started. | [optional] 
 **state** | **str** | The state of the job. | 
 **succeeded_chunks** | **int** | The number of data chunks that have been transmitted successfully. | 
 **symlinks_replicated** | **int** | The number of symlinks replicated by this job. | 

@@ -38,7 +38,7 @@ class ProvidersNisExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'nis': 'list[ProvidersNisNisItem]'
+            'nis': 'list[ProvidersNisNisItemExtended]'
         }
 
         self.attribute_map = {
@@ -54,7 +54,7 @@ class ProvidersNisExtended(object):
 
 
         :return: The nis of this ProvidersNisExtended.
-        :rtype: list[ProvidersNisNisItem]
+        :rtype: list[ProvidersNisNisItemExtended]
         """
         return self._nis
 
@@ -65,7 +65,7 @@ class ProvidersNisExtended(object):
 
 
         :param nis: The nis of this ProvidersNisExtended.
-        :type: list[ProvidersNisNisItem]
+        :type: list[ProvidersNisNisItemExtended]
         """
         
         self._nis = nis

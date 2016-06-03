@@ -38,9 +38,6 @@ class JobJobExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'policy': 'str',
-            'priority': 'int',
-            'state': 'str',
             'control_state': 'str',
             'create_time': 'int',
             'current_phase': 'int',
@@ -50,10 +47,13 @@ class JobJobExtended(object):
             'impact': 'str',
             'participants': 'list[int]',
             'paths': 'list[str]',
+            'policy': 'str',
+            'priority': 'int',
             'progress': 'str',
             'retries_remaining': 'int',
             'running_time': 'int',
             'start_time': 'int',
+            'state': 'str',
             'total_phases': 'int',
             'type': 'str',
             'waiting_on': 'int',
@@ -61,9 +61,6 @@ class JobJobExtended(object):
         }
 
         self.attribute_map = {
-            'policy': 'policy',
-            'priority': 'priority',
-            'state': 'state',
             'control_state': 'control_state',
             'create_time': 'create_time',
             'current_phase': 'current_phase',
@@ -73,19 +70,19 @@ class JobJobExtended(object):
             'impact': 'impact',
             'participants': 'participants',
             'paths': 'paths',
+            'policy': 'policy',
+            'priority': 'priority',
             'progress': 'progress',
             'retries_remaining': 'retries_remaining',
             'running_time': 'running_time',
             'start_time': 'start_time',
+            'state': 'state',
             'total_phases': 'total_phases',
             'type': 'type',
             'waiting_on': 'waiting_on',
             'waiting_reason': 'waiting_reason'
         }
 
-        self._policy = None
-        self._priority = None
-        self._state = None
         self._control_state = None
         self._create_time = None
         self._current_phase = None
@@ -95,96 +92,17 @@ class JobJobExtended(object):
         self._impact = None
         self._participants = None
         self._paths = None
+        self._policy = None
+        self._priority = None
         self._progress = None
         self._retries_remaining = None
         self._running_time = None
         self._start_time = None
+        self._state = None
         self._total_phases = None
         self._type = None
         self._waiting_on = None
         self._waiting_reason = None
-
-    @property
-    def policy(self):
-        """
-        Gets the policy of this JobJobExtended.
-        Impact policy of this job instance.
-
-        :return: The policy of this JobJobExtended.
-        :rtype: str
-        """
-        return self._policy
-
-    @policy.setter
-    def policy(self, policy):
-        """
-        Sets the policy of this JobJobExtended.
-        Impact policy of this job instance.
-
-        :param policy: The policy of this JobJobExtended.
-        :type: str
-        """
-        
-        self._policy = policy
-
-    @property
-    def priority(self):
-        """
-        Gets the priority of this JobJobExtended.
-        Priority of this job instance; lower numbers preempt higher numbers.
-
-        :return: The priority of this JobJobExtended.
-        :rtype: int
-        """
-        return self._priority
-
-    @priority.setter
-    def priority(self, priority):
-        """
-        Sets the priority of this JobJobExtended.
-        Priority of this job instance; lower numbers preempt higher numbers.
-
-        :param priority: The priority of this JobJobExtended.
-        :type: int
-        """
-        
-        if not priority:
-            raise ValueError("Invalid value for `priority`, must not be `None`")
-        if priority > 10.0: 
-            raise ValueError("Invalid value for `priority`, must be a value less than or equal to `10.0`")
-        if priority < 1.0: 
-            raise ValueError("Invalid value for `priority`, must be a value greater than or equal to `1.0`")
-
-        self._priority = priority
-
-    @property
-    def state(self):
-        """
-        Gets the state of this JobJobExtended.
-        Desired new state of this job instance.
-
-        :return: The state of this JobJobExtended.
-        :rtype: str
-        """
-        return self._state
-
-    @state.setter
-    def state(self, state):
-        """
-        Sets the state of this JobJobExtended.
-        Desired new state of this job instance.
-
-        :param state: The state of this JobJobExtended.
-        :type: str
-        """
-        allowed_values = ["run", "pause", "cancel"]
-        if state not in allowed_values:
-            raise ValueError(
-                "Invalid value for `state`, must be one of {0}"
-                .format(allowed_values)
-            )
-
-        self._state = state
 
     @property
     def control_state(self):
@@ -207,7 +125,7 @@ class JobJobExtended(object):
         :type: str
         """
         allowed_values = ["running", "paused_user", "paused_system", "paused_policy", "paused_priority", "cancelled_user", "cancelled_system", "failed", "succeeded", "unknown"]
-        if control_state not in allowed_values:
+        if control_state is not None and control_state not in allowed_values:
             raise ValueError(
                 "Invalid value for `control_state`, must be one of {0}"
                 .format(allowed_values)
@@ -330,7 +248,7 @@ class JobJobExtended(object):
         
         if not id:
             raise ValueError("Invalid value for `id`, must not be `None`")
-        if id < 1.0: 
+        if id < 1.0:
             raise ValueError("Invalid value for `id`, must be a value greater than or equal to `1.0`")
 
         self._id = id
@@ -409,6 +327,59 @@ class JobJobExtended(object):
         """
         
         self._paths = paths
+
+    @property
+    def policy(self):
+        """
+        Gets the policy of this JobJobExtended.
+        Current impact policy of the job.
+
+        :return: The policy of this JobJobExtended.
+        :rtype: str
+        """
+        return self._policy
+
+    @policy.setter
+    def policy(self, policy):
+        """
+        Sets the policy of this JobJobExtended.
+        Current impact policy of the job.
+
+        :param policy: The policy of this JobJobExtended.
+        :type: str
+        """
+        
+        self._policy = policy
+
+    @property
+    def priority(self):
+        """
+        Gets the priority of this JobJobExtended.
+        Current priority of the job; lower numbers preempt higher numbers.
+
+        :return: The priority of this JobJobExtended.
+        :rtype: int
+        """
+        return self._priority
+
+    @priority.setter
+    def priority(self, priority):
+        """
+        Sets the priority of this JobJobExtended.
+        Current priority of the job; lower numbers preempt higher numbers.
+
+        :param priority: The priority of this JobJobExtended.
+        :type: int
+        """
+        
+        if not priority:
+            raise ValueError("Invalid value for `priority`, must not be `None`")
+        if priority > 10.0:
+            raise ValueError("Invalid value for `priority`, must be a value less than or equal to `10.0`")
+        if priority < 1.0:
+            raise ValueError("Invalid value for `priority`, must be a value greater than or equal to `1.0`")
+
+        self._priority = priority
 
     @property
     def progress(self):
@@ -503,6 +474,35 @@ class JobJobExtended(object):
         self._start_time = start_time
 
     @property
+    def state(self):
+        """
+        Gets the state of this JobJobExtended.
+        Current state of the job.
+
+        :return: The state of this JobJobExtended.
+        :rtype: str
+        """
+        return self._state
+
+    @state.setter
+    def state(self, state):
+        """
+        Sets the state of this JobJobExtended.
+        Current state of the job.
+
+        :param state: The state of this JobJobExtended.
+        :type: str
+        """
+        allowed_values = ["running", "paused_user", "paused_system", "paused_policy", "paused_priority", "cancelled_user", "cancelled_system", "failed", "succeeded", "unknown"]
+        if state not in allowed_values:
+            raise ValueError(
+                "Invalid value for `state`, must be one of {0}"
+                .format(allowed_values)
+            )
+
+        self._state = state
+
+    @property
     def total_phases(self):
         """
         Gets the total_phases of this JobJobExtended.
@@ -592,7 +592,7 @@ class JobJobExtended(object):
         :type: str
         """
         allowed_values = ["blocked_by_priority"]
-        if waiting_reason not in allowed_values:
+        if waiting_reason is not None and waiting_reason not in allowed_values:
             raise ValueError(
                 "Invalid value for `waiting_reason`, must be one of {0}"
                 .format(allowed_values)

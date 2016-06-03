@@ -223,7 +223,7 @@ class AuthApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param AuthRole auth_role:  (required)
+        :param AuthRoleCreateParams auth_role:  (required)
         :return: CreateResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -634,7 +634,7 @@ class AuthApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param ProvidersFileIdParams providers_file_item:  (required)
+        :param ProvidersFileItem providers_file_item:  (required)
         :return: CreateResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -5837,7 +5837,7 @@ class AuthApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param MappingUsersRulesRules mapping_users_rules:  (required)
+        :param MappingUsersRulesExtended mapping_users_rules:  (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.

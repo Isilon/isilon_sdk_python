@@ -115,7 +115,7 @@ class NfsNlmSessionsSession(object):
         :type: str
         """
         allowed_values = ["client", "server", "reverse", "expired"]
-        if host_type not in allowed_values:
+        if host_type is not None and host_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `host_type`, must be one of {0}"
                 .format(allowed_values)

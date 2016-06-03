@@ -35,7 +35,7 @@ isi_sdk.configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = isi_sdk.FilepoolApi()
-filepool_policy = isi_sdk.FilepoolPolicy() # FilepoolPolicy | 
+filepool_policy = isi_sdk.FilepoolPolicyCreateParams() # FilepoolPolicyCreateParams | 
 
 try: 
     api_response = api_instance.create_filepool_policy(filepool_policy)
@@ -48,7 +48,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filepool_policy** | [**FilepoolPolicy**](FilepoolPolicy.md)|  | 
+ **filepool_policy** | [**FilepoolPolicyCreateParams**](FilepoolPolicyCreateParams.md)|  | 
 
 ### Return type
 
@@ -307,7 +307,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_filepool_policies**
-> FilepoolPolicies list_filepool_policies()
+> FilepoolPoliciesExtended list_filepool_policies()
 
 
 
@@ -339,7 +339,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**FilepoolPolicies**](FilepoolPolicies.md)
+[**FilepoolPoliciesExtended**](FilepoolPoliciesExtended.md)
 
 ### Authorization
 

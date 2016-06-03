@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **name** | **str** | Cluster name. | 
 **onefs_version** | [**ClusterConfigOnefsVersion**](ClusterConfigOnefsVersion.md) |  | [optional] 
 **timezone** | [**ClusterConfigTimezone**](ClusterConfigTimezone.md) | The cluster timezone settings. | [optional] 
-**upgrade_type** | **str** |  | 
+**upgrade_type** | **str** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

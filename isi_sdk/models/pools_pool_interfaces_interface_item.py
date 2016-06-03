@@ -137,7 +137,7 @@ class PoolsPoolInterfacesInterfaceItem(object):
         
         if not lnn:
             raise ValueError("Invalid value for `lnn`, must not be `None`")
-        if lnn < 1.0: 
+        if lnn < 1.0:
             raise ValueError("Invalid value for `lnn`, must be a value greater than or equal to `1.0`")
 
         self._lnn = lnn

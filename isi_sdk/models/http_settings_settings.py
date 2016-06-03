@@ -224,7 +224,7 @@ class HttpSettingsSettings(object):
         :type: str
         """
         allowed_values = ["enabled", "disabled", "redirect"]
-        if service not in allowed_values:
+        if service is not None and service not in allowed_values:
             raise ValueError(
                 "Invalid value for `service`, must be one of {0}"
                 .format(allowed_values)

@@ -207,7 +207,7 @@ class EventEventlistsEventlistItemEvent(object):
         :type: str
         """
         allowed_values = ["information", "warning", "critical", "emergency"]
-        if severity not in allowed_values:
+        if severity is not None and severity not in allowed_values:
             raise ValueError(
                 "Invalid value for `severity`, must be one of {0}"
                 .format(allowed_values)

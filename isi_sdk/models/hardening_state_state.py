@@ -120,7 +120,7 @@ class HardeningStateState(object):
         :type: str
         """
         allowed_values = ["Disabled", "Checking_Before_Apply", "Issues_Found_Before_Apply", "Applying", "Enabled", "Checking_Before_Revert", "Issues_Found_Before_Revert", "Reverting", "Failed", "Resolving", "Issues_Resolved", "No_Issues_Found", "Resolved_failed", "Issues_Found_In_Report", "No_Issues_Found_In_Report"]
-        if state not in allowed_values:
+        if state is not None and state not in allowed_values:
             raise ValueError(
                 "Invalid value for `state`, must be one of {0}"
                 .format(allowed_values)

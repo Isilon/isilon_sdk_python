@@ -138,7 +138,7 @@ class EventAlertConditionsAlertCondition(object):
         :type: str
         """
         allowed_values = ["NEW", "NEW EVENTS", "ONGOING", "SEVERITY INCREASE", "SEVERITY DECREASE", "RESOLVED"]
-        if condition not in allowed_values:
+        if condition is not None and condition not in allowed_values:
             raise ValueError(
                 "Invalid value for `condition`, must be one of {0}"
                 .format(allowed_values)

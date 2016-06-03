@@ -38,43 +38,20 @@ class SyncRulesExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'rules': 'list[SyncRuleExtended]',
             'resume': 'str',
+            'rules': 'list[SyncRuleExtendedExtended]',
             'total': 'int'
         }
 
         self.attribute_map = {
-            'rules': 'rules',
             'resume': 'resume',
+            'rules': 'rules',
             'total': 'total'
         }
 
-        self._rules = None
         self._resume = None
+        self._rules = None
         self._total = None
-
-    @property
-    def rules(self):
-        """
-        Gets the rules of this SyncRulesExtended.
-
-
-        :return: The rules of this SyncRulesExtended.
-        :rtype: list[SyncRuleExtended]
-        """
-        return self._rules
-
-    @rules.setter
-    def rules(self, rules):
-        """
-        Sets the rules of this SyncRulesExtended.
-
-
-        :param rules: The rules of this SyncRulesExtended.
-        :type: list[SyncRuleExtended]
-        """
-        
-        self._rules = rules
 
     @property
     def resume(self):
@@ -98,6 +75,29 @@ class SyncRulesExtended(object):
         """
         
         self._resume = resume
+
+    @property
+    def rules(self):
+        """
+        Gets the rules of this SyncRulesExtended.
+
+
+        :return: The rules of this SyncRulesExtended.
+        :rtype: list[SyncRuleExtendedExtended]
+        """
+        return self._rules
+
+    @rules.setter
+    def rules(self, rules):
+        """
+        Sets the rules of this SyncRulesExtended.
+
+
+        :param rules: The rules of this SyncRulesExtended.
+        :type: list[SyncRuleExtendedExtended]
+        """
+        
+        self._rules = rules
 
     @property
     def total(self):

@@ -77,7 +77,7 @@ class MappingUsersRulesRule(object):
         :type: str
         """
         allowed_values = ["append", "insert", "replace", "trim", "union"]
-        if operator not in allowed_values:
+        if operator is not None and operator not in allowed_values:
             raise ValueError(
                 "Invalid value for `operator`, must be one of {0}"
                 .format(allowed_values)
