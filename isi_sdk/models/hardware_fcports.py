@@ -132,7 +132,7 @@ class HardwareFcports(object):
         :type: str
         """
         allowed_values = ["auto", "1", "2", "4", "8"]
-        if rate not in allowed_values:
+        if rate is not None and rate not in allowed_values:
             raise ValueError(
                 "Invalid value for `rate`, must be one of {0}"
                 .format(allowed_values)
@@ -161,7 +161,7 @@ class HardwareFcports(object):
         :type: str
         """
         allowed_values = ["enable", "disable"]
-        if state not in allowed_values:
+        if state is not None and state not in allowed_values:
             raise ValueError(
                 "Invalid value for `state`, must be one of {0}"
                 .format(allowed_values)
@@ -190,7 +190,7 @@ class HardwareFcports(object):
         :type: str
         """
         allowed_values = ["auto", "ptp", "loop"]
-        if topology not in allowed_values:
+        if topology is not None and topology not in allowed_values:
             raise ValueError(
                 "Invalid value for `topology`, must be one of {0}"
                 .format(allowed_values)

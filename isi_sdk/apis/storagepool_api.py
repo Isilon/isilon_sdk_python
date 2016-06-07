@@ -217,7 +217,7 @@ class StoragepoolApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param StoragepoolNodepool storagepool_nodepool:  (required)
+        :param StoragepoolNodepoolCreateParams storagepool_nodepool:  (required)
         :return: CreateStoragepoolTierResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -295,7 +295,7 @@ class StoragepoolApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param StoragepoolTier storagepool_tier:  (required)
+        :param StoragepoolTierCreateParams storagepool_tier:  (required)
         :return: CreateStoragepoolTierResponse
                  If the method is called asynchronously,
                  returns the request thread.

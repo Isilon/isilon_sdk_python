@@ -38,7 +38,7 @@ class AuthLogLevelExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'level': 'AuthLogLevelLevel'
+            'level': 'str'
         }
 
         self.attribute_map = {
@@ -51,10 +51,10 @@ class AuthLogLevelExtended(object):
     def level(self):
         """
         Gets the level of this AuthLogLevelExtended.
-        
+        Valid auth logging levels
 
         :return: The level of this AuthLogLevelExtended.
-        :rtype: AuthLogLevelLevel
+        :rtype: str
         """
         return self._level
 
@@ -62,12 +62,18 @@ class AuthLogLevelExtended(object):
     def level(self, level):
         """
         Sets the level of this AuthLogLevelExtended.
-        
+        Valid auth logging levels
 
         :param level: The level of this AuthLogLevelExtended.
-        :type: AuthLogLevelLevel
+        :type: str
         """
-        
+        allowed_values = ["always", "error", "warning", "info", "verbose", "debug", "trace"]
+        if level is not None and level not in allowed_values:
+            raise ValueError(
+                "Invalid value for `level`, must be one of {0}"
+                .format(allowed_values)
+            )
+
         self._level = level
 
     def to_dict(self):

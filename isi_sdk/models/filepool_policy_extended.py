@@ -38,13 +38,13 @@ class FilepoolPolicyExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'actions': 'list[FilepoolDefaultPolicyDefaultPolicyAction]',
+            'actions': 'list[FilepoolPolicyAction]',
             'apply_order': 'int',
+            'birth_cluster_id': 'str',
             'description': 'str',
             'file_matching_pattern': 'FilepoolPolicyFileMatchingPattern',
-            'name': 'str',
-            'birth_cluster_id': 'str',
             'id': 'int',
+            'name': 'str',
             'state': 'str',
             'state_details': 'str'
         }
@@ -52,22 +52,22 @@ class FilepoolPolicyExtended(object):
         self.attribute_map = {
             'actions': 'actions',
             'apply_order': 'apply_order',
+            'birth_cluster_id': 'birth_cluster_id',
             'description': 'description',
             'file_matching_pattern': 'file_matching_pattern',
-            'name': 'name',
-            'birth_cluster_id': 'birth_cluster_id',
             'id': 'id',
+            'name': 'name',
             'state': 'state',
             'state_details': 'state_details'
         }
 
         self._actions = None
         self._apply_order = None
+        self._birth_cluster_id = None
         self._description = None
         self._file_matching_pattern = None
-        self._name = None
-        self._birth_cluster_id = None
         self._id = None
+        self._name = None
         self._state = None
         self._state_details = None
 
@@ -78,7 +78,7 @@ class FilepoolPolicyExtended(object):
         A list of actions to be taken for matching files
 
         :return: The actions of this FilepoolPolicyExtended.
-        :rtype: list[FilepoolDefaultPolicyDefaultPolicyAction]
+        :rtype: list[FilepoolPolicyAction]
         """
         return self._actions
 
@@ -89,7 +89,7 @@ class FilepoolPolicyExtended(object):
         A list of actions to be taken for matching files
 
         :param actions: The actions of this FilepoolPolicyExtended.
-        :type: list[FilepoolDefaultPolicyDefaultPolicyAction]
+        :type: list[FilepoolPolicyAction]
         """
         
         self._actions = actions
@@ -116,6 +116,29 @@ class FilepoolPolicyExtended(object):
         """
         
         self._apply_order = apply_order
+
+    @property
+    def birth_cluster_id(self):
+        """
+        Gets the birth_cluster_id of this FilepoolPolicyExtended.
+        The guid assigned to the cluster on which the account was created
+
+        :return: The birth_cluster_id of this FilepoolPolicyExtended.
+        :rtype: str
+        """
+        return self._birth_cluster_id
+
+    @birth_cluster_id.setter
+    def birth_cluster_id(self, birth_cluster_id):
+        """
+        Sets the birth_cluster_id of this FilepoolPolicyExtended.
+        The guid assigned to the cluster on which the account was created
+
+        :param birth_cluster_id: The birth_cluster_id of this FilepoolPolicyExtended.
+        :type: str
+        """
+        
+        self._birth_cluster_id = birth_cluster_id
 
     @property
     def description(self):
@@ -164,52 +187,6 @@ class FilepoolPolicyExtended(object):
         self._file_matching_pattern = file_matching_pattern
 
     @property
-    def name(self):
-        """
-        Gets the name of this FilepoolPolicyExtended.
-        A unique name for this policy
-
-        :return: The name of this FilepoolPolicyExtended.
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """
-        Sets the name of this FilepoolPolicyExtended.
-        A unique name for this policy
-
-        :param name: The name of this FilepoolPolicyExtended.
-        :type: str
-        """
-        
-        self._name = name
-
-    @property
-    def birth_cluster_id(self):
-        """
-        Gets the birth_cluster_id of this FilepoolPolicyExtended.
-        The guid assigned to the cluster on which the account was created
-
-        :return: The birth_cluster_id of this FilepoolPolicyExtended.
-        :rtype: str
-        """
-        return self._birth_cluster_id
-
-    @birth_cluster_id.setter
-    def birth_cluster_id(self, birth_cluster_id):
-        """
-        Sets the birth_cluster_id of this FilepoolPolicyExtended.
-        The guid assigned to the cluster on which the account was created
-
-        :param birth_cluster_id: The birth_cluster_id of this FilepoolPolicyExtended.
-        :type: str
-        """
-        
-        self._birth_cluster_id = birth_cluster_id
-
-    @property
     def id(self):
         """
         Gets the id of this FilepoolPolicyExtended.
@@ -233,6 +210,29 @@ class FilepoolPolicyExtended(object):
         self._id = id
 
     @property
+    def name(self):
+        """
+        Gets the name of this FilepoolPolicyExtended.
+        A unique name for this policy
+
+        :return: The name of this FilepoolPolicyExtended.
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """
+        Sets the name of this FilepoolPolicyExtended.
+        A unique name for this policy
+
+        :param name: The name of this FilepoolPolicyExtended.
+        :type: str
+        """
+        
+        self._name = name
+
+    @property
     def state(self):
         """
         Gets the state of this FilepoolPolicyExtended.
@@ -253,7 +253,7 @@ class FilepoolPolicyExtended(object):
         :type: str
         """
         allowed_values = ["OK", "disabled"]
-        if state not in allowed_values:
+        if state is not None and state not in allowed_values:
             raise ValueError(
                 "Invalid value for `state`, must be one of {0}"
                 .format(allowed_values)

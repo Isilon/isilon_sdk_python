@@ -40,30 +40,30 @@ class SwiftAccountExtended(object):
         self.swagger_types = {
             'id': 'str',
             'name': 'str',
+            'path': 'str',
             'swiftgroup': 'str',
             'swiftuser': 'str',
             'users': 'list[str]',
-            'zone': 'str',
-            'path': 'str'
+            'zone': 'str'
         }
 
         self.attribute_map = {
             'id': 'id',
             'name': 'name',
+            'path': 'path',
             'swiftgroup': 'swiftgroup',
             'swiftuser': 'swiftuser',
             'users': 'users',
-            'zone': 'zone',
-            'path': 'path'
+            'zone': 'zone'
         }
 
         self._id = None
         self._name = None
+        self._path = None
         self._swiftgroup = None
         self._swiftuser = None
         self._users = None
         self._zone = None
-        self._path = None
 
     @property
     def id(self):
@@ -110,6 +110,29 @@ class SwiftAccountExtended(object):
         """
         
         self._name = name
+
+    @property
+    def path(self):
+        """
+        Gets the path of this SwiftAccountExtended.
+        Path to root of Swift account
+
+        :return: The path of this SwiftAccountExtended.
+        :rtype: str
+        """
+        return self._path
+
+    @path.setter
+    def path(self, path):
+        """
+        Sets the path of this SwiftAccountExtended.
+        Path to root of Swift account
+
+        :param path: The path of this SwiftAccountExtended.
+        :type: str
+        """
+        
+        self._path = path
 
     @property
     def swiftgroup(self):
@@ -202,29 +225,6 @@ class SwiftAccountExtended(object):
         """
         
         self._zone = zone
-
-    @property
-    def path(self):
-        """
-        Gets the path of this SwiftAccountExtended.
-        Path to root of Swift account
-
-        :return: The path of this SwiftAccountExtended.
-        :rtype: str
-        """
-        return self._path
-
-    @path.setter
-    def path(self, path):
-        """
-        Sets the path of this SwiftAccountExtended.
-        Path to root of Swift account
-
-        :param path: The path of this SwiftAccountExtended.
-        :type: str
-        """
-        
-        self._path = path
 
     def to_dict(self):
         """

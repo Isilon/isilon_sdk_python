@@ -152,11 +152,9 @@ class FtpSettingsSettings(object):
         :type: int
         """
         
-        if not accept_timeout:
-            raise ValueError("Invalid value for `accept_timeout`, must not be `None`")
-        if accept_timeout > 600.0: 
+        if accept_timeout is not None  and accept_timeout > 600.0:
             raise ValueError("Invalid value for `accept_timeout`, must be a value less than or equal to `600.0`")
-        if accept_timeout < 30.0: 
+        if accept_timeout is not None and accept_timeout < 30.0:
             raise ValueError("Invalid value for `accept_timeout`, must be a value greater than or equal to `30.0`")
 
         self._accept_timeout = accept_timeout
@@ -412,11 +410,9 @@ class FtpSettingsSettings(object):
         :type: int
         """
         
-        if not anon_umask:
-            raise ValueError("Invalid value for `anon_umask`, must not be `None`")
-        if anon_umask > 511.0: 
+        if anon_umask is not None  and anon_umask > 511.0:
             raise ValueError("Invalid value for `anon_umask`, must be a value less than or equal to `511.0`")
-        if anon_umask < 0.0: 
+        if anon_umask is not None and anon_umask < 0.0:
             raise ValueError("Invalid value for `anon_umask`, must be a value greater than or equal to `0.0`")
 
         self._anon_umask = anon_umask
@@ -442,7 +438,7 @@ class FtpSettingsSettings(object):
         :type: str
         """
         allowed_values = ["off", "upload", "download", "both"]
-        if ascii_mode not in allowed_values:
+        if ascii_mode is not None and ascii_mode not in allowed_values:
             raise ValueError(
                 "Invalid value for `ascii_mode`, must be one of {0}"
                 .format(allowed_values)
@@ -494,7 +490,7 @@ class FtpSettingsSettings(object):
         :type: str
         """
         allowed_values = ["all", "none", "all-with-exceptions", "none-with-exceptions"]
-        if chroot_local_mode not in allowed_values:
+        if chroot_local_mode is not None and chroot_local_mode not in allowed_values:
             raise ValueError(
                 "Invalid value for `chroot_local_mode`, must be one of {0}"
                 .format(allowed_values)
@@ -523,11 +519,9 @@ class FtpSettingsSettings(object):
         :type: int
         """
         
-        if not connect_timeout:
-            raise ValueError("Invalid value for `connect_timeout`, must not be `None`")
-        if connect_timeout > 600.0: 
+        if connect_timeout is not None  and connect_timeout > 600.0:
             raise ValueError("Invalid value for `connect_timeout`, must be a value less than or equal to `600.0`")
-        if connect_timeout < 30.0: 
+        if connect_timeout is not None and connect_timeout < 30.0:
             raise ValueError("Invalid value for `connect_timeout`, must be a value greater than or equal to `30.0`")
 
         self._connect_timeout = connect_timeout
@@ -553,11 +547,9 @@ class FtpSettingsSettings(object):
         :type: int
         """
         
-        if not data_timeout:
-            raise ValueError("Invalid value for `data_timeout`, must not be `None`")
-        if data_timeout > 600.0: 
+        if data_timeout is not None  and data_timeout > 600.0:
             raise ValueError("Invalid value for `data_timeout`, must be a value less than or equal to `600.0`")
-        if data_timeout < 30.0: 
+        if data_timeout is not None and data_timeout < 30.0:
             raise ValueError("Invalid value for `data_timeout`, must be a value greater than or equal to `30.0`")
 
         self._data_timeout = data_timeout
@@ -629,7 +621,7 @@ class FtpSettingsSettings(object):
         :type: str
         """
         allowed_values = ["numeric", "textual", "hide"]
-        if dirlist_names not in allowed_values:
+        if dirlist_names is not None and dirlist_names not in allowed_values:
             raise ValueError(
                 "Invalid value for `dirlist_names`, must be one of {0}"
                 .format(allowed_values)
@@ -658,11 +650,9 @@ class FtpSettingsSettings(object):
         :type: int
         """
         
-        if not file_create_perm:
-            raise ValueError("Invalid value for `file_create_perm`, must not be `None`")
-        if file_create_perm > 511.0: 
+        if file_create_perm is not None  and file_create_perm > 511.0:
             raise ValueError("Invalid value for `file_create_perm`, must be a value less than or equal to `511.0`")
-        if file_create_perm < 0.0: 
+        if file_create_perm is not None and file_create_perm < 0.0:
             raise ValueError("Invalid value for `file_create_perm`, must be a value greater than or equal to `0.0`")
 
         self._file_create_perm = file_create_perm
@@ -734,11 +724,9 @@ class FtpSettingsSettings(object):
         :type: int
         """
         
-        if not local_umask:
-            raise ValueError("Invalid value for `local_umask`, must not be `None`")
-        if local_umask > 511.0: 
+        if local_umask is not None  and local_umask > 511.0:
             raise ValueError("Invalid value for `local_umask`, must be a value less than or equal to `511.0`")
-        if local_umask < 0.0: 
+        if local_umask is not None and local_umask < 0.0:
             raise ValueError("Invalid value for `local_umask`, must be a value greater than or equal to `0.0`")
 
         self._local_umask = local_umask
@@ -833,11 +821,9 @@ class FtpSettingsSettings(object):
         :type: int
         """
         
-        if not session_timeout:
-            raise ValueError("Invalid value for `session_timeout`, must not be `None`")
-        if session_timeout > 600.0: 
+        if session_timeout is not None  and session_timeout > 600.0:
             raise ValueError("Invalid value for `session_timeout`, must be a value less than or equal to `600.0`")
-        if session_timeout < 30.0: 
+        if session_timeout is not None and session_timeout < 30.0:
             raise ValueError("Invalid value for `session_timeout`, must be a value greater than or equal to `30.0`")
 
         self._session_timeout = session_timeout

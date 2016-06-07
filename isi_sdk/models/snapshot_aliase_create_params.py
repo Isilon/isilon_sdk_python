@@ -54,7 +54,7 @@ class SnapshotAliaseCreateParams(object):
     def name(self):
         """
         Gets the name of this SnapshotAliaseCreateParams.
-        The user or system supplied snapshot alias name.
+        The user or system supplied snapshot name.
 
         :return: The name of this SnapshotAliaseCreateParams.
         :rtype: str
@@ -65,7 +65,7 @@ class SnapshotAliaseCreateParams(object):
     def name(self, name):
         """
         Sets the name of this SnapshotAliaseCreateParams.
-        The user or system supplied snapshot alias name.
+        The user or system supplied snapshot name.
 
         :param name: The name of this SnapshotAliaseCreateParams.
         :type: str
@@ -77,7 +77,7 @@ class SnapshotAliaseCreateParams(object):
     def target(self):
         """
         Gets the target of this SnapshotAliaseCreateParams.
-        Target snapshot for this snapshot alias.
+        Snapshot name target for the alias.
 
         :return: The target of this SnapshotAliaseCreateParams.
         :rtype: str
@@ -88,7 +88,7 @@ class SnapshotAliaseCreateParams(object):
     def target(self, target):
         """
         Sets the target of this SnapshotAliaseCreateParams.
-        Target snapshot for this snapshot alias.
+        Snapshot name target for the alias.
 
         :param target: The target of this SnapshotAliaseCreateParams.
         :type: str

@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **smtp_auth_username** | **str** | Username to authenticate with if SMTP authentication is being used. | 
 **smtp_port** | **int** | The port on the SMTP server to be used for relaying the notification messages.   | 
 **use_smtp_auth** | **bool** | If true, this cluster will send SMTP authentication credentials to the SMTP relay server in order to send its notification emails.  If false, the cluster will attempt to send its notification emails without authentication. | 
-**user_template** | **str** | Location of a custom template file that can be used to specify the layout of the notification emails. | 
+**user_template** | **str** | Location of a custom template file that can be used to specify the layout of the notification emails. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

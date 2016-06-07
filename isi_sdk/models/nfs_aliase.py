@@ -77,7 +77,7 @@ class NfsAliase(object):
         :type: str
         """
         allowed_values = ["good", "illegal file type", "illegal path", "name conflict", "not exported", "path not found", "unknown"]
-        if health not in allowed_values:
+        if health is not None and health not in allowed_values:
             raise ValueError(
                 "Invalid value for `health`, must be one of {0}"
                 .format(allowed_values)

@@ -3,7 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**state** | **str** | The state of the job. | 
 **action** | **str** | The action to be taken by this job. | 
 **ads_streams_replicated** | **int** | The number of ads streams replicated by this job. | 
 **block_specs_replicated** | **int** | The number of block specs replicated by this job. | 
@@ -17,8 +16,8 @@ Name | Type | Description | Notes
 **dirs_deleted** | **int** | The number of directories deleted by this job. | 
 **dirs_moved** | **int** | The number of directories moved by this job. | 
 **dirs_new** | **int** | The number of directories created by this job. | 
-**duration** | **int** | The amount of time in seconds between when the job was started and when it ended.  If the job has not yet ended, this is the amount of time since the job started.  This field is null if the job has not yet started. | 
-**end_time** | **int** | The time the job ended in unix epoch seconds. The field is null if the job hasn&#39;t ended. | 
+**duration** | **int** | The amount of time in seconds between when the job was started and when it ended.  If the job has not yet ended, this is the amount of time since the job started.  This field is null if the job has not yet started. | [optional] 
+**end_time** | **int** | The time the job ended in unix epoch seconds. The field is null if the job hasn&#39;t ended. | [optional] 
 **error** | **str** | The primary error message for this job. | 
 **error_checksum_files_skipped** | **int** | The number of files with checksum errors skipped by this job. | 
 **error_io_files_skipped** | **int** | The number of files with io errors skipped by this job. | 
@@ -39,14 +38,14 @@ Name | Type | Description | Notes
 **hash_exceptions_fixed** | **int** | The number of hash exceptions fixed by this job. | 
 **hash_exceptions_found** | **int** | The number of hash exceptions found by this job. | 
 **id** | **str** | A unique identifier for this object. | 
-**job_id** | **int** | The ID of the job. | 
+**job_id** | **int** | The ID of the job. | [optional] 
 **lins_total** | **int** | The number of LINs transferred by this job. | 
 **network_bytes_to_source** | **int** | The total number of bytes sent to the source by this job. | 
 **network_bytes_to_target** | **int** | The total number of bytes sent to the target by this job. | 
 **new_files_replicated** | **int** | The number of new files replicated by this job. | 
 **num_retransmitted_files** | **int** | The number of files that have been retransmitted by this job. | 
 **phases** | [**list[ReportSubreportPhase]**](ReportSubreportPhase.md) | Data for each phase of this job. | 
-**policy** | [**ReportSubreportPolicy**](ReportSubreportPolicy.md) | The policy associated with this job, or null if there is currently no policy associated with this job (this can happen if the job is newly created and not yet fully populated in the underlying database). | 
+**policy** | [**ReportSubreportPolicy**](ReportSubreportPolicy.md) | The policy associated with this job, or null if there is currently no policy associated with this job (this can happen if the job is newly created and not yet fully populated in the underlying database). | [optional] 
 **policy_action** | **str** | This is the action the policy is configured to perform. | 
 **policy_id** | **str** | The ID of the policy. | 
 **policy_name** | **str** | The name of the policy. | 
@@ -66,7 +65,8 @@ Name | Type | Description | Notes
 **source_files_linked** | **int** | The number of files linked on the source. | 
 **source_files_unlinked** | **int** | The number of files unlinked on the source. | 
 **sparse_data_bytes** | **int** | The number of sparse data bytes transferred by this job. | 
-**start_time** | **int** | The time the job started in unix epoch seconds. The field is null if the job hasn&#39;t started. | 
+**start_time** | **int** | The time the job started in unix epoch seconds. The field is null if the job hasn&#39;t started. | [optional] 
+**state** | **str** | The state of the job. | 
 **succeeded_chunks** | **int** | The number of data chunks that have been transmitted successfully. | 
 **symlinks_replicated** | **int** | The number of symlinks replicated by this job. | 
 **sync_type** | **str** | The type of sync being performed by this job. | 

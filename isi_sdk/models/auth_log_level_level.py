@@ -71,7 +71,7 @@ class AuthLogLevelLevel(object):
         :type: str
         """
         allowed_values = ["always", "error", "warning", "info", "verbose", "debug", "trace"]
-        if lsass_level not in allowed_values:
+        if lsass_level is not None and lsass_level not in allowed_values:
             raise ValueError(
                 "Invalid value for `lsass_level`, must be one of {0}"
                 .format(allowed_values)
@@ -100,7 +100,7 @@ class AuthLogLevelLevel(object):
         :type: str
         """
         allowed_values = ["always", "error", "warning", "info", "verbose", "debug", "trace"]
-        if netlogon_level not in allowed_values:
+        if netlogon_level is not None and netlogon_level not in allowed_values:
             raise ValueError(
                 "Invalid value for `netlogon_level`, must be one of {0}"
                 .format(allowed_values)

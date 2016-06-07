@@ -76,7 +76,7 @@ class JobJobChangelistcreateParams(object):
         
         if not newer_snapid:
             raise ValueError("Invalid value for `newer_snapid`, must not be `None`")
-        if newer_snapid < 1.0: 
+        if newer_snapid < 1.0:
             raise ValueError("Invalid value for `newer_snapid`, must be a value greater than or equal to `1.0`")
 
         self._newer_snapid = newer_snapid
@@ -104,7 +104,7 @@ class JobJobChangelistcreateParams(object):
         
         if not older_snapid:
             raise ValueError("Invalid value for `older_snapid`, must not be `None`")
-        if older_snapid < 1.0: 
+        if older_snapid < 1.0:
             raise ValueError("Invalid value for `older_snapid`, must be a value greater than or equal to `1.0`")
 
         self._older_snapid = older_snapid

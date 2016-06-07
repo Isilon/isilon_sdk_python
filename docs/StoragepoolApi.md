@@ -154,7 +154,7 @@ isi_sdk.configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = isi_sdk.StoragepoolApi()
-storagepool_nodepool = isi_sdk.StoragepoolNodepool() # StoragepoolNodepool | 
+storagepool_nodepool = isi_sdk.StoragepoolNodepoolCreateParams() # StoragepoolNodepoolCreateParams | 
 
 try: 
     api_response = api_instance.create_storagepool_nodepool(storagepool_nodepool)
@@ -167,7 +167,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storagepool_nodepool** | [**StoragepoolNodepool**](StoragepoolNodepool.md)|  | 
+ **storagepool_nodepool** | [**StoragepoolNodepoolCreateParams**](StoragepoolNodepoolCreateParams.md)|  | 
 
 ### Return type
 
@@ -204,7 +204,7 @@ isi_sdk.configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = isi_sdk.StoragepoolApi()
-storagepool_tier = isi_sdk.StoragepoolTier() # StoragepoolTier | 
+storagepool_tier = isi_sdk.StoragepoolTierCreateParams() # StoragepoolTierCreateParams | 
 
 try: 
     api_response = api_instance.create_storagepool_tier(storagepool_tier)
@@ -217,7 +217,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storagepool_tier** | [**StoragepoolTier**](StoragepoolTier.md)|  | 
+ **storagepool_tier** | [**StoragepoolTierCreateParams**](StoragepoolTierCreateParams.md)|  | 
 
 ### Return type
 

@@ -38,7 +38,7 @@ class SyncPoliciesExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'policies': 'list[SyncPolicyExtended]',
+            'policies': 'list[SyncPolicyExtendedExtended]',
             'resume': 'str',
             'total': 'int'
         }
@@ -60,7 +60,7 @@ class SyncPoliciesExtended(object):
 
 
         :return: The policies of this SyncPoliciesExtended.
-        :rtype: list[SyncPolicyExtended]
+        :rtype: list[SyncPolicyExtendedExtended]
         """
         return self._policies
 
@@ -71,7 +71,7 @@ class SyncPoliciesExtended(object):
 
 
         :param policies: The policies of this SyncPoliciesExtended.
-        :type: list[SyncPolicyExtended]
+        :type: list[SyncPolicyExtendedExtended]
         """
         
         self._policies = policies

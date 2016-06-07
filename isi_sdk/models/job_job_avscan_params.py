@@ -102,7 +102,7 @@ class JobJobAvscanParams(object):
         
         if not policy:
             raise ValueError("Invalid value for `policy`, must not be `None`")
-        if len(policy) < 1: 
+        if len(policy) < 1:
             raise ValueError("Invalid value for `policy`, length must be greater than or equal to `1`")
 
         self._policy = policy
@@ -128,11 +128,9 @@ class JobJobAvscanParams(object):
         :type: str
         """
         
-        if not report_id:
-            raise ValueError("Invalid value for `report_id`, must not be `None`")
-        if len(report_id) > 15: 
+        if report_id is not None and len(report_id) > 15: 
             raise ValueError("Invalid value for `report_id`, length must be less than `15`")
-        if len(report_id) < 1: 
+        if report_id is not None and len(report_id) < 1:
             raise ValueError("Invalid value for `report_id`, length must be greater than or equal to `1`")
 
         self._report_id = report_id

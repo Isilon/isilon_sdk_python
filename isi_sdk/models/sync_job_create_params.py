@@ -80,7 +80,7 @@ class SyncJobCreateParams(object):
         :type: str
         """
         allowed_values = ["resync_prep", "allow_write", "allow_write_revert", "test"]
-        if action not in allowed_values:
+        if action is not None and action not in allowed_values:
             raise ValueError(
                 "Invalid value for `action`, must be one of {0}"
                 .format(allowed_values)
@@ -132,7 +132,7 @@ class SyncJobCreateParams(object):
         :type: str
         """
         allowed_values = ["fatal", "error", "notice", "info", "copy", "debug", "trace"]
-        if log_level not in allowed_values:
+        if log_level is not None and log_level not in allowed_values:
             raise ValueError(
                 "Invalid value for `log_level`, must be one of {0}"
                 .format(allowed_values)

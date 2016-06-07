@@ -5,8 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pinned** | **bool** | True if the result is pinned to prevent automatic removal. | 
 **begin_time** | **int** | Unix Epoch time of start of results collection job. | 
-**content_path** | **str** | Path to results database. | 
-**delete_link** | **str** | Resource to call with DELETE to remove results.. | 
+**content_path** | **str** | Path to results database. | [optional] 
+**delete_link** | **str** | Resource to call with DELETE to remove results.. | [optional] 
 **end_time** | **int** | Unix Epoch time of end of results collection job. | 
 **fsa_state** | **str** | State of the result set. | 
 **id** | **int** | The system generated result set ID. | 

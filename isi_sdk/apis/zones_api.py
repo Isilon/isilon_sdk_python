@@ -295,7 +295,7 @@ class ZonesApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :return: Zones
+        :return: ZonesExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -347,7 +347,7 @@ class ZonesApi(object):
                                             body=body_params,
                                             post_params=form_params,
                                             files=local_var_files,
-                                            response_type='Zones',
+                                            response_type='ZonesExtended',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response

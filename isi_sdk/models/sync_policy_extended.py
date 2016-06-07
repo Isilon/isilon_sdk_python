@@ -624,9 +624,7 @@ class SyncPolicyExtended(object):
         :type: int
         """
         
-        if not job_delay:
-            raise ValueError("Invalid value for `job_delay`, must not be `None`")
-        if job_delay < 0.0: 
+        if job_delay is not None and job_delay < 0.0:
             raise ValueError("Invalid value for `job_delay`, must be a value greater than or equal to `0.0`")
 
         self._job_delay = job_delay
@@ -675,9 +673,7 @@ class SyncPolicyExtended(object):
         :type: int
         """
         
-        if not last_started:
-            raise ValueError("Invalid value for `last_started`, must not be `None`")
-        if last_started < 0.0: 
+        if last_started is not None and last_started < 0.0:
             raise ValueError("Invalid value for `last_started`, must be a value greater than or equal to `0.0`")
 
         self._last_started = last_started
@@ -703,9 +699,7 @@ class SyncPolicyExtended(object):
         :type: int
         """
         
-        if not last_success:
-            raise ValueError("Invalid value for `last_success`, must not be `None`")
-        if last_success < 0.0: 
+        if last_success is not None and last_success < 0.0:
             raise ValueError("Invalid value for `last_success`, must be a value greater than or equal to `0.0`")
 
         self._last_success = last_success
@@ -877,7 +871,7 @@ class SyncPolicyExtended(object):
         
         if not report_max_age:
             raise ValueError("Invalid value for `report_max_age`, must not be `None`")
-        if report_max_age < 0.0: 
+        if report_max_age < 0.0:
             raise ValueError("Invalid value for `report_max_age`, must be a value greater than or equal to `0.0`")
 
         self._report_max_age = report_max_age
@@ -905,9 +899,9 @@ class SyncPolicyExtended(object):
         
         if not report_max_count:
             raise ValueError("Invalid value for `report_max_count`, must not be `None`")
-        if report_max_count > 2000.0: 
+        if report_max_count > 2000.0:
             raise ValueError("Invalid value for `report_max_count`, must be a value less than or equal to `2000.0`")
-        if report_max_count < 1.0: 
+        if report_max_count < 1.0:
             raise ValueError("Invalid value for `report_max_count`, must be a value greater than or equal to `1.0`")
 
         self._report_max_count = report_max_count
@@ -956,9 +950,7 @@ class SyncPolicyExtended(object):
         :type: int
         """
         
-        if not rpo_alert:
-            raise ValueError("Invalid value for `rpo_alert`, must not be `None`")
-        if rpo_alert < 0.0: 
+        if rpo_alert is not None and rpo_alert < 0.0:
             raise ValueError("Invalid value for `rpo_alert`, must be a value greater than or equal to `0.0`")
 
         self._rpo_alert = rpo_alert
@@ -1216,7 +1208,7 @@ class SyncPolicyExtended(object):
         
         if not source_snapshot_expiration:
             raise ValueError("Invalid value for `source_snapshot_expiration`, must not be `None`")
-        if source_snapshot_expiration < 0.0: 
+        if source_snapshot_expiration < 0.0:
             raise ValueError("Invalid value for `source_snapshot_expiration`, must be a value greater than or equal to `0.0`")
 
         self._source_snapshot_expiration = source_snapshot_expiration
@@ -1405,7 +1397,7 @@ class SyncPolicyExtended(object):
         
         if not target_snapshot_expiration:
             raise ValueError("Invalid value for `target_snapshot_expiration`, must not be `None`")
-        if target_snapshot_expiration < 0.0: 
+        if target_snapshot_expiration < 0.0:
             raise ValueError("Invalid value for `target_snapshot_expiration`, must be a value greater than or equal to `0.0`")
 
         self._target_snapshot_expiration = target_snapshot_expiration
@@ -1456,9 +1448,9 @@ class SyncPolicyExtended(object):
         
         if not workers_per_node:
             raise ValueError("Invalid value for `workers_per_node`, must not be `None`")
-        if workers_per_node > 20.0: 
+        if workers_per_node > 20.0:
             raise ValueError("Invalid value for `workers_per_node`, must be a value less than or equal to `20.0`")
-        if workers_per_node < 1.0: 
+        if workers_per_node < 1.0:
             raise ValueError("Invalid value for `workers_per_node`, must be a value greater than or equal to `1.0`")
 
         self._workers_per_node = workers_per_node

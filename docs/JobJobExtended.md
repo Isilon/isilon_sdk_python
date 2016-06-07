@@ -3,9 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**policy** | **str** | Impact policy of this job instance. | [optional] 
-**priority** | **int** | Priority of this job instance; lower numbers preempt higher numbers. | [optional] 
-**state** | **str** | Desired new state of this job instance. | [optional] 
 **control_state** | **str** | State to which the job is transitioning; if control_state is identical to state, the job&#39;s state is stable. | [optional] 
 **create_time** | **int** | The time the job was queued, in seconds since the epoch. | 
 **current_phase** | **int** | The current phase of the job. | [optional] 
@@ -15,10 +12,13 @@ Name | Type | Description | Notes
 **impact** | **str** | The current impact of the job. | 
 **participants** | **list[int]** | The set of devids working on the job. | [optional] 
 **paths** | **list[str]** | Paths for which the job was queued. | [optional] 
+**policy** | **str** | Current impact policy of the job. | 
+**priority** | **int** | Current priority of the job; lower numbers preempt higher numbers. | 
 **progress** | **str** | A text representation of the job&#39;s progress. | [optional] 
 **retries_remaining** | **int** | The number of retries remaining if the job fails. | 
 **running_time** | **int** | The number of seconds the job has executed. | [optional] 
 **start_time** | **int** | The time the job started, in seconds since the Epoch. | [optional] 
+**state** | **str** | Current state of the job. | 
 **total_phases** | **int** | The total number of phases of the job type. | 
 **type** | **str** | The job type. | 
 **waiting_on** | **int** | The ID of a job for which this job is waiting. | [optional] 

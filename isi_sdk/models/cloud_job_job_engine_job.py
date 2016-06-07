@@ -94,7 +94,7 @@ class CloudJobJobEngineJob(object):
         :type: str
         """
         allowed_values = ["null", "running", "user-paused", "system-paused", "policy-paused", "waiting", "user-canceled", "system-canceled", "failed", "succeeded"]
-        if state not in allowed_values:
+        if state is not None and state not in allowed_values:
             raise ValueError(
                 "Invalid value for `state`, must be one of {0}"
                 .format(allowed_values)

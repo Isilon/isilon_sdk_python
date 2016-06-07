@@ -137,7 +137,7 @@ class JobEvent(object):
         
         if not job_id:
             raise ValueError("Invalid value for `job_id`, must not be `None`")
-        if job_id < 1.0: 
+        if job_id < 1.0:
             raise ValueError("Invalid value for `job_id`, must be a value greater than or equal to `1.0`")
 
         self._job_id = job_id

@@ -77,7 +77,7 @@ class JobJobPrepairParams(object):
         :type: str
         """
         allowed_values = ["global", "sid", "unix", "native"]
-        if mapping_type not in allowed_values:
+        if mapping_type is not None and mapping_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `mapping_type`, must be one of {0}"
                 .format(allowed_values)

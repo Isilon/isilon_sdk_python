@@ -39,7 +39,7 @@ class FilepoolTemplates(object):
         """
         self.swagger_types = {
             'resume': 'str',
-            'templates': 'list[FilepoolTemplate]',
+            'templates': 'list[FilepoolPolicyExtendedExtended]',
             'total': 'int'
         }
 
@@ -83,7 +83,7 @@ class FilepoolTemplates(object):
 
 
         :return: The templates of this FilepoolTemplates.
-        :rtype: list[FilepoolTemplate]
+        :rtype: list[FilepoolPolicyExtendedExtended]
         """
         return self._templates
 
@@ -94,7 +94,7 @@ class FilepoolTemplates(object):
 
 
         :param templates: The templates of this FilepoolTemplates.
-        :type: list[FilepoolTemplate]
+        :type: list[FilepoolPolicyExtendedExtended]
         """
         
         self._templates = templates

@@ -41,7 +41,7 @@ class NodeStateNode(object):
             'id': 'int',
             'lnn': 'int',
             'readonly': 'NodeStateReadonlyExtended',
-            'servicelight': 'NodeStateServicelightExtended',
+            'servicelight': 'NodeStateNodeServicelight',
             'smartfail': 'NodeStateSmartfailExtended'
         }
 
@@ -135,7 +135,7 @@ class NodeStateNode(object):
         Node service light state.
 
         :return: The servicelight of this NodeStateNode.
-        :rtype: NodeStateServicelightExtended
+        :rtype: NodeStateNodeServicelight
         """
         return self._servicelight
 
@@ -146,7 +146,7 @@ class NodeStateNode(object):
         Node service light state.
 
         :param servicelight: The servicelight of this NodeStateNode.
-        :type: NodeStateServicelightExtended
+        :type: NodeStateNodeServicelight
         """
         
         self._servicelight = servicelight

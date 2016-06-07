@@ -167,7 +167,7 @@ class CloudJobExtended(object):
         :type: str
         """
         allowed_values = ["running", "paused", "canceled", "completed", "failed"]
-        if effective_state not in allowed_values:
+        if effective_state is not None and effective_state not in allowed_values:
             raise ValueError(
                 "Invalid value for `effective_state`, must be one of {0}"
                 .format(allowed_values)
@@ -265,7 +265,7 @@ class CloudJobExtended(object):
         :type: str
         """
         allowed_values = ["running", "paused", "canceled", "completed", "failed"]
-        if job_state not in allowed_values:
+        if job_state is not None and job_state not in allowed_values:
             raise ValueError(
                 "Invalid value for `job_state`, must be one of {0}"
                 .format(allowed_values)
@@ -294,7 +294,7 @@ class CloudJobExtended(object):
         :type: str
         """
         allowed_values = ["running", "paused"]
-        if operation_state not in allowed_values:
+        if operation_state is not None and operation_state not in allowed_values:
             raise ValueError(
                 "Invalid value for `operation_state`, must be one of {0}"
                 .format(allowed_values)
@@ -346,7 +346,7 @@ class CloudJobExtended(object):
         :type: str
         """
         allowed_values = ["archive", "recall", "local-garbage-collection", "cloud-garbage-collection", "cache-writeback", "cache-on-access", "cache-invalidation", "restore-coi"]
-        if type not in allowed_values:
+        if type is not None and type not in allowed_values:
             raise ValueError(
                 "Invalid value for `type`, must be one of {0}"
                 .format(allowed_values)

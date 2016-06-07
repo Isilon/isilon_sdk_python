@@ -38,53 +38,23 @@ class SnapshotLockExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'expires': 'int',
             'comment': 'str',
             'count': 'int',
+            'expires': 'int',
             'id': 'int'
         }
 
         self.attribute_map = {
-            'expires': 'expires',
             'comment': 'comment',
             'count': 'count',
+            'expires': 'expires',
             'id': 'id'
         }
 
-        self._expires = None
         self._comment = None
         self._count = None
+        self._expires = None
         self._id = None
-
-    @property
-    def expires(self):
-        """
-        Gets the expires of this SnapshotLockExtended.
-        The Unix Epoch time the snapshot lock will expire and be eligible for automatic deletion.
-
-        :return: The expires of this SnapshotLockExtended.
-        :rtype: int
-        """
-        return self._expires
-
-    @expires.setter
-    def expires(self, expires):
-        """
-        Sets the expires of this SnapshotLockExtended.
-        The Unix Epoch time the snapshot lock will expire and be eligible for automatic deletion.
-
-        :param expires: The expires of this SnapshotLockExtended.
-        :type: int
-        """
-        
-        if not expires:
-            raise ValueError("Invalid value for `expires`, must not be `None`")
-        if expires > 2.147483647E9: 
-            raise ValueError("Invalid value for `expires`, must be a value less than or equal to `2.147483647E9`")
-        if expires < 1.0: 
-            raise ValueError("Invalid value for `expires`, must be a value greater than or equal to `1.0`")
-
-        self._expires = expires
 
     @property
     def comment(self):
@@ -131,6 +101,29 @@ class SnapshotLockExtended(object):
         """
         
         self._count = count
+
+    @property
+    def expires(self):
+        """
+        Gets the expires of this SnapshotLockExtended.
+        The Unix Epoch time the snapshot lock will expire and be eligible for automatic deletion.
+
+        :return: The expires of this SnapshotLockExtended.
+        :rtype: int
+        """
+        return self._expires
+
+    @expires.setter
+    def expires(self, expires):
+        """
+        Sets the expires of this SnapshotLockExtended.
+        The Unix Epoch time the snapshot lock will expire and be eligible for automatic deletion.
+
+        :param expires: The expires of this SnapshotLockExtended.
+        :type: int
+        """
+        
+        self._expires = expires
 
     @property
     def id(self):

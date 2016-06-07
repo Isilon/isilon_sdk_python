@@ -215,7 +215,7 @@ isi_sdk.configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = isi_sdk.AuthApi()
-auth_role = isi_sdk.AuthRole() # AuthRole | 
+auth_role = isi_sdk.AuthRoleCreateParams() # AuthRoleCreateParams | 
 
 try: 
     api_response = api_instance.create_auth_role(auth_role)
@@ -228,7 +228,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **auth_role** | [**AuthRole**](AuthRole.md)|  | 
+ **auth_role** | [**AuthRoleCreateParams**](AuthRoleCreateParams.md)|  | 
 
 ### Return type
 
@@ -479,7 +479,7 @@ isi_sdk.configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = isi_sdk.AuthApi()
-providers_file_item = isi_sdk.ProvidersFileIdParams() # ProvidersFileIdParams | 
+providers_file_item = isi_sdk.ProvidersFileItem() # ProvidersFileItem | 
 
 try: 
     api_response = api_instance.create_providers_file_item(providers_file_item)
@@ -492,7 +492,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **providers_file_item** | [**ProvidersFileIdParams**](ProvidersFileIdParams.md)|  | 
+ **providers_file_item** | [**ProvidersFileItem**](ProvidersFileItem.md)|  | 
 
 ### Return type
 
@@ -3825,7 +3825,7 @@ isi_sdk.configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = isi_sdk.AuthApi()
-mapping_users_rules = isi_sdk.MappingUsersRulesRules() # MappingUsersRulesRules | 
+mapping_users_rules = isi_sdk.MappingUsersRulesExtended() # MappingUsersRulesExtended | 
 
 try: 
     api_instance.update_mapping_users_rules(mapping_users_rules)
@@ -3837,7 +3837,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mapping_users_rules** | [**MappingUsersRulesRules**](MappingUsersRulesRules.md)|  | 
+ **mapping_users_rules** | [**MappingUsersRulesExtended**](MappingUsersRulesExtended.md)|  | 
 
 ### Return type
 

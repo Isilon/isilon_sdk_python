@@ -38,11 +38,11 @@ class AuthGroupExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'gid': 'int',
             'dn': 'str',
             'dns_domain': 'str',
             'domain': 'str',
             'generated_gid': 'bool',
+            'gid': 'GroupMember',
             'id': 'str',
             'member_of': 'list[GroupMember]',
             'name': 'str',
@@ -53,11 +53,11 @@ class AuthGroupExtended(object):
         }
 
         self.attribute_map = {
-            'gid': 'gid',
             'dn': 'dn',
             'dns_domain': 'dns_domain',
             'domain': 'domain',
             'generated_gid': 'generated_gid',
+            'gid': 'gid',
             'id': 'id',
             'member_of': 'member_of',
             'name': 'name',
@@ -67,11 +67,11 @@ class AuthGroupExtended(object):
             'type': 'type'
         }
 
-        self._gid = None
         self._dn = None
         self._dns_domain = None
         self._domain = None
         self._generated_gid = None
+        self._gid = None
         self._id = None
         self._member_of = None
         self._name = None
@@ -79,29 +79,6 @@ class AuthGroupExtended(object):
         self._sam_account_name = None
         self._sid = None
         self._type = None
-
-    @property
-    def gid(self):
-        """
-        Gets the gid of this AuthGroupExtended.
-        Specifies the numeric group identifier.
-
-        :return: The gid of this AuthGroupExtended.
-        :rtype: int
-        """
-        return self._gid
-
-    @gid.setter
-    def gid(self, gid):
-        """
-        Sets the gid of this AuthGroupExtended.
-        Specifies the numeric group identifier.
-
-        :param gid: The gid of this AuthGroupExtended.
-        :type: int
-        """
-        
-        self._gid = gid
 
     @property
     def dn(self):
@@ -194,6 +171,29 @@ class AuthGroupExtended(object):
         """
         
         self._generated_gid = generated_gid
+
+    @property
+    def gid(self):
+        """
+        Gets the gid of this AuthGroupExtended.
+        Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'.
+
+        :return: The gid of this AuthGroupExtended.
+        :rtype: GroupMember
+        """
+        return self._gid
+
+    @gid.setter
+    def gid(self, gid):
+        """
+        Sets the gid of this AuthGroupExtended.
+        Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'.
+
+        :param gid: The gid of this AuthGroupExtended.
+        :type: GroupMember
+        """
+        
+        self._gid = gid
 
     @property
     def id(self):

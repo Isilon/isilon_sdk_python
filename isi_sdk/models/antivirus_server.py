@@ -120,9 +120,7 @@ class AntivirusServer(object):
         :type: str
         """
         
-        if not url:
-            raise ValueError("Invalid value for `url`, must not be `None`")
-        if len(url) < 1: 
+        if url is not None and len(url) < 1:
             raise ValueError("Invalid value for `url`, length must be greater than or equal to `1`")
 
         self._url = url

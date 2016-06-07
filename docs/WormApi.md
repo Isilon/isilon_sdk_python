@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **create_worm_domain**
-> CreateWormDomainResponse create_worm_domain(worm_domain)
+> WormDomainExtended create_worm_domain(worm_domain)
 
 
 
@@ -49,7 +49,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateWormDomainResponse**](CreateWormDomainResponse.md)
+[**WormDomainExtended**](WormDomainExtended.md)
 
 ### Authorization
 

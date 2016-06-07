@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **get_cluster_time**
-> ClusterTimeExtended get_cluster_time()
+> ClusterTimeExtendedExtended get_cluster_time()
 
 
 
@@ -40,7 +40,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**ClusterTimeExtended**](ClusterTimeExtended.md)
+[**ClusterTimeExtendedExtended**](ClusterTimeExtendedExtended.md)
 
 ### Authorization
 

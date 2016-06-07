@@ -38,7 +38,6 @@ class SyncJobExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'state': 'str',
             'action': 'str',
             'ads_streams_replicated': 'int',
             'block_specs_replicated': 'int',
@@ -102,6 +101,7 @@ class SyncJobExtended(object):
             'source_files_unlinked': 'int',
             'sparse_data_bytes': 'int',
             'start_time': 'int',
+            'state': 'str',
             'succeeded_chunks': 'int',
             'symlinks_replicated': 'int',
             'sync_type': 'str',
@@ -128,7 +128,6 @@ class SyncJobExtended(object):
         }
 
         self.attribute_map = {
-            'state': 'state',
             'action': 'action',
             'ads_streams_replicated': 'ads_streams_replicated',
             'block_specs_replicated': 'block_specs_replicated',
@@ -192,6 +191,7 @@ class SyncJobExtended(object):
             'source_files_unlinked': 'source_files_unlinked',
             'sparse_data_bytes': 'sparse_data_bytes',
             'start_time': 'start_time',
+            'state': 'state',
             'succeeded_chunks': 'succeeded_chunks',
             'symlinks_replicated': 'symlinks_replicated',
             'sync_type': 'sync_type',
@@ -217,7 +217,6 @@ class SyncJobExtended(object):
             'workers': 'workers'
         }
 
-        self._state = None
         self._action = None
         self._ads_streams_replicated = None
         self._block_specs_replicated = None
@@ -281,6 +280,7 @@ class SyncJobExtended(object):
         self._source_files_unlinked = None
         self._sparse_data_bytes = None
         self._start_time = None
+        self._state = None
         self._succeeded_chunks = None
         self._symlinks_replicated = None
         self._sync_type = None
@@ -304,35 +304,6 @@ class SyncJobExtended(object):
         self._user_conflict_files_skipped = None
         self._warnings = None
         self._workers = None
-
-    @property
-    def state(self):
-        """
-        Gets the state of this SyncJobExtended.
-        The state of the job.
-
-        :return: The state of this SyncJobExtended.
-        :rtype: str
-        """
-        return self._state
-
-    @state.setter
-    def state(self, state):
-        """
-        Sets the state of this SyncJobExtended.
-        The state of the job.
-
-        :param state: The state of this SyncJobExtended.
-        :type: str
-        """
-        allowed_values = ["canceled", "running", "paused"]
-        if state not in allowed_values:
-            raise ValueError(
-                "Invalid value for `state`, must be one of {0}"
-                .format(allowed_values)
-            )
-
-        self._state = state
 
     @property
     def action(self):
@@ -1794,6 +1765,35 @@ class SyncJobExtended(object):
         """
         
         self._start_time = start_time
+
+    @property
+    def state(self):
+        """
+        Gets the state of this SyncJobExtended.
+        The state of the job.
+
+        :return: The state of this SyncJobExtended.
+        :rtype: str
+        """
+        return self._state
+
+    @state.setter
+    def state(self, state):
+        """
+        Sets the state of this SyncJobExtended.
+        The state of the job.
+
+        :param state: The state of this SyncJobExtended.
+        :type: str
+        """
+        allowed_values = ["scheduled", "running", "paused", "finished", "failed", "canceled", "needs_attention", "skipped", "pending", "unknown"]
+        if state not in allowed_values:
+            raise ValueError(
+                "Invalid value for `state`, must be one of {0}"
+                .format(allowed_values)
+            )
+
+        self._state = state
 
     @property
     def succeeded_chunks(self):

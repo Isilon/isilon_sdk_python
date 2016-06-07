@@ -68,7 +68,7 @@ class SmbLogLevel(object):
         :type: str
         """
         allowed_values = ["always", "error", "warning", "info", "verbose", "debug", "trace"]
-        if level not in allowed_values:
+        if level is not None and level not in allowed_values:
             raise ValueError(
                 "Invalid value for `level`, must be one of {0}"
                 .format(allowed_values)

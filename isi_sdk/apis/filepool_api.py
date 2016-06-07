@@ -61,7 +61,7 @@ class FilepoolApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param FilepoolPolicy filepool_policy:  (required)
+        :param FilepoolPolicyCreateParams filepool_policy:  (required)
         :return: CreateFilepoolPolicyResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -517,7 +517,7 @@ class FilepoolApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :return: FilepoolPolicies
+        :return: FilepoolPoliciesExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -569,7 +569,7 @@ class FilepoolApi(object):
                                             body=body_params,
                                             post_params=form_params,
                                             files=local_var_files,
-                                            response_type='FilepoolPolicies',
+                                            response_type='FilepoolPoliciesExtended',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response

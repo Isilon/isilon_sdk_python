@@ -39,33 +39,33 @@ class ClusterNodeExtended(object):
         """
         self.swagger_types = {
             'drives': 'list[NodeDrivesNodeDrive]',
-            'state': 'ClusterNodeState',
             'hardware': 'ClusterNodeHardware',
             'id': 'int',
             'lnn': 'int',
             'partitions': 'ClusterNodePartitions',
             'sensors': 'ClusterNodeSensors',
+            'state': 'ClusterNodeStateExtended',
             'status': 'ClusterNodeStatus'
         }
 
         self.attribute_map = {
             'drives': 'drives',
-            'state': 'state',
             'hardware': 'hardware',
             'id': 'id',
             'lnn': 'lnn',
             'partitions': 'partitions',
             'sensors': 'sensors',
+            'state': 'state',
             'status': 'status'
         }
 
         self._drives = None
-        self._state = None
         self._hardware = None
         self._id = None
         self._lnn = None
         self._partitions = None
         self._sensors = None
+        self._state = None
         self._status = None
 
     @property
@@ -90,29 +90,6 @@ class ClusterNodeExtended(object):
         """
         
         self._drives = drives
-
-    @property
-    def state(self):
-        """
-        Gets the state of this ClusterNodeExtended.
-        Node state information (reported and modifiable).
-
-        :return: The state of this ClusterNodeExtended.
-        :rtype: ClusterNodeState
-        """
-        return self._state
-
-    @state.setter
-    def state(self, state):
-        """
-        Sets the state of this ClusterNodeExtended.
-        Node state information (reported and modifiable).
-
-        :param state: The state of this ClusterNodeExtended.
-        :type: ClusterNodeState
-        """
-        
-        self._state = state
 
     @property
     def hardware(self):
@@ -228,6 +205,29 @@ class ClusterNodeExtended(object):
         """
         
         self._sensors = sensors
+
+    @property
+    def state(self):
+        """
+        Gets the state of this ClusterNodeExtended.
+        Node state information (reported and modifiable).
+
+        :return: The state of this ClusterNodeExtended.
+        :rtype: ClusterNodeStateExtended
+        """
+        return self._state
+
+    @state.setter
+    def state(self, state):
+        """
+        Sets the state of this ClusterNodeExtended.
+        Node state information (reported and modifiable).
+
+        :param state: The state of this ClusterNodeExtended.
+        :type: ClusterNodeStateExtended
+        """
+        
+        self._state = state
 
     @property
     def status(self):

@@ -94,7 +94,7 @@ class HardwareTapeNameParams(object):
         :type: str
         """
         allowed_values = ["closed"]
-        if state not in allowed_values:
+        if state is not None and state not in allowed_values:
             raise ValueError(
                 "Invalid value for `state`, must be one of {0}"
                 .format(allowed_values)

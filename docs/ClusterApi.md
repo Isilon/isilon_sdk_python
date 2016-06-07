@@ -266,7 +266,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_cluster_nodes**
-> ClusterNodes get_cluster_nodes()
+> ClusterNodesExtended get_cluster_nodes()
 
 
 
@@ -298,7 +298,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**ClusterNodes**](ClusterNodes.md)
+[**ClusterNodesExtended**](ClusterNodesExtended.md)
 
 ### Authorization
 
@@ -764,7 +764,7 @@ isi_sdk.configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = isi_sdk.ClusterApi()
-cluster_identity = isi_sdk.ClusterIdentity() # ClusterIdentity | 
+cluster_identity = isi_sdk.ClusterIdentityExtended() # ClusterIdentityExtended | 
 
 try: 
     api_instance.update_cluster_identity(cluster_identity)
@@ -776,7 +776,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cluster_identity** | [**ClusterIdentity**](ClusterIdentity.md)|  | 
+ **cluster_identity** | [**ClusterIdentityExtended**](ClusterIdentityExtended.md)|  | 
 
 ### Return type
 

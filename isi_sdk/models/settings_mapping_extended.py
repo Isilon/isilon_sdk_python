@@ -38,43 +38,14 @@ class SettingsMappingExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'domain': 'str',
-            'mapping': 'str',
-            'type': 'str'
+            'mapping': 'str'
         }
 
         self.attribute_map = {
-            'domain': 'domain',
-            'mapping': 'mapping',
-            'type': 'type'
+            'mapping': 'mapping'
         }
 
-        self._domain = None
         self._mapping = None
-        self._type = None
-
-    @property
-    def domain(self):
-        """
-        Gets the domain of this SettingsMappingExtended.
-        The FQDN of the source domain to map.
-
-        :return: The domain of this SettingsMappingExtended.
-        :rtype: str
-        """
-        return self._domain
-
-    @domain.setter
-    def domain(self, domain):
-        """
-        Sets the domain of this SettingsMappingExtended.
-        The FQDN of the source domain to map.
-
-        :param domain: The domain of this SettingsMappingExtended.
-        :type: str
-        """
-        
-        self._domain = domain
 
     @property
     def mapping(self):
@@ -98,35 +69,6 @@ class SettingsMappingExtended(object):
         """
         
         self._mapping = mapping
-
-    @property
-    def type(self):
-        """
-        Gets the type of this SettingsMappingExtended.
-        The authentication provider type.
-
-        :return: The type of this SettingsMappingExtended.
-        :rtype: str
-        """
-        return self._type
-
-    @type.setter
-    def type(self, type):
-        """
-        Sets the type of this SettingsMappingExtended.
-        The authentication provider type.
-
-        :param type: The type of this SettingsMappingExtended.
-        :type: str
-        """
-        allowed_values = ["ad", "local", "nis", "ldap"]
-        if type not in allowed_values:
-            raise ValueError(
-                "Invalid value for `type`, must be one of {0}"
-                .format(allowed_values)
-            )
-
-        self._type = type
 
     def to_dict(self):
         """

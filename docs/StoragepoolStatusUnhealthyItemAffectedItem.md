@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**device** | **int** | The logical node number or drive identifier. | 
+**device** | **int** | The logical node number or drive identifier. | [optional] 
 **down** | **bool** | Whether or not the device is currently down. | 
 **restriping** | **bool** | Whether or not the device is currently being repaired. | 
 **smartfailed** | **bool** | Whether or not the device is currently smartfailed. | 

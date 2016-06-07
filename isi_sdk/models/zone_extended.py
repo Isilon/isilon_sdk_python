@@ -42,18 +42,19 @@ class ZoneExtended(object):
             'auth_providers': 'list[str]',
             'cache_entry_expiry': 'int',
             'create_path': 'bool',
-            'groupnet': 'str',
+            'force_overlap': 'bool',
             'home_directory_umask': 'int',
-            'id': 'str',
             'ifs_restricted': 'list[GroupMember]',
             'map_untrusted': 'str',
             'name': 'str',
             'netbios_name': 'str',
             'path': 'str',
             'skeleton_directory': 'str',
-            'system': 'bool',
             'system_provider': 'str',
             'user_mapping_rules': 'list[str]',
+            'groupnet': 'str',
+            'id': 'str',
+            'system': 'bool',
             'zone_id': 'int'
         }
 
@@ -62,18 +63,19 @@ class ZoneExtended(object):
             'auth_providers': 'auth_providers',
             'cache_entry_expiry': 'cache_entry_expiry',
             'create_path': 'create_path',
-            'groupnet': 'groupnet',
+            'force_overlap': 'force_overlap',
             'home_directory_umask': 'home_directory_umask',
-            'id': 'id',
             'ifs_restricted': 'ifs_restricted',
             'map_untrusted': 'map_untrusted',
             'name': 'name',
             'netbios_name': 'netbios_name',
             'path': 'path',
             'skeleton_directory': 'skeleton_directory',
-            'system': 'system',
             'system_provider': 'system_provider',
             'user_mapping_rules': 'user_mapping_rules',
+            'groupnet': 'groupnet',
+            'id': 'id',
+            'system': 'system',
             'zone_id': 'zone_id'
         }
 
@@ -81,18 +83,19 @@ class ZoneExtended(object):
         self._auth_providers = None
         self._cache_entry_expiry = None
         self._create_path = None
-        self._groupnet = None
+        self._force_overlap = None
         self._home_directory_umask = None
-        self._id = None
         self._ifs_restricted = None
         self._map_untrusted = None
         self._name = None
         self._netbios_name = None
         self._path = None
         self._skeleton_directory = None
-        self._system = None
         self._system_provider = None
         self._user_mapping_rules = None
+        self._groupnet = None
+        self._id = None
+        self._system = None
         self._zone_id = None
 
     @property
@@ -188,27 +191,27 @@ class ZoneExtended(object):
         self._create_path = create_path
 
     @property
-    def groupnet(self):
+    def force_overlap(self):
         """
-        Gets the groupnet of this ZoneExtended.
-        Groupnet identitier
+        Gets the force_overlap of this ZoneExtended.
+        Allow for overlapping base path.
 
-        :return: The groupnet of this ZoneExtended.
-        :rtype: str
+        :return: The force_overlap of this ZoneExtended.
+        :rtype: bool
         """
-        return self._groupnet
+        return self._force_overlap
 
-    @groupnet.setter
-    def groupnet(self, groupnet):
+    @force_overlap.setter
+    def force_overlap(self, force_overlap):
         """
-        Sets the groupnet of this ZoneExtended.
-        Groupnet identitier
+        Sets the force_overlap of this ZoneExtended.
+        Allow for overlapping base path.
 
-        :param groupnet: The groupnet of this ZoneExtended.
-        :type: str
+        :param force_overlap: The force_overlap of this ZoneExtended.
+        :type: bool
         """
         
-        self._groupnet = groupnet
+        self._force_overlap = force_overlap
 
     @property
     def home_directory_umask(self):
@@ -232,29 +235,6 @@ class ZoneExtended(object):
         """
         
         self._home_directory_umask = home_directory_umask
-
-    @property
-    def id(self):
-        """
-        Gets the id of this ZoneExtended.
-        Specifies the system-assigned ID for the access zone. This value is returned when an access zone is created through the POST method
-
-        :return: The id of this ZoneExtended.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this ZoneExtended.
-        Specifies the system-assigned ID for the access zone. This value is returned when an access zone is created through the POST method
-
-        :param id: The id of this ZoneExtended.
-        :type: str
-        """
-        
-        self._id = id
 
     @property
     def ifs_restricted(self):
@@ -395,29 +375,6 @@ class ZoneExtended(object):
         self._skeleton_directory = skeleton_directory
 
     @property
-    def system(self):
-        """
-        Gets the system of this ZoneExtended.
-        True if the access zone is built-in.
-
-        :return: The system of this ZoneExtended.
-        :rtype: bool
-        """
-        return self._system
-
-    @system.setter
-    def system(self, system):
-        """
-        Sets the system of this ZoneExtended.
-        True if the access zone is built-in.
-
-        :param system: The system of this ZoneExtended.
-        :type: bool
-        """
-        
-        self._system = system
-
-    @property
     def system_provider(self):
         """
         Gets the system_provider of this ZoneExtended.
@@ -462,6 +419,75 @@ class ZoneExtended(object):
         """
         
         self._user_mapping_rules = user_mapping_rules
+
+    @property
+    def groupnet(self):
+        """
+        Gets the groupnet of this ZoneExtended.
+        Groupnet identitier
+
+        :return: The groupnet of this ZoneExtended.
+        :rtype: str
+        """
+        return self._groupnet
+
+    @groupnet.setter
+    def groupnet(self, groupnet):
+        """
+        Sets the groupnet of this ZoneExtended.
+        Groupnet identitier
+
+        :param groupnet: The groupnet of this ZoneExtended.
+        :type: str
+        """
+        
+        self._groupnet = groupnet
+
+    @property
+    def id(self):
+        """
+        Gets the id of this ZoneExtended.
+        Specifies the system-assigned ID for the access zone. This value is returned when an access zone is created through the POST method
+
+        :return: The id of this ZoneExtended.
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """
+        Sets the id of this ZoneExtended.
+        Specifies the system-assigned ID for the access zone. This value is returned when an access zone is created through the POST method
+
+        :param id: The id of this ZoneExtended.
+        :type: str
+        """
+        
+        self._id = id
+
+    @property
+    def system(self):
+        """
+        Gets the system of this ZoneExtended.
+        True if the access zone is built-in.
+
+        :return: The system of this ZoneExtended.
+        :rtype: bool
+        """
+        return self._system
+
+    @system.setter
+    def system(self, system):
+        """
+        Sets the system of this ZoneExtended.
+        True if the access zone is built-in.
+
+        :param system: The system of this ZoneExtended.
+        :type: bool
+        """
+        
+        self._system = system
 
     @property
     def zone_id(self):

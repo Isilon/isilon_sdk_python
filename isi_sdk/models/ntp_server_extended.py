@@ -38,43 +38,20 @@ class NtpServerExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'key': 'str',
             'id': 'str',
+            'key': 'str',
             'name': 'str'
         }
 
         self.attribute_map = {
-            'key': 'key',
             'id': 'id',
+            'key': 'key',
             'name': 'name'
         }
 
-        self._key = None
         self._id = None
+        self._key = None
         self._name = None
-
-    @property
-    def key(self):
-        """
-        Gets the key of this NtpServerExtended.
-        Key value from key_file that maps to this server.
-
-        :return: The key of this NtpServerExtended.
-        :rtype: str
-        """
-        return self._key
-
-    @key.setter
-    def key(self, key):
-        """
-        Sets the key of this NtpServerExtended.
-        Key value from key_file that maps to this server.
-
-        :param key: The key of this NtpServerExtended.
-        :type: str
-        """
-        
-        self._key = key
 
     @property
     def id(self):
@@ -98,6 +75,29 @@ class NtpServerExtended(object):
         """
         
         self._id = id
+
+    @property
+    def key(self):
+        """
+        Gets the key of this NtpServerExtended.
+        Key value from key_file that maps to this server.
+
+        :return: The key of this NtpServerExtended.
+        :rtype: str
+        """
+        return self._key
+
+    @key.setter
+    def key(self, key):
+        """
+        Sets the key of this NtpServerExtended.
+        Key value from key_file that maps to this server.
+
+        :param key: The key of this NtpServerExtended.
+        :type: str
+        """
+        
+        self._key = key
 
     @property
     def name(self):

@@ -40,15 +40,15 @@ class QuotaQuotaExtended(object):
         self.swagger_types = {
             'container': 'bool',
             'enforced': 'bool',
-            'linked': 'bool',
-            'thresholds': 'QuotaQuotaThresholds',
-            'thresholds_include_overhead': 'bool',
             'id': 'str',
             'include_snapshots': 'bool',
+            'linked': 'bool',
             'notifications': 'str',
             'path': 'str',
             'persona': 'GroupMember',
             'ready': 'bool',
+            'thresholds': 'QuotaQuotaThresholdsExtended',
+            'thresholds_include_overhead': 'bool',
             'type': 'str',
             'usage': 'QuotaQuotaUsage'
         }
@@ -56,30 +56,30 @@ class QuotaQuotaExtended(object):
         self.attribute_map = {
             'container': 'container',
             'enforced': 'enforced',
-            'linked': 'linked',
-            'thresholds': 'thresholds',
-            'thresholds_include_overhead': 'thresholds_include_overhead',
             'id': 'id',
             'include_snapshots': 'include_snapshots',
+            'linked': 'linked',
             'notifications': 'notifications',
             'path': 'path',
             'persona': 'persona',
             'ready': 'ready',
+            'thresholds': 'thresholds',
+            'thresholds_include_overhead': 'thresholds_include_overhead',
             'type': 'type',
             'usage': 'usage'
         }
 
         self._container = None
         self._enforced = None
-        self._linked = None
-        self._thresholds = None
-        self._thresholds_include_overhead = None
         self._id = None
         self._include_snapshots = None
+        self._linked = None
         self._notifications = None
         self._path = None
         self._persona = None
         self._ready = None
+        self._thresholds = None
+        self._thresholds_include_overhead = None
         self._type = None
         self._usage = None
 
@@ -130,75 +130,6 @@ class QuotaQuotaExtended(object):
         self._enforced = enforced
 
     @property
-    def linked(self):
-        """
-        Gets the linked of this QuotaQuotaExtended.
-        If false and the quota is linked, attempt to unlink.
-
-        :return: The linked of this QuotaQuotaExtended.
-        :rtype: bool
-        """
-        return self._linked
-
-    @linked.setter
-    def linked(self, linked):
-        """
-        Sets the linked of this QuotaQuotaExtended.
-        If false and the quota is linked, attempt to unlink.
-
-        :param linked: The linked of this QuotaQuotaExtended.
-        :type: bool
-        """
-        
-        self._linked = linked
-
-    @property
-    def thresholds(self):
-        """
-        Gets the thresholds of this QuotaQuotaExtended.
-        
-
-        :return: The thresholds of this QuotaQuotaExtended.
-        :rtype: QuotaQuotaThresholds
-        """
-        return self._thresholds
-
-    @thresholds.setter
-    def thresholds(self, thresholds):
-        """
-        Sets the thresholds of this QuotaQuotaExtended.
-        
-
-        :param thresholds: The thresholds of this QuotaQuotaExtended.
-        :type: QuotaQuotaThresholds
-        """
-        
-        self._thresholds = thresholds
-
-    @property
-    def thresholds_include_overhead(self):
-        """
-        Gets the thresholds_include_overhead of this QuotaQuotaExtended.
-        If true, thresholds apply to data plus filesystem overhead required to store the data (i.e. 'physical' usage).
-
-        :return: The thresholds_include_overhead of this QuotaQuotaExtended.
-        :rtype: bool
-        """
-        return self._thresholds_include_overhead
-
-    @thresholds_include_overhead.setter
-    def thresholds_include_overhead(self, thresholds_include_overhead):
-        """
-        Sets the thresholds_include_overhead of this QuotaQuotaExtended.
-        If true, thresholds apply to data plus filesystem overhead required to store the data (i.e. 'physical' usage).
-
-        :param thresholds_include_overhead: The thresholds_include_overhead of this QuotaQuotaExtended.
-        :type: bool
-        """
-        
-        self._thresholds_include_overhead = thresholds_include_overhead
-
-    @property
     def id(self):
         """
         Gets the id of this QuotaQuotaExtended.
@@ -243,6 +174,29 @@ class QuotaQuotaExtended(object):
         """
         
         self._include_snapshots = include_snapshots
+
+    @property
+    def linked(self):
+        """
+        Gets the linked of this QuotaQuotaExtended.
+        For user and group quotas, true if the quota is linked and controlled by a parent default-* quota. Linked quotas cannot be modified until they are unlinked.
+
+        :return: The linked of this QuotaQuotaExtended.
+        :rtype: bool
+        """
+        return self._linked
+
+    @linked.setter
+    def linked(self, linked):
+        """
+        Sets the linked of this QuotaQuotaExtended.
+        For user and group quotas, true if the quota is linked and controlled by a parent default-* quota. Linked quotas cannot be modified until they are unlinked.
+
+        :param linked: The linked of this QuotaQuotaExtended.
+        :type: bool
+        """
+        
+        self._linked = linked
 
     @property
     def notifications(self):
@@ -341,6 +295,52 @@ class QuotaQuotaExtended(object):
         """
         
         self._ready = ready
+
+    @property
+    def thresholds(self):
+        """
+        Gets the thresholds of this QuotaQuotaExtended.
+        
+
+        :return: The thresholds of this QuotaQuotaExtended.
+        :rtype: QuotaQuotaThresholdsExtended
+        """
+        return self._thresholds
+
+    @thresholds.setter
+    def thresholds(self, thresholds):
+        """
+        Sets the thresholds of this QuotaQuotaExtended.
+        
+
+        :param thresholds: The thresholds of this QuotaQuotaExtended.
+        :type: QuotaQuotaThresholdsExtended
+        """
+        
+        self._thresholds = thresholds
+
+    @property
+    def thresholds_include_overhead(self):
+        """
+        Gets the thresholds_include_overhead of this QuotaQuotaExtended.
+        If true, thresholds apply to data plus filesystem overhead required to store the data (i.e. 'physical' usage).
+
+        :return: The thresholds_include_overhead of this QuotaQuotaExtended.
+        :rtype: bool
+        """
+        return self._thresholds_include_overhead
+
+    @thresholds_include_overhead.setter
+    def thresholds_include_overhead(self, thresholds_include_overhead):
+        """
+        Sets the thresholds_include_overhead of this QuotaQuotaExtended.
+        If true, thresholds apply to data plus filesystem overhead required to store the data (i.e. 'physical' usage).
+
+        :param thresholds_include_overhead: The thresholds_include_overhead of this QuotaQuotaExtended.
+        :type: bool
+        """
+        
+        self._thresholds_include_overhead = thresholds_include_overhead
 
     @property
     def type(self):

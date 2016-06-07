@@ -105,7 +105,7 @@ class SettingsReportsSettings(object):
         
         if not live_retain:
             raise ValueError("Invalid value for `live_retain`, must not be `None`")
-        if live_retain < 1.0: 
+        if live_retain < 1.0:
             raise ValueError("Invalid value for `live_retain`, must be a value greater than or equal to `1.0`")
 
         self._live_retain = live_retain
@@ -179,7 +179,7 @@ class SettingsReportsSettings(object):
         
         if not scheduled_retain:
             raise ValueError("Invalid value for `scheduled_retain`, must not be `None`")
-        if scheduled_retain < 1.0: 
+        if scheduled_retain < 1.0:
             raise ValueError("Invalid value for `scheduled_retain`, must be a value greater than or equal to `1.0`")
 
         self._scheduled_retain = scheduled_retain

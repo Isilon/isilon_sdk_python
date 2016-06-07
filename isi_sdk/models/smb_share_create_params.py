@@ -343,9 +343,7 @@ class SmbShareCreateParams(object):
         :type: int
         """
         
-        if not ca_timeout:
-            raise ValueError("Invalid value for `ca_timeout`, must not be `None`")
-        if ca_timeout < 2.0: 
+        if ca_timeout is not None and ca_timeout < 2.0:
             raise ValueError("Invalid value for `ca_timeout`, must be a value greater than or equal to `2.0`")
 
         self._ca_timeout = ca_timeout
@@ -371,7 +369,7 @@ class SmbShareCreateParams(object):
         :type: str
         """
         allowed_values = ["none", "write-read-coherent", "full"]
-        if ca_write_integrity not in allowed_values:
+        if ca_write_integrity is not None and ca_write_integrity not in allowed_values:
             raise ValueError(
                 "Invalid value for `ca_write_integrity`, must be one of {0}"
                 .format(allowed_values)
@@ -400,7 +398,7 @@ class SmbShareCreateParams(object):
         :type: str
         """
         allowed_values = ["all", "norecurse", "none"]
-        if change_notify not in allowed_values:
+        if change_notify is not None and change_notify not in allowed_values:
             raise ValueError(
                 "Invalid value for `change_notify`, must be one of {0}"
                 .format(allowed_values)
@@ -429,7 +427,7 @@ class SmbShareCreateParams(object):
         :type: str
         """
         allowed_values = ["default acl", "inherit mode bits", "use create mask and mode"]
-        if create_permissions not in allowed_values:
+        if create_permissions is not None and create_permissions not in allowed_values:
             raise ValueError(
                 "Invalid value for `create_permissions`, must be one of {0}"
                 .format(allowed_values)
@@ -458,7 +456,7 @@ class SmbShareCreateParams(object):
         :type: str
         """
         allowed_values = ["manual", "documents", "programs", "none"]
-        if csc_policy not in allowed_values:
+        if csc_policy is not None and csc_policy not in allowed_values:
             raise ValueError(
                 "Invalid value for `csc_policy`, must be one of {0}"
                 .format(allowed_values)
@@ -625,7 +623,7 @@ class SmbShareCreateParams(object):
         :type: str
         """
         allowed_values = ["deny", "allow"]
-        if file_filter_type not in allowed_values:
+        if file_filter_type is not None and file_filter_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `file_filter_type`, must be one of {0}"
                 .format(allowed_values)
@@ -723,7 +721,7 @@ class SmbShareCreateParams(object):
         :type: str
         """
         allowed_values = ["always", "bad user", "never"]
-        if impersonate_guest not in allowed_values:
+        if impersonate_guest is not None and impersonate_guest not in allowed_values:
             raise ValueError(
                 "Invalid value for `impersonate_guest`, must be one of {0}"
                 .format(allowed_values)

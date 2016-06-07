@@ -295,7 +295,7 @@ class SnapshotApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param SnapshotSchedule snapshot_schedule:  (required)
+        :param SnapshotScheduleCreateParams snapshot_schedule:  (required)
         :return: CreateSnapshotScheduleResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -374,7 +374,7 @@ class SnapshotApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param SnapshotSnapshotCreateParams snapshot_snapshot:  (required)
-        :return: CreateSnapshotSnapshotResponse
+        :return: SnapshotSnapshotExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -431,7 +431,7 @@ class SnapshotApi(object):
                                             body=body_params,
                                             post_params=form_params,
                                             files=local_var_files,
-                                            response_type='CreateSnapshotSnapshotResponse',
+                                            response_type='SnapshotSnapshotExtended',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -2335,7 +2335,7 @@ class SnapshotApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param SnapshotSettingsSettings snapshot_settings:  (required)
+        :param SnapshotSettingsExtended snapshot_settings:  (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.

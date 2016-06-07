@@ -49,7 +49,7 @@ isi_sdk.configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = isi_sdk.AntivirusApi()
-antivirus_policy = isi_sdk.AntivirusPolicy() # AntivirusPolicy | 
+antivirus_policy = isi_sdk.AntivirusPolicyCreateParams() # AntivirusPolicyCreateParams | 
 
 try: 
     api_response = api_instance.create_antivirus_policy(antivirus_policy)
@@ -62,7 +62,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **antivirus_policy** | [**AntivirusPolicy**](AntivirusPolicy.md)|  | 
+ **antivirus_policy** | [**AntivirusPolicyCreateParams**](AntivirusPolicyCreateParams.md)|  | 
 
 ### Return type
 
@@ -149,7 +149,7 @@ isi_sdk.configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = isi_sdk.AntivirusApi()
-antivirus_server = isi_sdk.AntivirusServer() # AntivirusServer | 
+antivirus_server = isi_sdk.AntivirusServerCreateParams() # AntivirusServerCreateParams | 
 
 try: 
     api_response = api_instance.create_antivirus_server(antivirus_server)
@@ -162,7 +162,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **antivirus_server** | [**AntivirusServer**](AntivirusServer.md)|  | 
+ **antivirus_server** | [**AntivirusServerCreateParams**](AntivirusServerCreateParams.md)|  | 
 
 ### Return type
 

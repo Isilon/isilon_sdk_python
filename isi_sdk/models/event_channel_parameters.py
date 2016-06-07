@@ -124,7 +124,7 @@ class EventChannelParameters(object):
         :type: str
         """
         allowed_values = ["NONE", "ALL", "CATEGORY", "SEVERITY"]
-        if batch not in allowed_values:
+        if batch is not None and batch not in allowed_values:
             raise ValueError(
                 "Invalid value for `batch`, must be one of {0}"
                 .format(allowed_values)
@@ -291,7 +291,7 @@ class EventChannelParameters(object):
         :type: str
         """
         allowed_values = ["NONE", "STARTTLS"]
-        if smtp_security not in allowed_values:
+        if smtp_security is not None and smtp_security not in allowed_values:
             raise ValueError(
                 "Invalid value for `smtp_security`, must be one of {0}"
                 .format(allowed_values)

@@ -68,11 +68,9 @@ class SnapshotLock(object):
         :type: int
         """
         
-        if not expires:
-            raise ValueError("Invalid value for `expires`, must not be `None`")
-        if expires > 2.147483647E9: 
+        if expires is not None  and expires > 2.147483647E9:
             raise ValueError("Invalid value for `expires`, must be a value less than or equal to `2.147483647E9`")
-        if expires < 1.0: 
+        if expires is not None and expires < 1.0:
             raise ValueError("Invalid value for `expires`, must be a value greater than or equal to `1.0`")
 
         self._expires = expires

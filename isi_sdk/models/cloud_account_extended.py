@@ -438,7 +438,7 @@ class CloudAccountExtended(object):
         :type: str
         """
         allowed_values = ["OK", "disabled", "unreachable"]
-        if state not in allowed_values:
+        if state is not None and state not in allowed_values:
             raise ValueError(
                 "Invalid value for `state`, must be one of {0}"
                 .format(allowed_values)
@@ -490,7 +490,7 @@ class CloudAccountExtended(object):
         :type: str
         """
         allowed_values = ["isilon", "ecs", "ecs2", "azure", "s3", "ran"]
-        if type not in allowed_values:
+        if type is not None and type not in allowed_values:
             raise ValueError(
                 "Invalid value for `type`, must be one of {0}"
                 .format(allowed_values)

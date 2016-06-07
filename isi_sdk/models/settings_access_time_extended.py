@@ -94,11 +94,9 @@ class SettingsAccessTimeExtended(object):
         :type: int
         """
         
-        if not precision:
-            raise ValueError("Invalid value for `precision`, must not be `None`")
-        if precision > 1.5768E9: 
+        if precision is not None  and precision > 1.5768E9:
             raise ValueError("Invalid value for `precision`, must be a value less than or equal to `1.5768E9`")
-        if precision < 0.0: 
+        if precision is not None and precision < 0.0:
             raise ValueError("Invalid value for `precision`, must be a value greater than or equal to `0.0`")
 
         self._precision = precision

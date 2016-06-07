@@ -38,43 +38,20 @@ class SnapshotSchedulesExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'schedules': 'list[SnapshotScheduleExtended]',
             'resume': 'str',
+            'schedules': 'list[SnapshotScheduleExtendedExtended]',
             'total': 'int'
         }
 
         self.attribute_map = {
-            'schedules': 'schedules',
             'resume': 'resume',
+            'schedules': 'schedules',
             'total': 'total'
         }
 
-        self._schedules = None
         self._resume = None
+        self._schedules = None
         self._total = None
-
-    @property
-    def schedules(self):
-        """
-        Gets the schedules of this SnapshotSchedulesExtended.
-
-
-        :return: The schedules of this SnapshotSchedulesExtended.
-        :rtype: list[SnapshotScheduleExtended]
-        """
-        return self._schedules
-
-    @schedules.setter
-    def schedules(self, schedules):
-        """
-        Sets the schedules of this SnapshotSchedulesExtended.
-
-
-        :param schedules: The schedules of this SnapshotSchedulesExtended.
-        :type: list[SnapshotScheduleExtended]
-        """
-        
-        self._schedules = schedules
 
     @property
     def resume(self):
@@ -98,6 +75,29 @@ class SnapshotSchedulesExtended(object):
         """
         
         self._resume = resume
+
+    @property
+    def schedules(self):
+        """
+        Gets the schedules of this SnapshotSchedulesExtended.
+
+
+        :return: The schedules of this SnapshotSchedulesExtended.
+        :rtype: list[SnapshotScheduleExtendedExtended]
+        """
+        return self._schedules
+
+    @schedules.setter
+    def schedules(self, schedules):
+        """
+        Sets the schedules of this SnapshotSchedulesExtended.
+
+
+        :param schedules: The schedules of this SnapshotSchedulesExtended.
+        :type: list[SnapshotScheduleExtendedExtended]
+        """
+        
+        self._schedules = schedules
 
     @property
     def total(self):

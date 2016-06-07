@@ -120,7 +120,7 @@ class NdmpDiagnosticsDiagnostics(object):
         :type: str
         """
         allowed_values = ["none", "standard", "include-file-history", "log-file-history"]
-        if trace_level not in allowed_values:
+        if trace_level is not None and trace_level not in allowed_values:
             raise ValueError(
                 "Invalid value for `trace_level`, must be one of {0}"
                 .format(allowed_values)

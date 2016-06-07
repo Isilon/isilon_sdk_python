@@ -227,7 +227,7 @@ class CloudAccessCluster(object):
         :type: str
         """
         allowed_values = ["permitted", "pending enable", "pending disable", "not permitted"]
-        if state not in allowed_values:
+        if state is not None and state not in allowed_values:
             raise ValueError(
                 "Invalid value for `state`, must be one of {0}"
                 .format(allowed_values)

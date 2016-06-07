@@ -38,7 +38,7 @@ class ClusterNodesExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'nodes': 'list[ClusterNodeExtended]',
+            'nodes': 'list[ClusterNodeExtendedExtended]',
             'total': 'int'
         }
 
@@ -57,7 +57,7 @@ class ClusterNodesExtended(object):
 
 
         :return: The nodes of this ClusterNodesExtended.
-        :rtype: list[ClusterNodeExtended]
+        :rtype: list[ClusterNodeExtendedExtended]
         """
         return self._nodes
 
@@ -68,7 +68,7 @@ class ClusterNodesExtended(object):
 
 
         :param nodes: The nodes of this ClusterNodesExtended.
-        :type: list[ClusterNodeExtended]
+        :type: list[ClusterNodeExtendedExtended]
         """
         
         self._nodes = nodes

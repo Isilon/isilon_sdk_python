@@ -154,7 +154,7 @@ class SmbSettingsGlobalSettings(object):
         :type: str
         """
         allowed_values = ["all", "success", "failure", "none"]
-        if audit_fileshare not in allowed_values:
+        if audit_fileshare is not None and audit_fileshare not in allowed_values:
             raise ValueError(
                 "Invalid value for `audit_fileshare`, must be one of {0}"
                 .format(allowed_values)
@@ -206,7 +206,7 @@ class SmbSettingsGlobalSettings(object):
         :type: str
         """
         allowed_values = ["all", "success", "failure", "none"]
-        if audit_logon not in allowed_values:
+        if audit_logon is not None and audit_logon not in allowed_values:
             raise ValueError(
                 "Invalid value for `audit_logon`, must be one of {0}"
                 .format(allowed_values)
@@ -396,11 +396,9 @@ class SmbSettingsGlobalSettings(object):
         :type: int
         """
         
-        if not onefs_cpu_multiplier:
-            raise ValueError("Invalid value for `onefs_cpu_multiplier`, must not be `None`")
-        if onefs_cpu_multiplier > 4.0: 
+        if onefs_cpu_multiplier is not None  and onefs_cpu_multiplier > 4.0:
             raise ValueError("Invalid value for `onefs_cpu_multiplier`, must be a value less than or equal to `4.0`")
-        if onefs_cpu_multiplier < 1.0: 
+        if onefs_cpu_multiplier is not None and onefs_cpu_multiplier < 1.0:
             raise ValueError("Invalid value for `onefs_cpu_multiplier`, must be a value greater than or equal to `1.0`")
 
         self._onefs_cpu_multiplier = onefs_cpu_multiplier
@@ -426,11 +424,9 @@ class SmbSettingsGlobalSettings(object):
         :type: int
         """
         
-        if not onefs_num_workers:
-            raise ValueError("Invalid value for `onefs_num_workers`, must not be `None`")
-        if onefs_num_workers > 1024.0: 
+        if onefs_num_workers is not None  and onefs_num_workers > 1024.0:
             raise ValueError("Invalid value for `onefs_num_workers`, must be a value less than or equal to `1024.0`")
-        if onefs_num_workers < 0.0: 
+        if onefs_num_workers is not None and onefs_num_workers < 0.0:
             raise ValueError("Invalid value for `onefs_num_workers`, must be a value greater than or equal to `0.0`")
 
         self._onefs_num_workers = onefs_num_workers
@@ -548,11 +544,9 @@ class SmbSettingsGlobalSettings(object):
         :type: int
         """
         
-        if not srv_cpu_multiplier:
-            raise ValueError("Invalid value for `srv_cpu_multiplier`, must not be `None`")
-        if srv_cpu_multiplier > 8.0: 
+        if srv_cpu_multiplier is not None  and srv_cpu_multiplier > 8.0:
             raise ValueError("Invalid value for `srv_cpu_multiplier`, must be a value less than or equal to `8.0`")
-        if srv_cpu_multiplier < 1.0: 
+        if srv_cpu_multiplier is not None and srv_cpu_multiplier < 1.0:
             raise ValueError("Invalid value for `srv_cpu_multiplier`, must be a value greater than or equal to `1.0`")
 
         self._srv_cpu_multiplier = srv_cpu_multiplier
@@ -578,11 +572,9 @@ class SmbSettingsGlobalSettings(object):
         :type: int
         """
         
-        if not srv_num_workers:
-            raise ValueError("Invalid value for `srv_num_workers`, must not be `None`")
-        if srv_num_workers > 1024.0: 
+        if srv_num_workers is not None  and srv_num_workers > 1024.0:
             raise ValueError("Invalid value for `srv_num_workers`, must be a value less than or equal to `1024.0`")
-        if srv_num_workers < 0.0: 
+        if srv_num_workers is not None and srv_num_workers < 0.0:
             raise ValueError("Invalid value for `srv_num_workers`, must be a value greater than or equal to `0.0`")
 
         self._srv_num_workers = srv_num_workers

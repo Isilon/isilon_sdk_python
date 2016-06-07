@@ -79,7 +79,7 @@ class AntivirusScanItem(object):
         
         if not file:
             raise ValueError("Invalid value for `file`, must not be `None`")
-        if len(file) < 1: 
+        if len(file) < 1:
             raise ValueError("Invalid value for `file`, length must be greater than or equal to `1`")
 
         self._file = file
@@ -128,9 +128,7 @@ class AntivirusScanItem(object):
         :type: str
         """
         
-        if not policy:
-            raise ValueError("Invalid value for `policy`, must not be `None`")
-        if len(policy) < 1: 
+        if policy is not None and len(policy) < 1:
             raise ValueError("Invalid value for `policy`, length must be greater than or equal to `1`")
 
         self._policy = policy
@@ -156,9 +154,7 @@ class AntivirusScanItem(object):
         :type: str
         """
         
-        if not report_id:
-            raise ValueError("Invalid value for `report_id`, must not be `None`")
-        if len(report_id) < 1: 
+        if report_id is not None and len(report_id) < 1:
             raise ValueError("Invalid value for `report_id`, length must be greater than or equal to `1`")
 
         self._report_id = report_id

@@ -110,9 +110,7 @@ class GroupnetSubnetExtended(object):
         :type: str
         """
         
-        if not description:
-            raise ValueError("Invalid value for `description`, must not be `None`")
-        if len(description) > 128: 
+        if description is not None and len(description) > 128: 
             raise ValueError("Invalid value for `description`, length must be less than `128`")
 
         self._description = description
@@ -184,11 +182,9 @@ class GroupnetSubnetExtended(object):
         :type: int
         """
         
-        if not gateway_priority:
-            raise ValueError("Invalid value for `gateway_priority`, must not be `None`")
-        if gateway_priority > 2.147483647E9: 
+        if gateway_priority is not None  and gateway_priority > 2.147483647E9:
             raise ValueError("Invalid value for `gateway_priority`, must be a value less than or equal to `2.147483647E9`")
-        if gateway_priority < 1.0: 
+        if gateway_priority is not None and gateway_priority < 1.0:
             raise ValueError("Invalid value for `gateway_priority`, must be a value greater than or equal to `1.0`")
 
         self._gateway_priority = gateway_priority
@@ -214,11 +210,9 @@ class GroupnetSubnetExtended(object):
         :type: int
         """
         
-        if not mtu:
-            raise ValueError("Invalid value for `mtu`, must not be `None`")
-        if mtu > 9000.0: 
+        if mtu is not None  and mtu > 9000.0:
             raise ValueError("Invalid value for `mtu`, must be a value less than or equal to `9000.0`")
-        if mtu < 576.0: 
+        if mtu is not None and mtu < 576.0:
             raise ValueError("Invalid value for `mtu`, must be a value greater than or equal to `576.0`")
 
         self._mtu = mtu
@@ -244,9 +238,7 @@ class GroupnetSubnetExtended(object):
         :type: str
         """
         
-        if not name:
-            raise ValueError("Invalid value for `name`, must not be `None`")
-        if len(name) > 32: 
+        if name is not None and len(name) > 32: 
             raise ValueError("Invalid value for `name`, length must be less than `32`")
 
         self._name = name
@@ -272,11 +264,9 @@ class GroupnetSubnetExtended(object):
         :type: int
         """
         
-        if not prefixlen:
-            raise ValueError("Invalid value for `prefixlen`, must not be `None`")
-        if prefixlen > 128.0: 
+        if prefixlen is not None  and prefixlen > 128.0:
             raise ValueError("Invalid value for `prefixlen`, must be a value less than or equal to `128.0`")
-        if prefixlen < 1.0: 
+        if prefixlen is not None and prefixlen < 1.0:
             raise ValueError("Invalid value for `prefixlen`, must be a value greater than or equal to `1.0`")
 
         self._prefixlen = prefixlen
@@ -348,11 +338,9 @@ class GroupnetSubnetExtended(object):
         :type: int
         """
         
-        if not vlan_id:
-            raise ValueError("Invalid value for `vlan_id`, must not be `None`")
-        if vlan_id > 4094.0: 
+        if vlan_id is not None  and vlan_id > 4094.0:
             raise ValueError("Invalid value for `vlan_id`, must be a value less than or equal to `4094.0`")
-        if vlan_id < 2.0: 
+        if vlan_id is not None and vlan_id < 2.0:
             raise ValueError("Invalid value for `vlan_id`, must be a value greater than or equal to `2.0`")
 
         self._vlan_id = vlan_id
@@ -378,7 +366,7 @@ class GroupnetSubnetExtended(object):
         :type: str
         """
         allowed_values = ["ipv4", "ipv6"]
-        if addr_family not in allowed_values:
+        if addr_family is not None and addr_family not in allowed_values:
             raise ValueError(
                 "Invalid value for `addr_family`, must be one of {0}"
                 .format(allowed_values)

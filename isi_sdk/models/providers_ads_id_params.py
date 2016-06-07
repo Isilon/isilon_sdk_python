@@ -754,11 +754,9 @@ class ProvidersAdsIdParams(object):
         :type: int
         """
         
-        if not machine_password_lifespan:
-            raise ValueError("Invalid value for `machine_password_lifespan`, must not be `None`")
-        if machine_password_lifespan > 3.1536E7: 
+        if machine_password_lifespan is not None  and machine_password_lifespan > 3.1536E7:
             raise ValueError("Invalid value for `machine_password_lifespan`, must be a value less than or equal to `3.1536E7`")
-        if machine_password_lifespan < 3600.0: 
+        if machine_password_lifespan is not None and machine_password_lifespan < 3600.0:
             raise ValueError("Invalid value for `machine_password_lifespan`, must be a value greater than or equal to `3600.0`")
 
         self._machine_password_lifespan = machine_password_lifespan
@@ -922,7 +920,7 @@ class ProvidersAdsIdParams(object):
         :type: str
         """
         allowed_values = ["none", "rfc2307"]
-        if sfu_support not in allowed_values:
+        if sfu_support is not None and sfu_support not in allowed_values:
             raise ValueError(
                 "Invalid value for `sfu_support`, must be one of {0}"
                 .format(allowed_values)

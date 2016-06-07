@@ -38,7 +38,7 @@ class SettingsMappings(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'mappings': 'list[SettingsMappingExtended]'
+            'mappings': 'list[SettingsMappingExtendedExtended]'
         }
 
         self.attribute_map = {
@@ -54,7 +54,7 @@ class SettingsMappings(object):
 
 
         :return: The mappings of this SettingsMappings.
-        :rtype: list[SettingsMappingExtended]
+        :rtype: list[SettingsMappingExtendedExtended]
         """
         return self._mappings
 
@@ -65,7 +65,7 @@ class SettingsMappings(object):
 
 
         :param mappings: The mappings of this SettingsMappings.
-        :type: list[SettingsMappingExtended]
+        :type: list[SettingsMappingExtendedExtended]
         """
         
         self._mappings = mappings

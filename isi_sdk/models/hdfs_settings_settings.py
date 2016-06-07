@@ -138,7 +138,7 @@ class HdfsSettingsSettings(object):
         :type: str
         """
         allowed_values = ["all", "simple_only", "kerberos_only"]
-        if authentication_mode not in allowed_values:
+        if authentication_mode is not None and authentication_mode not in allowed_values:
             raise ValueError(
                 "Invalid value for `authentication_mode`, must be one of {0}"
                 .format(allowed_values)
@@ -190,7 +190,7 @@ class HdfsSettingsSettings(object):
         :type: str
         """
         allowed_values = ["none", "crc32", "crc32c"]
-        if default_checksum_type not in allowed_values:
+        if default_checksum_type is not None and default_checksum_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `default_checksum_type`, must be one of {0}"
                 .format(allowed_values)

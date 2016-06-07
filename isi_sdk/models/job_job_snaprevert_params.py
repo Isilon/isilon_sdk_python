@@ -70,7 +70,7 @@ class JobJobSnaprevertParams(object):
         
         if not snapid:
             raise ValueError("Invalid value for `snapid`, must not be `None`")
-        if snapid < 1.0: 
+        if snapid < 1.0:
             raise ValueError("Invalid value for `snapid`, must be a value greater than or equal to `1.0`")
 
         self._snapid = snapid

@@ -38,7 +38,7 @@ class ProvidersKrb5Extended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'krb5': 'list[ProvidersKrb5Krb5Item]'
+            'krb5': 'list[ProvidersKrb5Krb5ItemExtended]'
         }
 
         self.attribute_map = {
@@ -54,7 +54,7 @@ class ProvidersKrb5Extended(object):
 
 
         :return: The krb5 of this ProvidersKrb5Extended.
-        :rtype: list[ProvidersKrb5Krb5Item]
+        :rtype: list[ProvidersKrb5Krb5ItemExtended]
         """
         return self._krb5
 
@@ -65,7 +65,7 @@ class ProvidersKrb5Extended(object):
 
 
         :param krb5: The krb5 of this ProvidersKrb5Extended.
-        :type: list[ProvidersKrb5Krb5Item]
+        :type: list[ProvidersKrb5Krb5ItemExtended]
         """
         
         self._krb5 = krb5

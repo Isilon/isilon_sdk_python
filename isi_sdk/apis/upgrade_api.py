@@ -992,7 +992,7 @@ class UpgradeApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param int cluster_node_id: The node details useful during an upgrade or assessment. (required)
-        :return: ClusterNodesExtended
+        :return: ClusterNodesExtendedExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1049,7 +1049,7 @@ class UpgradeApi(object):
                                             body=body_params,
                                             post_params=form_params,
                                             files=local_var_files,
-                                            response_type='ClusterNodesExtended',
+                                            response_type='ClusterNodesExtendedExtended',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
@@ -1069,7 +1069,7 @@ class UpgradeApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :return: ClusterNodesExtended
+        :return: ClusterNodesExtendedExtendedExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1121,7 +1121,7 @@ class UpgradeApi(object):
                                             body=body_params,
                                             post_params=form_params,
                                             files=local_var_files,
-                                            response_type='ClusterNodesExtended',
+                                            response_type='ClusterNodesExtendedExtendedExtended',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response

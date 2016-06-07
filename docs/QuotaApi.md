@@ -154,7 +154,7 @@ isi_sdk.configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = isi_sdk.QuotaApi()
-settings_mapping = isi_sdk.SettingsMappingExtended() # SettingsMappingExtended | 
+settings_mapping = isi_sdk.SettingsMappingExtendedExtended() # SettingsMappingExtendedExtended | 
 
 try: 
     api_response = api_instance.create_settings_mapping(settings_mapping)
@@ -167,7 +167,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settings_mapping** | [**SettingsMappingExtended**](SettingsMappingExtended.md)|  | 
+ **settings_mapping** | [**SettingsMappingExtendedExtended**](SettingsMappingExtendedExtended.md)|  | 
 
 ### Return type
 
@@ -204,7 +204,7 @@ isi_sdk.configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = isi_sdk.QuotaApi()
-settings_notification = isi_sdk.SettingsNotificationCreateParams() # SettingsNotificationCreateParams | 
+settings_notification = isi_sdk.QuotaNotificationCreateParams() # QuotaNotificationCreateParams | 
 
 try: 
     api_response = api_instance.create_settings_notification(settings_notification)
@@ -217,7 +217,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settings_notification** | [**SettingsNotificationCreateParams**](SettingsNotificationCreateParams.md)|  | 
+ **settings_notification** | [**QuotaNotificationCreateParams**](QuotaNotificationCreateParams.md)|  | 
 
 ### Return type
 
@@ -830,7 +830,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_settings_notification**
-> SettingsNotifications get_settings_notification(settings_notification_id)
+> QuotaNotifications get_settings_notification(settings_notification_id)
 
 
 
@@ -866,7 +866,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SettingsNotifications**](SettingsNotifications.md)
+[**QuotaNotifications**](QuotaNotifications.md)
 
 ### Authorization
 
@@ -1106,7 +1106,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_settings_notifications**
-> SettingsNotificationsExtended list_settings_notifications()
+> QuotaNotificationsExtended list_settings_notifications()
 
 
 
@@ -1138,7 +1138,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**SettingsNotificationsExtended**](SettingsNotificationsExtended.md)
+[**QuotaNotificationsExtended**](QuotaNotificationsExtended.md)
 
 ### Authorization
 
@@ -1324,7 +1324,7 @@ isi_sdk.configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = isi_sdk.QuotaApi()
-settings_reports = isi_sdk.SettingsReportsSettings() # SettingsReportsSettings | 
+settings_reports = isi_sdk.SettingsReportsExtended() # SettingsReportsExtended | 
 
 try: 
     api_instance.update_settings_reports(settings_reports)
@@ -1336,7 +1336,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settings_reports** | [**SettingsReportsSettings**](SettingsReportsSettings.md)|  | 
+ **settings_reports** | [**SettingsReportsExtended**](SettingsReportsExtended.md)|  | 
 
 ### Return type
 

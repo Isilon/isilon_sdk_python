@@ -70,7 +70,7 @@ class CreateJobJobResponse(object):
         
         if not id:
             raise ValueError("Invalid value for `id`, must not be `None`")
-        if id < 1.0: 
+        if id < 1.0:
             raise ValueError("Invalid value for `id`, must be a value greater than or equal to `1.0`")
 
         self._id = id

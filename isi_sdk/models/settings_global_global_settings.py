@@ -373,7 +373,7 @@ class SettingsGlobalGlobalSettings(object):
         :type: str
         """
         allowed_values = ["native", "unix", "sid"]
-        if on_disk_identity not in allowed_values:
+        if on_disk_identity is not None and on_disk_identity not in allowed_values:
             raise ValueError(
                 "Invalid value for `on_disk_identity`, must be one of {0}"
                 .format(allowed_values)

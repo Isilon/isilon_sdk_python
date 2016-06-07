@@ -138,11 +138,9 @@ class JobTypeExtended(object):
         :type: int
         """
         
-        if not priority:
-            raise ValueError("Invalid value for `priority`, must not be `None`")
-        if priority > 10.0: 
+        if priority is not None  and priority > 10.0:
             raise ValueError("Invalid value for `priority`, must be a value less than or equal to `10.0`")
-        if priority < 1.0: 
+        if priority is not None and priority < 1.0:
             raise ValueError("Invalid value for `priority`, must be a value greater than or equal to `1.0`")
 
         self._priority = priority

@@ -91,7 +91,7 @@ isi_sdk.configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = isi_sdk.NetworkGroupnetsSubnetsApi()
-pools_pool_rule = isi_sdk.PoolsPoolRule() # PoolsPoolRule | 
+pools_pool_rule = isi_sdk.PoolsPoolRuleCreateParams() # PoolsPoolRuleCreateParams | 
 groupnet = 'groupnet_example' # str | 
 subnet = 'subnet_example' # str | 
 pool = 'pool_example' # str | 
@@ -107,7 +107,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pools_pool_rule** | [**PoolsPoolRule**](PoolsPoolRule.md)|  | 
+ **pools_pool_rule** | [**PoolsPoolRuleCreateParams**](PoolsPoolRuleCreateParams.md)|  | 
  **groupnet** | **str**|  | 
  **subnet** | **str**|  | 
  **pool** | **str**|  | 

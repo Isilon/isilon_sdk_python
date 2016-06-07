@@ -38,7 +38,7 @@ class FilepoolDefaultPolicyExtended(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'actions': 'list[FilepoolDefaultPolicyDefaultPolicyAction]'
+            'actions': 'list[FilepoolDefaultPolicyAction]'
         }
 
         self.attribute_map = {
@@ -54,7 +54,7 @@ class FilepoolDefaultPolicyExtended(object):
 
 
         :return: The actions of this FilepoolDefaultPolicyExtended.
-        :rtype: list[FilepoolDefaultPolicyDefaultPolicyAction]
+        :rtype: list[FilepoolDefaultPolicyAction]
         """
         return self._actions
 
@@ -65,7 +65,7 @@ class FilepoolDefaultPolicyExtended(object):
 
 
         :param actions: The actions of this FilepoolDefaultPolicyExtended.
-        :type: list[FilepoolDefaultPolicyDefaultPolicyAction]
+        :type: list[FilepoolDefaultPolicyAction]
         """
         
         self._actions = actions

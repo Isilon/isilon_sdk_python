@@ -106,9 +106,9 @@ class NetworkDnscacheSetting(object):
         
         if not cache_entry_limit:
             raise ValueError("Invalid value for `cache_entry_limit`, must not be `None`")
-        if cache_entry_limit > 1048576.0: 
+        if cache_entry_limit > 1048576.0:
             raise ValueError("Invalid value for `cache_entry_limit`, must be a value less than or equal to `1048576.0`")
-        if cache_entry_limit < 1024.0: 
+        if cache_entry_limit < 1024.0:
             raise ValueError("Invalid value for `cache_entry_limit`, must be a value greater than or equal to `1024.0`")
 
         self._cache_entry_limit = cache_entry_limit
@@ -136,9 +136,9 @@ class NetworkDnscacheSetting(object):
         
         if not cluster_timeout:
             raise ValueError("Invalid value for `cluster_timeout`, must not be `None`")
-        if cluster_timeout > 30.0: 
+        if cluster_timeout > 30.0:
             raise ValueError("Invalid value for `cluster_timeout`, must be a value less than or equal to `30.0`")
-        if cluster_timeout < 1.0: 
+        if cluster_timeout < 1.0:
             raise ValueError("Invalid value for `cluster_timeout`, must be a value greater than or equal to `1.0`")
 
         self._cluster_timeout = cluster_timeout
@@ -166,9 +166,9 @@ class NetworkDnscacheSetting(object):
         
         if not dns_timeout:
             raise ValueError("Invalid value for `dns_timeout`, must not be `None`")
-        if dns_timeout > 30.0: 
+        if dns_timeout > 30.0:
             raise ValueError("Invalid value for `dns_timeout`, must be a value less than or equal to `30.0`")
-        if dns_timeout < 1.0: 
+        if dns_timeout < 1.0:
             raise ValueError("Invalid value for `dns_timeout`, must be a value greater than or equal to `1.0`")
 
         self._dns_timeout = dns_timeout
@@ -196,9 +196,9 @@ class NetworkDnscacheSetting(object):
         
         if not eager_refresh:
             raise ValueError("Invalid value for `eager_refresh`, must not be `None`")
-        if eager_refresh > 60.0: 
+        if eager_refresh > 60.0:
             raise ValueError("Invalid value for `eager_refresh`, must be a value less than or equal to `60.0`")
-        if eager_refresh < 0.0: 
+        if eager_refresh < 0.0:
             raise ValueError("Invalid value for `eager_refresh`, must be a value greater than or equal to `0.0`")
 
         self._eager_refresh = eager_refresh
@@ -226,9 +226,9 @@ class NetworkDnscacheSetting(object):
         
         if not testping_delta:
             raise ValueError("Invalid value for `testping_delta`, must not be `None`")
-        if testping_delta > 60.0: 
+        if testping_delta > 60.0:
             raise ValueError("Invalid value for `testping_delta`, must be a value less than or equal to `60.0`")
-        if testping_delta < 0.0: 
+        if testping_delta < 0.0:
             raise ValueError("Invalid value for `testping_delta`, must be a value greater than or equal to `0.0`")
 
         self._testping_delta = testping_delta
@@ -256,9 +256,9 @@ class NetworkDnscacheSetting(object):
         
         if not ttl_max_noerror:
             raise ValueError("Invalid value for `ttl_max_noerror`, must not be `None`")
-        if ttl_max_noerror > 3600.0: 
+        if ttl_max_noerror > 3600.0:
             raise ValueError("Invalid value for `ttl_max_noerror`, must be a value less than or equal to `3600.0`")
-        if ttl_max_noerror < 0.0: 
+        if ttl_max_noerror < 0.0:
             raise ValueError("Invalid value for `ttl_max_noerror`, must be a value greater than or equal to `0.0`")
 
         self._ttl_max_noerror = ttl_max_noerror
@@ -286,9 +286,9 @@ class NetworkDnscacheSetting(object):
         
         if not ttl_max_nxdomain:
             raise ValueError("Invalid value for `ttl_max_nxdomain`, must not be `None`")
-        if ttl_max_nxdomain > 3600.0: 
+        if ttl_max_nxdomain > 3600.0:
             raise ValueError("Invalid value for `ttl_max_nxdomain`, must be a value less than or equal to `3600.0`")
-        if ttl_max_nxdomain < 0.0: 
+        if ttl_max_nxdomain < 0.0:
             raise ValueError("Invalid value for `ttl_max_nxdomain`, must be a value greater than or equal to `0.0`")
 
         self._ttl_max_nxdomain = ttl_max_nxdomain
@@ -316,9 +316,9 @@ class NetworkDnscacheSetting(object):
         
         if not ttl_max_other:
             raise ValueError("Invalid value for `ttl_max_other`, must not be `None`")
-        if ttl_max_other > 3600.0: 
+        if ttl_max_other > 3600.0:
             raise ValueError("Invalid value for `ttl_max_other`, must be a value less than or equal to `3600.0`")
-        if ttl_max_other < 0.0: 
+        if ttl_max_other < 0.0:
             raise ValueError("Invalid value for `ttl_max_other`, must be a value greater than or equal to `0.0`")
 
         self._ttl_max_other = ttl_max_other
@@ -346,9 +346,9 @@ class NetworkDnscacheSetting(object):
         
         if not ttl_max_servfail:
             raise ValueError("Invalid value for `ttl_max_servfail`, must not be `None`")
-        if ttl_max_servfail > 3600.0: 
+        if ttl_max_servfail > 3600.0:
             raise ValueError("Invalid value for `ttl_max_servfail`, must be a value less than or equal to `3600.0`")
-        if ttl_max_servfail < 0.0: 
+        if ttl_max_servfail < 0.0:
             raise ValueError("Invalid value for `ttl_max_servfail`, must be a value greater than or equal to `0.0`")
 
         self._ttl_max_servfail = ttl_max_servfail
@@ -376,9 +376,9 @@ class NetworkDnscacheSetting(object):
         
         if not ttl_min_noerror:
             raise ValueError("Invalid value for `ttl_min_noerror`, must not be `None`")
-        if ttl_min_noerror > 3600.0: 
+        if ttl_min_noerror > 3600.0:
             raise ValueError("Invalid value for `ttl_min_noerror`, must be a value less than or equal to `3600.0`")
-        if ttl_min_noerror < 0.0: 
+        if ttl_min_noerror < 0.0:
             raise ValueError("Invalid value for `ttl_min_noerror`, must be a value greater than or equal to `0.0`")
 
         self._ttl_min_noerror = ttl_min_noerror
@@ -406,9 +406,9 @@ class NetworkDnscacheSetting(object):
         
         if not ttl_min_nxdomain:
             raise ValueError("Invalid value for `ttl_min_nxdomain`, must not be `None`")
-        if ttl_min_nxdomain > 3600.0: 
+        if ttl_min_nxdomain > 3600.0:
             raise ValueError("Invalid value for `ttl_min_nxdomain`, must be a value less than or equal to `3600.0`")
-        if ttl_min_nxdomain < 0.0: 
+        if ttl_min_nxdomain < 0.0:
             raise ValueError("Invalid value for `ttl_min_nxdomain`, must be a value greater than or equal to `0.0`")
 
         self._ttl_min_nxdomain = ttl_min_nxdomain
@@ -436,9 +436,9 @@ class NetworkDnscacheSetting(object):
         
         if not ttl_min_other:
             raise ValueError("Invalid value for `ttl_min_other`, must not be `None`")
-        if ttl_min_other > 3600.0: 
+        if ttl_min_other > 3600.0:
             raise ValueError("Invalid value for `ttl_min_other`, must be a value less than or equal to `3600.0`")
-        if ttl_min_other < 0.0: 
+        if ttl_min_other < 0.0:
             raise ValueError("Invalid value for `ttl_min_other`, must be a value greater than or equal to `0.0`")
 
         self._ttl_min_other = ttl_min_other
@@ -466,9 +466,9 @@ class NetworkDnscacheSetting(object):
         
         if not ttl_min_servfail:
             raise ValueError("Invalid value for `ttl_min_servfail`, must not be `None`")
-        if ttl_min_servfail > 3600.0: 
+        if ttl_min_servfail > 3600.0:
             raise ValueError("Invalid value for `ttl_min_servfail`, must be a value less than or equal to `3600.0`")
-        if ttl_min_servfail < 0.0: 
+        if ttl_min_servfail < 0.0:
             raise ValueError("Invalid value for `ttl_min_servfail`, must be a value greater than or equal to `0.0`")
 
         self._ttl_min_servfail = ttl_min_servfail

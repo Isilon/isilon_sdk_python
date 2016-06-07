@@ -89,7 +89,7 @@ class ReportSubreportPolicy(object):
         :type: str
         """
         allowed_values = ["copy", "sync"]
-        if action not in allowed_values:
+        if action is not None and action not in allowed_values:
             raise ValueError(
                 "Invalid value for `action`, must be one of {0}"
                 .format(allowed_values)

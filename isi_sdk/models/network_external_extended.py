@@ -97,11 +97,9 @@ class NetworkExternalExtended(object):
         :type: int
         """
         
-        if not sc_rebalance_delay:
-            raise ValueError("Invalid value for `sc_rebalance_delay`, must not be `None`")
-        if sc_rebalance_delay > 10.0: 
+        if sc_rebalance_delay is not None  and sc_rebalance_delay > 10.0:
             raise ValueError("Invalid value for `sc_rebalance_delay`, must be a value less than or equal to `10.0`")
-        if sc_rebalance_delay < 0.0: 
+        if sc_rebalance_delay is not None and sc_rebalance_delay < 0.0:
             raise ValueError("Invalid value for `sc_rebalance_delay`, must be a value greater than or equal to `0.0`")
 
         self._sc_rebalance_delay = sc_rebalance_delay

@@ -57,7 +57,7 @@ class MappingIdentityTargetCreateParams(object):
     def on_disk(self):
         """
         Gets the on_disk of this MappingIdentityTargetCreateParams.
-        If true, the identity is preferred on-disk.
+        Identity is preferred on-disk.
 
         :return: The on_disk of this MappingIdentityTargetCreateParams.
         :rtype: bool
@@ -68,7 +68,7 @@ class MappingIdentityTargetCreateParams(object):
     def on_disk(self, on_disk):
         """
         Sets the on_disk of this MappingIdentityTargetCreateParams.
-        If true, the identity is preferred on-disk.
+        Identity is preferred on-disk.
 
         :param on_disk: The on_disk of this MappingIdentityTargetCreateParams.
         :type: bool
@@ -103,7 +103,7 @@ class MappingIdentityTargetCreateParams(object):
     def type(self):
         """
         Gets the type of this MappingIdentityTargetCreateParams.
-        Specifies the origin of the identity mapping.
+        Origin of identity mapping.
 
         :return: The type of this MappingIdentityTargetCreateParams.
         :rtype: str
@@ -114,13 +114,13 @@ class MappingIdentityTargetCreateParams(object):
     def type(self, type):
         """
         Sets the type of this MappingIdentityTargetCreateParams.
-        Specifies the origin of the identity mapping.
+        Origin of identity mapping.
 
         :param type: The type of this MappingIdentityTargetCreateParams.
         :type: str
         """
         allowed_values = ["auto", "external", "manual"]
-        if type not in allowed_values:
+        if type is not None and type not in allowed_values:
             raise ValueError(
                 "Invalid value for `type`, must be one of {0}"
                 .format(allowed_values)

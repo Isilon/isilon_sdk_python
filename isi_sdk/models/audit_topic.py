@@ -94,9 +94,7 @@ class AuditTopic(object):
         :type: int
         """
         
-        if not max_cached_messages:
-            raise ValueError("Invalid value for `max_cached_messages`, must not be `None`")
-        if max_cached_messages < 0.0: 
+        if max_cached_messages is not None and max_cached_messages < 0.0:
             raise ValueError("Invalid value for `max_cached_messages`, must be a value greater than or equal to `0.0`")
 
         self._max_cached_messages = max_cached_messages

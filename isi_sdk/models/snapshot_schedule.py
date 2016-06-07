@@ -106,9 +106,7 @@ class SnapshotSchedule(object):
         :type: int
         """
         
-        if not duration:
-            raise ValueError("Invalid value for `duration`, must not be `None`")
-        if duration < 0.0: 
+        if duration is not None and duration < 0.0:
             raise ValueError("Invalid value for `duration`, must be a value greater than or equal to `0.0`")
 
         self._duration = duration

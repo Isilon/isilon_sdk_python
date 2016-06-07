@@ -369,7 +369,7 @@ class ProvidersLdapItem(object):
         :type: str
         """
         allowed_values = ["simple", "gssapi", "digest-md5"]
-        if bind_mechanism not in allowed_values:
+        if bind_mechanism is not None and bind_mechanism not in allowed_values:
             raise ValueError(
                 "Invalid value for `bind_mechanism`, must be one of {0}"
                 .format(allowed_values)
@@ -835,7 +835,7 @@ class ProvidersLdapItem(object):
         :type: str
         """
         allowed_values = ["default", "base", "onelevel", "subtree", "children"]
-        if group_search_scope not in allowed_values:
+        if group_search_scope is not None and group_search_scope not in allowed_values:
             raise ValueError(
                 "Invalid value for `group_search_scope`, must be one of {0}"
                 .format(allowed_values)
@@ -1163,7 +1163,7 @@ class ProvidersLdapItem(object):
         :type: str
         """
         allowed_values = ["default", "base", "onelevel", "subtree", "children"]
-        if netgroup_search_scope not in allowed_values:
+        if netgroup_search_scope is not None and netgroup_search_scope not in allowed_values:
             raise ValueError(
                 "Invalid value for `netgroup_search_scope`, must be one of {0}"
                 .format(allowed_values)
@@ -1284,7 +1284,7 @@ class ProvidersLdapItem(object):
         :type: str
         """
         allowed_values = ["all", "v2only", "none"]
-        if ntlm_support not in allowed_values:
+        if ntlm_support is not None and ntlm_support not in allowed_values:
             raise ValueError(
                 "Invalid value for `ntlm_support`, must be one of {0}"
                 .format(allowed_values)
@@ -1405,7 +1405,7 @@ class ProvidersLdapItem(object):
         :type: str
         """
         allowed_values = ["base", "onelevel", "subtree", "children"]
-        if search_scope not in allowed_values:
+        if search_scope is not None and search_scope not in allowed_values:
             raise ValueError(
                 "Invalid value for `search_scope`, must be one of {0}"
                 .format(allowed_values)
@@ -1710,7 +1710,7 @@ class ProvidersLdapItem(object):
         :type: str
         """
         allowed_values = ["default", "base", "onelevel", "subtree", "children"]
-        if user_search_scope not in allowed_values:
+        if user_search_scope is not None and user_search_scope not in allowed_values:
             raise ValueError(
                 "Invalid value for `user_search_scope`, must be one of {0}"
                 .format(allowed_values)
