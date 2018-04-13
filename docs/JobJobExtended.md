@@ -3,9 +3,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**control_state** | **str** | State to which the job is transitioning; if control_state is identical to state, the job&#39;s state is stable. | [optional] 
 **create_time** | **int** | The time the job was queued, in seconds since the epoch. | 
 **current_phase** | **int** | The current phase of the job. | [optional] 
 **description** | **str** | A text representation of the job. | [optional] 
+**end_time** | **int** | The time the job ended, in seconds since the Epoch. | [optional] 
 **id** | **int** | The ID of the job. | 
 **impact** | **str** | The current impact of the job. | 
 **participants** | **list[int]** | The set of devids working on the job. | 

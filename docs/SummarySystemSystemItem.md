@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **ftp** | **float** | The total throughput (in bytes/sec) for FTP operations. | 
 **hdfs** | **float** | The total throughput (in bytes/second) for HDFS operations. | 
 **http** | **float** | The total throughput (in bytes/sec) for HTTP operations. | 
-**iscsi** | **float** | The total throughput (in bytes/sec) for ISCSI operations. | 
+**iscsi** | **float** | The total throughput (in bytes/sec) for ISCSI operations. | [optional] 
 **net_in** | **float** | Incoming network traffic (in bytes/sec) for all operations. | 
 **net_out** | **float** | Outgoing network traffic (in bytes/sec) for all operations. | 
 **nfs** | **float** | The total throughput (in bytes/sec) for NFS (NFS3 &amp; NFS4) operations. | 

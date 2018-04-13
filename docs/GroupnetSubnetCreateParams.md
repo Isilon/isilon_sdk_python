@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **gateway** | **str** | Gateway IP address. | [optional] 
 **gateway_priority** | **int** | Gateway priority. | [optional] 
 **mtu** | **int** | MTU of the subnet. | [optional] 
-**name** | **str** | The name of the subnet. | [optional] 
-**prefixlen** | **int** | Subnet Prefix Length. | [optional] 
+**name** | **str** | The name of the subnet. | 
+**prefixlen** | **int** | Subnet Prefix Length. | 
 **sc_service_addr** | **str** | The address that SmartConnect listens for DNS requests. | [optional] 
 **vlan_enabled** | **bool** | VLAN tagging enabled or disabled. | [optional] 
 **vlan_id** | **int** | VLAN ID for all interfaces in the subnet. | [optional] 

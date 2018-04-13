@@ -1,14 +1,14 @@
-# isi_sdk_7_2.ZonesApi
+# isi_sdk_8_0.ZonesApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_zone**](ZonesApi.md#create_zone) | **POST** /platform/1/zones | 
-[**delete_zone**](ZonesApi.md#delete_zone) | **DELETE** /platform/1/zones/{ZoneId} | 
-[**get_zone**](ZonesApi.md#get_zone) | **GET** /platform/1/zones/{ZoneId} | 
-[**list_zones**](ZonesApi.md#list_zones) | **GET** /platform/1/zones | 
-[**update_zone**](ZonesApi.md#update_zone) | **PUT** /platform/1/zones/{ZoneId} | 
+[**create_zone**](ZonesApi.md#create_zone) | **POST** /platform/3/zones | 
+[**delete_zone**](ZonesApi.md#delete_zone) | **DELETE** /platform/3/zones/{ZoneId} | 
+[**get_zone**](ZonesApi.md#get_zone) | **GET** /platform/3/zones/{ZoneId} | 
+[**list_zones**](ZonesApi.md#list_zones) | **GET** /platform/3/zones | 
+[**update_zone**](ZonesApi.md#update_zone) | **PUT** /platform/3/zones/{ZoneId} | 
 
 
 # **create_zone**
@@ -22,18 +22,18 @@ Create a new access zone.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_7_2
-from isi_sdk_7_2.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_7_2.Configuration()
+configuration = isi_sdk_8_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_7_2.ZonesApi(isi_sdk_7_2.ApiClient(configuration))
-zone = isi_sdk_7_2.ZoneCreateParams() # ZoneCreateParams | 
+api_instance = isi_sdk_8_0.ZonesApi(isi_sdk_8_0.ApiClient(configuration))
+zone = isi_sdk_8_0.ZoneCreateParams() # ZoneCreateParams | 
 
 try:
     api_response = api_instance.create_zone(zone)
@@ -74,17 +74,17 @@ Delete the access zone.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_7_2
-from isi_sdk_7_2.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_7_2.Configuration()
+configuration = isi_sdk_8_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_7_2.ZonesApi(isi_sdk_7_2.ApiClient(configuration))
+api_instance = isi_sdk_8_0.ZonesApi(isi_sdk_8_0.ApiClient(configuration))
 zone_id = 56 # int | Delete the access zone.
 
 try:
@@ -125,17 +125,17 @@ Retrieve the access zone information.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_7_2
-from isi_sdk_7_2.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_7_2.Configuration()
+configuration = isi_sdk_8_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_7_2.ZonesApi(isi_sdk_7_2.ApiClient(configuration))
+api_instance = isi_sdk_8_0.ZonesApi(isi_sdk_8_0.ApiClient(configuration))
 zone_id = 56 # int | Retrieve the access zone information.
 
 try:
@@ -167,7 +167,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_zones**
-> Zones list_zones()
+> ZonesExtended list_zones()
 
 
 
@@ -177,17 +177,17 @@ List all access zones.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_7_2
-from isi_sdk_7_2.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_7_2.Configuration()
+configuration = isi_sdk_8_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_7_2.ZonesApi(isi_sdk_7_2.ApiClient(configuration))
+api_instance = isi_sdk_8_0.ZonesApi(isi_sdk_8_0.ApiClient(configuration))
 
 try:
     api_response = api_instance.list_zones()
@@ -201,7 +201,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Zones**](Zones.md)
+[**ZonesExtended**](ZonesExtended.md)
 
 ### Authorization
 
@@ -225,18 +225,18 @@ Modify the access zone. All input fields are optional, but one or more must be s
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_7_2
-from isi_sdk_7_2.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_7_2.Configuration()
+configuration = isi_sdk_8_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_7_2.ZonesApi(isi_sdk_7_2.ApiClient(configuration))
-zone = isi_sdk_7_2.Zone() # Zone | 
+api_instance = isi_sdk_8_0.ZonesApi(isi_sdk_8_0.ApiClient(configuration))
+zone = isi_sdk_8_0.Zone() # Zone | 
 zone_id = 56 # int | Modify the access zone. All input fields are optional, but one or more must be supplied.
 
 try:

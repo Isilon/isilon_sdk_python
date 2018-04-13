@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **id** | **int** | The system generated result set ID. | 
 **job_state** | **list[str]** | State information about the FSA Job. | 
 **properties_link** | **str** | Resource to call to get result properties. | 
+**size** | **int** | Size of the result set database in bytes. | 
 **version** | **int** | FSA version used to create result set. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

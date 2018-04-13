@@ -1,4 +1,4 @@
-# isi_sdk_7_2.AuthGroupsApi
+# isi_sdk_8_0.AuthGroupsApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -20,18 +20,18 @@ Add a member to the group.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_7_2
-from isi_sdk_7_2.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_7_2.Configuration()
+configuration = isi_sdk_8_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_7_2.AuthGroupsApi(isi_sdk_7_2.ApiClient(configuration))
-group_member = isi_sdk_7_2.GroupMember() # GroupMember | 
+api_instance = isi_sdk_8_0.AuthGroupsApi(isi_sdk_8_0.ApiClient(configuration))
+group_member = isi_sdk_8_0.GroupMember() # GroupMember | 
 group = 'group_example' # str | 
 zone = 'zone_example' # str | Filter group members by zone. (optional)
 provider = 'provider_example' # str | Filter group members by provider. (optional)
@@ -78,17 +78,17 @@ Remove the member from the group.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_7_2
-from isi_sdk_7_2.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_7_2.Configuration()
+configuration = isi_sdk_8_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_7_2.AuthGroupsApi(isi_sdk_7_2.ApiClient(configuration))
+api_instance = isi_sdk_8_0.AuthGroupsApi(isi_sdk_8_0.ApiClient(configuration))
 group_member_id = 'group_member_id_example' # str | Remove the member from the group.
 group = 'group_example' # str | 
 zone = 'zone_example' # str | Filter group members by zone. (optional)
@@ -125,7 +125,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_group_members**
-> GroupMembers list_group_members(group, resolve_names=resolve_names, limit=limit, zone=zone, provider=provider)
+> GroupMembers list_group_members(group, resolve_names=resolve_names, resume=resume, limit=limit, zone=zone, provider=provider)
 
 
 
@@ -135,25 +135,26 @@ List all the members of the group.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_7_2
-from isi_sdk_7_2.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_7_2.Configuration()
+configuration = isi_sdk_8_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_7_2.AuthGroupsApi(isi_sdk_7_2.ApiClient(configuration))
+api_instance = isi_sdk_8_0.AuthGroupsApi(isi_sdk_8_0.ApiClient(configuration))
 group = 'group_example' # str | 
 resolve_names = true # bool | Resolve names of personas. (optional)
+resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
 zone = 'zone_example' # str | Filter group members by zone. (optional)
 provider = 'provider_example' # str | Filter group members by provider. (optional)
 
 try:
-    api_response = api_instance.list_group_members(group, resolve_names=resolve_names, limit=limit, zone=zone, provider=provider)
+    api_response = api_instance.list_group_members(group, resolve_names=resolve_names, resume=resume, limit=limit, zone=zone, provider=provider)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling AuthGroupsApi->list_group_members: %s\n" % e)
@@ -165,6 +166,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **group** | **str**|  | 
  **resolve_names** | **bool**| Resolve names of personas. | [optional] 
+ **resume** | **str**| Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). | [optional] 
  **limit** | **int**| Return no more than this many results at once (see resume). | [optional] 
  **zone** | **str**| Filter group members by zone. | [optional] 
  **provider** | **str**| Filter group members by provider. | [optional] 

@@ -3,13 +3,13 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**autocommit_offset** | **int** | The autocommit time period in seconds for the domain.  After a file exists in this domain without being modified for the specified time period, the file is automatically committed the next time the file is accessed.  If null, there is no autocommit time so files must be manually committed. | [optional] 
+**autocommit_offset** | **int** | Specifies the autocommit time period for the domain in seconds.  After a file is in the domain without being modified for the specified time period, the file is automatically committed. If this parameter is set to null, there is no autocommit time, and files must be committed manually. | [optional] 
 **default_retention** | **str** |  | [optional] 
 **max_retention** | **str** |  | [optional] 
 **min_retention** | **str** |  | [optional] 
-**override_date** | **int** | Override retention date for the domain.  If this date is later than any committed file&#39;s own retention date, that file will remain protected beyond its own retention date until this date. | [optional] 
-**privileged_delete** | **str** | If &#39;on&#39;, files in this domain can be deleted using the privileged delete feature.  Otherwise, they can&#39;t be deleted even with privileged delete.  If &#39;disabled&#39;, privileged file deletes are permanently disabled and cannot be turned back on again. | [optional] 
-**type** | **str** | Whether this is an enterprise domain or this is a compliance domain. Compliance domains may not be created on enterprise clusters. Enterprise and compliance domains may be created on compliance clusters. | [optional] 
+**override_date** | **int** | Specifies the override retention date for the domain. If this date is later than the retention date for any committed file, the file will remain protected until the override retention date. | [optional] 
+**privileged_delete** | **str** | When this value is set to &#39;on&#39;, files in this domain can be deleted through the privileged delete feature. If this value is set to &#39;disabled&#39;, privileged file deletes are permanently disabled and cannot be turned on again. | [optional] 
+**type** | **str** | Specifies whether the domain is an enterprise domain or a compliance domain. Compliance domains can not be created on enterprise clusters. Enterprise and compliance domains can be created on compliance clusters. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

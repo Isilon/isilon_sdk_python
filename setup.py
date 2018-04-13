@@ -13,7 +13,7 @@
 
 from setuptools import setup, find_packages  # noqa: H301
 
-NAME = "isi-sdk-7-2"
+NAME = "isi-sdk-8-0"
 VERSION = "0.2.0"
 # To install the library, run the following
 #

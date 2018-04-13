@@ -1,13 +1,13 @@
-# isi_sdk_7_2.AuthUsersApi
+# isi_sdk_8_0.AuthUsersApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_user_member_of_item**](AuthUsersApi.md#create_user_member_of_item) | **POST** /platform/1/auth/users/{User}/member_of | 
-[**delete_user_member_of_member_of**](AuthUsersApi.md#delete_user_member_of_member_of) | **DELETE** /platform/1/auth/users/{User}/member_of/{UserMemberOfMemberOf} | 
-[**list_user_member_of**](AuthUsersApi.md#list_user_member_of) | **GET** /platform/1/auth/users/{User}/member_of | 
-[**update_user_change_password**](AuthUsersApi.md#update_user_change_password) | **PUT** /platform/1/auth/users/{User}/change_password | 
+[**create_user_member_of_item**](AuthUsersApi.md#create_user_member_of_item) | **POST** /platform/3/auth/users/{User}/member-of | 
+[**delete_user_member_of_member_of**](AuthUsersApi.md#delete_user_member_of_member_of) | **DELETE** /platform/3/auth/users/{User}/member-of/{UserMemberOfMemberOf} | 
+[**list_user_member_of**](AuthUsersApi.md#list_user_member_of) | **GET** /platform/3/auth/users/{User}/member-of | 
+[**update_user_change_password**](AuthUsersApi.md#update_user_change_password) | **PUT** /platform/3/auth/users/{User}/change-password | 
 
 
 # **create_user_member_of_item**
@@ -21,18 +21,18 @@ Add the user to a group.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_7_2
-from isi_sdk_7_2.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_7_2.Configuration()
+configuration = isi_sdk_8_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_7_2.AuthUsersApi(isi_sdk_7_2.ApiClient(configuration))
-user_member_of_item = isi_sdk_7_2.GroupMember() # GroupMember | 
+api_instance = isi_sdk_8_0.AuthUsersApi(isi_sdk_8_0.ApiClient(configuration))
+user_member_of_item = isi_sdk_8_0.GroupMember() # GroupMember | 
 user = 'user_example' # str | 
 zone = 'zone_example' # str | Filter groups by zone. (optional)
 provider = 'provider_example' # str | Filter groups by provider. (optional)
@@ -79,17 +79,17 @@ Remove the user from the group.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_7_2
-from isi_sdk_7_2.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_7_2.Configuration()
+configuration = isi_sdk_8_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_7_2.AuthUsersApi(isi_sdk_7_2.ApiClient(configuration))
+api_instance = isi_sdk_8_0.AuthUsersApi(isi_sdk_8_0.ApiClient(configuration))
 user_member_of_member_of = 'user_member_of_member_of_example' # str | Remove the user from the group.
 user = 'user_example' # str | 
 zone = 'zone_example' # str | Filter groups by zone. (optional)
@@ -136,17 +136,17 @@ List all groups the user is a member of.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_7_2
-from isi_sdk_7_2.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_7_2.Configuration()
+configuration = isi_sdk_8_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_7_2.AuthUsersApi(isi_sdk_7_2.ApiClient(configuration))
+api_instance = isi_sdk_8_0.AuthUsersApi(isi_sdk_8_0.ApiClient(configuration))
 user = 'user_example' # str | 
 resolve_names = true # bool | Resolve names of personas. (optional)
 zone = 'zone_example' # str | Filter groups by zone. (optional)
@@ -184,7 +184,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_user_change_password**
-> update_user_change_password(user_change_password, user)
+> update_user_change_password(user_change_password, user, zone=zone)
 
 
 
@@ -194,22 +194,23 @@ Change the user's password.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_7_2
-from isi_sdk_7_2.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_7_2.Configuration()
+configuration = isi_sdk_8_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_7_2.AuthUsersApi(isi_sdk_7_2.ApiClient(configuration))
-user_change_password = isi_sdk_7_2.UserChangePassword() # UserChangePassword | 
+api_instance = isi_sdk_8_0.AuthUsersApi(isi_sdk_8_0.ApiClient(configuration))
+user_change_password = isi_sdk_8_0.UserChangePassword() # UserChangePassword | 
 user = 'user_example' # str | 
+zone = 'zone_example' # str | Specifies access zone containing user. (optional)
 
 try:
-    api_instance.update_user_change_password(user_change_password, user)
+    api_instance.update_user_change_password(user_change_password, user, zone=zone)
 except ApiException as e:
     print("Exception when calling AuthUsersApi->update_user_change_password: %s\n" % e)
 ```
@@ -220,6 +221,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_change_password** | [**UserChangePassword**](UserChangePassword.md)|  | 
  **user** | **str**|  | 
+ **zone** | **str**| Specifies access zone containing user. | [optional] 
 
 ### Return type
 

@@ -1,4 +1,4 @@
-# isi_sdk_7_2.SnapshotChangelistsApi
+# isi_sdk_8_0.SnapshotChangelistsApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -19,17 +19,17 @@ Get a single entry from the changelist.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_7_2
-from isi_sdk_7_2.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_7_2.Configuration()
+configuration = isi_sdk_8_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_7_2.SnapshotChangelistsApi(isi_sdk_7_2.ApiClient(configuration))
+api_instance = isi_sdk_8_0.SnapshotChangelistsApi(isi_sdk_8_0.ApiClient(configuration))
 changelist_lin_id = 56 # int | Get a single entry from the changelist.
 changelist = 'changelist_example' # str | 
 
@@ -73,17 +73,17 @@ Get entries from a changelist.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_7_2
-from isi_sdk_7_2.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_7_2.Configuration()
+configuration = isi_sdk_8_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_7_2.SnapshotChangelistsApi(isi_sdk_7_2.ApiClient(configuration))
+api_instance = isi_sdk_8_0.SnapshotChangelistsApi(isi_sdk_8_0.ApiClient(configuration))
 changelist = 'changelist_example' # str | 
 
 try:

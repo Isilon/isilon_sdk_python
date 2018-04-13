@@ -3,8 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**access_time** | [**list[SettingsAccessTimeAccessTimeItem]**](SettingsAccessTimeAccessTimeItem.md) |  | [optional] 
-**total** | **int** | Total number of items available. | [optional] 
+**settings** | [**SettingsAccessTimeSettings**](SettingsAccessTimeSettings.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

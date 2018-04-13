@@ -1,4 +1,4 @@
-# isi_sdk_7_2.RemotesupportApi
+# isi_sdk_8_0.RemotesupportApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -19,17 +19,17 @@ List all settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_7_2
-from isi_sdk_7_2.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_7_2.Configuration()
+configuration = isi_sdk_8_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_7_2.RemotesupportApi(isi_sdk_7_2.ApiClient(configuration))
+api_instance = isi_sdk_8_0.RemotesupportApi(isi_sdk_8_0.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_remotesupport_connectemc()
@@ -67,18 +67,18 @@ Modify one or more settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_7_2
-from isi_sdk_7_2.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_7_2.Configuration()
+configuration = isi_sdk_8_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_7_2.RemotesupportApi(isi_sdk_7_2.ApiClient(configuration))
-remotesupport_connectemc = isi_sdk_7_2.RemotesupportConnectemcConnectemc() # RemotesupportConnectemcConnectemc | 
+api_instance = isi_sdk_8_0.RemotesupportApi(isi_sdk_8_0.ApiClient(configuration))
+remotesupport_connectemc = isi_sdk_8_0.RemotesupportConnectemcConnectemc() # RemotesupportConnectemcConnectemc | 
 
 try:
     api_instance.update_remotesupport_connectemc(remotesupport_connectemc)

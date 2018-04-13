@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **rpo_alerts** | **bool** | If disabled, no RPO alerts will be generated. | [optional] 
 **service** | **str** | Specifies if the SyncIQ service currently on, paused, or off.  If paused, all sync jobs will be paused.  If turned off, all jobs will be canceled. | [optional] 
 **source_network** | [**SyncPolicySourceNetwork**](SyncPolicySourceNetwork.md) | Restricts replication policies on the local cluster to running on the specified subnet and pool. | [optional] 
+**tw_chkpt_interval** | **int** | The interval (in seconds) in which treewalk syncs are forced to checkpoint. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

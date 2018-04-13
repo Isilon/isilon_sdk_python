@@ -3,10 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** | Serialized form (e.g. &#39;UID:0&#39;, &#39;USER:name&#39;, &#39;GID:0&#39;, &#39;GROUP:wheel&#39;, &#39;SID:S-1-1&#39;). | [optional] 
-**name** | **str** | Persona name, must be combined with type. | [optional] 
-**type** | **str** | Type of persona when using name. | [optional] 
-**uid** | **int** | The uid of the user. | [optional] 
+**id** | **str** | Specifies the serialized form of the persona, which can be &#39;UID:0&#39;, &#39;USER:name&#39;, &#39;GID:0&#39;, &#39;GROUP:wheel&#39;, or &#39;SID:S-1-1&#39;. | [optional] 
+**name** | **str** | Specifies the persona name, which must be combined with a type. | [optional] 
+**type** | **str** | Specifies the type, which must be combined with a name. | [optional] 
+**uid** | **int** | Specifies the uid of the user. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

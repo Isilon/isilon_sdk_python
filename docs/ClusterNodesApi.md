@@ -1,6 +1,6 @@
-# isi_sdk.ClusterNodesApi
+# isi_sdk_8_0.ClusterNodesApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -18,6 +18,7 @@ Method | HTTP request | Description
 [**get_node_drives**](ClusterNodesApi.md#get_node_drives) | **GET** /platform/3/cluster/nodes/{Lnn}/drives | 
 [**get_node_drives_purposelist**](ClusterNodesApi.md#get_node_drives_purposelist) | **GET** /platform/3/cluster/nodes/{Lnn}/drives-purposelist | 
 [**get_node_hardware**](ClusterNodesApi.md#get_node_hardware) | **GET** /platform/3/cluster/nodes/{Lnn}/hardware | 
+[**get_node_hardware_fast**](ClusterNodesApi.md#get_node_hardware_fast) | **GET** /platform/3/cluster/nodes/{Lnn}/hardware-fast | 
 [**get_node_partitions**](ClusterNodesApi.md#get_node_partitions) | **GET** /platform/3/cluster/nodes/{Lnn}/partitions | 
 [**get_node_sensors**](ClusterNodesApi.md#get_node_sensors) | **GET** /platform/3/cluster/nodes/{Lnn}/sensors | 
 [**get_node_state**](ClusterNodesApi.md#get_node_state) | **GET** /platform/3/cluster/nodes/{Lnn}/state | 
@@ -39,28 +40,30 @@ Method | HTTP request | Description
 
 Add a drive to a node.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.ClusterNodesApi()
-drives_drive_add_item = isi_sdk.Empty() # Empty | 
+api_instance = isi_sdk_8_0.ClusterNodesApi(isi_sdk_8_0.ApiClient(configuration))
+drives_drive_add_item = isi_sdk_8_0.Empty() # Empty | 
 lnn = 56 # int | 
 driveid = 'driveid_example' # str | 
 
-try: 
+try:
     api_response = api_instance.create_drives_drive_add_item(drives_drive_add_item, lnn, driveid)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ClusterNodesApi->create_drives_drive_add_item: %s\n" % e
+    print("Exception when calling ClusterNodesApi->create_drives_drive_add_item: %s\n" % e)
 ```
 
 ### Parameters
@@ -77,7 +80,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -93,28 +96,30 @@ Name | Type | Description  | Notes
 
 Start a drive firmware update.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.ClusterNodesApi()
-drives_drive_firmware_update_item = isi_sdk.DrivesDriveFirmwareUpdateItem() # DrivesDriveFirmwareUpdateItem | 
+api_instance = isi_sdk_8_0.ClusterNodesApi(isi_sdk_8_0.ApiClient(configuration))
+drives_drive_firmware_update_item = isi_sdk_8_0.DrivesDriveFirmwareUpdateItem() # DrivesDriveFirmwareUpdateItem | 
 lnn = 56 # int | 
 driveid = 'driveid_example' # str | 
 
-try: 
+try:
     api_response = api_instance.create_drives_drive_firmware_update_item(drives_drive_firmware_update_item, lnn, driveid)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ClusterNodesApi->create_drives_drive_firmware_update_item: %s\n" % e
+    print("Exception when calling ClusterNodesApi->create_drives_drive_firmware_update_item: %s\n" % e)
 ```
 
 ### Parameters
@@ -131,7 +136,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -147,28 +152,30 @@ Name | Type | Description  | Notes
 
 Format a drive for use by OneFS.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.ClusterNodesApi()
-drives_drive_format_item = isi_sdk.DrivesDriveFormatItem() # DrivesDriveFormatItem | 
+api_instance = isi_sdk_8_0.ClusterNodesApi(isi_sdk_8_0.ApiClient(configuration))
+drives_drive_format_item = isi_sdk_8_0.DrivesDriveFormatItem() # DrivesDriveFormatItem | 
 lnn = 56 # int | 
 driveid = 'driveid_example' # str | 
 
-try: 
+try:
     api_response = api_instance.create_drives_drive_format_item(drives_drive_format_item, lnn, driveid)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ClusterNodesApi->create_drives_drive_format_item: %s\n" % e
+    print("Exception when calling ClusterNodesApi->create_drives_drive_format_item: %s\n" % e)
 ```
 
 ### Parameters
@@ -185,7 +192,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -201,28 +208,30 @@ Name | Type | Description  | Notes
 
 Assign a drive to a specific use case.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.ClusterNodesApi()
-drives_drive_purpose_item = isi_sdk.DrivesDrivePurposeItem() # DrivesDrivePurposeItem | 
+api_instance = isi_sdk_8_0.ClusterNodesApi(isi_sdk_8_0.ApiClient(configuration))
+drives_drive_purpose_item = isi_sdk_8_0.DrivesDrivePurposeItem() # DrivesDrivePurposeItem | 
 lnn = 56 # int | 
 driveid = 'driveid_example' # str | 
 
-try: 
+try:
     api_response = api_instance.create_drives_drive_purpose_item(drives_drive_purpose_item, lnn, driveid)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ClusterNodesApi->create_drives_drive_purpose_item: %s\n" % e
+    print("Exception when calling ClusterNodesApi->create_drives_drive_purpose_item: %s\n" % e)
 ```
 
 ### Parameters
@@ -239,7 +248,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -255,28 +264,30 @@ Name | Type | Description  | Notes
 
 Remove a drive from use by OneFS.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.ClusterNodesApi()
-drives_drive_smartfail_item = isi_sdk.Empty() # Empty | 
+api_instance = isi_sdk_8_0.ClusterNodesApi(isi_sdk_8_0.ApiClient(configuration))
+drives_drive_smartfail_item = isi_sdk_8_0.Empty() # Empty | 
 lnn = 56 # int | 
 driveid = 'driveid_example' # str | 
 
-try: 
+try:
     api_response = api_instance.create_drives_drive_smartfail_item(drives_drive_smartfail_item, lnn, driveid)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ClusterNodesApi->create_drives_drive_smartfail_item: %s\n" % e
+    print("Exception when calling ClusterNodesApi->create_drives_drive_smartfail_item: %s\n" % e)
 ```
 
 ### Parameters
@@ -293,7 +304,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -309,28 +320,30 @@ Name | Type | Description  | Notes
 
 Stop restriping from a smartfailing drive.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.ClusterNodesApi()
-drives_drive_stopfail_item = isi_sdk.Empty() # Empty | 
+api_instance = isi_sdk_8_0.ClusterNodesApi(isi_sdk_8_0.ApiClient(configuration))
+drives_drive_stopfail_item = isi_sdk_8_0.Empty() # Empty | 
 lnn = 56 # int | 
 driveid = 'driveid_example' # str | 
 
-try: 
+try:
     api_response = api_instance.create_drives_drive_stopfail_item(drives_drive_stopfail_item, lnn, driveid)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ClusterNodesApi->create_drives_drive_stopfail_item: %s\n" % e
+    print("Exception when calling ClusterNodesApi->create_drives_drive_stopfail_item: %s\n" % e)
 ```
 
 ### Parameters
@@ -347,7 +360,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -363,28 +376,30 @@ Name | Type | Description  | Notes
 
 Temporarily remove a drive from use by OneFS.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.ClusterNodesApi()
-drives_drive_suspend_item = isi_sdk.Empty() # Empty | 
+api_instance = isi_sdk_8_0.ClusterNodesApi(isi_sdk_8_0.ApiClient(configuration))
+drives_drive_suspend_item = isi_sdk_8_0.Empty() # Empty | 
 lnn = 56 # int | 
 driveid = 'driveid_example' # str | 
 
-try: 
+try:
     api_response = api_instance.create_drives_drive_suspend_item(drives_drive_suspend_item, lnn, driveid)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ClusterNodesApi->create_drives_drive_suspend_item: %s\n" % e
+    print("Exception when calling ClusterNodesApi->create_drives_drive_suspend_item: %s\n" % e)
 ```
 
 ### Parameters
@@ -401,7 +416,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -417,27 +432,29 @@ Name | Type | Description  | Notes
 
 Reboot the node specified by <LNN>.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.ClusterNodesApi()
-node_reboot_item = isi_sdk.Empty() # Empty | 
+api_instance = isi_sdk_8_0.ClusterNodesApi(isi_sdk_8_0.ApiClient(configuration))
+node_reboot_item = isi_sdk_8_0.Empty() # Empty | 
 lnn = 56 # int | 
 
-try: 
+try:
     api_response = api_instance.create_node_reboot_item(node_reboot_item, lnn)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ClusterNodesApi->create_node_reboot_item: %s\n" % e
+    print("Exception when calling ClusterNodesApi->create_node_reboot_item: %s\n" % e)
 ```
 
 ### Parameters
@@ -453,7 +470,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -469,27 +486,29 @@ Name | Type | Description  | Notes
 
 Shutdown the node specified by <LNN>.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.ClusterNodesApi()
-node_shutdown_item = isi_sdk.Empty() # Empty | 
+api_instance = isi_sdk_8_0.ClusterNodesApi(isi_sdk_8_0.ApiClient(configuration))
+node_shutdown_item = isi_sdk_8_0.Empty() # Empty | 
 lnn = 56 # int | 
 
-try: 
+try:
     api_response = api_instance.create_node_shutdown_item(node_shutdown_item, lnn)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ClusterNodesApi->create_node_shutdown_item: %s\n" % e
+    print("Exception when calling ClusterNodesApi->create_node_shutdown_item: %s\n" % e)
 ```
 
 ### Parameters
@@ -505,7 +524,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -521,27 +540,29 @@ Name | Type | Description  | Notes
 
 Retrieve drive firmware information.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.ClusterNodesApi()
+api_instance = isi_sdk_8_0.ClusterNodesApi(isi_sdk_8_0.ApiClient(configuration))
 lnn = 56 # int | 
 driveid = 'driveid_example' # str | 
 
-try: 
+try:
     api_response = api_instance.get_drives_drive_firmware(lnn, driveid)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ClusterNodesApi->get_drives_drive_firmware: %s\n" % e
+    print("Exception when calling ClusterNodesApi->get_drives_drive_firmware: %s\n" % e)
 ```
 
 ### Parameters
@@ -557,7 +578,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -573,27 +594,29 @@ Name | Type | Description  | Notes
 
 Retrieve drive information.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.ClusterNodesApi()
+api_instance = isi_sdk_8_0.ClusterNodesApi(isi_sdk_8_0.ApiClient(configuration))
 node_drive_id = 'node_drive_id_example' # str | Retrieve drive information.
 lnn = 56 # int | 
 
-try: 
+try:
     api_response = api_instance.get_node_drive(node_drive_id, lnn)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ClusterNodesApi->get_node_drive: %s\n" % e
+    print("Exception when calling ClusterNodesApi->get_node_drive: %s\n" % e)
 ```
 
 ### Parameters
@@ -609,7 +632,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -625,26 +648,28 @@ Name | Type | Description  | Notes
 
 List the drives on this node.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.ClusterNodesApi()
+api_instance = isi_sdk_8_0.ClusterNodesApi(isi_sdk_8_0.ApiClient(configuration))
 lnn = 56 # int | 
 
-try: 
+try:
     api_response = api_instance.get_node_drives(lnn)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ClusterNodesApi->get_node_drives: %s\n" % e
+    print("Exception when calling ClusterNodesApi->get_node_drives: %s\n" % e)
 ```
 
 ### Parameters
@@ -659,7 +684,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -675,26 +700,28 @@ Name | Type | Description  | Notes
 
 Lists the available purposes for drives in this node.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.ClusterNodesApi()
+api_instance = isi_sdk_8_0.ClusterNodesApi(isi_sdk_8_0.ApiClient(configuration))
 lnn = 56 # int | 
 
-try: 
+try:
     api_response = api_instance.get_node_drives_purposelist(lnn)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ClusterNodesApi->get_node_drives_purposelist: %s\n" % e
+    print("Exception when calling ClusterNodesApi->get_node_drives_purposelist: %s\n" % e)
 ```
 
 ### Parameters
@@ -709,7 +736,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -725,26 +752,28 @@ Name | Type | Description  | Notes
 
 Retrieve node hardware identity information.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.ClusterNodesApi()
+api_instance = isi_sdk_8_0.ClusterNodesApi(isi_sdk_8_0.ApiClient(configuration))
 lnn = 56 # int | 
 
-try: 
+try:
     api_response = api_instance.get_node_hardware(lnn)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ClusterNodesApi->get_node_hardware: %s\n" % e
+    print("Exception when calling ClusterNodesApi->get_node_hardware: %s\n" % e)
 ```
 
 ### Parameters
@@ -759,7 +788,59 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_node_hardware_fast**
+> NodeHardwareFast get_node_hardware_fast(lnn)
+
+
+
+Quickly retrieve a subset of node hardware identity information.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
+from pprint import pprint
+
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = isi_sdk_8_0.ClusterNodesApi(isi_sdk_8_0.ApiClient(configuration))
+lnn = 56 # int | 
+
+try:
+    api_response = api_instance.get_node_hardware_fast(lnn)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ClusterNodesApi->get_node_hardware_fast: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **lnn** | **int**|  | 
+
+### Return type
+
+[**NodeHardwareFast**](NodeHardwareFast.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -775,26 +856,28 @@ Name | Type | Description  | Notes
 
 Retrieve node partition information.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.ClusterNodesApi()
+api_instance = isi_sdk_8_0.ClusterNodesApi(isi_sdk_8_0.ApiClient(configuration))
 lnn = 56 # int | 
 
-try: 
+try:
     api_response = api_instance.get_node_partitions(lnn)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ClusterNodesApi->get_node_partitions: %s\n" % e
+    print("Exception when calling ClusterNodesApi->get_node_partitions: %s\n" % e)
 ```
 
 ### Parameters
@@ -809,7 +892,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -825,26 +908,28 @@ Name | Type | Description  | Notes
 
 Retrieve node sensor information.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.ClusterNodesApi()
+api_instance = isi_sdk_8_0.ClusterNodesApi(isi_sdk_8_0.ApiClient(configuration))
 lnn = 56 # int | 
 
-try: 
+try:
     api_response = api_instance.get_node_sensors(lnn)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ClusterNodesApi->get_node_sensors: %s\n" % e
+    print("Exception when calling ClusterNodesApi->get_node_sensors: %s\n" % e)
 ```
 
 ### Parameters
@@ -859,7 +944,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -875,26 +960,28 @@ Name | Type | Description  | Notes
 
 Retrieve node state information.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.ClusterNodesApi()
+api_instance = isi_sdk_8_0.ClusterNodesApi(isi_sdk_8_0.ApiClient(configuration))
 lnn = 56 # int | 
 
-try: 
+try:
     api_response = api_instance.get_node_state(lnn)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ClusterNodesApi->get_node_state: %s\n" % e
+    print("Exception when calling ClusterNodesApi->get_node_state: %s\n" % e)
 ```
 
 ### Parameters
@@ -909,7 +996,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -925,26 +1012,28 @@ Name | Type | Description  | Notes
 
 Retrieve node readonly state information.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.ClusterNodesApi()
+api_instance = isi_sdk_8_0.ClusterNodesApi(isi_sdk_8_0.ApiClient(configuration))
 lnn = 56 # int | 
 
-try: 
+try:
     api_response = api_instance.get_node_state_readonly(lnn)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ClusterNodesApi->get_node_state_readonly: %s\n" % e
+    print("Exception when calling ClusterNodesApi->get_node_state_readonly: %s\n" % e)
 ```
 
 ### Parameters
@@ -959,7 +1048,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -975,26 +1064,28 @@ Name | Type | Description  | Notes
 
 Retrieve node service light state information.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.ClusterNodesApi()
+api_instance = isi_sdk_8_0.ClusterNodesApi(isi_sdk_8_0.ApiClient(configuration))
 lnn = 56 # int | 
 
-try: 
+try:
     api_response = api_instance.get_node_state_servicelight(lnn)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ClusterNodesApi->get_node_state_servicelight: %s\n" % e
+    print("Exception when calling ClusterNodesApi->get_node_state_servicelight: %s\n" % e)
 ```
 
 ### Parameters
@@ -1009,7 +1100,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -1025,26 +1116,28 @@ Name | Type | Description  | Notes
 
 Retrieve node smartfail state information.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.ClusterNodesApi()
+api_instance = isi_sdk_8_0.ClusterNodesApi(isi_sdk_8_0.ApiClient(configuration))
 lnn = 56 # int | 
 
-try: 
+try:
     api_response = api_instance.get_node_state_smartfail(lnn)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ClusterNodesApi->get_node_state_smartfail: %s\n" % e
+    print("Exception when calling ClusterNodesApi->get_node_state_smartfail: %s\n" % e)
 ```
 
 ### Parameters
@@ -1059,7 +1152,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -1075,26 +1168,28 @@ Name | Type | Description  | Notes
 
 Retrieve node status information.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.ClusterNodesApi()
+api_instance = isi_sdk_8_0.ClusterNodesApi(isi_sdk_8_0.ApiClient(configuration))
 lnn = 56 # int | 
 
-try: 
+try:
     api_response = api_instance.get_node_status(lnn)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ClusterNodesApi->get_node_status: %s\n" % e
+    print("Exception when calling ClusterNodesApi->get_node_status: %s\n" % e)
 ```
 
 ### Parameters
@@ -1109,7 +1204,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -1125,26 +1220,28 @@ Name | Type | Description  | Notes
 
 Retrieve node battery status information.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.ClusterNodesApi()
+api_instance = isi_sdk_8_0.ClusterNodesApi(isi_sdk_8_0.ApiClient(configuration))
 lnn = 56 # int | 
 
-try: 
+try:
     api_response = api_instance.get_node_status_batterystatus(lnn)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ClusterNodesApi->get_node_status_batterystatus: %s\n" % e
+    print("Exception when calling ClusterNodesApi->get_node_status_batterystatus: %s\n" % e)
 ```
 
 ### Parameters
@@ -1159,7 +1256,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -1175,27 +1272,29 @@ Name | Type | Description  | Notes
 
 Retrieve firmware update information.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.ClusterNodesApi()
+api_instance = isi_sdk_8_0.ClusterNodesApi(isi_sdk_8_0.ApiClient(configuration))
 lnn = 56 # int | 
 driveid = 'driveid_example' # str | 
 
-try: 
+try:
     api_response = api_instance.list_drives_drive_firmware_update(lnn, driveid)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ClusterNodesApi->list_drives_drive_firmware_update: %s\n" % e
+    print("Exception when calling ClusterNodesApi->list_drives_drive_firmware_update: %s\n" % e)
 ```
 
 ### Parameters
@@ -1211,7 +1310,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -1227,26 +1326,28 @@ Name | Type | Description  | Notes
 
 Modify one or more node readonly state settings.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.ClusterNodesApi()
-node_state_readonly = isi_sdk.NodeStateReadonlyExtended() # NodeStateReadonlyExtended | 
+api_instance = isi_sdk_8_0.ClusterNodesApi(isi_sdk_8_0.ApiClient(configuration))
+node_state_readonly = isi_sdk_8_0.NodeStateReadonlyExtended() # NodeStateReadonlyExtended | 
 lnn = 56 # int | 
 
-try: 
+try:
     api_instance.update_node_state_readonly(node_state_readonly, lnn)
 except ApiException as e:
-    print "Exception when calling ClusterNodesApi->update_node_state_readonly: %s\n" % e
+    print("Exception when calling ClusterNodesApi->update_node_state_readonly: %s\n" % e)
 ```
 
 ### Parameters
@@ -1262,7 +1363,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -1278,26 +1379,28 @@ void (empty response body)
 
 Modify one or more node service light state settings.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.ClusterNodesApi()
-node_state_servicelight = isi_sdk.NodeStateServicelightExtended() # NodeStateServicelightExtended | 
+api_instance = isi_sdk_8_0.ClusterNodesApi(isi_sdk_8_0.ApiClient(configuration))
+node_state_servicelight = isi_sdk_8_0.NodeStateServicelightExtended() # NodeStateServicelightExtended | 
 lnn = 56 # int | 
 
-try: 
+try:
     api_instance.update_node_state_servicelight(node_state_servicelight, lnn)
 except ApiException as e:
-    print "Exception when calling ClusterNodesApi->update_node_state_servicelight: %s\n" % e
+    print("Exception when calling ClusterNodesApi->update_node_state_servicelight: %s\n" % e)
 ```
 
 ### Parameters
@@ -1313,7 +1416,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -1329,26 +1432,28 @@ void (empty response body)
 
 Modify smartfail state of the node.  Only the 'smartfailed' body member has any effect on node smartfail state.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.ClusterNodesApi()
-node_state_smartfail = isi_sdk.NodeStateSmartfailExtended() # NodeStateSmartfailExtended | 
+api_instance = isi_sdk_8_0.ClusterNodesApi(isi_sdk_8_0.ApiClient(configuration))
+node_state_smartfail = isi_sdk_8_0.NodeStateSmartfailExtended() # NodeStateSmartfailExtended | 
 lnn = 56 # int | 
 
-try: 
+try:
     api_instance.update_node_state_smartfail(node_state_smartfail, lnn)
 except ApiException as e:
-    print "Exception when calling ClusterNodesApi->update_node_state_smartfail: %s\n" % e
+    print("Exception when calling ClusterNodesApi->update_node_state_smartfail: %s\n" % e)
 ```
 
 ### Parameters
@@ -1364,7 +1469,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 

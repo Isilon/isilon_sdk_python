@@ -1,4 +1,4 @@
-# isi_sdk_7_2.LicenseApi
+# isi_sdk_8_0.LicenseApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -20,18 +20,18 @@ Install a new license key.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_7_2
-from isi_sdk_7_2.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_7_2.Configuration()
+configuration = isi_sdk_8_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_7_2.LicenseApi(isi_sdk_7_2.ApiClient(configuration))
-license_license = isi_sdk_7_2.LicenseLicenseCreateParams() # LicenseLicenseCreateParams | 
+api_instance = isi_sdk_8_0.LicenseApi(isi_sdk_8_0.ApiClient(configuration))
+license_license = isi_sdk_8_0.LicenseLicenseCreateParams() # LicenseLicenseCreateParams | 
 
 try:
     api_instance.create_license_license(license_license)
@@ -71,17 +71,17 @@ Retrieve license information for the feature.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_7_2
-from isi_sdk_7_2.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_7_2.Configuration()
+configuration = isi_sdk_8_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_7_2.LicenseApi(isi_sdk_7_2.ApiClient(configuration))
+api_instance = isi_sdk_8_0.LicenseApi(isi_sdk_8_0.ApiClient(configuration))
 license_license_id = 'license_license_id_example' # str | Retrieve license information for the feature.
 
 try:
@@ -123,17 +123,17 @@ Retrieve license information for all licensable products.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_7_2
-from isi_sdk_7_2.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_7_2.Configuration()
+configuration = isi_sdk_8_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_7_2.LicenseApi(isi_sdk_7_2.ApiClient(configuration))
+api_instance = isi_sdk_8_0.LicenseApi(isi_sdk_8_0.ApiClient(configuration))
 
 try:
     api_response = api_instance.list_license_licenses()

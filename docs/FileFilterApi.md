@@ -1,6 +1,6 @@
-# isi_sdk.FileFilterApi
+# isi_sdk_8_0.FileFilterApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,35 +9,41 @@ Method | HTTP request | Description
 
 
 # **get_file_filter_settings**
-> FileFilterSettings get_file_filter_settings()
+> FileFilterSettings get_file_filter_settings(zone=zone)
 
 
 
 View File Filtering settings of an access zone
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.FileFilterApi()
+api_instance = isi_sdk_8_0.FileFilterApi(isi_sdk_8_0.ApiClient(configuration))
+zone = 'zone_example' # str | Specifies the access zones in which these settings apply. (optional)
 
-try: 
-    api_response = api_instance.get_file_filter_settings()
+try:
+    api_response = api_instance.get_file_filter_settings(zone=zone)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling FileFilterApi->get_file_filter_settings: %s\n" % e
+    print("Exception when calling FileFilterApi->get_file_filter_settings: %s\n" % e)
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **zone** | **str**| Specifies the access zones in which these settings apply. | [optional] 
 
 ### Return type
 
@@ -45,7 +51,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -55,38 +61,42 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_file_filter_settings**
-> update_file_filter_settings(file_filter_settings)
+> update_file_filter_settings(file_filter_settings, zone=zone)
 
 
 
 Modify one or more File Filtering settings for an access zone
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.FileFilterApi()
-file_filter_settings = isi_sdk.FileFilterSettings() # FileFilterSettings | 
+api_instance = isi_sdk_8_0.FileFilterApi(isi_sdk_8_0.ApiClient(configuration))
+file_filter_settings = isi_sdk_8_0.FileFilterSettingsExtended() # FileFilterSettingsExtended | 
+zone = 'zone_example' # str | Specifies the access zones in which these settings apply. (optional)
 
-try: 
-    api_instance.update_file_filter_settings(file_filter_settings)
+try:
+    api_instance.update_file_filter_settings(file_filter_settings, zone=zone)
 except ApiException as e:
-    print "Exception when calling FileFilterApi->update_file_filter_settings: %s\n" % e
+    print("Exception when calling FileFilterApi->update_file_filter_settings: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file_filter_settings** | [**FileFilterSettings**](FileFilterSettings.md)|  | 
+ **file_filter_settings** | [**FileFilterSettingsExtended**](FileFilterSettingsExtended.md)|  | 
+ **zone** | **str**| Specifies the access zones in which these settings apply. | [optional] 
 
 ### Return type
 
@@ -94,7 +104,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 

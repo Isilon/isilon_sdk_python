@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **in_max** | **float** | Maximum input (received) bytes for an operation, in bytes. | 
 **in_min** | **float** | Minimum input (received) bytes for an operation, in bytes. | 
 **in_standard_dev** | **float** | Standard deviation for input (received) bytes for an operation, in bytes. | 
-**node** | **int** | The node on which the operation was performed. | 
+**node** | **int** | The node on which the operation was performed. | [optional] 
 **operation** | **str** | The operation performed. | 
 **operation_count** | **int** | The number of times an operation has been performed. | 
 **operation_rate** | **float** | The rate (in ops/second) at which an operation has been performed. | 

@@ -1,6 +1,6 @@
-# isi_sdk.LocalApi
+# isi_sdk_8_0.LocalApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -14,25 +14,27 @@ Method | HTTP request | Description
 
 Get the current time on the local node.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.LocalApi()
+api_instance = isi_sdk_8_0.LocalApi(isi_sdk_8_0.ApiClient(configuration))
 
-try: 
+try:
     api_response = api_instance.get_cluster_time()
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling LocalApi->get_cluster_time: %s\n" % e
+    print("Exception when calling LocalApi->get_cluster_time: %s\n" % e)
 ```
 
 ### Parameters
@@ -44,7 +46,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 

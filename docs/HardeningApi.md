@@ -1,6 +1,6 @@
-# isi_sdk.HardeningApi
+# isi_sdk_8_0.HardeningApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -18,26 +18,28 @@ Method | HTTP request | Description
 
 Apply hardening on the cluster.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.HardeningApi()
-hardening_apply_item = isi_sdk.HardeningApplyItem() # HardeningApplyItem | 
+api_instance = isi_sdk_8_0.HardeningApi(isi_sdk_8_0.ApiClient(configuration))
+hardening_apply_item = isi_sdk_8_0.HardeningApplyItem() # HardeningApplyItem | 
 
-try: 
+try:
     api_response = api_instance.create_hardening_apply_item(hardening_apply_item)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling HardeningApi->create_hardening_apply_item: %s\n" % e
+    print("Exception when calling HardeningApi->create_hardening_apply_item: %s\n" % e)
 ```
 
 ### Parameters
@@ -52,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -68,27 +70,29 @@ Name | Type | Description  | Notes
 
 Resolve issues related to hardening, found in current cluster configuration.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.HardeningApi()
-hardening_resolve_item = isi_sdk.HardeningResolveItem() # HardeningResolveItem | 
+api_instance = isi_sdk_8_0.HardeningApi(isi_sdk_8_0.ApiClient(configuration))
+hardening_resolve_item = isi_sdk_8_0.HardeningResolveItem() # HardeningResolveItem | 
 accept = true # bool | If true, execution proceeds to resolve all issues. If false, executrion aborts. This is a required argument. (optional)
 
-try: 
+try:
     api_response = api_instance.create_hardening_resolve_item(hardening_resolve_item, accept=accept)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling HardeningApi->create_hardening_resolve_item: %s\n" % e
+    print("Exception when calling HardeningApi->create_hardening_resolve_item: %s\n" % e)
 ```
 
 ### Parameters
@@ -104,7 +108,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -120,27 +124,29 @@ Name | Type | Description  | Notes
 
 Revert hardening on the cluster.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.HardeningApi()
-hardening_revert_item = isi_sdk.Empty() # Empty | 
+api_instance = isi_sdk_8_0.HardeningApi(isi_sdk_8_0.ApiClient(configuration))
+hardening_revert_item = isi_sdk_8_0.Empty() # Empty | 
 force = true # bool | If specified, revert operation continues even in case of a failure. Default is false in which case revert stops at the first failure. (optional)
 
-try: 
+try:
     api_response = api_instance.create_hardening_revert_item(hardening_revert_item, force=force)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling HardeningApi->create_hardening_revert_item: %s\n" % e
+    print("Exception when calling HardeningApi->create_hardening_revert_item: %s\n" % e)
 ```
 
 ### Parameters
@@ -156,7 +162,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -172,25 +178,27 @@ Name | Type | Description  | Notes
 
 Get the state of the current hardening operation, if one is happening.  Note that this is different from the /status resource, which returns the overall hardening status of the cluster.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.HardeningApi()
+api_instance = isi_sdk_8_0.HardeningApi(isi_sdk_8_0.ApiClient(configuration))
 
-try: 
+try:
     api_response = api_instance.get_hardening_state()
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling HardeningApi->get_hardening_state: %s\n" % e
+    print("Exception when calling HardeningApi->get_hardening_state: %s\n" % e)
 ```
 
 ### Parameters
@@ -202,7 +210,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -218,25 +226,27 @@ This endpoint does not need any parameter.
 
 Get a message indicating whether or not the cluster is hardened. Note that this is different from the /state resource, which returns the state of a specific hardening operation (apply or revert).
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.HardeningApi()
+api_instance = isi_sdk_8_0.HardeningApi(isi_sdk_8_0.ApiClient(configuration))
 
-try: 
+try:
     api_response = api_instance.get_hardening_status()
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling HardeningApi->get_hardening_status: %s\n" % e
+    print("Exception when calling HardeningApi->get_hardening_status: %s\n" % e)
 ```
 
 ### Parameters
@@ -248,7 +258,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 

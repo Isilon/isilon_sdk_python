@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **duration** | **int** | Total duration in seconds for temporary licenses. | [optional] 
 **expiration** | **int** | Unix epoch time the license will expire. | [optional] 
+**id** | **str** | Unique identifier for the license. | 
 **name** | **str** | Name of the licensed feature. | 
 **status** | **str** | Current status of the license. | 
 

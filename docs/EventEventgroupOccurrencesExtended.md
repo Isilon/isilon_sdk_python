@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**eventgroup_occurrences** | [**list[EventEventgroupOccurrencesEventgroupOccurrence]**](EventEventgroupOccurrencesEventgroupOccurrence.md) |  | [optional] 
+**eventgroups** | [**list[EventEventgroupOccurrencesEventgroup]**](EventEventgroupOccurrencesEventgroup.md) |  | [optional] 
 **resume** | **str** | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). | [optional] 
 **total** | **int** | Total number of items available. | [optional] 
 

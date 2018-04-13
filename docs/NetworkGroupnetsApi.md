@@ -1,6 +1,6 @@
-# isi_sdk.NetworkGroupnetsApi
+# isi_sdk_8_0.NetworkGroupnetsApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -23,27 +23,29 @@ Method | HTTP request | Description
 
 Create a new subnet.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.NetworkGroupnetsApi()
-groupnet_subnet = isi_sdk.GroupnetSubnetCreateParams() # GroupnetSubnetCreateParams | 
+api_instance = isi_sdk_8_0.NetworkGroupnetsApi(isi_sdk_8_0.ApiClient(configuration))
+groupnet_subnet = isi_sdk_8_0.GroupnetSubnetCreateParams() # GroupnetSubnetCreateParams | 
 groupnet = 'groupnet_example' # str | 
 
-try: 
+try:
     api_response = api_instance.create_groupnet_subnet(groupnet_subnet, groupnet)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling NetworkGroupnetsApi->create_groupnet_subnet: %s\n" % e
+    print("Exception when calling NetworkGroupnetsApi->create_groupnet_subnet: %s\n" % e)
 ```
 
 ### Parameters
@@ -59,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -75,29 +77,31 @@ Name | Type | Description  | Notes
 
 Create a new pool.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.NetworkGroupnetsApi()
-subnets_subnet_pool = isi_sdk.SubnetsSubnetPoolCreateParams() # SubnetsSubnetPoolCreateParams | 
+api_instance = isi_sdk_8_0.NetworkGroupnetsApi(isi_sdk_8_0.ApiClient(configuration))
+subnets_subnet_pool = isi_sdk_8_0.SubnetsSubnetPoolCreateParams() # SubnetsSubnetPoolCreateParams | 
 groupnet = 'groupnet_example' # str | 
 subnet = 'subnet_example' # str | 
-force = true # bool | force creating this pool even if it causes an MTU conflict. (optional)
+force = true # bool | Force creating this pool even if it causes an MTU conflict. (optional)
 
-try: 
+try:
     api_response = api_instance.create_subnets_subnet_pool(subnets_subnet_pool, groupnet, subnet, force=force)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling NetworkGroupnetsApi->create_subnets_subnet_pool: %s\n" % e
+    print("Exception when calling NetworkGroupnetsApi->create_subnets_subnet_pool: %s\n" % e)
 ```
 
 ### Parameters
@@ -107,7 +111,7 @@ Name | Type | Description  | Notes
  **subnets_subnet_pool** | [**SubnetsSubnetPoolCreateParams**](SubnetsSubnetPoolCreateParams.md)|  | 
  **groupnet** | **str**|  | 
  **subnet** | **str**|  | 
- **force** | **bool**| force creating this pool even if it causes an MTU conflict. | [optional] 
+ **force** | **bool**| Force creating this pool even if it causes an MTU conflict. | [optional] 
 
 ### Return type
 
@@ -115,7 +119,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -131,27 +135,29 @@ Name | Type | Description  | Notes
 
 Delete a network subnet..
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.NetworkGroupnetsApi()
+api_instance = isi_sdk_8_0.NetworkGroupnetsApi(isi_sdk_8_0.ApiClient(configuration))
 groupnet_subnet_id = 'groupnet_subnet_id_example' # str | Delete a network subnet..
 groupnet = 'groupnet_example' # str | 
 force = true # bool | force deleting this subnet even if pools in other subnets rely on this subnet's SC VIP. (optional)
 
-try: 
+try:
     api_instance.delete_groupnet_subnet(groupnet_subnet_id, groupnet, force=force)
 except ApiException as e:
-    print "Exception when calling NetworkGroupnetsApi->delete_groupnet_subnet: %s\n" % e
+    print("Exception when calling NetworkGroupnetsApi->delete_groupnet_subnet: %s\n" % e)
 ```
 
 ### Parameters
@@ -168,7 +174,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -184,27 +190,29 @@ void (empty response body)
 
 Delete a network pool.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.NetworkGroupnetsApi()
+api_instance = isi_sdk_8_0.NetworkGroupnetsApi(isi_sdk_8_0.ApiClient(configuration))
 subnets_subnet_pool_id = 'subnets_subnet_pool_id_example' # str | Delete a network pool.
 groupnet = 'groupnet_example' # str | 
 subnet = 'subnet_example' # str | 
 
-try: 
+try:
     api_instance.delete_subnets_subnet_pool(subnets_subnet_pool_id, groupnet, subnet)
 except ApiException as e:
-    print "Exception when calling NetworkGroupnetsApi->delete_subnets_subnet_pool: %s\n" % e
+    print("Exception when calling NetworkGroupnetsApi->delete_subnets_subnet_pool: %s\n" % e)
 ```
 
 ### Parameters
@@ -221,7 +229,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -231,34 +239,35 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_groupnet_subnet**
-> GroupnetSubnets get_groupnet_subnet(groupnet_subnet_id, groupnet, force=force)
+> GroupnetSubnets get_groupnet_subnet(groupnet_subnet_id, groupnet)
 
 
 
 View a network subnet.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.NetworkGroupnetsApi()
+api_instance = isi_sdk_8_0.NetworkGroupnetsApi(isi_sdk_8_0.ApiClient(configuration))
 groupnet_subnet_id = 'groupnet_subnet_id_example' # str | View a network subnet.
 groupnet = 'groupnet_example' # str | 
-force = true # bool | force modifying this subnet even if it causes an MTU conflict. (optional)
 
-try: 
-    api_response = api_instance.get_groupnet_subnet(groupnet_subnet_id, groupnet, force=force)
+try:
+    api_response = api_instance.get_groupnet_subnet(groupnet_subnet_id, groupnet)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling NetworkGroupnetsApi->get_groupnet_subnet: %s\n" % e
+    print("Exception when calling NetworkGroupnetsApi->get_groupnet_subnet: %s\n" % e)
 ```
 
 ### Parameters
@@ -267,7 +276,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **groupnet_subnet_id** | **str**| View a network subnet. | 
  **groupnet** | **str**|  | 
- **force** | **bool**| force modifying this subnet even if it causes an MTU conflict. | [optional] 
 
 ### Return type
 
@@ -275,7 +283,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -291,28 +299,30 @@ Name | Type | Description  | Notes
 
 View a single network pool.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.NetworkGroupnetsApi()
+api_instance = isi_sdk_8_0.NetworkGroupnetsApi(isi_sdk_8_0.ApiClient(configuration))
 subnets_subnet_pool_id = 'subnets_subnet_pool_id_example' # str | View a single network pool.
 groupnet = 'groupnet_example' # str | 
 subnet = 'subnet_example' # str | 
 
-try: 
+try:
     api_response = api_instance.get_subnets_subnet_pool(subnets_subnet_pool_id, groupnet, subnet)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling NetworkGroupnetsApi->get_subnets_subnet_pool: %s\n" % e
+    print("Exception when calling NetworkGroupnetsApi->get_subnets_subnet_pool: %s\n" % e)
 ```
 
 ### Parameters
@@ -329,7 +339,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -345,30 +355,32 @@ Name | Type | Description  | Notes
 
 Get a list of subnets.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.NetworkGroupnetsApi()
+api_instance = isi_sdk_8_0.NetworkGroupnetsApi(isi_sdk_8_0.ApiClient(configuration))
 groupnet = 'groupnet_example' # str | 
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
 dir = 'dir_example' # str | The direction of the sort. (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
 
-try: 
+try:
     api_response = api_instance.list_groupnet_subnets(groupnet, sort=sort, limit=limit, dir=dir, resume=resume)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling NetworkGroupnetsApi->list_groupnet_subnets: %s\n" % e
+    print("Exception when calling NetworkGroupnetsApi->list_groupnet_subnets: %s\n" % e)
 ```
 
 ### Parameters
@@ -387,7 +399,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -403,19 +415,21 @@ Name | Type | Description  | Notes
 
 Get a list of network pools.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.NetworkGroupnetsApi()
+api_instance = isi_sdk_8_0.NetworkGroupnetsApi(isi_sdk_8_0.ApiClient(configuration))
 groupnet = 'groupnet_example' # str | 
 subnet = 'subnet_example' # str | 
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
@@ -425,11 +439,11 @@ alloc_method = 'alloc_method_example' # str | If specified, only pools with this
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
 dir = 'dir_example' # str | The direction of the sort. (optional)
 
-try: 
+try:
     api_response = api_instance.list_subnets_subnet_pools(groupnet, subnet, sort=sort, resume=resume, access_zone=access_zone, alloc_method=alloc_method, limit=limit, dir=dir)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling NetworkGroupnetsApi->list_subnets_subnet_pools: %s\n" % e
+    print("Exception when calling NetworkGroupnetsApi->list_subnets_subnet_pools: %s\n" % e)
 ```
 
 ### Parameters
@@ -451,7 +465,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -461,33 +475,36 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_groupnet_subnet**
-> update_groupnet_subnet(groupnet_subnet, groupnet_subnet_id, groupnet)
+> update_groupnet_subnet(groupnet_subnet, groupnet_subnet_id, groupnet, force=force)
 
 
 
 Modify a network subnet.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.NetworkGroupnetsApi()
-groupnet_subnet = isi_sdk.GroupnetSubnet() # GroupnetSubnet | 
+api_instance = isi_sdk_8_0.NetworkGroupnetsApi(isi_sdk_8_0.ApiClient(configuration))
+groupnet_subnet = isi_sdk_8_0.GroupnetSubnet() # GroupnetSubnet | 
 groupnet_subnet_id = 'groupnet_subnet_id_example' # str | Modify a network subnet.
 groupnet = 'groupnet_example' # str | 
+force = true # bool | force modifying this subnet even if it causes an MTU conflict. (optional)
 
-try: 
-    api_instance.update_groupnet_subnet(groupnet_subnet, groupnet_subnet_id, groupnet)
+try:
+    api_instance.update_groupnet_subnet(groupnet_subnet, groupnet_subnet_id, groupnet, force=force)
 except ApiException as e:
-    print "Exception when calling NetworkGroupnetsApi->update_groupnet_subnet: %s\n" % e
+    print("Exception when calling NetworkGroupnetsApi->update_groupnet_subnet: %s\n" % e)
 ```
 
 ### Parameters
@@ -497,6 +514,7 @@ Name | Type | Description  | Notes
  **groupnet_subnet** | [**GroupnetSubnet**](GroupnetSubnet.md)|  | 
  **groupnet_subnet_id** | **str**| Modify a network subnet. | 
  **groupnet** | **str**|  | 
+ **force** | **bool**| force modifying this subnet even if it causes an MTU conflict. | [optional] 
 
 ### Return type
 
@@ -504,7 +522,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -520,29 +538,31 @@ void (empty response body)
 
 Modify a network pool.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.NetworkGroupnetsApi()
-subnets_subnet_pool = isi_sdk.SubnetsSubnetPool() # SubnetsSubnetPool | 
+api_instance = isi_sdk_8_0.NetworkGroupnetsApi(isi_sdk_8_0.ApiClient(configuration))
+subnets_subnet_pool = isi_sdk_8_0.SubnetsSubnetPool() # SubnetsSubnetPool | 
 subnets_subnet_pool_id = 'subnets_subnet_pool_id_example' # str | Modify a network pool.
 groupnet = 'groupnet_example' # str | 
 subnet = 'subnet_example' # str | 
 force = true # bool | force creating this pool even if it causes an MTU conflict. (optional)
 
-try: 
+try:
     api_instance.update_subnets_subnet_pool(subnets_subnet_pool, subnets_subnet_pool_id, groupnet, subnet, force=force)
 except ApiException as e:
-    print "Exception when calling NetworkGroupnetsApi->update_subnets_subnet_pool: %s\n" % e
+    print("Exception when calling NetworkGroupnetsApi->update_subnets_subnet_pool: %s\n" % e)
 ```
 
 ### Parameters
@@ -561,7 +581,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 

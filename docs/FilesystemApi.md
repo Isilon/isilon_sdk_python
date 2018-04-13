@@ -1,4 +1,4 @@
-# isi_sdk_7_2.FilesystemApi
+# isi_sdk_8_0.FilesystemApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -21,17 +21,17 @@ Retrieve settings for access time.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_7_2
-from isi_sdk_7_2.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_7_2.Configuration()
+configuration = isi_sdk_8_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_7_2.FilesystemApi(isi_sdk_7_2.ApiClient(configuration))
+api_instance = isi_sdk_8_0.FilesystemApi(isi_sdk_8_0.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_settings_access_time()
@@ -69,17 +69,17 @@ Retrieve current cluster character encoding settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_7_2
-from isi_sdk_7_2.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_7_2.Configuration()
+configuration = isi_sdk_8_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_7_2.FilesystemApi(isi_sdk_7_2.ApiClient(configuration))
+api_instance = isi_sdk_8_0.FilesystemApi(isi_sdk_8_0.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_settings_character_encodings()
@@ -117,18 +117,18 @@ Set settings for access time.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_7_2
-from isi_sdk_7_2.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_7_2.Configuration()
+configuration = isi_sdk_8_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_7_2.FilesystemApi(isi_sdk_7_2.ApiClient(configuration))
-settings_access_time = isi_sdk_7_2.SettingsAccessTimeExtended() # SettingsAccessTimeExtended | 
+api_instance = isi_sdk_8_0.FilesystemApi(isi_sdk_8_0.ApiClient(configuration))
+settings_access_time = isi_sdk_8_0.SettingsAccessTimeExtended() # SettingsAccessTimeExtended | 
 
 try:
     api_instance.update_settings_access_time(settings_access_time)
@@ -168,18 +168,18 @@ Set current character encoding.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_7_2
-from isi_sdk_7_2.rest import ApiException
+import isi_sdk_8_0
+from isi_sdk_8_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_7_2.Configuration()
+configuration = isi_sdk_8_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_7_2.FilesystemApi(isi_sdk_7_2.ApiClient(configuration))
-settings_character_encodings = isi_sdk_7_2.SettingsCharacterEncodingsExtended() # SettingsCharacterEncodingsExtended | 
+api_instance = isi_sdk_8_0.FilesystemApi(isi_sdk_8_0.ApiClient(configuration))
+settings_character_encodings = isi_sdk_8_0.SettingsCharacterEncodingsExtended() # SettingsCharacterEncodingsExtended | 
 
 try:
     api_instance.update_settings_character_encodings(settings_character_encodings)

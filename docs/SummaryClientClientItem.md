@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **in_min** | **float** | Minimum input (received) bytes for an operation, in bytes. | 
 **local_addr** | **str** | The IP address (in dotted-quad form) of the host receiving the operation request. | 
 **local_name** | **str** | The resolved text name of the LocalAddr, if resolution can be performed. | 
-**node** | **int** | The node on which the operation was performed. | 
+**node** | **int** | The node on which the operation was performed. | [optional] 
 **num_operations** | **int** | The number of times an operation has been performed. | 
 **operation_rate** | **float** | The rate (in ops/second) at which an operation has been performed. | 
 **out** | **float** | Rate of output (in bytes/second) for an operation since the last time isi statistics collected the data. | 

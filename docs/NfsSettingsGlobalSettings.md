@@ -3,12 +3,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**lock_protection** | **int** |  | [optional] 
-**nfsv3_enabled** | **bool** | Enable or disable NFSv3. | [optional] 
-**nfsv4_enabled** | **bool** | Enable or disable NFSv4. | [optional] 
-**rpc_maxthreads** | **int** | Maximum number of threads in the nfs server thread pool. | [optional] 
-**rpc_minthreads** | **int** | Minimum number of threads in the nfs server thread pool. | [optional] 
-**service** | **bool** | Enable or disable the nfs service. | [optional] 
+**nfsv3_enabled** | **bool** | True if NFSv3 is enabled. | [optional] 
+**nfsv4_enabled** | **bool** | True if NFSv4 is enabled. | [optional] 
+**rpc_maxthreads** | **int** | Specifies the maximum number of threads in the nfsd thread pool. | [optional] 
+**rpc_minthreads** | **int** | Specifies the minimum number of threads in the nfsd thread pool. | [optional] 
+**service** | **bool** | True if the NFS service is enabled. When set to false, the NFS service is disabled. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
