@@ -14,27 +14,28 @@ Name | Type | Description | Notes
 **generated_gid** | **bool** | True, if the GID was generated. | [optional] 
 **generated_uid** | **bool** | True, if the UID was generated. | [optional] 
 **generated_upn** | **bool** | True, if the UPN was generated. | [optional] 
-**gid** | [**GroupMember**](GroupMember.md) | Specifies properties for a persona, which consists of either a &#39;type&#39; and a &#39;name&#39; or an &#39;ID&#39;. | [optional] 
+**gid** | [**AuthAccessAccessItemFileGroup**](AuthAccessAccessItemFileGroup.md) | Specifies properties for a persona, which consists of either a &#39;type&#39; and a &#39;name&#39; or an &#39;ID&#39;. | [optional] 
 **home_directory** | **str** | Specifies a home directory for the user. | [optional] 
 **id** | **str** | Specifies the user or group ID. | 
 **locked** | **bool** | If true, indicates that the account is locked. | 
 **max_password_age** | **int** | Specifies the maximum time in seconds allowed before the password expires. | [optional] 
-**member_of** | [**list[GroupMember]**](GroupMember.md) |  | [optional] 
+**member_of** | [**list[AuthAccessAccessItemFileGroup]**](AuthAccessAccessItemFileGroup.md) |  | [optional] 
 **name** | **str** | Specifies a user or group name. | 
-**on_disk_group_identity** | [**GroupMember**](GroupMember.md) | Specifies properties for a persona, which consists of either a &#39;type&#39; and a &#39;name&#39; or an &#39;ID&#39;. | [optional] 
-**on_disk_user_identity** | [**GroupMember**](GroupMember.md) | Specifies properties for a persona, which consists of either a &#39;type&#39; and a &#39;name&#39; or an &#39;ID&#39;. | [optional] 
+**object_history** | [**list[AuthGroupObjectHistoryItem]**](AuthGroupObjectHistoryItem.md) |  | [optional] 
+**on_disk_group_identity** | [**AuthAccessAccessItemFileGroup**](AuthAccessAccessItemFileGroup.md) | Specifies properties for a persona, which consists of either a &#39;type&#39; and a &#39;name&#39; or an &#39;ID&#39;. | [optional] 
+**on_disk_user_identity** | [**AuthAccessAccessItemFileGroup**](AuthAccessAccessItemFileGroup.md) | Specifies properties for a persona, which consists of either a &#39;type&#39; and a &#39;name&#39; or an &#39;ID&#39;. | [optional] 
 **password_expired** | **bool** | If true, the password has expired. | 
 **password_expires** | **bool** | If true, the password is allowed to expire. | 
 **password_expiry** | **int** | Specifies the time in Unix Epoch seconds that the password will expire. | [optional] 
 **password_last_set** | **int** | Specifies the last time the password was set. | [optional] 
-**primary_group_sid** | [**GroupMember**](GroupMember.md) | Specifies properties for a persona, which consists of either a &#39;type&#39; and a &#39;name&#39; or an &#39;ID&#39;. | [optional] 
+**primary_group_sid** | [**AuthAccessAccessItemFileGroup**](AuthAccessAccessItemFileGroup.md) | Specifies properties for a persona, which consists of either a &#39;type&#39; and a &#39;name&#39; or an &#39;ID&#39;. | [optional] 
 **prompt_password_change** | **bool** | Prompts the user to change their password at the next login. | 
 **provider** | **str** | Specifies the authentication provider that the object belongs to. | [optional] 
 **sam_account_name** | **str** | Specifies a user or group name. | [optional] 
 **shell** | **str** | Specifies a path to the shell for the user. | [optional] 
-**sid** | [**GroupMember**](GroupMember.md) | Specifies properties for a persona, which consists of either a &#39;type&#39; and a &#39;name&#39; or an &#39;ID&#39;. | [optional] 
+**sid** | [**AuthAccessAccessItemFileGroup**](AuthAccessAccessItemFileGroup.md) | Specifies properties for a persona, which consists of either a &#39;type&#39; and a &#39;name&#39; or an &#39;ID&#39;. | [optional] 
 **type** | **str** | Specifies the object type. | 
-**uid** | [**GroupMember**](GroupMember.md) | Specifies properties for a persona, which consists of either a &#39;type&#39; and a &#39;name&#39; or an &#39;ID&#39;. | [optional] 
+**uid** | [**AuthAccessAccessItemFileGroup**](AuthAccessAccessItemFileGroup.md) | Specifies properties for a persona, which consists of either a &#39;type&#39; and a &#39;name&#39; or an &#39;ID&#39;. | [optional] 
 **upn** | **str** | Specifies a principal name for the user. | [optional] 
 **user_can_change_password** | **bool** | Specifies whether the password for the user can be changed. | 
 

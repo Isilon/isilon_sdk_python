@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **basic_authentication** | **bool** | Enable Basic Authentication | [optional] 
 **dav** | **bool** | Enable DAV specification | [optional] 
 **enable_access_log** | **bool** | Enable HTTP access logging | [optional] 
+**https** | **bool** | Use HTTPS transport | [optional] 
 **integrated_authentication** | **bool** | Enable Integrated Authentication | [optional] 
 **server_root** | **str** | Document root directory. Must be within /ifs. | [optional] 
 **service** | **str** | Enable/disable the HTTP service or redirect to WebUI. | [optional] 

@@ -1,4 +1,4 @@
-# isi_sdk_8_0.FsaApi
+# isi_sdk_8_0_1.FsaApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -24,17 +24,17 @@ Delete the result set.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.FsaApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.FsaApi(isi_sdk_8_0_1.ApiClient(configuration))
 fsa_result_id = 'fsa_result_id_example' # str | Delete the result set.
 
 try:
@@ -75,17 +75,17 @@ Revert all settings to their defaults.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.FsaApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.FsaApi(isi_sdk_8_0_1.ApiClient(configuration))
 
 try:
     api_instance.delete_fsa_settings()
@@ -122,17 +122,17 @@ Retrieve result set information.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.FsaApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.FsaApi(isi_sdk_8_0_1.ApiClient(configuration))
 fsa_result_id = 'fsa_result_id_example' # str | Retrieve result set information.
 
 try:
@@ -174,17 +174,17 @@ List all results.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.FsaApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.FsaApi(isi_sdk_8_0_1.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_fsa_results()
@@ -212,7 +212,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_fsa_settings**
-> FsaSettings get_fsa_settings()
+> FsaSettings get_fsa_settings(scope=scope)
 
 
 
@@ -222,27 +222,31 @@ List all settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.FsaApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.FsaApi(isi_sdk_8_0_1.ApiClient(configuration))
+scope = 'scope_example' # str | If specified as effective or not specified, all fields are returned.  If specified as user, only fields with non-default values are shown.  If specified as default, the original values are returned. (optional)
 
 try:
-    api_response = api_instance.get_fsa_settings()
+    api_response = api_instance.get_fsa_settings(scope=scope)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling FsaApi->get_fsa_settings: %s\n" % e)
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| If specified as effective or not specified, all fields are returned.  If specified as user, only fields with non-default values are shown.  If specified as default, the original values are returned. | [optional] 
 
 ### Return type
 
@@ -270,18 +274,18 @@ Modify result set. Only the pinned property can be changed at this time.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.FsaApi(isi_sdk_8_0.ApiClient(configuration))
-fsa_result = isi_sdk_8_0.FsaResult() # FsaResult | 
+api_instance = isi_sdk_8_0_1.FsaApi(isi_sdk_8_0_1.ApiClient(configuration))
+fsa_result = isi_sdk_8_0_1.FsaResult() # FsaResult | 
 fsa_result_id = 'fsa_result_id_example' # str | Modify result set. Only the pinned property can be changed at this time.
 
 try:
@@ -323,18 +327,18 @@ Modify one or more settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.FsaApi(isi_sdk_8_0.ApiClient(configuration))
-fsa_settings = isi_sdk_8_0.FsaSettingsSettings() # FsaSettingsSettings | 
+api_instance = isi_sdk_8_0_1.FsaApi(isi_sdk_8_0_1.ApiClient(configuration))
+fsa_settings = isi_sdk_8_0_1.FsaSettingsSettings() # FsaSettingsSettings | 
 
 try:
     api_instance.update_fsa_settings(fsa_settings)

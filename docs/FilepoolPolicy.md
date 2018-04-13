@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**actions** | [**list[FilepoolDefaultPolicyAction]**](FilepoolDefaultPolicyAction.md) | A list of actions to be taken for matching files | [optional] 
+**actions** | [**list[FilepoolPolicyAction]**](FilepoolPolicyAction.md) | A list of actions to be taken for matching files | [optional] 
 **apply_order** | **int** | The order in which this policy should be applied (relative to other policies) | [optional] 
 **description** | **str** | A description for this policy | [optional] 
 **file_matching_pattern** | [**FilepoolPolicyFileMatchingPattern**](FilepoolPolicyFileMatchingPattern.md) | The file matching rules for this policy | [optional] 

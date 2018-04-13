@@ -3,10 +3,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**group** | **str** | Specifies the group name or ID for the file. | [optional] 
-**mode** | **str** | Specifies the mode bits on the file. | [optional] 
-**owner** | **str** | Specifies the name or ID of the file owner. | [optional] 
-**relevant_mode** | **str** | Specifies the mode bits that are related to the user. | [optional] 
+**effective_path** | **str** | Specifies absolute path in filesystem. | [optional] 
+**file_permissions** | [**AuthAccessAccessItemFileFilePermissions**](AuthAccessAccessItemFileFilePermissions.md) | Specifies a list of the relevant share permissions for the user. | [optional] 
+**group** | [**AuthAccessAccessItemFileGroup**](AuthAccessAccessItemFileGroup.md) | Specifies the persona of the file group. | [optional] 
+**is_snapshot** | **bool** | Specifies whether path is inside snapshot. | [optional] 
+**owner** | [**AuthAccessAccessItemFileGroup**](AuthAccessAccessItemFileGroup.md) | Specifies the persona of the file owner. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

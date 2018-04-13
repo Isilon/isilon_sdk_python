@@ -44,8 +44,8 @@ Name | Type | Description | Notes
 **network_bytes_to_target** | **int** | The total number of bytes sent to the target by this job. | 
 **new_files_replicated** | **int** | The number of new files replicated by this job. | 
 **num_retransmitted_files** | **int** | The number of files that have been retransmitted by this job. | 
-**phases** | [**list[ReportSubreportPhase]**](ReportSubreportPhase.md) | Data for each phase of this job. | 
-**policy** | [**ReportSubreportPolicy**](ReportSubreportPolicy.md) | The policy associated with this job, or null if there is currently no policy associated with this job (this can happen if the job is newly created and not yet fully populated in the underlying database). | [optional] 
+**phases** | [**list[SyncJobPhase]**](SyncJobPhase.md) | Data for each phase of this job. | 
+**policy** | [**SyncJobPolicy**](SyncJobPolicy.md) | The policy associated with this job, or null if there is currently no policy associated with this job (this can happen if the job is newly created and not yet fully populated in the underlying database). | [optional] 
 **policy_action** | **str** | This is the action the policy is configured to perform. | 
 **policy_id** | **str** | The ID of the policy. | 
 **policy_name** | **str** | The name of the policy. | 

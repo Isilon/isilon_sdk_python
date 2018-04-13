@@ -1,29 +1,29 @@
-# isi_sdk_8_0.EventApi
+# isi_sdk_8_0_1.EventApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_event_alert_condition**](EventApi.md#create_event_alert_condition) | **POST** /platform/3/event/alert-conditions | 
+[**create_event_alert_condition**](EventApi.md#create_event_alert_condition) | **POST** /platform/4/event/alert-conditions | 
 [**create_event_channel**](EventApi.md#create_event_channel) | **POST** /platform/3/event/channels | 
 [**create_event_event**](EventApi.md#create_event_event) | **POST** /platform/3/event/events | 
-[**delete_event_alert_condition**](EventApi.md#delete_event_alert_condition) | **DELETE** /platform/3/event/alert-conditions/{EventAlertConditionId} | 
-[**delete_event_alert_conditions**](EventApi.md#delete_event_alert_conditions) | **DELETE** /platform/3/event/alert-conditions | 
+[**delete_event_alert_condition**](EventApi.md#delete_event_alert_condition) | **DELETE** /platform/4/event/alert-conditions/{EventAlertConditionId} | 
+[**delete_event_alert_conditions**](EventApi.md#delete_event_alert_conditions) | **DELETE** /platform/4/event/alert-conditions | 
 [**delete_event_channel**](EventApi.md#delete_event_channel) | **DELETE** /platform/3/event/channels/{EventChannelId} | 
-[**get_event_alert_condition**](EventApi.md#get_event_alert_condition) | **GET** /platform/3/event/alert-conditions/{EventAlertConditionId} | 
+[**get_event_alert_condition**](EventApi.md#get_event_alert_condition) | **GET** /platform/4/event/alert-conditions/{EventAlertConditionId} | 
 [**get_event_categories**](EventApi.md#get_event_categories) | **GET** /platform/3/event/categories | 
 [**get_event_category**](EventApi.md#get_event_category) | **GET** /platform/3/event/categories/{EventCategoryId} | 
 [**get_event_channel**](EventApi.md#get_event_channel) | **GET** /platform/3/event/channels/{EventChannelId} | 
-[**get_event_eventgroup_definition**](EventApi.md#get_event_eventgroup_definition) | **GET** /platform/3/event/eventgroup-definitions/{EventEventgroupDefinitionId} | 
-[**get_event_eventgroup_definitions**](EventApi.md#get_event_eventgroup_definitions) | **GET** /platform/3/event/eventgroup-definitions | 
+[**get_event_eventgroup_definition**](EventApi.md#get_event_eventgroup_definition) | **GET** /platform/4/event/eventgroup-definitions/{EventEventgroupDefinitionId} | 
+[**get_event_eventgroup_definitions**](EventApi.md#get_event_eventgroup_definitions) | **GET** /platform/4/event/eventgroup-definitions | 
 [**get_event_eventgroup_occurrence**](EventApi.md#get_event_eventgroup_occurrence) | **GET** /platform/3/event/eventgroup-occurrences/{EventEventgroupOccurrenceId} | 
 [**get_event_eventgroup_occurrences**](EventApi.md#get_event_eventgroup_occurrences) | **GET** /platform/3/event/eventgroup-occurrences | 
 [**get_event_eventlist**](EventApi.md#get_event_eventlist) | **GET** /platform/3/event/eventlists/{EventEventlistId} | 
 [**get_event_eventlists**](EventApi.md#get_event_eventlists) | **GET** /platform/3/event/eventlists | 
 [**get_event_settings**](EventApi.md#get_event_settings) | **GET** /platform/3/event/settings | 
-[**list_event_alert_conditions**](EventApi.md#list_event_alert_conditions) | **GET** /platform/3/event/alert-conditions | 
+[**list_event_alert_conditions**](EventApi.md#list_event_alert_conditions) | **GET** /platform/4/event/alert-conditions | 
 [**list_event_channels**](EventApi.md#list_event_channels) | **GET** /platform/3/event/channels | 
-[**update_event_alert_condition**](EventApi.md#update_event_alert_condition) | **PUT** /platform/3/event/alert-conditions/{EventAlertConditionId} | 
+[**update_event_alert_condition**](EventApi.md#update_event_alert_condition) | **PUT** /platform/4/event/alert-conditions/{EventAlertConditionId} | 
 [**update_event_channel**](EventApi.md#update_event_channel) | **PUT** /platform/3/event/channels/{EventChannelId} | 
 [**update_event_eventgroup_occurrence**](EventApi.md#update_event_eventgroup_occurrence) | **PUT** /platform/3/event/eventgroup-occurrences/{EventEventgroupOccurrenceId} | 
 [**update_event_eventgroup_occurrences**](EventApi.md#update_event_eventgroup_occurrences) | **PUT** /platform/3/event/eventgroup-occurrences | 
@@ -41,18 +41,18 @@ Create a new alert condition.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.EventApi(isi_sdk_8_0.ApiClient(configuration))
-event_alert_condition = isi_sdk_8_0.EventAlertConditionCreateParams() # EventAlertConditionCreateParams | 
+api_instance = isi_sdk_8_0_1.EventApi(isi_sdk_8_0_1.ApiClient(configuration))
+event_alert_condition = isi_sdk_8_0_1.EventAlertConditionCreateParams() # EventAlertConditionCreateParams | 
 
 try:
     api_response = api_instance.create_event_alert_condition(event_alert_condition)
@@ -93,18 +93,18 @@ Create a new channel.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.EventApi(isi_sdk_8_0.ApiClient(configuration))
-event_channel = isi_sdk_8_0.EventChannelCreateParams() # EventChannelCreateParams | 
+api_instance = isi_sdk_8_0_1.EventApi(isi_sdk_8_0_1.ApiClient(configuration))
+event_channel = isi_sdk_8_0_1.EventChannelCreateParams() # EventChannelCreateParams | 
 
 try:
     api_response = api_instance.create_event_channel(event_channel)
@@ -145,18 +145,18 @@ Create a test event.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.EventApi(isi_sdk_8_0.ApiClient(configuration))
-event_event = isi_sdk_8_0.EventEvent() # EventEvent | 
+api_instance = isi_sdk_8_0_1.EventApi(isi_sdk_8_0_1.ApiClient(configuration))
+event_event = isi_sdk_8_0_1.EventEvent() # EventEvent | 
 
 try:
     api_response = api_instance.create_event_event(event_event)
@@ -197,17 +197,17 @@ Delete the alert-condition.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.EventApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.EventApi(isi_sdk_8_0_1.ApiClient(configuration))
 event_alert_condition_id = 'event_alert_condition_id_example' # str | Delete the alert-condition.
 
 try:
@@ -248,17 +248,17 @@ Bulk delete of alert conditions.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.EventApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.EventApi(isi_sdk_8_0_1.ApiClient(configuration))
 channel = 'channel_example' # str | Delete only conditions for this channel (optional)
 
 try:
@@ -293,24 +293,24 @@ void (empty response body)
 
 
 
-Delete the alert-condition.
+Delete the channel.
 
 ### Example
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.EventApi(isi_sdk_8_0.ApiClient(configuration))
-event_channel_id = 'event_channel_id_example' # str | Delete the alert-condition.
+api_instance = isi_sdk_8_0_1.EventApi(isi_sdk_8_0_1.ApiClient(configuration))
+event_channel_id = 'event_channel_id_example' # str | Delete the channel.
 
 try:
     api_instance.delete_event_channel(event_channel_id)
@@ -322,7 +322,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **event_channel_id** | **str**| Delete the alert-condition. | 
+ **event_channel_id** | **str**| Delete the channel. | 
 
 ### Return type
 
@@ -350,17 +350,17 @@ Retrieve the alert-condition.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.EventApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.EventApi(isi_sdk_8_0_1.ApiClient(configuration))
 event_alert_condition_id = 'event_alert_condition_id_example' # str | Retrieve the alert-condition.
 
 try:
@@ -402,17 +402,17 @@ List all eventgroup categories.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.EventApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.EventApi(isi_sdk_8_0_1.ApiClient(configuration))
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
 
@@ -456,17 +456,17 @@ Retrieve the eventgroup category.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.EventApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.EventApi(isi_sdk_8_0_1.ApiClient(configuration))
 event_category_id = 'event_category_id_example' # str | Retrieve the eventgroup category.
 
 try:
@@ -502,24 +502,24 @@ Name | Type | Description  | Notes
 
 
 
-Retrieve the alert-condition.
+Retrieve the channel.
 
 ### Example
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.EventApi(isi_sdk_8_0.ApiClient(configuration))
-event_channel_id = 'event_channel_id_example' # str | Retrieve the alert-condition.
+api_instance = isi_sdk_8_0_1.EventApi(isi_sdk_8_0_1.ApiClient(configuration))
+event_channel_id = 'event_channel_id_example' # str | Retrieve the channel.
 
 try:
     api_response = api_instance.get_event_channel(event_channel_id)
@@ -532,7 +532,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **event_channel_id** | **str**| Retrieve the alert-condition. | 
+ **event_channel_id** | **str**| Retrieve the channel. | 
 
 ### Return type
 
@@ -560,17 +560,17 @@ Retrieve the eventgroup definition.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.EventApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.EventApi(isi_sdk_8_0_1.ApiClient(configuration))
 event_eventgroup_definition_id = 'event_eventgroup_definition_id_example' # str | Retrieve the eventgroup definition.
 
 try:
@@ -612,17 +612,17 @@ List all eventgroup definitions.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.EventApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.EventApi(isi_sdk_8_0_1.ApiClient(configuration))
 category = 56 # int | Return eventgroups in the specified category (optional)
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
@@ -668,17 +668,17 @@ Retrieve individual eventgroup occurrence.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.EventApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.EventApi(isi_sdk_8_0_1.ApiClient(configuration))
 event_eventgroup_occurrence_id = 'event_eventgroup_occurrence_id_example' # str | Retrieve individual eventgroup occurrence.
 
 try:
@@ -720,17 +720,17 @@ List all eventgroup occurrences.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.EventApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.EventApi(isi_sdk_8_0_1.ApiClient(configuration))
 resolved = true # bool | Filter for resolved eventgroups (optional)
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 begin = 56 # int | events that are in progress after this time (optional)
@@ -792,17 +792,17 @@ Retrieve the list of events for a eventgroup occureence.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.EventApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.EventApi(isi_sdk_8_0_1.ApiClient(configuration))
 event_eventlist_id = 'event_eventlist_id_example' # str | Retrieve the list of events for a eventgroup occureence.
 
 try:
@@ -834,7 +834,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_event_eventlists**
-> EventEventlistsExtended get_event_eventlists(event_instance=event_instance, limit=limit, severity=severity, resume=resume)
+> EventEventlistsExtended get_event_eventlists(event_instance=event_instance, limit=limit, resume=resume)
 
 
 
@@ -844,24 +844,23 @@ List all event occurrences grouped by eventgroup occurrence.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.EventApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.EventApi(isi_sdk_8_0_1.ApiClient(configuration))
 event_instance = 'event_instance_example' # str | Return only this event occurrence (optional)
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
-severity = 'severity_example' # str | Minimum severity of returned events. (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
 
 try:
-    api_response = api_instance.get_event_eventlists(event_instance=event_instance, limit=limit, severity=severity, resume=resume)
+    api_response = api_instance.get_event_eventlists(event_instance=event_instance, limit=limit, resume=resume)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling EventApi->get_event_eventlists: %s\n" % e)
@@ -873,7 +872,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **event_instance** | **str**| Return only this event occurrence | [optional] 
  **limit** | **int**| Return no more than this many results at once (see resume). | [optional] 
- **severity** | **str**| Minimum severity of returned events. | [optional] 
  **resume** | **str**| Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). | [optional] 
 
 ### Return type
@@ -902,17 +900,17 @@ Retrieve the settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.EventApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.EventApi(isi_sdk_8_0_1.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_event_settings()
@@ -950,17 +948,17 @@ List all alert conditions.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.EventApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.EventApi(isi_sdk_8_0_1.ApiClient(configuration))
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 channel_ids = 'channel_ids_example' # str | Return only conditions for the specified channel: (optional)
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
@@ -1000,7 +998,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_event_channels**
-> EventChannelsExtended list_event_channels(limit=limit, resume=resume)
+> EventChannelsExtended list_event_channels(sort=sort, limit=limit, dir=dir, resume=resume)
 
 
 
@@ -1010,22 +1008,24 @@ List all channels.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.EventApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.EventApi(isi_sdk_8_0_1.ApiClient(configuration))
+sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
+dir = 'dir_example' # str | The direction of the sort. (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
 
 try:
-    api_response = api_instance.list_event_channels(limit=limit, resume=resume)
+    api_response = api_instance.list_event_channels(sort=sort, limit=limit, dir=dir, resume=resume)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling EventApi->list_event_channels: %s\n" % e)
@@ -1035,7 +1035,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **sort** | **str**| The field that will be used for sorting. | [optional] 
  **limit** | **int**| Return no more than this many results at once (see resume). | [optional] 
+ **dir** | **str**| The direction of the sort. | [optional] 
  **resume** | **str**| Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). | [optional] 
 
 ### Return type
@@ -1064,18 +1066,18 @@ Modify the alert-condition
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.EventApi(isi_sdk_8_0.ApiClient(configuration))
-event_alert_condition = isi_sdk_8_0.EventAlertCondition() # EventAlertCondition | 
+api_instance = isi_sdk_8_0_1.EventApi(isi_sdk_8_0_1.ApiClient(configuration))
+event_alert_condition = isi_sdk_8_0_1.EventAlertCondition() # EventAlertCondition | 
 event_alert_condition_id = 'event_alert_condition_id_example' # str | Modify the alert-condition
 
 try:
@@ -1111,25 +1113,25 @@ void (empty response body)
 
 
 
-Modify the alert-condition
+Modify the channel.
 
 ### Example
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.EventApi(isi_sdk_8_0.ApiClient(configuration))
-event_channel = isi_sdk_8_0.EventChannel() # EventChannel | 
-event_channel_id = 'event_channel_id_example' # str | Modify the alert-condition
+api_instance = isi_sdk_8_0_1.EventApi(isi_sdk_8_0_1.ApiClient(configuration))
+event_channel = isi_sdk_8_0_1.EventChannel() # EventChannel | 
+event_channel_id = 'event_channel_id_example' # str | Modify the channel.
 
 try:
     api_instance.update_event_channel(event_channel, event_channel_id)
@@ -1142,7 +1144,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **event_channel** | [**EventChannel**](EventChannel.md)|  | 
- **event_channel_id** | **str**| Modify the alert-condition | 
+ **event_channel_id** | **str**| Modify the channel. | 
 
 ### Return type
 
@@ -1170,18 +1172,18 @@ modify eventgroup occurrence.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.EventApi(isi_sdk_8_0.ApiClient(configuration))
-event_eventgroup_occurrence = isi_sdk_8_0.EventEventgroupOccurrence() # EventEventgroupOccurrence | 
+api_instance = isi_sdk_8_0_1.EventApi(isi_sdk_8_0_1.ApiClient(configuration))
+event_eventgroup_occurrence = isi_sdk_8_0_1.EventEventgroupOccurrence() # EventEventgroupOccurrence | 
 event_eventgroup_occurrence_id = 'event_eventgroup_occurrence_id_example' # str | modify eventgroup occurrence.
 
 try:
@@ -1223,18 +1225,18 @@ Modify all eventgroup occurrences, resolve or ignore all
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.EventApi(isi_sdk_8_0.ApiClient(configuration))
-event_eventgroup_occurrences = isi_sdk_8_0.EventEventgroupOccurrence() # EventEventgroupOccurrence | 
+api_instance = isi_sdk_8_0_1.EventApi(isi_sdk_8_0_1.ApiClient(configuration))
+event_eventgroup_occurrences = isi_sdk_8_0_1.EventEventgroupOccurrence() # EventEventgroupOccurrence | 
 
 try:
     api_instance.update_event_eventgroup_occurrences(event_eventgroup_occurrences)
@@ -1274,18 +1276,18 @@ Update settings
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.EventApi(isi_sdk_8_0.ApiClient(configuration))
-event_settings = isi_sdk_8_0.EventSettings() # EventSettings | 
+api_instance = isi_sdk_8_0_1.EventApi(isi_sdk_8_0_1.ApiClient(configuration))
+event_settings = isi_sdk_8_0_1.EventSettings() # EventSettings | 
 
 try:
     api_instance.update_event_settings(event_settings)

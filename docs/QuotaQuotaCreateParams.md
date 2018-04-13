@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **force** | **bool** | Force creation of quotas on the root of /ifs. | [optional] 
 **include_snapshots** | **bool** | If true, quota governs snapshot data as well as head data. | 
 **path** | **str** | The /ifs path governed. | 
-**persona** | [**GroupMember**](GroupMember.md) | Specifies properties for a persona, which consists of either a &#39;type&#39; and a &#39;name&#39; or an &#39;ID&#39;. | [optional] 
+**persona** | [**AuthAccessAccessItemFileGroup**](AuthAccessAccessItemFileGroup.md) | Specifies properties for a persona, which consists of either a &#39;type&#39; and a &#39;name&#39; or an &#39;ID&#39;. | [optional] 
 **thresholds** | [**QuotaQuotaThresholds**](QuotaQuotaThresholds.md) |  | [optional] 
 **thresholds_include_overhead** | **bool** | If true, thresholds apply to data plus filesystem overhead required to store the data (i.e. &#39;physical&#39; usage). | 
 **type** | **str** | The type of quota. | 

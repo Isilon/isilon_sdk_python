@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **gid** | **int** | Specifies the numeric group identifier. | [optional] 
-**members** | [**list[GroupMember]**](GroupMember.md) | Specifies the members of the group. | [optional] 
+**members** | [**list[AuthAccessAccessItemFileGroup]**](AuthAccessAccessItemFileGroup.md) | Specifies the members of the group. | [optional] 
 **name** | **str** | Specifies the group name. | 
 **sid** | **str** | Specifies the security identifier. | [optional] 
 

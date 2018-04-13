@@ -1,4 +1,4 @@
-# isi_sdk_8_0.ProtocolsApi
+# isi_sdk_8_0_1.ProtocolsApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -6,17 +6,18 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_hdfs_proxyuser**](ProtocolsApi.md#create_hdfs_proxyuser) | **POST** /platform/1/protocols/hdfs/proxyusers | 
 [**create_hdfs_rack**](ProtocolsApi.md#create_hdfs_rack) | **POST** /platform/1/protocols/hdfs/racks | 
+[**create_ndmp_settings_preferred_ip**](ProtocolsApi.md#create_ndmp_settings_preferred_ip) | **POST** /platform/4/protocols/ndmp/settings/preferred-ips | 
 [**create_ndmp_settings_variable**](ProtocolsApi.md#create_ndmp_settings_variable) | **POST** /platform/3/protocols/ndmp/settings/variables/{NdmpSettingsVariableId} | 
 [**create_ndmp_user**](ProtocolsApi.md#create_ndmp_user) | **POST** /platform/3/protocols/ndmp/users | 
 [**create_nfs_alias**](ProtocolsApi.md#create_nfs_alias) | **POST** /platform/2/protocols/nfs/aliases | 
-[**create_nfs_export**](ProtocolsApi.md#create_nfs_export) | **POST** /platform/2/protocols/nfs/exports | 
+[**create_nfs_export**](ProtocolsApi.md#create_nfs_export) | **POST** /platform/4/protocols/nfs/exports | 
 [**create_nfs_netgroup_check_item**](ProtocolsApi.md#create_nfs_netgroup_check_item) | **POST** /platform/3/protocols/nfs/netgroup/check | 
 [**create_nfs_netgroup_flush_item**](ProtocolsApi.md#create_nfs_netgroup_flush_item) | **POST** /platform/3/protocols/nfs/netgroup/flush | 
 [**create_nfs_nlm_sessions_check_item**](ProtocolsApi.md#create_nfs_nlm_sessions_check_item) | **POST** /platform/3/protocols/nfs/nlm/sessions-check | 
 [**create_nfs_reload_item**](ProtocolsApi.md#create_nfs_reload_item) | **POST** /platform/3/protocols/nfs/reload | 
 [**create_ntp_server**](ProtocolsApi.md#create_ntp_server) | **POST** /platform/3/protocols/ntp/servers | 
 [**create_smb_log_level_filter**](ProtocolsApi.md#create_smb_log_level_filter) | **POST** /platform/3/protocols/smb/log-level/filters | 
-[**create_smb_share**](ProtocolsApi.md#create_smb_share) | **POST** /platform/3/protocols/smb/shares | 
+[**create_smb_share**](ProtocolsApi.md#create_smb_share) | **POST** /platform/4/protocols/smb/shares | 
 [**create_swift_account**](ProtocolsApi.md#create_swift_account) | **POST** /platform/3/protocols/swift/accounts | 
 [**delete_hdfs_proxyuser**](ProtocolsApi.md#delete_hdfs_proxyuser) | **DELETE** /platform/1/protocols/hdfs/proxyusers/{HdfsProxyuserId} | 
 [**delete_hdfs_rack**](ProtocolsApi.md#delete_hdfs_rack) | **DELETE** /platform/1/protocols/hdfs/racks/{HdfsRackId} | 
@@ -25,10 +26,11 @@ Method | HTTP request | Description
 [**delete_ndmp_contexts_restore_by_id**](ProtocolsApi.md#delete_ndmp_contexts_restore_by_id) | **DELETE** /platform/3/protocols/ndmp/contexts/restore/{NdmpContextsRestoreId} | 
 [**delete_ndmp_dumpdate**](ProtocolsApi.md#delete_ndmp_dumpdate) | **DELETE** /platform/3/protocols/ndmp/dumpdates/{NdmpDumpdateId} | 
 [**delete_ndmp_session**](ProtocolsApi.md#delete_ndmp_session) | **DELETE** /platform/3/protocols/ndmp/sessions/{NdmpSessionId} | 
+[**delete_ndmp_settings_preferred_ip**](ProtocolsApi.md#delete_ndmp_settings_preferred_ip) | **DELETE** /platform/4/protocols/ndmp/settings/preferred-ips/{NdmpSettingsPreferredIpId} | 
 [**delete_ndmp_settings_variable**](ProtocolsApi.md#delete_ndmp_settings_variable) | **DELETE** /platform/3/protocols/ndmp/settings/variables/{NdmpSettingsVariableId} | 
 [**delete_ndmp_user**](ProtocolsApi.md#delete_ndmp_user) | **DELETE** /platform/3/protocols/ndmp/users/{NdmpUserId} | 
 [**delete_nfs_alias**](ProtocolsApi.md#delete_nfs_alias) | **DELETE** /platform/2/protocols/nfs/aliases/{NfsAliasId} | 
-[**delete_nfs_export**](ProtocolsApi.md#delete_nfs_export) | **DELETE** /platform/2/protocols/nfs/exports/{NfsExportId} | 
+[**delete_nfs_export**](ProtocolsApi.md#delete_nfs_export) | **DELETE** /platform/4/protocols/nfs/exports/{NfsExportId} | 
 [**delete_nfs_nlm_session**](ProtocolsApi.md#delete_nfs_nlm_session) | **DELETE** /platform/3/protocols/nfs/nlm/sessions/{NfsNlmSessionId} | 
 [**delete_ntp_server**](ProtocolsApi.md#delete_ntp_server) | **DELETE** /platform/3/protocols/ntp/servers/{NtpServerId} | 
 [**delete_ntp_servers**](ProtocolsApi.md#delete_ntp_servers) | **DELETE** /platform/3/protocols/ntp/servers | 
@@ -37,14 +39,15 @@ Method | HTTP request | Description
 [**delete_smb_openfile**](ProtocolsApi.md#delete_smb_openfile) | **DELETE** /platform/1/protocols/smb/openfiles/{SmbOpenfileId} | 
 [**delete_smb_session**](ProtocolsApi.md#delete_smb_session) | **DELETE** /platform/1/protocols/smb/sessions/{SmbSessionId} | 
 [**delete_smb_sessions_computer_user**](ProtocolsApi.md#delete_smb_sessions_computer_user) | **DELETE** /platform/1/protocols/smb/sessions/{Computer}/{SmbSessionsComputerUser} | 
-[**delete_smb_share**](ProtocolsApi.md#delete_smb_share) | **DELETE** /platform/3/protocols/smb/shares/{SmbShareId} | 
-[**delete_smb_shares**](ProtocolsApi.md#delete_smb_shares) | **DELETE** /platform/3/protocols/smb/shares | 
+[**delete_smb_share**](ProtocolsApi.md#delete_smb_share) | **DELETE** /platform/4/protocols/smb/shares/{SmbShareId} | 
+[**delete_smb_shares**](ProtocolsApi.md#delete_smb_shares) | **DELETE** /platform/4/protocols/smb/shares | 
 [**delete_swift_account**](ProtocolsApi.md#delete_swift_account) | **DELETE** /platform/3/protocols/swift/accounts/{SwiftAccountId} | 
 [**get_ftp_settings**](ProtocolsApi.md#get_ftp_settings) | **GET** /platform/3/protocols/ftp/settings | 
 [**get_hdfs_log_level**](ProtocolsApi.md#get_hdfs_log_level) | **GET** /platform/3/protocols/hdfs/log-level | 
 [**get_hdfs_proxyuser**](ProtocolsApi.md#get_hdfs_proxyuser) | **GET** /platform/1/protocols/hdfs/proxyusers/{HdfsProxyuserId} | 
 [**get_hdfs_rack**](ProtocolsApi.md#get_hdfs_rack) | **GET** /platform/1/protocols/hdfs/racks/{HdfsRackId} | 
-[**get_hdfs_settings**](ProtocolsApi.md#get_hdfs_settings) | **GET** /platform/3/protocols/hdfs/settings | 
+[**get_hdfs_ranger_plugin_settings**](ProtocolsApi.md#get_hdfs_ranger_plugin_settings) | **GET** /platform/4/protocols/hdfs/ranger-plugin/settings | 
+[**get_hdfs_settings**](ProtocolsApi.md#get_hdfs_settings) | **GET** /platform/4/protocols/hdfs/settings | 
 [**get_http_settings**](ProtocolsApi.md#get_http_settings) | **GET** /platform/3/protocols/http/settings | 
 [**get_ndmp_contexts_backup**](ProtocolsApi.md#get_ndmp_contexts_backup) | **GET** /platform/3/protocols/ndmp/contexts/backup | 
 [**get_ndmp_contexts_backup_by_id**](ProtocolsApi.md#get_ndmp_contexts_backup_by_id) | **GET** /platform/3/protocols/ndmp/contexts/backup/{NdmpContextsBackupId} | 
@@ -59,11 +62,12 @@ Method | HTTP request | Description
 [**get_ndmp_sessions**](ProtocolsApi.md#get_ndmp_sessions) | **GET** /platform/3/protocols/ndmp/sessions | 
 [**get_ndmp_settings_dmas**](ProtocolsApi.md#get_ndmp_settings_dmas) | **GET** /platform/3/protocols/ndmp/settings/dmas | 
 [**get_ndmp_settings_global**](ProtocolsApi.md#get_ndmp_settings_global) | **GET** /platform/3/protocols/ndmp/settings/global | 
+[**get_ndmp_settings_preferred_ip**](ProtocolsApi.md#get_ndmp_settings_preferred_ip) | **GET** /platform/4/protocols/ndmp/settings/preferred-ips/{NdmpSettingsPreferredIpId} | 
 [**get_ndmp_settings_variable**](ProtocolsApi.md#get_ndmp_settings_variable) | **GET** /platform/3/protocols/ndmp/settings/variables/{NdmpSettingsVariableId} | 
 [**get_ndmp_user**](ProtocolsApi.md#get_ndmp_user) | **GET** /platform/3/protocols/ndmp/users/{NdmpUserId} | 
 [**get_nfs_alias**](ProtocolsApi.md#get_nfs_alias) | **GET** /platform/2/protocols/nfs/aliases/{NfsAliasId} | 
 [**get_nfs_check**](ProtocolsApi.md#get_nfs_check) | **GET** /platform/2/protocols/nfs/check | 
-[**get_nfs_export**](ProtocolsApi.md#get_nfs_export) | **GET** /platform/2/protocols/nfs/exports/{NfsExportId} | 
+[**get_nfs_export**](ProtocolsApi.md#get_nfs_export) | **GET** /platform/4/protocols/nfs/exports/{NfsExportId} | 
 [**get_nfs_exports_summary**](ProtocolsApi.md#get_nfs_exports_summary) | **GET** /platform/2/protocols/nfs/exports-summary | 
 [**get_nfs_log_level**](ProtocolsApi.md#get_nfs_log_level) | **GET** /platform/3/protocols/nfs/log-level | 
 [**get_nfs_netgroup**](ProtocolsApi.md#get_nfs_netgroup) | **GET** /platform/3/protocols/nfs/netgroup | 
@@ -82,31 +86,34 @@ Method | HTTP request | Description
 [**get_smb_sessions**](ProtocolsApi.md#get_smb_sessions) | **GET** /platform/1/protocols/smb/sessions | 
 [**get_smb_settings_global**](ProtocolsApi.md#get_smb_settings_global) | **GET** /platform/3/protocols/smb/settings/global | 
 [**get_smb_settings_share**](ProtocolsApi.md#get_smb_settings_share) | **GET** /platform/3/protocols/smb/settings/share | 
-[**get_smb_share**](ProtocolsApi.md#get_smb_share) | **GET** /platform/3/protocols/smb/shares/{SmbShareId} | 
+[**get_smb_share**](ProtocolsApi.md#get_smb_share) | **GET** /platform/4/protocols/smb/shares/{SmbShareId} | 
 [**get_smb_shares_summary**](ProtocolsApi.md#get_smb_shares_summary) | **GET** /platform/1/protocols/smb/shares-summary | 
 [**get_snmp_settings**](ProtocolsApi.md#get_snmp_settings) | **GET** /platform/3/protocols/snmp/settings | 
 [**get_swift_account**](ProtocolsApi.md#get_swift_account) | **GET** /platform/3/protocols/swift/accounts/{SwiftAccountId} | 
 [**list_hdfs_proxyusers**](ProtocolsApi.md#list_hdfs_proxyusers) | **GET** /platform/1/protocols/hdfs/proxyusers | 
 [**list_hdfs_racks**](ProtocolsApi.md#list_hdfs_racks) | **GET** /platform/1/protocols/hdfs/racks | 
+[**list_ndmp_settings_preferred_ips**](ProtocolsApi.md#list_ndmp_settings_preferred_ips) | **GET** /platform/4/protocols/ndmp/settings/preferred-ips | 
 [**list_ndmp_users**](ProtocolsApi.md#list_ndmp_users) | **GET** /platform/3/protocols/ndmp/users | 
 [**list_nfs_aliases**](ProtocolsApi.md#list_nfs_aliases) | **GET** /platform/2/protocols/nfs/aliases | 
-[**list_nfs_exports**](ProtocolsApi.md#list_nfs_exports) | **GET** /platform/2/protocols/nfs/exports | 
+[**list_nfs_exports**](ProtocolsApi.md#list_nfs_exports) | **GET** /platform/4/protocols/nfs/exports | 
 [**list_ntp_servers**](ProtocolsApi.md#list_ntp_servers) | **GET** /platform/3/protocols/ntp/servers | 
 [**list_smb_log_level_filters**](ProtocolsApi.md#list_smb_log_level_filters) | **GET** /platform/3/protocols/smb/log-level/filters | 
-[**list_smb_shares**](ProtocolsApi.md#list_smb_shares) | **GET** /platform/3/protocols/smb/shares | 
+[**list_smb_shares**](ProtocolsApi.md#list_smb_shares) | **GET** /platform/4/protocols/smb/shares | 
 [**list_swift_accounts**](ProtocolsApi.md#list_swift_accounts) | **GET** /platform/3/protocols/swift/accounts | 
 [**update_ftp_settings**](ProtocolsApi.md#update_ftp_settings) | **PUT** /platform/3/protocols/ftp/settings | 
 [**update_hdfs_log_level**](ProtocolsApi.md#update_hdfs_log_level) | **PUT** /platform/3/protocols/hdfs/log-level | 
 [**update_hdfs_proxyuser**](ProtocolsApi.md#update_hdfs_proxyuser) | **PUT** /platform/1/protocols/hdfs/proxyusers/{HdfsProxyuserId} | 
 [**update_hdfs_rack**](ProtocolsApi.md#update_hdfs_rack) | **PUT** /platform/1/protocols/hdfs/racks/{HdfsRackId} | 
-[**update_hdfs_settings**](ProtocolsApi.md#update_hdfs_settings) | **PUT** /platform/3/protocols/hdfs/settings | 
+[**update_hdfs_ranger_plugin_settings**](ProtocolsApi.md#update_hdfs_ranger_plugin_settings) | **PUT** /platform/4/protocols/hdfs/ranger-plugin/settings | 
+[**update_hdfs_settings**](ProtocolsApi.md#update_hdfs_settings) | **PUT** /platform/4/protocols/hdfs/settings | 
 [**update_http_settings**](ProtocolsApi.md#update_http_settings) | **PUT** /platform/3/protocols/http/settings | 
 [**update_ndmp_diagnostics**](ProtocolsApi.md#update_ndmp_diagnostics) | **PUT** /platform/3/protocols/ndmp/diagnostics | 
 [**update_ndmp_settings_global**](ProtocolsApi.md#update_ndmp_settings_global) | **PUT** /platform/3/protocols/ndmp/settings/global | 
+[**update_ndmp_settings_preferred_ip**](ProtocolsApi.md#update_ndmp_settings_preferred_ip) | **PUT** /platform/4/protocols/ndmp/settings/preferred-ips/{NdmpSettingsPreferredIpId} | 
 [**update_ndmp_settings_variable**](ProtocolsApi.md#update_ndmp_settings_variable) | **PUT** /platform/3/protocols/ndmp/settings/variables/{NdmpSettingsVariableId} | 
 [**update_ndmp_user**](ProtocolsApi.md#update_ndmp_user) | **PUT** /platform/3/protocols/ndmp/users/{NdmpUserId} | 
 [**update_nfs_alias**](ProtocolsApi.md#update_nfs_alias) | **PUT** /platform/2/protocols/nfs/aliases/{NfsAliasId} | 
-[**update_nfs_export**](ProtocolsApi.md#update_nfs_export) | **PUT** /platform/2/protocols/nfs/exports/{NfsExportId} | 
+[**update_nfs_export**](ProtocolsApi.md#update_nfs_export) | **PUT** /platform/4/protocols/nfs/exports/{NfsExportId} | 
 [**update_nfs_log_level**](ProtocolsApi.md#update_nfs_log_level) | **PUT** /platform/3/protocols/nfs/log-level | 
 [**update_nfs_netgroup**](ProtocolsApi.md#update_nfs_netgroup) | **PUT** /platform/3/protocols/nfs/netgroup | 
 [**update_nfs_settings_export**](ProtocolsApi.md#update_nfs_settings_export) | **PUT** /platform/2/protocols/nfs/settings/export | 
@@ -117,7 +124,7 @@ Method | HTTP request | Description
 [**update_smb_log_level**](ProtocolsApi.md#update_smb_log_level) | **PUT** /platform/3/protocols/smb/log-level | 
 [**update_smb_settings_global**](ProtocolsApi.md#update_smb_settings_global) | **PUT** /platform/3/protocols/smb/settings/global | 
 [**update_smb_settings_share**](ProtocolsApi.md#update_smb_settings_share) | **PUT** /platform/3/protocols/smb/settings/share | 
-[**update_smb_share**](ProtocolsApi.md#update_smb_share) | **PUT** /platform/3/protocols/smb/shares/{SmbShareId} | 
+[**update_smb_share**](ProtocolsApi.md#update_smb_share) | **PUT** /platform/4/protocols/smb/shares/{SmbShareId} | 
 [**update_snmp_settings**](ProtocolsApi.md#update_snmp_settings) | **PUT** /platform/3/protocols/snmp/settings | 
 [**update_swift_account**](ProtocolsApi.md#update_swift_account) | **PUT** /platform/3/protocols/swift/accounts/{SwiftAccountId} | 
 
@@ -133,18 +140,18 @@ Create a new HDFS proxyuser.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
-hdfs_proxyuser = isi_sdk_8_0.HdfsProxyuserCreateParams() # HdfsProxyuserCreateParams | 
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+hdfs_proxyuser = isi_sdk_8_0_1.HdfsProxyuserCreateParams() # HdfsProxyuserCreateParams | 
 zone = 'zone_example' # str | Access zone which contains HDFS proxyuser. (optional)
 
 try:
@@ -187,18 +194,18 @@ Create a new HDFS rack.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
-hdfs_rack = isi_sdk_8_0.HdfsRackCreateParams() # HdfsRackCreateParams | 
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+hdfs_rack = isi_sdk_8_0_1.HdfsRackCreateParams() # HdfsRackCreateParams | 
 zone = 'zone_example' # str | Access zone which contains HDFS rack. (optional)
 
 try:
@@ -230,6 +237,58 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **create_ndmp_settings_preferred_ip**
+> Empty create_ndmp_settings_preferred_ip(ndmp_settings_preferred_ip)
+
+
+
+Create a preferred ip preference.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
+from pprint import pprint
+
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0_1.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+ndmp_settings_preferred_ip = isi_sdk_8_0_1.NdmpSettingsPreferredIpCreateParams() # NdmpSettingsPreferredIpCreateParams | 
+
+try:
+    api_response = api_instance.create_ndmp_settings_preferred_ip(ndmp_settings_preferred_ip)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ProtocolsApi->create_ndmp_settings_preferred_ip: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ndmp_settings_preferred_ip** | [**NdmpSettingsPreferredIpCreateParams**](NdmpSettingsPreferredIpCreateParams.md)|  | 
+
+### Return type
+
+[**Empty**](Empty.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **create_ndmp_settings_variable**
 > Empty create_ndmp_settings_variable(ndmp_settings_variable, ndmp_settings_variable_id)
 
@@ -241,18 +300,18 @@ Create a preferred NDMP environment variable.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
-ndmp_settings_variable = isi_sdk_8_0.NdmpSettingsVariableCreateParams() # NdmpSettingsVariableCreateParams | 
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+ndmp_settings_variable = isi_sdk_8_0_1.NdmpSettingsVariableCreateParams() # NdmpSettingsVariableCreateParams | 
 ndmp_settings_variable_id = 'ndmp_settings_variable_id_example' # str | Create a preferred NDMP environment variable.
 
 try:
@@ -295,18 +354,18 @@ Created a new user.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
-ndmp_user = isi_sdk_8_0.NdmpUserCreateParams() # NdmpUserCreateParams | 
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+ndmp_user = isi_sdk_8_0_1.NdmpUserCreateParams() # NdmpUserCreateParams | 
 
 try:
     api_response = api_instance.create_ndmp_user(ndmp_user)
@@ -347,18 +406,18 @@ Create a new NFS alias.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
-nfs_alias = isi_sdk_8_0.NfsAliasCreateParams() # NfsAliasCreateParams | 
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+nfs_alias = isi_sdk_8_0_1.NfsAliasCreateParams() # NfsAliasCreateParams | 
 zone = 'zone_example' # str | Access zone (optional)
 
 try:
@@ -391,7 +450,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_nfs_export**
-> CreateQuotaReportResponse create_nfs_export(nfs_export, force=force, ignore_unresolvable_hosts=ignore_unresolvable_hosts, zone=zone, ignore_conflicts=ignore_conflicts, ignore_bad_paths=ignore_bad_paths, ignore_bad_auth=ignore_bad_auth)
+> CreateQuotaReportResponse create_nfs_export(nfs_export, force=force, zone=zone)
 
 
 
@@ -401,27 +460,23 @@ Create a new NFS export.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
-nfs_export = isi_sdk_8_0.NfsExportCreateParams() # NfsExportCreateParams | 
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+nfs_export = isi_sdk_8_0_1.NfsExportCreateParams() # NfsExportCreateParams | 
 force = true # bool | If true, the export will be created even if it conflicts with another export. (optional)
-ignore_unresolvable_hosts = true # bool | Ignore unresolvable hosts. (optional)
 zone = 'zone_example' # str | Access zone (optional)
-ignore_conflicts = true # bool | Ignore conflicts with existing exports. (optional)
-ignore_bad_paths = true # bool | Ignore nonexistent or otherwise bad paths. (optional)
-ignore_bad_auth = true # bool | Ignore invalid users. (optional)
 
 try:
-    api_response = api_instance.create_nfs_export(nfs_export, force=force, ignore_unresolvable_hosts=ignore_unresolvable_hosts, zone=zone, ignore_conflicts=ignore_conflicts, ignore_bad_paths=ignore_bad_paths, ignore_bad_auth=ignore_bad_auth)
+    api_response = api_instance.create_nfs_export(nfs_export, force=force, zone=zone)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ProtocolsApi->create_nfs_export: %s\n" % e)
@@ -433,11 +488,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **nfs_export** | [**NfsExportCreateParams**](NfsExportCreateParams.md)|  | 
  **force** | **bool**| If true, the export will be created even if it conflicts with another export. | [optional] 
- **ignore_unresolvable_hosts** | **bool**| Ignore unresolvable hosts. | [optional] 
  **zone** | **str**| Access zone | [optional] 
- **ignore_conflicts** | **bool**| Ignore conflicts with existing exports. | [optional] 
- **ignore_bad_paths** | **bool**| Ignore nonexistent or otherwise bad paths. | [optional] 
- **ignore_bad_auth** | **bool**| Ignore invalid users. | [optional] 
 
 ### Return type
 
@@ -465,18 +516,18 @@ Update the NFS netgroups in the cache.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
-nfs_netgroup_check_item = isi_sdk_8_0.Empty() # Empty | 
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+nfs_netgroup_check_item = isi_sdk_8_0_1.Empty() # Empty | 
 host = 'host_example' # str | IP address of node to update. If unspecified, the local nodes cache is updated. (optional)
 
 try:
@@ -519,18 +570,18 @@ Flush the NFS netgroups in the cache.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
-nfs_netgroup_flush_item = isi_sdk_8_0.Empty() # Empty | 
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+nfs_netgroup_flush_item = isi_sdk_8_0_1.Empty() # Empty | 
 host = 'host_example' # str | IP address of node to flush. If unspecified, all nodes on the cluster are flushed. (optional)
 
 try:
@@ -573,18 +624,18 @@ Perform an active scan for lost NFSv3 locks.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
-nfs_nlm_sessions_check_item = isi_sdk_8_0.Empty() # Empty | 
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+nfs_nlm_sessions_check_item = isi_sdk_8_0_1.Empty() # Empty | 
 cluster_ip = 'cluster_ip_example' # str | An IP address for which NSM has client records (optional)
 zone = 'zone_example' # str | Represents an extant auth zone (optional)
 
@@ -629,18 +680,18 @@ Reload default NFS export configuration.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
-nfs_reload_item = isi_sdk_8_0.Empty() # Empty | 
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+nfs_reload_item = isi_sdk_8_0_1.Empty() # Empty | 
 zone = 'zone_example' # str | Access zone (optional)
 
 try:
@@ -683,18 +734,18 @@ Create an NTP server entry.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
-ntp_server = isi_sdk_8_0.NtpServerCreateParams() # NtpServerCreateParams | 
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+ntp_server = isi_sdk_8_0_1.NtpServerCreateParams() # NtpServerCreateParams | 
 
 try:
     api_response = api_instance.create_ntp_server(ntp_server)
@@ -735,18 +786,18 @@ Add an SMB log filter.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
-smb_log_level_filter = isi_sdk_8_0.SmbLogLevelFilter() # SmbLogLevelFilter | 
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+smb_log_level_filter = isi_sdk_8_0_1.SmbLogLevelFilter() # SmbLogLevelFilter | 
 
 try:
     api_response = api_instance.create_smb_log_level_filter(smb_log_level_filter)
@@ -787,18 +838,18 @@ Create a new share.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
-smb_share = isi_sdk_8_0.SmbShareCreateParams() # SmbShareCreateParams | 
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+smb_share = isi_sdk_8_0_1.SmbShareCreateParams() # SmbShareCreateParams | 
 zone = 'zone_example' # str | Zone which contains this share. (optional)
 
 try:
@@ -841,18 +892,18 @@ Create a new Swift account
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
-swift_account = isi_sdk_8_0.SwiftAccount() # SwiftAccount | 
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+swift_account = isi_sdk_8_0_1.SwiftAccount() # SwiftAccount | 
 zone = 'zone_example' # str | Access zone which contains Swift account. (optional)
 
 try:
@@ -895,17 +946,17 @@ Delete an HDFS proxyuser.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 hdfs_proxyuser_id = 'hdfs_proxyuser_id_example' # str | Delete an HDFS proxyuser.
 zone = 'zone_example' # str | Access zone which contains HDFS proxyuser. (optional)
 
@@ -948,17 +999,17 @@ Delete the HDFS rack.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 hdfs_rack_id = 'hdfs_rack_id_example' # str | Delete the HDFS rack.
 zone = 'zone_example' # str | Access zone which contains HDFS rack. (optional)
 
@@ -1001,17 +1052,17 @@ Delete a backup context
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 ndmp_contexts_backup_id = 'ndmp_contexts_backup_id_example' # str | Delete a backup context
 
 try:
@@ -1052,17 +1103,17 @@ Delete a NDMP BRE context
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 ndmp_contexts_bre_id = 'ndmp_contexts_bre_id_example' # str | Delete a NDMP BRE context
 
 try:
@@ -1103,17 +1154,17 @@ Delete a restore context
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 ndmp_contexts_restore_id = 'ndmp_contexts_restore_id_example' # str | Delete a restore context
 
 try:
@@ -1154,17 +1205,17 @@ Delete dumpdates entries of a specified path.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 ndmp_dumpdate_id = 'ndmp_dumpdate_id_example' # str | Delete dumpdates entries of a specified path.
 level = 56 # int | Level is an input from 0 to 10. (optional)
 
@@ -1207,17 +1258,17 @@ Delete the ndmp session.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 ndmp_session_id = 'ndmp_session_id_example' # str | Delete the ndmp session.
 lnn = 'lnn_example' # str | Logical node number. (optional)
 
@@ -1249,6 +1300,57 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **delete_ndmp_settings_preferred_ip**
+> delete_ndmp_settings_preferred_ip(ndmp_settings_preferred_ip_id)
+
+
+
+Delete a preferred ip preference.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
+from pprint import pprint
+
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0_1.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+ndmp_settings_preferred_ip_id = 'ndmp_settings_preferred_ip_id_example' # str | Delete a preferred ip preference.
+
+try:
+    api_instance.delete_ndmp_settings_preferred_ip(ndmp_settings_preferred_ip_id)
+except ApiException as e:
+    print("Exception when calling ProtocolsApi->delete_ndmp_settings_preferred_ip: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ndmp_settings_preferred_ip_id** | **str**| Delete a preferred ip preference. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **delete_ndmp_settings_variable**
 > delete_ndmp_settings_variable(ndmp_settings_variable_id, name=name)
 
@@ -1260,17 +1362,17 @@ Delete preferred environment variable entries
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 ndmp_settings_variable_id = 'ndmp_settings_variable_id_example' # str | Delete preferred environment variable entries
 name = 'name_example' # str | Name of the variable to delete. (optional)
 
@@ -1313,17 +1415,17 @@ Delete the user.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 ndmp_user_id = 'ndmp_user_id_example' # str | Delete the user.
 
 try:
@@ -1364,17 +1466,17 @@ Delete the export.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 nfs_alias_id = 'nfs_alias_id_example' # str | Delete the export.
 zone = 'zone_example' # str | Access zone (optional)
 
@@ -1417,17 +1519,17 @@ Delete the export.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 nfs_export_id = 'nfs_export_id_example' # str | Delete the export.
 zone = 'zone_example' # str | Access zone (optional)
 
@@ -1470,17 +1572,17 @@ Delete all lock state for this host.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 nfs_nlm_session_id = 'nfs_nlm_session_id_example' # str | Delete all lock state for this host.
 cluster_ip = 'cluster_ip_example' # str | An IP address for which NSM has client records (optional)
 zone = 'zone_example' # str | Represents an extant auth zone (optional)
@@ -1527,17 +1629,17 @@ Delete an NTP server entry.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 ntp_server_id = 'ntp_server_id_example' # str | Delete an NTP server entry.
 
 try:
@@ -1578,17 +1680,17 @@ Delete all NTP server entries.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 
 try:
     api_instance.delete_ntp_servers()
@@ -1625,17 +1727,17 @@ Delete log filter.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 smb_log_level_filter_id = 'smb_log_level_filter_id_example' # str | Delete log filter.
 
 try:
@@ -1676,17 +1778,17 @@ Delete existing SMB log filters.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 level = 'level_example' # str | Only return results with a given level. (optional)
 
 try:
@@ -1727,17 +1829,17 @@ Close the file in the SMB server.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 smb_openfile_id = 'smb_openfile_id_example' # str | Close the file in the SMB server.
 
 try:
@@ -1778,17 +1880,17 @@ Close the SMB session.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 smb_session_id = 'smb_session_id_example' # str | Close the SMB session.
 
 try:
@@ -1829,17 +1931,17 @@ Close the SMB session.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 smb_sessions_computer_user = 'smb_sessions_computer_user_example' # str | Close the SMB session.
 computer = 'computer_example' # str | 
 
@@ -1882,17 +1984,17 @@ Delete the share.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 smb_share_id = 'smb_share_id_example' # str | Delete the share.
 zone = 'zone_example' # str | Zone which contains this share. (optional)
 
@@ -1935,17 +2037,17 @@ Delete multiple smb shares.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 
 try:
     api_instance.delete_smb_shares()
@@ -1982,17 +2084,17 @@ Delete a Swift account.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 swift_account_id = 'swift_account_id_example' # str | Delete a Swift account.
 zone = 'zone_example' # str | Access zone which contains Swift account. (optional)
 
@@ -2035,17 +2137,17 @@ Retrieve the FTP settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_ftp_settings()
@@ -2083,17 +2185,17 @@ Retrieve the HDFS service log-level.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_hdfs_log_level()
@@ -2131,17 +2233,17 @@ View the proxyuser.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 hdfs_proxyuser_id = 'hdfs_proxyuser_id_example' # str | View the proxyuser.
 zone = 'zone_example' # str | Access zone which contains HDFS proxyuser. (optional)
 
@@ -2185,17 +2287,17 @@ Retrieve the HDFS rack.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 hdfs_rack_id = 'hdfs_rack_id_example' # str | Retrieve the HDFS rack.
 zone = 'zone_example' # str | Access zone which contains HDFS rack. (optional)
 
@@ -2228,6 +2330,54 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_hdfs_ranger_plugin_settings**
+> HdfsRangerPluginSettings get_hdfs_ranger_plugin_settings()
+
+
+
+Retrieve HDFS ranger-plugin properties.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
+from pprint import pprint
+
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0_1.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+
+try:
+    api_response = api_instance.get_hdfs_ranger_plugin_settings()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ProtocolsApi->get_hdfs_ranger_plugin_settings: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**HdfsRangerPluginSettings**](HdfsRangerPluginSettings.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_hdfs_settings**
 > HdfsSettings get_hdfs_settings(zone=zone)
 
@@ -2239,17 +2389,17 @@ Retrieve HDFS properties.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 zone = 'zone_example' # str | Access zone which contains HDFS settings. (optional)
 
 try:
@@ -2291,17 +2441,17 @@ Retrieve HTTP properties.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_http_settings()
@@ -2339,17 +2489,17 @@ Get List of NDMP Backup Contexts.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
 
@@ -2393,17 +2543,17 @@ View a NDMP backup context
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 ndmp_contexts_backup_id = 'ndmp_contexts_backup_id_example' # str | View a NDMP backup context
 
 try:
@@ -2445,17 +2595,17 @@ Get list of NDMP BRE Contexts.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
 
@@ -2499,17 +2649,17 @@ View a NDMP BRE context
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 ndmp_contexts_bre_id = 'ndmp_contexts_bre_id_example' # str | View a NDMP BRE context
 
 try:
@@ -2551,17 +2701,17 @@ Get List of NDMP Restore Contexts.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
 
@@ -2605,17 +2755,17 @@ View a NDMP restore context
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 ndmp_contexts_restore_id = 'ndmp_contexts_restore_id_example' # str | View a NDMP restore context
 
 try:
@@ -2657,17 +2807,17 @@ List ndmp diagnostics settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_ndmp_diagnostics()
@@ -2705,17 +2855,17 @@ List of dumpdates entries.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 ndmp_dumpdate_id = 'ndmp_dumpdate_id_example' # str | List of dumpdates entries.
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
@@ -2759,7 +2909,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_ndmp_logs**
-> NdmpLogs get_ndmp_logs()
+> NdmpLogs get_ndmp_logs(lnn=lnn, page=page, pagesize=pagesize)
 
 
 
@@ -2769,27 +2919,35 @@ Get NDMP logs
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+lnn = 'lnn_example' # str | Logical node number. (optional)
+page = 56 # int | The page number of the NDMP logs file. (optional)
+pagesize = 56 # int | The page size of each page of the NDMP log file. (optional)
 
 try:
-    api_response = api_instance.get_ndmp_logs()
+    api_response = api_instance.get_ndmp_logs(lnn=lnn, page=page, pagesize=pagesize)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ProtocolsApi->get_ndmp_logs: %s\n" % e)
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **lnn** | **str**| Logical node number. | [optional] 
+ **page** | **int**| The page number of the NDMP logs file. | [optional] 
+ **pagesize** | **int**| The page size of each page of the NDMP log file. | [optional] 
 
 ### Return type
 
@@ -2817,17 +2975,17 @@ Retrieve the ndmp session.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 ndmp_session_id = 'ndmp_session_id_example' # str | Retrieve the ndmp session.
 lnn = 'lnn_example' # str | Logical node number. (optional)
 
@@ -2871,17 +3029,17 @@ List all ndmp sessions.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 consolidate = true # bool | Combine sessions in the same context. (optional)
 node = 'node_example' # str | Only return sessions of the node. (optional)
 session = 'session_example' # str | Only return the specified session. (optional)
@@ -2931,17 +3089,17 @@ List of supported dma vendors.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_ndmp_settings_dmas()
@@ -2979,17 +3137,17 @@ List global ndmp settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_ndmp_settings_global()
@@ -3016,6 +3174,58 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_ndmp_settings_preferred_ip**
+> NdmpSettingsPreferredIps get_ndmp_settings_preferred_ip(ndmp_settings_preferred_ip_id)
+
+
+
+Get one preference by id.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
+from pprint import pprint
+
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0_1.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+ndmp_settings_preferred_ip_id = 'ndmp_settings_preferred_ip_id_example' # str | Get one preference by id.
+
+try:
+    api_response = api_instance.get_ndmp_settings_preferred_ip(ndmp_settings_preferred_ip_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ProtocolsApi->get_ndmp_settings_preferred_ip: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ndmp_settings_preferred_ip_id** | **str**| Get one preference by id. | 
+
+### Return type
+
+[**NdmpSettingsPreferredIps**](NdmpSettingsPreferredIps.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_ndmp_settings_variable**
 > NdmpSettingsVariables get_ndmp_settings_variable(ndmp_settings_variable_id, path=path, limit=limit, resume=resume)
 
@@ -3027,17 +3237,17 @@ List of preferred environment variables.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 ndmp_settings_variable_id = 'ndmp_settings_variable_id_example' # str | List of preferred environment variables.
 path = 'path_example' # str | Return variables of the path. (optional)
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
@@ -3085,17 +3295,17 @@ Retrieve the user.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 ndmp_user_id = 'ndmp_user_id_example' # str | Retrieve the user.
 
 try:
@@ -3137,17 +3347,17 @@ Retrieve export information.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 nfs_alias_id = 'nfs_alias_id_example' # str | Retrieve export information.
 scope = 'scope_example' # str | When specified as 'effective', or not specified, all fields are returned. When specified as 'user', only fields with non-default values are shown. When specified as 'default', the original values are returned. (optional)
 check = true # bool | Check for conflicts when viewing alias. (optional)
@@ -3195,17 +3405,17 @@ Retrieve NFS export validation information.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 ignore_bad_paths = true # bool | Ignore nonexistent or otherwise bad paths. (optional)
 ignore_bad_auth = true # bool | Ignore invalid users. (optional)
 zone = 'zone_example' # str | Access zone (optional)
@@ -3253,17 +3463,17 @@ Retrieve export information.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 nfs_export_id = 'nfs_export_id_example' # str | Retrieve export information.
 scope = 'scope_example' # str | When specified as 'effective', or not specified, all fields are returned. When specified as 'user', only fields with non-default values are shown. When specified as 'default', the original values are returned. (optional)
 zone = 'zone_example' # str | Access zone (optional)
@@ -3309,17 +3519,17 @@ Retrieve NFS export summary information.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 zone = 'zone_example' # str | Access zone (optional)
 
 try:
@@ -3361,17 +3571,17 @@ Get the current NFS service logging level.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_nfs_log_level()
@@ -3409,17 +3619,17 @@ Get the current NFS netgroup cache settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 host = 'host_example' # str | Host to retrieve netgroup cache settings from. (optional)
 
 try:
@@ -3461,17 +3671,17 @@ List all NLM locks.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 created = 'created_example' # str | Return locks created after the specified unix epoch time. (optional)
 lin = 'lin_example' # str | Filter locks by the specified LIN in /ifs that is locked. (optional)
@@ -3529,17 +3739,17 @@ Retrieve all lock state for a single client.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 nfs_nlm_session_id = 'nfs_nlm_session_id_example' # str | Retrieve all lock state for a single client.
 cluster_ip = 'cluster_ip_example' # str | An IP address for which NSM has client records (optional)
 zone = 'zone_example' # str | Represents an extant auth zone (optional)
@@ -3585,17 +3795,17 @@ List all NSM clients (optionally filtered by either zone or IP)
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 ip = 'ip_example' # str | An IP address for which NSM has client records (optional)
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
@@ -3645,17 +3855,17 @@ List all NLM lock waiters.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
 dir = 'dir_example' # str | The direction of the sort. (optional)
@@ -3703,17 +3913,17 @@ Retrieve export information.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 scope = 'scope_example' # str | If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned. (optional)
 zone = 'zone_example' # str | Access zone (optional)
 
@@ -3757,17 +3967,17 @@ Retrieve the NFS configuration.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_nfs_settings_global()
@@ -3805,17 +4015,17 @@ Retrieve the NFS server settings for this zone.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 zone = 'zone_example' # str | Access zone (optional)
 
 try:
@@ -3857,17 +4067,17 @@ Retrieve one NTP server.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 ntp_server_id = 'ntp_server_id_example' # str | Retrieve one NTP server.
 
 try:
@@ -3909,17 +4119,17 @@ Retrieve the NTP settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_ntp_settings()
@@ -3957,17 +4167,17 @@ Get the current SMB logging level.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_smb_log_level()
@@ -4005,17 +4215,17 @@ View log filter.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 smb_log_level_filter_id = 'smb_log_level_filter_id_example' # str | View log filter.
 
 try:
@@ -4057,17 +4267,17 @@ List open files.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 sort = 'sort_example' # str | Order results by this field. Default is id. (optional)
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
 dir = 'dir_example' # str | The direction of the sort. (optional)
@@ -4115,17 +4325,17 @@ List open sessions.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 sort = 'sort_example' # str | Order results by this field. (optional)
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
 dir = 'dir_example' # str | The direction of the sort. (optional)
@@ -4173,17 +4383,17 @@ List all settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 scope = 'scope_example' # str | If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned. (optional)
 
 try:
@@ -4225,17 +4435,17 @@ List all settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 scope = 'scope_example' # str | If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned. (optional)
 zone = 'zone_example' # str | Zone which contains these share settings. (optional)
 
@@ -4279,17 +4489,17 @@ Retrieve share.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 smb_share_id = 'smb_share_id_example' # str | Retrieve share.
 scope = 'scope_example' # str | If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned. (optional)
 resolve_names = true # bool | If true, resolve group and user names in personas. (optional)
@@ -4337,17 +4547,17 @@ Return summary information about shares.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 zone = 'zone_example' # str | Specifies which access zone or zones to use. (optional)
 
 try:
@@ -4389,17 +4599,17 @@ Retrieve the SNMP settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_snmp_settings()
@@ -4437,17 +4647,17 @@ List a swift account.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 swift_account_id = 'swift_account_id_example' # str | List a swift account.
 zone = 'zone_example' # str | Access zone which contains Swift account. (optional)
 
@@ -4491,17 +4701,17 @@ List all proxyusers.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 zone = 'zone_example' # str | Access zone which contains HDFS proxyusers. (optional)
 
 try:
@@ -4543,17 +4753,17 @@ List all racks.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 zone = 'zone_example' # str | Access zone which contains HDFS racks. (optional)
 
 try:
@@ -4584,6 +4794,54 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **list_ndmp_settings_preferred_ips**
+> NdmpSettingsPreferredIps list_ndmp_settings_preferred_ips()
+
+
+
+Get list of preferences.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
+from pprint import pprint
+
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0_1.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+
+try:
+    api_response = api_instance.list_ndmp_settings_preferred_ips()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ProtocolsApi->list_ndmp_settings_preferred_ips: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**NdmpSettingsPreferredIps**](NdmpSettingsPreferredIps.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **list_ndmp_users**
 > NdmpUsersExtended list_ndmp_users()
 
@@ -4595,17 +4853,17 @@ List all ndmp administrators.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 
 try:
     api_response = api_instance.list_ndmp_users()
@@ -4643,17 +4901,17 @@ List all NFS aliases.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 zone = 'zone_example' # str | Access zone (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
@@ -4695,7 +4953,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_nfs_exports**
-> NfsExportsExtended list_nfs_exports(sort=sort, zone=zone, resume=resume, limit=limit, scope=scope, path=path, check=check, dir=dir)
+> NfsExportsExtended list_nfs_exports(sort=sort, zone=zone, resume=resume, scope=scope, limit=limit, offset=offset, path=path, check=check, dir=dir)
 
 
 
@@ -4705,28 +4963,29 @@ List all NFS exports.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
-sort = 'sort_example' # str | The field that will be used for sorting. (optional)
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+sort = 'sort_example' # str | The field that will be used for sorting. Default is id. (optional)
 zone = 'zone_example' # str | Access zone (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
-limit = 56 # int | Return no more than this many results at once (see resume). (optional)
 scope = 'scope_example' # str | When specified as 'effective', or not specified, all fields are returned. When specified as 'user', only fields with non-default values are shown. When specified as 'default', the original values are returned. (optional)
+limit = 56 # int | Return no more than this many results at once (see resume). (optional)
+offset = 56 # int | The position of the first item returned for a paginated query within the full result set. (optional)
 path = 'path_example' # str | If specified, only exports that explicitly reference at least one of the given paths will be returned. (optional)
 check = true # bool | Check for conflicts when listing exports. (optional)
 dir = 'dir_example' # str | The direction of the sort. (optional)
 
 try:
-    api_response = api_instance.list_nfs_exports(sort=sort, zone=zone, resume=resume, limit=limit, scope=scope, path=path, check=check, dir=dir)
+    api_response = api_instance.list_nfs_exports(sort=sort, zone=zone, resume=resume, scope=scope, limit=limit, offset=offset, path=path, check=check, dir=dir)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ProtocolsApi->list_nfs_exports: %s\n" % e)
@@ -4736,11 +4995,12 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sort** | **str**| The field that will be used for sorting. | [optional] 
+ **sort** | **str**| The field that will be used for sorting. Default is id. | [optional] 
  **zone** | **str**| Access zone | [optional] 
  **resume** | **str**| Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). | [optional] 
- **limit** | **int**| Return no more than this many results at once (see resume). | [optional] 
  **scope** | **str**| When specified as &#39;effective&#39;, or not specified, all fields are returned. When specified as &#39;user&#39;, only fields with non-default values are shown. When specified as &#39;default&#39;, the original values are returned. | [optional] 
+ **limit** | **int**| Return no more than this many results at once (see resume). | [optional] 
+ **offset** | **int**| The position of the first item returned for a paginated query within the full result set. | [optional] 
  **path** | **str**| If specified, only exports that explicitly reference at least one of the given paths will be returned. | [optional] 
  **check** | **bool**| Check for conflicts when listing exports. | [optional] 
  **dir** | **str**| The direction of the sort. | [optional] 
@@ -4771,17 +5031,17 @@ List all NTP servers.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
 dir = 'dir_example' # str | The direction of the sort. (optional)
@@ -4829,17 +5089,17 @@ Get the current SMB log filters.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 dir = 'dir_example' # str | The direction of the sort. (optional)
 level = 'level_example' # str | Only return results with a given level. (optional)
@@ -4875,7 +5135,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_smb_shares**
-> SmbSharesExtended list_smb_shares(sort=sort, zone=zone, resume=resume, resolve_names=resolve_names, limit=limit, scope=scope, dir=dir)
+> SmbSharesExtended list_smb_shares(sort=sort, zone=zone, resume=resume, resolve_names=resolve_names, limit=limit, offset=offset, scope=scope, dir=dir)
 
 
 
@@ -4885,27 +5145,28 @@ List all shares.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 sort = 'sort_example' # str | Order results by this field. Default is id. (optional)
 zone = 'zone_example' # str | Zone which contains this share. (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
 resolve_names = true # bool | If true, resolve group and user names in personas. (optional)
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
+offset = 56 # int | The position of the first item returned for a paginated query within the full result set. (optional)
 scope = 'scope_example' # str | If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned. (optional)
 dir = 'dir_example' # str | The direction of the sort. (optional)
 
 try:
-    api_response = api_instance.list_smb_shares(sort=sort, zone=zone, resume=resume, resolve_names=resolve_names, limit=limit, scope=scope, dir=dir)
+    api_response = api_instance.list_smb_shares(sort=sort, zone=zone, resume=resume, resolve_names=resolve_names, limit=limit, offset=offset, scope=scope, dir=dir)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ProtocolsApi->list_smb_shares: %s\n" % e)
@@ -4920,6 +5181,7 @@ Name | Type | Description  | Notes
  **resume** | **str**| Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). | [optional] 
  **resolve_names** | **bool**| If true, resolve group and user names in personas. | [optional] 
  **limit** | **int**| Return no more than this many results at once (see resume). | [optional] 
+ **offset** | **int**| The position of the first item returned for a paginated query within the full result set. | [optional] 
  **scope** | **str**| If specified as \&quot;effective\&quot; or not specified, all fields are returned.  If specified as \&quot;user\&quot;, only fields with non-default values are shown.  If specified as \&quot;default\&quot;, the original values are returned. | [optional] 
  **dir** | **str**| The direction of the sort. | [optional] 
 
@@ -4949,17 +5211,17 @@ List all swift accounts.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
 zone = 'zone_example' # str | Access zone which contains Swift accounts. (optional)
 
 try:
@@ -5001,18 +5263,18 @@ Modify the FTP settings. All input fields are optional, but one or more must be 
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
-ftp_settings = isi_sdk_8_0.FtpSettingsExtended() # FtpSettingsExtended | 
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+ftp_settings = isi_sdk_8_0_1.FtpSettingsExtended() # FtpSettingsExtended | 
 
 try:
     api_instance.update_ftp_settings(ftp_settings)
@@ -5052,18 +5314,18 @@ Modify the HDFS service log-level.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
-hdfs_log_level = isi_sdk_8_0.HdfsLogLevel() # HdfsLogLevel | 
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+hdfs_log_level = isi_sdk_8_0_1.HdfsLogLevel() # HdfsLogLevel | 
 
 try:
     api_instance.update_hdfs_log_level(hdfs_log_level)
@@ -5103,18 +5365,18 @@ Modify an HDFS proxyuser.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
-hdfs_proxyuser = isi_sdk_8_0.Empty() # Empty | 
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+hdfs_proxyuser = isi_sdk_8_0_1.Empty() # Empty | 
 hdfs_proxyuser_id = 'hdfs_proxyuser_id_example' # str | Modify an HDFS proxyuser.
 zone = 'zone_example' # str | Access zone which contains HDFS proxyuser. (optional)
 
@@ -5158,18 +5420,18 @@ Modify the HDFS rack
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
-hdfs_rack = isi_sdk_8_0.HdfsRack() # HdfsRack | 
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+hdfs_rack = isi_sdk_8_0_1.HdfsRack() # HdfsRack | 
 hdfs_rack_id = 'hdfs_rack_id_example' # str | Modify the HDFS rack
 zone = 'zone_example' # str | Access zone which contains HDFS rack. (optional)
 
@@ -5202,6 +5464,57 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **update_hdfs_ranger_plugin_settings**
+> update_hdfs_ranger_plugin_settings(hdfs_ranger_plugin_settings)
+
+
+
+Modify HDFS ranger-plugin properties.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
+from pprint import pprint
+
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0_1.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+hdfs_ranger_plugin_settings = isi_sdk_8_0_1.HdfsRangerPluginSettingsSettings() # HdfsRangerPluginSettingsSettings | 
+
+try:
+    api_instance.update_hdfs_ranger_plugin_settings(hdfs_ranger_plugin_settings)
+except ApiException as e:
+    print("Exception when calling ProtocolsApi->update_hdfs_ranger_plugin_settings: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **hdfs_ranger_plugin_settings** | [**HdfsRangerPluginSettingsSettings**](HdfsRangerPluginSettingsSettings.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **update_hdfs_settings**
 > update_hdfs_settings(hdfs_settings, zone=zone)
 
@@ -5213,18 +5526,18 @@ Modify HDFS properties.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
-hdfs_settings = isi_sdk_8_0.HdfsSettingsSettings() # HdfsSettingsSettings | 
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+hdfs_settings = isi_sdk_8_0_1.HdfsSettingsSettings() # HdfsSettingsSettings | 
 zone = 'zone_example' # str | Access zone which contains HDFS settings. (optional)
 
 try:
@@ -5266,18 +5579,18 @@ Modify HTTP properties.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
-http_settings = isi_sdk_8_0.HttpSettingsSettings() # HttpSettingsSettings | 
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+http_settings = isi_sdk_8_0_1.HttpSettingsSettings() # HttpSettingsSettings | 
 
 try:
     api_instance.update_http_settings(http_settings)
@@ -5317,18 +5630,18 @@ Modify ndmp diagnostics settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
-ndmp_diagnostics = isi_sdk_8_0.NdmpDiagnosticsDiagnostics() # NdmpDiagnosticsDiagnostics | 
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+ndmp_diagnostics = isi_sdk_8_0_1.NdmpDiagnosticsDiagnostics() # NdmpDiagnosticsDiagnostics | 
 
 try:
     api_instance.update_ndmp_diagnostics(ndmp_diagnostics)
@@ -5368,18 +5681,18 @@ Modify one or more settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
-ndmp_settings_global = isi_sdk_8_0.NdmpSettingsGlobalGlobal() # NdmpSettingsGlobalGlobal | 
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+ndmp_settings_global = isi_sdk_8_0_1.NdmpSettingsGlobalGlobal() # NdmpSettingsGlobalGlobal | 
 
 try:
     api_instance.update_ndmp_settings_global(ndmp_settings_global)
@@ -5408,6 +5721,59 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **update_ndmp_settings_preferred_ip**
+> update_ndmp_settings_preferred_ip(ndmp_settings_preferred_ip, ndmp_settings_preferred_ip_id)
+
+
+
+Modify a preferred ip preference.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
+from pprint import pprint
+
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_0_1.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+ndmp_settings_preferred_ip = isi_sdk_8_0_1.NdmpSettingsPreferredIp() # NdmpSettingsPreferredIp | 
+ndmp_settings_preferred_ip_id = 'ndmp_settings_preferred_ip_id_example' # str | Modify a preferred ip preference.
+
+try:
+    api_instance.update_ndmp_settings_preferred_ip(ndmp_settings_preferred_ip, ndmp_settings_preferred_ip_id)
+except ApiException as e:
+    print("Exception when calling ProtocolsApi->update_ndmp_settings_preferred_ip: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ndmp_settings_preferred_ip** | [**NdmpSettingsPreferredIp**](NdmpSettingsPreferredIp.md)|  | 
+ **ndmp_settings_preferred_ip_id** | **str**| Modify a preferred ip preference. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **update_ndmp_settings_variable**
 > update_ndmp_settings_variable(ndmp_settings_variable, ndmp_settings_variable_id, name=name)
 
@@ -5419,18 +5785,18 @@ Modify or create a NDMP preferred environment variable.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
-ndmp_settings_variable = isi_sdk_8_0.NdmpSettingsVariable() # NdmpSettingsVariable | 
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+ndmp_settings_variable = isi_sdk_8_0_1.NdmpSettingsVariable() # NdmpSettingsVariable | 
 ndmp_settings_variable_id = 'ndmp_settings_variable_id_example' # str | Modify or create a NDMP preferred environment variable.
 name = 'name_example' # str | Name of the variable to modify. (optional)
 
@@ -5474,18 +5840,18 @@ Modify the user
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
-ndmp_user = isi_sdk_8_0.NdmpUser() # NdmpUser | 
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+ndmp_user = isi_sdk_8_0_1.NdmpUser() # NdmpUser | 
 ndmp_user_id = 'ndmp_user_id_example' # str | Modify the user
 
 try:
@@ -5527,18 +5893,18 @@ Modify the alias. All input fields are optional, but one or more must be supplie
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
-nfs_alias = isi_sdk_8_0.NfsAlias() # NfsAlias | 
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+nfs_alias = isi_sdk_8_0_1.NfsAlias() # NfsAlias | 
 nfs_alias_id = 'nfs_alias_id_example' # str | Modify the alias. All input fields are optional, but one or more must be supplied.
 zone = 'zone_example' # str | Access zone (optional)
 
@@ -5582,18 +5948,18 @@ Modify the export. All input fields are optional, but one or more must be suppli
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
-nfs_export = isi_sdk_8_0.NfsExport() # NfsExport | 
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+nfs_export = isi_sdk_8_0_1.NfsExport() # NfsExport | 
 nfs_export_id = 'nfs_export_id_example' # str | Modify the export. All input fields are optional, but one or more must be supplied.
 force = true # bool | If true, the export will be updated even if that change conflicts with another export. (optional)
 ignore_unresolvable_hosts = true # bool | Ignore unresolvable hosts. (optional)
@@ -5647,18 +6013,18 @@ Set the current NFS service logging level.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
-nfs_log_level = isi_sdk_8_0.NfsLogLevel() # NfsLogLevel | 
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+nfs_log_level = isi_sdk_8_0_1.NfsLogLevel() # NfsLogLevel | 
 
 try:
     api_instance.update_nfs_log_level(nfs_log_level)
@@ -5698,18 +6064,18 @@ Modify the current NFS netgroup settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
-nfs_netgroup = isi_sdk_8_0.NfsNetgroup() # NfsNetgroup | 
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+nfs_netgroup = isi_sdk_8_0_1.NfsNetgroup() # NfsNetgroup | 
 host = 'host_example' # str | Host to retrieve netgroup cache settings for. (optional)
 
 try:
@@ -5751,18 +6117,18 @@ Modify the default values for NFS exports. All input fields are optional, but on
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
-nfs_settings_export = isi_sdk_8_0.NfsSettingsExportSettings() # NfsSettingsExportSettings | 
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+nfs_settings_export = isi_sdk_8_0_1.NfsSettingsExportSettings() # NfsSettingsExportSettings | 
 zone = 'zone_example' # str | Access zone (optional)
 
 try:
@@ -5804,18 +6170,18 @@ Modify the default values for NFS exports. All input fields are optional, but on
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
-nfs_settings_global = isi_sdk_8_0.NfsSettingsGlobalSettings() # NfsSettingsGlobalSettings | 
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+nfs_settings_global = isi_sdk_8_0_1.NfsSettingsGlobalSettings() # NfsSettingsGlobalSettings | 
 
 try:
     api_instance.update_nfs_settings_global(nfs_settings_global)
@@ -5855,18 +6221,18 @@ Modify the NFS server settings for this zone.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
-nfs_settings_zone = isi_sdk_8_0.NfsSettingsZoneSettings() # NfsSettingsZoneSettings | 
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+nfs_settings_zone = isi_sdk_8_0_1.NfsSettingsZoneSettings() # NfsSettingsZoneSettings | 
 zone = 'zone_example' # str | Access zone (optional)
 
 try:
@@ -5908,18 +6274,18 @@ Modify the key value for an NTP server.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
-ntp_server = isi_sdk_8_0.NtpServer() # NtpServer | 
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+ntp_server = isi_sdk_8_0_1.NtpServer() # NtpServer | 
 ntp_server_id = 'ntp_server_id_example' # str | Modify the key value for an NTP server.
 
 try:
@@ -5961,18 +6327,18 @@ Modify the NTP settings. All input fields are optional, but one or more must be 
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
-ntp_settings = isi_sdk_8_0.NtpSettingsSettings() # NtpSettingsSettings | 
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+ntp_settings = isi_sdk_8_0_1.NtpSettingsSettings() # NtpSettingsSettings | 
 
 try:
     api_instance.update_ntp_settings(ntp_settings)
@@ -6012,18 +6378,18 @@ Set the current SMB logging level.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
-smb_log_level = isi_sdk_8_0.SmbLogLevel() # SmbLogLevel | 
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+smb_log_level = isi_sdk_8_0_1.SmbLogLevel() # SmbLogLevel | 
 
 try:
     api_instance.update_smb_log_level(smb_log_level)
@@ -6063,18 +6429,18 @@ Modify one or more settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
-smb_settings_global = isi_sdk_8_0.SmbSettingsGlobalExtended() # SmbSettingsGlobalExtended | 
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+smb_settings_global = isi_sdk_8_0_1.SmbSettingsGlobalExtended() # SmbSettingsGlobalExtended | 
 
 try:
     api_instance.update_smb_settings_global(smb_settings_global)
@@ -6114,18 +6480,18 @@ Modify one or more settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
-smb_settings_share = isi_sdk_8_0.SmbSettingsShareExtended() # SmbSettingsShareExtended | 
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+smb_settings_share = isi_sdk_8_0_1.SmbSettingsShareExtended() # SmbSettingsShareExtended | 
 zone = 'zone_example' # str | Zone which contains these share settings. (optional)
 
 try:
@@ -6167,18 +6533,18 @@ Modify share. All input fields are optional, but one or more must be supplied.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
-smb_share = isi_sdk_8_0.SmbShare() # SmbShare | 
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+smb_share = isi_sdk_8_0_1.SmbShare() # SmbShare | 
 smb_share_id = 'smb_share_id_example' # str | Modify share. All input fields are optional, but one or more must be supplied.
 zone = 'zone_example' # str | Zone which contains this share. (optional)
 
@@ -6222,18 +6588,18 @@ Modify the SNMO settings. All input fields are optional, but one or more must be
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
-snmp_settings = isi_sdk_8_0.SnmpSettingsExtended() # SnmpSettingsExtended | 
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+snmp_settings = isi_sdk_8_0_1.SnmpSettingsExtended() # SnmpSettingsExtended | 
 
 try:
     api_instance.update_snmp_settings(snmp_settings)
@@ -6273,18 +6639,18 @@ Modify a Swift account
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ProtocolsApi(isi_sdk_8_0.ApiClient(configuration))
-swift_account = isi_sdk_8_0.SwiftAccount() # SwiftAccount | 
+api_instance = isi_sdk_8_0_1.ProtocolsApi(isi_sdk_8_0_1.ApiClient(configuration))
+swift_account = isi_sdk_8_0_1.SwiftAccount() # SwiftAccount | 
 swift_account_id = 'swift_account_id_example' # str | Modify a Swift account
 zone = 'zone_example' # str | Access zone which contains Swift account. (optional)
 

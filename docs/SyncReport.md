@@ -44,7 +44,7 @@ Name | Type | Description | Notes
 **network_bytes_to_target** | **int** | The total number of bytes sent to the target by this job. | 
 **new_files_replicated** | **int** | The number of new files replicated by this job. | 
 **num_retransmitted_files** | **int** | The number of files that have been retransmitted by this job. | 
-**phases** | [**list[ReportSubreportPhase]**](ReportSubreportPhase.md) | Data for each phase of this job. | 
+**phases** | [**list[SyncJobPhase]**](SyncJobPhase.md) | Data for each phase of this job. | 
 **policy** | [**SyncReportPolicy**](SyncReportPolicy.md) |  | 
 **policy_action** | **str** | This is the action the policy is configured to perform. | 
 **policy_id** | **str** | The ID of the policy. | 
@@ -90,6 +90,7 @@ Name | Type | Description | Notes
 **updated_files_replicated** | **int** | The number of updated files replicated by this job. | 
 **user_conflict_files_skipped** | **int** | The number of files with user conflicts skipped by this job. | 
 **warnings** | **list[str]** | A list of warning messages for this job. | 
+**worm_committed_file_conflicts** | **int** | The number of WORM committed files which needed to be reverted. Since WORM committed files cannot be reverted, this is the number of files that were preserved in the compliance store. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

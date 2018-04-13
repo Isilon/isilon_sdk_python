@@ -1,4 +1,4 @@
-# isi_sdk_8_0.AuthUsersApi
+# isi_sdk_8_0_1.AuthUsersApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -21,18 +21,18 @@ Add the user to a group.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.AuthUsersApi(isi_sdk_8_0.ApiClient(configuration))
-user_member_of_item = isi_sdk_8_0.GroupMember() # GroupMember | 
+api_instance = isi_sdk_8_0_1.AuthUsersApi(isi_sdk_8_0_1.ApiClient(configuration))
+user_member_of_item = isi_sdk_8_0_1.AuthAccessAccessItemFileGroup() # AuthAccessAccessItemFileGroup | 
 user = 'user_example' # str | 
 zone = 'zone_example' # str | Filter groups by zone. (optional)
 provider = 'provider_example' # str | Filter groups by provider. (optional)
@@ -48,7 +48,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_member_of_item** | [**GroupMember**](GroupMember.md)|  | 
+ **user_member_of_item** | [**AuthAccessAccessItemFileGroup**](AuthAccessAccessItemFileGroup.md)|  | 
  **user** | **str**|  | 
  **zone** | **str**| Filter groups by zone. | [optional] 
  **provider** | **str**| Filter groups by provider. | [optional] 
@@ -79,17 +79,17 @@ Remove the user from the group.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.AuthUsersApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.AuthUsersApi(isi_sdk_8_0_1.ApiClient(configuration))
 user_member_of_member_of = 'user_member_of_member_of_example' # str | Remove the user from the group.
 user = 'user_example' # str | 
 zone = 'zone_example' # str | Filter groups by zone. (optional)
@@ -136,17 +136,17 @@ List all groups the user is a member of.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.AuthUsersApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.AuthUsersApi(isi_sdk_8_0_1.ApiClient(configuration))
 user = 'user_example' # str | 
 resolve_names = true # bool | Resolve names of personas. (optional)
 zone = 'zone_example' # str | Filter groups by zone. (optional)
@@ -194,18 +194,18 @@ Change the user's password.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.AuthUsersApi(isi_sdk_8_0.ApiClient(configuration))
-user_change_password = isi_sdk_8_0.UserChangePassword() # UserChangePassword | 
+api_instance = isi_sdk_8_0_1.AuthUsersApi(isi_sdk_8_0_1.ApiClient(configuration))
+user_change_password = isi_sdk_8_0_1.UserChangePassword() # UserChangePassword | 
 user = 'user_example' # str | 
 zone = 'zone_example' # str | Specifies access zone containing user. (optional)
 

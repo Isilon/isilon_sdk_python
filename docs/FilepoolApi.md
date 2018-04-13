@@ -1,18 +1,18 @@
-# isi_sdk_8_0.FilepoolApi
+# isi_sdk_8_0_1.FilepoolApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_filepool_policy**](FilepoolApi.md#create_filepool_policy) | **POST** /platform/1/filepool/policies | 
-[**delete_filepool_policy**](FilepoolApi.md#delete_filepool_policy) | **DELETE** /platform/1/filepool/policies/{FilepoolPolicyId} | 
-[**get_filepool_default_policy**](FilepoolApi.md#get_filepool_default_policy) | **GET** /platform/1/filepool/default-policy | 
-[**get_filepool_policy**](FilepoolApi.md#get_filepool_policy) | **GET** /platform/1/filepool/policies/{FilepoolPolicyId} | 
-[**get_filepool_template**](FilepoolApi.md#get_filepool_template) | **GET** /platform/1/filepool/templates/{FilepoolTemplateId} | 
-[**get_filepool_templates**](FilepoolApi.md#get_filepool_templates) | **GET** /platform/1/filepool/templates | 
-[**list_filepool_policies**](FilepoolApi.md#list_filepool_policies) | **GET** /platform/1/filepool/policies | 
-[**update_filepool_default_policy**](FilepoolApi.md#update_filepool_default_policy) | **PUT** /platform/1/filepool/default-policy | 
-[**update_filepool_policy**](FilepoolApi.md#update_filepool_policy) | **PUT** /platform/1/filepool/policies/{FilepoolPolicyId} | 
+[**create_filepool_policy**](FilepoolApi.md#create_filepool_policy) | **POST** /platform/4/filepool/policies | 
+[**delete_filepool_policy**](FilepoolApi.md#delete_filepool_policy) | **DELETE** /platform/4/filepool/policies/{FilepoolPolicyId} | 
+[**get_filepool_default_policy**](FilepoolApi.md#get_filepool_default_policy) | **GET** /platform/4/filepool/default-policy | 
+[**get_filepool_policy**](FilepoolApi.md#get_filepool_policy) | **GET** /platform/4/filepool/policies/{FilepoolPolicyId} | 
+[**get_filepool_template**](FilepoolApi.md#get_filepool_template) | **GET** /platform/4/filepool/templates/{FilepoolTemplateId} | 
+[**get_filepool_templates**](FilepoolApi.md#get_filepool_templates) | **GET** /platform/4/filepool/templates | 
+[**list_filepool_policies**](FilepoolApi.md#list_filepool_policies) | **GET** /platform/4/filepool/policies | 
+[**update_filepool_default_policy**](FilepoolApi.md#update_filepool_default_policy) | **PUT** /platform/4/filepool/default-policy | 
+[**update_filepool_policy**](FilepoolApi.md#update_filepool_policy) | **PUT** /platform/4/filepool/policies/{FilepoolPolicyId} | 
 
 
 # **create_filepool_policy**
@@ -26,18 +26,18 @@ Create a new policy.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.FilepoolApi(isi_sdk_8_0.ApiClient(configuration))
-filepool_policy = isi_sdk_8_0.FilepoolPolicyCreateParams() # FilepoolPolicyCreateParams | 
+api_instance = isi_sdk_8_0_1.FilepoolApi(isi_sdk_8_0_1.ApiClient(configuration))
+filepool_policy = isi_sdk_8_0_1.FilepoolPolicyCreateParams() # FilepoolPolicyCreateParams | 
 
 try:
     api_response = api_instance.create_filepool_policy(filepool_policy)
@@ -78,17 +78,17 @@ Delete file pool policy.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.FilepoolApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.FilepoolApi(isi_sdk_8_0_1.ApiClient(configuration))
 filepool_policy_id = 'filepool_policy_id_example' # str | Delete file pool policy.
 
 try:
@@ -129,17 +129,17 @@ List default file pool policy.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.FilepoolApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.FilepoolApi(isi_sdk_8_0_1.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_filepool_default_policy()
@@ -177,17 +177,17 @@ Retrieve file pool policy information.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.FilepoolApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.FilepoolApi(isi_sdk_8_0_1.ApiClient(configuration))
 filepool_policy_id = 'filepool_policy_id_example' # str | Retrieve file pool policy information.
 
 try:
@@ -229,17 +229,17 @@ List all templates.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.FilepoolApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.FilepoolApi(isi_sdk_8_0_1.ApiClient(configuration))
 filepool_template_id = 'filepool_template_id_example' # str | List all templates.
 
 try:
@@ -281,17 +281,17 @@ List all templates.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.FilepoolApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.FilepoolApi(isi_sdk_8_0_1.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_filepool_templates()
@@ -319,7 +319,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_filepool_policies**
-> FilepoolPoliciesExtended list_filepool_policies()
+> FilepoolPolicies list_filepool_policies()
 
 
 
@@ -329,17 +329,17 @@ List all policies.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.FilepoolApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.FilepoolApi(isi_sdk_8_0_1.ApiClient(configuration))
 
 try:
     api_response = api_instance.list_filepool_policies()
@@ -353,7 +353,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**FilepoolPoliciesExtended**](FilepoolPoliciesExtended.md)
+[**FilepoolPolicies**](FilepoolPolicies.md)
 
 ### Authorization
 
@@ -377,18 +377,18 @@ Set default file pool policy.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.FilepoolApi(isi_sdk_8_0.ApiClient(configuration))
-filepool_default_policy = isi_sdk_8_0.FilepoolDefaultPolicyExtended() # FilepoolDefaultPolicyExtended | 
+api_instance = isi_sdk_8_0_1.FilepoolApi(isi_sdk_8_0_1.ApiClient(configuration))
+filepool_default_policy = isi_sdk_8_0_1.FilepoolDefaultPolicyExtended() # FilepoolDefaultPolicyExtended | 
 
 try:
     api_instance.update_filepool_default_policy(filepool_default_policy)
@@ -428,18 +428,18 @@ Modify file pool policy. All input fields are optional, but one or more must be 
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.FilepoolApi(isi_sdk_8_0.ApiClient(configuration))
-filepool_policy = isi_sdk_8_0.FilepoolPolicy() # FilepoolPolicy | 
+api_instance = isi_sdk_8_0_1.FilepoolApi(isi_sdk_8_0_1.ApiClient(configuration))
+filepool_policy = isi_sdk_8_0_1.FilepoolPolicy() # FilepoolPolicy | 
 filepool_policy_id = 'filepool_policy_id_example' # str | Modify file pool policy. All input fields are optional, but one or more must be supplied.
 
 try:

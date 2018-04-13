@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **description** | **str** | Specifies the description of the role. | [optional] 
-**members** | [**list[GroupMember]**](GroupMember.md) | Specifies the users or groups that have this role. | 
+**members** | [**list[AuthAccessAccessItemFileGroup]**](AuthAccessAccessItemFileGroup.md) | Specifies the users or groups that have this role. | 
 **name** | **str** | Specifies the name of the role. | 
 **privileges** | [**list[AuthIdNtokenPrivilegeItem]**](AuthIdNtokenPrivilegeItem.md) | Specifies the privileges granted by this role. | 
 **id** | **str** | Specifies the ID of the role. | 

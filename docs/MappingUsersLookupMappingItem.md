@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **groups** | [**list[MappingUsersLookupMappingItemGroup]**](MappingUsersLookupMappingItemGroup.md) |  | [optional] 
+**object_history** | [**list[AuthGroupObjectHistoryItem]**](AuthGroupObjectHistoryItem.md) |  | [optional] 
 **privileges** | [**list[AuthIdNtokenPrivilegeItem]**](AuthIdNtokenPrivilegeItem.md) |  | [optional] 
 **user** | [**MappingUsersLookupMappingItemUser**](MappingUsersLookupMappingItemUser.md) | Specifies the configuration properties for a user. | [optional] 
 **zid** | **int** |  | [optional] 

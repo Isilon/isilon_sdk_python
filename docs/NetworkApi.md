@@ -1,4 +1,4 @@
-# isi_sdk_8_0.NetworkApi
+# isi_sdk_8_0_1.NetworkApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -11,10 +11,10 @@ Method | HTTP request | Description
 [**get_network_dnscache**](NetworkApi.md#get_network_dnscache) | **GET** /platform/3/network/dnscache | 
 [**get_network_external**](NetworkApi.md#get_network_external) | **GET** /platform/3/network/external | 
 [**get_network_groupnet**](NetworkApi.md#get_network_groupnet) | **GET** /platform/3/network/groupnets/{NetworkGroupnetId} | 
-[**get_network_interfaces**](NetworkApi.md#get_network_interfaces) | **GET** /platform/3/network/interfaces | 
+[**get_network_interfaces**](NetworkApi.md#get_network_interfaces) | **GET** /platform/4/network/interfaces | 
 [**get_network_pools**](NetworkApi.md#get_network_pools) | **GET** /platform/3/network/pools | 
 [**get_network_rules**](NetworkApi.md#get_network_rules) | **GET** /platform/3/network/rules | 
-[**get_network_subnets**](NetworkApi.md#get_network_subnets) | **GET** /platform/3/network/subnets | 
+[**get_network_subnets**](NetworkApi.md#get_network_subnets) | **GET** /platform/4/network/subnets | 
 [**list_network_groupnets**](NetworkApi.md#list_network_groupnets) | **GET** /platform/3/network/groupnets | 
 [**update_network_dnscache**](NetworkApi.md#update_network_dnscache) | **PUT** /platform/3/network/dnscache | 
 [**update_network_external**](NetworkApi.md#update_network_external) | **PUT** /platform/3/network/external | 
@@ -32,18 +32,18 @@ Flush the DNSCache.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.NetworkApi(isi_sdk_8_0.ApiClient(configuration))
-dnscache_flush_item = isi_sdk_8_0.Empty() # Empty | 
+api_instance = isi_sdk_8_0_1.NetworkApi(isi_sdk_8_0_1.ApiClient(configuration))
+dnscache_flush_item = isi_sdk_8_0_1.Empty() # Empty | 
 
 try:
     api_response = api_instance.create_dnscache_flush_item(dnscache_flush_item)
@@ -84,18 +84,18 @@ Create a new groupnet.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.NetworkApi(isi_sdk_8_0.ApiClient(configuration))
-network_groupnet = isi_sdk_8_0.NetworkGroupnetCreateParams() # NetworkGroupnetCreateParams | 
+api_instance = isi_sdk_8_0_1.NetworkApi(isi_sdk_8_0_1.ApiClient(configuration))
+network_groupnet = isi_sdk_8_0_1.NetworkGroupnetCreateParams() # NetworkGroupnetCreateParams | 
 
 try:
     api_response = api_instance.create_network_groupnet(network_groupnet)
@@ -136,18 +136,18 @@ Rebalance IP addresses in all pools.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.NetworkApi(isi_sdk_8_0.ApiClient(configuration))
-network_sc_rebalance_all_item = isi_sdk_8_0.Empty() # Empty | 
+api_instance = isi_sdk_8_0_1.NetworkApi(isi_sdk_8_0_1.ApiClient(configuration))
+network_sc_rebalance_all_item = isi_sdk_8_0_1.Empty() # Empty | 
 
 try:
     api_response = api_instance.create_network_sc_rebalance_all_item(network_sc_rebalance_all_item)
@@ -188,17 +188,17 @@ Delete a network groupnet.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.NetworkApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.NetworkApi(isi_sdk_8_0_1.ApiClient(configuration))
 network_groupnet_id = 'network_groupnet_id_example' # str | Delete a network groupnet.
 
 try:
@@ -239,17 +239,17 @@ View network dns cache settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.NetworkApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.NetworkApi(isi_sdk_8_0_1.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_network_dnscache()
@@ -287,17 +287,17 @@ View external network settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.NetworkApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.NetworkApi(isi_sdk_8_0_1.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_network_external()
@@ -335,17 +335,17 @@ View a network groupnet.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.NetworkApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.NetworkApi(isi_sdk_8_0_1.ApiClient(configuration))
 network_groupnet_id = 'network_groupnet_id_example' # str | View a network groupnet.
 
 try:
@@ -387,17 +387,17 @@ Get a list of interfaces.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.NetworkApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.NetworkApi(isi_sdk_8_0_1.ApiClient(configuration))
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 network = 'network_example' # str | Show interfaces associated with external and/or internal networks. Default is 'external' (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
@@ -451,17 +451,17 @@ Get a list of flexnet pools.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.NetworkApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.NetworkApi(isi_sdk_8_0_1.ApiClient(configuration))
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 subnet = 'subnet_example' # str | If specified, only pools for this subnet will be returned. (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
@@ -517,17 +517,17 @@ Get a list of network rules.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.NetworkApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.NetworkApi(isi_sdk_8_0_1.ApiClient(configuration))
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 subnet = 'subnet_example' # str | Name of the subnet to list rules from. (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
@@ -581,17 +581,17 @@ Get a list of subnets.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.NetworkApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.NetworkApi(isi_sdk_8_0_1.ApiClient(configuration))
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 groupnet = 'groupnet_example' # str | If specified, only subnets for this groupnet will be returned. (optional)
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
@@ -641,17 +641,17 @@ Get a list of groupnets.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.NetworkApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.NetworkApi(isi_sdk_8_0_1.ApiClient(configuration))
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
 dir = 'dir_example' # str | The direction of the sort. (optional)
@@ -699,18 +699,18 @@ Modify network dns cache settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.NetworkApi(isi_sdk_8_0.ApiClient(configuration))
-network_dnscache = isi_sdk_8_0.NetworkDnscacheExtended() # NetworkDnscacheExtended | 
+api_instance = isi_sdk_8_0_1.NetworkApi(isi_sdk_8_0_1.ApiClient(configuration))
+network_dnscache = isi_sdk_8_0_1.NetworkDnscacheExtended() # NetworkDnscacheExtended | 
 
 try:
     api_instance.update_network_dnscache(network_dnscache)
@@ -750,18 +750,18 @@ Modify external network settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.NetworkApi(isi_sdk_8_0.ApiClient(configuration))
-network_external = isi_sdk_8_0.NetworkExternalExtended() # NetworkExternalExtended | 
+api_instance = isi_sdk_8_0_1.NetworkApi(isi_sdk_8_0_1.ApiClient(configuration))
+network_external = isi_sdk_8_0_1.NetworkExternalExtended() # NetworkExternalExtended | 
 
 try:
     api_instance.update_network_external(network_external)
@@ -801,18 +801,18 @@ Modify a network groupnet.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.NetworkApi(isi_sdk_8_0.ApiClient(configuration))
-network_groupnet = isi_sdk_8_0.NetworkGroupnet() # NetworkGroupnet | 
+api_instance = isi_sdk_8_0_1.NetworkApi(isi_sdk_8_0_1.ApiClient(configuration))
+network_groupnet = isi_sdk_8_0_1.NetworkGroupnet() # NetworkGroupnet | 
 network_groupnet_id = 'network_groupnet_id_example' # str | Modify a network groupnet.
 
 try:

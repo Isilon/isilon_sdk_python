@@ -1,4 +1,4 @@
-# isi_sdk_8_0.SnapshotSnapshotsApi
+# isi_sdk_8_0_1.SnapshotSnapshotsApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -23,18 +23,18 @@ Create a new lock on this snapshot.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.SnapshotSnapshotsApi(isi_sdk_8_0.ApiClient(configuration))
-snapshot_lock = isi_sdk_8_0.SnapshotLockCreateParams() # SnapshotLockCreateParams | 
+api_instance = isi_sdk_8_0_1.SnapshotSnapshotsApi(isi_sdk_8_0_1.ApiClient(configuration))
+snapshot_lock = isi_sdk_8_0_1.SnapshotLockCreateParams() # SnapshotLockCreateParams | 
 sid = 'sid_example' # str | 
 
 try:
@@ -77,17 +77,17 @@ Delete the snapshot lock.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.SnapshotSnapshotsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.SnapshotSnapshotsApi(isi_sdk_8_0_1.ApiClient(configuration))
 snapshot_lock_id = 'snapshot_lock_id_example' # str | Delete the snapshot lock.
 sid = 'sid_example' # str | 
 
@@ -130,17 +130,17 @@ Delete all locks. Will try to drain count of recursively held locks so that the 
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.SnapshotSnapshotsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.SnapshotSnapshotsApi(isi_sdk_8_0_1.ApiClient(configuration))
 sid = 'sid_example' # str | 
 
 try:
@@ -181,17 +181,17 @@ Retrieve lock information.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.SnapshotSnapshotsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.SnapshotSnapshotsApi(isi_sdk_8_0_1.ApiClient(configuration))
 snapshot_lock_id = 'snapshot_lock_id_example' # str | Retrieve lock information.
 sid = 'sid_example' # str | 
 
@@ -235,17 +235,17 @@ List all locks.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.SnapshotSnapshotsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.SnapshotSnapshotsApi(isi_sdk_8_0_1.ApiClient(configuration))
 sid = 'sid_example' # str | 
 sort = 'sort_example' # str | The field that will be used for sorting.  Choices are id, expires, and comment.  Default is id. (optional)
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
@@ -295,18 +295,18 @@ Modify lock. All input fields are optional, but one or more must be supplied.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.SnapshotSnapshotsApi(isi_sdk_8_0.ApiClient(configuration))
-snapshot_lock = isi_sdk_8_0.SnapshotLock() # SnapshotLock | 
+api_instance = isi_sdk_8_0_1.SnapshotSnapshotsApi(isi_sdk_8_0_1.ApiClient(configuration))
+snapshot_lock = isi_sdk_8_0_1.SnapshotLock() # SnapshotLock | 
 snapshot_lock_id = 'snapshot_lock_id_example' # str | Modify lock. All input fields are optional, but one or more must be supplied.
 sid = 'sid_example' # str | 
 

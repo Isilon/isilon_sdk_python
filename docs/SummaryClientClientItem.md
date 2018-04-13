@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **time_avg** | **float** | The average elapsed time (in microseconds) taken to complete an operation. | 
 **time_max** | **float** | The maximum elapsed time (in microseconds) taken to complete an operation. | 
 **time_min** | **float** | The minimum elapsed time (in microseconds) taken to complete an operation. | 
-**user** | [**GroupMember**](GroupMember.md) | User issuing the operation. | [optional] 
+**user** | [**AuthAccessAccessItemFileGroup**](AuthAccessAccessItemFileGroup.md) | Specifies properties for a persona, which consists of either a &#39;type&#39; and a &#39;name&#39; or an &#39;ID&#39;. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

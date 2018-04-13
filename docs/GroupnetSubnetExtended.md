@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **name** | **str** | The name of the subnet. | [optional] 
 **prefixlen** | **int** | Subnet Prefix Length. | [optional] 
 **sc_service_addr** | **str** | The address that SmartConnect listens for DNS requests. | [optional] 
+**sc_service_name** | **str** | Domain Name corresponding to the SmartConnect Service Address. | [optional] 
 **vlan_enabled** | **bool** | VLAN tagging enabled or disabled. | [optional] 
 **vlan_id** | **int** | VLAN ID for all interfaces in the subnet. | [optional] 
 **addr_family** | **str** | IP address format. | [optional] 

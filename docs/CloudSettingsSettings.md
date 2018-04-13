@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**cloud_policy_defaults** | [**Empty**](Empty.md) | The default filepool policy values for cloud pools. | [optional] 
+**cloud_policy_defaults** | [**CloudSettingsSettingsCloudPolicyDefaults**](CloudSettingsSettingsCloudPolicyDefaults.md) | The default filepool policy values for cloudpools. | [optional] 
 **retry_coefficient_archive** | **str** | Coefficients in the quadratic function for determining the rest period between successive archive attempts. | [optional] 
 **retry_coefficient_cache_invalidation** | **str** | Coefficients in the quadratic function for determining the rest period between successive cache invalidation attempts. | [optional] 
 **retry_coefficient_cloud_garbage_collection** | **str** | Coefficients in the quadratic function for determining the rest period between successive cloud garbage collection attempts. | [optional] 

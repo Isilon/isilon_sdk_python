@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**actions** | [**list[FilepoolPolicyAction]**](FilepoolPolicyAction.md) | A list of actions to be taken for matching files | [optional] 
+**actions** | [**list[FilepoolDefaultPolicyDefaultPolicyAction]**](FilepoolDefaultPolicyDefaultPolicyAction.md) | A list of actions to be taken for matching files | [optional] 
 **apply_order** | **int** | The order in which this policy should be applied (relative to other policies) | [optional] 
 **birth_cluster_id** | **str** | The guid assigned to the cluster on which the account was created | [optional] 
 **description** | **str** | A description for this policy | [optional] 

@@ -1,4 +1,4 @@
-# isi_sdk_8_0.QuotaReportsApi
+# isi_sdk_8_0_1.QuotaReportsApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -18,17 +18,17 @@ Retrieve report meta-data information.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.QuotaReportsApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.QuotaReportsApi(isi_sdk_8_0_1.ApiClient(configuration))
 rid = 'rid_example' # str | 
 
 try:

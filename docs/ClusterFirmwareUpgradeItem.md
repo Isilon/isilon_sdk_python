@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **exclude_device** | **str** | Exclude the specified devices in the firmware upgrade. | [optional] 
-**exclude_type** | **str** | Include the specified device type in the firmware upgrade. | [optional] 
+**exclude_type** | **str** | Exclude the specified device type in the firmware upgrade. | [optional] 
 **include_device** | **str** | Include the specified devices in the firmware upgrade. | [optional] 
 **include_type** | **str** | Include the specified device type in the firmware upgrade. | [optional] 
 **no_burn** | **bool** | Do not burn the firmware. | [optional] 

@@ -1,4 +1,4 @@
-# isi_sdk_8_0.ZonesSummaryApi
+# isi_sdk_8_0_1.ZonesSummaryApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -19,17 +19,17 @@ Retrieve access zone summary information.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ZonesSummaryApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ZonesSummaryApi(isi_sdk_8_0_1.ApiClient(configuration))
 groupnet = 'groupnet_example' # str | Name of groupnet in which to list zones. (optional)
 
 try:
@@ -71,17 +71,17 @@ Retrieve non-privileged access zone information.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0
-from isi_sdk_8_0.rest import ApiException
+import isi_sdk_8_0_1
+from isi_sdk_8_0_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0.Configuration()
+configuration = isi_sdk_8_0_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0.ZonesSummaryApi(isi_sdk_8_0.ApiClient(configuration))
+api_instance = isi_sdk_8_0_1.ZonesSummaryApi(isi_sdk_8_0_1.ApiClient(configuration))
 zones_summary_zone = 56 # int | Retrieve non-privileged access zone information.
 
 try:
