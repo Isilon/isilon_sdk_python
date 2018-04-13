@@ -1,4 +1,4 @@
-# isi_sdk_8_0_1.HardwareApi
+# isi_sdk_8_1_0.HardwareApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **create_hardware_tape_name**
-> Empty create_hardware_tape_name(hardware_tape_name, hardware_tape_name2, lnn=lnn, port=port, reconcile=reconcile)
+> CreateHardwareTapeNameResponse create_hardware_tape_name(hardware_tape_name, hardware_tape_name2, lnn=lnn, port=port, timeout=timeout, reconcile=reconcile)
 
 
 
@@ -24,25 +24,26 @@ Tape/Changer devices rescan
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.HardwareApi(isi_sdk_8_0_1.ApiClient(configuration))
-hardware_tape_name = isi_sdk_8_0_1.Empty() # Empty | 
+api_instance = isi_sdk_8_1_0.HardwareApi(isi_sdk_8_1_0.ApiClient(configuration))
+hardware_tape_name = isi_sdk_8_1_0.Empty() # Empty | 
 hardware_tape_name2 = 'hardware_tape_name_example' # str | Tape/Changer devices rescan
 lnn = 'lnn_example' # str | Logical node number. (optional)
 port = 56 # int | Scan only specified port. (optional)
+timeout = 8.14 # float | Timeout for request. (optional)
 reconcile = true # bool | Remove entries for devices or paths that have become inaccessible. (optional)
 
 try:
-    api_response = api_instance.create_hardware_tape_name(hardware_tape_name, hardware_tape_name2, lnn=lnn, port=port, reconcile=reconcile)
+    api_response = api_instance.create_hardware_tape_name(hardware_tape_name, hardware_tape_name2, lnn=lnn, port=port, timeout=timeout, reconcile=reconcile)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling HardwareApi->create_hardware_tape_name: %s\n" % e)
@@ -56,11 +57,12 @@ Name | Type | Description  | Notes
  **hardware_tape_name2** | **str**| Tape/Changer devices rescan | 
  **lnn** | **str**| Logical node number. | [optional] 
  **port** | **int**| Scan only specified port. | [optional] 
+ **timeout** | **float**| Timeout for request. | [optional] 
  **reconcile** | **bool**| Remove entries for devices or paths that have become inaccessible. | [optional] 
 
 ### Return type
 
-[**Empty**](Empty.md)
+[**CreateHardwareTapeNameResponse**](CreateHardwareTapeNameResponse.md)
 
 ### Authorization
 
@@ -84,17 +86,17 @@ Tape/Changer devices remove
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.HardwareApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.HardwareApi(isi_sdk_8_1_0.ApiClient(configuration))
 hardware_tape_name = 'hardware_tape_name_example' # str | Tape/Changer devices remove
 
 try:
@@ -135,17 +137,17 @@ Get one fibre-channel port
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.HardwareApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.HardwareApi(isi_sdk_8_1_0.ApiClient(configuration))
 hardware_fcport_id = 56 # int | Get one fibre-channel port
 lnn = 'lnn_example' # str | Logical node number. (optional)
 
@@ -189,17 +191,17 @@ Get list of fibre-channel ports
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.HardwareApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.HardwareApi(isi_sdk_8_1_0.ApiClient(configuration))
 lnn = 'lnn_example' # str | Logical node number. (optional)
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
@@ -245,17 +247,17 @@ Get list Tape and Changer devices
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.HardwareApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.HardwareApi(isi_sdk_8_1_0.ApiClient(configuration))
 node = 'node_example' # str | List only devices on the specified node. (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
 devname = 'devname_example' # str | List only the named device. (optional)
@@ -307,18 +309,18 @@ Change wwnn, wwpn, state, topology, or rate of a FC port
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.HardwareApi(isi_sdk_8_0_1.ApiClient(configuration))
-hardware_fcport = isi_sdk_8_0_1.HardwareFcport() # HardwareFcport | 
+api_instance = isi_sdk_8_1_0.HardwareApi(isi_sdk_8_1_0.ApiClient(configuration))
+hardware_fcport = isi_sdk_8_1_0.HardwareFcport() # HardwareFcport | 
 hardware_fcport_id = 56 # int | Change wwnn, wwpn, state, topology, or rate of a FC port
 lnn = 'lnn_example' # str | Logical node number. (optional)
 
@@ -362,18 +364,18 @@ Tape/Changer device modify
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.HardwareApi(isi_sdk_8_0_1.ApiClient(configuration))
-hardware_tape_name_params = isi_sdk_8_0_1.HardwareTapeNameParams() # HardwareTapeNameParams | 
+api_instance = isi_sdk_8_1_0.HardwareApi(isi_sdk_8_1_0.ApiClient(configuration))
+hardware_tape_name_params = isi_sdk_8_1_0.HardwareTapeNameParams() # HardwareTapeNameParams | 
 hardware_tape_name = 'hardware_tape_name_example' # str | Tape/Changer device modify
 
 try:

@@ -1,4 +1,4 @@
-# isi_sdk_8_0_1.AuthRolesApi
+# isi_sdk_8_1_0.AuthRolesApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -23,18 +23,18 @@ Add a member to the role.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.AuthRolesApi(isi_sdk_8_0_1.ApiClient(configuration))
-role_member = isi_sdk_8_0_1.AuthAccessAccessItemFileGroup() # AuthAccessAccessItemFileGroup | 
+api_instance = isi_sdk_8_1_0.AuthRolesApi(isi_sdk_8_1_0.ApiClient(configuration))
+role_member = isi_sdk_8_1_0.AuthAccessAccessItemFileGroup() # AuthAccessAccessItemFileGroup | 
 role = 'role_example' # str | 
 
 try:
@@ -77,18 +77,18 @@ Add a privilege to the role.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.AuthRolesApi(isi_sdk_8_0_1.ApiClient(configuration))
-role_privilege = isi_sdk_8_0_1.AuthIdNtokenPrivilegeItem() # AuthIdNtokenPrivilegeItem | 
+api_instance = isi_sdk_8_1_0.AuthRolesApi(isi_sdk_8_1_0.ApiClient(configuration))
+role_privilege = isi_sdk_8_1_0.AuthIdNtokenPrivilegeItem() # AuthIdNtokenPrivilegeItem | 
 role = 'role_example' # str | 
 
 try:
@@ -131,17 +131,17 @@ Remove a member from the role.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.AuthRolesApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.AuthRolesApi(isi_sdk_8_1_0.ApiClient(configuration))
 role_member_id = 'role_member_id_example' # str | Remove a member from the role.
 role = 'role_example' # str | 
 
@@ -184,17 +184,17 @@ Remove a privilege from a role.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.AuthRolesApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.AuthRolesApi(isi_sdk_8_1_0.ApiClient(configuration))
 role_privilege_id = 'role_privilege_id_example' # str | Remove a privilege from a role.
 role = 'role_example' # str | 
 
@@ -237,17 +237,17 @@ List all the members of the role.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.AuthRolesApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.AuthRolesApi(isi_sdk_8_1_0.ApiClient(configuration))
 role = 'role_example' # str | 
 resolve_names = true # bool | Resolve names of personas. (optional)
 
@@ -291,17 +291,17 @@ List all privileges in the role.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.AuthRolesApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.AuthRolesApi(isi_sdk_8_1_0.ApiClient(configuration))
 role = 'role_example' # str | 
 
 try:

@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**nodes** | [**list[ClusterNodesExtendedExtended]**](ClusterNodesExtendedExtended.md) | List of detailed info of nodes which are part of the current upgrade | [optional] 
-**total** | **int** | Total number of nodes the upgrade framework is aware of and was able to collect info for at this point. | [optional] 
+**nodes** | [**list[ClusterNodeExtendedExtended]**](ClusterNodeExtendedExtended.md) |  | [optional] 
+**total** | **int** | Total number of items available. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

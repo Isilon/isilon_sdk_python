@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **ignore_all_trusts** | **bool** | If set to true, ignores all trusted domains. | [optional] 
 **ignored_trusted_domains** | **list[str]** | Includes trusted domains when &#39;ignore_all_trusts&#39; is set to false. | [optional] 
 **include_trusted_domains** | **list[str]** | Includes trusted domains when &#39;ignore_all_trusts&#39; is set to true. | [optional] 
-**instance** | **str** | Specifies Active Directory provider instnace. | [optional] 
+**instance** | **str** | Specifies Active Directory provider instance. | [optional] 
 **kerberos_hdfs_spn** | **bool** | Determines if connecting through HDFS with Kerberos. | [optional] 
 **kerberos_nfs_spn** | **bool** | Determines if connecting through NFS with Kerberos. | [optional] 
 **ldap_sign_and_seal** | **bool** | Enables encryption and signing on LDAP requests. | [optional] 

@@ -1,4 +1,4 @@
-# isi_sdk_8_0_1.FsaResultsApi
+# isi_sdk_8_1_0.FsaResultsApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -27,17 +27,17 @@ This resource retrieves a histogram breakout for an individual FSA result set. I
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.FsaResultsApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.FsaResultsApi(isi_sdk_8_1_0.ApiClient(configuration))
 id = 'id_example' # str | 
 stat = 'stat_example' # str | 
 
@@ -81,17 +81,17 @@ This resource retrieves a histogram breakout for an individual FSA result set. I
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.FsaResultsApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.FsaResultsApi(isi_sdk_8_1_0.ApiClient(configuration))
 histogram_stat_by_breakout = 'histogram_stat_by_breakout_example' # str | This resource retrieves a histogram breakout for an individual FSA result set. ID in the resource path is the result set ID.
 id = 'id_example' # str | 
 stat = 'stat_example' # str | 
@@ -161,17 +161,17 @@ This resource retrieves directory information. ID in the resource path is the re
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.FsaResultsApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.FsaResultsApi(isi_sdk_8_1_0.ApiClient(configuration))
 id = 'id_example' # str | 
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 path = 'path_example' # str | Primary directory path to report usage information, which may be specified instead of a LIN. (optional)
@@ -223,17 +223,17 @@ This resource retrieves directory information. ID in the resource path is the re
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.FsaResultsApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.FsaResultsApi(isi_sdk_8_1_0.ApiClient(configuration))
 result_directory_id = 56 # int | This resource retrieves directory information. ID in the resource path is the result set ID.
 id = 'id_example' # str | 
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
@@ -285,17 +285,17 @@ This resource retrieves a histogram of file counts for an individual FSA result 
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.FsaResultsApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.FsaResultsApi(isi_sdk_8_1_0.ApiClient(configuration))
 id = 'id_example' # str | 
 
 try:
@@ -337,17 +337,17 @@ This resource retrieves a histogram of file counts for an individual FSA result 
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.FsaResultsApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.FsaResultsApi(isi_sdk_8_1_0.ApiClient(configuration))
 result_histogram_stat = 'result_histogram_stat_example' # str | This resource retrieves a histogram of file counts for an individual FSA result set. ID in the resource path is the result set ID.
 id = 'id_example' # str | 
 directory_filter = 'directory_filter_example' # str | Filter according to a specific directory, which includes all of its subdirectories. (optional)
@@ -413,17 +413,17 @@ This resource retrieves the top directories. ID in the resource path is the resu
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.FsaResultsApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.FsaResultsApi(isi_sdk_8_1_0.ApiClient(configuration))
 result_top_dir_id = 'result_top_dir_id_example' # str | This resource retrieves the top directories. ID in the resource path is the result set ID.
 id = 'id_example' # str | 
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
@@ -477,17 +477,17 @@ This resource retrieves the top directories. ID in the resource path is the resu
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.FsaResultsApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.FsaResultsApi(isi_sdk_8_1_0.ApiClient(configuration))
 id = 'id_example' # str | 
 
 try:
@@ -529,17 +529,17 @@ This resource retrieves the top files. ID in the resource path is the result set
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.FsaResultsApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.FsaResultsApi(isi_sdk_8_1_0.ApiClient(configuration))
 result_top_file_id = 'result_top_file_id_example' # str | This resource retrieves the top files. ID in the resource path is the result set ID.
 id = 'id_example' # str | 
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
@@ -593,17 +593,17 @@ This resource retrieves the top files. ID in the resource path is the result set
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.FsaResultsApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.FsaResultsApi(isi_sdk_8_1_0.ApiClient(configuration))
 id = 'id_example' # str | 
 
 try:

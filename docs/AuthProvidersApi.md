@@ -1,17 +1,17 @@
-# isi_sdk_8_0_1.AuthProvidersApi
+# isi_sdk_8_1_0.AuthProvidersApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_ads_provider_controllers**](AuthProvidersApi.md#get_ads_provider_controllers) | **GET** /platform/1/auth/providers/ads/{Id}/controllers | 
+[**get_ads_provider_controllers**](AuthProvidersApi.md#get_ads_provider_controllers) | **GET** /platform/3/auth/providers/ads/{Id}/controllers | 
 [**get_ads_provider_domain**](AuthProvidersApi.md#get_ads_provider_domain) | **GET** /platform/3/auth/providers/ads/{Id}/domains/{AdsProviderDomainId} | 
 [**get_ads_provider_domains**](AuthProvidersApi.md#get_ads_provider_domains) | **GET** /platform/3/auth/providers/ads/{Id}/domains | 
 [**get_ads_provider_search**](AuthProvidersApi.md#get_ads_provider_search) | **GET** /platform/1/auth/providers/ads/{Id}/search | 
 
 
 # **get_ads_provider_controllers**
-> AdsProviderControllers get_ads_provider_controllers(id)
+> AdsProviderControllers get_ads_provider_controllers(id, groupnet=groupnet)
 
 
 
@@ -21,21 +21,22 @@ List all ADS controllers.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.AuthProvidersApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.AuthProvidersApi(isi_sdk_8_1_0.ApiClient(configuration))
 id = 'id_example' # str | 
+groupnet = 'groupnet_example' # str | Groupnet identifier (optional)
 
 try:
-    api_response = api_instance.get_ads_provider_controllers(id)
+    api_response = api_instance.get_ads_provider_controllers(id, groupnet=groupnet)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling AuthProvidersApi->get_ads_provider_controllers: %s\n" % e)
@@ -46,6 +47,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
+ **groupnet** | **str**| Groupnet identifier | [optional] 
 
 ### Return type
 
@@ -73,17 +75,17 @@ Retrieve the ADS domain information.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.AuthProvidersApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.AuthProvidersApi(isi_sdk_8_1_0.ApiClient(configuration))
 ads_provider_domain_id = 'ads_provider_domain_id_example' # str | Retrieve the ADS domain information.
 id = 'id_example' # str | 
 
@@ -127,17 +129,17 @@ List all ADS domains.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.AuthProvidersApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.AuthProvidersApi(isi_sdk_8_1_0.ApiClient(configuration))
 id = 'id_example' # str | 
 scope = 'scope_example' # str | If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned. (optional)
 
@@ -181,17 +183,17 @@ Retrieve search results.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.AuthProvidersApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.AuthProvidersApi(isi_sdk_8_1_0.ApiClient(configuration))
 id = 'id_example' # str | 
 domain = 'domain_example' # str | The domain to search in. (optional)
 description = 'description_example' # str | The user or group description to search for. (optional)

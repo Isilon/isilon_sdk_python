@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**errors** | [**list[ClusterTimeError]**](ClusterTimeError.md) | A list of errors encountered by the individual nodes involved in this request, or an empty list if there were no errors. | [optional] 
+**errors** | [**list[NodeDrivesPurposelistError]**](NodeDrivesPurposelistError.md) | A list of errors encountered by the individual nodes involved in this request, or an empty list if there were no errors. | [optional] 
 **nodes** | [**list[ClusterVersionNode]**](ClusterVersionNode.md) | The responses from the individual nodes involved in this request. | [optional] 
 **total** | **int** | The total number of nodes responding. | [optional] 
 

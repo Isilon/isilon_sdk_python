@@ -1,4 +1,4 @@
-# isi_sdk_8_0_1.ClusterApi
+# isi_sdk_8_1_0.ClusterApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -12,9 +12,9 @@ Method | HTTP request | Description
 [**get_cluster_config**](ClusterApi.md#get_cluster_config) | **GET** /platform/3/cluster/config | 
 [**get_cluster_email**](ClusterApi.md#get_cluster_email) | **GET** /platform/1/cluster/email | 
 [**get_cluster_external_ips**](ClusterApi.md#get_cluster_external_ips) | **GET** /platform/2/cluster/external-ips | 
-[**get_cluster_identity**](ClusterApi.md#get_cluster_identity) | **GET** /platform/3/cluster/identity | 
-[**get_cluster_node**](ClusterApi.md#get_cluster_node) | **GET** /platform/3/cluster/nodes/{ClusterNodeId} | 
-[**get_cluster_nodes**](ClusterApi.md#get_cluster_nodes) | **GET** /platform/3/cluster/nodes | 
+[**get_cluster_identity**](ClusterApi.md#get_cluster_identity) | **GET** /platform/5/cluster/identity | 
+[**get_cluster_node**](ClusterApi.md#get_cluster_node) | **GET** /platform/5/cluster/nodes/{ClusterNodeId} | 
+[**get_cluster_nodes**](ClusterApi.md#get_cluster_nodes) | **GET** /platform/5/cluster/nodes | 
 [**get_cluster_nodes_available**](ClusterApi.md#get_cluster_nodes_available) | **GET** /platform/3/cluster/nodes-available | 
 [**get_cluster_owner**](ClusterApi.md#get_cluster_owner) | **GET** /platform/1/cluster/owner | 
 [**get_cluster_statfs**](ClusterApi.md#get_cluster_statfs) | **GET** /platform/1/cluster/statfs | 
@@ -30,8 +30,7 @@ Method | HTTP request | Description
 [**get_timezone_region**](ClusterApi.md#get_timezone_region) | **GET** /platform/3/cluster/timezone/regions/{TimezoneRegionId} | 
 [**get_timezone_settings**](ClusterApi.md#get_timezone_settings) | **GET** /platform/3/cluster/timezone/settings | 
 [**update_cluster_email**](ClusterApi.md#update_cluster_email) | **PUT** /platform/1/cluster/email | 
-[**update_cluster_identity**](ClusterApi.md#update_cluster_identity) | **PUT** /platform/3/cluster/identity | 
-[**update_cluster_node**](ClusterApi.md#update_cluster_node) | **PUT** /platform/3/cluster/nodes/{ClusterNodeId} | 
+[**update_cluster_node**](ClusterApi.md#update_cluster_node) | **PUT** /platform/5/cluster/nodes/{ClusterNodeId} | 
 [**update_cluster_owner**](ClusterApi.md#update_cluster_owner) | **PUT** /platform/1/cluster/owner | 
 [**update_cluster_time**](ClusterApi.md#update_cluster_time) | **PUT** /platform/3/cluster/time | 
 [**update_cluster_timezone**](ClusterApi.md#update_cluster_timezone) | **PUT** /platform/3/cluster/timezone | 
@@ -51,18 +50,18 @@ Serial number and arguments of node to add.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.ClusterApi(isi_sdk_8_0_1.ApiClient(configuration))
-cluster_add_node_item = isi_sdk_8_0_1.ClusterAddNodeItem() # ClusterAddNodeItem | 
+api_instance = isi_sdk_8_1_0.ClusterApi(isi_sdk_8_1_0.ApiClient(configuration))
+cluster_add_node_item = isi_sdk_8_1_0.ClusterAddNodeItem() # ClusterAddNodeItem | 
 
 try:
     api_response = api_instance.create_cluster_add_node_item(cluster_add_node_item)
@@ -103,18 +102,18 @@ Start a new gather
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.ClusterApi(isi_sdk_8_0_1.ApiClient(configuration))
-diagnostics_gather_start_item = isi_sdk_8_0_1.DiagnosticsGatherSettingsExtended() # DiagnosticsGatherSettingsExtended | 
+api_instance = isi_sdk_8_1_0.ClusterApi(isi_sdk_8_1_0.ApiClient(configuration))
+diagnostics_gather_start_item = isi_sdk_8_1_0.DiagnosticsGatherSettingsExtended() # DiagnosticsGatherSettingsExtended | 
 
 try:
     api_response = api_instance.create_diagnostics_gather_start_item(diagnostics_gather_start_item)
@@ -155,18 +154,18 @@ Stop a running gather
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.ClusterApi(isi_sdk_8_0_1.ApiClient(configuration))
-diagnostics_gather_stop_item = isi_sdk_8_0_1.Empty() # Empty | 
+api_instance = isi_sdk_8_1_0.ClusterApi(isi_sdk_8_1_0.ApiClient(configuration))
+diagnostics_gather_stop_item = isi_sdk_8_1_0.Empty() # Empty | 
 
 try:
     api_response = api_instance.create_diagnostics_gather_stop_item(diagnostics_gather_stop_item)
@@ -207,18 +206,18 @@ Start a new packet caputre
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.ClusterApi(isi_sdk_8_0_1.ApiClient(configuration))
-diagnostics_netlogger_start_item = isi_sdk_8_0_1.DiagnosticsNetloggerSettings() # DiagnosticsNetloggerSettings | 
+api_instance = isi_sdk_8_1_0.ClusterApi(isi_sdk_8_1_0.ApiClient(configuration))
+diagnostics_netlogger_start_item = isi_sdk_8_1_0.DiagnosticsNetloggerSettings() # DiagnosticsNetloggerSettings | 
 
 try:
     api_response = api_instance.create_diagnostics_netlogger_start_item(diagnostics_netlogger_start_item)
@@ -259,18 +258,18 @@ Stop a running packet capture
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.ClusterApi(isi_sdk_8_0_1.ApiClient(configuration))
-diagnostics_netlogger_stop_item = isi_sdk_8_0_1.Empty() # Empty | 
+api_instance = isi_sdk_8_1_0.ClusterApi(isi_sdk_8_1_0.ApiClient(configuration))
+diagnostics_netlogger_stop_item = isi_sdk_8_1_0.Empty() # Empty | 
 
 try:
     api_response = api_instance.create_diagnostics_netlogger_stop_item(diagnostics_netlogger_stop_item)
@@ -311,17 +310,17 @@ Retrieve the cluster information.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.ClusterApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.ClusterApi(isi_sdk_8_1_0.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_cluster_config()
@@ -359,17 +358,17 @@ Get the cluster email notification settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.ClusterApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.ClusterApi(isi_sdk_8_1_0.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_cluster_email()
@@ -407,17 +406,17 @@ Retrieve the cluster IP addresses including IPV4 and IPV6.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.ClusterApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.ClusterApi(isi_sdk_8_1_0.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_cluster_external_ips()
@@ -455,17 +454,17 @@ Retrieve the login information.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.ClusterApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.ClusterApi(isi_sdk_8_1_0.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_cluster_identity()
@@ -493,7 +492,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_cluster_node**
-> ClusterNodes get_cluster_node(cluster_node_id)
+> ClusterNodesExtendedExtended get_cluster_node(cluster_node_id, timeout=timeout)
 
 
 
@@ -503,21 +502,22 @@ Retrieve node information.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.ClusterApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.ClusterApi(isi_sdk_8_1_0.ApiClient(configuration))
 cluster_node_id = 56 # int | Retrieve node information.
+timeout = 8.14 # float | Request timeout (optional)
 
 try:
-    api_response = api_instance.get_cluster_node(cluster_node_id)
+    api_response = api_instance.get_cluster_node(cluster_node_id, timeout=timeout)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ClusterApi->get_cluster_node: %s\n" % e)
@@ -528,10 +528,11 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **cluster_node_id** | **int**| Retrieve node information. | 
+ **timeout** | **float**| Request timeout | [optional] 
 
 ### Return type
 
-[**ClusterNodes**](ClusterNodes.md)
+[**ClusterNodesExtendedExtended**](ClusterNodesExtendedExtended.md)
 
 ### Authorization
 
@@ -545,7 +546,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_cluster_nodes**
-> ClusterNodesExtended get_cluster_nodes()
+> ClusterNodesExtendedExtendedExtended get_cluster_nodes(timeout=timeout)
 
 
 
@@ -555,31 +556,35 @@ List the nodes on this cluster.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.ClusterApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.ClusterApi(isi_sdk_8_1_0.ApiClient(configuration))
+timeout = 8.14 # float | Request timeout (optional)
 
 try:
-    api_response = api_instance.get_cluster_nodes()
+    api_response = api_instance.get_cluster_nodes(timeout=timeout)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ClusterApi->get_cluster_nodes: %s\n" % e)
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **timeout** | **float**| Request timeout | [optional] 
 
 ### Return type
 
-[**ClusterNodesExtended**](ClusterNodesExtended.md)
+[**ClusterNodesExtendedExtendedExtended**](ClusterNodesExtendedExtendedExtended.md)
 
 ### Authorization
 
@@ -603,17 +608,17 @@ List all nodes that are available to add to this cluster.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.ClusterApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.ClusterApi(isi_sdk_8_1_0.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_cluster_nodes_available()
@@ -651,17 +656,17 @@ Get the cluster contact info settings
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.ClusterApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.ClusterApi(isi_sdk_8_1_0.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_cluster_owner()
@@ -699,17 +704,17 @@ Retrieve the filesystem statistics.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.ClusterApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.ClusterApi(isi_sdk_8_1_0.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_cluster_statfs()
@@ -747,17 +752,17 @@ Retrieve the current time as reported by each node.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.ClusterApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.ClusterApi(isi_sdk_8_1_0.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_cluster_time()
@@ -795,17 +800,17 @@ Get the cluster timezone.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.ClusterApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.ClusterApi(isi_sdk_8_1_0.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_cluster_timezone()
@@ -843,17 +848,17 @@ Retrieve the OneFS version as reported by each node.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.ClusterApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.ClusterApi(isi_sdk_8_1_0.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_cluster_version()
@@ -891,17 +896,17 @@ Get the status of isi_gather_info.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.ClusterApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.ClusterApi(isi_sdk_8_1_0.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_diagnostics_gather()
@@ -939,17 +944,17 @@ Get the default options for isi_gather_info.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.ClusterApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.ClusterApi(isi_sdk_8_1_0.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_diagnostics_gather_settings()
@@ -987,17 +992,17 @@ Get the status of isi_gather_info.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.ClusterApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.ClusterApi(isi_sdk_8_1_0.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_diagnostics_gather_status()
@@ -1025,7 +1030,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_diagnostics_netlogger**
-> DiagnosticsGatherStatus get_diagnostics_netlogger()
+> DiagnosticsNetloggerStatus get_diagnostics_netlogger()
 
 
 
@@ -1035,17 +1040,17 @@ Get the status of isi_netlogger.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.ClusterApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.ClusterApi(isi_sdk_8_1_0.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_diagnostics_netlogger()
@@ -1059,7 +1064,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**DiagnosticsGatherStatus**](DiagnosticsGatherStatus.md)
+[**DiagnosticsNetloggerStatus**](DiagnosticsNetloggerStatus.md)
 
 ### Authorization
 
@@ -1083,17 +1088,17 @@ Get the default options for isi_netlogger.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.ClusterApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.ClusterApi(isi_sdk_8_1_0.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_diagnostics_netlogger_settings()
@@ -1121,7 +1126,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_diagnostics_netlogger_status**
-> DiagnosticsGatherStatus get_diagnostics_netlogger_status()
+> DiagnosticsNetloggerStatus get_diagnostics_netlogger_status()
 
 
 
@@ -1131,17 +1136,17 @@ Get the status of isi_netlogger.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.ClusterApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.ClusterApi(isi_sdk_8_1_0.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_diagnostics_netlogger_status()
@@ -1155,7 +1160,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**DiagnosticsGatherStatus**](DiagnosticsGatherStatus.md)
+[**DiagnosticsNetloggerStatus**](DiagnosticsNetloggerStatus.md)
 
 ### Authorization
 
@@ -1179,17 +1184,17 @@ List timezone regions.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.ClusterApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.ClusterApi(isi_sdk_8_1_0.ApiClient(configuration))
 timezone_region_id = 'timezone_region_id_example' # str | List timezone regions.
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
@@ -1243,17 +1248,17 @@ Retrieve the cluster timezone.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.ClusterApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.ClusterApi(isi_sdk_8_1_0.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_timezone_settings()
@@ -1291,18 +1296,18 @@ Modify the cluster email notification settings.  All input fields are optional, 
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.ClusterApi(isi_sdk_8_0_1.ApiClient(configuration))
-cluster_email = isi_sdk_8_0_1.ClusterEmailExtended() # ClusterEmailExtended | 
+api_instance = isi_sdk_8_1_0.ClusterApi(isi_sdk_8_1_0.ApiClient(configuration))
+cluster_email = isi_sdk_8_1_0.ClusterEmailExtended() # ClusterEmailExtended | 
 
 try:
     api_instance.update_cluster_email(cluster_email)
@@ -1331,57 +1336,6 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **update_cluster_identity**
-> update_cluster_identity(cluster_identity)
-
-
-
-Modify the login information.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
-from pprint import pprint
-
-# Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = isi_sdk_8_0_1.ClusterApi(isi_sdk_8_0_1.ApiClient(configuration))
-cluster_identity = isi_sdk_8_0_1.ClusterIdentityExtended() # ClusterIdentityExtended | 
-
-try:
-    api_instance.update_cluster_identity(cluster_identity)
-except ApiException as e:
-    print("Exception when calling ClusterApi->update_cluster_identity: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **cluster_identity** | [**ClusterIdentityExtended**](ClusterIdentityExtended.md)|  | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **update_cluster_node**
 > update_cluster_node(cluster_node, cluster_node_id)
 
@@ -1393,18 +1347,18 @@ Modify one or more node settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.ClusterApi(isi_sdk_8_0_1.ApiClient(configuration))
-cluster_node = isi_sdk_8_0_1.ClusterNode() # ClusterNode | 
+api_instance = isi_sdk_8_1_0.ClusterApi(isi_sdk_8_1_0.ApiClient(configuration))
+cluster_node = isi_sdk_8_1_0.ClusterNode() # ClusterNode | 
 cluster_node_id = 56 # int | Modify one or more node settings.
 
 try:
@@ -1446,18 +1400,18 @@ Modify the cluster contact info settings.  All input fields are optional, but on
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.ClusterApi(isi_sdk_8_0_1.ApiClient(configuration))
-cluster_owner = isi_sdk_8_0_1.ClusterOwner() # ClusterOwner | 
+api_instance = isi_sdk_8_1_0.ClusterApi(isi_sdk_8_1_0.ApiClient(configuration))
+cluster_owner = isi_sdk_8_1_0.ClusterOwner() # ClusterOwner | 
 
 try:
     api_instance.update_cluster_owner(cluster_owner)
@@ -1497,18 +1451,18 @@ Set cluster time.  Time will mostly be synchronized across nodes, but there may 
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.ClusterApi(isi_sdk_8_0_1.ApiClient(configuration))
-cluster_time = isi_sdk_8_0_1.ClusterTimeExtended() # ClusterTimeExtended | 
+api_instance = isi_sdk_8_1_0.ClusterApi(isi_sdk_8_1_0.ApiClient(configuration))
+cluster_time = isi_sdk_8_1_0.ClusterTimeExtended() # ClusterTimeExtended | 
 
 try:
     api_instance.update_cluster_time(cluster_time)
@@ -1548,18 +1502,18 @@ Set a new timezone for the cluster.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.ClusterApi(isi_sdk_8_0_1.ApiClient(configuration))
-cluster_timezone = isi_sdk_8_0_1.ClusterTimezoneExtended() # ClusterTimezoneExtended | 
+api_instance = isi_sdk_8_1_0.ClusterApi(isi_sdk_8_1_0.ApiClient(configuration))
+cluster_timezone = isi_sdk_8_1_0.ClusterTimezoneExtended() # ClusterTimezoneExtended | 
 
 try:
     api_instance.update_cluster_timezone(cluster_timezone)
@@ -1599,18 +1553,18 @@ Set the default options for isi_gather_info.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.ClusterApi(isi_sdk_8_0_1.ApiClient(configuration))
-diagnostics_gather_settings = isi_sdk_8_0_1.DiagnosticsGatherSettingsExtended() # DiagnosticsGatherSettingsExtended | 
+api_instance = isi_sdk_8_1_0.ClusterApi(isi_sdk_8_1_0.ApiClient(configuration))
+diagnostics_gather_settings = isi_sdk_8_1_0.DiagnosticsGatherSettingsExtended() # DiagnosticsGatherSettingsExtended | 
 
 try:
     api_instance.update_diagnostics_gather_settings(diagnostics_gather_settings)
@@ -1650,18 +1604,18 @@ Set the default options for isi_netlogger.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.ClusterApi(isi_sdk_8_0_1.ApiClient(configuration))
-diagnostics_netlogger_settings = isi_sdk_8_0_1.DiagnosticsNetloggerSettings() # DiagnosticsNetloggerSettings | 
+api_instance = isi_sdk_8_1_0.ClusterApi(isi_sdk_8_1_0.ApiClient(configuration))
+diagnostics_netlogger_settings = isi_sdk_8_1_0.DiagnosticsNetloggerSettings() # DiagnosticsNetloggerSettings | 
 
 try:
     api_instance.update_diagnostics_netlogger_settings(diagnostics_netlogger_settings)
@@ -1701,18 +1655,18 @@ Modify the cluster timezone.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.ClusterApi(isi_sdk_8_0_1.ApiClient(configuration))
-timezone_settings = isi_sdk_8_0_1.TimezoneRegionTimezone() # TimezoneRegionTimezone | 
+api_instance = isi_sdk_8_1_0.ClusterApi(isi_sdk_8_1_0.ApiClient(configuration))
+timezone_settings = isi_sdk_8_1_0.TimezoneRegionTimezone() # TimezoneRegionTimezone | 
 
 try:
     api_instance.update_timezone_settings(timezone_settings)

@@ -1,4 +1,4 @@
-# isi_sdk_8_0_1.HealthcheckApi
+# isi_sdk_8_1_0.HealthcheckApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -29,18 +29,18 @@ Request an evaluation.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.HealthcheckApi(isi_sdk_8_0_1.ApiClient(configuration))
-healthcheck_evaluation = isi_sdk_8_0_1.HealthcheckEvaluationCreateParams() # HealthcheckEvaluationCreateParams | 
+api_instance = isi_sdk_8_1_0.HealthcheckApi(isi_sdk_8_1_0.ApiClient(configuration))
+healthcheck_evaluation = isi_sdk_8_1_0.HealthcheckEvaluationCreateParams() # HealthcheckEvaluationCreateParams | 
 
 try:
     api_response = api_instance.create_healthcheck_evaluation(healthcheck_evaluation)
@@ -81,18 +81,18 @@ Create a parameter.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.HealthcheckApi(isi_sdk_8_0_1.ApiClient(configuration))
-healthcheck_parameter = isi_sdk_8_0_1.HealthcheckParameterCreateParams() # HealthcheckParameterCreateParams | 
+api_instance = isi_sdk_8_1_0.HealthcheckApi(isi_sdk_8_1_0.ApiClient(configuration))
+healthcheck_parameter = isi_sdk_8_1_0.HealthcheckParameterCreateParams() # HealthcheckParameterCreateParams | 
 
 try:
     api_response = api_instance.create_healthcheck_parameter(healthcheck_parameter)
@@ -133,17 +133,17 @@ Retrieve a checklist definition.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.HealthcheckApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.HealthcheckApi(isi_sdk_8_1_0.ApiClient(configuration))
 healthcheck_checklist_id = 'healthcheck_checklist_id_example' # str | Retrieve a checklist definition.
 
 try:
@@ -185,17 +185,17 @@ List checklists.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.HealthcheckApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.HealthcheckApi(isi_sdk_8_1_0.ApiClient(configuration))
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
 
@@ -239,17 +239,17 @@ Retrieve individual evaluation.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.HealthcheckApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.HealthcheckApi(isi_sdk_8_1_0.ApiClient(configuration))
 healthcheck_evaluation_id = 'healthcheck_evaluation_id_example' # str | Retrieve individual evaluation.
 
 try:
@@ -291,17 +291,17 @@ Retrieve an item definition.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.HealthcheckApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.HealthcheckApi(isi_sdk_8_1_0.ApiClient(configuration))
 healthcheck_item_id = 'healthcheck_item_id_example' # str | Retrieve an item definition.
 
 try:
@@ -343,17 +343,17 @@ List items.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.HealthcheckApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.HealthcheckApi(isi_sdk_8_1_0.ApiClient(configuration))
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
 
@@ -397,17 +397,17 @@ Retrieve individual parameter.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.HealthcheckApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.HealthcheckApi(isi_sdk_8_1_0.ApiClient(configuration))
 healthcheck_parameter_id = 'healthcheck_parameter_id_example' # str | Retrieve individual parameter.
 
 try:
@@ -449,17 +449,17 @@ List evaluations.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.HealthcheckApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.HealthcheckApi(isi_sdk_8_1_0.ApiClient(configuration))
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
 
@@ -503,17 +503,17 @@ List parameters.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.HealthcheckApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.HealthcheckApi(isi_sdk_8_1_0.ApiClient(configuration))
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
 
@@ -557,18 +557,18 @@ Pause or resume an evaluation.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.HealthcheckApi(isi_sdk_8_0_1.ApiClient(configuration))
-healthcheck_evaluation = isi_sdk_8_0_1.HealthcheckEvaluation() # HealthcheckEvaluation | 
+api_instance = isi_sdk_8_1_0.HealthcheckApi(isi_sdk_8_1_0.ApiClient(configuration))
+healthcheck_evaluation = isi_sdk_8_1_0.HealthcheckEvaluation() # HealthcheckEvaluation | 
 healthcheck_evaluation_id = 'healthcheck_evaluation_id_example' # str | Pause or resume an evaluation.
 
 try:
@@ -610,18 +610,18 @@ Modify a parameter value.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.HealthcheckApi(isi_sdk_8_0_1.ApiClient(configuration))
-healthcheck_parameter = isi_sdk_8_0_1.HealthcheckParameter() # HealthcheckParameter | 
+api_instance = isi_sdk_8_1_0.HealthcheckApi(isi_sdk_8_1_0.ApiClient(configuration))
+healthcheck_parameter = isi_sdk_8_1_0.HealthcheckParameter() # HealthcheckParameter | 
 healthcheck_parameter_id = 'healthcheck_parameter_id_example' # str | Modify a parameter value.
 
 try:

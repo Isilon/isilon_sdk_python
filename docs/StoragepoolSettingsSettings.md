@@ -11,6 +11,9 @@ Name | Type | Description | Notes
 **spillover_enabled** | **bool** | Spill writes into other pools as needed. | 
 **spillover_target** | [**StoragepoolSettingsSettingsSpilloverTarget**](StoragepoolSettingsSettingsSpilloverTarget.md) | Target pool for spilled writes. | 
 **ssd_l3_cache_default_enabled** | **bool** | The L3 Cache default enabled state. This specifies whether L3 Cache should be enabled on new node pools. | 
+**ssd_qab_mirrors** | **str** | Controls number of mirrors of QAB blocks to place on SSDs. | 
+**ssd_system_btree_mirrors** | **str** | Controls number of mirrors of system B-tree blocks to place on SSDs. | 
+**ssd_system_delta_mirrors** | **str** | Controls number of mirrors of system delta blocks to place on SSDs. | 
 **virtual_hot_spare_deny_writes** | **bool** | Deny writes into reserved virtual hot spare space. | 
 **virtual_hot_spare_hide_spare** | **bool** | Hide reserved virtual hot spare space from free space counts. | 
 **virtual_hot_spare_limit_drives** | **int** | The number of drives to reserve for the virtual hot spare, from 0-4. | 

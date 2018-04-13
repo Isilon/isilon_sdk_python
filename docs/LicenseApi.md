@@ -1,40 +1,42 @@
-# isi_sdk_8_0_1.LicenseApi
+# isi_sdk_8_1_0.LicenseApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_license_license**](LicenseApi.md#create_license_license) | **POST** /platform/1/license/licenses | 
-[**get_license_license**](LicenseApi.md#get_license_license) | **GET** /platform/1/license/licenses/{LicenseLicenseId} | 
-[**list_license_licenses**](LicenseApi.md#list_license_licenses) | **GET** /platform/1/license/licenses | 
+[**create_license_license**](LicenseApi.md#create_license_license) | **POST** /platform/5/license/licenses | 
+[**get_license_generate**](LicenseApi.md#get_license_generate) | **GET** /platform/5/license/generate | 
+[**get_license_license**](LicenseApi.md#get_license_license) | **GET** /platform/5/license/licenses/{LicenseLicenseId} | 
+[**list_license_licenses**](LicenseApi.md#list_license_licenses) | **GET** /platform/5/license/licenses | 
 
 
 # **create_license_license**
-> create_license_license(license_license)
+> Empty create_license_license(license_license)
 
 
 
-Install a new license key.
+Install a new license file and/or activate evaluation licenses.
 
 ### Example
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.LicenseApi(isi_sdk_8_0_1.ApiClient(configuration))
-license_license = isi_sdk_8_0_1.LicenseLicenseCreateParams() # LicenseLicenseCreateParams | 
+api_instance = isi_sdk_8_1_0.LicenseApi(isi_sdk_8_1_0.ApiClient(configuration))
+license_license = isi_sdk_8_1_0.LicenseLicenseCreateParams() # LicenseLicenseCreateParams | 
 
 try:
-    api_instance.create_license_license(license_license)
+    api_response = api_instance.create_license_license(license_license)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling LicenseApi->create_license_license: %s\n" % e)
 ```
@@ -47,7 +49,65 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**Empty**](Empty.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_license_generate**
+> LicenseGenerate get_license_generate(action=action, licenses_to_include=licenses_to_include, licenses_to_exclude=licenses_to_exclude, only_these_licenses=only_these_licenses)
+
+
+
+Generate license activation file.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
+from pprint import pprint
+
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_1_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = isi_sdk_8_1_0.LicenseApi(isi_sdk_8_1_0.ApiClient(configuration))
+action = 'license_list_only' # str | enum: license_list_only (default), generate_activation, download_activation. Generate an activation file or return a list of activated licenses. If generating an activation file and no licenses are specified, the default configuration is to generate an activation file with the current set of licensed features. download_activation returns HTTP headers and the same XML content as seen in the response activation. (optional) (default to license_list_only)
+licenses_to_include = 'licenses_to_include_example' # str | Licenses to include in activation file. (optional)
+licenses_to_exclude = 'licenses_to_exclude_example' # str | Licenses to omit from activation file. (optional)
+only_these_licenses = 'only_these_licenses_example' # str | Activate only the defined licenses. This setting overrides all other license activation settings. (optional)
+
+try:
+    api_response = api_instance.get_license_generate(action=action, licenses_to_include=licenses_to_include, licenses_to_exclude=licenses_to_exclude, only_these_licenses=only_these_licenses)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling LicenseApi->get_license_generate: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **action** | **str**| enum: license_list_only (default), generate_activation, download_activation. Generate an activation file or return a list of activated licenses. If generating an activation file and no licenses are specified, the default configuration is to generate an activation file with the current set of licensed features. download_activation returns HTTP headers and the same XML content as seen in the response activation. | [optional] [default to license_list_only]
+ **licenses_to_include** | **str**| Licenses to include in activation file. | [optional] 
+ **licenses_to_exclude** | **str**| Licenses to omit from activation file. | [optional] 
+ **only_these_licenses** | **str**| Activate only the defined licenses. This setting overrides all other license activation settings. | [optional] 
+
+### Return type
+
+[**LicenseGenerate**](LicenseGenerate.md)
 
 ### Authorization
 
@@ -71,17 +131,17 @@ Retrieve license information for the feature.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.LicenseApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.LicenseApi(isi_sdk_8_1_0.ApiClient(configuration))
 license_license_id = 'license_license_id_example' # str | Retrieve license information for the feature.
 
 try:
@@ -113,7 +173,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_license_licenses**
-> LicenseLicenses list_license_licenses()
+> LicenseLicensesExtended list_license_licenses()
 
 
 
@@ -123,17 +183,17 @@ Retrieve license information for all licensable products.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.LicenseApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.LicenseApi(isi_sdk_8_1_0.ApiClient(configuration))
 
 try:
     api_response = api_instance.list_license_licenses()
@@ -147,7 +207,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**LicenseLicenses**](LicenseLicenses.md)
+[**LicenseLicensesExtended**](LicenseLicensesExtended.md)
 
 ### Authorization
 

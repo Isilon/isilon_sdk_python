@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**bay_group** | **str** | The name of the bay group this drive belongs to. | [optional] 
 **baynum** | **int** | Numerical representation of this drive&#39;s bay. | [optional] 
 **blocks** | **int** | Number of blocks on this drive. | [optional] 
 **chassis** | **int** | The chassis number which contains this drive. | [optional] 
@@ -15,6 +16,7 @@ Name | Type | Description | Notes
 **logical_block_length** | **int** | Size of a logical block on this drive. | [optional] 
 **media_type** | **str** | String representation of this drive&#39;s media type. | [optional] 
 **model** | **str** | This drive&#39;s manufacturer and model. | [optional] 
+**pending_actions** | **list[str]** | This drive&#39;s current outstanding actions. For example, \&quot;add\&quot; or \&quot;firmware_update\&quot;. | [optional] 
 **physical_block_length** | **int** | Size of a physical block on this drive. | [optional] 
 **present** | **bool** | Indicates whether this drive is physically present in the node. | [optional] 
 **purpose** | **str** | This drive&#39;s purpose in the DRV state machine. | [optional] 

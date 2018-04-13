@@ -1,4 +1,4 @@
-# isi_sdk_8_0_1.SyncApi
+# isi_sdk_8_1_0.SyncApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -18,7 +18,7 @@ Method | HTTP request | Description
 [**get_history_network**](SyncApi.md#get_history_network) | **GET** /platform/1/sync/history/network | 
 [**get_history_worker**](SyncApi.md#get_history_worker) | **GET** /platform/3/sync/history/worker | 
 [**get_sync_job**](SyncApi.md#get_sync_job) | **GET** /platform/3/sync/jobs/{SyncJobId} | 
-[**get_sync_license**](SyncApi.md#get_sync_license) | **GET** /platform/1/sync/license | 
+[**get_sync_license**](SyncApi.md#get_sync_license) | **GET** /platform/5/sync/license | 
 [**get_sync_policy**](SyncApi.md#get_sync_policy) | **GET** /platform/3/sync/policies/{SyncPolicyId} | 
 [**get_sync_report**](SyncApi.md#get_sync_report) | **GET** /platform/4/sync/reports/{SyncReportId} | 
 [**get_sync_reports**](SyncApi.md#get_sync_reports) | **GET** /platform/4/sync/reports | 
@@ -49,18 +49,18 @@ Start a SyncIQ job.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.SyncApi(isi_sdk_8_0_1.ApiClient(configuration))
-sync_job = isi_sdk_8_0_1.SyncJobCreateParams() # SyncJobCreateParams | 
+api_instance = isi_sdk_8_1_0.SyncApi(isi_sdk_8_1_0.ApiClient(configuration))
+sync_job = isi_sdk_8_1_0.SyncJobCreateParams() # SyncJobCreateParams | 
 
 try:
     api_response = api_instance.create_sync_job(sync_job)
@@ -101,18 +101,18 @@ Create a SyncIQ policy.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.SyncApi(isi_sdk_8_0_1.ApiClient(configuration))
-sync_policy = isi_sdk_8_0_1.SyncPolicyCreateParams() # SyncPolicyCreateParams | 
+api_instance = isi_sdk_8_1_0.SyncApi(isi_sdk_8_1_0.ApiClient(configuration))
+sync_policy = isi_sdk_8_1_0.SyncPolicyCreateParams() # SyncPolicyCreateParams | 
 
 try:
     api_response = api_instance.create_sync_policy(sync_policy)
@@ -153,18 +153,18 @@ Rotate the records in the database(s).
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.SyncApi(isi_sdk_8_0_1.ApiClient(configuration))
-sync_reports_rotate_item = isi_sdk_8_0_1.Empty() # Empty | 
+api_instance = isi_sdk_8_1_0.SyncApi(isi_sdk_8_1_0.ApiClient(configuration))
+sync_reports_rotate_item = isi_sdk_8_1_0.Empty() # Empty | 
 
 try:
     api_response = api_instance.create_sync_reports_rotate_item(sync_reports_rotate_item)
@@ -205,18 +205,18 @@ Create a new SyncIQ performance rule.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.SyncApi(isi_sdk_8_0_1.ApiClient(configuration))
-sync_rule = isi_sdk_8_0_1.SyncRuleCreateParams() # SyncRuleCreateParams | 
+api_instance = isi_sdk_8_1_0.SyncApi(isi_sdk_8_1_0.ApiClient(configuration))
+sync_rule = isi_sdk_8_1_0.SyncRuleCreateParams() # SyncRuleCreateParams | 
 
 try:
     api_response = api_instance.create_sync_rule(sync_rule)
@@ -257,17 +257,17 @@ Delete all SyncIQ policies.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.SyncApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.SyncApi(isi_sdk_8_1_0.ApiClient(configuration))
 local_only = true # bool | Skip deleting the policy association on the target. (optional)
 force = true # bool | Ignore any running jobs when preparing to delete a policy. (optional)
 
@@ -310,17 +310,17 @@ Delete a single SyncIQ policy.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.SyncApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.SyncApi(isi_sdk_8_1_0.ApiClient(configuration))
 sync_policy_id = 'sync_policy_id_example' # str | Delete a single SyncIQ policy.
 local_only = true # bool | Skip deleting the policy association on the target. (optional)
 force = true # bool | Ignore any running jobs when preparing to delete a policy. (optional)
@@ -365,17 +365,17 @@ Delete a single SyncIQ performance rule.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.SyncApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.SyncApi(isi_sdk_8_1_0.ApiClient(configuration))
 sync_rule_id = 'sync_rule_id_example' # str | Delete a single SyncIQ performance rule.
 
 try:
@@ -416,17 +416,17 @@ Delete all SyncIQ performance rules or all rules of a specified type.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.SyncApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.SyncApi(isi_sdk_8_1_0.ApiClient(configuration))
 type = 'type_example' # str | Delete all rules of the specified rule type only. (optional)
 
 try:
@@ -467,17 +467,17 @@ Break the target association with this cluster for this policy.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.SyncApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.SyncApi(isi_sdk_8_1_0.ApiClient(configuration))
 target_policy_id = 'target_policy_id_example' # str | Break the target association with this cluster for this policy.
 force = true # bool | Ignore any running jobs when preparing to delete the policy target association. (optional)
 
@@ -520,17 +520,17 @@ List cpu performance data.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.SyncApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.SyncApi(isi_sdk_8_1_0.ApiClient(configuration))
 begin = 56 # int | Begin timestamp for time-series report. (optional)
 end = 56 # int | End timestamp for time-series report. (optional)
 
@@ -574,17 +574,17 @@ List file operations performance data.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.SyncApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.SyncApi(isi_sdk_8_1_0.ApiClient(configuration))
 begin = 56 # int | Begin timestamp for time-series report. (optional)
 end = 56 # int | End timestamp for time-series report. (optional)
 
@@ -628,17 +628,17 @@ List network operations performance data.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.SyncApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.SyncApi(isi_sdk_8_1_0.ApiClient(configuration))
 begin = 56 # int | Begin timestamp for time-series report. (optional)
 end = 56 # int | End timestamp for time-series report. (optional)
 
@@ -682,17 +682,17 @@ List worker performance data.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.SyncApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.SyncApi(isi_sdk_8_1_0.ApiClient(configuration))
 begin = 56 # int | Begin timestamp for time-series report. (optional)
 end = 56 # int | End timestamp for time-series report. (optional)
 
@@ -736,17 +736,17 @@ View a single SyncIQ job.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.SyncApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.SyncApi(isi_sdk_8_1_0.ApiClient(configuration))
 sync_job_id = 'sync_job_id_example' # str | View a single SyncIQ job.
 
 try:
@@ -788,17 +788,17 @@ Retrieve license information.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.SyncApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.SyncApi(isi_sdk_8_1_0.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_sync_license()
@@ -836,17 +836,17 @@ View a single SyncIQ policy.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.SyncApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.SyncApi(isi_sdk_8_1_0.ApiClient(configuration))
 sync_policy_id = 'sync_policy_id_example' # str | View a single SyncIQ policy.
 
 try:
@@ -888,17 +888,17 @@ View a single SyncIQ report.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.SyncApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.SyncApi(isi_sdk_8_1_0.ApiClient(configuration))
 sync_report_id = 'sync_report_id_example' # str | View a single SyncIQ report.
 
 try:
@@ -940,17 +940,17 @@ Get a list of SyncIQ reports.  By default 10 reports are returned per policy, un
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.SyncApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.SyncApi(isi_sdk_8_1_0.ApiClient(configuration))
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
 newer_than = 56 # int | Filter the returned reports to include only those whose jobs started more recently than the specified number of days ago. (optional)
@@ -1006,17 +1006,17 @@ View a single SyncIQ performance rule.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.SyncApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.SyncApi(isi_sdk_8_1_0.ApiClient(configuration))
 sync_rule_id = 'sync_rule_id_example' # str | View a single SyncIQ performance rule.
 
 try:
@@ -1058,17 +1058,17 @@ Retrieve the global SyncIQ settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.SyncApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.SyncApi(isi_sdk_8_1_0.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_sync_settings()
@@ -1106,17 +1106,17 @@ List all SyncIQ target policies.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.SyncApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.SyncApi(isi_sdk_8_1_0.ApiClient(configuration))
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 target_path = 'target_path_example' # str | Filter the returned policies to include only those with this target path. (optional)
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
@@ -1166,17 +1166,17 @@ View a single SyncIQ target policy.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.SyncApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.SyncApi(isi_sdk_8_1_0.ApiClient(configuration))
 target_policy_id = 'target_policy_id_example' # str | View a single SyncIQ target policy.
 
 try:
@@ -1218,17 +1218,17 @@ View a single SyncIQ target report.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.SyncApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.SyncApi(isi_sdk_8_1_0.ApiClient(configuration))
 target_report_id = 'target_report_id_example' # str | View a single SyncIQ target report.
 
 try:
@@ -1270,17 +1270,17 @@ Get a list of SyncIQ target reports.  By default 10 reports are returned per pol
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.SyncApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.SyncApi(isi_sdk_8_1_0.ApiClient(configuration))
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
 newer_than = 56 # int | Filter the returned reports to include only those whose jobs started more recently than the specified number of days ago. (optional)
@@ -1336,17 +1336,17 @@ Get a list of SyncIQ jobs.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.SyncApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.SyncApi(isi_sdk_8_1_0.ApiClient(configuration))
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 state = 'state_example' # str | The state of the job. (optional)
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
@@ -1396,17 +1396,17 @@ List all SyncIQ policies.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.SyncApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.SyncApi(isi_sdk_8_1_0.ApiClient(configuration))
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
 summary = true # bool | Show only summary properties (optional)
@@ -1458,17 +1458,17 @@ Whether the rotation is still running or not.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.SyncApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.SyncApi(isi_sdk_8_1_0.ApiClient(configuration))
 
 try:
     api_response = api_instance.list_sync_reports_rotate()
@@ -1506,17 +1506,17 @@ List all SyncIQ performance rules.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.SyncApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.SyncApi(isi_sdk_8_1_0.ApiClient(configuration))
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 type = 'type_example' # str | Filter the returned rules to include only those with this rule type. (optional)
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
@@ -1566,18 +1566,18 @@ Perform an action (pause, cancel, etc...) on a single job.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.SyncApi(isi_sdk_8_0_1.ApiClient(configuration))
-sync_job = isi_sdk_8_0_1.SyncJob() # SyncJob | 
+api_instance = isi_sdk_8_1_0.SyncApi(isi_sdk_8_1_0.ApiClient(configuration))
+sync_job = isi_sdk_8_1_0.SyncJob() # SyncJob | 
 sync_job_id = 'sync_job_id_example' # str | Perform an action (pause, cancel, etc...) on a single job.
 
 try:
@@ -1619,18 +1619,18 @@ Modify a single SyncIQ policy.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.SyncApi(isi_sdk_8_0_1.ApiClient(configuration))
-sync_policy = isi_sdk_8_0_1.SyncPolicy() # SyncPolicy | 
+api_instance = isi_sdk_8_1_0.SyncApi(isi_sdk_8_1_0.ApiClient(configuration))
+sync_policy = isi_sdk_8_1_0.SyncPolicy() # SyncPolicy | 
 sync_policy_id = 'sync_policy_id_example' # str | Modify a single SyncIQ policy.
 
 try:
@@ -1672,18 +1672,18 @@ Modify a single SyncIQ performance rule.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.SyncApi(isi_sdk_8_0_1.ApiClient(configuration))
-sync_rule = isi_sdk_8_0_1.SyncRule() # SyncRule | 
+api_instance = isi_sdk_8_1_0.SyncApi(isi_sdk_8_1_0.ApiClient(configuration))
+sync_rule = isi_sdk_8_1_0.SyncRule() # SyncRule | 
 sync_rule_id = 'sync_rule_id_example' # str | Modify a single SyncIQ performance rule.
 
 try:
@@ -1725,18 +1725,18 @@ Modify the global SyncIQ settings.  All input fields are optional, but one or mo
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.SyncApi(isi_sdk_8_0_1.ApiClient(configuration))
-sync_settings = isi_sdk_8_0_1.SyncSettingsExtended() # SyncSettingsExtended | 
+api_instance = isi_sdk_8_1_0.SyncApi(isi_sdk_8_1_0.ApiClient(configuration))
+sync_settings = isi_sdk_8_1_0.SyncSettingsExtended() # SyncSettingsExtended | 
 
 try:
     api_instance.update_sync_settings(sync_settings)

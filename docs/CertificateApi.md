@@ -1,4 +1,4 @@
-# isi_sdk_8_0_1.CertificateApi
+# isi_sdk_8_1_0.CertificateApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -22,18 +22,18 @@ Import a TLS server certificate.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.CertificateApi(isi_sdk_8_0_1.ApiClient(configuration))
-certificate_server_item = isi_sdk_8_0_1.CertificateServerItem() # CertificateServerItem | 
+api_instance = isi_sdk_8_1_0.CertificateApi(isi_sdk_8_1_0.ApiClient(configuration))
+certificate_server_item = isi_sdk_8_1_0.CertificateServerItem() # CertificateServerItem | 
 
 try:
     api_response = api_instance.create_certificate_server_item(certificate_server_item)
@@ -74,17 +74,17 @@ Delete a TLS server certificate.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.CertificateApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.CertificateApi(isi_sdk_8_1_0.ApiClient(configuration))
 certificate_server_id = 'certificate_server_id_example' # str | Delete a TLS server certificate.
 
 try:
@@ -125,17 +125,17 @@ Retrieve a single TLS server certificate.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.CertificateApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.CertificateApi(isi_sdk_8_1_0.ApiClient(configuration))
 certificate_server_id = 'certificate_server_id_example' # str | Retrieve a single TLS server certificate.
 
 try:
@@ -177,17 +177,17 @@ Retrieve a list of all configured TLS server certificates.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.CertificateApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.CertificateApi(isi_sdk_8_1_0.ApiClient(configuration))
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
 dir = 'dir_example' # str | The direction of the sort. (optional)
@@ -235,18 +235,18 @@ Modify a TLS server certificate.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.CertificateApi(isi_sdk_8_0_1.ApiClient(configuration))
-certificate_server_id_params = isi_sdk_8_0_1.CertificateServerIdParams() # CertificateServerIdParams | 
+api_instance = isi_sdk_8_1_0.CertificateApi(isi_sdk_8_1_0.ApiClient(configuration))
+certificate_server_id_params = isi_sdk_8_1_0.CertificateServerIdParams() # CertificateServerIdParams | 
 certificate_server_id = 'certificate_server_id_example' # str | Modify a TLS server certificate.
 
 try:

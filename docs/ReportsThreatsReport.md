@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **remediation** | **str** | The action that was taken to remediate the threat. | [optional] 
 **scan_id** | **str** | The id of the scan report this threat is associated with. | [optional] 
 **threat** | **str** | A description of the threat that was found. | [optional] 
-**time** | **int** | The time that the threat was found, in Unix epoch seconds. | [optional] 
+**time** | **int** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

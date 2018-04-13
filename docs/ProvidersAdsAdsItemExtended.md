@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **ignore_all_trusts** | **bool** | If set to true, ignores all trusted domains. | [optional] 
 **ignored_trusted_domains** | **list[str]** | Includes trusted domains when &#39;ignore_all_trusts&#39; is set to false. | [optional] 
 **include_trusted_domains** | **list[str]** | Includes trusted domains when &#39;ignore_all_trusts&#39; is set to true. | [optional] 
-**instance** | **str** | Specifies Active Directory provider instnace. | [optional] 
+**instance** | **str** | Specifies Active Directory provider instance. | [optional] 
 **ldap_sign_and_seal** | **bool** | Enables encryption and signing on LDAP requests. | [optional] 
 **login_shell** | **str** | Specifies the login shell path. | [optional] 
 **lookup_domains** | **list[str]** | Limits user and group lookups to the specified domains. | [optional] 

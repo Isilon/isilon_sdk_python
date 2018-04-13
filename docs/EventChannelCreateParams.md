@@ -3,9 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**allowed_nodes** | **list[int]** | Nodes that can be masters for this channel | [optional] 
+**allowed_nodes** | **list[int]** | Nodes (LNNs) that can be masters for this channel | [optional] 
 **enabled** | **bool** | Channel is to be used or not | [optional] 
-**excluded_nodes** | **list[int]** | Nodes that can be masters for this channel | [optional] 
+**excluded_nodes** | **list[int]** | Nodes (LNNs) that can NOT be the masters for this channel | [optional] 
 **parameters** | [**EventChannelParameters**](EventChannelParameters.md) | Parameters to be used for an smtp channel | [optional] 
 **system** | **bool** | Channel is a pre-defined system channel | [optional] 
 **type** | **str** | The mechanism used by the channel | 

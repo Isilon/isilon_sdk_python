@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **description** | **str** | A description for the server. | [optional] 
 **enabled** | **bool** | Whether the server is enabled. | [optional] 
 **url** | **str** | The icap url for the server.  This should have a format of: icap://host.domain:port/path | [optional] 
-**definitions** | **str** | Virus definitions on the server. | [optional] 
+**definitions** | **str** |  | [optional] 
 **id** | **str** | A unique identifier for the server. | [optional] 
 **status** | **str** | The status of the server. | [optional] 
 

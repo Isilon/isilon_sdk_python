@@ -1,4 +1,4 @@
-# isi_sdk_8_0_1.NetworkGroupnetsSubnetsApi
+# isi_sdk_8_1_0.NetworkGroupnetsSubnetsApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -26,18 +26,18 @@ Rebalance IP addresses in specified pool.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.NetworkGroupnetsSubnetsApi(isi_sdk_8_0_1.ApiClient(configuration))
-pools_pool_rebalance_ip = isi_sdk_8_0_1.Empty() # Empty | 
+api_instance = isi_sdk_8_1_0.NetworkGroupnetsSubnetsApi(isi_sdk_8_1_0.ApiClient(configuration))
+pools_pool_rebalance_ip = isi_sdk_8_1_0.Empty() # Empty | 
 groupnet = 'groupnet_example' # str | 
 subnet = 'subnet_example' # str | 
 pool = 'pool_example' # str | 
@@ -84,18 +84,18 @@ Create a new rule.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.NetworkGroupnetsSubnetsApi(isi_sdk_8_0_1.ApiClient(configuration))
-pools_pool_rule = isi_sdk_8_0_1.PoolsPoolRuleCreateParams() # PoolsPoolRuleCreateParams | 
+api_instance = isi_sdk_8_1_0.NetworkGroupnetsSubnetsApi(isi_sdk_8_1_0.ApiClient(configuration))
+pools_pool_rule = isi_sdk_8_1_0.PoolsPoolRuleCreateParams() # PoolsPoolRuleCreateParams | 
 groupnet = 'groupnet_example' # str | 
 subnet = 'subnet_example' # str | 
 pool = 'pool_example' # str | 
@@ -142,18 +142,18 @@ Resume suspended nodes.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.NetworkGroupnetsSubnetsApi(isi_sdk_8_0_1.ApiClient(configuration))
-pools_pool_sc_resume_node = isi_sdk_8_0_1.PoolsPoolScResumeNode() # PoolsPoolScResumeNode | 
+api_instance = isi_sdk_8_1_0.NetworkGroupnetsSubnetsApi(isi_sdk_8_1_0.ApiClient(configuration))
+pools_pool_sc_resume_node = isi_sdk_8_1_0.PoolsPoolScResumeNode() # PoolsPoolScResumeNode | 
 groupnet = 'groupnet_example' # str | 
 subnet = 'subnet_example' # str | 
 pool = 'pool_example' # str | 
@@ -200,18 +200,18 @@ Suspend nodes.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.NetworkGroupnetsSubnetsApi(isi_sdk_8_0_1.ApiClient(configuration))
-pools_pool_sc_suspend_node = isi_sdk_8_0_1.PoolsPoolScResumeNode() # PoolsPoolScResumeNode | 
+api_instance = isi_sdk_8_1_0.NetworkGroupnetsSubnetsApi(isi_sdk_8_1_0.ApiClient(configuration))
+pools_pool_sc_suspend_node = isi_sdk_8_1_0.PoolsPoolScResumeNode() # PoolsPoolScResumeNode | 
 groupnet = 'groupnet_example' # str | 
 subnet = 'subnet_example' # str | 
 pool = 'pool_example' # str | 
@@ -258,17 +258,17 @@ Delete a network rule.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.NetworkGroupnetsSubnetsApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.NetworkGroupnetsSubnetsApi(isi_sdk_8_1_0.ApiClient(configuration))
 pools_pool_rule_id = 'pools_pool_rule_id_example' # str | Delete a network rule.
 groupnet = 'groupnet_example' # str | 
 subnet = 'subnet_example' # str | 
@@ -315,17 +315,17 @@ Get a list of interfaces.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.NetworkGroupnetsSubnetsApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.NetworkGroupnetsSubnetsApi(isi_sdk_8_1_0.ApiClient(configuration))
 groupnet = 'groupnet_example' # str | 
 subnet = 'subnet_example' # str | 
 pool = 'pool_example' # str | 
@@ -381,17 +381,17 @@ View a single network rule.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.NetworkGroupnetsSubnetsApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.NetworkGroupnetsSubnetsApi(isi_sdk_8_1_0.ApiClient(configuration))
 pools_pool_rule_id = 'pools_pool_rule_id_example' # str | View a single network rule.
 groupnet = 'groupnet_example' # str | 
 subnet = 'subnet_example' # str | 
@@ -439,17 +439,17 @@ Get a list of network rules.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.NetworkGroupnetsSubnetsApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.NetworkGroupnetsSubnetsApi(isi_sdk_8_1_0.ApiClient(configuration))
 groupnet = 'groupnet_example' # str | 
 subnet = 'subnet_example' # str | 
 pool = 'pool_example' # str | 
@@ -503,18 +503,18 @@ Modify a network rule.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.NetworkGroupnetsSubnetsApi(isi_sdk_8_0_1.ApiClient(configuration))
-pools_pool_rule = isi_sdk_8_0_1.PoolsPoolRule() # PoolsPoolRule | 
+api_instance = isi_sdk_8_1_0.NetworkGroupnetsSubnetsApi(isi_sdk_8_1_0.ApiClient(configuration))
+pools_pool_rule = isi_sdk_8_1_0.PoolsPoolRule() # PoolsPoolRule | 
 pools_pool_rule_id = 'pools_pool_rule_id_example' # str | Modify a network rule.
 groupnet = 'groupnet_example' # str | 
 subnet = 'subnet_example' # str | 

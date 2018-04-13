@@ -1,4 +1,4 @@
-# isi_sdk_8_0_1.StoragepoolApi
+# isi_sdk_8_1_0.StoragepoolApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -19,7 +19,7 @@ Method | HTTP request | Description
 [**get_compatibilities_ssd_active_by_id**](StoragepoolApi.md#get_compatibilities_ssd_active_by_id) | **GET** /platform/3/storagepool/compatibilities/ssd/active/{CompatibilitiesSsdActiveId} | 
 [**get_compatibilities_ssd_available**](StoragepoolApi.md#get_compatibilities_ssd_available) | **GET** /platform/1/storagepool/compatibilities/ssd/available | 
 [**get_storagepool_nodepool**](StoragepoolApi.md#get_storagepool_nodepool) | **GET** /platform/3/storagepool/nodepools/{StoragepoolNodepoolId} | 
-[**get_storagepool_settings**](StoragepoolApi.md#get_storagepool_settings) | **GET** /platform/1/storagepool/settings | 
+[**get_storagepool_settings**](StoragepoolApi.md#get_storagepool_settings) | **GET** /platform/5/storagepool/settings | 
 [**get_storagepool_status**](StoragepoolApi.md#get_storagepool_status) | **GET** /platform/1/storagepool/status | 
 [**get_storagepool_storagepools**](StoragepoolApi.md#get_storagepool_storagepools) | **GET** /platform/3/storagepool/storagepools | 
 [**get_storagepool_suggested_protection_nid**](StoragepoolApi.md#get_storagepool_suggested_protection_nid) | **GET** /platform/3/storagepool/suggested-protection/{StoragepoolSuggestedProtectionNid} | 
@@ -31,7 +31,7 @@ Method | HTTP request | Description
 [**list_storagepool_tiers**](StoragepoolApi.md#list_storagepool_tiers) | **GET** /platform/1/storagepool/tiers | 
 [**update_compatibilities_ssd_active_by_id**](StoragepoolApi.md#update_compatibilities_ssd_active_by_id) | **PUT** /platform/3/storagepool/compatibilities/ssd/active/{CompatibilitiesSsdActiveId} | 
 [**update_storagepool_nodepool**](StoragepoolApi.md#update_storagepool_nodepool) | **PUT** /platform/3/storagepool/nodepools/{StoragepoolNodepoolId} | 
-[**update_storagepool_settings**](StoragepoolApi.md#update_storagepool_settings) | **PUT** /platform/1/storagepool/settings | 
+[**update_storagepool_settings**](StoragepoolApi.md#update_storagepool_settings) | **PUT** /platform/5/storagepool/settings | 
 [**update_storagepool_tier**](StoragepoolApi.md#update_storagepool_tier) | **PUT** /platform/1/storagepool/tiers/{StoragepoolTierId} | 
 
 
@@ -46,18 +46,18 @@ Create a new compatibility
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.StoragepoolApi(isi_sdk_8_0_1.ApiClient(configuration))
-compatibilities_class_active_item = isi_sdk_8_0_1.CompatibilitiesClassActiveItem() # CompatibilitiesClassActiveItem | 
+api_instance = isi_sdk_8_1_0.StoragepoolApi(isi_sdk_8_1_0.ApiClient(configuration))
+compatibilities_class_active_item = isi_sdk_8_1_0.CompatibilitiesClassActiveItem() # CompatibilitiesClassActiveItem | 
 assess = true # bool | Do not perform action, only test that it is possible. (optional)
 
 try:
@@ -100,18 +100,18 @@ Create a new ssd compatibility
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.StoragepoolApi(isi_sdk_8_0_1.ApiClient(configuration))
-compatibilities_ssd_active_item = isi_sdk_8_0_1.CompatibilitiesSsdActiveItem() # CompatibilitiesSsdActiveItem | 
+api_instance = isi_sdk_8_1_0.StoragepoolApi(isi_sdk_8_1_0.ApiClient(configuration))
+compatibilities_ssd_active_item = isi_sdk_8_1_0.CompatibilitiesSsdActiveItem() # CompatibilitiesSsdActiveItem | 
 assess = true # bool | Do not perform action, only test that it is possible. (optional)
 
 try:
@@ -154,18 +154,18 @@ Create a new node pool.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.StoragepoolApi(isi_sdk_8_0_1.ApiClient(configuration))
-storagepool_nodepool = isi_sdk_8_0_1.StoragepoolNodepoolCreateParams() # StoragepoolNodepoolCreateParams | 
+api_instance = isi_sdk_8_1_0.StoragepoolApi(isi_sdk_8_1_0.ApiClient(configuration))
+storagepool_nodepool = isi_sdk_8_1_0.StoragepoolNodepoolCreateParams() # StoragepoolNodepoolCreateParams | 
 
 try:
     api_response = api_instance.create_storagepool_nodepool(storagepool_nodepool)
@@ -206,18 +206,18 @@ Create a new tier.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.StoragepoolApi(isi_sdk_8_0_1.ApiClient(configuration))
-storagepool_tier = isi_sdk_8_0_1.StoragepoolTierCreateParams() # StoragepoolTierCreateParams | 
+api_instance = isi_sdk_8_1_0.StoragepoolApi(isi_sdk_8_1_0.ApiClient(configuration))
+storagepool_tier = isi_sdk_8_1_0.StoragepoolTierCreateParams() # StoragepoolTierCreateParams | 
 
 try:
     api_response = api_instance.create_storagepool_tier(storagepool_tier)
@@ -258,17 +258,17 @@ Delete an active compatibility by id
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.StoragepoolApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.StoragepoolApi(isi_sdk_8_1_0.ApiClient(configuration))
 compatibilities_class_active_id = 'compatibilities_class_active_id_example' # str | Delete an active compatibility by id
 assess = true # bool | Do not perform action, only test that it is possible. (optional)
 
@@ -311,17 +311,17 @@ Delete an active ssd compatibility by id
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.StoragepoolApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.StoragepoolApi(isi_sdk_8_1_0.ApiClient(configuration))
 compatibilities_ssd_active_id = 'compatibilities_ssd_active_id_example' # str | Delete an active ssd compatibility by id
 assess = true # bool | Do not perform action, only test that it is possible. (optional)
 
@@ -364,17 +364,17 @@ Delete node pool.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.StoragepoolApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.StoragepoolApi(isi_sdk_8_1_0.ApiClient(configuration))
 storagepool_nodepool_id = 'storagepool_nodepool_id_example' # str | Delete node pool.
 
 try:
@@ -415,17 +415,17 @@ Delete all node pools.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.StoragepoolApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.StoragepoolApi(isi_sdk_8_1_0.ApiClient(configuration))
 
 try:
     api_instance.delete_storagepool_nodepools()
@@ -462,17 +462,17 @@ Delete tier.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.StoragepoolApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.StoragepoolApi(isi_sdk_8_1_0.ApiClient(configuration))
 storagepool_tier_id = 'storagepool_tier_id_example' # str | Delete tier.
 
 try:
@@ -513,17 +513,17 @@ Delete all tiers.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.StoragepoolApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.StoragepoolApi(isi_sdk_8_1_0.ApiClient(configuration))
 
 try:
     api_instance.delete_storagepool_tiers()
@@ -560,17 +560,17 @@ Get an active compatibilities by id
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.StoragepoolApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.StoragepoolApi(isi_sdk_8_1_0.ApiClient(configuration))
 compatibilities_class_active_id = 'compatibilities_class_active_id_example' # str | Get an active compatibilities by id
 
 try:
@@ -612,17 +612,17 @@ Get a list of available compatibilities
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.StoragepoolApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.StoragepoolApi(isi_sdk_8_1_0.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_compatibilities_class_available()
@@ -660,17 +660,17 @@ Get a active ssd compatibilities by id
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.StoragepoolApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.StoragepoolApi(isi_sdk_8_1_0.ApiClient(configuration))
 compatibilities_ssd_active_id = 'compatibilities_ssd_active_id_example' # str | Get a active ssd compatibilities by id
 
 try:
@@ -712,17 +712,17 @@ Get a list of available ssd compatibilities
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.StoragepoolApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.StoragepoolApi(isi_sdk_8_1_0.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_compatibilities_ssd_available()
@@ -760,17 +760,17 @@ Retrieve node pool information.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.StoragepoolApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.StoragepoolApi(isi_sdk_8_1_0.ApiClient(configuration))
 storagepool_nodepool_id = 'storagepool_nodepool_id_example' # str | Retrieve node pool information.
 
 try:
@@ -806,23 +806,23 @@ Name | Type | Description  | Notes
 
 
 
-List all settings.
+List all storagepool settings.
 
 ### Example
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.StoragepoolApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.StoragepoolApi(isi_sdk_8_1_0.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_storagepool_settings()
@@ -860,17 +860,17 @@ List any health conditions detected.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.StoragepoolApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.StoragepoolApi(isi_sdk_8_1_0.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_storagepool_status()
@@ -898,7 +898,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_storagepool_storagepools**
-> StoragepoolStoragepools get_storagepool_storagepools(sort=sort, dir=dir)
+> StoragepoolStoragepools get_storagepool_storagepools(sort=sort, toplevels=toplevels, dir=dir)
 
 
 
@@ -908,22 +908,23 @@ List all storage pools.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.StoragepoolApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.StoragepoolApi(isi_sdk_8_1_0.ApiClient(configuration))
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
+toplevels = 'toplevels_example' # str | If true, node pools contained within tiers will be filtered out of results. (optional)
 dir = 'dir_example' # str | The direction of the sort. (optional)
 
 try:
-    api_response = api_instance.get_storagepool_storagepools(sort=sort, dir=dir)
+    api_response = api_instance.get_storagepool_storagepools(sort=sort, toplevels=toplevels, dir=dir)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling StoragepoolApi->get_storagepool_storagepools: %s\n" % e)
@@ -934,6 +935,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **sort** | **str**| The field that will be used for sorting. | [optional] 
+ **toplevels** | **str**| If true, node pools contained within tiers will be filtered out of results. | [optional] 
  **dir** | **str**| The direction of the sort. | [optional] 
 
 ### Return type
@@ -962,17 +964,17 @@ Retrieve the suggested protection policy.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.StoragepoolApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.StoragepoolApi(isi_sdk_8_1_0.ApiClient(configuration))
 storagepool_suggested_protection_nid = 'storagepool_suggested_protection_nid_example' # str | Retrieve the suggested protection policy.
 
 try:
@@ -1014,17 +1016,17 @@ Retrieve tier information.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.StoragepoolApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.StoragepoolApi(isi_sdk_8_1_0.ApiClient(configuration))
 storagepool_tier_id = 'storagepool_tier_id_example' # str | Retrieve tier information.
 
 try:
@@ -1066,17 +1068,17 @@ Get the unprovisioned nodes and drives
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.StoragepoolApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.StoragepoolApi(isi_sdk_8_1_0.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_storagepool_unprovisioned()
@@ -1114,17 +1116,17 @@ Get a list of active compatibilities
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.StoragepoolApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.StoragepoolApi(isi_sdk_8_1_0.ApiClient(configuration))
 
 try:
     api_response = api_instance.list_compatibilities_class_active()
@@ -1162,17 +1164,17 @@ Get a list of active ssd compatibilities
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.StoragepoolApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.StoragepoolApi(isi_sdk_8_1_0.ApiClient(configuration))
 
 try:
     api_response = api_instance.list_compatibilities_ssd_active()
@@ -1210,17 +1212,17 @@ List all node pools.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.StoragepoolApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.StoragepoolApi(isi_sdk_8_1_0.ApiClient(configuration))
 
 try:
     api_response = api_instance.list_storagepool_nodepools()
@@ -1258,17 +1260,17 @@ List all tiers.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.StoragepoolApi(isi_sdk_8_0_1.ApiClient(configuration))
+api_instance = isi_sdk_8_1_0.StoragepoolApi(isi_sdk_8_1_0.ApiClient(configuration))
 
 try:
     api_response = api_instance.list_storagepool_tiers()
@@ -1306,18 +1308,18 @@ Modify an ssd compatibility by id
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.StoragepoolApi(isi_sdk_8_0_1.ApiClient(configuration))
-compatibilities_ssd_active_id_params = isi_sdk_8_0_1.CompatibilitiesSsdActiveIdParams() # CompatibilitiesSsdActiveIdParams | 
+api_instance = isi_sdk_8_1_0.StoragepoolApi(isi_sdk_8_1_0.ApiClient(configuration))
+compatibilities_ssd_active_id_params = isi_sdk_8_1_0.CompatibilitiesSsdActiveIdParams() # CompatibilitiesSsdActiveIdParams | 
 compatibilities_ssd_active_id = 'compatibilities_ssd_active_id_example' # str | Modify an ssd compatibility by id
 assess = true # bool | Do not perform action, only test that it is possible. (optional)
 
@@ -1361,18 +1363,18 @@ Modify node pool. All input fields are optional, but one or more must be supplie
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.StoragepoolApi(isi_sdk_8_0_1.ApiClient(configuration))
-storagepool_nodepool = isi_sdk_8_0_1.StoragepoolNodepool() # StoragepoolNodepool | 
+api_instance = isi_sdk_8_1_0.StoragepoolApi(isi_sdk_8_1_0.ApiClient(configuration))
+storagepool_nodepool = isi_sdk_8_1_0.StoragepoolNodepool() # StoragepoolNodepool | 
 storagepool_nodepool_id = 'storagepool_nodepool_id_example' # str | Modify node pool. All input fields are optional, but one or more must be supplied.
 
 try:
@@ -1414,18 +1416,18 @@ Modify one or more settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.StoragepoolApi(isi_sdk_8_0_1.ApiClient(configuration))
-storagepool_settings = isi_sdk_8_0_1.StoragepoolSettingsExtended() # StoragepoolSettingsExtended | 
+api_instance = isi_sdk_8_1_0.StoragepoolApi(isi_sdk_8_1_0.ApiClient(configuration))
+storagepool_settings = isi_sdk_8_1_0.StoragepoolSettingsExtended() # StoragepoolSettingsExtended | 
 
 try:
     api_instance.update_storagepool_settings(storagepool_settings)
@@ -1465,18 +1467,18 @@ Modify tier. All input fields are optional, but one or more must be supplied.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_0_1
-from isi_sdk_8_0_1.rest import ApiException
+import isi_sdk_8_1_0
+from isi_sdk_8_1_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_0_1.Configuration()
+configuration = isi_sdk_8_1_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_0_1.StoragepoolApi(isi_sdk_8_0_1.ApiClient(configuration))
-storagepool_tier = isi_sdk_8_0_1.StoragepoolTier() # StoragepoolTier | 
+api_instance = isi_sdk_8_1_0.StoragepoolApi(isi_sdk_8_1_0.ApiClient(configuration))
+storagepool_tier = isi_sdk_8_1_0.StoragepoolTier() # StoragepoolTier | 
 storagepool_tier_id = 'storagepool_tier_id_example' # str | Modify tier. All input fields are optional, but one or more must be supplied.
 
 try:
