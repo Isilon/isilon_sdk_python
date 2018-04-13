@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **name** | **str** | The node pool name. | 
 **protection_policy** | **str** | The underlying protection policy. | [optional] 
 **tier** | **str** | The name (if named) or system ID of the node pool&#39;s tier, if it is in a tier. Otherwise null. | [optional] 
-**usage** | [**StoragepoolTierUsage**](StoragepoolTierUsage.md) | Total pool usage. | 
+**usage** | [**StoragepoolNodepoolUsage**](StoragepoolNodepoolUsage.md) | Total pool usage. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

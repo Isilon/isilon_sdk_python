@@ -1,20 +1,19 @@
-# isi_sdk.AuthApi
+# isi_sdk_7_2.AuthApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_auth_group**](AuthApi.md#create_auth_group) | **POST** /platform/1/auth/groups | 
-[**create_auth_refresh_item**](AuthApi.md#create_auth_refresh_item) | **POST** /platform/3/auth/refresh | 
 [**create_auth_role**](AuthApi.md#create_auth_role) | **POST** /platform/1/auth/roles | 
 [**create_auth_user**](AuthApi.md#create_auth_user) | **POST** /platform/1/auth/users | 
 [**create_mapping_identity**](AuthApi.md#create_mapping_identity) | **POST** /platform/1/auth/mapping/identities | 
 [**create_mapping_identity_0**](AuthApi.md#create_mapping_identity_0) | **POST** /platform/1/auth/mapping/identities/{MappingIdentityId} | 
-[**create_providers_ads_item**](AuthApi.md#create_providers_ads_item) | **POST** /platform/3/auth/providers/ads | 
+[**create_providers_ads_item**](AuthApi.md#create_providers_ads_item) | **POST** /platform/1/auth/providers/ads | 
 [**create_providers_file_item**](AuthApi.md#create_providers_file_item) | **POST** /platform/1/auth/providers/file | 
-[**create_providers_krb5_item**](AuthApi.md#create_providers_krb5_item) | **POST** /platform/3/auth/providers/krb5 | 
-[**create_providers_ldap_item**](AuthApi.md#create_providers_ldap_item) | **POST** /platform/3/auth/providers/ldap | 
-[**create_providers_nis_item**](AuthApi.md#create_providers_nis_item) | **POST** /platform/3/auth/providers/nis | 
+[**create_providers_krb5_item**](AuthApi.md#create_providers_krb5_item) | **POST** /platform/1/auth/providers/krb5 | 
+[**create_providers_ldap_item**](AuthApi.md#create_providers_ldap_item) | **POST** /platform/1/auth/providers/ldap | 
+[**create_providers_nis_item**](AuthApi.md#create_providers_nis_item) | **POST** /platform/1/auth/providers/nis | 
 [**create_settings_krb5_domain**](AuthApi.md#create_settings_krb5_domain) | **POST** /platform/1/auth/settings/krb5/domains | 
 [**create_settings_krb5_realm**](AuthApi.md#create_settings_krb5_realm) | **POST** /platform/1/auth/settings/krb5/realms | 
 [**delete_auth_group**](AuthApi.md#delete_auth_group) | **DELETE** /platform/1/auth/groups/{AuthGroupId} | 
@@ -24,18 +23,17 @@ Method | HTTP request | Description
 [**delete_auth_users**](AuthApi.md#delete_auth_users) | **DELETE** /platform/1/auth/users | 
 [**delete_mapping_identities**](AuthApi.md#delete_mapping_identities) | **DELETE** /platform/1/auth/mapping/identities | 
 [**delete_mapping_identity**](AuthApi.md#delete_mapping_identity) | **DELETE** /platform/1/auth/mapping/identities/{MappingIdentityId} | 
-[**delete_providers_ads_by_id**](AuthApi.md#delete_providers_ads_by_id) | **DELETE** /platform/3/auth/providers/ads/{ProvidersAdsId} | 
+[**delete_providers_ads_by_id**](AuthApi.md#delete_providers_ads_by_id) | **DELETE** /platform/1/auth/providers/ads/{ProvidersAdsId} | 
 [**delete_providers_file_by_id**](AuthApi.md#delete_providers_file_by_id) | **DELETE** /platform/1/auth/providers/file/{ProvidersFileId} | 
-[**delete_providers_krb5_by_id**](AuthApi.md#delete_providers_krb5_by_id) | **DELETE** /platform/3/auth/providers/krb5/{ProvidersKrb5Id} | 
-[**delete_providers_ldap_by_id**](AuthApi.md#delete_providers_ldap_by_id) | **DELETE** /platform/3/auth/providers/ldap/{ProvidersLdapId} | 
+[**delete_providers_krb5_by_id**](AuthApi.md#delete_providers_krb5_by_id) | **DELETE** /platform/1/auth/providers/krb5/{ProvidersKrb5Id} | 
+[**delete_providers_ldap_by_id**](AuthApi.md#delete_providers_ldap_by_id) | **DELETE** /platform/1/auth/providers/ldap/{ProvidersLdapId} | 
 [**delete_providers_local_by_id**](AuthApi.md#delete_providers_local_by_id) | **DELETE** /platform/1/auth/providers/local/{ProvidersLocalId} | 
-[**delete_providers_nis_by_id**](AuthApi.md#delete_providers_nis_by_id) | **DELETE** /platform/3/auth/providers/nis/{ProvidersNisId} | 
+[**delete_providers_nis_by_id**](AuthApi.md#delete_providers_nis_by_id) | **DELETE** /platform/1/auth/providers/nis/{ProvidersNisId} | 
 [**delete_settings_krb5_domain**](AuthApi.md#delete_settings_krb5_domain) | **DELETE** /platform/1/auth/settings/krb5/domains/{SettingsKrb5DomainId} | 
 [**delete_settings_krb5_realm**](AuthApi.md#delete_settings_krb5_realm) | **DELETE** /platform/1/auth/settings/krb5/realms/{SettingsKrb5RealmId} | 
 [**get_auth_access_user**](AuthApi.md#get_auth_access_user) | **GET** /platform/1/auth/access/{AuthAccessUser} | 
 [**get_auth_group**](AuthApi.md#get_auth_group) | **GET** /platform/1/auth/groups/{AuthGroupId} | 
 [**get_auth_id**](AuthApi.md#get_auth_id) | **GET** /platform/1/auth/id | 
-[**get_auth_log_level**](AuthApi.md#get_auth_log_level) | **GET** /platform/3/auth/log-level | 
 [**get_auth_netgroup**](AuthApi.md#get_auth_netgroup) | **GET** /platform/1/auth/netgroups/{AuthNetgroupId} | 
 [**get_auth_privileges**](AuthApi.md#get_auth_privileges) | **GET** /platform/1/auth/privileges | 
 [**get_auth_role**](AuthApi.md#get_auth_role) | **GET** /platform/1/auth/roles/{AuthRoleId} | 
@@ -43,19 +41,17 @@ Method | HTTP request | Description
 [**get_auth_user**](AuthApi.md#get_auth_user) | **GET** /platform/1/auth/users/{AuthUserId} | 
 [**get_auth_wellknown**](AuthApi.md#get_auth_wellknown) | **GET** /platform/1/auth/wellknowns/{AuthWellknownId} | 
 [**get_auth_wellknowns**](AuthApi.md#get_auth_wellknowns) | **GET** /platform/1/auth/wellknowns | 
-[**get_mapping_dump**](AuthApi.md#get_mapping_dump) | **GET** /platform/3/auth/mapping/dump | 
 [**get_mapping_identity**](AuthApi.md#get_mapping_identity) | **GET** /platform/1/auth/mapping/identities/{MappingIdentityId} | 
 [**get_mapping_users_lookup**](AuthApi.md#get_mapping_users_lookup) | **GET** /platform/1/auth/mapping/users/lookup | 
 [**get_mapping_users_rules**](AuthApi.md#get_mapping_users_rules) | **GET** /platform/1/auth/mapping/users/rules | 
-[**get_providers_ads_by_id**](AuthApi.md#get_providers_ads_by_id) | **GET** /platform/3/auth/providers/ads/{ProvidersAdsId} | 
+[**get_providers_ads_by_id**](AuthApi.md#get_providers_ads_by_id) | **GET** /platform/1/auth/providers/ads/{ProvidersAdsId} | 
 [**get_providers_file_by_id**](AuthApi.md#get_providers_file_by_id) | **GET** /platform/1/auth/providers/file/{ProvidersFileId} | 
-[**get_providers_krb5_by_id**](AuthApi.md#get_providers_krb5_by_id) | **GET** /platform/3/auth/providers/krb5/{ProvidersKrb5Id} | 
-[**get_providers_ldap_by_id**](AuthApi.md#get_providers_ldap_by_id) | **GET** /platform/3/auth/providers/ldap/{ProvidersLdapId} | 
+[**get_providers_krb5_by_id**](AuthApi.md#get_providers_krb5_by_id) | **GET** /platform/1/auth/providers/krb5/{ProvidersKrb5Id} | 
+[**get_providers_ldap_by_id**](AuthApi.md#get_providers_ldap_by_id) | **GET** /platform/1/auth/providers/ldap/{ProvidersLdapId} | 
 [**get_providers_local**](AuthApi.md#get_providers_local) | **GET** /platform/1/auth/providers/local | 
 [**get_providers_local_by_id**](AuthApi.md#get_providers_local_by_id) | **GET** /platform/1/auth/providers/local/{ProvidersLocalId} | 
-[**get_providers_nis_by_id**](AuthApi.md#get_providers_nis_by_id) | **GET** /platform/3/auth/providers/nis/{ProvidersNisId} | 
-[**get_providers_summary**](AuthApi.md#get_providers_summary) | **GET** /platform/3/auth/providers/summary | 
-[**get_settings_acls**](AuthApi.md#get_settings_acls) | **GET** /platform/3/auth/settings/acls | 
+[**get_providers_nis_by_id**](AuthApi.md#get_providers_nis_by_id) | **GET** /platform/1/auth/providers/nis/{ProvidersNisId} | 
+[**get_providers_summary**](AuthApi.md#get_providers_summary) | **GET** /platform/1/auth/providers/summary | 
 [**get_settings_global**](AuthApi.md#get_settings_global) | **GET** /platform/1/auth/settings/global | 
 [**get_settings_krb5_defaults**](AuthApi.md#get_settings_krb5_defaults) | **GET** /platform/1/auth/settings/krb5/defaults | 
 [**get_settings_krb5_domain**](AuthApi.md#get_settings_krb5_domain) | **GET** /platform/1/auth/settings/krb5/domains/{SettingsKrb5DomainId} | 
@@ -64,26 +60,23 @@ Method | HTTP request | Description
 [**list_auth_groups**](AuthApi.md#list_auth_groups) | **GET** /platform/1/auth/groups | 
 [**list_auth_roles**](AuthApi.md#list_auth_roles) | **GET** /platform/1/auth/roles | 
 [**list_auth_users**](AuthApi.md#list_auth_users) | **GET** /platform/1/auth/users | 
-[**list_providers_ads**](AuthApi.md#list_providers_ads) | **GET** /platform/3/auth/providers/ads | 
+[**list_providers_ads**](AuthApi.md#list_providers_ads) | **GET** /platform/1/auth/providers/ads | 
 [**list_providers_file**](AuthApi.md#list_providers_file) | **GET** /platform/1/auth/providers/file | 
-[**list_providers_krb5**](AuthApi.md#list_providers_krb5) | **GET** /platform/3/auth/providers/krb5 | 
-[**list_providers_ldap**](AuthApi.md#list_providers_ldap) | **GET** /platform/3/auth/providers/ldap | 
-[**list_providers_nis**](AuthApi.md#list_providers_nis) | **GET** /platform/3/auth/providers/nis | 
+[**list_providers_krb5**](AuthApi.md#list_providers_krb5) | **GET** /platform/1/auth/providers/krb5 | 
+[**list_providers_ldap**](AuthApi.md#list_providers_ldap) | **GET** /platform/1/auth/providers/ldap | 
+[**list_providers_nis**](AuthApi.md#list_providers_nis) | **GET** /platform/1/auth/providers/nis | 
 [**list_settings_krb5_domains**](AuthApi.md#list_settings_krb5_domains) | **GET** /platform/1/auth/settings/krb5/domains | 
 [**list_settings_krb5_realms**](AuthApi.md#list_settings_krb5_realms) | **GET** /platform/1/auth/settings/krb5/realms | 
 [**update_auth_group**](AuthApi.md#update_auth_group) | **PUT** /platform/1/auth/groups/{AuthGroupId} | 
-[**update_auth_log_level**](AuthApi.md#update_auth_log_level) | **PUT** /platform/3/auth/log-level | 
 [**update_auth_role**](AuthApi.md#update_auth_role) | **PUT** /platform/1/auth/roles/{AuthRoleId} | 
 [**update_auth_user**](AuthApi.md#update_auth_user) | **PUT** /platform/1/auth/users/{AuthUserId} | 
-[**update_mapping_import**](AuthApi.md#update_mapping_import) | **PUT** /platform/3/auth/mapping/import | 
 [**update_mapping_users_rules**](AuthApi.md#update_mapping_users_rules) | **PUT** /platform/1/auth/mapping/users/rules | 
-[**update_providers_ads_by_id**](AuthApi.md#update_providers_ads_by_id) | **PUT** /platform/3/auth/providers/ads/{ProvidersAdsId} | 
+[**update_providers_ads_by_id**](AuthApi.md#update_providers_ads_by_id) | **PUT** /platform/1/auth/providers/ads/{ProvidersAdsId} | 
 [**update_providers_file_by_id**](AuthApi.md#update_providers_file_by_id) | **PUT** /platform/1/auth/providers/file/{ProvidersFileId} | 
-[**update_providers_krb5_by_id**](AuthApi.md#update_providers_krb5_by_id) | **PUT** /platform/3/auth/providers/krb5/{ProvidersKrb5Id} | 
-[**update_providers_ldap_by_id**](AuthApi.md#update_providers_ldap_by_id) | **PUT** /platform/3/auth/providers/ldap/{ProvidersLdapId} | 
+[**update_providers_krb5_by_id**](AuthApi.md#update_providers_krb5_by_id) | **PUT** /platform/1/auth/providers/krb5/{ProvidersKrb5Id} | 
+[**update_providers_ldap_by_id**](AuthApi.md#update_providers_ldap_by_id) | **PUT** /platform/1/auth/providers/ldap/{ProvidersLdapId} | 
 [**update_providers_local_by_id**](AuthApi.md#update_providers_local_by_id) | **PUT** /platform/1/auth/providers/local/{ProvidersLocalId} | 
-[**update_providers_nis_by_id**](AuthApi.md#update_providers_nis_by_id) | **PUT** /platform/3/auth/providers/nis/{ProvidersNisId} | 
-[**update_settings_acls**](AuthApi.md#update_settings_acls) | **PUT** /platform/3/auth/settings/acls | 
+[**update_providers_nis_by_id**](AuthApi.md#update_providers_nis_by_id) | **PUT** /platform/1/auth/providers/nis/{ProvidersNisId} | 
 [**update_settings_global**](AuthApi.md#update_settings_global) | **PUT** /platform/1/auth/settings/global | 
 [**update_settings_krb5_defaults**](AuthApi.md#update_settings_krb5_defaults) | **PUT** /platform/1/auth/settings/krb5/defaults | 
 [**update_settings_krb5_domain**](AuthApi.md#update_settings_krb5_domain) | **PUT** /platform/1/auth/settings/krb5/domains/{SettingsKrb5DomainId} | 
@@ -98,28 +91,30 @@ Method | HTTP request | Description
 
 Create a new group.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
-auth_group = isi_sdk.AuthGroupCreateParams() # AuthGroupCreateParams | 
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
+auth_group = isi_sdk_7_2.AuthGroupCreateParams() # AuthGroupCreateParams | 
 zone = 'zone_example' # str | Optional zone. (optional)
 provider = 'provider_example' # str | Optional provider type. (optional)
 
-try: 
+try:
     api_response = api_instance.create_auth_group(auth_group, zone=zone, provider=provider)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->create_auth_group: %s\n" % e
+    print("Exception when calling AuthApi->create_auth_group: %s\n" % e)
 ```
 
 ### Parameters
@@ -136,57 +131,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **create_auth_refresh_item**
-> CreateAuthRefreshItemResponse create_auth_refresh_item(auth_refresh_item)
-
-
-
-Refresh the authentication service configuration.
-
-### Example 
-```python
-import time
-import isi_sdk
-from isi_sdk.rest import ApiException
-from pprint import pprint
-
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = isi_sdk.AuthApi()
-auth_refresh_item = isi_sdk.Empty() # Empty | 
-
-try: 
-    api_response = api_instance.create_auth_refresh_item(auth_refresh_item)
-    pprint(api_response)
-except ApiException as e:
-    print "Exception when calling AuthApi->create_auth_refresh_item: %s\n" % e
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **auth_refresh_item** | [**Empty**](Empty.md)|  | 
-
-### Return type
-
-[**CreateAuthRefreshItemResponse**](CreateAuthRefreshItemResponse.md)
-
-### Authorization
-
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -202,26 +147,28 @@ Name | Type | Description  | Notes
 
 Create a new role.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
-auth_role = isi_sdk.AuthRoleCreateParams() # AuthRoleCreateParams | 
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
+auth_role = isi_sdk_7_2.AuthRoleCreateParams() # AuthRoleCreateParams | 
 
-try: 
+try:
     api_response = api_instance.create_auth_role(auth_role)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->create_auth_role: %s\n" % e
+    print("Exception when calling AuthApi->create_auth_role: %s\n" % e)
 ```
 
 ### Parameters
@@ -236,7 +183,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -252,28 +199,30 @@ Name | Type | Description  | Notes
 
 Create a new user.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
-auth_user = isi_sdk.AuthUserCreateParams() # AuthUserCreateParams | 
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
+auth_user = isi_sdk_7_2.AuthUserCreateParams() # AuthUserCreateParams | 
 zone = 'zone_example' # str | Optional zone. (optional)
 provider = 'provider_example' # str | Optional provider type. (optional)
 
-try: 
+try:
     api_response = api_instance.create_auth_user(auth_user, zone=zone, provider=provider)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->create_auth_user: %s\n" % e
+    print("Exception when calling AuthApi->create_auth_user: %s\n" % e)
 ```
 
 ### Parameters
@@ -290,7 +239,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -306,29 +255,31 @@ Name | Type | Description  | Notes
 
 Manually set or modify a mapping between two personae.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
-mapping_identity = isi_sdk.MappingIdentityCreateParams() # MappingIdentityCreateParams | 
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
+mapping_identity = isi_sdk_7_2.MappingIdentityCreateParams() # MappingIdentityCreateParams | 
 _2way = true # bool | Create a bi-directional mapping from source to target and target to source. (optional)
 zone = 'zone_example' # str | Optional zone. (optional)
 replace = true # bool | Replace existing mappings. (optional)
 
-try: 
+try:
     api_response = api_instance.create_mapping_identity(mapping_identity, _2way=_2way, zone=zone, replace=replace)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->create_mapping_identity: %s\n" % e
+    print("Exception when calling AuthApi->create_mapping_identity: %s\n" % e)
 ```
 
 ### Parameters
@@ -346,7 +297,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -356,34 +307,37 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_mapping_identity_0**
-> MappingIdentities create_mapping_identity_0(mapping_identity, type=type, zone=zone)
+> MappingIdentities create_mapping_identity_0(mapping_identity, mapping_identity_id, type=type, zone=zone)
 
 
 
 Manually set or modify a mapping between two personae.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
-mapping_identity = isi_sdk.Empty() # Empty | 
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
+mapping_identity = isi_sdk_7_2.Empty() # Empty | 
+mapping_identity_id = 'mapping_identity_id_example' # str | Manually set or modify a mapping between two personae.
 type = 'type_example' # str | Desired mapping target to fetch/generate. (optional)
 zone = 'zone_example' # str | Optional zone. (optional)
 
-try: 
-    api_response = api_instance.create_mapping_identity_0(mapping_identity, type=type, zone=zone)
+try:
+    api_response = api_instance.create_mapping_identity_0(mapping_identity, mapping_identity_id, type=type, zone=zone)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->create_mapping_identity_0: %s\n" % e
+    print("Exception when calling AuthApi->create_mapping_identity_0: %s\n" % e)
 ```
 
 ### Parameters
@@ -391,6 +345,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **mapping_identity** | [**Empty**](Empty.md)|  | 
+ **mapping_identity_id** | **str**| Manually set or modify a mapping between two personae. | 
  **type** | **str**| Desired mapping target to fetch/generate. | [optional] 
  **zone** | **str**| Optional zone. | [optional] 
 
@@ -400,7 +355,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -416,26 +371,28 @@ Name | Type | Description  | Notes
 
 Create a new ADS provider.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
-providers_ads_item = isi_sdk.ProvidersAdsItem() # ProvidersAdsItem | 
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
+providers_ads_item = isi_sdk_7_2.ProvidersAdsItem() # ProvidersAdsItem | 
 
-try: 
+try:
     api_response = api_instance.create_providers_ads_item(providers_ads_item)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->create_providers_ads_item: %s\n" % e
+    print("Exception when calling AuthApi->create_providers_ads_item: %s\n" % e)
 ```
 
 ### Parameters
@@ -450,7 +407,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -466,26 +423,28 @@ Name | Type | Description  | Notes
 
 Create a new file provider.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
-providers_file_item = isi_sdk.ProvidersFileItem() # ProvidersFileItem | 
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
+providers_file_item = isi_sdk_7_2.ProvidersFileItem() # ProvidersFileItem | 
 
-try: 
+try:
     api_response = api_instance.create_providers_file_item(providers_file_item)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->create_providers_file_item: %s\n" % e
+    print("Exception when calling AuthApi->create_providers_file_item: %s\n" % e)
 ```
 
 ### Parameters
@@ -500,7 +459,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -516,26 +475,28 @@ Name | Type | Description  | Notes
 
 Create a new KRB5 provider.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
-providers_krb5_item = isi_sdk.ProvidersKrb5Item() # ProvidersKrb5Item | 
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
+providers_krb5_item = isi_sdk_7_2.ProvidersKrb5Item() # ProvidersKrb5Item | 
 
-try: 
+try:
     api_response = api_instance.create_providers_krb5_item(providers_krb5_item)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->create_providers_krb5_item: %s\n" % e
+    print("Exception when calling AuthApi->create_providers_krb5_item: %s\n" % e)
 ```
 
 ### Parameters
@@ -550,7 +511,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -566,26 +527,28 @@ Name | Type | Description  | Notes
 
 Create a new LDAP provider.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
-providers_ldap_item = isi_sdk.ProvidersLdapItem() # ProvidersLdapItem | 
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
+providers_ldap_item = isi_sdk_7_2.ProvidersLdapItem() # ProvidersLdapItem | 
 
-try: 
+try:
     api_response = api_instance.create_providers_ldap_item(providers_ldap_item)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->create_providers_ldap_item: %s\n" % e
+    print("Exception when calling AuthApi->create_providers_ldap_item: %s\n" % e)
 ```
 
 ### Parameters
@@ -600,7 +563,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -616,26 +579,28 @@ Name | Type | Description  | Notes
 
 Create a new NIS provider.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
-providers_nis_item = isi_sdk.ProvidersNisItem() # ProvidersNisItem | 
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
+providers_nis_item = isi_sdk_7_2.ProvidersNisItem() # ProvidersNisItem | 
 
-try: 
+try:
     api_response = api_instance.create_providers_nis_item(providers_nis_item)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->create_providers_nis_item: %s\n" % e
+    print("Exception when calling AuthApi->create_providers_nis_item: %s\n" % e)
 ```
 
 ### Parameters
@@ -650,7 +615,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -666,26 +631,28 @@ Name | Type | Description  | Notes
 
 Create a new krb5 domain.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
-settings_krb5_domain = isi_sdk.SettingsKrb5DomainCreateParams() # SettingsKrb5DomainCreateParams | 
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
+settings_krb5_domain = isi_sdk_7_2.SettingsKrb5DomainCreateParams() # SettingsKrb5DomainCreateParams | 
 
-try: 
+try:
     api_response = api_instance.create_settings_krb5_domain(settings_krb5_domain)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->create_settings_krb5_domain: %s\n" % e
+    print("Exception when calling AuthApi->create_settings_krb5_domain: %s\n" % e)
 ```
 
 ### Parameters
@@ -700,7 +667,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -716,26 +683,28 @@ Name | Type | Description  | Notes
 
 Create a new krb5 realm.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
-settings_krb5_realm = isi_sdk.SettingsKrb5RealmCreateParams() # SettingsKrb5RealmCreateParams | 
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
+settings_krb5_realm = isi_sdk_7_2.SettingsKrb5RealmCreateParams() # SettingsKrb5RealmCreateParams | 
 
-try: 
+try:
     api_response = api_instance.create_settings_krb5_realm(settings_krb5_realm)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->create_settings_krb5_realm: %s\n" % e
+    print("Exception when calling AuthApi->create_settings_krb5_realm: %s\n" % e)
 ```
 
 ### Parameters
@@ -750,7 +719,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -766,28 +735,30 @@ Name | Type | Description  | Notes
 
 Delete the group.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 auth_group_id = 'auth_group_id_example' # str | Delete the group.
 cached = true # bool | If true, flush the group from the cache. (optional)
 zone = 'zone_example' # str | Filter groups by zone. (optional)
 provider = 'provider_example' # str | Filter groups by provider. (optional)
 
-try: 
+try:
     api_instance.delete_auth_group(auth_group_id, cached=cached, zone=zone, provider=provider)
 except ApiException as e:
-    print "Exception when calling AuthApi->delete_auth_group: %s\n" % e
+    print("Exception when calling AuthApi->delete_auth_group: %s\n" % e)
 ```
 
 ### Parameters
@@ -805,7 +776,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -821,27 +792,29 @@ void (empty response body)
 
 Flush the groups cache.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 cached = true # bool | If true, only flush cached objects. (optional)
 zone = 'zone_example' # str | Filter groups by zone. (optional)
 provider = 'provider_example' # str | Filter groups by provider. (optional)
 
-try: 
+try:
     api_instance.delete_auth_groups(cached=cached, zone=zone, provider=provider)
 except ApiException as e:
-    print "Exception when calling AuthApi->delete_auth_groups: %s\n" % e
+    print("Exception when calling AuthApi->delete_auth_groups: %s\n" % e)
 ```
 
 ### Parameters
@@ -858,7 +831,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -874,25 +847,27 @@ void (empty response body)
 
 Delete the role.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 auth_role_id = 'auth_role_id_example' # str | Delete the role.
 
-try: 
+try:
     api_instance.delete_auth_role(auth_role_id)
 except ApiException as e:
-    print "Exception when calling AuthApi->delete_auth_role: %s\n" % e
+    print("Exception when calling AuthApi->delete_auth_role: %s\n" % e)
 ```
 
 ### Parameters
@@ -907,7 +882,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -923,28 +898,30 @@ void (empty response body)
 
 Delete the user.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 auth_user_id = 'auth_user_id_example' # str | Delete the user.
 cached = true # bool | If true, flush the user from the cache. (optional)
 zone = 'zone_example' # str | Filter users by zone. (optional)
 provider = 'provider_example' # str | Filter users by provider. (optional)
 
-try: 
+try:
     api_instance.delete_auth_user(auth_user_id, cached=cached, zone=zone, provider=provider)
 except ApiException as e:
-    print "Exception when calling AuthApi->delete_auth_user: %s\n" % e
+    print("Exception when calling AuthApi->delete_auth_user: %s\n" % e)
 ```
 
 ### Parameters
@@ -962,7 +939,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -978,27 +955,29 @@ void (empty response body)
 
 Flush the users cache.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 cached = true # bool | If true, only flush cached objects. (optional)
 zone = 'zone_example' # str | Filter users by zone. (optional)
 provider = 'provider_example' # str | Filter users by provider. (optional)
 
-try: 
+try:
     api_instance.delete_auth_users(cached=cached, zone=zone, provider=provider)
 except ApiException as e:
-    print "Exception when calling AuthApi->delete_auth_users: %s\n" % e
+    print("Exception when calling AuthApi->delete_auth_users: %s\n" % e)
 ```
 
 ### Parameters
@@ -1015,7 +994,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -1031,27 +1010,29 @@ void (empty response body)
 
 Flush the entire idmap cache.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 filter = 'filter_example' # str | Filter to apply when deleting identity mappings. (optional)
 zone = 'zone_example' # str | Optional zone. (optional)
 remove = true # bool | Delete mapping instead of flush mapping cache. (optional)
 
-try: 
+try:
     api_instance.delete_mapping_identities(filter=filter, zone=zone, remove=remove)
 except ApiException as e:
-    print "Exception when calling AuthApi->delete_mapping_identities: %s\n" % e
+    print("Exception when calling AuthApi->delete_mapping_identities: %s\n" % e)
 ```
 
 ### Parameters
@@ -1068,7 +1049,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -1084,29 +1065,31 @@ void (empty response body)
 
 Flush the entire idmap cache.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 mapping_identity_id = 'mapping_identity_id_example' # str | Flush the entire idmap cache.
 zone = 'zone_example' # str | Optional zone. (optional)
 _2way = true # bool | Delete the bi-directional mapping from source to target and target to source. (optional)
 target = 'target_example' # str | Target identity persona. (optional)
 remove = true # bool | Delete mapping instead of flush mapping from cache. (optional)
 
-try: 
+try:
     api_instance.delete_mapping_identity(mapping_identity_id, zone=zone, _2way=_2way, target=target, remove=remove)
 except ApiException as e:
-    print "Exception when calling AuthApi->delete_mapping_identity: %s\n" % e
+    print("Exception when calling AuthApi->delete_mapping_identity: %s\n" % e)
 ```
 
 ### Parameters
@@ -1125,7 +1108,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -1141,25 +1124,27 @@ void (empty response body)
 
 Delete the ADS provider.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 providers_ads_id = 'providers_ads_id_example' # str | Delete the ADS provider.
 
-try: 
+try:
     api_instance.delete_providers_ads_by_id(providers_ads_id)
 except ApiException as e:
-    print "Exception when calling AuthApi->delete_providers_ads_by_id: %s\n" % e
+    print("Exception when calling AuthApi->delete_providers_ads_by_id: %s\n" % e)
 ```
 
 ### Parameters
@@ -1174,7 +1159,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -1190,25 +1175,27 @@ void (empty response body)
 
 Delete the file provider.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 providers_file_id = 'providers_file_id_example' # str | Delete the file provider.
 
-try: 
+try:
     api_instance.delete_providers_file_by_id(providers_file_id)
 except ApiException as e:
-    print "Exception when calling AuthApi->delete_providers_file_by_id: %s\n" % e
+    print("Exception when calling AuthApi->delete_providers_file_by_id: %s\n" % e)
 ```
 
 ### Parameters
@@ -1223,7 +1210,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -1239,25 +1226,27 @@ void (empty response body)
 
 Delete the KRB5 provider.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 providers_krb5_id = 'providers_krb5_id_example' # str | Delete the KRB5 provider.
 
-try: 
+try:
     api_instance.delete_providers_krb5_by_id(providers_krb5_id)
 except ApiException as e:
-    print "Exception when calling AuthApi->delete_providers_krb5_by_id: %s\n" % e
+    print("Exception when calling AuthApi->delete_providers_krb5_by_id: %s\n" % e)
 ```
 
 ### Parameters
@@ -1272,7 +1261,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -1288,25 +1277,27 @@ void (empty response body)
 
 Delete the LDAP provider.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 providers_ldap_id = 'providers_ldap_id_example' # str | Delete the LDAP provider.
 
-try: 
+try:
     api_instance.delete_providers_ldap_by_id(providers_ldap_id)
 except ApiException as e:
-    print "Exception when calling AuthApi->delete_providers_ldap_by_id: %s\n" % e
+    print("Exception when calling AuthApi->delete_providers_ldap_by_id: %s\n" % e)
 ```
 
 ### Parameters
@@ -1321,7 +1312,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -1337,25 +1328,27 @@ void (empty response body)
 
 Delete the local provider.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 providers_local_id = 'providers_local_id_example' # str | Delete the local provider.
 
-try: 
+try:
     api_instance.delete_providers_local_by_id(providers_local_id)
 except ApiException as e:
-    print "Exception when calling AuthApi->delete_providers_local_by_id: %s\n" % e
+    print("Exception when calling AuthApi->delete_providers_local_by_id: %s\n" % e)
 ```
 
 ### Parameters
@@ -1370,7 +1363,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -1386,25 +1379,27 @@ void (empty response body)
 
 Delete the NIS provider.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 providers_nis_id = 'providers_nis_id_example' # str | Delete the NIS provider.
 
-try: 
+try:
     api_instance.delete_providers_nis_by_id(providers_nis_id)
 except ApiException as e:
-    print "Exception when calling AuthApi->delete_providers_nis_by_id: %s\n" % e
+    print("Exception when calling AuthApi->delete_providers_nis_by_id: %s\n" % e)
 ```
 
 ### Parameters
@@ -1419,7 +1414,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -1435,25 +1430,27 @@ void (empty response body)
 
 Remove a krb5 domain.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 settings_krb5_domain_id = 'settings_krb5_domain_id_example' # str | Remove a krb5 domain.
 
-try: 
+try:
     api_instance.delete_settings_krb5_domain(settings_krb5_domain_id)
 except ApiException as e:
-    print "Exception when calling AuthApi->delete_settings_krb5_domain: %s\n" % e
+    print("Exception when calling AuthApi->delete_settings_krb5_domain: %s\n" % e)
 ```
 
 ### Parameters
@@ -1468,7 +1465,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -1484,25 +1481,27 @@ void (empty response body)
 
 Remove a realm.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 settings_krb5_realm_id = 'settings_krb5_realm_id_example' # str | Remove a realm.
 
-try: 
+try:
     api_instance.delete_settings_krb5_realm(settings_krb5_realm_id)
 except ApiException as e:
-    print "Exception when calling AuthApi->delete_settings_krb5_realm: %s\n" % e
+    print("Exception when calling AuthApi->delete_settings_krb5_realm: %s\n" % e)
 ```
 
 ### Parameters
@@ -1517,7 +1516,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -1533,29 +1532,31 @@ void (empty response body)
 
 Determine user's access rights to a file
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 auth_access_user = 'auth_access_user_example' # str | Determine user's access rights to a file
 path = 'path_example' # str | Path to the file. Must be within /ifs. (optional)
 zone = 'zone_example' # str | Access zone the user is in. (optional)
 numeric = true # bool | Show the user's numeric identifier. (optional)
 
-try: 
+try:
     api_response = api_instance.get_auth_access_user(auth_access_user, path=path, zone=zone, numeric=numeric)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->get_auth_access_user: %s\n" % e
+    print("Exception when calling AuthApi->get_auth_access_user: %s\n" % e)
 ```
 
 ### Parameters
@@ -1573,7 +1574,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -1589,30 +1590,32 @@ Name | Type | Description  | Notes
 
 Retrieve the group information.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 auth_group_id = 'auth_group_id_example' # str | Retrieve the group information.
 cached = true # bool | If true, only return cached objects. (optional)
 resolve_names = true # bool | Resolve names of personas. (optional)
 zone = 'zone_example' # str | Filter groups by zone. (optional)
 provider = 'provider_example' # str | Filter groups by provider. (optional)
 
-try: 
+try:
     api_response = api_instance.get_auth_group(auth_group_id, cached=cached, resolve_names=resolve_names, zone=zone, provider=provider)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->get_auth_group: %s\n" % e
+    print("Exception when calling AuthApi->get_auth_group: %s\n" % e)
 ```
 
 ### Parameters
@@ -1631,7 +1634,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -1647,25 +1650,27 @@ Name | Type | Description  | Notes
 
 Retrieve the current security token.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 
-try: 
+try:
     api_response = api_instance.get_auth_id()
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->get_auth_id: %s\n" % e
+    print("Exception when calling AuthApi->get_auth_id: %s\n" % e)
 ```
 
 ### Parameters
@@ -1677,53 +1682,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_auth_log_level**
-> AuthLogLevel get_auth_log_level()
-
-
-
-Get the current authentications service and netlogon logging level.
-
-### Example 
-```python
-import time
-import isi_sdk
-from isi_sdk.rest import ApiException
-from pprint import pprint
-
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = isi_sdk.AuthApi()
-
-try: 
-    api_response = api_instance.get_auth_log_level()
-    pprint(api_response)
-except ApiException as e:
-    print "Exception when calling AuthApi->get_auth_log_level: %s\n" % e
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**AuthLogLevel**](AuthLogLevel.md)
-
-### Authorization
-
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -1739,30 +1698,32 @@ This endpoint does not need any parameter.
 
 Retrieve the user information.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 auth_netgroup_id = 'auth_netgroup_id_example' # str | Retrieve the user information.
 ignore_errors = true # bool | Ignore netgroup errors. (optional)
 recursive = true # bool | Perform recursive search. (optional)
 zone = 'zone_example' # str | Filter users by zone. (optional)
 provider = 'provider_example' # str | Filter users by provider. (optional)
 
-try: 
+try:
     api_response = api_instance.get_auth_netgroup(auth_netgroup_id, ignore_errors=ignore_errors, recursive=recursive, zone=zone, provider=provider)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->get_auth_netgroup: %s\n" % e
+    print("Exception when calling AuthApi->get_auth_netgroup: %s\n" % e)
 ```
 
 ### Parameters
@@ -1781,7 +1742,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -1797,25 +1758,27 @@ Name | Type | Description  | Notes
 
 List all privileges.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 
-try: 
+try:
     api_response = api_instance.get_auth_privileges()
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->get_auth_privileges: %s\n" % e
+    print("Exception when calling AuthApi->get_auth_privileges: %s\n" % e)
 ```
 
 ### Parameters
@@ -1827,7 +1790,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -1843,27 +1806,29 @@ This endpoint does not need any parameter.
 
 Retrieve the role information.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 auth_role_id = 'auth_role_id_example' # str | Retrieve the role information.
 resolve_names = true # bool | Resolve names of personas. (optional)
 
-try: 
+try:
     api_response = api_instance.get_auth_role(auth_role_id, resolve_names=resolve_names)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->get_auth_role: %s\n" % e
+    print("Exception when calling AuthApi->get_auth_role: %s\n" % e)
 ```
 
 ### Parameters
@@ -1879,7 +1844,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -1895,25 +1860,27 @@ Name | Type | Description  | Notes
 
 List all shells.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 
-try: 
+try:
     api_response = api_instance.get_auth_shells()
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->get_auth_shells: %s\n" % e
+    print("Exception when calling AuthApi->get_auth_shells: %s\n" % e)
 ```
 
 ### Parameters
@@ -1925,7 +1892,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -1941,30 +1908,32 @@ This endpoint does not need any parameter.
 
 Retrieve the user information.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 auth_user_id = 'auth_user_id_example' # str | Retrieve the user information.
 cached = true # bool | If true, only return cached objects. (optional)
 resolve_names = true # bool | Resolve names of personas. (optional)
 zone = 'zone_example' # str | Filter users by zone. (optional)
 provider = 'provider_example' # str | Filter users by provider. (optional)
 
-try: 
+try:
     api_response = api_instance.get_auth_user(auth_user_id, cached=cached, resolve_names=resolve_names, zone=zone, provider=provider)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->get_auth_user: %s\n" % e
+    print("Exception when calling AuthApi->get_auth_user: %s\n" % e)
 ```
 
 ### Parameters
@@ -1983,7 +1952,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -1999,27 +1968,29 @@ Name | Type | Description  | Notes
 
 Retrieve the wellknown persona.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 auth_wellknown_id = 'auth_wellknown_id_example' # str | Retrieve the wellknown persona.
 scope = 'scope_example' # str | If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned. (optional)
 
-try: 
+try:
     api_response = api_instance.get_auth_wellknown(auth_wellknown_id, scope=scope)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->get_auth_wellknown: %s\n" % e
+    print("Exception when calling AuthApi->get_auth_wellknown: %s\n" % e)
 ```
 
 ### Parameters
@@ -2035,7 +2006,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -2051,25 +2022,27 @@ Name | Type | Description  | Notes
 
 List all wellknown personas.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 
-try: 
+try:
     api_response = api_instance.get_auth_wellknowns()
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->get_auth_wellknowns: %s\n" % e
+    print("Exception when calling AuthApi->get_auth_wellknowns: %s\n" % e)
 ```
 
 ### Parameters
@@ -2081,59 +2054,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_mapping_dump**
-> MappingDump get_mapping_dump(nocreate=nocreate, zone=zone)
-
-
-
-Retrieve all identity mappings (uid, gid, sid, and on-disk) for the supplied source persona.
-
-### Example 
-```python
-import time
-import isi_sdk
-from isi_sdk.rest import ApiException
-from pprint import pprint
-
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = isi_sdk.AuthApi()
-nocreate = true # bool | Idmap should attempt to create missing identity mappings. (optional)
-zone = 'zone_example' # str | Optional zone. (optional)
-
-try: 
-    api_response = api_instance.get_mapping_dump(nocreate=nocreate, zone=zone)
-    pprint(api_response)
-except ApiException as e:
-    print "Exception when calling AuthApi->get_mapping_dump: %s\n" % e
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **nocreate** | **bool**| Idmap should attempt to create missing identity mappings. | [optional] 
- **zone** | **str**| Optional zone. | [optional] 
-
-### Return type
-
-[**MappingDump**](MappingDump.md)
-
-### Authorization
-
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -2149,28 +2070,30 @@ Name | Type | Description  | Notes
 
 Retrieve all identity mappings (uid, gid, sid, and on-disk) for the supplied source persona.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 mapping_identity_id = 'mapping_identity_id_example' # str | Retrieve all identity mappings (uid, gid, sid, and on-disk) for the supplied source persona.
 nocreate = true # bool | Idmap should attempt to create missing identity mappings. (optional)
 zone = 'zone_example' # str | Optional zone. (optional)
 
-try: 
+try:
     api_response = api_instance.get_mapping_identity(mapping_identity_id, nocreate=nocreate, zone=zone)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->get_mapping_identity: %s\n" % e
+    print("Exception when calling AuthApi->get_mapping_identity: %s\n" % e)
 ```
 
 ### Parameters
@@ -2187,7 +2110,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -2197,37 +2120,38 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_mapping_users_lookup**
-> MappingUsersLookup get_mapping_users_lookup(primary_gid=primary_gid, uid=uid, zone=zone, gid=gid, user=user, kerberos_principal=kerberos_principal)
+> MappingUsersLookup get_mapping_users_lookup(primary_gid=primary_gid, gid=gid, uid=uid, zone=zone, user=user)
 
 
 
 Retrieve the user information.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 primary_gid = 56 # int | The user's primary group ID. (optional)
-uid = 56 # int | The user ID. (optional)
-zone = 'zone_example' # str | The zone the user belongs to. (optional)
 gid = [56] # list[int] | The IDs of the groups that the user belongs to. (optional)
+uid = 56 # int | The user ID. (optional)
+zone = 'zone_example' # str | The zone the user bolongs to. (optional)
 user = 'user_example' # str | The user name. (optional)
-kerberos_principal = 'kerberos_principal_example' # str | The Kerberos principal name, of the form user@realm. (optional)
 
-try: 
-    api_response = api_instance.get_mapping_users_lookup(primary_gid=primary_gid, uid=uid, zone=zone, gid=gid, user=user, kerberos_principal=kerberos_principal)
+try:
+    api_response = api_instance.get_mapping_users_lookup(primary_gid=primary_gid, gid=gid, uid=uid, zone=zone, user=user)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->get_mapping_users_lookup: %s\n" % e
+    print("Exception when calling AuthApi->get_mapping_users_lookup: %s\n" % e)
 ```
 
 ### Parameters
@@ -2235,11 +2159,10 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **primary_gid** | **int**| The user&#39;s primary group ID. | [optional] 
- **uid** | **int**| The user ID. | [optional] 
- **zone** | **str**| The zone the user belongs to. | [optional] 
  **gid** | [**list[int]**](int.md)| The IDs of the groups that the user belongs to. | [optional] 
+ **uid** | **int**| The user ID. | [optional] 
+ **zone** | **str**| The zone the user bolongs to. | [optional] 
  **user** | **str**| The user name. | [optional] 
- **kerberos_principal** | **str**| The Kerberos principal name, of the form user@realm. | [optional] 
 
 ### Return type
 
@@ -2247,7 +2170,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -2263,26 +2186,28 @@ Name | Type | Description  | Notes
 
 Retrieve the user mapping rules.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 zone = 'zone_example' # str | The zone to which the user mapping applies. (optional)
 
-try: 
+try:
     api_response = api_instance.get_mapping_users_rules(zone=zone)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->get_mapping_users_rules: %s\n" % e
+    print("Exception when calling AuthApi->get_mapping_users_rules: %s\n" % e)
 ```
 
 ### Parameters
@@ -2297,7 +2222,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -2313,27 +2238,29 @@ Name | Type | Description  | Notes
 
 Retrieve the ADS provider.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 providers_ads_id = 'providers_ads_id_example' # str | Retrieve the ADS provider.
 scope = 'scope_example' # str | If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned. (optional)
 
-try: 
+try:
     api_response = api_instance.get_providers_ads_by_id(providers_ads_id, scope=scope)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->get_providers_ads_by_id: %s\n" % e
+    print("Exception when calling AuthApi->get_providers_ads_by_id: %s\n" % e)
 ```
 
 ### Parameters
@@ -2349,7 +2276,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -2365,27 +2292,29 @@ Name | Type | Description  | Notes
 
 Retrieve the file provider.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 providers_file_id = 'providers_file_id_example' # str | Retrieve the file provider.
 scope = 'scope_example' # str | If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned. (optional)
 
-try: 
+try:
     api_response = api_instance.get_providers_file_by_id(providers_file_id, scope=scope)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->get_providers_file_by_id: %s\n" % e
+    print("Exception when calling AuthApi->get_providers_file_by_id: %s\n" % e)
 ```
 
 ### Parameters
@@ -2401,7 +2330,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -2417,27 +2346,29 @@ Name | Type | Description  | Notes
 
 Retrieve the KRB5 provider.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 providers_krb5_id = 'providers_krb5_id_example' # str | Retrieve the KRB5 provider.
 scope = 'scope_example' # str | If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned. (optional)
 
-try: 
+try:
     api_response = api_instance.get_providers_krb5_by_id(providers_krb5_id, scope=scope)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->get_providers_krb5_by_id: %s\n" % e
+    print("Exception when calling AuthApi->get_providers_krb5_by_id: %s\n" % e)
 ```
 
 ### Parameters
@@ -2453,7 +2384,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -2469,27 +2400,29 @@ Name | Type | Description  | Notes
 
 Retrieve the LDAP provider.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 providers_ldap_id = 'providers_ldap_id_example' # str | Retrieve the LDAP provider.
 scope = 'scope_example' # str | If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned. (optional)
 
-try: 
+try:
     api_response = api_instance.get_providers_ldap_by_id(providers_ldap_id, scope=scope)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->get_providers_ldap_by_id: %s\n" % e
+    print("Exception when calling AuthApi->get_providers_ldap_by_id: %s\n" % e)
 ```
 
 ### Parameters
@@ -2505,7 +2438,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -2521,26 +2454,28 @@ Name | Type | Description  | Notes
 
 List all local providers.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 scope = 'scope_example' # str | If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned. (optional)
 
-try: 
+try:
     api_response = api_instance.get_providers_local(scope=scope)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->get_providers_local: %s\n" % e
+    print("Exception when calling AuthApi->get_providers_local: %s\n" % e)
 ```
 
 ### Parameters
@@ -2555,7 +2490,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -2571,27 +2506,29 @@ Name | Type | Description  | Notes
 
 Retrieve the local provider.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 providers_local_id = 'providers_local_id_example' # str | Retrieve the local provider.
 scope = 'scope_example' # str | If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned. (optional)
 
-try: 
+try:
     api_response = api_instance.get_providers_local_by_id(providers_local_id, scope=scope)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->get_providers_local_by_id: %s\n" % e
+    print("Exception when calling AuthApi->get_providers_local_by_id: %s\n" % e)
 ```
 
 ### Parameters
@@ -2607,7 +2544,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -2623,27 +2560,29 @@ Name | Type | Description  | Notes
 
 Retrieve the NIS provider.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 providers_nis_id = 'providers_nis_id_example' # str | Retrieve the NIS provider.
 scope = 'scope_example' # str | If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned. (optional)
 
-try: 
+try:
     api_response = api_instance.get_providers_nis_by_id(providers_nis_id, scope=scope)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->get_providers_nis_by_id: %s\n" % e
+    print("Exception when calling AuthApi->get_providers_nis_by_id: %s\n" % e)
 ```
 
 ### Parameters
@@ -2659,7 +2598,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -2675,25 +2614,27 @@ Name | Type | Description  | Notes
 
 Retrieve the summary information.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 
-try: 
+try:
     api_response = api_instance.get_providers_summary()
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->get_providers_summary: %s\n" % e
+    print("Exception when calling AuthApi->get_providers_summary: %s\n" % e)
 ```
 
 ### Parameters
@@ -2705,57 +2646,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_settings_acls**
-> SettingsAcls get_settings_acls(preset=preset)
-
-
-
-Retrieve the ACL policy settings and preset configurations.
-
-### Example 
-```python
-import time
-import isi_sdk
-from isi_sdk.rest import ApiException
-from pprint import pprint
-
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = isi_sdk.AuthApi()
-preset = 'preset_example' # str | If specified the preset configuration values for all applicable ACL policies are returned. (optional)
-
-try: 
-    api_response = api_instance.get_settings_acls(preset=preset)
-    pprint(api_response)
-except ApiException as e:
-    print "Exception when calling AuthApi->get_settings_acls: %s\n" % e
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **preset** | **str**| If specified the preset configuration values for all applicable ACL policies are returned. | [optional] 
-
-### Return type
-
-[**SettingsAcls**](SettingsAcls.md)
-
-### Authorization
-
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -2771,27 +2662,29 @@ Name | Type | Description  | Notes
 
 Retrieve the global settings.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 scope = 'scope_example' # str | If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned. (optional)
 zone = 'zone_example' # str | Zone which contains any per-zone settings. (optional)
 
-try: 
+try:
     api_response = api_instance.get_settings_global(scope=scope, zone=zone)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->get_settings_global: %s\n" % e
+    print("Exception when calling AuthApi->get_settings_global: %s\n" % e)
 ```
 
 ### Parameters
@@ -2807,7 +2700,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -2823,25 +2716,27 @@ Name | Type | Description  | Notes
 
 Retrieve the krb5 settings.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 
-try: 
+try:
     api_response = api_instance.get_settings_krb5_defaults()
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->get_settings_krb5_defaults: %s\n" % e
+    print("Exception when calling AuthApi->get_settings_krb5_defaults: %s\n" % e)
 ```
 
 ### Parameters
@@ -2853,7 +2748,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -2869,26 +2764,28 @@ This endpoint does not need any parameter.
 
 View the krb5 domain settings.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 settings_krb5_domain_id = 'settings_krb5_domain_id_example' # str | View the krb5 domain settings.
 
-try: 
+try:
     api_response = api_instance.get_settings_krb5_domain(settings_krb5_domain_id)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->get_settings_krb5_domain: %s\n" % e
+    print("Exception when calling AuthApi->get_settings_krb5_domain: %s\n" % e)
 ```
 
 ### Parameters
@@ -2903,7 +2800,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -2913,32 +2810,34 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_settings_krb5_realm**
-> SettingsKrb5Realms get_settings_krb5_realm(settings_krb5_realm_id)
+> Empty get_settings_krb5_realm(settings_krb5_realm_id)
 
 
 
 Retrieve the krb5 settings for realms.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 settings_krb5_realm_id = 'settings_krb5_realm_id_example' # str | Retrieve the krb5 settings for realms.
 
-try: 
+try:
     api_response = api_instance.get_settings_krb5_realm(settings_krb5_realm_id)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->get_settings_krb5_realm: %s\n" % e
+    print("Exception when calling AuthApi->get_settings_krb5_realm: %s\n" % e)
 ```
 
 ### Parameters
@@ -2949,11 +2848,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SettingsKrb5Realms**](SettingsKrb5Realms.md)
+[**Empty**](Empty.md)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -2969,27 +2868,29 @@ Name | Type | Description  | Notes
 
 Retrieve the mapping settings.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 scope = 'scope_example' # str | If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned. (optional)
 zone = 'zone_example' # str | Access zone which contains mapping settings. (optional)
 
-try: 
+try:
     api_response = api_instance.get_settings_mapping(scope=scope, zone=zone)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->get_settings_mapping: %s\n" % e
+    print("Exception when calling AuthApi->get_settings_mapping: %s\n" % e)
 ```
 
 ### Parameters
@@ -3005,7 +2906,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -3021,19 +2922,21 @@ Name | Type | Description  | Notes
 
 List all groups.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 domain = 'domain_example' # str | Filter groups by domain. (optional)
 zone = 'zone_example' # str | Filter groups by zone. (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
@@ -3044,11 +2947,11 @@ limit = 56 # int | Return no more than this many results at once (see resume). (
 provider = 'provider_example' # str | Filter groups by provider. (optional)
 query_member_of = true # bool | Enumerate all groups that a group is a member of. (optional)
 
-try: 
+try:
     api_response = api_instance.list_auth_groups(domain=domain, zone=zone, resume=resume, cached=cached, resolve_names=resolve_names, filter=filter, limit=limit, provider=provider, query_member_of=query_member_of)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->list_auth_groups: %s\n" % e
+    print("Exception when calling AuthApi->list_auth_groups: %s\n" % e)
 ```
 
 ### Parameters
@@ -3071,7 +2974,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -3081,34 +2984,38 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_auth_roles**
-> AuthRolesExtended list_auth_roles(sort=sort, resolve_names=resolve_names, dir=dir)
+> AuthRolesExtended list_auth_roles(sort=sort, resolve_names=resolve_names, limit=limit, dir=dir, resume=resume)
 
 
 
 List all roles.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 resolve_names = true # bool | Filter users by zone. (optional)
+limit = 56 # int | Return no more than this many results at once (see resume). (optional)
 dir = 'dir_example' # str | The direction of the sort. (optional)
+resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
 
-try: 
-    api_response = api_instance.list_auth_roles(sort=sort, resolve_names=resolve_names, dir=dir)
+try:
+    api_response = api_instance.list_auth_roles(sort=sort, resolve_names=resolve_names, limit=limit, dir=dir, resume=resume)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->list_auth_roles: %s\n" % e
+    print("Exception when calling AuthApi->list_auth_roles: %s\n" % e)
 ```
 
 ### Parameters
@@ -3117,7 +3024,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **sort** | **str**| The field that will be used for sorting. | [optional] 
  **resolve_names** | **bool**| Filter users by zone. | [optional] 
+ **limit** | **int**| Return no more than this many results at once (see resume). | [optional] 
  **dir** | **str**| The direction of the sort. | [optional] 
+ **resume** | **str**| Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). | [optional] 
 
 ### Return type
 
@@ -3125,7 +3034,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -3141,19 +3050,21 @@ Name | Type | Description  | Notes
 
 List all users.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 domain = 'domain_example' # str | Filter users by domain. (optional)
 zone = 'zone_example' # str | Filter users by zone. (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
@@ -3164,11 +3075,11 @@ limit = 56 # int | Return no more than this many results at once (see resume). (
 provider = 'provider_example' # str | Filter users by provider. (optional)
 query_member_of = true # bool | Enumerate all users that a group is a member of. (optional)
 
-try: 
+try:
     api_response = api_instance.list_auth_users(domain=domain, zone=zone, resume=resume, cached=cached, resolve_names=resolve_names, filter=filter, limit=limit, provider=provider, query_member_of=query_member_of)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->list_auth_users: %s\n" % e
+    print("Exception when calling AuthApi->list_auth_users: %s\n" % e)
 ```
 
 ### Parameters
@@ -3191,7 +3102,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -3201,32 +3112,34 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_providers_ads**
-> ProvidersAdsExtended list_providers_ads(scope=scope)
+> ProvidersAds list_providers_ads(scope=scope)
 
 
 
 List all ADS providers.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 scope = 'scope_example' # str | If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned. (optional)
 
-try: 
+try:
     api_response = api_instance.list_providers_ads(scope=scope)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->list_providers_ads: %s\n" % e
+    print("Exception when calling AuthApi->list_providers_ads: %s\n" % e)
 ```
 
 ### Parameters
@@ -3237,11 +3150,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProvidersAdsExtended**](ProvidersAdsExtended.md)
+[**ProvidersAds**](ProvidersAds.md)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -3257,26 +3170,28 @@ Name | Type | Description  | Notes
 
 List all file providers.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 scope = 'scope_example' # str | If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned. (optional)
 
-try: 
+try:
     api_response = api_instance.list_providers_file(scope=scope)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->list_providers_file: %s\n" % e
+    print("Exception when calling AuthApi->list_providers_file: %s\n" % e)
 ```
 
 ### Parameters
@@ -3291,7 +3206,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -3307,26 +3222,28 @@ Name | Type | Description  | Notes
 
 List all KRB5 providers.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 scope = 'scope_example' # str | If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned. (optional)
 
-try: 
+try:
     api_response = api_instance.list_providers_krb5(scope=scope)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->list_providers_krb5: %s\n" % e
+    print("Exception when calling AuthApi->list_providers_krb5: %s\n" % e)
 ```
 
 ### Parameters
@@ -3341,7 +3258,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -3357,26 +3274,28 @@ Name | Type | Description  | Notes
 
 List all LDAP providers.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 scope = 'scope_example' # str | If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned. (optional)
 
-try: 
+try:
     api_response = api_instance.list_providers_ldap(scope=scope)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->list_providers_ldap: %s\n" % e
+    print("Exception when calling AuthApi->list_providers_ldap: %s\n" % e)
 ```
 
 ### Parameters
@@ -3391,7 +3310,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -3401,32 +3320,34 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_providers_nis**
-> ProvidersNisExtended list_providers_nis(scope=scope)
+> ProvidersNis list_providers_nis(scope=scope)
 
 
 
 List all NIS providers.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 scope = 'scope_example' # str | If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned. (optional)
 
-try: 
+try:
     api_response = api_instance.list_providers_nis(scope=scope)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->list_providers_nis: %s\n" % e
+    print("Exception when calling AuthApi->list_providers_nis: %s\n" % e)
 ```
 
 ### Parameters
@@ -3437,11 +3358,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProvidersNisExtended**](ProvidersNisExtended.md)
+[**ProvidersNis**](ProvidersNis.md)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -3451,31 +3372,33 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_settings_krb5_domains**
-> SettingsKrb5Domains list_settings_krb5_domains()
+> SettingsKrb5DomainsExtended list_settings_krb5_domains()
 
 
 
 Retrieve the krb5 settings for domains.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 
-try: 
+try:
     api_response = api_instance.list_settings_krb5_domains()
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->list_settings_krb5_domains: %s\n" % e
+    print("Exception when calling AuthApi->list_settings_krb5_domains: %s\n" % e)
 ```
 
 ### Parameters
@@ -3483,11 +3406,11 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**SettingsKrb5Domains**](SettingsKrb5Domains.md)
+[**SettingsKrb5DomainsExtended**](SettingsKrb5DomainsExtended.md)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -3497,31 +3420,33 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_settings_krb5_realms**
-> SettingsKrb5Realms list_settings_krb5_realms()
+> Empty list_settings_krb5_realms()
 
 
 
 Retrieve the krb5 settings for realms.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
 
-try: 
+try:
     api_response = api_instance.list_settings_krb5_realms()
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthApi->list_settings_krb5_realms: %s\n" % e
+    print("Exception when calling AuthApi->list_settings_krb5_realms: %s\n" % e)
 ```
 
 ### Parameters
@@ -3529,11 +3454,11 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**SettingsKrb5Realms**](SettingsKrb5Realms.md)
+[**Empty**](Empty.md)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -3549,28 +3474,30 @@ This endpoint does not need any parameter.
 
 Modify the group.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
-auth_group = isi_sdk.AuthGroup() # AuthGroup | 
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
+auth_group = isi_sdk_7_2.AuthGroup() # AuthGroup | 
 auth_group_id = 'auth_group_id_example' # str | Modify the group.
 zone = 'zone_example' # str | Optional zone. (optional)
 provider = 'provider_example' # str | Optional provider type. (optional)
 
-try: 
+try:
     api_instance.update_auth_group(auth_group, auth_group_id, zone=zone, provider=provider)
 except ApiException as e:
-    print "Exception when calling AuthApi->update_auth_group: %s\n" % e
+    print("Exception when calling AuthApi->update_auth_group: %s\n" % e)
 ```
 
 ### Parameters
@@ -3588,56 +3515,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **update_auth_log_level**
-> update_auth_log_level(auth_log_level)
-
-
-
-Set the current authentication service and netlogon logging level.
-
-### Example 
-```python
-import time
-import isi_sdk
-from isi_sdk.rest import ApiException
-from pprint import pprint
-
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = isi_sdk.AuthApi()
-auth_log_level = isi_sdk.AuthLogLevelExtended() # AuthLogLevelExtended | 
-
-try: 
-    api_instance.update_auth_log_level(auth_log_level)
-except ApiException as e:
-    print "Exception when calling AuthApi->update_auth_log_level: %s\n" % e
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **auth_log_level** | [**AuthLogLevelExtended**](AuthLogLevelExtended.md)|  | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -3653,26 +3531,28 @@ void (empty response body)
 
 Modify the role.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
-auth_role = isi_sdk.AuthRole() # AuthRole | 
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
+auth_role = isi_sdk_7_2.AuthRole() # AuthRole | 
 auth_role_id = 'auth_role_id_example' # str | Modify the role.
 
-try: 
+try:
     api_instance.update_auth_role(auth_role, auth_role_id)
 except ApiException as e:
-    print "Exception when calling AuthApi->update_auth_role: %s\n" % e
+    print("Exception when calling AuthApi->update_auth_role: %s\n" % e)
 ```
 
 ### Parameters
@@ -3688,7 +3568,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -3704,28 +3584,30 @@ void (empty response body)
 
 Modify the user.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
-auth_user = isi_sdk.AuthUser() # AuthUser | 
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
+auth_user = isi_sdk_7_2.AuthUser() # AuthUser | 
 auth_user_id = 'auth_user_id_example' # str | Modify the user.
 zone = 'zone_example' # str | Optional zone. (optional)
 provider = 'provider_example' # str | Optional provider type. (optional)
 
-try: 
+try:
     api_instance.update_auth_user(auth_user, auth_user_id, zone=zone, provider=provider)
 except ApiException as e:
-    print "Exception when calling AuthApi->update_auth_user: %s\n" % e
+    print("Exception when calling AuthApi->update_auth_user: %s\n" % e)
 ```
 
 ### Parameters
@@ -3743,60 +3625,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **update_mapping_import**
-> update_mapping_import(mapping_import, zone=zone, replace=replace)
-
-
-
-Set or update a list of mappings between two personae.
-
-### Example 
-```python
-import time
-import isi_sdk
-from isi_sdk.rest import ApiException
-from pprint import pprint
-
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = isi_sdk.AuthApi()
-mapping_import = isi_sdk.MappingImport() # MappingImport | 
-zone = 'zone_example' # str | Optional zone. (optional)
-replace = true # bool | Specify whether existing mappings should be replaced. The default behavior is to leave existing mappings intact and return an error. (optional)
-
-try: 
-    api_instance.update_mapping_import(mapping_import, zone=zone, replace=replace)
-except ApiException as e:
-    print "Exception when calling AuthApi->update_mapping_import: %s\n" % e
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **mapping_import** | [**MappingImport**](MappingImport.md)|  | 
- **zone** | **str**| Optional zone. | [optional] 
- **replace** | **bool**| Specify whether existing mappings should be replaced. The default behavior is to leave existing mappings intact and return an error. | [optional] 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -3812,25 +3641,27 @@ void (empty response body)
 
 Modify the user mapping rules.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
-mapping_users_rules = isi_sdk.MappingUsersRulesExtended() # MappingUsersRulesExtended | 
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
+mapping_users_rules = isi_sdk_7_2.MappingUsersRulesExtended() # MappingUsersRulesExtended | 
 
-try: 
+try:
     api_instance.update_mapping_users_rules(mapping_users_rules)
 except ApiException as e:
-    print "Exception when calling AuthApi->update_mapping_users_rules: %s\n" % e
+    print("Exception when calling AuthApi->update_mapping_users_rules: %s\n" % e)
 ```
 
 ### Parameters
@@ -3845,7 +3676,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -3861,26 +3692,28 @@ void (empty response body)
 
 Modify the ADS provider.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
-providers_ads_id_params = isi_sdk.ProvidersAdsIdParams() # ProvidersAdsIdParams | 
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
+providers_ads_id_params = isi_sdk_7_2.ProvidersAdsIdParams() # ProvidersAdsIdParams | 
 providers_ads_id = 'providers_ads_id_example' # str | Modify the ADS provider.
 
-try: 
+try:
     api_instance.update_providers_ads_by_id(providers_ads_id_params, providers_ads_id)
 except ApiException as e:
-    print "Exception when calling AuthApi->update_providers_ads_by_id: %s\n" % e
+    print("Exception when calling AuthApi->update_providers_ads_by_id: %s\n" % e)
 ```
 
 ### Parameters
@@ -3896,7 +3729,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -3912,26 +3745,28 @@ void (empty response body)
 
 Modify the file provider.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
-providers_file_id_params = isi_sdk.ProvidersFileIdParams() # ProvidersFileIdParams | 
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
+providers_file_id_params = isi_sdk_7_2.ProvidersFileIdParams() # ProvidersFileIdParams | 
 providers_file_id = 'providers_file_id_example' # str | Modify the file provider.
 
-try: 
+try:
     api_instance.update_providers_file_by_id(providers_file_id_params, providers_file_id)
 except ApiException as e:
-    print "Exception when calling AuthApi->update_providers_file_by_id: %s\n" % e
+    print("Exception when calling AuthApi->update_providers_file_by_id: %s\n" % e)
 ```
 
 ### Parameters
@@ -3947,7 +3782,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -3963,26 +3798,28 @@ void (empty response body)
 
 Modify the KRB5 provider.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
-providers_krb5_id_params = isi_sdk.ProvidersKrb5IdParams() # ProvidersKrb5IdParams | 
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
+providers_krb5_id_params = isi_sdk_7_2.ProvidersKrb5IdParams() # ProvidersKrb5IdParams | 
 providers_krb5_id = 'providers_krb5_id_example' # str | Modify the KRB5 provider.
 
-try: 
+try:
     api_instance.update_providers_krb5_by_id(providers_krb5_id_params, providers_krb5_id)
 except ApiException as e:
-    print "Exception when calling AuthApi->update_providers_krb5_by_id: %s\n" % e
+    print("Exception when calling AuthApi->update_providers_krb5_by_id: %s\n" % e)
 ```
 
 ### Parameters
@@ -3998,7 +3835,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -4014,26 +3851,28 @@ void (empty response body)
 
 Modify the LDAP provider.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
-providers_ldap_id_params = isi_sdk.ProvidersLdapIdParams() # ProvidersLdapIdParams | 
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
+providers_ldap_id_params = isi_sdk_7_2.ProvidersLdapIdParams() # ProvidersLdapIdParams | 
 providers_ldap_id = 'providers_ldap_id_example' # str | Modify the LDAP provider.
 
-try: 
+try:
     api_instance.update_providers_ldap_by_id(providers_ldap_id_params, providers_ldap_id)
 except ApiException as e:
-    print "Exception when calling AuthApi->update_providers_ldap_by_id: %s\n" % e
+    print("Exception when calling AuthApi->update_providers_ldap_by_id: %s\n" % e)
 ```
 
 ### Parameters
@@ -4049,7 +3888,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -4065,26 +3904,28 @@ void (empty response body)
 
 Modify the local provider.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
-providers_local_id_params = isi_sdk.ProvidersLocalIdParams() # ProvidersLocalIdParams | 
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
+providers_local_id_params = isi_sdk_7_2.ProvidersLocalIdParams() # ProvidersLocalIdParams | 
 providers_local_id = 'providers_local_id_example' # str | Modify the local provider.
 
-try: 
+try:
     api_instance.update_providers_local_by_id(providers_local_id_params, providers_local_id)
 except ApiException as e:
-    print "Exception when calling AuthApi->update_providers_local_by_id: %s\n" % e
+    print("Exception when calling AuthApi->update_providers_local_by_id: %s\n" % e)
 ```
 
 ### Parameters
@@ -4100,7 +3941,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -4116,26 +3957,28 @@ void (empty response body)
 
 Modify the NIS provider.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
-providers_nis_id_params = isi_sdk.ProvidersNisIdParams() # ProvidersNisIdParams | 
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
+providers_nis_id_params = isi_sdk_7_2.ProvidersNisIdParams() # ProvidersNisIdParams | 
 providers_nis_id = 'providers_nis_id_example' # str | Modify the NIS provider.
 
-try: 
+try:
     api_instance.update_providers_nis_by_id(providers_nis_id_params, providers_nis_id)
 except ApiException as e:
-    print "Exception when calling AuthApi->update_providers_nis_by_id: %s\n" % e
+    print("Exception when calling AuthApi->update_providers_nis_by_id: %s\n" % e)
 ```
 
 ### Parameters
@@ -4151,56 +3994,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **update_settings_acls**
-> update_settings_acls(settings_acls)
-
-
-
-Modify cluster ACL policy settings.
-
-### Example 
-```python
-import time
-import isi_sdk
-from isi_sdk.rest import ApiException
-from pprint import pprint
-
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = isi_sdk.AuthApi()
-settings_acls = isi_sdk.SettingsAclsAclPolicySettings() # SettingsAclsAclPolicySettings | 
-
-try: 
-    api_instance.update_settings_acls(settings_acls)
-except ApiException as e:
-    print "Exception when calling AuthApi->update_settings_acls: %s\n" % e
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **settings_acls** | [**SettingsAclsAclPolicySettings**](SettingsAclsAclPolicySettings.md)|  | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -4216,26 +4010,28 @@ void (empty response body)
 
 Modify the global settings.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
-settings_global = isi_sdk.SettingsGlobalGlobalSettings() # SettingsGlobalGlobalSettings | 
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
+settings_global = isi_sdk_7_2.SettingsGlobalGlobalSettings() # SettingsGlobalGlobalSettings | 
 zone = 'zone_example' # str | Zone which contains any per-zone settings. (optional)
 
-try: 
+try:
     api_instance.update_settings_global(settings_global, zone=zone)
 except ApiException as e:
-    print "Exception when calling AuthApi->update_settings_global: %s\n" % e
+    print("Exception when calling AuthApi->update_settings_global: %s\n" % e)
 ```
 
 ### Parameters
@@ -4251,7 +4047,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -4267,25 +4063,27 @@ void (empty response body)
 
 Modify the krb5 settings.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
-settings_krb5_defaults = isi_sdk.SettingsKrb5DefaultsKrb5Settings() # SettingsKrb5DefaultsKrb5Settings | 
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
+settings_krb5_defaults = isi_sdk_7_2.SettingsKrb5DefaultsKrb5Settings() # SettingsKrb5DefaultsKrb5Settings | 
 
-try: 
+try:
     api_instance.update_settings_krb5_defaults(settings_krb5_defaults)
 except ApiException as e:
-    print "Exception when calling AuthApi->update_settings_krb5_defaults: %s\n" % e
+    print("Exception when calling AuthApi->update_settings_krb5_defaults: %s\n" % e)
 ```
 
 ### Parameters
@@ -4300,7 +4098,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -4316,26 +4114,28 @@ void (empty response body)
 
 Modify the krb5 domain settings.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
-settings_krb5_domain = isi_sdk.SettingsKrb5Domain() # SettingsKrb5Domain | 
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
+settings_krb5_domain = isi_sdk_7_2.SettingsKrb5Domain() # SettingsKrb5Domain | 
 settings_krb5_domain_id = 'settings_krb5_domain_id_example' # str | Modify the krb5 domain settings.
 
-try: 
+try:
     api_instance.update_settings_krb5_domain(settings_krb5_domain, settings_krb5_domain_id)
 except ApiException as e:
-    print "Exception when calling AuthApi->update_settings_krb5_domain: %s\n" % e
+    print("Exception when calling AuthApi->update_settings_krb5_domain: %s\n" % e)
 ```
 
 ### Parameters
@@ -4351,7 +4151,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -4367,26 +4167,28 @@ void (empty response body)
 
 Modify the krb5 realm settings.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
-settings_krb5_realm = isi_sdk.SettingsKrb5Realm() # SettingsKrb5Realm | 
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
+settings_krb5_realm = isi_sdk_7_2.SettingsKrb5Realm() # SettingsKrb5Realm | 
 settings_krb5_realm_id = 'settings_krb5_realm_id_example' # str | Modify the krb5 realm settings.
 
-try: 
+try:
     api_instance.update_settings_krb5_realm(settings_krb5_realm, settings_krb5_realm_id)
 except ApiException as e:
-    print "Exception when calling AuthApi->update_settings_krb5_realm: %s\n" % e
+    print("Exception when calling AuthApi->update_settings_krb5_realm: %s\n" % e)
 ```
 
 ### Parameters
@@ -4402,7 +4204,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -4418,26 +4220,28 @@ void (empty response body)
 
 Modify the mapping settings.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthApi()
-settings_mapping = isi_sdk.SettingsMappingMappingSettings() # SettingsMappingMappingSettings | 
+api_instance = isi_sdk_7_2.AuthApi(isi_sdk_7_2.ApiClient(configuration))
+settings_mapping = isi_sdk_7_2.SettingsMappingMappingSettings() # SettingsMappingMappingSettings | 
 zone = 'zone_example' # str | Access zone which contains mapping settings. (optional)
 
-try: 
+try:
     api_instance.update_settings_mapping(settings_mapping, zone=zone)
 except ApiException as e:
-    print "Exception when calling AuthApi->update_settings_mapping: %s\n" % e
+    print("Exception when calling AuthApi->update_settings_mapping: %s\n" % e)
 ```
 
 ### Parameters
@@ -4453,7 +4257,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 

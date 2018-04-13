@@ -1,6 +1,6 @@
-# isi_sdk.SyncTargetApi
+# isi_sdk_7_2.SyncTargetApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -16,27 +16,29 @@ Method | HTTP request | Description
 
 Cancel the most recent SyncIQ job for this policy from the target side.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.SyncTargetApi()
-policies_policy_cancel_item = isi_sdk.Empty() # Empty | 
+api_instance = isi_sdk_7_2.SyncTargetApi(isi_sdk_7_2.ApiClient(configuration))
+policies_policy_cancel_item = isi_sdk_7_2.Empty() # Empty | 
 policy = 'policy_example' # str | 
 
-try: 
+try:
     api_response = api_instance.create_policies_policy_cancel_item(policies_policy_cancel_item, policy)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling SyncTargetApi->create_policies_policy_cancel_item: %s\n" % e
+    print("Exception when calling SyncTargetApi->create_policies_policy_cancel_item: %s\n" % e)
 ```
 
 ### Parameters
@@ -52,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -68,27 +70,29 @@ Name | Type | Description  | Notes
 
 View a single SyncIQ target subreport.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.SyncTargetApi()
+api_instance = isi_sdk_7_2.SyncTargetApi(isi_sdk_7_2.ApiClient(configuration))
 reports_report_subreport_id = 'reports_report_subreport_id_example' # str | View a single SyncIQ target subreport.
 rid = 'rid_example' # str | 
 
-try: 
+try:
     api_response = api_instance.get_reports_report_subreport(reports_report_subreport_id, rid)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling SyncTargetApi->get_reports_report_subreport: %s\n" % e
+    print("Exception when calling SyncTargetApi->get_reports_report_subreport: %s\n" % e)
 ```
 
 ### Parameters
@@ -104,7 +108,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -120,19 +124,21 @@ Name | Type | Description  | Notes
 
 Get a list of SyncIQ target subreports for a report.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.SyncTargetApi()
+api_instance = isi_sdk_7_2.SyncTargetApi(isi_sdk_7_2.ApiClient(configuration))
 rid = 'rid_example' # str | 
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
@@ -141,11 +147,11 @@ state = 'state_example' # str | Filter the returned reports to include only thos
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
 dir = 'dir_example' # str | The direction of the sort. (optional)
 
-try: 
+try:
     api_response = api_instance.get_reports_report_subreports(rid, sort=sort, resume=resume, newer_than=newer_than, state=state, limit=limit, dir=dir)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling SyncTargetApi->get_reports_report_subreports: %s\n" % e
+    print("Exception when calling SyncTargetApi->get_reports_report_subreports: %s\n" % e)
 ```
 
 ### Parameters
@@ -166,7 +172,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 

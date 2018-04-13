@@ -1,6 +1,6 @@
-# isi_sdk.LicenseApi
+# isi_sdk_7_2.LicenseApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -16,25 +16,27 @@ Method | HTTP request | Description
 
 Install a new license key.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.LicenseApi()
-license_license = isi_sdk.LicenseLicenseCreateParams() # LicenseLicenseCreateParams | 
+api_instance = isi_sdk_7_2.LicenseApi(isi_sdk_7_2.ApiClient(configuration))
+license_license = isi_sdk_7_2.LicenseLicenseCreateParams() # LicenseLicenseCreateParams | 
 
-try: 
+try:
     api_instance.create_license_license(license_license)
 except ApiException as e:
-    print "Exception when calling LicenseApi->create_license_license: %s\n" % e
+    print("Exception when calling LicenseApi->create_license_license: %s\n" % e)
 ```
 
 ### Parameters
@@ -49,7 +51,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -65,26 +67,28 @@ void (empty response body)
 
 Retrieve license information for the feature.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.LicenseApi()
+api_instance = isi_sdk_7_2.LicenseApi(isi_sdk_7_2.ApiClient(configuration))
 license_license_id = 'license_license_id_example' # str | Retrieve license information for the feature.
 
-try: 
+try:
     api_response = api_instance.get_license_license(license_license_id)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling LicenseApi->get_license_license: %s\n" % e
+    print("Exception when calling LicenseApi->get_license_license: %s\n" % e)
 ```
 
 ### Parameters
@@ -99,7 +103,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -115,25 +119,27 @@ Name | Type | Description  | Notes
 
 Retrieve license information for all licensable products.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.LicenseApi()
+api_instance = isi_sdk_7_2.LicenseApi(isi_sdk_7_2.ApiClient(configuration))
 
-try: 
+try:
     api_response = api_instance.list_license_licenses()
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling LicenseApi->list_license_licenses: %s\n" % e
+    print("Exception when calling LicenseApi->list_license_licenses: %s\n" % e)
 ```
 
 ### Parameters
@@ -145,7 +151,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 

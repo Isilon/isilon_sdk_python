@@ -1,6 +1,6 @@
-# isi_sdk.ProtocolsHdfsApi
+# isi_sdk_7_2.ProtocolsHdfsApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -17,27 +17,29 @@ Method | HTTP request | Description
 
 Add a member to the HDFS proxyuser.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.ProtocolsHdfsApi()
-proxyusers_name_member = isi_sdk.GroupMember() # GroupMember | 
+api_instance = isi_sdk_7_2.ProtocolsHdfsApi(isi_sdk_7_2.ApiClient(configuration))
+proxyusers_name_member = isi_sdk_7_2.GroupMember() # GroupMember | 
 name = 'name_example' # str | 
 
-try: 
+try:
     api_response = api_instance.create_proxyusers_name_member(proxyusers_name_member, name)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ProtocolsHdfsApi->create_proxyusers_name_member: %s\n" % e
+    print("Exception when calling ProtocolsHdfsApi->create_proxyusers_name_member: %s\n" % e)
 ```
 
 ### Parameters
@@ -53,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -69,26 +71,28 @@ Name | Type | Description  | Notes
 
 Remove a member from the HDFS proxyuser.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.ProtocolsHdfsApi()
+api_instance = isi_sdk_7_2.ProtocolsHdfsApi(isi_sdk_7_2.ApiClient(configuration))
 proxyusers_name_member_id = 'proxyusers_name_member_id_example' # str | Remove a member from the HDFS proxyuser.
 name = 'name_example' # str | 
 
-try: 
+try:
     api_instance.delete_proxyusers_name_member(proxyusers_name_member_id, name)
 except ApiException as e:
-    print "Exception when calling ProtocolsHdfsApi->delete_proxyusers_name_member: %s\n" % e
+    print("Exception when calling ProtocolsHdfsApi->delete_proxyusers_name_member: %s\n" % e)
 ```
 
 ### Parameters
@@ -104,7 +108,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -120,26 +124,28 @@ void (empty response body)
 
 List all the members of the HDFS proxyuser.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.ProtocolsHdfsApi()
+api_instance = isi_sdk_7_2.ProtocolsHdfsApi(isi_sdk_7_2.ApiClient(configuration))
 name = 'name_example' # str | 
 
-try: 
+try:
     api_response = api_instance.list_proxyusers_name_members(name)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ProtocolsHdfsApi->list_proxyusers_name_members: %s\n" % e
+    print("Exception when calling ProtocolsHdfsApi->list_proxyusers_name_members: %s\n" % e)
 ```
 
 ### Parameters
@@ -154,7 +160,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -170,27 +176,29 @@ Name | Type | Description  | Notes
 
 Create a new HDFS proxyuser.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.ProtocolsHdfsApi()
-proxyusers_name_member = isi_sdk.Empty() # Empty | 
+api_instance = isi_sdk_7_2.ProtocolsHdfsApi(isi_sdk_7_2.ApiClient(configuration))
+proxyusers_name_member = isi_sdk_7_2.Empty() # Empty | 
 proxyusers_name_member_id = 'proxyusers_name_member_id_example' # str | Create a new HDFS proxyuser.
 name = 'name_example' # str | 
 
-try: 
+try:
     api_instance.update_proxyusers_name_member(proxyusers_name_member, proxyusers_name_member_id, name)
 except ApiException as e:
-    print "Exception when calling ProtocolsHdfsApi->update_proxyusers_name_member: %s\n" % e
+    print("Exception when calling ProtocolsHdfsApi->update_proxyusers_name_member: %s\n" % e)
 ```
 
 ### Parameters
@@ -207,7 +215,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 

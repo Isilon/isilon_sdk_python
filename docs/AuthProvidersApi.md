@@ -1,12 +1,12 @@
-# isi_sdk.AuthProvidersApi
+# isi_sdk_7_2.AuthProvidersApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_ads_provider_controllers**](AuthProvidersApi.md#get_ads_provider_controllers) | **GET** /platform/1/auth/providers/ads/{Id}/controllers | 
-[**get_ads_provider_domain**](AuthProvidersApi.md#get_ads_provider_domain) | **GET** /platform/3/auth/providers/ads/{Id}/domains/{AdsProviderDomainId} | 
-[**get_ads_provider_domains**](AuthProvidersApi.md#get_ads_provider_domains) | **GET** /platform/3/auth/providers/ads/{Id}/domains | 
+[**get_ads_provider_domain**](AuthProvidersApi.md#get_ads_provider_domain) | **GET** /platform/1/auth/providers/ads/{Id}/domains/{AdsProviderDomainId} | 
+[**get_ads_provider_domains**](AuthProvidersApi.md#get_ads_provider_domains) | **GET** /platform/1/auth/providers/ads/{Id}/domains | 
 [**get_ads_provider_search**](AuthProvidersApi.md#get_ads_provider_search) | **GET** /platform/1/auth/providers/ads/{Id}/search | 
 
 
@@ -17,26 +17,28 @@ Method | HTTP request | Description
 
 List all ADS controllers.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthProvidersApi()
+api_instance = isi_sdk_7_2.AuthProvidersApi(isi_sdk_7_2.ApiClient(configuration))
 id = 'id_example' # str | 
 
-try: 
+try:
     api_response = api_instance.get_ads_provider_controllers(id)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthProvidersApi->get_ads_provider_controllers: %s\n" % e
+    print("Exception when calling AuthProvidersApi->get_ads_provider_controllers: %s\n" % e)
 ```
 
 ### Parameters
@@ -51,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -67,27 +69,29 @@ Name | Type | Description  | Notes
 
 Retrieve the ADS domain information.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthProvidersApi()
+api_instance = isi_sdk_7_2.AuthProvidersApi(isi_sdk_7_2.ApiClient(configuration))
 ads_provider_domain_id = 'ads_provider_domain_id_example' # str | Retrieve the ADS domain information.
 id = 'id_example' # str | 
 
-try: 
+try:
     api_response = api_instance.get_ads_provider_domain(ads_provider_domain_id, id)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthProvidersApi->get_ads_provider_domain: %s\n" % e
+    print("Exception when calling AuthProvidersApi->get_ads_provider_domain: %s\n" % e)
 ```
 
 ### Parameters
@@ -103,7 +107,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -119,27 +123,29 @@ Name | Type | Description  | Notes
 
 List all ADS domains.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthProvidersApi()
+api_instance = isi_sdk_7_2.AuthProvidersApi(isi_sdk_7_2.ApiClient(configuration))
 id = 'id_example' # str | 
 scope = 'scope_example' # str | If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned. (optional)
 
-try: 
+try:
     api_response = api_instance.get_ads_provider_domains(id, scope=scope)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthProvidersApi->get_ads_provider_domains: %s\n" % e
+    print("Exception when calling AuthProvidersApi->get_ads_provider_domains: %s\n" % e)
 ```
 
 ### Parameters
@@ -155,7 +161,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -171,19 +177,21 @@ Name | Type | Description  | Notes
 
 Retrieve search results.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthProvidersApi()
+api_instance = isi_sdk_7_2.AuthProvidersApi(isi_sdk_7_2.ApiClient(configuration))
 id = 'id_example' # str | 
 domain = 'domain_example' # str | The domain to search in. (optional)
 description = 'description_example' # str | The user or group description to search for. (optional)
@@ -195,11 +203,11 @@ user = 'user_example' # str | The user name for the domain if untrusted. (option
 password = 'password_example' # str | The password for the domain if untrusted. (optional)
 search_groups = true # bool | If true, search for groups. (optional)
 
-try: 
+try:
     api_response = api_instance.get_ads_provider_search(id, domain=domain, description=description, resume=resume, search_users=search_users, filter=filter, limit=limit, user=user, password=password, search_groups=search_groups)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthProvidersApi->get_ads_provider_search: %s\n" % e
+    print("Exception when calling AuthProvidersApi->get_ads_provider_search: %s\n" % e)
 ```
 
 ### Parameters
@@ -223,7 +231,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 

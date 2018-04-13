@@ -4,8 +4,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **build** | **str** | OneFS build string. | 
-**copyright** | **str** | Cluster copyright information. | 
-**reldate** | **int** | Timestamp of release date. | 
 **release** | **str** | Kernel release number. | 
 **revision** | **str** | OneFS build number. | 
 **type** | **str** | Kernel release type. | 

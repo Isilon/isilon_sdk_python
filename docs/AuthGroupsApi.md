@@ -1,6 +1,6 @@
-# isi_sdk.AuthGroupsApi
+# isi_sdk_7_2.AuthGroupsApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -16,29 +16,31 @@ Method | HTTP request | Description
 
 Add a member to the group.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthGroupsApi()
-group_member = isi_sdk.GroupMember() # GroupMember | 
+api_instance = isi_sdk_7_2.AuthGroupsApi(isi_sdk_7_2.ApiClient(configuration))
+group_member = isi_sdk_7_2.GroupMember() # GroupMember | 
 group = 'group_example' # str | 
 zone = 'zone_example' # str | Filter group members by zone. (optional)
 provider = 'provider_example' # str | Filter group members by provider. (optional)
 
-try: 
+try:
     api_response = api_instance.create_group_member(group_member, group, zone=zone, provider=provider)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthGroupsApi->create_group_member: %s\n" % e
+    print("Exception when calling AuthGroupsApi->create_group_member: %s\n" % e)
 ```
 
 ### Parameters
@@ -56,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -72,28 +74,30 @@ Name | Type | Description  | Notes
 
 Remove the member from the group.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthGroupsApi()
+api_instance = isi_sdk_7_2.AuthGroupsApi(isi_sdk_7_2.ApiClient(configuration))
 group_member_id = 'group_member_id_example' # str | Remove the member from the group.
 group = 'group_example' # str | 
 zone = 'zone_example' # str | Filter group members by zone. (optional)
 provider = 'provider_example' # str | Filter group members by provider. (optional)
 
-try: 
+try:
     api_instance.delete_group_member(group_member_id, group, zone=zone, provider=provider)
 except ApiException as e:
-    print "Exception when calling AuthGroupsApi->delete_group_member: %s\n" % e
+    print("Exception when calling AuthGroupsApi->delete_group_member: %s\n" % e)
 ```
 
 ### Parameters
@@ -111,7 +115,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -127,30 +131,32 @@ void (empty response body)
 
 List all the members of the group.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuthGroupsApi()
+api_instance = isi_sdk_7_2.AuthGroupsApi(isi_sdk_7_2.ApiClient(configuration))
 group = 'group_example' # str | 
 resolve_names = true # bool | Resolve names of personas. (optional)
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
 zone = 'zone_example' # str | Filter group members by zone. (optional)
 provider = 'provider_example' # str | Filter group members by provider. (optional)
 
-try: 
+try:
     api_response = api_instance.list_group_members(group, resolve_names=resolve_names, limit=limit, zone=zone, provider=provider)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthGroupsApi->list_group_members: %s\n" % e
+    print("Exception when calling AuthGroupsApi->list_group_members: %s\n" % e)
 ```
 
 ### Parameters
@@ -169,7 +175,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 

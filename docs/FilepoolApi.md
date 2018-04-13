@@ -1,6 +1,6 @@
-# isi_sdk.FilepoolApi
+# isi_sdk_7_2.FilepoolApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -22,26 +22,28 @@ Method | HTTP request | Description
 
 Create a new policy.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.FilepoolApi()
-filepool_policy = isi_sdk.FilepoolPolicyCreateParams() # FilepoolPolicyCreateParams | 
+api_instance = isi_sdk_7_2.FilepoolApi(isi_sdk_7_2.ApiClient(configuration))
+filepool_policy = isi_sdk_7_2.FilepoolPolicyCreateParams() # FilepoolPolicyCreateParams | 
 
-try: 
+try:
     api_response = api_instance.create_filepool_policy(filepool_policy)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling FilepoolApi->create_filepool_policy: %s\n" % e
+    print("Exception when calling FilepoolApi->create_filepool_policy: %s\n" % e)
 ```
 
 ### Parameters
@@ -56,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -72,25 +74,27 @@ Name | Type | Description  | Notes
 
 Delete file pool policy.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.FilepoolApi()
+api_instance = isi_sdk_7_2.FilepoolApi(isi_sdk_7_2.ApiClient(configuration))
 filepool_policy_id = 'filepool_policy_id_example' # str | Delete file pool policy.
 
-try: 
+try:
     api_instance.delete_filepool_policy(filepool_policy_id)
 except ApiException as e:
-    print "Exception when calling FilepoolApi->delete_filepool_policy: %s\n" % e
+    print("Exception when calling FilepoolApi->delete_filepool_policy: %s\n" % e)
 ```
 
 ### Parameters
@@ -105,7 +109,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -121,25 +125,27 @@ void (empty response body)
 
 List default file pool policy.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.FilepoolApi()
+api_instance = isi_sdk_7_2.FilepoolApi(isi_sdk_7_2.ApiClient(configuration))
 
-try: 
+try:
     api_response = api_instance.get_filepool_default_policy()
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling FilepoolApi->get_filepool_default_policy: %s\n" % e
+    print("Exception when calling FilepoolApi->get_filepool_default_policy: %s\n" % e)
 ```
 
 ### Parameters
@@ -151,7 +157,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -167,26 +173,28 @@ This endpoint does not need any parameter.
 
 Retrieve file pool policy information.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.FilepoolApi()
+api_instance = isi_sdk_7_2.FilepoolApi(isi_sdk_7_2.ApiClient(configuration))
 filepool_policy_id = 'filepool_policy_id_example' # str | Retrieve file pool policy information.
 
-try: 
+try:
     api_response = api_instance.get_filepool_policy(filepool_policy_id)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling FilepoolApi->get_filepool_policy: %s\n" % e
+    print("Exception when calling FilepoolApi->get_filepool_policy: %s\n" % e)
 ```
 
 ### Parameters
@@ -201,7 +209,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -217,26 +225,28 @@ Name | Type | Description  | Notes
 
 List all templates.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.FilepoolApi()
+api_instance = isi_sdk_7_2.FilepoolApi(isi_sdk_7_2.ApiClient(configuration))
 filepool_template_id = 'filepool_template_id_example' # str | List all templates.
 
-try: 
+try:
     api_response = api_instance.get_filepool_template(filepool_template_id)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling FilepoolApi->get_filepool_template: %s\n" % e
+    print("Exception when calling FilepoolApi->get_filepool_template: %s\n" % e)
 ```
 
 ### Parameters
@@ -251,7 +261,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -267,25 +277,27 @@ Name | Type | Description  | Notes
 
 List all templates.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.FilepoolApi()
+api_instance = isi_sdk_7_2.FilepoolApi(isi_sdk_7_2.ApiClient(configuration))
 
-try: 
+try:
     api_response = api_instance.get_filepool_templates()
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling FilepoolApi->get_filepool_templates: %s\n" % e
+    print("Exception when calling FilepoolApi->get_filepool_templates: %s\n" % e)
 ```
 
 ### Parameters
@@ -297,7 +309,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -307,31 +319,33 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_filepool_policies**
-> FilepoolPoliciesExtended list_filepool_policies()
+> FilepoolPolicies list_filepool_policies()
 
 
 
 List all policies.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.FilepoolApi()
+api_instance = isi_sdk_7_2.FilepoolApi(isi_sdk_7_2.ApiClient(configuration))
 
-try: 
+try:
     api_response = api_instance.list_filepool_policies()
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling FilepoolApi->list_filepool_policies: %s\n" % e
+    print("Exception when calling FilepoolApi->list_filepool_policies: %s\n" % e)
 ```
 
 ### Parameters
@@ -339,11 +353,11 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**FilepoolPoliciesExtended**](FilepoolPoliciesExtended.md)
+[**FilepoolPolicies**](FilepoolPolicies.md)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -359,25 +373,27 @@ This endpoint does not need any parameter.
 
 Set default file pool policy.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.FilepoolApi()
-filepool_default_policy = isi_sdk.FilepoolDefaultPolicyExtended() # FilepoolDefaultPolicyExtended | 
+api_instance = isi_sdk_7_2.FilepoolApi(isi_sdk_7_2.ApiClient(configuration))
+filepool_default_policy = isi_sdk_7_2.FilepoolDefaultPolicyExtended() # FilepoolDefaultPolicyExtended | 
 
-try: 
+try:
     api_instance.update_filepool_default_policy(filepool_default_policy)
 except ApiException as e:
-    print "Exception when calling FilepoolApi->update_filepool_default_policy: %s\n" % e
+    print("Exception when calling FilepoolApi->update_filepool_default_policy: %s\n" % e)
 ```
 
 ### Parameters
@@ -392,7 +408,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -408,26 +424,28 @@ void (empty response body)
 
 Modify file pool policy. All input fields are optional, but one or more must be supplied.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.FilepoolApi()
-filepool_policy = isi_sdk.FilepoolPolicy() # FilepoolPolicy | 
+api_instance = isi_sdk_7_2.FilepoolApi(isi_sdk_7_2.ApiClient(configuration))
+filepool_policy = isi_sdk_7_2.FilepoolPolicy() # FilepoolPolicy | 
 filepool_policy_id = 'filepool_policy_id_example' # str | Modify file pool policy. All input fields are optional, but one or more must be supplied.
 
-try: 
+try:
     api_instance.update_filepool_policy(filepool_policy, filepool_policy_id)
 except ApiException as e:
-    print "Exception when calling FilepoolApi->update_filepool_policy: %s\n" % e
+    print("Exception when calling FilepoolApi->update_filepool_policy: %s\n" % e)
 ```
 
 ### Parameters
@@ -443,7 +461,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 

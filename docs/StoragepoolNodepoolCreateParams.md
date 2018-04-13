@@ -4,8 +4,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **l3** | **bool** | Use SSDs in this node pool for L3 cache. | [optional] 
-**lnns** | **list[int]** | The nodes that are part of this node pool. | [optional] 
-**name** | **str** | The node pool name. | [optional] 
+**lnns** | **list[int]** | The nodes that are part of this node pool. | 
+**name** | **str** | The node pool name. | 
 **protection_policy** | **str** | The node pool protection policy. | [optional] 
 **tier** | **str** | The name or ID of the node pool&#39;s tier, if it is in a tier. | [optional] 
 

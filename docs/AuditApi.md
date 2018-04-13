@@ -1,18 +1,16 @@
-# isi_sdk.AuditApi
+# isi_sdk_7_2.AuditApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_audit_topic**](AuditApi.md#create_audit_topic) | **POST** /platform/1/audit/topics | 
 [**delete_audit_topic**](AuditApi.md#delete_audit_topic) | **DELETE** /platform/1/audit/topics/{AuditTopicId} | 
-[**get_audit_settings**](AuditApi.md#get_audit_settings) | **GET** /platform/3/audit/settings | 
+[**get_audit_settings**](AuditApi.md#get_audit_settings) | **GET** /platform/1/audit/settings | 
 [**get_audit_topic**](AuditApi.md#get_audit_topic) | **GET** /platform/1/audit/topics/{AuditTopicId} | 
-[**get_settings_global**](AuditApi.md#get_settings_global) | **GET** /platform/3/audit/settings/global | 
 [**list_audit_topics**](AuditApi.md#list_audit_topics) | **GET** /platform/1/audit/topics | 
-[**update_audit_settings**](AuditApi.md#update_audit_settings) | **PUT** /platform/3/audit/settings | 
+[**update_audit_settings**](AuditApi.md#update_audit_settings) | **PUT** /platform/1/audit/settings | 
 [**update_audit_topic**](AuditApi.md#update_audit_topic) | **PUT** /platform/1/audit/topics/{AuditTopicId} | 
-[**update_settings_global**](AuditApi.md#update_settings_global) | **PUT** /platform/3/audit/settings/global | 
 
 
 # **create_audit_topic**
@@ -22,26 +20,28 @@ Method | HTTP request | Description
 
 Create a new audit topic.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuditApi()
-audit_topic = isi_sdk.AuditTopicCreateParams() # AuditTopicCreateParams | 
+api_instance = isi_sdk_7_2.AuditApi(isi_sdk_7_2.ApiClient(configuration))
+audit_topic = isi_sdk_7_2.AuditTopicCreateParams() # AuditTopicCreateParams | 
 
-try: 
+try:
     api_response = api_instance.create_audit_topic(audit_topic)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuditApi->create_audit_topic: %s\n" % e
+    print("Exception when calling AuditApi->create_audit_topic: %s\n" % e)
 ```
 
 ### Parameters
@@ -56,7 +56,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -72,25 +72,27 @@ Name | Type | Description  | Notes
 
 Delete the audit topic.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuditApi()
+api_instance = isi_sdk_7_2.AuditApi(isi_sdk_7_2.ApiClient(configuration))
 audit_topic_id = 'audit_topic_id_example' # str | Delete the audit topic.
 
-try: 
+try:
     api_instance.delete_audit_topic(audit_topic_id)
 except ApiException as e:
-    print "Exception when calling AuditApi->delete_audit_topic: %s\n" % e
+    print("Exception when calling AuditApi->delete_audit_topic: %s\n" % e)
 ```
 
 ### Parameters
@@ -105,7 +107,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -115,39 +117,37 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_audit_settings**
-> AuditSettings get_audit_settings(zone=zone)
+> AuditSettings get_audit_settings()
 
 
 
-View per-Access Zone Audit settings.
+Retrieves the auditing global settings.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuditApi()
-zone = 'zone_example' # str | Access zone which contains audit settings. (optional)
+api_instance = isi_sdk_7_2.AuditApi(isi_sdk_7_2.ApiClient(configuration))
 
-try: 
-    api_response = api_instance.get_audit_settings(zone=zone)
+try:
+    api_response = api_instance.get_audit_settings()
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuditApi->get_audit_settings: %s\n" % e
+    print("Exception when calling AuditApi->get_audit_settings: %s\n" % e)
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **zone** | **str**| Access zone which contains audit settings. | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -171,26 +171,28 @@ Name | Type | Description  | Notes
 
 Retrieve the audit topic information.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuditApi()
+api_instance = isi_sdk_7_2.AuditApi(isi_sdk_7_2.ApiClient(configuration))
 audit_topic_id = 'audit_topic_id_example' # str | Retrieve the audit topic information.
 
-try: 
+try:
     api_response = api_instance.get_audit_topic(audit_topic_id)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuditApi->get_audit_topic: %s\n" % e
+    print("Exception when calling AuditApi->get_audit_topic: %s\n" % e)
 ```
 
 ### Parameters
@@ -205,53 +207,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_settings_global**
-> SettingsGlobalExtended get_settings_global()
-
-
-
-View Global Audit settings.
-
-### Example 
-```python
-import time
-import isi_sdk
-from isi_sdk.rest import ApiException
-from pprint import pprint
-
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = isi_sdk.AuditApi()
-
-try: 
-    api_response = api_instance.get_settings_global()
-    pprint(api_response)
-except ApiException as e:
-    print "Exception when calling AuditApi->get_settings_global: %s\n" % e
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**SettingsGlobalExtended**](SettingsGlobalExtended.md)
-
-### Authorization
-
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -267,25 +223,27 @@ This endpoint does not need any parameter.
 
 Retrieve a list of audit topics.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuditApi()
+api_instance = isi_sdk_7_2.AuditApi(isi_sdk_7_2.ApiClient(configuration))
 
-try: 
+try:
     api_response = api_instance.list_audit_topics()
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuditApi->list_audit_topics: %s\n" % e
+    print("Exception when calling AuditApi->list_audit_topics: %s\n" % e)
 ```
 
 ### Parameters
@@ -297,7 +255,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -307,32 +265,33 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_audit_settings**
-> update_audit_settings(audit_settings, zone=zone)
+> update_audit_settings(audit_settings)
 
 
 
-Modify per-Access Zone Audit settings.
+Modify the auditing global settings.  All input fields are optional, but one or more must be supplied.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuditApi()
-audit_settings = isi_sdk.AuditSettingsSettings() # AuditSettingsSettings | 
-zone = 'zone_example' # str | Access zone which contains audit settings. (optional)
+api_instance = isi_sdk_7_2.AuditApi(isi_sdk_7_2.ApiClient(configuration))
+audit_settings = isi_sdk_7_2.AuditSettingsSettings() # AuditSettingsSettings | 
 
-try: 
-    api_instance.update_audit_settings(audit_settings, zone=zone)
+try:
+    api_instance.update_audit_settings(audit_settings)
 except ApiException as e:
-    print "Exception when calling AuditApi->update_audit_settings: %s\n" % e
+    print("Exception when calling AuditApi->update_audit_settings: %s\n" % e)
 ```
 
 ### Parameters
@@ -340,7 +299,6 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **audit_settings** | [**AuditSettingsSettings**](AuditSettingsSettings.md)|  | 
- **zone** | **str**| Access zone which contains audit settings. | [optional] 
 
 ### Return type
 
@@ -348,7 +306,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -364,26 +322,28 @@ void (empty response body)
 
 Modify the audit topic.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.AuditApi()
-audit_topic = isi_sdk.AuditTopic() # AuditTopic | 
+api_instance = isi_sdk_7_2.AuditApi(isi_sdk_7_2.ApiClient(configuration))
+audit_topic = isi_sdk_7_2.AuditTopic() # AuditTopic | 
 audit_topic_id = 'audit_topic_id_example' # str | Modify the audit topic.
 
-try: 
+try:
     api_instance.update_audit_topic(audit_topic, audit_topic_id)
 except ApiException as e:
-    print "Exception when calling AuditApi->update_audit_topic: %s\n" % e
+    print("Exception when calling AuditApi->update_audit_topic: %s\n" % e)
 ```
 
 ### Parameters
@@ -399,56 +359,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **update_settings_global**
-> update_settings_global(settings_global)
-
-
-
-Modify Global Audit settings.
-
-### Example 
-```python
-import time
-import isi_sdk
-from isi_sdk.rest import ApiException
-from pprint import pprint
-
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = isi_sdk.AuditApi()
-settings_global = isi_sdk.SettingsGlobalSettings() # SettingsGlobalSettings | 
-
-try: 
-    api_instance.update_settings_global(settings_global)
-except ApiException as e:
-    print "Exception when calling AuditApi->update_settings_global: %s\n" % e
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **settings_global** | [**SettingsGlobalSettings**](SettingsGlobalSettings.md)|  | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 

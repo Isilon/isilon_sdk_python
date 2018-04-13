@@ -25,12 +25,12 @@ Name | Type | Description | Notes
 **errors** | **list[str]** | A list of error messages for this job. | 
 **failed_chunks** | **int** | Tyhe number of data chunks that failed transmission. | 
 **fifos_replicated** | **int** | The number of fifos replicated by this job. | 
-**file_data_bytes** | **int** | The number of bytes transferred that belong to files. | 
+**file_data_bytes** | **int** | The number of bytes tranferred that belong to files. | 
 **files_changed** | **int** | The number of files changed by this job. | 
 **files_linked** | **int** | The number of files linked by this job. | 
 **files_new** | **int** | The number of files created by this job. | 
 **files_selected** | **int** | The number of files selected by this job. | 
-**files_transferred** | **int** | The number of files transferred by this job. | 
+**files_transferred** | **int** | The number of files transfered by this job. | 
 **files_unlinked** | **int** | The number of files unlinked by this job. | 
 **files_with_ads_replicated** | **int** | The number of files with ads replicated by this job. | 
 **flipped_lins** | **int** | The number of LINs flipped by this job. | 
@@ -39,12 +39,12 @@ Name | Type | Description | Notes
 **hash_exceptions_found** | **int** | The number of hash exceptions found by this job. | 
 **id** | **str** | A unique identifier for this object. | 
 **job_id** | **int** | The ID of the job. | [optional] 
-**lins_total** | **int** | The number of LINs transferred by this job. | 
+**lins_total** | **int** | The number of LINs tranferred by this job. | 
 **network_bytes_to_source** | **int** | The total number of bytes sent to the source by this job. | 
 **network_bytes_to_target** | **int** | The total number of bytes sent to the target by this job. | 
 **new_files_replicated** | **int** | The number of new files replicated by this job. | 
 **num_retransmitted_files** | **int** | The number of files that have been retransmitted by this job. | 
-**phases** | [**list[ReportSubreportPhase]**](ReportSubreportPhase.md) | Data for each phase of this job. | 
+**phases** | [**list[SyncJobPhase]**](SyncJobPhase.md) | Data for each phase of this job. | 
 **policy** | [**SyncReportPolicy**](SyncReportPolicy.md) |  | 
 **policy_action** | **str** | This is the action the policy is configured to perform. | 
 **policy_id** | **str** | The ID of the policy. | 

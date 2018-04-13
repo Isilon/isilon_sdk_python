@@ -1,6 +1,6 @@
-# isi_sdk.WormApi
+# isi_sdk_7_2.WormApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -19,26 +19,28 @@ Method | HTTP request | Description
 
 Create a WORM domain.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.WormApi()
-worm_domain = isi_sdk.WormDomainCreateParams() # WormDomainCreateParams | 
+api_instance = isi_sdk_7_2.WormApi(isi_sdk_7_2.ApiClient(configuration))
+worm_domain = isi_sdk_7_2.WormDomainCreateParams() # WormDomainCreateParams | 
 
-try: 
+try:
     api_response = api_instance.create_worm_domain(worm_domain)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling WormApi->create_worm_domain: %s\n" % e
+    print("Exception when calling WormApi->create_worm_domain: %s\n" % e)
 ```
 
 ### Parameters
@@ -53,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -69,26 +71,28 @@ Name | Type | Description  | Notes
 
 View a single WORM domain.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.WormApi()
+api_instance = isi_sdk_7_2.WormApi(isi_sdk_7_2.ApiClient(configuration))
 worm_domain_id = 'worm_domain_id_example' # str | View a single WORM domain.
 
-try: 
+try:
     api_response = api_instance.get_worm_domain(worm_domain_id)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling WormApi->get_worm_domain: %s\n" % e
+    print("Exception when calling WormApi->get_worm_domain: %s\n" % e)
 ```
 
 ### Parameters
@@ -103,7 +107,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -119,25 +123,27 @@ Name | Type | Description  | Notes
 
 Get the global WORM settings.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.WormApi()
+api_instance = isi_sdk_7_2.WormApi(isi_sdk_7_2.ApiClient(configuration))
 
-try: 
+try:
     api_response = api_instance.get_worm_settings()
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling WormApi->get_worm_settings: %s\n" % e
+    print("Exception when calling WormApi->get_worm_settings: %s\n" % e)
 ```
 
 ### Parameters
@@ -149,7 +155,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -165,29 +171,31 @@ This endpoint does not need any parameter.
 
 List all WORM domains.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.WormApi()
+api_instance = isi_sdk_7_2.WormApi(isi_sdk_7_2.ApiClient(configuration))
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
 dir = 'dir_example' # str | The direction of the sort. (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
 
-try: 
+try:
     api_response = api_instance.list_worm_domains(sort=sort, limit=limit, dir=dir, resume=resume)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling WormApi->list_worm_domains: %s\n" % e
+    print("Exception when calling WormApi->list_worm_domains: %s\n" % e)
 ```
 
 ### Parameters
@@ -205,7 +213,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -221,26 +229,28 @@ Name | Type | Description  | Notes
 
 Modify a single WORM domain.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.WormApi()
-worm_domain = isi_sdk.WormDomain() # WormDomain | 
+api_instance = isi_sdk_7_2.WormApi(isi_sdk_7_2.ApiClient(configuration))
+worm_domain = isi_sdk_7_2.WormDomain() # WormDomain | 
 worm_domain_id = 'worm_domain_id_example' # str | Modify a single WORM domain.
 
-try: 
+try:
     api_instance.update_worm_domain(worm_domain, worm_domain_id)
 except ApiException as e:
-    print "Exception when calling WormApi->update_worm_domain: %s\n" % e
+    print("Exception when calling WormApi->update_worm_domain: %s\n" % e)
 ```
 
 ### Parameters
@@ -256,7 +266,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -272,25 +282,27 @@ void (empty response body)
 
 Modify the global WORM settings.  All input fields are optional, but one or more must be supplied.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.WormApi()
-worm_settings = isi_sdk.WormSettingsExtended() # WormSettingsExtended | 
+api_instance = isi_sdk_7_2.WormApi(isi_sdk_7_2.ApiClient(configuration))
+worm_settings = isi_sdk_7_2.WormSettingsExtended() # WormSettingsExtended | 
 
-try: 
+try:
     api_instance.update_worm_settings(worm_settings)
 except ApiException as e:
-    print "Exception when calling WormApi->update_worm_settings: %s\n" % e
+    print("Exception when calling WormApi->update_worm_settings: %s\n" % e)
 ```
 
 ### Parameters
@@ -305,7 +317,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 

@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **groups** | [**list[MappingUsersLookupMappingItemGroup]**](MappingUsersLookupMappingItemGroup.md) |  | [optional] 
 **privileges** | [**list[AuthIdNtokenPrivilegeItem]**](AuthIdNtokenPrivilegeItem.md) |  | [optional] 
-**user** | [**MappingUsersLookupMappingItemUser**](MappingUsersLookupMappingItemUser.md) | Specifies the configuration properties for a user. | [optional] 
+**user** | [**MappingUsersLookupMappingItemUser**](MappingUsersLookupMappingItemUser.md) | Configuration for a user. | [optional] 
 **zid** | **int** |  | [optional] 
 **zone** | **str** |  | [optional] 
 

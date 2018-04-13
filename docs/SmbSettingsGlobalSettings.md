@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **access_based_share_enum** | **bool** | Only enumerate files and folders the requesting user has access to. | [optional] 
 **audit_fileshare** | **str** | Specify level of file share audit events to log. | [optional] 
-**audit_global_sacl** | [**list[SmbSettingsGlobalSettingsAuditGlobalSaclItem]**](SmbSettingsGlobalSettingsAuditGlobalSaclItem.md) | Specifies a list of permissions to audit. | [optional] 
+**audit_global_sacl** | [**list[SmbSettingsGlobalSettingsAuditGlobalSaclItem]**](SmbSettingsGlobalSettingsAuditGlobalSaclItem.md) | List of permissions to audit. | [optional] 
 **audit_logon** | **str** | Specify the level of logon audit events to log. | [optional] 
 **dot_snap_accessible_child** | **bool** | Allow access to .snapshot directories in share subdirectories. | [optional] 
 **dot_snap_accessible_root** | **bool** | Allow access to the .snapshot directory in the root of the share. | [optional] 
@@ -17,7 +17,6 @@ Name | Type | Description | Notes
 **onefs_cpu_multiplier** | **int** | Specify the number of OneFS driver worker threads per CPU. | [optional] 
 **onefs_num_workers** | **int** | Set the maximum number of OneFS driver worker threads. | [optional] 
 **require_security_signatures** | **bool** | Indicates whether the server requires signed SMB packets. | [optional] 
-**server_side_copy** | **bool** | Enable Server Side Copy. | [optional] 
 **server_string** | **str** | Provides a description of the server. | [optional] 
 **service** | **bool** | Specify whether service is enabled. | [optional] 
 **srv_cpu_multiplier** | **int** | Specify the number of SRV service worker threads per CPU. | [optional] 

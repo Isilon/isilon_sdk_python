@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**operator** | **str** | Specifies the operator to make rules on specified users or groups. | [optional] 
-**options** | [**MappingUsersRulesRuleOptionsExtended**](MappingUsersRulesRuleOptionsExtended.md) | Specifies the properties for user mapping rules. | [optional] 
+**operator** | **str** | The operator used to make rules on specified users or groups. | [optional] 
+**options** | [**MappingUsersRulesRuleOptionsExtended**](MappingUsersRulesRuleOptionsExtended.md) | These are options that can be applied to user mapping rules. | [optional] 
 **user1** | [**MappingUsersRulesRuleOptionsDefaultUser**](MappingUsersRulesRuleOptionsDefaultUser.md) |  | 
 **user2** | [**MappingUsersRulesRuleUser2Extended**](MappingUsersRulesRuleUser2Extended.md) |  | [optional] 
 

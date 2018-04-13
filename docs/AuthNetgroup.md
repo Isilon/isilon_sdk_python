@@ -5,7 +5,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **domainname** | **str** |  | [optional] 
 **hostname** | **str** |  | [optional] 
-**id** | **int** |  | [optional] 
 **netgroup** | **str** |  | [optional] 
 **username** | **str** |  | [optional] 
 

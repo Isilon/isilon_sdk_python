@@ -1,6 +1,6 @@
-# isi_sdk.QuotaQuotasApi
+# isi_sdk_7_2.QuotaQuotasApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -20,27 +20,29 @@ Method | HTTP request | Description
 
 Create a new notification rule specific to this quota.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.QuotaQuotasApi()
-quota_notification = isi_sdk.QuotaNotificationCreateParams() # QuotaNotificationCreateParams | 
+api_instance = isi_sdk_7_2.QuotaQuotasApi(isi_sdk_7_2.ApiClient(configuration))
+quota_notification = isi_sdk_7_2.QuotaNotificationCreateParams() # QuotaNotificationCreateParams | 
 qid = 'qid_example' # str | 
 
-try: 
+try:
     api_response = api_instance.create_quota_notification(quota_notification, qid)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling QuotaQuotasApi->create_quota_notification: %s\n" % e
+    print("Exception when calling QuotaQuotasApi->create_quota_notification: %s\n" % e)
 ```
 
 ### Parameters
@@ -56,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -72,26 +74,28 @@ Name | Type | Description  | Notes
 
 Delete the notification rule.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.QuotaQuotasApi()
+api_instance = isi_sdk_7_2.QuotaQuotasApi(isi_sdk_7_2.ApiClient(configuration))
 quota_notification_id = 'quota_notification_id_example' # str | Delete the notification rule.
 qid = 'qid_example' # str | 
 
-try: 
+try:
     api_instance.delete_quota_notification(quota_notification_id, qid)
 except ApiException as e:
-    print "Exception when calling QuotaQuotasApi->delete_quota_notification: %s\n" % e
+    print("Exception when calling QuotaQuotasApi->delete_quota_notification: %s\n" % e)
 ```
 
 ### Parameters
@@ -107,7 +111,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -123,25 +127,27 @@ void (empty response body)
 
 Delete all quota specific rules. The quota will then use the global rules.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.QuotaQuotasApi()
+api_instance = isi_sdk_7_2.QuotaQuotasApi(isi_sdk_7_2.ApiClient(configuration))
 qid = 'qid_example' # str | 
 
-try: 
+try:
     api_instance.delete_quota_notifications(qid)
 except ApiException as e:
-    print "Exception when calling QuotaQuotasApi->delete_quota_notifications: %s\n" % e
+    print("Exception when calling QuotaQuotasApi->delete_quota_notifications: %s\n" % e)
 ```
 
 ### Parameters
@@ -156,7 +162,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -172,27 +178,29 @@ void (empty response body)
 
 Retrieve notification rule information.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.QuotaQuotasApi()
+api_instance = isi_sdk_7_2.QuotaQuotasApi(isi_sdk_7_2.ApiClient(configuration))
 quota_notification_id = 'quota_notification_id_example' # str | Retrieve notification rule information.
 qid = 'qid_example' # str | 
 
-try: 
+try:
     api_response = api_instance.get_quota_notification(quota_notification_id, qid)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling QuotaQuotasApi->get_quota_notification: %s\n" % e
+    print("Exception when calling QuotaQuotasApi->get_quota_notification: %s\n" % e)
 ```
 
 ### Parameters
@@ -208,7 +216,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -224,26 +232,28 @@ Name | Type | Description  | Notes
 
 List all rules.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.QuotaQuotasApi()
+api_instance = isi_sdk_7_2.QuotaQuotasApi(isi_sdk_7_2.ApiClient(configuration))
 qid = 'qid_example' # str | 
 
-try: 
+try:
     api_response = api_instance.list_quota_notifications(qid)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling QuotaQuotasApi->list_quota_notifications: %s\n" % e
+    print("Exception when calling QuotaQuotasApi->list_quota_notifications: %s\n" % e)
 ```
 
 ### Parameters
@@ -258,7 +268,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -274,27 +284,29 @@ Name | Type | Description  | Notes
 
 Modify notification rule. All input fields are optional, but one or must be supplied.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.QuotaQuotasApi()
-quota_notification = isi_sdk.QuotaNotification() # QuotaNotification | 
+api_instance = isi_sdk_7_2.QuotaQuotasApi(isi_sdk_7_2.ApiClient(configuration))
+quota_notification = isi_sdk_7_2.QuotaNotification() # QuotaNotification | 
 quota_notification_id = 'quota_notification_id_example' # str | Modify notification rule. All input fields are optional, but one or must be supplied.
 qid = 'qid_example' # str | 
 
-try: 
+try:
     api_instance.update_quota_notification(quota_notification, quota_notification_id, qid)
 except ApiException as e:
-    print "Exception when calling QuotaQuotasApi->update_quota_notification: %s\n" % e
+    print("Exception when calling QuotaQuotasApi->update_quota_notification: %s\n" % e)
 ```
 
 ### Parameters
@@ -311,7 +323,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -327,26 +339,28 @@ void (empty response body)
 
 This method creates an empty set of rules so that the global rules are not used. The input must be an empty JSON object.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.QuotaQuotasApi()
-quota_notifications = isi_sdk.Empty() # Empty | 
+api_instance = isi_sdk_7_2.QuotaQuotasApi(isi_sdk_7_2.ApiClient(configuration))
+quota_notifications = isi_sdk_7_2.Empty() # Empty | 
 qid = 'qid_example' # str | 
 
-try: 
+try:
     api_instance.update_quota_notifications(quota_notifications, qid)
 except ApiException as e:
-    print "Exception when calling QuotaQuotasApi->update_quota_notifications: %s\n" % e
+    print("Exception when calling QuotaQuotasApi->update_quota_notifications: %s\n" % e)
 ```
 
 ### Parameters
@@ -362,7 +376,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 

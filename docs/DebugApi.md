@@ -1,6 +1,6 @@
-# isi_sdk.DebugApi
+# isi_sdk_7_2.DebugApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -15,24 +15,26 @@ Method | HTTP request | Description
 
 Clear per-resource statistics counters.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.DebugApi()
+api_instance = isi_sdk_7_2.DebugApi(isi_sdk_7_2.ApiClient(configuration))
 
-try: 
+try:
     api_instance.delete_debug_stats()
 except ApiException as e:
-    print "Exception when calling DebugApi->delete_debug_stats: %s\n" % e
+    print("Exception when calling DebugApi->delete_debug_stats: %s\n" % e)
 ```
 
 ### Parameters
@@ -44,7 +46,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -60,25 +62,27 @@ void (empty response body)
 
 List cumulative call statistics for each resource.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.DebugApi()
+api_instance = isi_sdk_7_2.DebugApi(isi_sdk_7_2.ApiClient(configuration))
 
-try: 
+try:
     api_response = api_instance.get_debug_stats()
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling DebugApi->get_debug_stats: %s\n" % e
+    print("Exception when calling DebugApi->get_debug_stats: %s\n" % e)
 ```
 
 ### Parameters
@@ -90,7 +94,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 

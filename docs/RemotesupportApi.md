@@ -1,6 +1,6 @@
-# isi_sdk.RemotesupportApi
+# isi_sdk_7_2.RemotesupportApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -15,25 +15,27 @@ Method | HTTP request | Description
 
 List all settings.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.RemotesupportApi()
+api_instance = isi_sdk_7_2.RemotesupportApi(isi_sdk_7_2.ApiClient(configuration))
 
-try: 
+try:
     api_response = api_instance.get_remotesupport_connectemc()
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling RemotesupportApi->get_remotesupport_connectemc: %s\n" % e
+    print("Exception when calling RemotesupportApi->get_remotesupport_connectemc: %s\n" % e)
 ```
 
 ### Parameters
@@ -45,7 +47,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -61,25 +63,27 @@ This endpoint does not need any parameter.
 
 Modify one or more settings.
 
-### Example 
+### Example
 ```python
+from __future__ import print_function
 import time
-import isi_sdk
-from isi_sdk.rest import ApiException
+import isi_sdk_7_2
+from isi_sdk_7_2.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: basic_auth
-isi_sdk.configuration.username = 'YOUR_USERNAME'
-isi_sdk.configuration.password = 'YOUR_PASSWORD'
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_7_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk.RemotesupportApi()
-remotesupport_connectemc = isi_sdk.RemotesupportConnectemcConnectemc() # RemotesupportConnectemcConnectemc | 
+api_instance = isi_sdk_7_2.RemotesupportApi(isi_sdk_7_2.ApiClient(configuration))
+remotesupport_connectemc = isi_sdk_7_2.RemotesupportConnectemcConnectemc() # RemotesupportConnectemcConnectemc | 
 
-try: 
+try:
     api_instance.update_remotesupport_connectemc(remotesupport_connectemc)
 except ApiException as e:
-    print "Exception when calling RemotesupportApi->update_remotesupport_connectemc: %s\n" % e
+    print("Exception when calling RemotesupportApi->update_remotesupport_connectemc: %s\n" % e)
 ```
 
 ### Parameters
@@ -94,7 +98,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic_auth](../README.md#basic_auth)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 

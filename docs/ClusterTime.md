@@ -3,9 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**errors** | [**list[ClusterTimeError]**](ClusterTimeError.md) | A list of errors encountered by the individual nodes involved in this request, or an empty list if there were no errors. | [optional] 
-**nodes** | [**list[ClusterTimeNode]**](ClusterTimeNode.md) | The responses from the individual nodes involved in this request. | [optional] 
-**total** | **int** | The total number of nodes responding. | [optional] 
+**time** | **int** | The current time on the cluster. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
