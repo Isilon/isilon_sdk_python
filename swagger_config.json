@@ -6944,15 +6944,6 @@
                 },
                 "operator": {
                     "description": "The comparison operator to use while comparing an attribute with its value",
-                    "enum": [
-                        "==",
-                        "!=",
-                        ">",
-                        ">=",
-                        "<",
-                        "<=",
-                        "!"
-                    ],
                     "type": "string"
                 },
                 "type": {
@@ -9435,12 +9426,12 @@
                 }
             },
             "required": [
-                "impact",
                 "paths",
+                "participants",
+                "impact",
                 "type",
                 "state",
                 "priority",
-                "participants",
                 "create_time",
                 "policy",
                 "retries_remaining",
@@ -9566,8 +9557,8 @@
                 }
             },
             "required": [
-                "coordinator",
                 "disconnected_nodes",
+                "coordinator",
                 "stats_ready",
                 "next_jid",
                 "down_or_read_only_nodes",
@@ -12437,13 +12428,13 @@
                     "description": "The ID of the export.",
                     "type": "integer"
                 },
-                "messages": {
+                "message": {
                     "description": "The message about the export.",
                     "type": "string"
                 }
             },
             "required": [
-                "messages"
+                "message"
             ],
             "type": "object"
         },
@@ -12755,6 +12746,9 @@
                 },
                 {
                     "properties": {
+                        "digest": {
+                            "type": "string"
+                        },
                         "resume": {
                             "description": "Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).",
                             "type": "string"
@@ -21496,26 +21490,6 @@
             },
             "type": "object"
         },
-        "SmbLogLevelFiltersExtended": {
-            "allOf": [
-                {
-                    "$ref": "#/definitions/SmbLogLevelFilters"
-                },
-                {
-                    "properties": {
-                        "resume": {
-                            "description": "Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).",
-                            "type": "string"
-                        },
-                        "total": {
-                            "description": "Total number of items available.",
-                            "type": "integer"
-                        }
-                    },
-                    "type": "object"
-                }
-            ]
-        },
         "SmbLogLevelFiltersFilter": {
             "properties": {
                 "id": {
@@ -21531,15 +21505,6 @@
                 },
                 "level": {
                     "description": "Logging level of the filter.",
-                    "enum": [
-                        "always",
-                        "error",
-                        "warning",
-                        "info",
-                        "verbose",
-                        "debug",
-                        "trace"
-                    ],
                     "type": "string"
                 },
                 "ops": {
@@ -22976,6 +22941,9 @@
                 },
                 {
                     "properties": {
+                        "digest": {
+                            "type": "string"
+                        },
                         "resume": {
                             "description": "Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).",
                             "type": "string"
@@ -23939,7 +23907,7 @@
                 "system_contact": {
                     "description": "Contact information for the system owner.  This must be a valid email address.  @DEFAULT reverts this field to its default value.",
                     "minLength": 1,
-                    "pattern": "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$",
+                    "pattern": "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,7}$",
                     "type": "string"
                 },
                 "system_location": {
@@ -26171,8 +26139,8 @@
             },
             "required": [
                 "total",
-                "out",
-                "in"
+                "in",
+                "out"
             ],
             "type": "object"
         },
@@ -27092,15 +27060,6 @@
                 },
                 "operator": {
                     "description": "How to compare the specified attribute of each file to the specified value.",
-                    "enum": [
-                        "==",
-                        "!=",
-                        ">",
-                        ">=",
-                        "<",
-                        "<=",
-                        "!"
-                    ],
                     "type": "string"
                 },
                 "type": {
@@ -49209,7 +49168,7 @@
                     "200": {
                         "description": "Create an NTP server entry.",
                         "schema": {
-                            "$ref": "#/definitions/CreateResponse"
+                            "$ref": "#/definitions/Empty"
                         }
                     },
                     "default": {
@@ -49480,7 +49439,7 @@
                     "200": {
                         "description": "Get the current SMB log filters.",
                         "schema": {
-                            "$ref": "#/definitions/SmbLogLevelFiltersExtended"
+                            "$ref": "#/definitions/SmbLogLevelFilters"
                         }
                     },
                     "default": {
