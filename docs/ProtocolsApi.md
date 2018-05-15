@@ -673,7 +673,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_ntp_server**
-> CreateResponse create_ntp_server(ntp_server)
+> Empty create_ntp_server(ntp_server)
 
 
 
@@ -711,7 +711,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateResponse**](CreateResponse.md)
+[**Empty**](Empty.md)
 
 ### Authorization
 
@@ -4819,7 +4819,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_smb_log_level_filters**
-> SmbLogLevelFiltersExtended list_smb_log_level_filters(sort=sort, dir=dir, level=level)
+> SmbLogLevelFilters list_smb_log_level_filters(sort=sort, dir=dir, level=level)
 
 
 
@@ -4861,7 +4861,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SmbLogLevelFiltersExtended**](SmbLogLevelFiltersExtended.md)
+[**SmbLogLevelFilters**](SmbLogLevelFilters.md)
 
 ### Authorization
 
