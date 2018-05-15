@@ -3089,15 +3089,6 @@
                 },
                 "operator": {
                     "description": "The comparison operator to use while comparing an attribute with its value",
-                    "enum": [
-                        "==",
-                        "!=",
-                        ">",
-                        ">=",
-                        "<",
-                        "<=",
-                        "!"
-                    ],
                     "type": "string"
                 },
                 "type": {
@@ -3906,11 +3897,11 @@
                 }
             },
             "required": [
-                "impact",
                 "paths",
+                "participants",
+                "impact",
                 "state",
                 "priority",
-                "participants",
                 "create_time",
                 "total_phases",
                 "policy",
@@ -4016,8 +4007,8 @@
                 }
             },
             "required": [
-                "coordinator",
                 "disconnected_nodes",
+                "coordinator",
                 "stats_ready",
                 "next_jid",
                 "down_or_read_only_nodes",
@@ -5428,13 +5419,13 @@
                     "description": "The ID of the export.",
                     "type": "integer"
                 },
-                "messages": {
+                "message": {
                     "description": "The message about the export.",
                     "type": "string"
                 }
             },
             "required": [
-                "messages"
+                "message"
             ],
             "type": "object"
         },
@@ -5789,6 +5780,9 @@
                 },
                 {
                     "properties": {
+                        "digest": {
+                            "type": "string"
+                        },
                         "resume": {
                             "description": "Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).",
                             "type": "string"
@@ -12554,6 +12548,9 @@
                 },
                 {
                     "properties": {
+                        "digest": {
+                            "type": "string"
+                        },
                         "resume": {
                             "description": "Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).",
                             "type": "string"
@@ -15161,15 +15158,6 @@
                 },
                 "operator": {
                     "description": "How to compare the specified attribute of each file to the specified value.",
-                    "enum": [
-                        "==",
-                        "!=",
-                        ">",
-                        ">=",
-                        "<",
-                        "<=",
-                        "!"
-                    ],
                     "type": "string"
                 },
                 "type": {
