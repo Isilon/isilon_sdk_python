@@ -1,4 +1,4 @@
-# isi_sdk_8_1_0.WormApi
+# isi_sdk_8_1_1.WormApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -23,18 +23,18 @@ Create a WORM domain.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_0
-from isi_sdk_8_1_0.rest import ApiException
+import isi_sdk_8_1_1
+from isi_sdk_8_1_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_0.Configuration()
+configuration = isi_sdk_8_1_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_0.WormApi(isi_sdk_8_1_0.ApiClient(configuration))
-worm_domain = isi_sdk_8_1_0.WormDomainCreateParams() # WormDomainCreateParams | 
+api_instance = isi_sdk_8_1_1.WormApi(isi_sdk_8_1_1.ApiClient(configuration))
+worm_domain = isi_sdk_8_1_1.WormDomainCreateParams() # WormDomainCreateParams | 
 
 try:
     api_response = api_instance.create_worm_domain(worm_domain)
@@ -75,17 +75,17 @@ View a single WORM domain.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_0
-from isi_sdk_8_1_0.rest import ApiException
+import isi_sdk_8_1_1
+from isi_sdk_8_1_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_0.Configuration()
+configuration = isi_sdk_8_1_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_0.WormApi(isi_sdk_8_1_0.ApiClient(configuration))
+api_instance = isi_sdk_8_1_1.WormApi(isi_sdk_8_1_1.ApiClient(configuration))
 worm_domain_id = 'worm_domain_id_example' # str | View a single WORM domain.
 
 try:
@@ -127,17 +127,17 @@ Get the global WORM settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_0
-from isi_sdk_8_1_0.rest import ApiException
+import isi_sdk_8_1_1
+from isi_sdk_8_1_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_0.Configuration()
+configuration = isi_sdk_8_1_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_0.WormApi(isi_sdk_8_1_0.ApiClient(configuration))
+api_instance = isi_sdk_8_1_1.WormApi(isi_sdk_8_1_1.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_worm_settings()
@@ -175,17 +175,17 @@ List all WORM domains.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_0
-from isi_sdk_8_1_0.rest import ApiException
+import isi_sdk_8_1_1
+from isi_sdk_8_1_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_0.Configuration()
+configuration = isi_sdk_8_1_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_0.WormApi(isi_sdk_8_1_0.ApiClient(configuration))
+api_instance = isi_sdk_8_1_1.WormApi(isi_sdk_8_1_1.ApiClient(configuration))
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
 dir = 'dir_example' # str | The direction of the sort. (optional)
@@ -233,18 +233,18 @@ Modify a single WORM domain.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_0
-from isi_sdk_8_1_0.rest import ApiException
+import isi_sdk_8_1_1
+from isi_sdk_8_1_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_0.Configuration()
+configuration = isi_sdk_8_1_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_0.WormApi(isi_sdk_8_1_0.ApiClient(configuration))
-worm_domain = isi_sdk_8_1_0.WormDomain() # WormDomain | 
+api_instance = isi_sdk_8_1_1.WormApi(isi_sdk_8_1_1.ApiClient(configuration))
+worm_domain = isi_sdk_8_1_1.WormDomain() # WormDomain | 
 worm_domain_id = 'worm_domain_id_example' # str | Modify a single WORM domain.
 
 try:
@@ -286,18 +286,18 @@ Modify the global WORM settings.  All input fields are optional, but one or more
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_0
-from isi_sdk_8_1_0.rest import ApiException
+import isi_sdk_8_1_1
+from isi_sdk_8_1_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_0.Configuration()
+configuration = isi_sdk_8_1_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_0.WormApi(isi_sdk_8_1_0.ApiClient(configuration))
-worm_settings = isi_sdk_8_1_0.WormSettingsExtended() # WormSettingsExtended | 
+api_instance = isi_sdk_8_1_1.WormApi(isi_sdk_8_1_1.ApiClient(configuration))
+worm_settings = isi_sdk_8_1_1.WormSettingsExtended() # WormSettingsExtended | 
 
 try:
     api_instance.update_worm_settings(worm_settings)

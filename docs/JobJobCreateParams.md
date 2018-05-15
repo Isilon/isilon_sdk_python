@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **avscan_params** | [**JobJobAvscanParams**](JobJobAvscanParams.md) |  | [optional] 
 **changelistcreate_params** | [**JobJobChangelistcreateParams**](JobJobChangelistcreateParams.md) |  | [optional] 
 **domainmark_params** | [**JobJobDomainmarkParams**](JobJobDomainmarkParams.md) |  | [optional] 
+**esrsmftdownload_params** | [**JobJobEsrsmftdownloadParams**](JobJobEsrsmftdownloadParams.md) |  | [optional] 
 **paths** | **list[str]** | For jobs which take paths, the IFS paths to pass to the job. | 
 **policy** | **str** | Impact policy of this job instance. | [optional] 
 **prepair_params** | [**JobJobPrepairParams**](JobJobPrepairParams.md) |  | [optional] 

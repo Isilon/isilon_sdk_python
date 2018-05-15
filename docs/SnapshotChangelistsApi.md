@@ -1,4 +1,4 @@
-# isi_sdk_8_1_0.SnapshotChangelistsApi
+# isi_sdk_8_1_1.SnapshotChangelistsApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -19,17 +19,17 @@ Get a single entry from the changelist.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_0
-from isi_sdk_8_1_0.rest import ApiException
+import isi_sdk_8_1_1
+from isi_sdk_8_1_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_0.Configuration()
+configuration = isi_sdk_8_1_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_0.SnapshotChangelistsApi(isi_sdk_8_1_0.ApiClient(configuration))
+api_instance = isi_sdk_8_1_1.SnapshotChangelistsApi(isi_sdk_8_1_1.ApiClient(configuration))
 changelist_lin_id = 56 # int | Get a single entry from the changelist.
 changelist = 'changelist_example' # str | 
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
@@ -77,17 +77,17 @@ Get entries from a changelist.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_0
-from isi_sdk_8_1_0.rest import ApiException
+import isi_sdk_8_1_1
+from isi_sdk_8_1_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_0.Configuration()
+configuration = isi_sdk_8_1_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_0.SnapshotChangelistsApi(isi_sdk_8_1_0.ApiClient(configuration))
+api_instance = isi_sdk_8_1_1.SnapshotChangelistsApi(isi_sdk_8_1_1.ApiClient(configuration))
 changelist = 'changelist_example' # str | 
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)

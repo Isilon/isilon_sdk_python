@@ -1,4 +1,4 @@
-# isi_sdk_8_1_0.DedupeApi
+# isi_sdk_8_1_1.DedupeApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -22,17 +22,17 @@ Return summary information about dedupe.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_0
-from isi_sdk_8_1_0.rest import ApiException
+import isi_sdk_8_1_1
+from isi_sdk_8_1_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_0.Configuration()
+configuration = isi_sdk_8_1_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_0.DedupeApi(isi_sdk_8_1_0.ApiClient(configuration))
+api_instance = isi_sdk_8_1_1.DedupeApi(isi_sdk_8_1_1.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_dedupe_dedupe_summary()
@@ -70,17 +70,17 @@ Retrieve a report for a single dedupe job.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_0
-from isi_sdk_8_1_0.rest import ApiException
+import isi_sdk_8_1_1
+from isi_sdk_8_1_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_0.Configuration()
+configuration = isi_sdk_8_1_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_0.DedupeApi(isi_sdk_8_1_0.ApiClient(configuration))
+api_instance = isi_sdk_8_1_1.DedupeApi(isi_sdk_8_1_1.ApiClient(configuration))
 dedupe_report_id = 'dedupe_report_id_example' # str | Retrieve a report for a single dedupe job.
 scope = 'scope_example' # str | If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned. (optional)
 
@@ -124,17 +124,17 @@ List dedupe reports.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_0
-from isi_sdk_8_1_0.rest import ApiException
+import isi_sdk_8_1_1
+from isi_sdk_8_1_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_0.Configuration()
+configuration = isi_sdk_8_1_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_0.DedupeApi(isi_sdk_8_1_0.ApiClient(configuration))
+api_instance = isi_sdk_8_1_1.DedupeApi(isi_sdk_8_1_1.ApiClient(configuration))
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 begin = 56 # int | Restrict the query to reports at or after the given time, in seconds since the Epoch. (optional)
 end = 56 # int | Restrict the query to reports at or before the given time, in seconds since the Epoch. (optional)
@@ -190,17 +190,17 @@ Retrieve the dedupe settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_0
-from isi_sdk_8_1_0.rest import ApiException
+import isi_sdk_8_1_1
+from isi_sdk_8_1_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_0.Configuration()
+configuration = isi_sdk_8_1_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_0.DedupeApi(isi_sdk_8_1_0.ApiClient(configuration))
+api_instance = isi_sdk_8_1_1.DedupeApi(isi_sdk_8_1_1.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_dedupe_settings()
@@ -238,18 +238,18 @@ Modify the dedupe settings. All input fields are optional, but one or more must 
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_0
-from isi_sdk_8_1_0.rest import ApiException
+import isi_sdk_8_1_1
+from isi_sdk_8_1_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_0.Configuration()
+configuration = isi_sdk_8_1_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_0.DedupeApi(isi_sdk_8_1_0.ApiClient(configuration))
-dedupe_settings = isi_sdk_8_1_0.DedupeSettingsExtended() # DedupeSettingsExtended | 
+api_instance = isi_sdk_8_1_1.DedupeApi(isi_sdk_8_1_1.ApiClient(configuration))
+dedupe_settings = isi_sdk_8_1_1.DedupeSettingsExtended() # DedupeSettingsExtended | 
 
 try:
     api_instance.update_dedupe_settings(dedupe_settings)

@@ -853,20 +853,12 @@
         },
         "AuthAccessAccessItemFileFilePermissions": {
             "properties": {
-                "dacl": {
-                    "description": "Returns a status message if the Null ACL is set.",
-                    "maxLength": 255,
-                    "minLength": 0,
-                    "type": "string"
-                },
                 "delete_child": {
-                    "description": "Returns a status message if the parent directoryhas the delete_child property set for the user.If the delete_child property is set for a user,that user is able to delete the file.the delete_child for the user.",
-                    "maxLength": 255,
-                    "minLength": 0,
-                    "type": "string"
+                    "description": "Specifies if the parent directory has the delete_child property set for the user.  If the delete_child property is set for a user, that user is able to delete the file.",
+                    "type": "boolean"
                 },
                 "expected": {
-                    "description": "Specifies the Access Control Entry (ACE) for the user.",
+                    "description": "Specifies the expected access rights for the user on the file.",
                     "maxLength": 255,
                     "minLength": 0,
                     "type": "string"
@@ -878,10 +870,8 @@
                     "type": "string"
                 },
                 "ownership": {
-                    "description": "Returns a status message if the user owns the file.",
-                    "maxLength": 255,
-                    "minLength": 0,
-                    "type": "string"
+                    "description": "True if the user owns the file.",
+                    "type": "boolean"
                 },
                 "relevant_aces": {
                     "description": "Specifies a list of the relevant Access Control Entrieswith respect to the user in the share.",
@@ -899,10 +889,8 @@
                     "type": "string"
                 },
                 "sticky": {
-                    "description": "Returns a status message if the user owns the file.",
-                    "maxLength": 255,
-                    "minLength": 0,
-                    "type": "string"
+                    "description": "Specifies if the parent directory has the stick bit property set indicating only the file's owner may delete the file.",
+                    "type": "boolean"
                 }
             },
             "type": "object"
@@ -2552,7 +2540,7 @@
                     "type": "boolean"
                 },
                 "storage_region": {
-                    "description": "(S3 only) An appropriate region for the S3 account.  For example, faster access times may be gained by referencing a nearby region",
+                    "description": "An appropriate region for the account as defined by the cloud service provider.  For example, faster access times may be gained by referencing a nearby region",
                     "type": "string"
                 },
                 "telemetry_bucket": {
@@ -2602,7 +2590,7 @@
                     "type": "boolean"
                 },
                 "storage_region": {
-                    "description": "(S3 only) An appropriate region for the S3 account.  For example, faster access times may be gained by referencing a nearby region",
+                    "description": "An appropriate region for the account as defined by the cloud service provider.  For example, faster access times may be gained by referencing a nearby region",
                     "type": "string"
                 },
                 "telemetry_bucket": {
@@ -2610,13 +2598,14 @@
                     "type": "string"
                 },
                 "type": {
-                    "description": "The type of cloud protocol required.  E.g., \"isilon\" for EMC Isilon, \"ecs\" for EMC ECS Appliance, \"virtustream\" for Virtustream Storage Cloud, \"azure\" for Microsoft Azure and \"s3\" for Amazon S3",
+                    "description": "The type of cloud protocol required.  E.g., \"isilon\" for EMC Isilon, \"ecs\" for EMC ECS Appliance, \"virtustream\" for Virtustream Storage Cloud, \"azure\" for Microsoft Azure, \"s3\" for Amazon S3 and \"google\" for Google Cloud Platform",
                     "enum": [
                         "isilon",
                         "ecs",
                         "virtustream",
                         "azure",
                         "s3",
+                        "google",
                         "ran",
                         "ecs2"
                     ],
@@ -2673,13 +2662,14 @@
                             "type": "string"
                         },
                         "type": {
-                            "description": "The type of cloud protocol required.  E.g., \"isilon\" for EMC Isilon, \"ecs\" for EMC ECS Appliance, \"virtustream\" for Virtustream Storage Cloud, \"azure\" for Microsoft Azure and \"s3\" for Amazon S3",
+                            "description": "The type of cloud protocol required.  E.g., \"isilon\" for EMC Isilon, \"ecs\" for EMC ECS Appliance, \"virtustream\" for Virtustream Storage Cloud, \"azure\" for Microsoft Azure, \"s3\" for Amazon S3 and \"google\" for Google Cloud Platform",
                             "enum": [
                                 "isilon",
                                 "ecs",
                                 "virtustream",
                                 "azure",
                                 "s3",
+                                "google",
                                 "ran",
                                 "ecs2"
                             ],
@@ -3065,13 +3055,14 @@
                             "type": "string"
                         },
                         "type": {
-                            "description": "The type of cloud protocol required.  E.g., \"isilon\" for EMC Isilon, \"ecs\" for EMC ECS Appliance, \"virtustream\" for Virtustream Storage Cloud, \"azure\" for Microsoft Azure and \"s3\" for Amazon S3",
+                            "description": "The type of cloud protocol required.  E.g., \"isilon\" for EMC Isilon, \"ecs\" for EMC ECS Appliance, \"virtustream\" for Virtustream Storage Cloud, \"azure\" for Microsoft Azure, \"s3\" for Amazon S3 and \"google\" for Google Cloud Platform",
                             "enum": [
                                 "isilon",
                                 "ecs",
                                 "virtustream",
                                 "azure",
                                 "s3",
+                                "google",
                                 "ran",
                                 "ecs2"
                             ],
@@ -3111,13 +3102,14 @@
                             "type": "string"
                         },
                         "type": {
-                            "description": "The type of cloud protocol required.  E.g., \"isilon\" for EMC Isilon, \"ecs\" for EMC ECS Appliance, \"virtustream\" for Virtustream Storage Cloud, \"azure\" for Microsoft Azure and \"s3\" for Amazon S3",
+                            "description": "The type of cloud protocol required.  E.g., \"isilon\" for EMC Isilon, \"ecs\" for EMC ECS Appliance, \"virtustream\" for Virtustream Storage Cloud, \"azure\" for Microsoft Azure, \"s3\" for Amazon S3 and \"google\" for Google Cloud Platform",
                             "enum": [
                                 "isilon",
                                 "ecs",
                                 "virtustream",
                                 "azure",
                                 "s3",
+                                "google",
                                 "ran",
                                 "ecs2"
                             ],
@@ -3978,6 +3970,24 @@
             ],
             "type": "object"
         },
+        "ClusterIdentityExtended": {
+            "description": "Unprivileged cluster information for display when logging in.",
+            "properties": {
+                "description": {
+                    "description": "A description of the cluster.",
+                    "type": "string"
+                },
+                "logon": {
+                    "$ref": "#/definitions/ClusterIdentityLogonExtended",
+                    "description": "The information displayed when a user logs in to the cluster."
+                },
+                "name": {
+                    "description": "The name of the cluster.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
         "ClusterIdentityLogon": {
             "properties": {
                 "motd": {
@@ -3993,6 +4003,19 @@
                 "motd_header",
                 "motd"
             ],
+            "type": "object"
+        },
+        "ClusterIdentityLogonExtended": {
+            "properties": {
+                "motd": {
+                    "description": "The message of the day.",
+                    "type": "string"
+                },
+                "motd_header": {
+                    "description": "The header to the message of the day.",
+                    "type": "string"
+                }
+            },
             "type": "object"
         },
         "ClusterNode": {
@@ -5909,6 +5932,22 @@
                     "description": "ID of created item that can be used to refer to item in the collection-item resource path.",
                     "maxLength": 255,
                     "minLength": 0,
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "type": "object"
+        },
+        "CreateSmbShareResponse": {
+            "additionalProperties": false,
+            "properties": {
+                "id": {
+                    "description": "ID of created item that can be used to refer to item in the collection-item resource path.",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "pattern": "^$|.",
                     "type": "string"
                 }
             },
@@ -7956,15 +7995,6 @@
                 },
                 "operator": {
                     "description": "The comparison operator to use while comparing an attribute with its value",
-                    "enum": [
-                        "==",
-                        "!=",
-                        ">",
-                        ">=",
-                        "<",
-                        "<=",
-                        "!"
-                    ],
                     "type": "string"
                 },
                 "type": {
@@ -9218,6 +9248,173 @@
             },
             "type": "object"
         },
+        "HdfsFsimageJob": {
+            "properties": {
+                "job": {
+                    "$ref": "#/definitions/HdfsFsimageJobJob",
+                    "description": "Information about job that generates FSImage."
+                }
+            },
+            "type": "object"
+        },
+        "HdfsFsimageJobJob": {
+            "properties": {
+                "reason": {
+                    "description": "Further details about the state of the job.",
+                    "type": "string"
+                },
+                "state": {
+                    "description": "State of the job.",
+                    "enum": [
+                        "INPROGRESS",
+                        "IDLE",
+                        "FAILED",
+                        "DISABLED",
+                        "NONE"
+                    ],
+                    "type": "string"
+                },
+                "time_started": {
+                    "description": "The date and time job was started as a UNIX epoch. If null, started is not relevant to the state.",
+                    "maximum": 9223372036854775807,
+                    "minimum": 0,
+                    "type": "integer"
+                },
+                "txid": {
+                    "description": "The transaction id of the FSImage. If null, txid is not relevant to the state.",
+                    "maximum": 9223372036854775807,
+                    "minimum": 0,
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "HdfsFsimageJobSettings": {
+            "properties": {
+                "settings": {
+                    "$ref": "#/definitions/HdfsFsimageJobSettingsSettings",
+                    "description": "Settings for the HDFS FSImage job."
+                }
+            },
+            "type": "object"
+        },
+        "HdfsFsimageJobSettingsSettings": {
+            "properties": {
+                "generation_interval": {
+                    "description": "The interval in seconds between successive FSImages. The default is 86400, which amounts to a day.",
+                    "maximum": 2147483647,
+                    "minimum": 0,
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "HdfsFsimageLatest": {
+            "properties": {
+                "latest": {
+                    "$ref": "#/definitions/HdfsFsimageLatestLatest",
+                    "description": "Information about the latest FSImage."
+                }
+            },
+            "type": "object"
+        },
+        "HdfsFsimageLatestLatest": {
+            "properties": {
+                "created": {
+                    "description": "The date and time FSImage was created as a UNIX epoch.",
+                    "maximum": 9223372036854775807,
+                    "minimum": 0,
+                    "type": "integer"
+                },
+                "size": {
+                    "description": "Size of the FSImage in bytes. If null, FSImage is not present.",
+                    "maximum": 9223372036854775807,
+                    "minimum": 0,
+                    "type": "integer"
+                },
+                "txid": {
+                    "description": "The transaction id of the latest HDFS FSImage. If null, FSImage is not present.",
+                    "maximum": 9223372036854775807,
+                    "minimum": 0,
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "HdfsFsimageSettings": {
+            "properties": {
+                "settings": {
+                    "$ref": "#/definitions/HdfsFsimageSettingsSettings",
+                    "description": "Settings for the HDFS FSImage."
+                }
+            },
+            "type": "object"
+        },
+        "HdfsFsimageSettingsSettings": {
+            "properties": {
+                "enabled": {
+                    "description": "Enable or disable the HDFS FSImage generation and access to the latest FSImage.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "HdfsInotifySettings": {
+            "properties": {
+                "settings": {
+                    "$ref": "#/definitions/HdfsInotifySettingsSettings",
+                    "description": "Settings for HDFS INotify."
+                }
+            },
+            "type": "object"
+        },
+        "HdfsInotifySettingsSettings": {
+            "properties": {
+                "enabled": {
+                    "description": "Enable or disable the collection of edits over HDFS and access to the edits via HDFS INotify stream.",
+                    "type": "boolean"
+                },
+                "maximum_delay": {
+                    "description": "The maximum duration in seconds until an edit event is reported in INotify. The default is 60, which amounts to a minute.",
+                    "maximum": 2147483647,
+                    "minimum": 0,
+                    "type": "integer"
+                },
+                "retention": {
+                    "description": "The minimum amount of time in seconds the edits will be retained. The default is 172800, which amounts to 48hr.",
+                    "maximum": 2147483647,
+                    "minimum": 0,
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "HdfsInotifyStream": {
+            "properties": {
+                "stream": {
+                    "$ref": "#/definitions/HdfsInotifyStreamStream",
+                    "description": "Information about HDFS INotify stream."
+                }
+            },
+            "type": "object"
+        },
+        "HdfsInotifyStreamStream": {
+            "properties": {
+                "current_transaction_id": {
+                    "description": "The transaction id of the most recent edit applied over HDFS.",
+                    "maximum": 2147483647,
+                    "minimum": 0,
+                    "type": "integer"
+                },
+                "sync_transaction_id": {
+                    "description": "The transaction id of the latest edit exposed via HDFS INotify stream. This id usually lags behind the current_transaction_id.",
+                    "maximum": 2147483647,
+                    "minimum": 0,
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
         "HdfsLogLevel": {
             "properties": {
                 "level": {
@@ -9507,533 +9704,6 @@
                 "webhdfs_enabled": {
                     "description": "Enable or disable WebHDFS",
                     "type": "boolean"
-                }
-            },
-            "type": "object"
-        },
-        "HealthcheckChecklist": {
-            "properties": {
-                "description": {
-                    "description": "Description covering intended use",
-                    "type": "string"
-                },
-                "id": {
-                    "description": "Unique identifier",
-                    "type": "string"
-                },
-                "items": {
-                    "description": "Items to be evaluated",
-                    "items": {
-                        "$ref": "#/definitions/HealthcheckChecklistItem",
-                        "description": "Item to be evaluated as part of a checklist"
-                    },
-                    "type": "array"
-                }
-            },
-            "type": "object"
-        },
-        "HealthcheckChecklistItem": {
-            "properties": {
-                "freshness": {
-                    "description": "Optional freshness override",
-                    "minimum": 0,
-                    "type": "integer"
-                },
-                "id": {
-                    "description": "Unique identifier of item",
-                    "type": "string"
-                },
-                "parameters": {
-                    "description": "Parameters available for the item",
-                    "items": {
-                        "$ref": "#/definitions/HealthcheckChecklistItemParameter",
-                        "description": "Parameter affecting the evaluation of an item"
-                    },
-                    "type": "array"
-                },
-                "pass_status": {
-                    "description": "Optional pass status override",
-                    "enum": [
-                        "OK",
-                        "WARNING",
-                        "CRITICAL",
-                        "EMERGENCY"
-                    ],
-                    "type": "string"
-                },
-                "thresholds": {
-                    "$ref": "#/definitions/HealthcheckChecklistItemThresholds",
-                    "description": "Overrides for status thresholds"
-                }
-            },
-            "type": "object"
-        },
-        "HealthcheckChecklistItemParameter": {
-            "properties": {
-                "name": {
-                    "description": "Parameter Name",
-                    "type": "string"
-                },
-                "value": {
-                    "description": "Parameter value",
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "HealthcheckChecklistItemThresholds": {
-            "properties": {
-                "critical": {
-                    "description": "Minimum value for CRITICAL - below this EMERGENCY",
-                    "maximum": 100,
-                    "minimum": 0,
-                    "type": "integer"
-                },
-                "ok": {
-                    "description": "Minimum value for OK - must be > warning",
-                    "maximum": 100,
-                    "minimum": 0,
-                    "type": "integer"
-                },
-                "warning": {
-                    "description": "Minimum value for WARNING - must be > critical",
-                    "maximum": 100,
-                    "minimum": 0,
-                    "type": "integer"
-                }
-            },
-            "type": "object"
-        },
-        "HealthcheckChecklists": {
-            "additionalProperties": false,
-            "properties": {
-                "checklists": {
-                    "items": {
-                        "$ref": "#/definitions/HealthcheckChecklist",
-                        "description": "Checklist definition"
-                    },
-                    "minItems": 0,
-                    "type": "array"
-                }
-            },
-            "type": "object"
-        },
-        "HealthcheckChecklistsExtended": {
-            "allOf": [
-                {
-                    "$ref": "#/definitions/HealthcheckChecklists"
-                },
-                {
-                    "additionalProperties": false,
-                    "properties": {
-                        "resume": {
-                            "description": "Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).",
-                            "minLength": 0,
-                            "type": "string"
-                        },
-                        "total": {
-                            "description": "Total number of items available.",
-                            "maximum": 4294967295,
-                            "minimum": 0,
-                            "type": "integer"
-                        }
-                    },
-                    "type": "object"
-                }
-            ]
-        },
-        "HealthcheckEvaluation": {
-            "description": "Pause/Resume control",
-            "properties": {
-                "action": {
-                    "description": "Pause or Resume",
-                    "enum": [
-                        "pause",
-                        "resume"
-                    ],
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "HealthcheckEvaluationCreateParams": {
-            "description": "Evaluation Request/Result",
-            "properties": {
-                "checklist_id": {
-                    "description": "Checklist to be run",
-                    "type": "string"
-                },
-                "overrides": {
-                    "description": "Optional overrides for thresholds etc.",
-                    "items": {
-                        "$ref": "#/definitions/HealthcheckEvaluationOverride",
-                        "description": "Overrides for item pass_status, freshness and thresholds"
-                    },
-                    "type": "array"
-                },
-                "parameters": {
-                    "$ref": "#/definitions/Empty",
-                    "description": "Parameters supplied for this evaluation"
-                }
-            },
-            "required": [
-                "checklist_id"
-            ],
-            "type": "object"
-        },
-        "HealthcheckEvaluationDetail": {
-            "properties": {
-                "details": {
-                    "$ref": "#/definitions/Empty",
-                    "description": "Optional details of the evaluation - raw data"
-                },
-                "hash": {
-                    "description": "Unique identifier",
-                    "type": "string"
-                },
-                "id": {
-                    "description": "Unique identifier of item",
-                    "type": "string"
-                },
-                "node": {
-                    "description": "Either 'cluster' or an lnn",
-                    "type": "string"
-                },
-                "parameters": {
-                    "$ref": "#/definitions/Empty",
-                    "description": "The parameters used in this item evaluation"
-                },
-                "status": {
-                    "description": "Health status based on default thresholds",
-                    "enum": [
-                        "OK",
-                        "WARNING",
-                        "CRITICAL",
-                        "EMERGENCY",
-                        "UNSUPPORTED",
-                        "ERROR"
-                    ],
-                    "type": "string"
-                },
-                "value": {
-                    "description": "Normalised measured value 0 (bad) to 100 (perfect)",
-                    "maximum": 100,
-                    "minimum": 0,
-                    "type": "integer"
-                }
-            },
-            "type": "object"
-        },
-        "HealthcheckEvaluationExtended": {
-            "properties": {
-                "checklist_id": {
-                    "description": "Checklist to be run",
-                    "type": "string"
-                },
-                "details": {
-                    "description": "Evaluation results by item - only if COMPLETED",
-                    "items": {
-                        "$ref": "#/definitions/HealthcheckEvaluationDetail",
-                        "description": "The result of an item evaluation"
-                    },
-                    "type": "array"
-                },
-                "id": {
-                    "description": "Unique identifier",
-                    "type": "string"
-                },
-                "overrides": {
-                    "description": "Optional overrides for thresholds etc.",
-                    "items": {
-                        "$ref": "#/definitions/HealthcheckEvaluationOverride",
-                        "description": "Overrides for item pass_status, freshness and thresholds"
-                    },
-                    "type": "array"
-                },
-                "parameters": {
-                    "$ref": "#/definitions/Empty",
-                    "description": "Parameters supplied for this evaluation"
-                },
-                "result": {
-                    "description": "Overall result of evaluation - only if COMPLETED",
-                    "enum": [
-                        "PASS",
-                        "FAIL"
-                    ],
-                    "type": "string"
-                },
-                "run_status": {
-                    "description": "Execution status",
-                    "enum": [
-                        "QUEUED",
-                        "RUNNING",
-                        "PAUSED",
-                        "FAILED",
-                        "COMPLETED"
-                    ],
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "HealthcheckEvaluationOverride": {
-            "properties": {
-                "freshness": {
-                    "description": "Optional freshness override",
-                    "minimum": 0,
-                    "type": "integer"
-                },
-                "id": {
-                    "description": "Id of Item to which override applies",
-                    "type": "string"
-                },
-                "pass_status": {
-                    "description": "Optional pass status override",
-                    "enum": [
-                        "OK",
-                        "WARNING",
-                        "CRITICAL",
-                        "EMERGENCY"
-                    ],
-                    "type": "string"
-                },
-                "thresholds": {
-                    "$ref": "#/definitions/HealthcheckChecklistItemThresholds",
-                    "description": "Overrides for status thresholds"
-                }
-            },
-            "type": "object"
-        },
-        "HealthcheckEvaluations": {
-            "additionalProperties": false,
-            "properties": {
-                "evaluations": {
-                    "items": {
-                        "$ref": "#/definitions/HealthcheckEvaluationExtended",
-                        "description": "Evaluation Request/Result"
-                    },
-                    "minItems": 0,
-                    "type": "array"
-                }
-            },
-            "type": "object"
-        },
-        "HealthcheckEvaluationsExtended": {
-            "allOf": [
-                {
-                    "$ref": "#/definitions/HealthcheckEvaluations"
-                },
-                {
-                    "additionalProperties": false,
-                    "properties": {
-                        "resume": {
-                            "description": "Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).",
-                            "minLength": 0,
-                            "type": "string"
-                        },
-                        "total": {
-                            "description": "Total number of items available.",
-                            "maximum": 4294967295,
-                            "minimum": 0,
-                            "type": "integer"
-                        }
-                    },
-                    "type": "object"
-                }
-            ]
-        },
-        "HealthcheckItem": {
-            "properties": {
-                "description": {
-                    "description": "Optional extended description of item",
-                    "type": "string"
-                },
-                "freshness": {
-                    "description": "Maximum age in seconds of acceptable earlier results",
-                    "minimum": 0,
-                    "type": "integer"
-                },
-                "id": {
-                    "description": "Unique identifier",
-                    "type": "string"
-                },
-                "node": {
-                    "description": "True if this item is to be evaluated on each node",
-                    "type": "boolean"
-                },
-                "parameters": {
-                    "description": "Accepted and required parameters",
-                    "items": {
-                        "$ref": "#/definitions/HealthcheckItemParameter",
-                        "description": "Item parameter definition"
-                    },
-                    "type": "array"
-                },
-                "reference": {
-                    "description": "KB URL or similar reference link",
-                    "type": "string"
-                },
-                "summary": {
-                    "description": "Brief description of item",
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "HealthcheckItemParameter": {
-            "properties": {
-                "default": {
-                    "description": "Default value of parameter",
-                    "type": "string"
-                },
-                "description": {
-                    "description": "Parameter description including value structure",
-                    "type": "string"
-                },
-                "mandatory": {
-                    "description": "True if parameter must be supplied",
-                    "type": "boolean"
-                },
-                "name": {
-                    "description": "Parameter name",
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "HealthcheckItems": {
-            "additionalProperties": false,
-            "properties": {
-                "items": {
-                    "items": {
-                        "$ref": "#/definitions/HealthcheckItem",
-                        "description": "Item that can be evaluated"
-                    },
-                    "minItems": 0,
-                    "type": "array"
-                }
-            },
-            "type": "object"
-        },
-        "HealthcheckItemsExtended": {
-            "allOf": [
-                {
-                    "$ref": "#/definitions/HealthcheckItems"
-                },
-                {
-                    "additionalProperties": false,
-                    "properties": {
-                        "resume": {
-                            "description": "Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).",
-                            "minLength": 0,
-                            "type": "string"
-                        },
-                        "total": {
-                            "description": "Total number of items available.",
-                            "maximum": 4294967295,
-                            "minimum": 0,
-                            "type": "integer"
-                        }
-                    },
-                    "type": "object"
-                }
-            ]
-        },
-        "HealthcheckParameter": {
-            "description": "Parameter and Value",
-            "properties": {
-                "id": {
-                    "description": "Unique identifier",
-                    "type": "string"
-                },
-                "name": {
-                    "description": "Unique identifier - same as id",
-                    "type": "string"
-                },
-                "value": {
-                    "description": "Value of parameter",
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "HealthcheckParameterCreateParams": {
-            "allOf": [
-                {
-                    "$ref": "#/definitions/HealthcheckParameter"
-                },
-                {
-                    "description": "Parameter and Value",
-                    "properties": {
-                        "name": {
-                            "description": "Unique identifier - same as id",
-                            "type": "string"
-                        },
-                        "value": {
-                            "description": "Value of parameter",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "value",
-                        "name"
-                    ],
-                    "type": "object"
-                }
-            ]
-        },
-        "HealthcheckParameterExtended": {
-            "properties": {
-                "id": {
-                    "description": "Unique identifier",
-                    "type": "string"
-                },
-                "name": {
-                    "description": "Unique identifier - same as id",
-                    "type": "string"
-                },
-                "value": {
-                    "description": "Value of parameter",
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "HealthcheckParameters": {
-            "additionalProperties": false,
-            "properties": {
-                "parameters": {
-                    "items": {
-                        "$ref": "#/definitions/HealthcheckParameter",
-                        "description": "Parameter and Value"
-                    },
-                    "minItems": 0,
-                    "type": "array"
-                }
-            },
-            "type": "object"
-        },
-        "HealthcheckParametersExtended": {
-            "additionalProperties": false,
-            "properties": {
-                "parameters": {
-                    "items": {
-                        "$ref": "#/definitions/HealthcheckParameterExtended",
-                        "description": "Parameter and Value"
-                    },
-                    "minItems": 0,
-                    "type": "array"
-                },
-                "resume": {
-                    "description": "Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).",
-                    "minLength": 0,
-                    "type": "string"
-                },
-                "total": {
-                    "description": "Total number of items available.",
-                    "maximum": 4294967295,
-                    "minimum": 0,
-                    "type": "integer"
                 }
             },
             "type": "object"
@@ -10436,6 +10106,10 @@
                     "$ref": "#/definitions/JobJobDomainmarkParams",
                     "description": ""
                 },
+                "esrsmftdownload_params": {
+                    "$ref": "#/definitions/JobJobEsrsmftdownloadParams",
+                    "description": ""
+                },
                 "paths": {
                     "description": "For jobs which take paths, the IFS paths to pass to the job.",
                     "items": {
@@ -10500,6 +10174,43 @@
             "required": [
                 "type",
                 "root"
+            ],
+            "type": "object"
+        },
+        "JobJobEsrsmftdownloadParams": {
+            "properties": {
+                "checksum": {
+                    "description": "File Checksum - SHA-256",
+                    "maxLength": 64,
+                    "minLength": 64,
+                    "pattern": "^[a-f0-9A-F]{64}",
+                    "type": "string"
+                },
+                "file": {
+                    "description": "File to download.",
+                    "maxLength": 4096,
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "path": {
+                    "description": "Path to write downloaded file. Required to be on /ifs",
+                    "maxLength": 4096,
+                    "minLength": 4,
+                    "pattern": "^\\/ifs",
+                    "type": "string"
+                },
+                "size": {
+                    "description": "File Size",
+                    "maximum": 9223372036854775807,
+                    "minimum": 0,
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "checksum",
+                "size",
+                "file",
+                "path"
             ],
             "type": "object"
         },
@@ -10758,8 +10469,8 @@
                 }
             },
             "required": [
-                "coordinator",
                 "disconnected_nodes",
+                "coordinator",
                 "stats_ready",
                 "next_jid",
                 "down_or_read_only_nodes",
@@ -14049,13 +13760,13 @@
                     "description": "The ID of the export.",
                     "type": "integer"
                 },
-                "messages": {
+                "message": {
                     "description": "The message about the export.",
                     "type": "string"
                 }
             },
             "required": [
-                "messages"
+                "message"
             ],
             "type": "object"
         },
@@ -25050,22 +24761,6 @@
                 },
                 "level": {
                     "description": "Logging level of the filter.",
-                    "enum": [
-                        "ALWAYS",
-                        "ERROR",
-                        "WARNING",
-                        "INFO",
-                        "VERBOSE",
-                        "DEBUG",
-                        "TRACE",
-                        "always",
-                        "error",
-                        "warning",
-                        "info",
-                        "verbose",
-                        "debug",
-                        "trace"
-                    ],
                     "type": "string"
                 },
                 "ops": {
@@ -25262,15 +24957,6 @@
                     "description": "Specify level of file share audit events to log.",
                     "type": "string"
                 },
-                "audit_global_sacl": {
-                    "description": "Specifies a list of permissions to audit.",
-                    "items": {
-                        "$ref": "#/definitions/SmbSettingsGlobalSettingsAuditGlobalSaclItem",
-                        "description": "Specifies properties for a SACL Access Control Entry."
-                    },
-                    "minItems": 0,
-                    "type": "array"
-                },
                 "audit_logon": {
                     "description": "Specify the level of logon audit events to log.",
                     "type": "string"
@@ -25297,6 +24983,9 @@
                 },
                 "guest_user": {
                     "description": "Specifies the fully-qualified user to use for guest access.",
+                    "maxLength": 511,
+                    "minLength": 1,
+                    "pattern": "^$|.",
                     "type": "string"
                 },
                 "ignore_eas": {
@@ -25315,6 +25004,10 @@
                     "minimum": 0,
                     "type": "integer"
                 },
+                "reject_unencrypted_access": {
+                    "description": "If SMB3 encryption is enabled, reject unencrypted access from clients.",
+                    "type": "boolean"
+                },
                 "require_security_signatures": {
                     "description": "Indicates whether the server requires signed SMB packets.",
                     "type": "boolean"
@@ -25325,6 +25018,9 @@
                 },
                 "server_string": {
                     "description": "Provides a description of the server.",
+                    "maxLength": 511,
+                    "minLength": 1,
+                    "pattern": "^$|.",
                     "type": "string"
                 },
                 "service": {
@@ -25353,6 +25049,10 @@
                 },
                 "support_smb2": {
                     "description": "Support the SMB2 protocol on the server.",
+                    "type": "boolean"
+                },
+                "support_smb3_encryption": {
+                    "description": "Support the SMB3 encryption on the server.",
                     "type": "boolean"
                 }
             },
@@ -25374,15 +25074,6 @@
                     ],
                     "type": "string"
                 },
-                "audit_global_sacl": {
-                    "description": "Specifies a list of permissions to audit.",
-                    "items": {
-                        "$ref": "#/definitions/SmbSettingsGlobalSettingsAuditGlobalSaclItem",
-                        "description": "Specifies properties for a SACL Access Control Entry."
-                    },
-                    "minItems": 0,
-                    "type": "array"
-                },
                 "audit_logon": {
                     "description": "Specify the level of logon audit events to log.",
                     "enum": [
@@ -25415,6 +25106,9 @@
                 },
                 "guest_user": {
                     "description": "Specifies the fully-qualified user to use for guest access.",
+                    "maxLength": 511,
+                    "minLength": 1,
+                    "pattern": "^$|.",
                     "type": "string"
                 },
                 "ignore_eas": {
@@ -25433,6 +25127,10 @@
                     "minimum": 0,
                     "type": "integer"
                 },
+                "reject_unencrypted_access": {
+                    "description": "If SMB3 encryption is enabled, reject unencrypted access from clients.",
+                    "type": "boolean"
+                },
                 "require_security_signatures": {
                     "description": "Indicates whether the server requires signed SMB packets.",
                     "type": "boolean"
@@ -25443,6 +25141,9 @@
                 },
                 "server_string": {
                     "description": "Provides a description of the server.",
+                    "maxLength": 511,
+                    "minLength": 1,
+                    "pattern": "^$|.",
                     "type": "string"
                 },
                 "service": {
@@ -25472,77 +25173,12 @@
                 "support_smb2": {
                     "description": "Support the SMB2 protocol on the server.",
                     "type": "boolean"
-                }
-            },
-            "type": "object"
-        },
-        "SmbSettingsGlobalSettingsAuditGlobalSaclItem": {
-            "properties": {
-                "flags": {
-                    "description": "Determines if audit is performed on success or failure.",
-                    "enum": [
-                        "successful",
-                        "failed"
-                    ],
-                    "type": "string"
                 },
-                "permission": {
-                    "description": "Specifies the array of filesystem rights that are governed.",
-                    "items": {
-                        "description": "Specifies filesystem access permissions.",
-                        "enum": [
-                            "generic_all",
-                            "generic_read",
-                            "generic_write",
-                            "generic_exec",
-                            "std_delete",
-                            "std_read_dac",
-                            "std_write_dac",
-                            "std_write_owner",
-                            "std_synchronize",
-                            "std_required",
-                            "list",
-                            "add_file",
-                            "add_subdir",
-                            "delete_child",
-                            "traverse",
-                            "dir_read_attr",
-                            "dir_write_attr",
-                            "dir_read_ext_attr",
-                            "dir_write_ext_attr",
-                            "dir_gen_read",
-                            "dir_gen_write",
-                            "dir_gen_execute",
-                            "dir_gen_all",
-                            "file_read",
-                            "file_write",
-                            "append",
-                            "execute",
-                            "file_read_attr",
-                            "file_write_attr",
-                            "file_read_ext_attr",
-                            "file_write_ext_attr",
-                            "file_gen_read",
-                            "file_gen_write",
-                            "file_gen_execute",
-                            "file_gen_all",
-                            "modify",
-                            "object_inherit",
-                            "container_inherit",
-                            "no_prop_inherit",
-                            "inherit_only",
-                            "inherited_ace"
-                        ],
-                        "type": "string"
-                    },
-                    "minItems": 0,
-                    "type": "array"
+                "support_smb3_encryption": {
+                    "description": "Support the SMB3 encryption on the server.",
+                    "type": "boolean"
                 }
             },
-            "required": [
-                "flags",
-                "permission"
-            ],
             "type": "object"
         },
         "SmbSettingsShare": {
@@ -25577,6 +25213,7 @@
                 },
                 "ca_timeout": {
                     "description": "Persistent open timeout for the share.",
+                    "maximum": 6000,
                     "minimum": 2,
                     "type": "integer"
                 },
@@ -25623,9 +25260,14 @@
                 "file_filter_extensions": {
                     "description": "Specifies the list of file extensions.",
                     "items": {
+                        "maxLength": 511,
+                        "minLength": 1,
+                        "pattern": "^$|.",
                         "type": "string"
                     },
-                    "type": "array"
+                    "minItems": 0,
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "file_filter_type": {
                     "description": "Specifies if filter list is for deny or allow. Default is deny.",
@@ -25643,9 +25285,14 @@
                     "description": "An ACL expressing which hosts are allowed access. A deny clause must be the final entry.",
                     "items": {
                         "description": "<'allow:'|'deny:'><'ALL'|IP-range|subnet|fqdn>[' EXCEPT '<IP-range|subnet|fqdn>].",
+                        "maxLength": 511,
+                        "minLength": 1,
+                        "pattern": "^$|.",
                         "type": "string"
                     },
-                    "type": "array"
+                    "minItems": 0,
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "impersonate_guest": {
                     "description": "Specify the condition in which user access is done as the guest account.",
@@ -25653,6 +25300,9 @@
                 },
                 "impersonate_user": {
                     "description": "User account to be used as guest account.",
+                    "maxLength": 511,
+                    "minLength": 0,
+                    "pattern": "^$|.",
                     "type": "string"
                 },
                 "mangle_byte_start": {
@@ -25664,9 +25314,14 @@
                 "mangle_map": {
                     "description": "Character mangle map.",
                     "items": {
+                        "maxLength": 511,
+                        "minLength": 1,
+                        "pattern": "^$|.",
                         "type": "string"
                     },
-                    "type": "array"
+                    "minItems": 0,
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "ntfs_acl_support": {
                     "description": "Support NTFS ACLs on files and directories.",
@@ -25674,6 +25329,10 @@
                 },
                 "oplocks": {
                     "description": "Allow oplock requests.",
+                    "type": "boolean"
+                },
+                "smb3_encryption_enabled": {
+                    "description": "Enables SMB3 encryption for the share.",
                     "type": "boolean"
                 },
                 "strict_ca_lockout": {
@@ -25690,6 +25349,9 @@
                 },
                 "zone": {
                     "description": "Name of the access zone in which to update settings",
+                    "maxLength": 511,
+                    "minLength": 1,
+                    "pattern": "^$|.",
                     "type": "string"
                 }
             },
@@ -25715,6 +25377,7 @@
                 },
                 "ca_timeout": {
                     "description": "Persistent open timeout for the share.",
+                    "maximum": 6000,
                     "minimum": 2,
                     "type": "integer"
                 },
@@ -25782,9 +25445,14 @@
                 "file_filter_extensions": {
                     "description": "Specifies the list of file extensions.",
                     "items": {
+                        "maxLength": 511,
+                        "minLength": 1,
+                        "pattern": "^$|.",
                         "type": "string"
                     },
-                    "type": "array"
+                    "minItems": 0,
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "file_filter_type": {
                     "description": "Specifies if filter list is for deny or allow. Default is deny.",
@@ -25806,9 +25474,14 @@
                     "description": "An ACL expressing which hosts are allowed access. A deny clause must be the final entry.",
                     "items": {
                         "description": "<'allow:'|'deny:'><'ALL'|IP-range|subnet|fqdn>[' EXCEPT '<IP-range|subnet|fqdn>].",
+                        "maxLength": 511,
+                        "minLength": 1,
+                        "pattern": "^$|.",
                         "type": "string"
                     },
-                    "type": "array"
+                    "minItems": 0,
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "impersonate_guest": {
                     "description": "Specify the condition in which user access is done as the guest account.",
@@ -25821,6 +25494,9 @@
                 },
                 "impersonate_user": {
                     "description": "User account to be used as guest account.",
+                    "maxLength": 511,
+                    "minLength": 0,
+                    "pattern": "^$|.",
                     "type": "string"
                 },
                 "mangle_byte_start": {
@@ -25832,9 +25508,14 @@
                 "mangle_map": {
                     "description": "Character mangle map.",
                     "items": {
+                        "maxLength": 511,
+                        "minLength": 1,
+                        "pattern": "^$|.",
                         "type": "string"
                     },
-                    "type": "array"
+                    "minItems": 0,
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "ntfs_acl_support": {
                     "description": "Support NTFS ACLs on files and directories.",
@@ -25842,6 +25523,10 @@
                 },
                 "oplocks": {
                     "description": "Allow oplock requests.",
+                    "type": "boolean"
+                },
+                "smb3_encryption_enabled": {
+                    "description": "Enables SMB3 encryption for the share.",
                     "type": "boolean"
                 },
                 "strict_ca_lockout": {
@@ -25858,7 +25543,56 @@
                 },
                 "zone": {
                     "description": "Name of the access zone in which to update settings",
+                    "maxLength": 511,
+                    "minLength": 1,
+                    "pattern": "^$|.",
                     "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SmbSettingsZone": {
+            "properties": {
+                "settings": {
+                    "$ref": "#/definitions/SmbSettingsZoneSettings",
+                    "description": ""
+                }
+            },
+            "type": "object"
+        },
+        "SmbSettingsZoneSettings": {
+            "properties": {
+                "access_based_share_enum": {
+                    "description": "Only enumerate files and folders the requesting user has access to.",
+                    "type": "boolean"
+                },
+                "enable_security_signatures": {
+                    "description": "Indicates whether the server supports signed SMB packets.",
+                    "type": "boolean"
+                },
+                "reject_unencrypted_access": {
+                    "description": "If SMB3 encryption is enabled, reject unencrypted access from clients.",
+                    "type": "boolean"
+                },
+                "require_security_signatures": {
+                    "description": "Indicates whether the server requires signed SMB packets.",
+                    "type": "boolean"
+                },
+                "server_side_copy": {
+                    "description": "Enable Server Side Copy.",
+                    "type": "boolean"
+                },
+                "support_multichannel": {
+                    "description": "Support multichannel.",
+                    "type": "boolean"
+                },
+                "support_smb2": {
+                    "description": "Support the SMB2 protocol on the server.",
+                    "type": "boolean"
+                },
+                "support_smb3_encryption": {
+                    "description": "Support the SMB3 encryption on the server.",
+                    "type": "boolean"
                 }
             },
             "type": "object"
@@ -25895,6 +25629,7 @@
                 },
                 "ca_timeout": {
                     "description": "Persistent open timeout for the share.",
+                    "maximum": 6000,
                     "minimum": 2,
                     "type": "integer"
                 },
@@ -25916,30 +25651,46 @@
                 },
                 "description": {
                     "description": "Description for this SMB share.",
+                    "maxLength": 511,
+                    "minLength": 0,
+                    "pattern": "^$|.",
                     "type": "string"
                 },
                 "directory_create_mask": {
                     "description": "Directory create mask bits.",
+                    "maximum": 511,
+                    "minimum": 0,
                     "type": "integer"
                 },
                 "directory_create_mode": {
                     "description": "Directory create mode bits.",
+                    "maximum": 511,
+                    "minimum": 0,
                     "type": "integer"
                 },
                 "file_create_mask": {
                     "description": "File create mask bits.",
+                    "maximum": 511,
+                    "minimum": 0,
                     "type": "integer"
                 },
                 "file_create_mode": {
                     "description": "File create mode bits.",
+                    "maximum": 511,
+                    "minimum": 0,
                     "type": "integer"
                 },
                 "file_filter_extensions": {
                     "description": "Specifies the list of file extensions.",
                     "items": {
+                        "maxLength": 511,
+                        "minLength": 1,
+                        "pattern": "^$|.",
                         "type": "string"
                     },
-                    "type": "array"
+                    "minItems": 0,
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "file_filter_type": {
                     "description": "Specifies if filter list is for deny or allow. Default is deny.",
@@ -25957,9 +25708,14 @@
                     "description": "An ACL expressing which hosts are allowed access. A deny clause must be the final entry.",
                     "items": {
                         "description": "<'allow:'|'deny:'><'ALL'|IP-range|subnet|fqdn>[' EXCEPT '<IP-range|subnet|fqdn>].",
+                        "maxLength": 511,
+                        "minLength": 1,
+                        "pattern": "^$|.",
                         "type": "string"
                     },
-                    "type": "array"
+                    "minItems": 0,
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "impersonate_guest": {
                     "description": "Specify the condition in which user access is done as the guest account.",
@@ -25967,6 +25723,9 @@
                 },
                 "impersonate_user": {
                     "description": "User account to be used as guest account.",
+                    "maxLength": 511,
+                    "minLength": 0,
+                    "pattern": "^$|.",
                     "type": "string"
                 },
                 "inheritable_path_acl": {
@@ -25975,17 +25734,27 @@
                 },
                 "mangle_byte_start": {
                     "description": "Specifies the wchar_t starting point for automatic byte mangling.",
+                    "maximum": 65535,
+                    "minimum": 256,
                     "type": "integer"
                 },
                 "mangle_map": {
                     "description": "Character mangle map.",
                     "items": {
+                        "maxLength": 511,
+                        "minLength": 1,
+                        "pattern": "^$|.",
                         "type": "string"
                     },
-                    "type": "array"
+                    "minItems": 0,
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "name": {
                     "description": "Share name.",
+                    "maxLength": 511,
+                    "minLength": 1,
+                    "pattern": "^$|.",
                     "type": "string"
                 },
                 "ntfs_acl_support": {
@@ -25998,6 +25767,9 @@
                 },
                 "path": {
                     "description": "Path of share within /ifs.",
+                    "maxLength": 511,
+                    "minLength": 1,
+                    "pattern": "^$|.",
                     "type": "string"
                 },
                 "permissions": {
@@ -26006,9 +25778,9 @@
                         "$ref": "#/definitions/SmbSharePermission",
                         "description": "Specifies properties for an Access Control Entry."
                     },
-                    "maxItems": 1000,
                     "minItems": 0,
-                    "type": "array"
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "run_as_root": {
                     "description": "Allow account to run as root.",
@@ -26016,7 +25788,13 @@
                         "$ref": "#/definitions/AuthAccessAccessItemFileGroup",
                         "description": "Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'."
                     },
-                    "type": "array"
+                    "minItems": 0,
+                    "type": "array",
+                    "uniqueItems": true
+                },
+                "smb3_encryption_enabled": {
+                    "description": "Enables SMB3 encryption for the share.",
+                    "type": "boolean"
                 },
                 "strict_ca_lockout": {
                     "description": "Specifies if persistent opens would do strict lockout on the share.",
@@ -26032,6 +25810,9 @@
                 },
                 "zone": {
                     "description": "Name of the access zone to which to move this SMB share",
+                    "maxLength": 511,
+                    "minLength": 1,
+                    "pattern": "^$|.",
                     "type": "string"
                 }
             },
@@ -26069,6 +25850,7 @@
                 },
                 "ca_timeout": {
                     "description": "Persistent open timeout for the share.",
+                    "maximum": 6000,
                     "minimum": 2,
                     "type": "integer"
                 },
@@ -26119,30 +25901,46 @@
                 },
                 "description": {
                     "description": "Description for this SMB share.",
+                    "maxLength": 511,
+                    "minLength": 0,
+                    "pattern": "^$|.",
                     "type": "string"
                 },
                 "directory_create_mask": {
                     "description": "Directory create mask bits.",
+                    "maximum": 511,
+                    "minimum": 0,
                     "type": "integer"
                 },
                 "directory_create_mode": {
                     "description": "Directory create mode bits.",
+                    "maximum": 511,
+                    "minimum": 0,
                     "type": "integer"
                 },
                 "file_create_mask": {
                     "description": "File create mask bits.",
+                    "maximum": 511,
+                    "minimum": 0,
                     "type": "integer"
                 },
                 "file_create_mode": {
                     "description": "File create mode bits.",
+                    "maximum": 511,
+                    "minimum": 0,
                     "type": "integer"
                 },
                 "file_filter_extensions": {
                     "description": "Specifies the list of file extensions.",
                     "items": {
+                        "maxLength": 511,
+                        "minLength": 1,
+                        "pattern": "^$|.",
                         "type": "string"
                     },
-                    "type": "array"
+                    "minItems": 0,
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "file_filter_type": {
                     "description": "Specifies if filter list is for deny or allow. Default is deny.",
@@ -26164,9 +25962,14 @@
                     "description": "An ACL expressing which hosts are allowed access. A deny clause must be the final entry.",
                     "items": {
                         "description": "<'allow:'|'deny:'><'ALL'|IP-range|subnet|fqdn>[' EXCEPT '<IP-range|subnet|fqdn>].",
+                        "maxLength": 511,
+                        "minLength": 1,
+                        "pattern": "^$|.",
                         "type": "string"
                     },
-                    "type": "array"
+                    "minItems": 0,
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "impersonate_guest": {
                     "description": "Specify the condition in which user access is done as the guest account.",
@@ -26179,6 +25982,9 @@
                 },
                 "impersonate_user": {
                     "description": "User account to be used as guest account.",
+                    "maxLength": 511,
+                    "minLength": 0,
+                    "pattern": "^$|.",
                     "type": "string"
                 },
                 "inheritable_path_acl": {
@@ -26187,17 +25993,27 @@
                 },
                 "mangle_byte_start": {
                     "description": "Specifies the wchar_t starting point for automatic byte mangling.",
+                    "maximum": 65535,
+                    "minimum": 256,
                     "type": "integer"
                 },
                 "mangle_map": {
                     "description": "Character mangle map.",
                     "items": {
+                        "maxLength": 511,
+                        "minLength": 1,
+                        "pattern": "^$|.",
                         "type": "string"
                     },
-                    "type": "array"
+                    "minItems": 0,
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "name": {
                     "description": "Share name.",
+                    "maxLength": 511,
+                    "minLength": 1,
+                    "pattern": "^$|.",
                     "type": "string"
                 },
                 "ntfs_acl_support": {
@@ -26210,6 +26026,9 @@
                 },
                 "path": {
                     "description": "Path of share within /ifs.",
+                    "maxLength": 511,
+                    "minLength": 1,
+                    "pattern": "^$|.",
                     "type": "string"
                 },
                 "permissions": {
@@ -26218,9 +26037,9 @@
                         "$ref": "#/definitions/SmbSharePermission",
                         "description": "Specifies properties for an Access Control Entry."
                     },
-                    "maxItems": 1000,
                     "minItems": 0,
-                    "type": "array"
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "run_as_root": {
                     "description": "Allow account to run as root.",
@@ -26228,7 +26047,13 @@
                         "$ref": "#/definitions/AuthAccessAccessItemFileGroup",
                         "description": "Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'."
                     },
-                    "type": "array"
+                    "minItems": 0,
+                    "type": "array",
+                    "uniqueItems": true
+                },
+                "smb3_encryption_enabled": {
+                    "description": "Enables SMB3 encryption for the share.",
+                    "type": "boolean"
                 },
                 "strict_ca_lockout": {
                     "description": "Specifies if persistent opens would do strict lockout on the share.",
@@ -26244,6 +26069,9 @@
                 },
                 "zone": {
                     "description": "Name of the access zone to which to move this SMB share",
+                    "maxLength": 511,
+                    "minLength": 1,
+                    "pattern": "^$|.",
                     "type": "string"
                 }
             },
@@ -26285,6 +26113,7 @@
                 },
                 "ca_timeout": {
                     "description": "Persistent open timeout for the share.",
+                    "maximum": 6000,
                     "minimum": 2,
                     "type": "integer"
                 },
@@ -26331,30 +26160,46 @@
                 },
                 "description": {
                     "description": "Description for this SMB share.",
+                    "maxLength": 511,
+                    "minLength": 0,
+                    "pattern": "^$|.",
                     "type": "string"
                 },
                 "directory_create_mask": {
                     "description": "Directory create mask bits.",
+                    "maximum": 511,
+                    "minimum": 0,
                     "type": "integer"
                 },
                 "directory_create_mode": {
                     "description": "Directory create mode bits.",
+                    "maximum": 511,
+                    "minimum": 0,
                     "type": "integer"
                 },
                 "file_create_mask": {
                     "description": "File create mask bits.",
+                    "maximum": 511,
+                    "minimum": 0,
                     "type": "integer"
                 },
                 "file_create_mode": {
                     "description": "File create mode bits.",
+                    "maximum": 511,
+                    "minimum": 0,
                     "type": "integer"
                 },
                 "file_filter_extensions": {
                     "description": "Specifies the list of file extensions.",
                     "items": {
+                        "maxLength": 511,
+                        "minLength": 1,
+                        "pattern": "^$|.",
                         "type": "string"
                     },
-                    "type": "array"
+                    "minItems": 0,
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "file_filter_type": {
                     "description": "Specifies if filter list is for deny or allow. Default is deny.",
@@ -26376,12 +26221,20 @@
                     "description": "An ACL expressing which hosts are allowed access. A deny clause must be the final entry.",
                     "items": {
                         "description": "<'allow:'|'deny:'><'ALL'|IP-range|subnet|fqdn>[' EXCEPT '<IP-range|subnet|fqdn>].",
+                        "maxLength": 511,
+                        "minLength": 1,
+                        "pattern": "^$|.",
                         "type": "string"
                     },
-                    "type": "array"
+                    "minItems": 0,
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "id": {
                     "description": "Share ID.",
+                    "maxLength": 511,
+                    "minLength": 0,
+                    "pattern": "^$|.",
                     "type": "string"
                 },
                 "impersonate_guest": {
@@ -26395,6 +26248,9 @@
                 },
                 "impersonate_user": {
                     "description": "User account to be used as guest account.",
+                    "maxLength": 511,
+                    "minLength": 0,
+                    "pattern": "^$|.",
                     "type": "string"
                 },
                 "inheritable_path_acl": {
@@ -26403,17 +26259,27 @@
                 },
                 "mangle_byte_start": {
                     "description": "Specifies the wchar_t starting point for automatic byte mangling.",
+                    "maximum": 65535,
+                    "minimum": 256,
                     "type": "integer"
                 },
                 "mangle_map": {
                     "description": "Character mangle map.",
                     "items": {
+                        "maxLength": 511,
+                        "minLength": 1,
+                        "pattern": "^$|.",
                         "type": "string"
                     },
-                    "type": "array"
+                    "minItems": 0,
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "name": {
                     "description": "Share name.",
+                    "maxLength": 511,
+                    "minLength": 1,
+                    "pattern": "^$|.",
                     "type": "string"
                 },
                 "ntfs_acl_support": {
@@ -26426,6 +26292,9 @@
                 },
                 "path": {
                     "description": "Path of share within /ifs.",
+                    "maxLength": 511,
+                    "minLength": 1,
+                    "pattern": "^$|.",
                     "type": "string"
                 },
                 "permissions": {
@@ -26434,9 +26303,9 @@
                         "$ref": "#/definitions/SmbSharePermission",
                         "description": "Specifies properties for an Access Control Entry."
                     },
-                    "maxItems": 1000,
                     "minItems": 0,
-                    "type": "array"
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "run_as_root": {
                     "description": "Allow account to run as root.",
@@ -26444,7 +26313,13 @@
                         "$ref": "#/definitions/AuthAccessAccessItemFileGroup",
                         "description": "Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'."
                     },
-                    "type": "array"
+                    "minItems": 0,
+                    "type": "array",
+                    "uniqueItems": true
+                },
+                "smb3_encryption_enabled": {
+                    "description": "Enables SMB3 encryption for the share.",
+                    "type": "boolean"
                 },
                 "strict_ca_lockout": {
                     "description": "Specifies if persistent opens would do strict lockout on the share.",
@@ -26460,6 +26335,8 @@
                 },
                 "zid": {
                     "description": "Numeric ID of the access zone which contains this SMB share",
+                    "maximum": 4294967295,
+                    "minimum": 0,
                     "type": "integer"
                 }
             },
@@ -26500,7 +26377,6 @@
             "type": "object"
         },
         "SmbShares": {
-            "additionalProperties": false,
             "properties": {
                 "shares": {
                     "items": {
@@ -26523,6 +26399,9 @@
                     "properties": {
                         "digest": {
                             "description": "An identifier for a set of shares.",
+                            "maxLength": 256,
+                            "minLength": 0,
+                            "pattern": "^$|.",
                             "type": "string"
                         },
                         "resume": {
@@ -27580,7 +27459,7 @@
                 "system_contact": {
                     "description": "Contact information for the system owner.  This must be a valid email address.  @DEFAULT reverts this field to its default value.",
                     "minLength": 1,
-                    "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$",
+                    "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,7}$",
                     "type": "string"
                 },
                 "system_location": {
@@ -30870,15 +30749,6 @@
                 },
                 "operator": {
                     "description": "How to compare the specified attribute of each file to the specified value.",
-                    "enum": [
-                        "==",
-                        "!=",
-                        ">",
-                        ">=",
-                        "<",
-                        "<=",
-                        "!"
-                    ],
                     "type": "string"
                 },
                 "type": {
@@ -32875,10 +32745,14 @@
             "properties": {
                 "burst_memory_constraint": {
                     "description": "The per-worker burst socket memory constraint, in bytes.",
+                    "maximum": 9223372036854775807,
+                    "minimum": 0,
                     "type": "integer"
                 },
                 "burst_socket_buffer_size": {
                     "description": "The per-worker burst socket buffer coalesced data, in bytes.",
+                    "maximum": 9223372036854775807,
+                    "minimum": 0,
                     "type": "integer"
                 },
                 "force_interface": {
@@ -32888,12 +32762,18 @@
                 "report_email": {
                     "description": "Email sync reports to these addresses.",
                     "items": {
+                        "maxLength": 255,
+                        "minLength": 0,
                         "type": "string"
                     },
-                    "type": "array"
+                    "minItems": 0,
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "report_max_age": {
                     "description": "The default length of time (in seconds) a policy report will be stored.",
+                    "maximum": 9223372036854775807,
+                    "minimum": 0,
                     "type": "integer"
                 },
                 "report_max_count": {
@@ -32935,10 +32815,14 @@
             "properties": {
                 "burst_memory_constraint": {
                     "description": "The per-worker burst socket memory constraint, in bytes.",
+                    "maximum": 9223372036854775807,
+                    "minimum": 0,
                     "type": "integer"
                 },
                 "burst_socket_buffer_size": {
                     "description": "The per-worker burst socket buffer coalesced data, in bytes.",
+                    "maximum": 9223372036854775807,
+                    "minimum": 0,
                     "type": "integer"
                 },
                 "force_interface": {
@@ -32947,17 +32831,25 @@
                 },
                 "max_concurrent_jobs": {
                     "description": "The max concurrent jobs that SyncIQ can support. This number is based on the size of the current cluster and the current SyncIQ worker throttle rule.",
+                    "maximum": 1000,
+                    "minimum": 0,
                     "type": "integer"
                 },
                 "report_email": {
                     "description": "Email sync reports to these addresses.",
                     "items": {
+                        "maxLength": 255,
+                        "minLength": 0,
                         "type": "string"
                     },
-                    "type": "array"
+                    "minItems": 0,
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "report_max_age": {
                     "description": "The default length of time (in seconds) a policy report will be stored.",
+                    "maximum": 9223372036854775807,
+                    "minimum": 0,
                     "type": "integer"
                 },
                 "report_max_count": {
@@ -34347,7 +34239,7 @@
         },
         "termsOfService": "https://github.com/emccode/emccode.github.io/wiki/EMC-CODE-Governance,-Contributing,-and-Code-of-Conduct",
         "title": "Isilon SDK",
-        "version": "5"
+        "version": "6"
     },
     "paths": {
         "/platform/1/audit/topics": {
@@ -53024,7 +52916,7 @@
                     "200": {
                         "description": "Create an NTP server entry.",
                         "schema": {
-                            "$ref": "#/definitions/CreateResponse"
+                            "$ref": "#/definitions/Empty"
                         }
                     },
                     "default": {
@@ -53408,146 +53300,6 @@
                         "schema": {
                             "$ref": "#/definitions/SmbLogLevelFilters"
                         }
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                },
-                "tags": [
-                    "Protocols"
-                ]
-            }
-        },
-        "/platform/3/protocols/smb/settings/global": {
-            "get": {
-                "description": "List all settings.",
-                "operationId": "getSmbSettingsGlobal",
-                "parameters": [
-                    {
-                        "description": "If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.",
-                        "enum": [
-                            "user",
-                            "default",
-                            "effective"
-                        ],
-                        "in": "query",
-                        "name": "scope",
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "List all settings.",
-                        "schema": {
-                            "$ref": "#/definitions/SmbSettingsGlobal"
-                        }
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                },
-                "tags": [
-                    "Protocols"
-                ]
-            },
-            "put": {
-                "description": "Modify one or more settings.",
-                "operationId": "updateSmbSettingsGlobal",
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "SmbSettingsGlobal",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/SmbSettingsGlobalExtended"
-                        }
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": "Success."
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                },
-                "tags": [
-                    "Protocols"
-                ]
-            }
-        },
-        "/platform/3/protocols/smb/settings/share": {
-            "get": {
-                "description": "List all settings.",
-                "operationId": "getSmbSettingsShare",
-                "parameters": [
-                    {
-                        "description": "If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.",
-                        "enum": [
-                            "user",
-                            "default",
-                            "effective"
-                        ],
-                        "in": "query",
-                        "name": "scope",
-                        "type": "string"
-                    },
-                    {
-                        "description": "Zone which contains these share settings.",
-                        "in": "query",
-                        "name": "zone",
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "List all settings.",
-                        "schema": {
-                            "$ref": "#/definitions/SmbSettingsShare"
-                        }
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                },
-                "tags": [
-                    "Protocols"
-                ]
-            },
-            "put": {
-                "description": "Modify one or more settings.",
-                "operationId": "updateSmbSettingsShare",
-                "parameters": [
-                    {
-                        "description": "Zone which contains these share settings.",
-                        "in": "query",
-                        "name": "zone",
-                        "type": "string"
-                    },
-                    {
-                        "in": "body",
-                        "name": "SmbSettingsShare",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/SmbSettingsShareExtended"
-                        }
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": "Success."
                     },
                     "default": {
                         "description": "Unexpected error",
@@ -58998,286 +58750,6 @@
                 ]
             }
         },
-        "/platform/4/protocols/smb/shares": {
-            "delete": {
-                "description": "Delete multiple smb shares.",
-                "operationId": "deleteSmbShares",
-                "parameters": [],
-                "responses": {
-                    "204": {
-                        "description": "Success."
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                },
-                "tags": [
-                    "Protocols"
-                ]
-            },
-            "get": {
-                "description": "List all shares.",
-                "operationId": "listSmbShares",
-                "parameters": [
-                    {
-                        "description": "Order results by this field. Default is id.",
-                        "enum": [
-                            "id",
-                            "name",
-                            "path",
-                            "description"
-                        ],
-                        "in": "query",
-                        "name": "sort",
-                        "type": "string"
-                    },
-                    {
-                        "description": "Zone which contains this share.",
-                        "in": "query",
-                        "name": "zone",
-                        "type": "string"
-                    },
-                    {
-                        "description": "Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).",
-                        "in": "query",
-                        "maxLength": 8192,
-                        "minLength": 0,
-                        "name": "resume",
-                        "type": "string"
-                    },
-                    {
-                        "description": "If true, resolve group and user names in personas.",
-                        "in": "query",
-                        "name": "resolve_names",
-                        "type": "boolean"
-                    },
-                    {
-                        "description": "Return no more than this many results at once (see resume).",
-                        "in": "query",
-                        "maximum": 5000,
-                        "minimum": 1,
-                        "name": "limit",
-                        "type": "integer"
-                    },
-                    {
-                        "description": "The position of the first item returned for a paginated query within the full result set.",
-                        "in": "query",
-                        "maximum": 4294967295,
-                        "minimum": 0,
-                        "name": "offset",
-                        "type": "integer"
-                    },
-                    {
-                        "description": "If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.",
-                        "enum": [
-                            "user",
-                            "default",
-                            "effective"
-                        ],
-                        "in": "query",
-                        "name": "scope",
-                        "type": "string"
-                    },
-                    {
-                        "description": "The direction of the sort.",
-                        "enum": [
-                            "ASC",
-                            "DESC"
-                        ],
-                        "in": "query",
-                        "minLength": 0,
-                        "name": "dir",
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "List all shares.",
-                        "schema": {
-                            "$ref": "#/definitions/SmbSharesExtended"
-                        }
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                },
-                "tags": [
-                    "Protocols"
-                ]
-            },
-            "post": {
-                "description": "Create a new share.",
-                "operationId": "createSmbShare",
-                "parameters": [
-                    {
-                        "description": "Zone which contains this share.",
-                        "in": "query",
-                        "name": "zone",
-                        "type": "string"
-                    },
-                    {
-                        "in": "body",
-                        "name": "SmbShare",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/SmbShareCreateParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Create a new share.",
-                        "schema": {
-                            "$ref": "#/definitions/CreateResponse"
-                        }
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                },
-                "tags": [
-                    "Protocols"
-                ]
-            }
-        },
-        "/platform/4/protocols/smb/shares/{SmbShareId}": {
-            "delete": {
-                "description": "Delete the share.",
-                "operationId": "deleteSmbShare",
-                "parameters": [
-                    {
-                        "description": "Zone which contains this share.",
-                        "in": "query",
-                        "name": "zone",
-                        "type": "string"
-                    },
-                    {
-                        "description": "Delete the share.",
-                        "in": "path",
-                        "name": "SmbShareId",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": "Success."
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                },
-                "tags": [
-                    "Protocols"
-                ]
-            },
-            "get": {
-                "description": "Retrieve share.",
-                "operationId": "getSmbShare",
-                "parameters": [
-                    {
-                        "description": "If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.",
-                        "enum": [
-                            "user",
-                            "default",
-                            "effective"
-                        ],
-                        "in": "query",
-                        "name": "scope",
-                        "type": "string"
-                    },
-                    {
-                        "description": "If true, resolve group and user names in personas.",
-                        "in": "query",
-                        "name": "resolve_names",
-                        "type": "boolean"
-                    },
-                    {
-                        "description": "Zone which contains this share.",
-                        "in": "query",
-                        "name": "zone",
-                        "type": "string"
-                    },
-                    {
-                        "description": "Retrieve share.",
-                        "in": "path",
-                        "name": "SmbShareId",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Retrieve share.",
-                        "schema": {
-                            "$ref": "#/definitions/SmbShares"
-                        }
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                },
-                "tags": [
-                    "Protocols"
-                ]
-            },
-            "put": {
-                "description": "Modify share. All input fields are optional, but one or more must be supplied.",
-                "operationId": "updateSmbShare",
-                "parameters": [
-                    {
-                        "description": "Zone which contains this share.",
-                        "in": "query",
-                        "name": "zone",
-                        "type": "string"
-                    },
-                    {
-                        "in": "body",
-                        "name": "SmbShare",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/SmbShare"
-                        }
-                    },
-                    {
-                        "description": "Modify share. All input fields are optional, but one or more must be supplied.",
-                        "in": "path",
-                        "name": "SmbShareId",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": "Success."
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                },
-                "tags": [
-                    "Protocols"
-                ]
-            }
-        },
         "/platform/4/statistics/summary/workload": {
             "get": {
                 "description": "",
@@ -59945,6 +59417,34 @@
                 "tags": [
                     "Cluster"
                 ]
+            },
+            "put": {
+                "description": "Modify the login information.",
+                "operationId": "updateClusterIdentity",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "ClusterIdentity",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ClusterIdentityExtended"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success."
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "Cluster"
+                ]
             }
         },
         "/platform/5/cluster/nodes": {
@@ -60427,430 +59927,6 @@
                 ]
             }
         },
-        "/platform/5/healthcheck/checklists": {
-            "get": {
-                "description": "List checklists.",
-                "operationId": "getHealthcheckChecklists",
-                "parameters": [
-                    {
-                        "description": "Return no more than this many results at once (see resume).",
-                        "in": "query",
-                        "maximum": 4294967295,
-                        "minimum": 1,
-                        "name": "limit",
-                        "type": "integer"
-                    },
-                    {
-                        "description": "Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).",
-                        "in": "query",
-                        "maxLength": 8192,
-                        "minLength": 0,
-                        "name": "resume",
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "List checklists.",
-                        "schema": {
-                            "$ref": "#/definitions/HealthcheckChecklistsExtended"
-                        }
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                },
-                "tags": [
-                    "Healthcheck"
-                ]
-            }
-        },
-        "/platform/5/healthcheck/checklists/{HealthcheckChecklistId}": {
-            "get": {
-                "description": "Retrieve a checklist definition.",
-                "operationId": "getHealthcheckChecklist",
-                "parameters": [
-                    {
-                        "description": "Retrieve a checklist definition.",
-                        "in": "path",
-                        "name": "HealthcheckChecklistId",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Retrieve a checklist definition.",
-                        "schema": {
-                            "$ref": "#/definitions/HealthcheckChecklists"
-                        }
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                },
-                "tags": [
-                    "Healthcheck"
-                ]
-            }
-        },
-        "/platform/5/healthcheck/evaluations": {
-            "get": {
-                "description": "List evaluations.",
-                "operationId": "listHealthcheckEvaluations",
-                "parameters": [
-                    {
-                        "description": "Return no more than this many results at once (see resume).",
-                        "in": "query",
-                        "maximum": 4294967295,
-                        "minimum": 1,
-                        "name": "limit",
-                        "type": "integer"
-                    },
-                    {
-                        "description": "Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).",
-                        "in": "query",
-                        "maxLength": 8192,
-                        "minLength": 0,
-                        "name": "resume",
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "List evaluations.",
-                        "schema": {
-                            "$ref": "#/definitions/HealthcheckEvaluationsExtended"
-                        }
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                },
-                "tags": [
-                    "Healthcheck"
-                ]
-            },
-            "post": {
-                "description": "Request an evaluation.",
-                "operationId": "createHealthcheckEvaluation",
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "HealthcheckEvaluation",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/HealthcheckEvaluationCreateParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Request an evaluation.",
-                        "schema": {
-                            "$ref": "#/definitions/CreateResponse"
-                        }
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                },
-                "tags": [
-                    "Healthcheck"
-                ]
-            }
-        },
-        "/platform/5/healthcheck/evaluations/{HealthcheckEvaluationId}": {
-            "get": {
-                "description": "Retrieve individual evaluation.",
-                "operationId": "getHealthcheckEvaluation",
-                "parameters": [
-                    {
-                        "description": "Retrieve individual evaluation.",
-                        "in": "path",
-                        "name": "HealthcheckEvaluationId",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Retrieve individual evaluation.",
-                        "schema": {
-                            "$ref": "#/definitions/HealthcheckEvaluations"
-                        }
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                },
-                "tags": [
-                    "Healthcheck"
-                ]
-            },
-            "put": {
-                "description": "Pause or resume an evaluation.",
-                "operationId": "updateHealthcheckEvaluation",
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "HealthcheckEvaluation",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/HealthcheckEvaluation"
-                        }
-                    },
-                    {
-                        "description": "Pause or resume an evaluation.",
-                        "in": "path",
-                        "name": "HealthcheckEvaluationId",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": "Success."
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                },
-                "tags": [
-                    "Healthcheck"
-                ]
-            }
-        },
-        "/platform/5/healthcheck/items": {
-            "get": {
-                "description": "List items.",
-                "operationId": "getHealthcheckItems",
-                "parameters": [
-                    {
-                        "description": "Return no more than this many results at once (see resume).",
-                        "in": "query",
-                        "maximum": 4294967295,
-                        "minimum": 1,
-                        "name": "limit",
-                        "type": "integer"
-                    },
-                    {
-                        "description": "Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).",
-                        "in": "query",
-                        "maxLength": 8192,
-                        "minLength": 0,
-                        "name": "resume",
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "List items.",
-                        "schema": {
-                            "$ref": "#/definitions/HealthcheckItemsExtended"
-                        }
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                },
-                "tags": [
-                    "Healthcheck"
-                ]
-            }
-        },
-        "/platform/5/healthcheck/items/{HealthcheckItemId}": {
-            "get": {
-                "description": "Retrieve an item definition.",
-                "operationId": "getHealthcheckItem",
-                "parameters": [
-                    {
-                        "description": "Retrieve an item definition.",
-                        "in": "path",
-                        "name": "HealthcheckItemId",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Retrieve an item definition.",
-                        "schema": {
-                            "$ref": "#/definitions/HealthcheckItems"
-                        }
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                },
-                "tags": [
-                    "Healthcheck"
-                ]
-            }
-        },
-        "/platform/5/healthcheck/parameters": {
-            "get": {
-                "description": "List parameters.",
-                "operationId": "listHealthcheckParameters",
-                "parameters": [
-                    {
-                        "description": "Return no more than this many results at once (see resume).",
-                        "in": "query",
-                        "maximum": 4294967295,
-                        "minimum": 1,
-                        "name": "limit",
-                        "type": "integer"
-                    },
-                    {
-                        "description": "Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).",
-                        "in": "query",
-                        "maxLength": 8192,
-                        "minLength": 0,
-                        "name": "resume",
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "List parameters.",
-                        "schema": {
-                            "$ref": "#/definitions/HealthcheckParametersExtended"
-                        }
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                },
-                "tags": [
-                    "Healthcheck"
-                ]
-            },
-            "post": {
-                "description": "Create a parameter.",
-                "operationId": "createHealthcheckParameter",
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "HealthcheckParameter",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/HealthcheckParameterCreateParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Create a parameter.",
-                        "schema": {
-                            "$ref": "#/definitions/CreateResponse"
-                        }
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                },
-                "tags": [
-                    "Healthcheck"
-                ]
-            }
-        },
-        "/platform/5/healthcheck/parameters/{HealthcheckParameterId}": {
-            "get": {
-                "description": "Retrieve individual parameter.",
-                "operationId": "getHealthcheckParameter",
-                "parameters": [
-                    {
-                        "description": "Retrieve individual parameter.",
-                        "in": "path",
-                        "name": "HealthcheckParameterId",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Retrieve individual parameter.",
-                        "schema": {
-                            "$ref": "#/definitions/HealthcheckParameters"
-                        }
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                },
-                "tags": [
-                    "Healthcheck"
-                ]
-            },
-            "put": {
-                "description": "Modify a parameter value.",
-                "operationId": "updateHealthcheckParameter",
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "HealthcheckParameter",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/HealthcheckParameter"
-                        }
-                    },
-                    {
-                        "description": "Modify a parameter value.",
-                        "in": "path",
-                        "name": "HealthcheckParameterId",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": "Success."
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                },
-                "tags": [
-                    "Healthcheck"
-                ]
-            }
-        },
         "/platform/5/license/generate": {
             "get": {
                 "description": "Generate license activation file.",
@@ -61000,6 +60076,346 @@
                 },
                 "tags": [
                     "License"
+                ]
+            }
+        },
+        "/platform/5/protocols/hdfs/fsimage/job": {
+            "get": {
+                "description": "Retrieve current HDFS FSImage job information.",
+                "operationId": "getHdfsFsimageJob",
+                "parameters": [
+                    {
+                        "description": "Access zone which contains job information.",
+                        "in": "query",
+                        "name": "zone",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Retrieve current HDFS FSImage job information.",
+                        "schema": {
+                            "$ref": "#/definitions/HdfsFsimageJob"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "Protocols"
+                ]
+            }
+        },
+        "/platform/5/protocols/hdfs/fsimage/job/settings": {
+            "get": {
+                "description": "Retrieve HDFS FSImage job properties.",
+                "operationId": "getHdfsFsimageJobSettings",
+                "parameters": [
+                    {
+                        "description": "Access zone which contains job settings.",
+                        "in": "query",
+                        "name": "zone",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Retrieve HDFS FSImage job properties.",
+                        "schema": {
+                            "$ref": "#/definitions/HdfsFsimageJobSettings"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "Protocols"
+                ]
+            },
+            "put": {
+                "description": "Modify HDFS FSImage job properties.",
+                "operationId": "updateHdfsFsimageJobSettings",
+                "parameters": [
+                    {
+                        "description": "Access zone which contains job settings.",
+                        "in": "query",
+                        "name": "zone",
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "HdfsFsimageJobSettings",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/HdfsFsimageJobSettingsSettings"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success."
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "Protocols"
+                ]
+            }
+        },
+        "/platform/5/protocols/hdfs/fsimage/latest": {
+            "delete": {
+                "description": "Delete the latest HDFS FSImage, if there is one.",
+                "operationId": "deleteHdfsFsimageLatest",
+                "parameters": [
+                    {
+                        "description": "Access zone which contains HDFS FSImage.",
+                        "in": "query",
+                        "name": "zone",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success."
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "Protocols"
+                ]
+            },
+            "get": {
+                "description": "Retrieve the latest HDFS FSImage information, if there is one.",
+                "operationId": "getHdfsFsimageLatest",
+                "parameters": [
+                    {
+                        "description": "Access zone which contains HDFS FSImage.",
+                        "in": "query",
+                        "name": "zone",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Retrieve the latest HDFS FSImage information, if there is one.",
+                        "schema": {
+                            "$ref": "#/definitions/HdfsFsimageLatest"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "Protocols"
+                ]
+            }
+        },
+        "/platform/5/protocols/hdfs/fsimage/settings": {
+            "get": {
+                "description": "Retrieve HDFS FSImage properties.",
+                "operationId": "getHdfsFsimageSettings",
+                "parameters": [
+                    {
+                        "description": "Access zone which contains FSImage settings.",
+                        "in": "query",
+                        "name": "zone",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Retrieve HDFS FSImage properties.",
+                        "schema": {
+                            "$ref": "#/definitions/HdfsFsimageSettings"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "Protocols"
+                ]
+            },
+            "put": {
+                "description": "Modify HDFS FSImage properties.",
+                "operationId": "updateHdfsFsimageSettings",
+                "parameters": [
+                    {
+                        "description": "Access zone which contains FSImage settings.",
+                        "in": "query",
+                        "name": "zone",
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "HdfsFsimageSettings",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/HdfsFsimageSettingsSettings"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success."
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "Protocols"
+                ]
+            }
+        },
+        "/platform/5/protocols/hdfs/inotify/settings": {
+            "get": {
+                "description": "Retrieve HDFS INotify properties.",
+                "operationId": "getHdfsInotifySettings",
+                "parameters": [
+                    {
+                        "description": "Access zone which contains INotify settings.",
+                        "in": "query",
+                        "name": "zone",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Retrieve HDFS INotify properties.",
+                        "schema": {
+                            "$ref": "#/definitions/HdfsInotifySettings"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "Protocols"
+                ]
+            },
+            "put": {
+                "description": "Modify HDFS INotify properties.",
+                "operationId": "updateHdfsInotifySettings",
+                "parameters": [
+                    {
+                        "description": "Access zone which contains INotify settings.",
+                        "in": "query",
+                        "name": "zone",
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "HdfsInotifySettings",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/HdfsInotifySettingsSettings"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success."
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "Protocols"
+                ]
+            }
+        },
+        "/platform/5/protocols/hdfs/inotify/stream": {
+            "delete": {
+                "description": "Delete all collected events, this has the effect of resetting the stream. Note that this may cause clients reading INotify to fail. The clients that want to track metadata changes may resume reading from INotify stream after updating filesystem metadata from other sources, like HDFS FSImage.",
+                "operationId": "deleteHdfsInotifyStream",
+                "parameters": [
+                    {
+                        "description": "Access zone which exposes HDFS INotify.",
+                        "in": "query",
+                        "name": "zone",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success."
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "Protocols"
+                ]
+            },
+            "get": {
+                "description": "Retrieve information about the collection and availability of HDFS INotify edit events.",
+                "operationId": "getHdfsInotifyStream",
+                "parameters": [
+                    {
+                        "description": "Access zone which exposes HDFS INotify.",
+                        "in": "query",
+                        "name": "zone",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Retrieve information about the collection and availability of HDFS INotify edit events.",
+                        "schema": {
+                            "$ref": "#/definitions/HdfsInotifyStream"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "Protocols"
                 ]
             }
         },
@@ -61354,6 +60770,498 @@
                 },
                 "tags": [
                     "Upgrade"
+                ]
+            }
+        },
+        "/platform/6/protocols/smb/settings/global": {
+            "get": {
+                "description": "List all settings.",
+                "operationId": "getSmbSettingsGlobal",
+                "parameters": [
+                    {
+                        "description": "If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.",
+                        "enum": [
+                            "user",
+                            "default",
+                            "effective"
+                        ],
+                        "in": "query",
+                        "name": "scope",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List all settings.",
+                        "schema": {
+                            "$ref": "#/definitions/SmbSettingsGlobal"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "Protocols"
+                ]
+            },
+            "put": {
+                "description": "Modify one or more settings.",
+                "operationId": "updateSmbSettingsGlobal",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "SmbSettingsGlobal",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/SmbSettingsGlobalExtended"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success."
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "Protocols"
+                ]
+            }
+        },
+        "/platform/6/protocols/smb/settings/share": {
+            "get": {
+                "description": "List all settings.",
+                "operationId": "getSmbSettingsShare",
+                "parameters": [
+                    {
+                        "description": "If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.",
+                        "enum": [
+                            "user",
+                            "default",
+                            "effective"
+                        ],
+                        "in": "query",
+                        "name": "scope",
+                        "type": "string"
+                    },
+                    {
+                        "description": "Zone which contains these share settings.",
+                        "in": "query",
+                        "name": "zone",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List all settings.",
+                        "schema": {
+                            "$ref": "#/definitions/SmbSettingsShare"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "Protocols"
+                ]
+            },
+            "put": {
+                "description": "Modify one or more settings.",
+                "operationId": "updateSmbSettingsShare",
+                "parameters": [
+                    {
+                        "description": "Zone which contains these share settings.",
+                        "in": "query",
+                        "name": "zone",
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "SmbSettingsShare",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/SmbSettingsShareExtended"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success."
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "Protocols"
+                ]
+            }
+        },
+        "/platform/6/protocols/smb/settings/zone": {
+            "get": {
+                "description": "List all settings.",
+                "operationId": "getSmbSettingsZone",
+                "parameters": [
+                    {
+                        "description": "If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.",
+                        "enum": [
+                            "user",
+                            "default",
+                            "effective"
+                        ],
+                        "in": "query",
+                        "name": "scope",
+                        "type": "string"
+                    },
+                    {
+                        "description": "Name of the access zone",
+                        "in": "query",
+                        "maxLength": 511,
+                        "minLength": 1,
+                        "name": "zone",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List all settings.",
+                        "schema": {
+                            "$ref": "#/definitions/SmbSettingsZone"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "Protocols"
+                ]
+            },
+            "put": {
+                "description": "Modify one or more settings.",
+                "operationId": "updateSmbSettingsZone",
+                "parameters": [
+                    {
+                        "description": "Name of the access zone",
+                        "in": "query",
+                        "maxLength": 511,
+                        "minLength": 1,
+                        "name": "zone",
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "SmbSettingsZone",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/SmbSettingsZoneSettings"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success."
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "Protocols"
+                ]
+            }
+        },
+        "/platform/6/protocols/smb/shares": {
+            "delete": {
+                "description": "Delete multiple smb shares.",
+                "operationId": "deleteSmbShares",
+                "parameters": [],
+                "responses": {
+                    "204": {
+                        "description": "Success."
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "Protocols"
+                ]
+            },
+            "get": {
+                "description": "List all shares.",
+                "operationId": "listSmbShares",
+                "parameters": [
+                    {
+                        "description": "Order results by this field. Default is id.",
+                        "enum": [
+                            "id",
+                            "name",
+                            "path",
+                            "description"
+                        ],
+                        "in": "query",
+                        "name": "sort",
+                        "type": "string"
+                    },
+                    {
+                        "description": "Zone which contains this share.",
+                        "in": "query",
+                        "name": "zone",
+                        "type": "string"
+                    },
+                    {
+                        "description": "Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).",
+                        "in": "query",
+                        "maxLength": 8192,
+                        "minLength": 0,
+                        "name": "resume",
+                        "type": "string"
+                    },
+                    {
+                        "description": "If true, resolve group and user names in personas.",
+                        "in": "query",
+                        "name": "resolve_names",
+                        "type": "boolean"
+                    },
+                    {
+                        "description": "Return no more than this many results at once (see resume).",
+                        "in": "query",
+                        "maximum": 5000,
+                        "minimum": 1,
+                        "name": "limit",
+                        "type": "integer"
+                    },
+                    {
+                        "description": "If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.",
+                        "enum": [
+                            "user",
+                            "default",
+                            "effective"
+                        ],
+                        "in": "query",
+                        "name": "scope",
+                        "type": "string"
+                    },
+                    {
+                        "description": "The direction of the sort.",
+                        "enum": [
+                            "ASC",
+                            "DESC"
+                        ],
+                        "in": "query",
+                        "minLength": 0,
+                        "name": "dir",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List all shares.",
+                        "schema": {
+                            "$ref": "#/definitions/SmbSharesExtended"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "Protocols"
+                ]
+            },
+            "post": {
+                "description": "Create a new share.",
+                "operationId": "createSmbShare",
+                "parameters": [
+                    {
+                        "description": "Zone which contains this share.",
+                        "in": "query",
+                        "name": "zone",
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "SmbShare",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/SmbShareCreateParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Create a new share.",
+                        "schema": {
+                            "$ref": "#/definitions/CreateSmbShareResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "Protocols"
+                ]
+            }
+        },
+        "/platform/6/protocols/smb/shares/{SmbShareId}": {
+            "delete": {
+                "description": "Delete the share.",
+                "operationId": "deleteSmbShare",
+                "parameters": [
+                    {
+                        "description": "Zone which contains this share.",
+                        "in": "query",
+                        "name": "zone",
+                        "type": "string"
+                    },
+                    {
+                        "description": "Delete the share.",
+                        "in": "path",
+                        "name": "SmbShareId",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success."
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "Protocols"
+                ]
+            },
+            "get": {
+                "description": "Retrieve share.",
+                "operationId": "getSmbShare",
+                "parameters": [
+                    {
+                        "description": "If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.",
+                        "enum": [
+                            "user",
+                            "default",
+                            "effective"
+                        ],
+                        "in": "query",
+                        "name": "scope",
+                        "type": "string"
+                    },
+                    {
+                        "description": "If true, resolve group and user names in personas.",
+                        "in": "query",
+                        "name": "resolve_names",
+                        "type": "boolean"
+                    },
+                    {
+                        "description": "Zone which contains this share.",
+                        "in": "query",
+                        "name": "zone",
+                        "type": "string"
+                    },
+                    {
+                        "description": "Retrieve share.",
+                        "in": "path",
+                        "name": "SmbShareId",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Retrieve share.",
+                        "schema": {
+                            "$ref": "#/definitions/SmbShares"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "Protocols"
+                ]
+            },
+            "put": {
+                "description": "Modify share. All input fields are optional, but one or more must be supplied.",
+                "operationId": "updateSmbShare",
+                "parameters": [
+                    {
+                        "description": "Zone which contains this share.",
+                        "in": "query",
+                        "name": "zone",
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "SmbShare",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/SmbShare"
+                        }
+                    },
+                    {
+                        "description": "Modify share. All input fields are optional, but one or more must be supplied.",
+                        "in": "path",
+                        "name": "SmbShareId",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success."
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "Protocols"
                 ]
             }
         }

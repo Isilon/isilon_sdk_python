@@ -36,6 +36,7 @@ Name | Type | Description | Notes
 **path** | **str** | Path of share within /ifs. | [optional] 
 **permissions** | [**list[SmbSharePermission]**](SmbSharePermission.md) | Specifies an ordered list of permission modifications. | [optional] 
 **run_as_root** | [**list[AuthAccessAccessItemFileGroup]**](AuthAccessAccessItemFileGroup.md) | Allow account to run as root. | [optional] 
+**smb3_encryption_enabled** | **bool** | Enables SMB3 encryption for the share. | [optional] 
 **strict_ca_lockout** | **bool** | Specifies if persistent opens would do strict lockout on the share. | [optional] 
 **strict_flush** | **bool** | Handle SMB flush operations. | [optional] 
 **strict_locking** | **bool** | Specifies whether byte range locks contend against SMB I/O. | [optional] 

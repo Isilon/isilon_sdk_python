@@ -1,4 +1,4 @@
-# isi_sdk_8_1_0.SyncReportsApi
+# isi_sdk_8_1_1.SyncReportsApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -19,17 +19,17 @@ View a single SyncIQ subreport.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_0
-from isi_sdk_8_1_0.rest import ApiException
+import isi_sdk_8_1_1
+from isi_sdk_8_1_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_0.Configuration()
+configuration = isi_sdk_8_1_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_0.SyncReportsApi(isi_sdk_8_1_0.ApiClient(configuration))
+api_instance = isi_sdk_8_1_1.SyncReportsApi(isi_sdk_8_1_1.ApiClient(configuration))
 report_subreport_id = 'report_subreport_id_example' # str | View a single SyncIQ subreport.
 rid = 'rid_example' # str | 
 
@@ -73,17 +73,17 @@ Get a list of SyncIQ subreports for a report.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_0
-from isi_sdk_8_1_0.rest import ApiException
+import isi_sdk_8_1_1
+from isi_sdk_8_1_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_0.Configuration()
+configuration = isi_sdk_8_1_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_0.SyncReportsApi(isi_sdk_8_1_0.ApiClient(configuration))
+api_instance = isi_sdk_8_1_1.SyncReportsApi(isi_sdk_8_1_1.ApiClient(configuration))
 rid = 'rid_example' # str | 
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)

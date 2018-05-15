@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **proxy** | **str** | The id or name of a proxy to be used by this account | [optional] 
 **skip_account_check** | **bool** | (Not recommended) Indicates whether to skip validation that the cloud account is still accessible | [optional] 
 **skip_ssl_validation** | **bool** | Indicates whether to skip SSL certificate validation when connecting to the cloud | [optional] 
-**storage_region** | **str** | (S3 only) An appropriate region for the S3 account.  For example, faster access times may be gained by referencing a nearby region | [optional] 
+**storage_region** | **str** | An appropriate region for the account as defined by the cloud service provider.  For example, faster access times may be gained by referencing a nearby region | [optional] 
 **telemetry_bucket** | **str** | (S3 only) The name of the bucket into which generated metrics reports are placed by the cloud service provider | [optional] 
 **uri** | **str** | A valid URI pointing to the location of the cloud storage | [optional] 
 

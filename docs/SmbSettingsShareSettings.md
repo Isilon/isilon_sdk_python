@@ -27,6 +27,7 @@ Name | Type | Description | Notes
 **mangle_map** | **list[str]** | Character mangle map. | [optional] 
 **ntfs_acl_support** | **bool** | Support NTFS ACLs on files and directories. | [optional] 
 **oplocks** | **bool** | Allow oplock requests. | [optional] 
+**smb3_encryption_enabled** | **bool** | Enables SMB3 encryption for the share. | [optional] 
 **strict_ca_lockout** | **bool** | Specifies if persistent opens would do strict lockout on the share. | [optional] 
 **strict_flush** | **bool** | Handle SMB flush operations. | [optional] 
 **strict_locking** | **bool** | Specifies whether byte range locks contend against SMB I/O. | [optional] 
