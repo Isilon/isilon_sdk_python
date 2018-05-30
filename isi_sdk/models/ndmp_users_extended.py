@@ -16,7 +16,7 @@ import re  # noqa: F401
 
 import six
 
-from isi_sdk_8_1_1.models.ndmp_users import NdmpUsers  # noqa: F401,E501
+from isi_sdk_8_1_1.models.ndmp_user_extended import NdmpUserExtended  # noqa: F401,E501
 
 
 class NdmpUsersExtended(object):
@@ -34,7 +34,7 @@ class NdmpUsersExtended(object):
     """
     swagger_types = {
         'total': 'int',
-        'users': 'list[NdmpUsers]'
+        'users': 'list[NdmpUserExtended]'
     }
 
     attribute_map = {
@@ -87,7 +87,7 @@ class NdmpUsersExtended(object):
 
 
         :return: The users of this NdmpUsersExtended.  # noqa: E501
-        :rtype: list[NdmpUsers]
+        :rtype: list[NdmpUserExtended]
         """
         return self._users
 
@@ -97,7 +97,7 @@ class NdmpUsersExtended(object):
 
 
         :param users: The users of this NdmpUsersExtended.  # noqa: E501
-        :type: list[NdmpUsers]
+        :type: list[NdmpUserExtended]
         """
 
         self._users = users

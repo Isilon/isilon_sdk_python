@@ -16,7 +16,7 @@ import re  # noqa: F401
 
 import six
 
-from isi_sdk_8_1_1.models.filepool_default_policy_default_policy_action import FilepoolDefaultPolicyDefaultPolicyAction  # noqa: F401,E501
+from isi_sdk_8_1_1.models.filepool_policy_action import FilepoolPolicyAction  # noqa: F401,E501
 from isi_sdk_8_1_1.models.filepool_policy_file_matching_pattern import FilepoolPolicyFileMatchingPattern  # noqa: F401,E501
 
 
@@ -34,7 +34,7 @@ class FilepoolPolicyExtended(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'actions': 'list[FilepoolDefaultPolicyDefaultPolicyAction]',
+        'actions': 'list[FilepoolPolicyAction]',
         'apply_order': 'int',
         'birth_cluster_id': 'str',
         'description': 'str',
@@ -97,7 +97,7 @@ class FilepoolPolicyExtended(object):
         A list of actions to be taken for matching files  # noqa: E501
 
         :return: The actions of this FilepoolPolicyExtended.  # noqa: E501
-        :rtype: list[FilepoolDefaultPolicyDefaultPolicyAction]
+        :rtype: list[FilepoolPolicyAction]
         """
         return self._actions
 
@@ -108,7 +108,7 @@ class FilepoolPolicyExtended(object):
         A list of actions to be taken for matching files  # noqa: E501
 
         :param actions: The actions of this FilepoolPolicyExtended.  # noqa: E501
-        :type: list[FilepoolDefaultPolicyDefaultPolicyAction]
+        :type: list[FilepoolPolicyAction]
         """
 
         self._actions = actions

@@ -16,7 +16,7 @@ import re  # noqa: F401
 
 import six
 
-from isi_sdk_8_1_1.models.filepool_policy_extended import FilepoolPolicyExtended  # noqa: F401,E501
+from isi_sdk_8_1_1.models.filepool_template import FilepoolTemplate  # noqa: F401,E501
 
 
 class FilepoolTemplates(object):
@@ -34,7 +34,7 @@ class FilepoolTemplates(object):
     """
     swagger_types = {
         'resume': 'str',
-        'templates': 'list[FilepoolPolicyExtended]',
+        'templates': 'list[FilepoolTemplate]',
         'total': 'int'
     }
 
@@ -90,7 +90,7 @@ class FilepoolTemplates(object):
 
 
         :return: The templates of this FilepoolTemplates.  # noqa: E501
-        :rtype: list[FilepoolPolicyExtended]
+        :rtype: list[FilepoolTemplate]
         """
         return self._templates
 
@@ -100,7 +100,7 @@ class FilepoolTemplates(object):
 
 
         :param templates: The templates of this FilepoolTemplates.  # noqa: E501
-        :type: list[FilepoolPolicyExtended]
+        :type: list[FilepoolTemplate]
         """
 
         self._templates = templates

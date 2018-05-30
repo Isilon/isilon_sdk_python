@@ -3,6 +3,46 @@
         "application/json"
     ],
     "definitions": {
+        "AccessPointCreateParams": {
+            "properties": {
+                "path": {
+                    "description": "Absolute file system path of access point.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "path"
+            ],
+            "type": "object"
+        },
+        "AclObject": {
+            "properties": {
+                "accessrights": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "accesstype": {
+                    "type": "string"
+                },
+                "inherit_flags": {
+                    "items": {
+                        "type": "boolean"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "op": {
+                    "type": "string"
+                },
+                "trustee": {
+                    "$ref": "#/definitions/MemberObject"
+                }
+            },
+            "type": "object"
+        },
         "AdsProviderControllers": {
             "additionalProperties": false,
             "properties": {
@@ -4211,59 +4251,6 @@
             },
             "type": "object"
         },
-        "ClusterNodeExtendedExtended": {
-            "properties": {
-                "drive_d_config": {
-                    "$ref": "#/definitions/ClusterNodeDriveDConfig",
-                    "description": "An object containing a node's drive subsystem XML configuration file."
-                },
-                "drives": {
-                    "description": "List of the drives in this node.",
-                    "items": {
-                        "$ref": "#/definitions/NodeDrivesNodeDrive",
-                        "description": "Drive information."
-                    },
-                    "type": "array"
-                },
-                "hardware": {
-                    "$ref": "#/definitions/ClusterNodeHardware",
-                    "description": "Node hardware identifying information (static)."
-                },
-                "id": {
-                    "description": "Node ID (Device Number) of this node.",
-                    "type": "integer"
-                },
-                "lnn": {
-                    "description": "Logical Node Number (LNN) of this node.",
-                    "type": "integer"
-                },
-                "partitions": {
-                    "$ref": "#/definitions/ClusterNodePartitions",
-                    "description": "Node partition information."
-                },
-                "sensors": {
-                    "$ref": "#/definitions/ClusterNodeSensors",
-                    "description": "Node sensor information (hardware reported)."
-                },
-                "sleds": {
-                    "description": "List of the sleds in this node.",
-                    "items": {
-                        "$ref": "#/definitions/NodeSledsNodeSled",
-                        "description": "Information about a sled in node."
-                    },
-                    "type": "array"
-                },
-                "state": {
-                    "$ref": "#/definitions/ClusterNodeStateExtendedExtended",
-                    "description": "Node state information (reported and modifiable)."
-                },
-                "status": {
-                    "$ref": "#/definitions/ClusterNodeStatus",
-                    "description": "Node status information (hardware reported)."
-                }
-            },
-            "type": "object"
-        },
         "ClusterNodeHardware": {
             "properties": {
                 "chassis": {
@@ -4500,24 +4487,7 @@
                     "description": "Node readonly state."
                 },
                 "servicelight": {
-                    "$ref": "#/definitions/ClusterNodeStateServicelightExtended",
-                    "description": "Node service light state."
-                },
-                "smartfail": {
-                    "$ref": "#/definitions/NodeStateSmartfailExtended",
-                    "description": "Node smartfail state."
-                }
-            },
-            "type": "object"
-        },
-        "ClusterNodeStateExtendedExtended": {
-            "properties": {
-                "readonly": {
-                    "$ref": "#/definitions/NodeStateReadonlyExtended",
-                    "description": "Node readonly state."
-                },
-                "servicelight": {
-                    "$ref": "#/definitions/ClusterNodeStateServicelightExtendedExtended",
+                    "$ref": "#/definitions/NodeStateNodeServicelight",
                     "description": "Node service light state."
                 },
                 "smartfail": {
@@ -4538,44 +4508,6 @@
                 "enabled"
             ],
             "type": "object"
-        },
-        "ClusterNodeStateServicelightExtended": {
-            "allOf": [
-                {
-                    "$ref": "#/definitions/NodeStateServicelightExtended"
-                },
-                {
-                    "properties": {
-                        "enabled": {
-                            "description": "The node service light state (True = on).",
-                            "type": "boolean"
-                        }
-                    },
-                    "required": [
-                        "enabled"
-                    ],
-                    "type": "object"
-                }
-            ]
-        },
-        "ClusterNodeStateServicelightExtendedExtended": {
-            "allOf": [
-                {
-                    "$ref": "#/definitions/NodeStateServicelightExtended"
-                },
-                {
-                    "properties": {
-                        "enabled": {
-                            "description": "The node service light state (True = on).",
-                            "type": "boolean"
-                        }
-                    },
-                    "required": [
-                        "enabled"
-                    ],
-                    "type": "object"
-                }
-            ]
         },
         "ClusterNodeStateSmartfail": {
             "properties": {
@@ -4761,26 +4693,6 @@
                 "nodes": {
                     "items": {
                         "$ref": "#/definitions/ClusterNodeExtended",
-                        "description": "Node information."
-                    },
-                    "minItems": 0,
-                    "type": "array"
-                },
-                "total": {
-                    "description": "Total number of items available.",
-                    "maximum": 4294967295,
-                    "minimum": 0,
-                    "type": "integer"
-                }
-            },
-            "type": "object"
-        },
-        "ClusterNodesExtendedExtendedExtended": {
-            "additionalProperties": false,
-            "properties": {
-                "nodes": {
-                    "items": {
-                        "$ref": "#/definitions/ClusterNodeExtendedExtended",
                         "description": "Node information."
                     },
                     "minItems": 0,
@@ -5597,6 +5509,31 @@
                 "class_1",
                 "id"
             ],
+            "type": "object"
+        },
+        "CopyErrors": {
+            "properties": {
+                "copy_errors": {
+                    "items": {
+                        "properties": {
+                            "error_src": {
+                                "type": "string"
+                            },
+                            "message": {
+                                "type": "string"
+                            },
+                            "source": {
+                                "type": "string"
+                            },
+                            "target": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
             "type": "object"
         },
         "CreateAntivirusScanItemResponse": {
@@ -6520,6 +6457,42 @@
             },
             "type": "object"
         },
+        "DirectoryQuery": {
+            "properties": {
+                "result": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "scope": {
+                    "properties": {
+                        "conditions": {
+                            "items": {
+                                "properties": {
+                                    "attr": {
+                                        "type": "string"
+                                    },
+                                    "operator": {
+                                        "type": "string"
+                                    },
+                                    "value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "logic": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
         "DrivesDriveFirmware": {
             "properties": {
                 "errors": {
@@ -7156,6 +7129,55 @@
                 }
             ]
         },
+        "EventChannelExtendedExtended": {
+            "properties": {
+                "allowed_nodes": {
+                    "description": "Nodes (LNNs) that can be masters for this channel",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "type": "array"
+                },
+                "enabled": {
+                    "description": "Channel is to be used or not",
+                    "type": "boolean"
+                },
+                "excluded_nodes": {
+                    "description": "Nodes (LNNs) that can NOT be the masters for this channel",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "Unique identifier.",
+                    "type": "integer"
+                },
+                "name": {
+                    "description": "Channel name,  may not contain /, max length 254.",
+                    "type": "string"
+                },
+                "parameters": {
+                    "$ref": "#/definitions/EventChannelParameters",
+                    "description": "Parameters to be used for an smtp channel"
+                },
+                "system": {
+                    "description": "Channel is a pre-defined system channel",
+                    "type": "boolean"
+                },
+                "type": {
+                    "description": "The mechanism used by the channel",
+                    "enum": [
+                        "connectemc",
+                        "smtp",
+                        "snmp",
+                        "heartbeat"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
         "EventChannelParameters": {
             "properties": {
                 "address": {
@@ -7237,28 +7259,29 @@
             "type": "object"
         },
         "EventChannelsExtended": {
-            "allOf": [
-                {
-                    "$ref": "#/definitions/EventChannels"
-                },
-                {
-                    "additionalProperties": false,
-                    "properties": {
-                        "resume": {
-                            "description": "Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).",
-                            "minLength": 0,
-                            "type": "string"
-                        },
-                        "total": {
-                            "description": "Total number of items available.",
-                            "maximum": 4294967295,
-                            "minimum": 0,
-                            "type": "integer"
-                        }
+            "additionalProperties": false,
+            "properties": {
+                "channels": {
+                    "items": {
+                        "$ref": "#/definitions/EventChannelExtendedExtended",
+                        "description": "Named channel through which alerts can be delivered."
                     },
-                    "type": "object"
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "resume": {
+                    "description": "Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).",
+                    "minLength": 0,
+                    "type": "string"
+                },
+                "total": {
+                    "description": "Total number of items available.",
+                    "maximum": 4294967295,
+                    "minimum": 0,
+                    "type": "integer"
                 }
-            ]
+            },
+            "type": "object"
         },
         "EventEvent": {
             "description": "Test Event Specifier",
@@ -7794,13 +7817,38 @@
             },
             "type": "object"
         },
+        "FilepoolPoliciesExtended": {
+            "additionalProperties": false,
+            "properties": {
+                "policies": {
+                    "items": {
+                        "$ref": "#/definitions/FilepoolPolicyExtendedExtended",
+                        "description": "A filepool policy object"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "resume": {
+                    "description": "Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).",
+                    "minLength": 0,
+                    "type": "string"
+                },
+                "total": {
+                    "description": "Total number of items available.",
+                    "maximum": 4294967295,
+                    "minimum": 0,
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
         "FilepoolPolicy": {
             "description": "A filepool policy object",
             "properties": {
                 "actions": {
                     "description": "A list of actions to be taken for matching files",
                     "items": {
-                        "$ref": "#/definitions/FilepoolPolicyAction",
+                        "$ref": "#/definitions/FilepoolDefaultPolicyAction",
                         "description": "An action to apply to a file matching the policy"
                     },
                     "type": "array"
@@ -7825,50 +7873,84 @@
             "type": "object"
         },
         "FilepoolPolicyAction": {
-            "allOf": [
-                {
-                    "$ref": "#/definitions/FilepoolDefaultPolicyDefault-PolicyAction"
+            "properties": {
+                "action_param": {
+                    "description": "Varies according to action_type",
+                    "type": "string"
                 },
-                {
-                    "properties": {
-                        "action_param": {
-                            "description": "Varies according to action_type",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "action_param"
+                "action_type": {
+                    "enum": [
+                        "set_requested_protection",
+                        "set_data_access_pattern",
+                        "enable_coalescer",
+                        "apply_data_storage_policy",
+                        "apply_snapshot_storage_policy",
+                        "set_cloudpool_policy",
+                        "enable_packing"
                     ],
-                    "type": "object"
+                    "type": "string"
                 }
-            ]
+            },
+            "required": [
+                "action_type"
+            ],
+            "type": "object"
         },
-        "FilepoolPolicyActionCreateParams": {
-            "allOf": [
-                {
-                    "$ref": "#/definitions/FilepoolDefaultPolicyDefault-PolicyAction"
+        "FilepoolPolicyActionExtended": {
+            "properties": {
+                "action_param": {
+                    "description": "Varies according to action_type",
+                    "type": "string"
                 },
-                {
-                    "properties": {
-                        "action_param": {
-                            "description": "Varies according to action_type",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "action_param"
+                "action_type": {
+                    "enum": [
+                        "set_requested_protection",
+                        "set_data_access_pattern",
+                        "enable_coalescer",
+                        "apply_data_storage_policy",
+                        "apply_snapshot_storage_policy",
+                        "set_cloudpool_policy",
+                        "enable_packing"
                     ],
-                    "type": "object"
+                    "type": "string"
                 }
-            ]
+            },
+            "required": [
+                "action_type"
+            ],
+            "type": "object"
         },
         "FilepoolPolicyCreateParams": {
-            "description": "A filepool policy object",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/FilepoolPolicy"
+                },
+                {
+                    "description": "A filepool policy object",
+                    "properties": {
+                        "file_matching_pattern": {
+                            "$ref": "#/definitions/FilepoolPolicyFileMatchingPattern",
+                            "description": "The file matching rules for this policy"
+                        },
+                        "name": {
+                            "description": "A unique name for this policy",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "name",
+                        "file_matching_pattern"
+                    ],
+                    "type": "object"
+                }
+            ]
+        },
+        "FilepoolPolicyExtended": {
             "properties": {
                 "actions": {
                     "description": "A list of actions to be taken for matching files",
                     "items": {
-                        "$ref": "#/definitions/FilepoolPolicyActionCreateParams",
+                        "$ref": "#/definitions/FilepoolPolicyAction",
                         "description": "An action to apply to a file matching the policy"
                     },
                     "type": "array"
@@ -7876,6 +7958,10 @@
                 "apply_order": {
                     "description": "The order in which this policy should be applied (relative to other policies)",
                     "type": "integer"
+                },
+                "birth_cluster_id": {
+                    "description": "The guid assigned to the cluster on which the account was created",
+                    "type": "string"
                 },
                 "description": {
                     "description": "A description for this policy",
@@ -7885,23 +7971,35 @@
                     "$ref": "#/definitions/FilepoolPolicyFileMatchingPattern",
                     "description": "The file matching rules for this policy"
                 },
+                "id": {
+                    "description": "A unique identifier for this policy",
+                    "type": "integer"
+                },
                 "name": {
                     "description": "A unique name for this policy",
                     "type": "string"
+                },
+                "state": {
+                    "description": "Indicates whether this policy is in a good state (\"OK\") or disabled (\"disabled\")",
+                    "enum": [
+                        "OK",
+                        "disabled"
+                    ],
+                    "type": "string"
+                },
+                "state_details": {
+                    "description": "Gives further information to describe the state of this policy",
+                    "type": "string"
                 }
             },
-            "required": [
-                "name",
-                "file_matching_pattern"
-            ],
             "type": "object"
         },
-        "FilepoolPolicyExtended": {
+        "FilepoolPolicyExtendedExtended": {
             "properties": {
                 "actions": {
                     "description": "A list of actions to be taken for matching files",
                     "items": {
-                        "$ref": "#/definitions/FilepoolDefaultPolicyDefault-PolicyAction",
+                        "$ref": "#/definitions/FilepoolPolicyActionExtended",
                         "description": "An action to apply to a file matching the policy"
                     },
                     "type": "array"
@@ -8031,6 +8129,79 @@
             ],
             "type": "object"
         },
+        "FilepoolTemplate": {
+            "properties": {
+                "actions": {
+                    "description": "A list of actions to be taken for matching files",
+                    "items": {
+                        "$ref": "#/definitions/FilepoolTemplateAction",
+                        "description": "An action to apply to a file matching the policy"
+                    },
+                    "type": "array"
+                },
+                "apply_order": {
+                    "description": "The order in which this policy should be applied (relative to other policies)",
+                    "type": "integer"
+                },
+                "birth_cluster_id": {
+                    "description": "The guid assigned to the cluster on which the account was created",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A description for this policy",
+                    "type": "string"
+                },
+                "file_matching_pattern": {
+                    "$ref": "#/definitions/FilepoolPolicyFileMatchingPattern",
+                    "description": "The file matching rules for this policy"
+                },
+                "id": {
+                    "description": "A unique identifier for this policy",
+                    "type": "integer"
+                },
+                "name": {
+                    "description": "A unique name for this policy",
+                    "type": "string"
+                },
+                "state": {
+                    "description": "Indicates whether this policy is in a good state (\"OK\") or disabled (\"disabled\")",
+                    "enum": [
+                        "OK",
+                        "disabled"
+                    ],
+                    "type": "string"
+                },
+                "state_details": {
+                    "description": "Gives further information to describe the state of this policy",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FilepoolTemplateAction": {
+            "properties": {
+                "action_param": {
+                    "description": "Varies according to action_type",
+                    "type": "string"
+                },
+                "action_type": {
+                    "enum": [
+                        "set_requested_protection",
+                        "set_data_access_pattern",
+                        "enable_coalescer",
+                        "apply_data_storage_policy",
+                        "apply_snapshot_storage_policy",
+                        "set_cloudpool_policy",
+                        "enable_packing"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "action_type"
+            ],
+            "type": "object"
+        },
         "FilepoolTemplates": {
             "additionalProperties": false,
             "properties": {
@@ -8041,7 +8212,7 @@
                 },
                 "templates": {
                     "items": {
-                        "$ref": "#/definitions/FilepoolPolicyExtended",
+                        "$ref": "#/definitions/FilepoolTemplate",
                         "description": "A filepool policy object"
                     },
                     "minItems": 0,
@@ -10146,7 +10317,6 @@
                 }
             },
             "required": [
-                "paths",
                 "type"
             ],
             "type": "object"
@@ -10469,7 +10639,6 @@
                 }
             },
             "required": [
-                "disconnected_nodes",
                 "coordinator",
                 "stats_ready",
                 "next_jid",
@@ -12030,11 +12199,31 @@
         "MappingUsersRulesParameters": {
             "properties": {
                 "default_unix_user": {
-                    "$ref": "#/definitions/MappingUsersRulesRuleOptionsDefaultUser",
+                    "$ref": "#/definitions/MappingUsersRulesParametersDefaultUnixUser",
                     "description": ""
                 }
             },
             "type": "object"
+        },
+        "MappingUsersRulesParametersDefaultUnixUser": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/MappingUsersRulesRuleUser2"
+                },
+                {
+                    "properties": {
+                        "user": {
+                            "maxLength": 255,
+                            "minLength": 0,
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "user"
+                    ],
+                    "type": "object"
+                }
+            ]
         },
         "MappingUsersRulesRule": {
             "properties": {
@@ -12082,7 +12271,7 @@
                     "description": "Specifies the properties for user mapping rules."
                 },
                 "user1": {
-                    "$ref": "#/definitions/MappingUsersRulesRuleOptionsDefaultUser",
+                    "$ref": "#/definitions/MappingUsersRulesRuleUser1",
                     "description": ""
                 },
                 "user2": {
@@ -12165,6 +12354,26 @@
             },
             "type": "object"
         },
+        "MappingUsersRulesRuleUser1": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/MappingUsersRulesRuleUser2"
+                },
+                {
+                    "properties": {
+                        "user": {
+                            "maxLength": 255,
+                            "minLength": 0,
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "user"
+                    ],
+                    "type": "object"
+                }
+            ]
+        },
         "MappingUsersRulesRuleUser2": {
             "properties": {
                 "domain": {
@@ -12223,6 +12432,233 @@
                 "default_unix_user": {
                     "$ref": "#/definitions/MappingUsersRulesRuleUser2",
                     "description": ""
+                }
+            },
+            "type": "object"
+        },
+        "MemberObject": {
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "NamespaceAccessPoints": {
+            "properties": {
+                "namespaces": {
+                    "items": {
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "path": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "versions": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "NamespaceAcl": {
+            "properties": {
+                "acl": {
+                    "description": "Provides the JSON array of access rights.",
+                    "items": {
+                        "$ref": "#/definitions/AclObject"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "authoritative": {
+                    "description": "If the directory has access rights set, then this field is returned as acl. If the directory has POSIX permissions set, then this field is returned as mode.",
+                    "type": "string"
+                },
+                "group": {
+                    "$ref": "#/definitions/MemberObject",
+                    "description": "Provides the JSON object for the group persona of the owner."
+                },
+                "mode": {
+                    "description": "Provides the POSIX mode.",
+                    "type": "string"
+                },
+                "owner": {
+                    "$ref": "#/definitions/MemberObject",
+                    "description": "Provides the JSON object for the owner persona."
+                }
+            },
+            "type": "object"
+        },
+        "NamespaceMetadata": {
+            "properties": {
+                "action": {
+                    "type": "string"
+                },
+                "attrs": {
+                    "items": {
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "namespace": {
+                                "type": "string"
+                            },
+                            "op": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "NamespaceMetadataList": {
+            "properties": {
+                "attrs": {
+                    "items": {
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "namespace": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "NamespaceObject": {
+            "properties": {
+                "access_time": {
+                    "description": "Specifies the date when the object was last accessed in HTTP date/time format.",
+                    "type": "string"
+                },
+                "atime_val": {
+                    "description": "Specifies the time when the object was last accessed in UNIX Epoch format.",
+                    "type": "integer"
+                },
+                "block_size": {
+                    "description": "Specifies the block size of the object.",
+                    "type": "integer"
+                },
+                "blocks": {
+                    "description": "Specifies the number of blocks that compose the object.",
+                    "type": "integer"
+                },
+                "btime_val": {
+                    "description": "Specifies the time when the object data was created in UNIX Epoch format.",
+                    "type": "integer"
+                },
+                "change_time": {
+                    "description": "Specifies the date when the object was last changed (including data and metadata changes) in HTTP date/time format.",
+                    "type": "string"
+                },
+                "create_time": {
+                    "description": "Specifies the date when the object data was created in HTTP date/time format.",
+                    "type": "string"
+                },
+                "ctime_val": {
+                    "description": "Specifies the time when the object was last changed (including data and metadata changes) in UNIX Epoch format.",
+                    "type": "integer"
+                },
+                "gid": {
+                    "description": "Specifies the GID for the owner.",
+                    "type": "integer"
+                },
+                "group": {
+                    "description": "Specifies the group name for the owner of the object.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Specifies the object ID, which is also the INODE number.",
+                    "type": "integer"
+                },
+                "is_hidden": {
+                    "description": "Specifies whether the file is hidden or not.",
+                    "type": "boolean"
+                },
+                "last_modified": {
+                    "description": "Specifies the time when the object data was last modified in HTTP date/time format.",
+                    "type": "string"
+                },
+                "mode": {
+                    "description": "Specifies the UNIX mode octal number.",
+                    "type": "string"
+                },
+                "mtime_val": {
+                    "description": "Specifies the time when the object data was last modified in UNIX Epoch format.",
+                    "type": "integer"
+                },
+                "name": {
+                    "description": "Specifies the name of the object.",
+                    "type": "string"
+                },
+                "nlink": {
+                    "description": "Specifies the number of hard links to the object.",
+                    "type": "integer"
+                },
+                "owner": {
+                    "description": "Specifies the user name for the owner of the object.",
+                    "type": "string"
+                },
+                "size": {
+                    "description": "Specifies the size of the object in bytes.",
+                    "type": "integer"
+                },
+                "stub": {
+                    "type": "boolean"
+                },
+                "type": {
+                    "description": "Specifies the object type, which can be one of the following values: container, object, pipe, character_device, block_device, symbolic_link, socket, or whiteout_file.",
+                    "type": "string"
+                },
+                "uid": {
+                    "description": "Specifies the UID for the owner.",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "NamespaceObjects": {
+            "properties": {
+                "children": {
+                    "items": {
+                        "$ref": "#/definitions/NamespaceObject"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "resume": {
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -13054,7 +13490,7 @@
                 }
             ]
         },
-        "NdmpUsers": {
+        "NdmpUserExtended": {
             "properties": {
                 "id": {
                     "description": "Unique display ID.",
@@ -13063,6 +13499,18 @@
                 "name": {
                     "description": "A unique user name for NDMP administrator.",
                     "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "NdmpUsers": {
+            "properties": {
+                "users": {
+                    "items": {
+                        "$ref": "#/definitions/NdmpUserExtended",
+                        "description": ""
+                    },
+                    "type": "array"
                 }
             },
             "type": "object"
@@ -13078,7 +13526,7 @@
                 },
                 "users": {
                     "items": {
-                        "$ref": "#/definitions/NdmpUsers",
+                        "$ref": "#/definitions/NdmpUserExtended",
                         "description": ""
                     },
                     "minItems": 0,
@@ -24485,6 +24933,9 @@
                     "description": "The FQDN of the source domain to map.",
                     "type": "string"
                 },
+                "id": {
+                    "type": "string"
+                },
                 "mapping": {
                     "description": "The FQDN of destination domain to map to.",
                     "type": "string"
@@ -33741,6 +34192,20 @@
             },
             "type": "object"
         },
+        "WormCreateParams": {
+            "properties": {
+                "commit_to_worm": {
+                    "default": false,
+                    "description": "Specifies whether to commit the file to a WORM state after the retention date is set.",
+                    "type": "boolean"
+                },
+                "worm_retention_date": {
+                    "description": "Specifies the retention expiration date string in Coordinated Universal Time (UTC/GMT).",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
         "WormDomain": {
             "properties": {
                 "autocommit_offset": {
@@ -33903,6 +34368,47 @@
                     "type": "object"
                 }
             ]
+        },
+        "WormProperties": {
+            "properties": {
+                "autocommit_delay": {
+                    "description": "Autocommit delay.",
+                    "type": "integer"
+                },
+                "domain_id": {
+                    "description": "WORM domain ID.",
+                    "type": "integer"
+                },
+                "domain_path": {
+                    "description": "WORM domain path.",
+                    "type": "string"
+                },
+                "worm_committed": {
+                    "description": "Indicates whether the file was committed to the WORM state.",
+                    "type": "boolean"
+                },
+                "worm_ctime": {
+                    "description": "WORM change time.",
+                    "type": "integer"
+                },
+                "worm_override_retention_date": {
+                    "description": "Provides the override retention date that is set on the SmartLock directory where the file resides.",
+                    "type": "string"
+                },
+                "worm_override_retention_date_val": {
+                    "description": "Provides the override retention date in seconds from UNIX Epoch or UTC.",
+                    "type": "integer"
+                },
+                "worm_retention_date": {
+                    "description": "Provides the retention expiration date in Coordinated Universal Time (such as UTC/GMT).",
+                    "type": "string"
+                },
+                "worm_retention_date_val": {
+                    "description": "Provides the retention expiration date in seconds from UNIX Epoch or UTC.",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
         },
         "WormSettings": {
             "properties": {
@@ -34242,6 +34748,980 @@
         "version": "6"
     },
     "paths": {
+        "/namespace": {
+            "get": {
+                "description": "Retrieves the namespace access points available for the authenticated user.",
+                "operationId": "listAccessPoints",
+                "parameters": [
+                    {
+                        "description": "Protocol versions that are supported for the current namespace access server.",
+                        "in": "query",
+                        "name": "versions",
+                        "type": "boolean"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List namespace access points.",
+                        "schema": {
+                            "$ref": "#/definitions/NamespaceAccessPoints"
+                        }
+                    }
+                },
+                "tags": [
+                    "Namespace"
+                ]
+            }
+        },
+        "/namespace/{AccessPointName}": {
+            "delete": {
+                "description": "Deletes a namespace access point. Only root users can delete namespace access points.",
+                "operationId": "deleteAccessPoint",
+                "parameters": [
+                    {
+                        "description": "Access point name.",
+                        "in": "path",
+                        "name": "AccessPointName",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Deleted access point.",
+                        "schema": {
+                            "$ref": "#/definitions/Empty"
+                        }
+                    }
+                },
+                "tags": [
+                    "Namespace"
+                ]
+            },
+            "put": {
+                "description": "Creates a namespace access point in the file system. Only root users can create or change namespace access points.",
+                "operationId": "createAccessPoint",
+                "parameters": [
+                    {
+                        "description": "Access point name.",
+                        "in": "path",
+                        "name": "AccessPointName",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "description": "Access point parameters model.",
+                        "in": "body",
+                        "name": "AccessPoint",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/AccessPointCreateParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Created access point.",
+                        "schema": {
+                            "$ref": "#/definitions/Empty"
+                        }
+                    }
+                },
+                "tags": [
+                    "Namespace"
+                ]
+            }
+        },
+        "/namespace/{DirectoryCopyTarget}": {
+            "put": {
+                "description": "Recursively copies a directory to a specified destination path. Symbolic links are copied as regular files.",
+                "operationId": "copyDirectory",
+                "parameters": [
+                    {
+                        "description": "Directory copy destination relative to /.",
+                        "in": "path",
+                        "name": "DirectoryCopyTarget",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "description": "Specifies the full path to the source directory.",
+                        "in": "header",
+                        "name": "x-isi-ifs-copy-source",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "description": "Deletes and replaces the existing user attributes and ACLs of the directory with user-specified attributes and ACLS from the header, when set to true.",
+                        "in": "query",
+                        "name": "overwrite",
+                        "type": "boolean"
+                    },
+                    {
+                        "description": "Specifies if the contents of a directory should be merged with an existing directory with the same name.",
+                        "in": "query",
+                        "name": "merge",
+                        "type": "boolean"
+                    },
+                    {
+                        "description": "Specifies whether to continue the copy operation on remaining objects when there is a conflict or error.",
+                        "in": "query",
+                        "name": "continue",
+                        "type": "boolean"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Copied directory.",
+                        "schema": {
+                            "$ref": "#/definitions/CopyErrors"
+                        }
+                    }
+                },
+                "tags": [
+                    "Namespace"
+                ]
+            }
+        },
+        "/namespace/{DirectoryMetadataPath}": {
+            "get": {
+                "description": "Retrieves the attribute information for a specified directory with the metadata query argument.",
+                "operationId": "getDirectoryMetadata",
+                "parameters": [
+                    {
+                        "description": "Directory path relative to /.",
+                        "in": "path",
+                        "name": "DirectoryMetadataPath",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "description": "Show directory metadata.",
+                        "in": "query",
+                        "name": "metadata",
+                        "required": true,
+                        "type": "boolean"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get directory metadata.",
+                        "schema": {
+                            "$ref": "#/definitions/NamespaceMetadataList"
+                        }
+                    }
+                },
+                "tags": [
+                    "Namespace"
+                ]
+            },
+            "put": {
+                "description": "Sets attributes on a specified directory with the metadata query argument.",
+                "operationId": "setDirectoryMetadata",
+                "parameters": [
+                    {
+                        "description": "Directory path relative to /.",
+                        "in": "path",
+                        "name": "DirectoryMetadataPath",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "description": "Set directory metadata.",
+                        "in": "query",
+                        "name": "metadata",
+                        "required": true,
+                        "type": "boolean"
+                    },
+                    {
+                        "description": "Directory metadata parameters model.",
+                        "in": "body",
+                        "name": "DirectoryMetadata",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/NamespaceMetadata"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Set metadata on directory.",
+                        "schema": {
+                            "$ref": "#/definitions/Empty"
+                        }
+                    }
+                },
+                "tags": [
+                    "Namespace"
+                ]
+            }
+        },
+        "/namespace/{DirectoryPath}": {
+            "delete": {
+                "description": "Deletes the directory at the specified path.",
+                "operationId": "deleteDirectory",
+                "parameters": [
+                    {
+                        "description": "Directory path relative to /.",
+                        "in": "path",
+                        "name": "DirectoryPath",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "description": "Deletes directories recursively, when set to true.",
+                        "in": "query",
+                        "name": "recursive",
+                        "type": "boolean"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Deleted directory.",
+                        "schema": {
+                            "$ref": "#/definitions/Empty"
+                        }
+                    }
+                },
+                "tags": [
+                    "Namespace"
+                ]
+            },
+            "get": {
+                "description": "Retrieves a list of files and subdirectories from a directory.",
+                "operationId": "getDirectoryContents",
+                "parameters": [
+                    {
+                        "description": "Directory path relative to /.",
+                        "in": "path",
+                        "name": "DirectoryPath",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "description": "Specifies which object attributes are displayed.",
+                        "in": "query",
+                        "name": "detail",
+                        "type": "string"
+                    },
+                    {
+                        "description": "Specifies the maximum number of objects to send to the client.",
+                        "in": "query",
+                        "name": "limit",
+                        "type": "integer"
+                    },
+                    {
+                        "description": "Specifies a token to return in the JSON result to indicate when there is a next page.",
+                        "in": "query",
+                        "name": "resume",
+                        "type": "string"
+                    },
+                    {
+                        "description": "Specifies one or more attributes to sort on the directory entries.",
+                        "in": "query",
+                        "name": "sort",
+                        "type": "string"
+                    },
+                    {
+                        "description": "Specifies the sort direction. This value can be either ascending (ASC) or descending (DESC).",
+                        "in": "query",
+                        "name": "dir",
+                        "type": "string"
+                    },
+                    {
+                        "description": "Specifies the object type to return, which can be one of the following values: container, object, pipe, character_device, block_device, symbolic_link, socket, or whiteout_file.",
+                        "in": "query",
+                        "name": "type",
+                        "type": "string"
+                    },
+                    {
+                        "description": "Specifies if hidden objects are returned.",
+                        "in": "query",
+                        "name": "hidden",
+                        "type": "boolean"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List directory objects.",
+                        "schema": {
+                            "$ref": "#/definitions/NamespaceObjects"
+                        }
+                    }
+                },
+                "tags": [
+                    "Namespace"
+                ]
+            },
+            "head": {
+                "description": "Retrieves the attribute information for a specified directory without transferring the contents of the directory.",
+                "operationId": "getDirectoryAttributes",
+                "parameters": [
+                    {
+                        "description": "Directory path relative to /.",
+                        "in": "path",
+                        "name": "DirectoryPath",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "description": "Returns only files that were modified since the specified time. If no files were modified since this time, a 304 message is returned.",
+                        "in": "header",
+                        "name": "If-Modified-Since",
+                        "type": "string"
+                    },
+                    {
+                        "description": "Returns only files that were not modified since the specified time. If there are no unmodified files since this time, a 412 message is returned to indicate that the precondition failed.",
+                        "in": "header",
+                        "name": "If-Unmodified-Since",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get attribute information for directory.",
+                        "schema": {
+                            "$ref": "#/definitions/Empty"
+                        }
+                    }
+                },
+                "tags": [
+                    "Namespace"
+                ]
+            },
+            "post": {
+                "description": "Moves a directory from an existing source to a new destination path.",
+                "operationId": "moveDirectory",
+                "parameters": [
+                    {
+                        "description": "Directory path relative to /.",
+                        "in": "path",
+                        "name": "DirectoryPath",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "description": "Specifies the full path for the destination directory.",
+                        "in": "header",
+                        "name": "x-isi-ifs-set-location",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Move directory.",
+                        "schema": {
+                            "$ref": "#/definitions/Empty"
+                        }
+                    }
+                },
+                "tags": [
+                    "Namespace"
+                ]
+            },
+            "put": {
+                "description": "Creates a directory with a specified path.",
+                "operationId": "createDirectory",
+                "parameters": [
+                    {
+                        "description": "Directory path relative to /.",
+                        "in": "path",
+                        "name": "DirectoryPath",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "container",
+                        "description": "Specifies the resource type.",
+                        "in": "header",
+                        "name": "x-isi-ifs-target-type",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "0700",
+                        "description": "Specifies a pre-defined ACL value or POSIX mode with a string in octal string format.",
+                        "in": "header",
+                        "name": "x-isi-ifs-access-control",
+                        "type": "string"
+                    },
+                    {
+                        "description": "Specifies a pre-defined ACL value or POSIX mode with a string.",
+                        "in": "header",
+                        "name": "x-isi-ifs-node-pool-name",
+                        "type": "string"
+                    },
+                    {
+                        "description": "Specifies the OneFS node pool name.",
+                        "in": "query",
+                        "name": "recursive",
+                        "type": "boolean"
+                    },
+                    {
+                        "description": "Deletes and replaces the existing user attributes and ACLs of the directory with user-specified attributes and ACLS from the header, when set to true.",
+                        "in": "query",
+                        "name": "overwrite",
+                        "type": "boolean"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Create directory.",
+                        "schema": {
+                            "$ref": "#/definitions/Empty"
+                        }
+                    }
+                },
+                "tags": [
+                    "Namespace"
+                ]
+            }
+        },
+        "/namespace/{FileCopyTarget}": {
+            "put": {
+                "description": "Copies a file to the specified destination path.",
+                "operationId": "copyFile",
+                "parameters": [
+                    {
+                        "description": "File copy destination relative to /.",
+                        "in": "path",
+                        "name": "FileCopyTarget",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "description": "Specifies the full path to the source file.",
+                        "in": "header",
+                        "name": "x-isi-ifs-copy-source",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "description": "You must set this parameter to true in order to clone a file.",
+                        "in": "query",
+                        "name": "clone",
+                        "type": "boolean"
+                    },
+                    {
+                        "description": "Specifies a snapshot name to clone the file from.",
+                        "in": "query",
+                        "name": "snapshot",
+                        "type": "string"
+                    },
+                    {
+                        "description": "Specifies if an existing file should be overwritten by a new file with the same name.",
+                        "in": "query",
+                        "name": "overwrite",
+                        "type": "boolean"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Copied file.",
+                        "schema": {
+                            "$ref": "#/definitions/CopyErrors"
+                        }
+                    }
+                },
+                "tags": [
+                    "Namespace"
+                ]
+            }
+        },
+        "/namespace/{FileMetadataPath}": {
+            "get": {
+                "description": "Retrieves the attribute information for a specified file with the metadata query argument.",
+                "operationId": "getFileMetadata",
+                "parameters": [
+                    {
+                        "description": "File path relative to /.",
+                        "in": "path",
+                        "name": "FileMetadataPath",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "description": "Show file metadata.",
+                        "in": "query",
+                        "name": "metadata",
+                        "required": true,
+                        "type": "boolean"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get file metadata.",
+                        "schema": {
+                            "$ref": "#/definitions/NamespaceMetadataList"
+                        }
+                    }
+                },
+                "tags": [
+                    "Namespace"
+                ]
+            },
+            "put": {
+                "description": "Sets attributes on a specified file with the metadata query argument through the JSON body.",
+                "operationId": "setFileMetadata",
+                "parameters": [
+                    {
+                        "description": "File path relative to /.",
+                        "in": "path",
+                        "name": "FileMetadataPath",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "description": "Set file metadata.",
+                        "in": "query",
+                        "name": "metadata",
+                        "required": true,
+                        "type": "boolean"
+                    },
+                    {
+                        "description": "File metadata parameters model.",
+                        "in": "body",
+                        "name": "FileMetadata",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/NamespaceMetadata"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Set metadata on file.",
+                        "schema": {
+                            "$ref": "#/definitions/Empty"
+                        }
+                    }
+                },
+                "tags": [
+                    "Namespace"
+                ]
+            }
+        },
+        "/namespace/{FilePath}": {
+            "delete": {
+                "description": "Deletes the specified file.",
+                "operationId": "deleteFile",
+                "parameters": [
+                    {
+                        "description": "File path relative to /.",
+                        "in": "path",
+                        "name": "FilePath",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Deleted file.",
+                        "schema": {
+                            "$ref": "#/definitions/Empty"
+                        }
+                    }
+                },
+                "tags": [
+                    "Namespace"
+                ]
+            },
+            "get": {
+                "description": "Retrieves the contents of a file from a specified path. Note that file streaming is not supported.",
+                "operationId": "getFileContents",
+                "parameters": [
+                    {
+                        "description": "File path relative to /.",
+                        "in": "path",
+                        "name": "FilePath",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "description": "Returns the specified range bytes of an object. ",
+                        "in": "header",
+                        "name": "Range",
+                        "type": "string"
+                    },
+                    {
+                        "description": "Returns only files that were modified since the specified time. If no files were modified since this time, a 304 message is returned.",
+                        "in": "header",
+                        "name": "If-Modified-Since",
+                        "type": "string"
+                    },
+                    {
+                        "description": "Returns only files that were not modified since the specified time. If there are no unmodified files since this time, a 412 message is returned to indicate that the precondition failed.",
+                        "in": "header",
+                        "name": "If-Unmodified-Since",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get file objects.",
+                        "schema": {
+                            "$ref": "#/definitions/Empty"
+                        }
+                    }
+                },
+                "tags": [
+                    "Namespace"
+                ]
+            },
+            "head": {
+                "description": "Retrieves the attribute information for a specified file.",
+                "operationId": "getFileAttributes",
+                "parameters": [
+                    {
+                        "description": "File path relative to /.",
+                        "in": "path",
+                        "name": "FilePath",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "description": "Returns only files that were modified since the specified time. If no files were modified since this time, a 304 message is returned.",
+                        "in": "header",
+                        "name": "If-Modified-Since",
+                        "type": "string"
+                    },
+                    {
+                        "description": "Returns only files that were not modified since the specified time. If there are no unmodified files since this time, a 412 message is returned to indicate that the precondition failed.",
+                        "in": "header",
+                        "name": "If-Unmodified-Since",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get attribute information for file.",
+                        "schema": {
+                            "$ref": "#/definitions/Empty"
+                        }
+                    }
+                },
+                "tags": [
+                    "Namespace"
+                ]
+            },
+            "post": {
+                "description": "Moves a file to a destination path that does not yet exist.",
+                "operationId": "moveFile",
+                "parameters": [
+                    {
+                        "description": "File path relative to /.",
+                        "in": "path",
+                        "name": "FilePath",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "description": "Specifies the full path for the destination file. ",
+                        "in": "header",
+                        "name": "x-isi-ifs-set-location",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Moved file.",
+                        "schema": {
+                            "$ref": "#/definitions/Empty"
+                        }
+                    }
+                },
+                "tags": [
+                    "Namespace"
+                ]
+            },
+            "put": {
+                "description": "Creates a file object with a given path. Note that file streaming is not supported.",
+                "operationId": "createFile",
+                "parameters": [
+                    {
+                        "description": "File path relative to /.",
+                        "in": "path",
+                        "name": "FilePath",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "object",
+                        "description": "Specifies the resource type.",
+                        "in": "header",
+                        "name": "x-isi-ifs-target-type",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "0600",
+                        "description": "Specifies a pre-defined ACL value or POSIX mode with a string in octal string format.",
+                        "in": "header",
+                        "name": "x-isi-ifs-access-control",
+                        "type": "string"
+                    },
+                    {
+                        "description": "Specifies the content encoding that was applied to the object content, so that decoding can be applied when retrieving the content.",
+                        "in": "header",
+                        "name": "Content-Encoding",
+                        "type": "string"
+                    },
+                    {
+                        "default": "binary/octet-stream",
+                        "description": "Specifies a standard MIME-type description of the content format.",
+                        "in": "header",
+                        "name": "Content-Type",
+                        "type": "string"
+                    },
+                    {
+                        "description": "Deletes and replaces the existing user attributes and ACLs of the directory with user-specified attributes and ACLS from the header, when set to true.",
+                        "in": "query",
+                        "name": "overwrite",
+                        "type": "boolean"
+                    },
+                    {
+                        "description": "The contents of the file object.",
+                        "in": "body",
+                        "name": "FileContents",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Created file object.",
+                        "schema": {
+                            "$ref": "#/definitions/Empty"
+                        }
+                    }
+                },
+                "tags": [
+                    "Namespace"
+                ]
+            }
+        },
+        "/namespace/{NamespacePath}": {
+            "get": {
+                "description": "Retrieves the access control list for a namespace object.",
+                "operationId": "getAcl",
+                "parameters": [
+                    {
+                        "description": "Namespace path relative to /.",
+                        "in": "path",
+                        "name": "NamespacePath",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "description": "Show access control lists.",
+                        "in": "query",
+                        "name": "acl",
+                        "required": true,
+                        "type": "boolean"
+                    },
+                    {
+                        "description": "Indicates that the operation is on the access point instead of the store path.",
+                        "in": "query",
+                        "name": "nsaccess",
+                        "type": "boolean"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get namespace ACL.",
+                        "schema": {
+                            "$ref": "#/definitions/NamespaceAcl"
+                        }
+                    }
+                },
+                "tags": [
+                    "Namespace"
+                ]
+            },
+            "put": {
+                "description": "Sets the access control list for a namespace.",
+                "operationId": "setAcl",
+                "parameters": [
+                    {
+                        "description": "Namespace path relative to /.",
+                        "in": "path",
+                        "name": "NamespacePath",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "description": "Update access control lists.",
+                        "in": "query",
+                        "name": "acl",
+                        "required": true,
+                        "type": "boolean"
+                    },
+                    {
+                        "description": "Indicates that the operation is on the access point instead of the store path.",
+                        "in": "query",
+                        "name": "nsaccess",
+                        "type": "boolean"
+                    },
+                    {
+                        "description": "Namespace ACL parameters model.",
+                        "in": "body",
+                        "name": "NamespaceAcl",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/NamespaceAcl"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Set namespace ACL.",
+                        "schema": {
+                            "$ref": "#/definitions/Empty"
+                        }
+                    }
+                },
+                "tags": [
+                    "Namespace"
+                ]
+            }
+        },
+        "/namespace/{QueryPath}": {
+            "post": {
+                "description": "Query objects by system-defined and user-defined attributes in a directory.",
+                "operationId": "queryDirectory",
+                "parameters": [
+                    {
+                        "description": "Directory path relative to /.",
+                        "in": "path",
+                        "name": "QueryPath",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "description": "Enable directory query.",
+                        "in": "query",
+                        "name": "query",
+                        "required": true,
+                        "type": "boolean"
+                    },
+                    {
+                        "description": "Specifies the maximum number of objects to send to the client. You can set the value to a negative number to retrieve all objects.",
+                        "in": "query",
+                        "name": "limit",
+                        "type": "integer"
+                    },
+                    {
+                        "description": "Specifies which object attributes are displayed. If the detail parameter is excluded, only the name of the object is returned.",
+                        "in": "query",
+                        "name": "detail",
+                        "type": "string"
+                    },
+                    {
+                        "description": "Specifies the maximum directory level depth to search for objects.",
+                        "in": "query",
+                        "name": "max-depth",
+                        "type": "integer"
+                    },
+                    {
+                        "description": "Directory query parameters model.",
+                        "in": "body",
+                        "name": "DirectoryQuery",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/DirectoryQuery"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Directory query results.",
+                        "schema": {
+                            "$ref": "#/definitions/NamespaceObjects"
+                        }
+                    }
+                },
+                "tags": [
+                    "Namespace"
+                ]
+            }
+        },
+        "/namespace/{WormFilePath}": {
+            "get": {
+                "description": "Retrieves the WORM retention date and committed state of the file.",
+                "operationId": "getWormProperties",
+                "parameters": [
+                    {
+                        "description": "Write once read many file path relative to /.",
+                        "in": "path",
+                        "name": "WormFilePath",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "description": "View WORM properties",
+                        "in": "query",
+                        "name": "worm",
+                        "required": true,
+                        "type": "boolean"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "WORM file properties.",
+                        "schema": {
+                            "$ref": "#/definitions/WormProperties"
+                        }
+                    }
+                },
+                "tags": [
+                    "Namespace"
+                ]
+            },
+            "put": {
+                "description": "Sets the retention period and commits a file in a SmartLock directory.",
+                "operationId": "setWormProperties",
+                "parameters": [
+                    {
+                        "description": "Write once read many file path relative to /.",
+                        "in": "path",
+                        "name": "WormFilePath",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "description": "View WORM properties",
+                        "in": "query",
+                        "name": "worm",
+                        "required": true,
+                        "type": "boolean"
+                    },
+                    {
+                        "description": "WORM parameters model.",
+                        "in": "body",
+                        "name": "WormProperties",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/WormCreateParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "WORM file properties.",
+                        "schema": {
+                            "$ref": "#/definitions/Empty"
+                        }
+                    }
+                },
+                "tags": [
+                    "Namespace"
+                ]
+            }
+        },
         "/platform/1/audit/topics": {
             "get": {
                 "description": "Retrieve a list of audit topics.",
@@ -38340,7 +39820,7 @@
                     "200": {
                         "description": "Add a member to the HDFS proxyuser.",
                         "schema": {
-                            "$ref": "#/definitions/CreateResponse"
+                            "$ref": "#/definitions/Empty"
                         }
                     },
                     "default": {
@@ -53366,7 +54846,7 @@
                     "200": {
                         "description": "Create a new Swift account",
                         "schema": {
-                            "$ref": "#/definitions/CreateResponse"
+                            "$ref": "#/definitions/Empty"
                         }
                     },
                     "default": {
@@ -57376,7 +58856,7 @@
                     "200": {
                         "description": "List all policies.",
                         "schema": {
-                            "$ref": "#/definitions/FilepoolPolicies"
+                            "$ref": "#/definitions/FilepoolPoliciesExtended"
                         }
                     },
                     "default": {
@@ -59465,7 +60945,7 @@
                     "200": {
                         "description": "List the nodes on this cluster.",
                         "schema": {
-                            "$ref": "#/definitions/ClusterNodesExtendedExtendedExtended"
+                            "$ref": "#/definitions/ClusterNodesExtendedExtended"
                         }
                     },
                     "default": {

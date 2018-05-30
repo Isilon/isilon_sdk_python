@@ -547,7 +547,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_cluster_nodes**
-> ClusterNodesExtendedExtendedExtended get_cluster_nodes(timeout=timeout)
+> ClusterNodesExtendedExtended get_cluster_nodes(timeout=timeout)
 
 
 
@@ -585,7 +585,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ClusterNodesExtendedExtendedExtended**](ClusterNodesExtendedExtendedExtended.md)
+[**ClusterNodesExtendedExtended**](ClusterNodesExtendedExtended.md)
 
 ### Authorization
 

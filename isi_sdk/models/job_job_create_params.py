@@ -95,7 +95,8 @@ class JobJobCreateParams(object):
             self.domainmark_params = domainmark_params
         if esrsmftdownload_params is not None:
             self.esrsmftdownload_params = esrsmftdownload_params
-        self.paths = paths
+        if paths is not None:
+            self.paths = paths
         if policy is not None:
             self.policy = policy
         if prepair_params is not None:
@@ -243,8 +244,6 @@ class JobJobCreateParams(object):
         :param paths: The paths of this JobJobCreateParams.  # noqa: E501
         :type: list[str]
         """
-        if paths is None:
-            raise ValueError("Invalid value for `paths`, must not be `None`")  # noqa: E501
 
         self._paths = paths
 
