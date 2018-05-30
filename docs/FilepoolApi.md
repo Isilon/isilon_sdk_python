@@ -319,7 +319,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_filepool_policies**
-> FilepoolPolicies list_filepool_policies()
+> FilepoolPoliciesExtended list_filepool_policies()
 
 
 
@@ -353,7 +353,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**FilepoolPolicies**](FilepoolPolicies.md)
+[**FilepoolPoliciesExtended**](FilepoolPoliciesExtended.md)
 
 ### Authorization
 

@@ -16,8 +16,8 @@ import re  # noqa: F401
 
 import six
 
-from isi_sdk_8_1_0.models.mapping_users_rules_rule_options_default_user import MappingUsersRulesRuleOptionsDefaultUser  # noqa: F401,E501
 from isi_sdk_8_1_0.models.mapping_users_rules_rule_options_extended import MappingUsersRulesRuleOptionsExtended  # noqa: F401,E501
+from isi_sdk_8_1_0.models.mapping_users_rules_rule_user1 import MappingUsersRulesRuleUser1  # noqa: F401,E501
 from isi_sdk_8_1_0.models.mapping_users_rules_rule_user2_extended import MappingUsersRulesRuleUser2Extended  # noqa: F401,E501
 
 
@@ -37,7 +37,7 @@ class MappingUsersRulesRuleExtended(object):
     swagger_types = {
         'operator': 'str',
         'options': 'MappingUsersRulesRuleOptionsExtended',
-        'user1': 'MappingUsersRulesRuleOptionsDefaultUser',
+        'user1': 'MappingUsersRulesRuleUser1',
         'user2': 'MappingUsersRulesRuleUser2Extended'
     }
 
@@ -124,7 +124,7 @@ class MappingUsersRulesRuleExtended(object):
           # noqa: E501
 
         :return: The user1 of this MappingUsersRulesRuleExtended.  # noqa: E501
-        :rtype: MappingUsersRulesRuleOptionsDefaultUser
+        :rtype: MappingUsersRulesRuleUser1
         """
         return self._user1
 
@@ -135,7 +135,7 @@ class MappingUsersRulesRuleExtended(object):
           # noqa: E501
 
         :param user1: The user1 of this MappingUsersRulesRuleExtended.  # noqa: E501
-        :type: MappingUsersRulesRuleOptionsDefaultUser
+        :type: MappingUsersRulesRuleUser1
         """
         if user1 is None:
             raise ValueError("Invalid value for `user1`, must not be `None`")  # noqa: E501

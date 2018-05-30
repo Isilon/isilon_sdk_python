@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **resume** | **str** | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). | [optional] 
-**templates** | [**list[FilepoolPolicyExtended]**](FilepoolPolicyExtended.md) |  | [optional] 
+**templates** | [**list[FilepoolTemplate]**](FilepoolTemplate.md) |  | [optional] 
 **total** | **int** | Total number of items available. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

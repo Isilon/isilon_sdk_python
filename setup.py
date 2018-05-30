@@ -14,7 +14,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "isi-sdk-8-1-0"
-VERSION = "0.2.2"
+VERSION = "0.2.3"
 # To install the library, run the following
 #
 # python setup.py install
@@ -42,7 +42,9 @@ This package is part of the Isilon SDK. It includes language bindings
 for easier programmatic access to the OneFS API for cluster
 configuration (on your cluster this is the REST API made up of all the
 URIs underneath ``https://[cluster]:8080/platform/*``, also called the
-"Platform API" or "PAPI").
+"Platform API" or "PAPI"). The SDK also includes language bindings for
+the OneFS RAN (i.e. RESTful Access to Namespace) interface, which
+provides access to the OneFS filesystem namespace.
 
 Installation
 ------------

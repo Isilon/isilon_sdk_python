@@ -320,8 +320,8 @@ class SnmpSettingsSettings(object):
         """
         if system_contact is not None and len(system_contact) < 1:
             raise ValueError("Invalid value for `system_contact`, length must be greater than or equal to `1`")  # noqa: E501
-        if system_contact is not None and not re.search('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$', system_contact):  # noqa: E501
-            raise ValueError("Invalid value for `system_contact`, must be a follow pattern or equal to `/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$/`")  # noqa: E501
+        if system_contact is not None and not re.search('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,7}$', system_contact):  # noqa: E501
+            raise ValueError("Invalid value for `system_contact`, must be a follow pattern or equal to `/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,7}$/`")  # noqa: E501
 
         self._system_contact = system_contact
 

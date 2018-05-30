@@ -1010,7 +1010,7 @@ class ClusterApi(object):
 
         :param async bool
         :param float timeout: Request timeout
-        :return: ClusterNodesExtendedExtendedExtended
+        :return: ClusterNodesExtendedExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1032,7 +1032,7 @@ class ClusterApi(object):
 
         :param async bool
         :param float timeout: Request timeout
-        :return: ClusterNodesExtendedExtendedExtended
+        :return: ClusterNodesExtendedExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1090,7 +1090,7 @@ class ClusterApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ClusterNodesExtendedExtendedExtended',  # noqa: E501
+            response_type='ClusterNodesExtendedExtended',  # noqa: E501
             auth_settings=auth_settings,
             async=params.get('async'),
             _return_http_data_only=params.get('_return_http_data_only'),
