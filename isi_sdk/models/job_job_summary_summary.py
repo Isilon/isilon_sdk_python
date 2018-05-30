@@ -68,7 +68,8 @@ class JobJobSummarySummary(object):
         self.cluster_is_degraded = cluster_is_degraded
         self.connected = connected
         self.coordinator = coordinator
-        self.disconnected_nodes = disconnected_nodes
+        if disconnected_nodes is not None:
+            self.disconnected_nodes = disconnected_nodes
         self.down_or_read_only_nodes = down_or_read_only_nodes
         self.next_jid = next_jid
         self.run_degraded = run_degraded
@@ -169,8 +170,6 @@ class JobJobSummarySummary(object):
         :param disconnected_nodes: The disconnected_nodes of this JobJobSummarySummary.  # noqa: E501
         :type: list[int]
         """
-        if disconnected_nodes is None:
-            raise ValueError("Invalid value for `disconnected_nodes`, must not be `None`")  # noqa: E501
 
         self._disconnected_nodes = disconnected_nodes
 

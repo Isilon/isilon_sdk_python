@@ -29,6 +29,7 @@ from isi_sdk_8_0_1.api.id_resolution_api import IdResolutionApi
 from isi_sdk_8_0_1.api.job_api import JobApi
 from isi_sdk_8_0_1.api.license_api import LicenseApi
 from isi_sdk_8_0_1.api.local_api import LocalApi
+from isi_sdk_8_0_1.api.namespace_api import NamespaceApi
 from isi_sdk_8_0_1.api.network_api import NetworkApi
 from isi_sdk_8_0_1.api.network_groupnets_api import NetworkGroupnetsApi
 from isi_sdk_8_0_1.api.network_groupnets_subnets_api import NetworkGroupnetsSubnetsApi

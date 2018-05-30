@@ -74,7 +74,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'Swagger-Codegen/b.49/python'
+        self.user_agent = 'Swagger-Codegen/0.2.3/python'
         # This is used for detecting for the special case of a path parameter
         # that is tagged with x-isi-url-encode-path-param (more details in the
         # __call_api function).
@@ -537,7 +537,7 @@ class ApiClient(object):
             body = {
                 'username': self.configuration.username,
                 'password': self.configuration.password,
-                'services': ['platform']
+                'services': ['platform', 'namespace']
             }
             response_data = self.rest_client.POST(
                 url, headers=headers, body=body)

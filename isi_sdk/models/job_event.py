@@ -32,45 +32,55 @@ class JobEvent(object):
     """
     swagger_types = {
         'flags': 'str',
+        'fmt_type': 'str',
         'id': 'str',
         'job_id': 'int',
         'job_type': 'str',
         'key': 'str',
         'phase': 'int',
+        'raw_type': 'str',
         'time': 'int',
         'value': 'str'
     }
 
     attribute_map = {
         'flags': 'flags',
+        'fmt_type': 'fmt_type',
         'id': 'id',
         'job_id': 'job_id',
         'job_type': 'job_type',
         'key': 'key',
         'phase': 'phase',
+        'raw_type': 'raw_type',
         'time': 'time',
         'value': 'value'
     }
 
-    def __init__(self, flags=None, id=None, job_id=None, job_type=None, key=None, phase=None, time=None, value=None):  # noqa: E501
+    def __init__(self, flags=None, fmt_type=None, id=None, job_id=None, job_type=None, key=None, phase=None, raw_type=None, time=None, value=None):  # noqa: E501
         """JobEvent - a model defined in Swagger"""  # noqa: E501
 
         self._flags = None
+        self._fmt_type = None
         self._id = None
         self._job_id = None
         self._job_type = None
         self._key = None
         self._phase = None
+        self._raw_type = None
         self._time = None
         self._value = None
         self.discriminator = None
 
         self.flags = flags
+        if fmt_type is not None:
+            self.fmt_type = fmt_type
         self.id = id
         self.job_id = job_id
         self.job_type = job_type
         self.key = key
         self.phase = phase
+        if raw_type is not None:
+            self.raw_type = raw_type
         self.time = time
         self.value = value
 
@@ -98,6 +108,27 @@ class JobEvent(object):
             raise ValueError("Invalid value for `flags`, must not be `None`")  # noqa: E501
 
         self._flags = flags
+
+    @property
+    def fmt_type(self):
+        """Gets the fmt_type of this JobEvent.  # noqa: E501
+
+
+        :return: The fmt_type of this JobEvent.  # noqa: E501
+        :rtype: str
+        """
+        return self._fmt_type
+
+    @fmt_type.setter
+    def fmt_type(self, fmt_type):
+        """Sets the fmt_type of this JobEvent.
+
+
+        :param fmt_type: The fmt_type of this JobEvent.  # noqa: E501
+        :type: str
+        """
+
+        self._fmt_type = fmt_type
 
     @property
     def id(self):
@@ -225,6 +256,27 @@ class JobEvent(object):
             raise ValueError("Invalid value for `phase`, must not be `None`")  # noqa: E501
 
         self._phase = phase
+
+    @property
+    def raw_type(self):
+        """Gets the raw_type of this JobEvent.  # noqa: E501
+
+
+        :return: The raw_type of this JobEvent.  # noqa: E501
+        :rtype: str
+        """
+        return self._raw_type
+
+    @raw_type.setter
+    def raw_type(self, raw_type):
+        """Sets the raw_type of this JobEvent.
+
+
+        :param raw_type: The raw_type of this JobEvent.  # noqa: E501
+        :type: str
+        """
+
+        self._raw_type = raw_type
 
     @property
     def time(self):

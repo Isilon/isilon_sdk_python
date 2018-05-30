@@ -16,8 +16,7 @@ import re  # noqa: F401
 
 import six
 
-from isi_sdk_8_0_1.models.event_channel_extended import EventChannelExtended  # noqa: F401,E501
-from isi_sdk_8_0_1.models.event_channels import EventChannels  # noqa: F401,E501
+from isi_sdk_8_0_1.models.event_channel_extended_extended import EventChannelExtendedExtended  # noqa: F401,E501
 
 
 class EventChannelsExtended(object):
@@ -34,7 +33,7 @@ class EventChannelsExtended(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'channels': 'list[EventChannelExtended]',
+        'channels': 'list[EventChannelExtendedExtended]',
         'resume': 'str',
         'total': 'int'
     }
@@ -66,7 +65,7 @@ class EventChannelsExtended(object):
 
 
         :return: The channels of this EventChannelsExtended.  # noqa: E501
-        :rtype: list[EventChannelExtended]
+        :rtype: list[EventChannelExtendedExtended]
         """
         return self._channels
 
@@ -76,7 +75,7 @@ class EventChannelsExtended(object):
 
 
         :param channels: The channels of this EventChannelsExtended.  # noqa: E501
-        :type: list[EventChannelExtended]
+        :type: list[EventChannelExtendedExtended]
         """
 
         self._channels = channels

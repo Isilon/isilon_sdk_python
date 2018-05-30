@@ -32,25 +32,30 @@ class SettingsMappingExtendedExtended(object):
     """
     swagger_types = {
         'domain': 'str',
+        'id': 'str',
         'mapping': 'str',
         'type': 'str'
     }
 
     attribute_map = {
         'domain': 'domain',
+        'id': 'id',
         'mapping': 'mapping',
         'type': 'type'
     }
 
-    def __init__(self, domain=None, mapping=None, type=None):  # noqa: E501
+    def __init__(self, domain=None, id=None, mapping=None, type=None):  # noqa: E501
         """SettingsMappingExtendedExtended - a model defined in Swagger"""  # noqa: E501
 
         self._domain = None
+        self._id = None
         self._mapping = None
         self._type = None
         self.discriminator = None
 
         self.domain = domain
+        if id is not None:
+            self.id = id
         self.mapping = mapping
         self.type = type
 
@@ -78,6 +83,27 @@ class SettingsMappingExtendedExtended(object):
             raise ValueError("Invalid value for `domain`, must not be `None`")  # noqa: E501
 
         self._domain = domain
+
+    @property
+    def id(self):
+        """Gets the id of this SettingsMappingExtendedExtended.  # noqa: E501
+
+
+        :return: The id of this SettingsMappingExtendedExtended.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this SettingsMappingExtendedExtended.
+
+
+        :param id: The id of this SettingsMappingExtendedExtended.  # noqa: E501
+        :type: str
+        """
+
+        self._id = id
 
     @property
     def mapping(self):

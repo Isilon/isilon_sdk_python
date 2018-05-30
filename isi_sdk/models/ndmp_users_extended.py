@@ -16,6 +16,7 @@ import re  # noqa: F401
 
 import six
 
+from isi_sdk_8_0_1.models.ndmp_user_extended import NdmpUserExtended  # noqa: F401,E501
 from isi_sdk_8_0_1.models.ndmp_users import NdmpUsers  # noqa: F401,E501
 
 
@@ -33,26 +34,47 @@ class NdmpUsersExtended(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'total': 'int',
-        'users': 'list[NdmpUsers]'
+        'users': 'list[NdmpUserExtended]',
+        'total': 'int'
     }
 
     attribute_map = {
-        'total': 'total',
-        'users': 'users'
+        'users': 'users',
+        'total': 'total'
     }
 
-    def __init__(self, total=None, users=None):  # noqa: E501
+    def __init__(self, users=None, total=None):  # noqa: E501
         """NdmpUsersExtended - a model defined in Swagger"""  # noqa: E501
 
-        self._total = None
         self._users = None
+        self._total = None
         self.discriminator = None
 
-        if total is not None:
-            self.total = total
         if users is not None:
             self.users = users
+        if total is not None:
+            self.total = total
+
+    @property
+    def users(self):
+        """Gets the users of this NdmpUsersExtended.  # noqa: E501
+
+
+        :return: The users of this NdmpUsersExtended.  # noqa: E501
+        :rtype: list[NdmpUserExtended]
+        """
+        return self._users
+
+    @users.setter
+    def users(self, users):
+        """Sets the users of this NdmpUsersExtended.
+
+
+        :param users: The users of this NdmpUsersExtended.  # noqa: E501
+        :type: list[NdmpUserExtended]
+        """
+
+        self._users = users
 
     @property
     def total(self):
@@ -76,27 +98,6 @@ class NdmpUsersExtended(object):
         """
 
         self._total = total
-
-    @property
-    def users(self):
-        """Gets the users of this NdmpUsersExtended.  # noqa: E501
-
-
-        :return: The users of this NdmpUsersExtended.  # noqa: E501
-        :rtype: list[NdmpUsers]
-        """
-        return self._users
-
-    @users.setter
-    def users(self, users):
-        """Sets the users of this NdmpUsersExtended.
-
-
-        :param users: The users of this NdmpUsersExtended.  # noqa: E501
-        :type: list[NdmpUsers]
-        """
-
-        self._users = users
 
     def to_dict(self):
         """Returns the model properties as a dict"""

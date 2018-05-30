@@ -16,7 +16,8 @@ import re  # noqa: F401
 
 import six
 
-from isi_sdk_8_0_1.models.filepool_policy_action_create_params import FilepoolPolicyActionCreateParams  # noqa: F401,E501
+from isi_sdk_8_0_1.models.filepool_default_policy_action import FilepoolDefaultPolicyAction  # noqa: F401,E501
+from isi_sdk_8_0_1.models.filepool_policy import FilepoolPolicy  # noqa: F401,E501
 from isi_sdk_8_0_1.models.filepool_policy_file_matching_pattern import FilepoolPolicyFileMatchingPattern  # noqa: F401,E501
 
 
@@ -34,7 +35,7 @@ class FilepoolPolicyCreateParams(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'actions': 'list[FilepoolPolicyActionCreateParams]',
+        'actions': 'list[FilepoolDefaultPolicyAction]',
         'apply_order': 'int',
         'description': 'str',
         'file_matching_pattern': 'FilepoolPolicyFileMatchingPattern',
@@ -75,7 +76,7 @@ class FilepoolPolicyCreateParams(object):
         A list of actions to be taken for matching files  # noqa: E501
 
         :return: The actions of this FilepoolPolicyCreateParams.  # noqa: E501
-        :rtype: list[FilepoolPolicyActionCreateParams]
+        :rtype: list[FilepoolDefaultPolicyAction]
         """
         return self._actions
 
@@ -86,7 +87,7 @@ class FilepoolPolicyCreateParams(object):
         A list of actions to be taken for matching files  # noqa: E501
 
         :param actions: The actions of this FilepoolPolicyCreateParams.  # noqa: E501
-        :type: list[FilepoolPolicyActionCreateParams]
+        :type: list[FilepoolDefaultPolicyAction]
         """
 
         self._actions = actions
