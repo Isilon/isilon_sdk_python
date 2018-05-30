@@ -16,7 +16,8 @@ import re  # noqa: F401
 
 import six
 
-from isi_sdk_8_0.models.cluster_node_extended_extended import ClusterNodeExtendedExtended  # noqa: F401,E501
+from isi_sdk_8_0.models.cluster_nodes_error import ClusterNodesError  # noqa: F401,E501
+from isi_sdk_8_0.models.cluster_nodes_onefs_version import ClusterNodesOnefsVersion  # noqa: F401,E501
 
 
 class ClusterNodesExtended(object):
@@ -33,70 +34,212 @@ class ClusterNodesExtended(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'nodes': 'list[ClusterNodeExtendedExtended]',
-        'total': 'int'
+        'error': 'ClusterNodesError',
+        'last_action': 'str',
+        'last_action_result': 'str',
+        'lnn': 'int',
+        'node_state': 'str',
+        'onefs_version': 'ClusterNodesOnefsVersion',
+        'progress': 'int'
     }
 
     attribute_map = {
-        'nodes': 'nodes',
-        'total': 'total'
+        'error': 'error',
+        'last_action': 'last_action',
+        'last_action_result': 'last_action_result',
+        'lnn': 'lnn',
+        'node_state': 'node_state',
+        'onefs_version': 'onefs_version',
+        'progress': 'progress'
     }
 
-    def __init__(self, nodes=None, total=None):  # noqa: E501
+    def __init__(self, error=None, last_action=None, last_action_result=None, lnn=None, node_state=None, onefs_version=None, progress=None):  # noqa: E501
         """ClusterNodesExtended - a model defined in Swagger"""  # noqa: E501
 
-        self._nodes = None
-        self._total = None
+        self._error = None
+        self._last_action = None
+        self._last_action_result = None
+        self._lnn = None
+        self._node_state = None
+        self._onefs_version = None
+        self._progress = None
         self.discriminator = None
 
-        if nodes is not None:
-            self.nodes = nodes
-        if total is not None:
-            self.total = total
+        if error is not None:
+            self.error = error
+        if last_action is not None:
+            self.last_action = last_action
+        if last_action_result is not None:
+            self.last_action_result = last_action_result
+        if lnn is not None:
+            self.lnn = lnn
+        if node_state is not None:
+            self.node_state = node_state
+        if onefs_version is not None:
+            self.onefs_version = onefs_version
+        if progress is not None:
+            self.progress = progress
 
     @property
-    def nodes(self):
-        """Gets the nodes of this ClusterNodesExtended.  # noqa: E501
+    def error(self):
+        """Gets the error of this ClusterNodesExtended.  # noqa: E501
 
+        The current OneFS version before upgrade.  # noqa: E501
 
-        :return: The nodes of this ClusterNodesExtended.  # noqa: E501
-        :rtype: list[ClusterNodeExtendedExtended]
+        :return: The error of this ClusterNodesExtended.  # noqa: E501
+        :rtype: ClusterNodesError
         """
-        return self._nodes
+        return self._error
 
-    @nodes.setter
-    def nodes(self, nodes):
-        """Sets the nodes of this ClusterNodesExtended.
+    @error.setter
+    def error(self, error):
+        """Sets the error of this ClusterNodesExtended.
 
+        The current OneFS version before upgrade.  # noqa: E501
 
-        :param nodes: The nodes of this ClusterNodesExtended.  # noqa: E501
-        :type: list[ClusterNodeExtendedExtended]
+        :param error: The error of this ClusterNodesExtended.  # noqa: E501
+        :type: ClusterNodesError
         """
 
-        self._nodes = nodes
+        self._error = error
 
     @property
-    def total(self):
-        """Gets the total of this ClusterNodesExtended.  # noqa: E501
+    def last_action(self):
+        """Gets the last_action of this ClusterNodesExtended.  # noqa: E501
 
-        Total number of items available.  # noqa: E501
+        The last action performed to completion/failure on this node.  Null if the node_state is 'committed' or 'assessing.' One of the following values: 'upgrade', 'rollback'.  # noqa: E501
 
-        :return: The total of this ClusterNodesExtended.  # noqa: E501
+        :return: The last_action of this ClusterNodesExtended.  # noqa: E501
+        :rtype: str
+        """
+        return self._last_action
+
+    @last_action.setter
+    def last_action(self, last_action):
+        """Sets the last_action of this ClusterNodesExtended.
+
+        The last action performed to completion/failure on this node.  Null if the node_state is 'committed' or 'assessing.' One of the following values: 'upgrade', 'rollback'.  # noqa: E501
+
+        :param last_action: The last_action of this ClusterNodesExtended.  # noqa: E501
+        :type: str
+        """
+
+        self._last_action = last_action
+
+    @property
+    def last_action_result(self):
+        """Gets the last_action_result of this ClusterNodesExtended.  # noqa: E501
+
+        Did the node pass upgrade or rollback without failing? Null if the node_state is 'committed.' One of the following values: 'pass', 'fail', null  # noqa: E501
+
+        :return: The last_action_result of this ClusterNodesExtended.  # noqa: E501
+        :rtype: str
+        """
+        return self._last_action_result
+
+    @last_action_result.setter
+    def last_action_result(self, last_action_result):
+        """Sets the last_action_result of this ClusterNodesExtended.
+
+        Did the node pass upgrade or rollback without failing? Null if the node_state is 'committed.' One of the following values: 'pass', 'fail', null  # noqa: E501
+
+        :param last_action_result: The last_action_result of this ClusterNodesExtended.  # noqa: E501
+        :type: str
+        """
+
+        self._last_action_result = last_action_result
+
+    @property
+    def lnn(self):
+        """Gets the lnn of this ClusterNodesExtended.  # noqa: E501
+
+        The lnn of the node.  # noqa: E501
+
+        :return: The lnn of this ClusterNodesExtended.  # noqa: E501
         :rtype: int
         """
-        return self._total
+        return self._lnn
 
-    @total.setter
-    def total(self, total):
-        """Sets the total of this ClusterNodesExtended.
+    @lnn.setter
+    def lnn(self, lnn):
+        """Sets the lnn of this ClusterNodesExtended.
 
-        Total number of items available.  # noqa: E501
+        The lnn of the node.  # noqa: E501
 
-        :param total: The total of this ClusterNodesExtended.  # noqa: E501
+        :param lnn: The lnn of this ClusterNodesExtended.  # noqa: E501
         :type: int
         """
 
-        self._total = total
+        self._lnn = lnn
+
+    @property
+    def node_state(self):
+        """Gets the node_state of this ClusterNodesExtended.  # noqa: E501
+
+        The state of the node during the upgrade, rollback, or assessment. One of the following values: 'committed', 'upgraded', 'upgrading', 'rolling back', 'assessing', 'error'  # noqa: E501
+
+        :return: The node_state of this ClusterNodesExtended.  # noqa: E501
+        :rtype: str
+        """
+        return self._node_state
+
+    @node_state.setter
+    def node_state(self, node_state):
+        """Sets the node_state of this ClusterNodesExtended.
+
+        The state of the node during the upgrade, rollback, or assessment. One of the following values: 'committed', 'upgraded', 'upgrading', 'rolling back', 'assessing', 'error'  # noqa: E501
+
+        :param node_state: The node_state of this ClusterNodesExtended.  # noqa: E501
+        :type: str
+        """
+
+        self._node_state = node_state
+
+    @property
+    def onefs_version(self):
+        """Gets the onefs_version of this ClusterNodesExtended.  # noqa: E501
+
+        The current OneFS version before upgrade.  # noqa: E501
+
+        :return: The onefs_version of this ClusterNodesExtended.  # noqa: E501
+        :rtype: ClusterNodesOnefsVersion
+        """
+        return self._onefs_version
+
+    @onefs_version.setter
+    def onefs_version(self, onefs_version):
+        """Sets the onefs_version of this ClusterNodesExtended.
+
+        The current OneFS version before upgrade.  # noqa: E501
+
+        :param onefs_version: The onefs_version of this ClusterNodesExtended.  # noqa: E501
+        :type: ClusterNodesOnefsVersion
+        """
+
+        self._onefs_version = onefs_version
+
+    @property
+    def progress(self):
+        """Gets the progress of this ClusterNodesExtended.  # noqa: E501
+
+        What step is the upgrade, assessment, or rollback in? To show via progress indicator. NOTE: the value is an integer between 0 and 100 (percent)  # noqa: E501
+
+        :return: The progress of this ClusterNodesExtended.  # noqa: E501
+        :rtype: int
+        """
+        return self._progress
+
+    @progress.setter
+    def progress(self, progress):
+        """Sets the progress of this ClusterNodesExtended.
+
+        What step is the upgrade, assessment, or rollback in? To show via progress indicator. NOTE: the value is an integer between 0 and 100 (percent)  # noqa: E501
+
+        :param progress: The progress of this ClusterNodesExtended.  # noqa: E501
+        :type: int
+        """
+
+        self._progress = progress
 
     def to_dict(self):
         """Returns the model properties as a dict"""

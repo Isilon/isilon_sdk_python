@@ -112,8 +112,10 @@ class JobJobExtended(object):
             self.end_time = end_time
         self.id = id
         self.impact = impact
-        self.participants = participants
-        self.paths = paths
+        if participants is not None:
+            self.participants = participants
+        if paths is not None:
+            self.paths = paths
         self.policy = policy
         self.priority = priority
         if progress is not None:
@@ -332,8 +334,6 @@ class JobJobExtended(object):
         :param participants: The participants of this JobJobExtended.  # noqa: E501
         :type: list[int]
         """
-        if participants is None:
-            raise ValueError("Invalid value for `participants`, must not be `None`")  # noqa: E501
 
         self._participants = participants
 
@@ -357,8 +357,6 @@ class JobJobExtended(object):
         :param paths: The paths of this JobJobExtended.  # noqa: E501
         :type: list[str]
         """
-        if paths is None:
-            raise ValueError("Invalid value for `paths`, must not be `None`")  # noqa: E501
 
         self._paths = paths
 

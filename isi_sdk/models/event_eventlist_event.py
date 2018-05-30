@@ -276,7 +276,7 @@ class EventEventlistEvent(object):
         :param severity: The severity of this EventEventlistEvent.  # noqa: E501
         :type: str
         """
-        allowed_values = ["information", "warning", "critical", "emergency"]  # noqa: E501
+        allowed_values = ["information", "warning", "critical", "emergency", "unknown"]  # noqa: E501
         if severity not in allowed_values:
             raise ValueError(
                 "Invalid value for `severity` ({0}), must be one of {1}"  # noqa: E501

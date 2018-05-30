@@ -35,26 +35,31 @@ class SmbSharesExtended(object):
     """
     swagger_types = {
         'shares': 'list[SmbShareExtended]',
+        'digest': 'str',
         'resume': 'str',
         'total': 'int'
     }
 
     attribute_map = {
         'shares': 'shares',
+        'digest': 'digest',
         'resume': 'resume',
         'total': 'total'
     }
 
-    def __init__(self, shares=None, resume=None, total=None):  # noqa: E501
+    def __init__(self, shares=None, digest=None, resume=None, total=None):  # noqa: E501
         """SmbSharesExtended - a model defined in Swagger"""  # noqa: E501
 
         self._shares = None
+        self._digest = None
         self._resume = None
         self._total = None
         self.discriminator = None
 
         if shares is not None:
             self.shares = shares
+        if digest is not None:
+            self.digest = digest
         if resume is not None:
             self.resume = resume
         if total is not None:
@@ -80,6 +85,27 @@ class SmbSharesExtended(object):
         """
 
         self._shares = shares
+
+    @property
+    def digest(self):
+        """Gets the digest of this SmbSharesExtended.  # noqa: E501
+
+
+        :return: The digest of this SmbSharesExtended.  # noqa: E501
+        :rtype: str
+        """
+        return self._digest
+
+    @digest.setter
+    def digest(self, digest):
+        """Sets the digest of this SmbSharesExtended.
+
+
+        :param digest: The digest of this SmbSharesExtended.  # noqa: E501
+        :type: str
+        """
+
+        self._digest = digest
 
     @property
     def resume(self):

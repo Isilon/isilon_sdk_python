@@ -129,12 +129,6 @@ class SmbLogLevelFiltersFilter(object):
         """
         if level is None:
             raise ValueError("Invalid value for `level`, must not be `None`")  # noqa: E501
-        allowed_values = ["always", "error", "warning", "info", "verbose", "debug", "trace"]  # noqa: E501
-        if level not in allowed_values:
-            raise ValueError(
-                "Invalid value for `level` ({0}), must be one of {1}"  # noqa: E501
-                .format(level, allowed_values)
-            )
 
         self._level = level
 

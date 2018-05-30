@@ -16,7 +16,7 @@ import re  # noqa: F401
 
 import six
 
-from isi_sdk_8_0.models.cluster_node_state_servicelight_extended import ClusterNodeStateServicelightExtended  # noqa: F401,E501
+from isi_sdk_8_0.models.node_state_node_servicelight import NodeStateNodeServicelight  # noqa: F401,E501
 from isi_sdk_8_0.models.node_state_readonly_extended import NodeStateReadonlyExtended  # noqa: F401,E501
 from isi_sdk_8_0.models.node_state_smartfail_extended import NodeStateSmartfailExtended  # noqa: F401,E501
 
@@ -36,7 +36,7 @@ class ClusterNodeStateExtended(object):
     """
     swagger_types = {
         'readonly': 'NodeStateReadonlyExtended',
-        'servicelight': 'ClusterNodeStateServicelightExtended',
+        'servicelight': 'NodeStateNodeServicelight',
         'smartfail': 'NodeStateSmartfailExtended'
     }
 
@@ -91,7 +91,7 @@ class ClusterNodeStateExtended(object):
         Node service light state.  # noqa: E501
 
         :return: The servicelight of this ClusterNodeStateExtended.  # noqa: E501
-        :rtype: ClusterNodeStateServicelightExtended
+        :rtype: NodeStateNodeServicelight
         """
         return self._servicelight
 
@@ -102,7 +102,7 @@ class ClusterNodeStateExtended(object):
         Node service light state.  # noqa: E501
 
         :param servicelight: The servicelight of this ClusterNodeStateExtended.  # noqa: E501
-        :type: ClusterNodeStateServicelightExtended
+        :type: NodeStateNodeServicelight
         """
 
         self._servicelight = servicelight

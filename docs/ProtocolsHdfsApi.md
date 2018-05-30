@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **create_proxyusers_name_member**
-> CreateResponse create_proxyusers_name_member(proxyusers_name_member, name, zone=zone)
+> Empty create_proxyusers_name_member(proxyusers_name_member, name, zone=zone)
 
 
 
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateResponse**](CreateResponse.md)
+[**Empty**](Empty.md)
 
 ### Authorization
 

@@ -35,26 +35,31 @@ class NfsExportsExtended(object):
     """
     swagger_types = {
         'exports': 'list[NfsExportExtended]',
+        'digest': 'str',
         'resume': 'str',
         'total': 'int'
     }
 
     attribute_map = {
         'exports': 'exports',
+        'digest': 'digest',
         'resume': 'resume',
         'total': 'total'
     }
 
-    def __init__(self, exports=None, resume=None, total=None):  # noqa: E501
+    def __init__(self, exports=None, digest=None, resume=None, total=None):  # noqa: E501
         """NfsExportsExtended - a model defined in Swagger"""  # noqa: E501
 
         self._exports = None
+        self._digest = None
         self._resume = None
         self._total = None
         self.discriminator = None
 
         if exports is not None:
             self.exports = exports
+        if digest is not None:
+            self.digest = digest
         if resume is not None:
             self.resume = resume
         if total is not None:
@@ -80,6 +85,27 @@ class NfsExportsExtended(object):
         """
 
         self._exports = exports
+
+    @property
+    def digest(self):
+        """Gets the digest of this NfsExportsExtended.  # noqa: E501
+
+
+        :return: The digest of this NfsExportsExtended.  # noqa: E501
+        :rtype: str
+        """
+        return self._digest
+
+    @digest.setter
+    def digest(self, digest):
+        """Sets the digest of this NfsExportsExtended.
+
+
+        :param digest: The digest of this NfsExportsExtended.  # noqa: E501
+        :type: str
+        """
+
+        self._digest = digest
 
     @property
     def resume(self):

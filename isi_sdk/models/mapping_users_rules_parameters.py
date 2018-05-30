@@ -16,7 +16,7 @@ import re  # noqa: F401
 
 import six
 
-from isi_sdk_8_0.models.mapping_users_rules_rule_options_default_user import MappingUsersRulesRuleOptionsDefaultUser  # noqa: F401,E501
+from isi_sdk_8_0.models.mapping_users_rules_parameters_default_unix_user import MappingUsersRulesParametersDefaultUnixUser  # noqa: F401,E501
 
 
 class MappingUsersRulesParameters(object):
@@ -33,7 +33,7 @@ class MappingUsersRulesParameters(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'default_unix_user': 'MappingUsersRulesRuleOptionsDefaultUser'
+        'default_unix_user': 'MappingUsersRulesParametersDefaultUnixUser'
     }
 
     attribute_map = {
@@ -56,7 +56,7 @@ class MappingUsersRulesParameters(object):
           # noqa: E501
 
         :return: The default_unix_user of this MappingUsersRulesParameters.  # noqa: E501
-        :rtype: MappingUsersRulesRuleOptionsDefaultUser
+        :rtype: MappingUsersRulesParametersDefaultUnixUser
         """
         return self._default_unix_user
 
@@ -67,7 +67,7 @@ class MappingUsersRulesParameters(object):
           # noqa: E501
 
         :param default_unix_user: The default_unix_user of this MappingUsersRulesParameters.  # noqa: E501
-        :type: MappingUsersRulesRuleOptionsDefaultUser
+        :type: MappingUsersRulesParametersDefaultUnixUser
         """
 
         self._default_unix_user = default_unix_user

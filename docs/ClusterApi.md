@@ -325,7 +325,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_cluster_nodes**
-> ClusterNodesExtended get_cluster_nodes()
+> ClusterNodes get_cluster_nodes()
 
 
 
@@ -359,7 +359,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**ClusterNodesExtended**](ClusterNodesExtended.md)
+[**ClusterNodes**](ClusterNodes.md)
 
 ### Authorization
 

@@ -831,7 +831,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_swift_account**
-> CreateResponse create_swift_account(swift_account, zone=zone)
+> Empty create_swift_account(swift_account, zone=zone)
 
 
 
@@ -871,7 +871,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateResponse**](CreateResponse.md)
+[**Empty**](Empty.md)
 
 ### Authorization
 
