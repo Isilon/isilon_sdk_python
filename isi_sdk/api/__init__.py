@@ -19,6 +19,7 @@ from isi_sdk_7_2.api.filesystem_api import FilesystemApi
 from isi_sdk_7_2.api.fsa_api import FsaApi
 from isi_sdk_7_2.api.job_api import JobApi
 from isi_sdk_7_2.api.license_api import LicenseApi
+from isi_sdk_7_2.api.namespace_api import NamespaceApi
 from isi_sdk_7_2.api.protocols_api import ProtocolsApi
 from isi_sdk_7_2.api.protocols_hdfs_api import ProtocolsHdfsApi
 from isi_sdk_7_2.api.quota_api import QuotaApi

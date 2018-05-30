@@ -16,7 +16,8 @@ import re  # noqa: F401
 
 import six
 
-from isi_sdk_7_2.models.job_policies_type import JobPoliciesType  # noqa: F401,E501
+from isi_sdk_7_2.models.job_policies import JobPolicies  # noqa: F401,E501
+from isi_sdk_7_2.models.job_policy_extended import JobPolicyExtended  # noqa: F401,E501
 
 
 class JobPoliciesExtended(object):
@@ -33,7 +34,7 @@ class JobPoliciesExtended(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'policies': 'list[JobPoliciesType]',
+        'policies': 'list[JobPolicyExtended]',
         'resume': 'str',
         'total': 'int'
     }
@@ -65,7 +66,7 @@ class JobPoliciesExtended(object):
 
 
         :return: The policies of this JobPoliciesExtended.  # noqa: E501
-        :rtype: list[JobPoliciesType]
+        :rtype: list[JobPolicyExtended]
         """
         return self._policies
 
@@ -75,7 +76,7 @@ class JobPoliciesExtended(object):
 
 
         :param policies: The policies of this JobPoliciesExtended.  # noqa: E501
-        :type: list[JobPoliciesType]
+        :type: list[JobPolicyExtended]
         """
 
         self._policies = policies

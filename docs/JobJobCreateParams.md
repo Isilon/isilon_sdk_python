@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **allow_dup** | **bool** | Whether or not to queue the job if one of the same type is already running or queued. | [optional] 
 **changelistcreate_params** | [**JobJobChangelistcreateParams**](JobJobChangelistcreateParams.md) |  | [optional] 
 **domainmark_params** | [**JobJobDomainmarkParams**](JobJobDomainmarkParams.md) |  | [optional] 
-**paths** | **list[str]** | For jobs which take paths, the IFS paths to pass to the job. | 
+**paths** | **list[str]** | For jobs which take paths, the IFS paths to pass to the job. | [optional] 
 **policy** | **str** | Impact policy of this job instance. | [optional] 
 **prepair_params** | [**JobJobPrepairParams**](JobJobPrepairParams.md) |  | [optional] 
 **priority** | **int** | Priority of this job instance; lower numbers preempt higher numbers. | [optional] 

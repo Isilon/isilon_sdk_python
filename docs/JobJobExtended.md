@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **description** | **str** | A text representation of the job. | [optional] 
 **id** | **int** | The ID of the job. | 
 **impact** | **str** | The current impact of the job. | 
-**participants** | **list[int]** | The set of devids working on the job. | 
-**paths** | **list[str]** | Paths for which the job was queued. | 
+**participants** | **list[int]** | The set of devids working on the job. | [optional] 
+**paths** | **list[str]** | Paths for which the job was queued. | [optional] 
 **policy** | **str** | Current impact policy of the job. | 
 **priority** | **int** | Current priority of the job; lower numbers preempt higher numbers. | 
 **progress** | **str** | A text representation of the job&#39;s progress. | [optional] 

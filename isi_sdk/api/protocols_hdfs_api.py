@@ -45,7 +45,7 @@ class ProtocolsHdfsApi(object):
         :param async bool
         :param GroupMember proxyusers_name_member: (required)
         :param str name: (required)
-        :return: CreateResponse
+        :return: Empty
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -68,7 +68,7 @@ class ProtocolsHdfsApi(object):
         :param async bool
         :param GroupMember proxyusers_name_member: (required)
         :param str name: (required)
-        :return: CreateResponse
+        :return: Empty
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -132,7 +132,7 @@ class ProtocolsHdfsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='CreateResponse',  # noqa: E501
+            response_type='Empty',  # noqa: E501
             auth_settings=auth_settings,
             async=params.get('async'),
             _return_http_data_only=params.get('_return_http_data_only'),

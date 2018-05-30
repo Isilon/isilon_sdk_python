@@ -16,7 +16,7 @@ import re  # noqa: F401
 
 import six
 
-from isi_sdk_7_2.models.auth_user_extended import AuthUserExtended  # noqa: F401,E501
+from isi_sdk_7_2.models.mapping_users_lookup_mapping_item_user import MappingUsersLookupMappingItemUser  # noqa: F401,E501
 
 
 class AuthUsers(object):
@@ -33,7 +33,7 @@ class AuthUsers(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'users': 'list[AuthUserExtended]'
+        'users': 'list[MappingUsersLookupMappingItemUser]'
     }
 
     attribute_map = {
@@ -55,7 +55,7 @@ class AuthUsers(object):
 
 
         :return: The users of this AuthUsers.  # noqa: E501
-        :rtype: list[AuthUserExtended]
+        :rtype: list[MappingUsersLookupMappingItemUser]
         """
         return self._users
 
@@ -65,7 +65,7 @@ class AuthUsers(object):
 
 
         :param users: The users of this AuthUsers.  # noqa: E501
-        :type: list[AuthUserExtended]
+        :type: list[MappingUsersLookupMappingItemUser]
         """
 
         self._users = users
