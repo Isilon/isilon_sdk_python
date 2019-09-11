@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**details** | [**Empty**](Empty.md) | Optional details of the evaluation - raw data | [optional] 
+**details** | **list[str]** | Optional details of the evaluation - raw data | [optional] 
 **hash** | **str** | Unique identifier | [optional] 
 **id** | **str** | Unique identifier of item | [optional] 
 **node** | **str** | Either &#39;cluster&#39; or an lnn | [optional] 

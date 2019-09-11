@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **groupnet** | **str** |  | [optional] 
+**ip_addrs** | **list[str]** | List of IP addresses in this owner | [optional] 
 **pool** | **str** |  | [optional] 
 **subnet** | **str** |  | [optional] 
 

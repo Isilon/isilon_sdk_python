@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **blocks** | **int** | Specifies the number of blocks that compose the object. | [optional] 
 **btime_val** | **int** | Specifies the time when the object data was created in UNIX Epoch format. | [optional] 
 **change_time** | **str** | Specifies the date when the object was last changed (including data and metadata changes) in HTTP date/time format. | [optional] 
+**container** | **str** | Specifies the name of the queried container. | [optional] 
+**container_path** | **str** | Specifies the container path on the file system. | [optional] 
 **create_time** | **str** | Specifies the date when the object data was created in HTTP date/time format. | [optional] 
 **ctime_val** | **int** | Specifies the time when the object was last changed (including data and metadata changes) in UNIX Epoch format. | [optional] 
 **gid** | **int** | Specifies the GID for the owner. | [optional] 
@@ -22,7 +24,7 @@ Name | Type | Description | Notes
 **nlink** | **int** | Specifies the number of hard links to the object. | [optional] 
 **owner** | **str** | Specifies the user name for the owner of the object. | [optional] 
 **size** | **int** | Specifies the size of the object in bytes. | [optional] 
-**stub** | **bool** |  | [optional] 
+**stub** | **bool** | Specifies whether the file is a stub or not. | [optional] 
 **type** | **str** | Specifies the object type, which can be one of the following values: container, object, pipe, character_device, block_device, symbolic_link, socket, or whiteout_file. | [optional] 
 **uid** | **int** | Specifies the UID for the owner. | [optional] 
 

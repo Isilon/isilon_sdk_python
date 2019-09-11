@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **ftp_upload** | **bool** |  | [optional] 
 **ftp_upload_host** | **str** | Alternate FTP host to upload to. | [optional] 
 **ftp_upload_mode** | **str** | FTP upload mode. | [optional] 
+**ftp_upload_pass** | **str** | FTP password for upload. | [optional] 
 **ftp_upload_path** | **str** | Alternate FTP path to upload to. | [optional] 
 **ftp_upload_proxy** | **str** | FTP proxy to use for upload. | [optional] 
 **ftp_upload_proxy_port** | **int** | FTP proxy port to use for upload. | [optional] 
@@ -18,7 +19,6 @@ Name | Type | Description | Notes
 **http_upload_proxy** | **str** | Proxy to use for HTTP upload. | [optional] 
 **http_upload_proxy_port** | **int** | Alternate port for proxy server | [optional] 
 **upload** | **bool** | Upload gather to EMC. | [optional] 
-**ftp_upload_pass** | **str** | FTP password for upload. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

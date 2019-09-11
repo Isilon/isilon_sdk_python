@@ -1,16 +1,16 @@
-# isi_sdk_8_1_1.QuotaQuotasApi
+# isi_sdk_8_2_0.QuotaQuotasApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_quota_notification**](QuotaQuotasApi.md#create_quota_notification) | **POST** /platform/1/quota/quotas/{Qid}/notifications | 
-[**delete_quota_notification**](QuotaQuotasApi.md#delete_quota_notification) | **DELETE** /platform/1/quota/quotas/{Qid}/notifications/{QuotaNotificationId} | 
-[**delete_quota_notifications**](QuotaQuotasApi.md#delete_quota_notifications) | **DELETE** /platform/1/quota/quotas/{Qid}/notifications | 
-[**get_quota_notification**](QuotaQuotasApi.md#get_quota_notification) | **GET** /platform/1/quota/quotas/{Qid}/notifications/{QuotaNotificationId} | 
-[**list_quota_notifications**](QuotaQuotasApi.md#list_quota_notifications) | **GET** /platform/1/quota/quotas/{Qid}/notifications | 
-[**update_quota_notification**](QuotaQuotasApi.md#update_quota_notification) | **PUT** /platform/1/quota/quotas/{Qid}/notifications/{QuotaNotificationId} | 
-[**update_quota_notifications**](QuotaQuotasApi.md#update_quota_notifications) | **PUT** /platform/1/quota/quotas/{Qid}/notifications | 
+[**create_quota_notification**](QuotaQuotasApi.md#create_quota_notification) | **POST** /platform/7/quota/quotas/{Qid}/notifications | 
+[**delete_quota_notification**](QuotaQuotasApi.md#delete_quota_notification) | **DELETE** /platform/7/quota/quotas/{Qid}/notifications/{QuotaNotificationId} | 
+[**delete_quota_notifications**](QuotaQuotasApi.md#delete_quota_notifications) | **DELETE** /platform/7/quota/quotas/{Qid}/notifications | 
+[**get_quota_notification**](QuotaQuotasApi.md#get_quota_notification) | **GET** /platform/7/quota/quotas/{Qid}/notifications/{QuotaNotificationId} | 
+[**list_quota_notifications**](QuotaQuotasApi.md#list_quota_notifications) | **GET** /platform/7/quota/quotas/{Qid}/notifications | 
+[**update_quota_notification**](QuotaQuotasApi.md#update_quota_notification) | **PUT** /platform/7/quota/quotas/{Qid}/notifications/{QuotaNotificationId} | 
+[**update_quota_notifications**](QuotaQuotasApi.md#update_quota_notifications) | **PUT** /platform/7/quota/quotas/{Qid}/notifications | 
 
 
 # **create_quota_notification**
@@ -24,18 +24,18 @@ Create a new notification rule specific to this quota.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.QuotaQuotasApi(isi_sdk_8_1_1.ApiClient(configuration))
-quota_notification = isi_sdk_8_1_1.QuotaNotificationCreateParams() # QuotaNotificationCreateParams | 
+api_instance = isi_sdk_8_2_0.QuotaQuotasApi(isi_sdk_8_2_0.ApiClient(configuration))
+quota_notification = isi_sdk_8_2_0.QuotaNotificationCreateParams() # QuotaNotificationCreateParams | 
 qid = 'qid_example' # str | 
 
 try:
@@ -78,17 +78,17 @@ Delete the notification rule.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.QuotaQuotasApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.QuotaQuotasApi(isi_sdk_8_2_0.ApiClient(configuration))
 quota_notification_id = 'quota_notification_id_example' # str | Delete the notification rule.
 qid = 'qid_example' # str | 
 
@@ -131,17 +131,17 @@ Delete all quota specific rules. The quota will then use the global rules.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.QuotaQuotasApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.QuotaQuotasApi(isi_sdk_8_2_0.ApiClient(configuration))
 qid = 'qid_example' # str | 
 
 try:
@@ -182,17 +182,17 @@ Retrieve notification rule information.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.QuotaQuotasApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.QuotaQuotasApi(isi_sdk_8_2_0.ApiClient(configuration))
 quota_notification_id = 'quota_notification_id_example' # str | Retrieve notification rule information.
 qid = 'qid_example' # str | 
 
@@ -236,17 +236,17 @@ List all rules.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.QuotaQuotasApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.QuotaQuotasApi(isi_sdk_8_2_0.ApiClient(configuration))
 qid = 'qid_example' # str | 
 
 try:
@@ -288,18 +288,18 @@ Modify notification rule. All input fields are optional, but one or more must be
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.QuotaQuotasApi(isi_sdk_8_1_1.ApiClient(configuration))
-quota_notification = isi_sdk_8_1_1.QuotaNotification() # QuotaNotification | 
+api_instance = isi_sdk_8_2_0.QuotaQuotasApi(isi_sdk_8_2_0.ApiClient(configuration))
+quota_notification = isi_sdk_8_2_0.QuotaNotification() # QuotaNotification | 
 quota_notification_id = 'quota_notification_id_example' # str | Modify notification rule. All input fields are optional, but one or more must be supplied.
 qid = 'qid_example' # str | 
 
@@ -343,18 +343,18 @@ This method creates an empty set of rules so that the global rules are not used.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.QuotaQuotasApi(isi_sdk_8_1_1.ApiClient(configuration))
-quota_notifications = isi_sdk_8_1_1.Empty() # Empty | 
+api_instance = isi_sdk_8_2_0.QuotaQuotasApi(isi_sdk_8_2_0.ApiClient(configuration))
+quota_notifications = isi_sdk_8_2_0.Empty() # Empty | 
 qid = 'qid_example' # str | 
 
 try:

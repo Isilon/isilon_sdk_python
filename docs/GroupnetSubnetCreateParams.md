@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **mtu** | **int** | MTU of the subnet. | [optional] 
 **name** | **str** | The name of the subnet. | 
 **prefixlen** | **int** | Subnet Prefix Length. | 
-**sc_service_addr** | **str** | The address that SmartConnect listens for DNS requests. | [optional] 
+**sc_service_addrs** | [**list[SubnetsSubnetPoolRange]**](SubnetsSubnetPoolRange.md) | List of IP addresses that SmartConnect listens for DNS requests. | [optional] 
 **sc_service_name** | **str** | Domain Name corresponding to the SmartConnect Service Address. | [optional] 
 **vlan_enabled** | **bool** | VLAN tagging enabled or disabled. | [optional] 
 **vlan_id** | **int** | VLAN ID for all interfaces in the subnet. | [optional] 

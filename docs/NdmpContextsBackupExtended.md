@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**contexts** | [**list[NdmpContextsBackupContext]**](NdmpContextsBackupContext.md) |  | [optional] 
+**contexts** | [**list[NdmpContextsBackupContextExtended]**](NdmpContextsBackupContextExtended.md) |  | [optional] 
 **resume** | **str** | Resume string returned by previous query. | [optional] 
 **total** | **int** | The number of ndmp contexts. | [optional] 
 

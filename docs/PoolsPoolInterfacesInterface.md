@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Unique interface ID. | 
 **ip_addrs** | **list[str]** | List of IP addresses | 
-**lnn** | **int** | Logical Node Number | 
+**lnn** | **int** | Logical Node Number (LNN) of a node. | 
 **name** | **str** | The name of the interface. | 
 **nic_name** | **str** | NIC name | 
 **owners** | [**list[PoolsPoolInterfacesInterfaceOwner]**](PoolsPoolInterfacesInterfaceOwner.md) | List of owners (membership) | 

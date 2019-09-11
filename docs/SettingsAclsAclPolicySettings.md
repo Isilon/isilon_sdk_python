@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **calcmode** | **str** | Displayed mode bits. | [optional] 
 **calcmode_group** | **str** | Approximate group mode bits when ACL exists. | [optional] 
 **calcmode_owner** | **str** | Approximate owner mode bits when ACL exists. | [optional] 
+**calcmode_traverse** | **str** | Require traverse rights in order to traverse directories with existing ACLs. | [optional] 
 **chmod** | **str** | chmod on files with existing ACLs. | [optional] 
 **chmod_007** | **str** | chmod (007) on files with existing ACLs. | [optional] 
 **chmod_inheritable** | **str** | ACLs created on directories by UNIX chmod. | [optional] 

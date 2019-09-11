@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **bytes_recoverable** | **int** | The number of bytes recoverable by this job. | 
 **bytes_transferred** | **int** | The number of bytes that have been transferred by this job. | 
 **char_specs_replicated** | **int** | The number of char specs replicated by this job. | 
+**committed_files** | **int** | The number of WORM committed files. | 
 **corrected_lins** | **int** | The number of LINs corrected by this job. | 
 **dead_node** | **bool** | This field is true if the node running this job is dead. | 
 **directories_replicated** | **int** | The number of directories replicated. | 
@@ -17,6 +18,7 @@ Name | Type | Description | Notes
 **dirs_moved** | **int** | The number of directories moved by this job. | 
 **dirs_new** | **int** | The number of directories created by this job. | 
 **duration** | **int** | The amount of time in seconds between when the job was started and when it ended.  If the job has not yet ended, this is the amount of time since the job started.  This field is null if the job has not yet started. | [optional] 
+**encrypted** | **bool** | If true, syncs will be encrypted. | 
 **end_time** | **int** | The time the job ended in unix epoch seconds. The field is null if the job hasn&#39;t ended. | [optional] 
 **error** | **str** | The primary error message for this job. | 
 **error_checksum_files_skipped** | **int** | The number of files with checksum errors skipped by this job. | 
@@ -47,11 +49,13 @@ Name | Type | Description | Notes
 **phases** | [**list[SyncJobPhase]**](SyncJobPhase.md) | Data for each phase of this job. | 
 **policy_id** | **str** | The ID of the policy. | 
 **policy_name** | **str** | The name of the policy. | 
+**quotas_deleted** | **int** | The number of quotas removed from the target. | 
 **regular_files_replicated** | **int** | The number of regular files replicated by this job. | 
 **resynced_lins** | **int** | The number of LINs resynched by this job. | 
 **retransmitted_files** | **list[str]** | The files that have been retransmitted by this job. | 
 **retry** | **int** | The number of times the job has been retried. | 
 **running_chunks** | **int** | The number of data chunks currently being transmitted. | 
+**service_report** | [**list[SyncJobServiceReportItem]**](SyncJobServiceReportItem.md) | Data for each component exported as part of service replication. | [optional] 
 **sockets_replicated** | **int** | The number of sockets replicated by this job. | 
 **source_bytes_recovered** | **int** | The number of bytes recovered on the source. | 
 **source_directories_created** | **int** | The number of directories created on the source. | 
@@ -82,6 +86,7 @@ Name | Type | Description | Notes
 **target_snapshots** | **list[str]** | The target snapshots created by this job. | 
 **total_chunks** | **int** | The total number of data chunks transmitted by this job. | 
 **total_data_bytes** | **int** | The total number of bytes transferred by this job. | 
+**total_exported_services** | **int** | The total number of components exported as part of service replication. | [optional] 
 **total_files** | **int** | The number of files affected by this job. | 
 **total_network_bytes** | **int** | The total number of bytes sent over the network by this job. | 
 **total_phases** | **int** | The total number of phases for this job. | 

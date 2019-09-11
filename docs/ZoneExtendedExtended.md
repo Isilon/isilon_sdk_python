@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **auth_providers** | **list[str]** | Specifies the list of authentication providers available on this access zone. | [optional] 
 **cache_entry_expiry** | **int** | Specifies amount of time in seconds to cache a user/group. | [optional] 
 **create_path** | **bool** | Determines if a path is created when a path does not exist. | [optional] 
-**groupnet** | **str** | Groupnet identitier | [optional] 
+**groupnet** | **str** | Groupnet identifier | [optional] 
 **home_directory_umask** | **int** | Specifies the permissions set on automatically created user home directories. | [optional] 
 **id** | **str** | Specifies the system-assigned ID for the access zone. This value is returned when an access zone is created through the POST method | [optional] 
 **ifs_restricted** | [**list[AuthAccessAccessItemFileGroup]**](AuthAccessAccessItemFileGroup.md) | Specifies a list of users and groups that have read and write access to /ifs. | [optional] 

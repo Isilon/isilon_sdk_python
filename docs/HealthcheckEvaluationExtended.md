@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **parameters** | [**Empty**](Empty.md) | Parameters supplied for this evaluation | [optional] 
 **result** | **str** | Overall result of evaluation - only if COMPLETED | [optional] 
 **run_status** | **str** | Execution status | [optional] 
+**start_time** | **float** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

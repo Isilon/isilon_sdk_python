@@ -1,24 +1,24 @@
-# isi_sdk_8_1_1.JobApi
+# isi_sdk_8_2_0.JobApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_job_job**](JobApi.md#create_job_job) | **POST** /platform/3/job/jobs | 
+[**create_job_job**](JobApi.md#create_job_job) | **POST** /platform/7/job/jobs | 
 [**create_job_policy**](JobApi.md#create_job_policy) | **POST** /platform/1/job/policies | 
 [**delete_job_policy**](JobApi.md#delete_job_policy) | **DELETE** /platform/1/job/policies/{JobPolicyId} | 
 [**get_job_events**](JobApi.md#get_job_events) | **GET** /platform/3/job/events | 
-[**get_job_job**](JobApi.md#get_job_job) | **GET** /platform/3/job/jobs/{JobJobId} | 
-[**get_job_job_summary**](JobApi.md#get_job_job_summary) | **GET** /platform/1/job/job-summary | 
+[**get_job_job**](JobApi.md#get_job_job) | **GET** /platform/7/job/jobs/{JobJobId} | 
+[**get_job_job_summary**](JobApi.md#get_job_job_summary) | **GET** /platform/7/job/job-summary | 
 [**get_job_policy**](JobApi.md#get_job_policy) | **GET** /platform/1/job/policies/{JobPolicyId} | 
 [**get_job_recent**](JobApi.md#get_job_recent) | **GET** /platform/3/job/recent | 
-[**get_job_reports**](JobApi.md#get_job_reports) | **GET** /platform/3/job/reports | 
+[**get_job_reports**](JobApi.md#get_job_reports) | **GET** /platform/7/job/reports | 
 [**get_job_statistics**](JobApi.md#get_job_statistics) | **GET** /platform/1/job/statistics | 
 [**get_job_type**](JobApi.md#get_job_type) | **GET** /platform/1/job/types/{JobTypeId} | 
 [**get_job_types**](JobApi.md#get_job_types) | **GET** /platform/1/job/types | 
-[**list_job_jobs**](JobApi.md#list_job_jobs) | **GET** /platform/3/job/jobs | 
+[**list_job_jobs**](JobApi.md#list_job_jobs) | **GET** /platform/7/job/jobs | 
 [**list_job_policies**](JobApi.md#list_job_policies) | **GET** /platform/1/job/policies | 
-[**update_job_job**](JobApi.md#update_job_job) | **PUT** /platform/3/job/jobs/{JobJobId} | 
+[**update_job_job**](JobApi.md#update_job_job) | **PUT** /platform/7/job/jobs/{JobJobId} | 
 [**update_job_policy**](JobApi.md#update_job_policy) | **PUT** /platform/1/job/policies/{JobPolicyId} | 
 [**update_job_type**](JobApi.md#update_job_type) | **PUT** /platform/1/job/types/{JobTypeId} | 
 
@@ -34,18 +34,18 @@ Queue a new instance of a job type.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.JobApi(isi_sdk_8_1_1.ApiClient(configuration))
-job_job = isi_sdk_8_1_1.JobJobCreateParams() # JobJobCreateParams | 
+api_instance = isi_sdk_8_2_0.JobApi(isi_sdk_8_2_0.ApiClient(configuration))
+job_job = isi_sdk_8_2_0.JobJobCreateParams() # JobJobCreateParams | 
 
 try:
     api_response = api_instance.create_job_job(job_job)
@@ -86,18 +86,18 @@ Create a new job impact policy.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.JobApi(isi_sdk_8_1_1.ApiClient(configuration))
-job_policy = isi_sdk_8_1_1.JobPolicyCreateParams() # JobPolicyCreateParams | 
+api_instance = isi_sdk_8_2_0.JobApi(isi_sdk_8_2_0.ApiClient(configuration))
+job_policy = isi_sdk_8_2_0.JobPolicyCreateParams() # JobPolicyCreateParams | 
 
 try:
     api_response = api_instance.create_job_policy(job_policy)
@@ -138,17 +138,17 @@ Delete a job impact policy.  System policies may not be deleted.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.JobApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.JobApi(isi_sdk_8_2_0.ApiClient(configuration))
 job_policy_id = 'job_policy_id_example' # str | Delete a job impact policy.  System policies may not be deleted.
 
 try:
@@ -179,7 +179,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_job_events**
-> JobEvents get_job_events(begin=begin, end=end, job_id=job_id, resume=resume, job_type=job_type, timeout_ms=timeout_ms, state=state, limit=limit, key=key)
+> JobEvents get_job_events(begin=begin, end=end, job_id=job_id, resume=resume, job_type=job_type, timeout_ms=timeout_ms, state=state, ended_jobs_only=ended_jobs_only, limit=limit, key=key)
 
 
 
@@ -189,29 +189,30 @@ List job events.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.JobApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.JobApi(isi_sdk_8_2_0.ApiClient(configuration))
 begin = 56 # int | Restrict the query to events at or after the given time, in seconds since the Epoch. (optional)
 end = 56 # int | Restrict the query to events before the given time, in seconds since the Epoch. (optional)
 job_id = 56 # int | Restrict the query to the given job ID. (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
 job_type = 'job_type_example' # str | Restrict the query to the given job type. (optional)
 timeout_ms = 56 # int | Query timeout in milliseconds. The default is 10000 ms. (optional)
-state = 'state_example' # str | Restrict the query to events containing the given state. (optional)
+state = 'state_example' # str | Restrict the query to events containing the given state. This parameter cannot be used with ended_jobs_only (optional)
+ended_jobs_only = true # bool | Request all jobs that ended. This parameter cannot be used with the 'state' parameter. Ended states are 'cancelled_user', 'cancelled_system', 'failed' or 'succeeded' (optional)
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
 key = 'key_example' # str | Restrict the query to the given key name. (optional)
 
 try:
-    api_response = api_instance.get_job_events(begin=begin, end=end, job_id=job_id, resume=resume, job_type=job_type, timeout_ms=timeout_ms, state=state, limit=limit, key=key)
+    api_response = api_instance.get_job_events(begin=begin, end=end, job_id=job_id, resume=resume, job_type=job_type, timeout_ms=timeout_ms, state=state, ended_jobs_only=ended_jobs_only, limit=limit, key=key)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling JobApi->get_job_events: %s\n" % e)
@@ -227,7 +228,8 @@ Name | Type | Description  | Notes
  **resume** | **str**| Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). | [optional] 
  **job_type** | **str**| Restrict the query to the given job type. | [optional] 
  **timeout_ms** | **int**| Query timeout in milliseconds. The default is 10000 ms. | [optional] 
- **state** | **str**| Restrict the query to events containing the given state. | [optional] 
+ **state** | **str**| Restrict the query to events containing the given state. This parameter cannot be used with ended_jobs_only | [optional] 
+ **ended_jobs_only** | **bool**| Request all jobs that ended. This parameter cannot be used with the &#39;state&#39; parameter. Ended states are &#39;cancelled_user&#39;, &#39;cancelled_system&#39;, &#39;failed&#39; or &#39;succeeded&#39; | [optional] 
  **limit** | **int**| Return no more than this many results at once (see resume). | [optional] 
  **key** | **str**| Restrict the query to the given key name. | [optional] 
 
@@ -257,17 +259,17 @@ View a single job instance.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.JobApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.JobApi(isi_sdk_8_2_0.ApiClient(configuration))
 job_job_id = 'job_job_id_example' # str | View a single job instance.
 
 try:
@@ -309,17 +311,17 @@ View job engine status.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.JobApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.JobApi(isi_sdk_8_2_0.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_job_job_summary()
@@ -357,17 +359,17 @@ View a single job impact policy.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.JobApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.JobApi(isi_sdk_8_2_0.ApiClient(configuration))
 job_policy_id = 'job_policy_id_example' # str | View a single job impact policy.
 
 try:
@@ -409,17 +411,17 @@ List recently completed jobs.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.JobApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.JobApi(isi_sdk_8_2_0.ApiClient(configuration))
 timeout_ms = 56 # int | Query timeout in milliseconds. The default is 10000 ms. (optional)
 limit = 56 # int | Max number of recent jobs to return. The default is 8, the max is 100. (optional)
 
@@ -453,7 +455,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_job_reports**
-> JobReports get_job_reports(begin=begin, end=end, job_id=job_id, resume=resume, job_type=job_type, timeout_ms=timeout_ms, limit=limit, key=key, verbose=verbose)
+> JobReports get_job_reports(begin=begin, end=end, job_id=job_id, resume=resume, job_type=job_type, timeout_ms=timeout_ms, limit=limit, key=key, last_phase_only=last_phase_only, verbose=verbose)
 
 
 
@@ -463,17 +465,17 @@ List job reports.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.JobApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.JobApi(isi_sdk_8_2_0.ApiClient(configuration))
 begin = 56 # int | Restrict the query to reports at or after the given time, in seconds since the Epoch. (optional)
 end = 56 # int | Restrict the query to reports before the given time, in seconds since the Epoch. (optional)
 job_id = 56 # int | Restrict the query to the given job ID. (optional)
@@ -482,10 +484,11 @@ job_type = 'job_type_example' # str | Restrict the query to the given job type. 
 timeout_ms = 56 # int | Query timeout in milliseconds. The default is 10000 ms. (optional)
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
 key = 'key_example' # str | Restrict the query to the given report key. (optional)
+last_phase_only = true # bool | if set, the query will return the last reported phase only. (optional)
 verbose = true # bool | Display more detailed information, including job engine framework statistics. (optional)
 
 try:
-    api_response = api_instance.get_job_reports(begin=begin, end=end, job_id=job_id, resume=resume, job_type=job_type, timeout_ms=timeout_ms, limit=limit, key=key, verbose=verbose)
+    api_response = api_instance.get_job_reports(begin=begin, end=end, job_id=job_id, resume=resume, job_type=job_type, timeout_ms=timeout_ms, limit=limit, key=key, last_phase_only=last_phase_only, verbose=verbose)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling JobApi->get_job_reports: %s\n" % e)
@@ -503,6 +506,7 @@ Name | Type | Description  | Notes
  **timeout_ms** | **int**| Query timeout in milliseconds. The default is 10000 ms. | [optional] 
  **limit** | **int**| Return no more than this many results at once (see resume). | [optional] 
  **key** | **str**| Restrict the query to the given report key. | [optional] 
+ **last_phase_only** | **bool**| if set, the query will return the last reported phase only. | [optional] 
  **verbose** | **bool**| Display more detailed information, including job engine framework statistics. | [optional] 
 
 ### Return type
@@ -531,17 +535,17 @@ View job engine statistics.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.JobApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.JobApi(isi_sdk_8_2_0.ApiClient(configuration))
 devid = 56 # int | Restrict the query to the given node. (optional)
 job_id = 56 # int | Restrict the query to the given job ID. (optional)
 
@@ -585,17 +589,17 @@ Retrieve job type information.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.JobApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.JobApi(isi_sdk_8_2_0.ApiClient(configuration))
 job_type_id = 'job_type_id_example' # str | Retrieve job type information.
 
 try:
@@ -637,17 +641,17 @@ List job types.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.JobApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.JobApi(isi_sdk_8_2_0.ApiClient(configuration))
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 show_all = true # bool | Whether to show all job types, including hidden ones.  Defaults to false. (optional)
 dir = 'dir_example' # str | The direction of the sort. (optional)
@@ -693,17 +697,17 @@ List running and paused jobs.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.JobApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.JobApi(isi_sdk_8_2_0.ApiClient(configuration))
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
 batch = true # bool | If true, other arguments are ignored, and the query will return all results, unsorted, as quickly as possible. (optional)
@@ -755,17 +759,17 @@ List job impact policies.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.JobApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.JobApi(isi_sdk_8_2_0.ApiClient(configuration))
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
 dir = 'dir_example' # str | The direction of the sort. (optional)
@@ -813,18 +817,18 @@ Modify a running or paused job instance.  All input fields are optional, but one
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.JobApi(isi_sdk_8_1_1.ApiClient(configuration))
-job_job = isi_sdk_8_1_1.JobJob() # JobJob | 
+api_instance = isi_sdk_8_2_0.JobApi(isi_sdk_8_2_0.ApiClient(configuration))
+job_job = isi_sdk_8_2_0.JobJob() # JobJob | 
 job_job_id = 'job_job_id_example' # str | Modify a running or paused job instance.  All input fields are optional, but one or more must be supplied.
 
 try:
@@ -866,18 +870,18 @@ Modify a job impact policy.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.JobApi(isi_sdk_8_1_1.ApiClient(configuration))
-job_policy = isi_sdk_8_1_1.JobPolicy() # JobPolicy | 
+api_instance = isi_sdk_8_2_0.JobApi(isi_sdk_8_2_0.ApiClient(configuration))
+job_policy = isi_sdk_8_2_0.JobPolicy() # JobPolicy | 
 job_policy_id = 'job_policy_id_example' # str | Modify a job impact policy.
 
 try:
@@ -919,18 +923,18 @@ Modify the job type.  All input fields are optional, but one or more must be sup
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.JobApi(isi_sdk_8_1_1.ApiClient(configuration))
-job_type = isi_sdk_8_1_1.JobType() # JobType | 
+api_instance = isi_sdk_8_2_0.JobApi(isi_sdk_8_2_0.ApiClient(configuration))
+job_type = isi_sdk_8_2_0.JobType() # JobType | 
 job_type_id = 'job_type_id_example' # str | Modify the job type.  All input fields are optional, but one or more must be supplied.
 
 try:

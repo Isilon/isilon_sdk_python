@@ -4,8 +4,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **allocated** | **int** | Nodes allocated for the sync action. | 
-**id** | **int** | An ID for a single performance report. | 
+**id** | **str** | An ID for a single performance report. | 
 **limit** | **int** | Sync action limit. | 
+**name** | **str** | The name of the SyncIQ policy if specified. | [optional] 
 **timestamp** | **int** | Timestamp for the performance report. | 
 **total** | **int** | Total usage for the performance report. | 
 

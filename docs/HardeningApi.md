@@ -1,4 +1,4 @@
-# isi_sdk_8_1_1.HardeningApi
+# isi_sdk_8_2_0.HardeningApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -22,18 +22,18 @@ Apply hardening on the cluster.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.HardeningApi(isi_sdk_8_1_1.ApiClient(configuration))
-hardening_apply_item = isi_sdk_8_1_1.HardeningApplyItem() # HardeningApplyItem | 
+api_instance = isi_sdk_8_2_0.HardeningApi(isi_sdk_8_2_0.ApiClient(configuration))
+hardening_apply_item = isi_sdk_8_2_0.HardeningApplyItem() # HardeningApplyItem | 
 
 try:
     api_response = api_instance.create_hardening_apply_item(hardening_apply_item)
@@ -74,19 +74,19 @@ Resolve issues related to hardening, found in current cluster configuration.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.HardeningApi(isi_sdk_8_1_1.ApiClient(configuration))
-hardening_resolve_item = isi_sdk_8_1_1.HardeningResolveItem() # HardeningResolveItem | 
-accept = true # bool | If true, execution proceeds to resolve all issues. If false, executrion aborts. This is a required argument. (optional)
+api_instance = isi_sdk_8_2_0.HardeningApi(isi_sdk_8_2_0.ApiClient(configuration))
+hardening_resolve_item = isi_sdk_8_2_0.HardeningResolveItem() # HardeningResolveItem | 
+accept = true # bool | If true, execution proceeds to resolve all issues. If false, execution aborts. This is a required argument. (optional)
 
 try:
     api_response = api_instance.create_hardening_resolve_item(hardening_resolve_item, accept=accept)
@@ -100,7 +100,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **hardening_resolve_item** | [**HardeningResolveItem**](HardeningResolveItem.md)|  | 
- **accept** | **bool**| If true, execution proceeds to resolve all issues. If false, executrion aborts. This is a required argument. | [optional] 
+ **accept** | **bool**| If true, execution proceeds to resolve all issues. If false, execution aborts. This is a required argument. | [optional] 
 
 ### Return type
 
@@ -128,18 +128,18 @@ Revert hardening on the cluster.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.HardeningApi(isi_sdk_8_1_1.ApiClient(configuration))
-hardening_revert_item = isi_sdk_8_1_1.Empty() # Empty | 
+api_instance = isi_sdk_8_2_0.HardeningApi(isi_sdk_8_2_0.ApiClient(configuration))
+hardening_revert_item = isi_sdk_8_2_0.Empty() # Empty | 
 force = true # bool | If specified, revert operation continues even in case of a failure. Default is false in which case revert stops at the first failure. (optional)
 
 try:
@@ -182,17 +182,17 @@ Get the state of the current hardening operation, if one is happening.  Note tha
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.HardeningApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.HardeningApi(isi_sdk_8_2_0.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_hardening_state()
@@ -230,17 +230,17 @@ Get a message indicating whether or not the cluster is hardened. Note that this 
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.HardeningApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.HardeningApi(isi_sdk_8_2_0.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_hardening_status()

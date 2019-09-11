@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **skeleton_directory** | **str** | Specifies the skeleton directory that is used for user home directories. | [optional] 
 **system_provider** | **str** | Specifies the system provider for the access zone. | [optional] 
 **user_mapping_rules** | **list[str]** | Specifies the current ID mapping rules. | [optional] 
-**groupnet** | **str** | Groupnet identitier | [optional] 
+**groupnet** | **str** | Groupnet identifier | [optional] 
 **id** | **str** | Specifies the system-assigned ID for the access zone. This value is returned when an access zone is created through the POST method | [optional] 
 **system** | **bool** | True if the access zone is built-in. | [optional] 
 **zone_id** | **int** | Specifies the access zone ID on the system. | [optional] 

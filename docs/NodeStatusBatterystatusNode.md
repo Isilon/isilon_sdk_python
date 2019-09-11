@@ -4,10 +4,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **error** | **str** | Error message, if the HTTP status returned from this node was not 200. | [optional] 
-**id** | **int** | Node ID of the node reporting this information. | [optional] 
+**id** | **int** | Node ID (Device Number) of a node. | [optional] 
 **last_test_time1** | **str** | The last battery test time for battery 1. | [optional] 
 **last_test_time2** | **str** | The last battery test time for battery 2. | [optional] 
-**lnn** | **int** | Logical node number of the node reporting this information. | [optional] 
+**lnn** | **int** | Logical Node Number (LNN) of a node. | [optional] 
 **next_test_time1** | **str** | The next checkup for battery 1. | [optional] 
 **next_test_time2** | **str** | The next checkup for battery 2. | [optional] 
 **present** | **bool** | Node has battery status. | [optional] 

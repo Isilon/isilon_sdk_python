@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **findable_groups** | **list[str]** | Specifies the list of groups that can be resolved. | [optional] 
 **findable_users** | **list[str]** | Specifies the list of users that can be resolved. | [optional] 
 **group_domain** | **str** | Specifies the domain for this provider through which groups are qualified. | [optional] 
+**groupnet** | **str** | Groupnet identifier. | [optional] 
 **home_directory_template** | **str** | Specifies the path to the home directory template. | [optional] 
 **hostname_lookup** | **bool** | If true, enables host name look ups. | [optional] 
 **id** | **str** | Specifies the NIS provider ID. | [optional] 
@@ -38,6 +39,7 @@ Name | Type | Description | Notes
 **unlistable_users** | **list[str]** | Specifies a user that cannot be listed by the provider. | [optional] 
 **user_domain** | **str** | Specifies the domain for this provider through which users are qualified. | [optional] 
 **ypmatch_using_tcp** | **bool** | If true, specifies TCP for YP Match operations. | [optional] 
+**zone_name** | **str** | Specifies the name of the access zone in which this provider was created. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

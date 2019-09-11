@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **smtp_password** | **str** | Password for SMTP authentication - only if smtp_use_auth true. | [optional] 
 **smtp_port** | **int** | SMTP relay port - optional defaults to 25. | [optional] 
 **smtp_security** | **str** | Encryption protocol to use for SMTP. | [optional] 
-**smtp_use_auth** | **bool** | Use SMTP authentication - optional defaulst to false. | [optional] 
+**smtp_use_auth** | **bool** | Use SMTP authentication - optional defaults to false. | [optional] 
 **smtp_username** | **str** | Username for SMTP authentication - only if smtp_use_auth true. | [optional] 
 **subject** | **str** | Subject for emails. | [optional] 
 

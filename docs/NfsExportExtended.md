@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **all_dirs** | **bool** | True if all directories under the specified paths are mountable. | [optional] 
 **block_size** | **int** | Specifies the block size returned by the NFS statfs procedure. | [optional] 
-**can_set_time** | **bool** | True if the client can set file times through the NFS set attribute request. This parameter does not affect server behavior, but is included to accommoate legacy client requirements. | [optional] 
+**can_set_time** | **bool** | True if the client can set file times through the NFS set attribute request. This parameter does not affect server behavior, but is included to accommodate legacy client requirements. | [optional] 
 **case_insensitive** | **bool** | True if the case is ignored for file names. This parameter does not affect server behavior, but is included to accommodate legacy client requirements. | [optional] 
 **case_preserving** | **bool** | True if the case is preserved for file names. This parameter does not affect server behavior, but is included to accommodate legacy client requirements. | [optional] 
 **chown_restricted** | **bool** | True if the superuser can change file ownership. This parameter does not affect server behavior, but is included to accommodate legacy client requirements. | [optional] 

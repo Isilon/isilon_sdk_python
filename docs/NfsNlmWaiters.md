@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**resume** | **str** | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). | [optional] 
+**resume** | **str** | Provide this token as the &#39;resume&#39; query argument to continue listing results. | [optional] 
 **total** | **int** | Total number of items available. | [optional] 
 **waiters** | [**list[NfsNlmLocksLock]**](NfsNlmLocksLock.md) |  | [optional] 
 

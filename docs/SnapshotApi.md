@@ -1,12 +1,10 @@
-# isi_sdk_8_1_1.SnapshotApi
+# isi_sdk_8_2_0.SnapshotApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_snapshot_alias**](SnapshotApi.md#create_snapshot_alias) | **POST** /platform/1/snapshot/aliases | 
-[**create_snapshot_changelist**](SnapshotApi.md#create_snapshot_changelist) | **POST** /platform/1/snapshot/changelists | 
-[**create_snapshot_repstate**](SnapshotApi.md#create_snapshot_repstate) | **POST** /platform/1/snapshot/repstates | 
 [**create_snapshot_schedule**](SnapshotApi.md#create_snapshot_schedule) | **POST** /platform/3/snapshot/schedules | 
 [**create_snapshot_snapshot**](SnapshotApi.md#create_snapshot_snapshot) | **POST** /platform/1/snapshot/snapshots | 
 [**delete_snapshot_alias**](SnapshotApi.md#delete_snapshot_alias) | **DELETE** /platform/1/snapshot/aliases/{SnapshotAliasId} | 
@@ -19,16 +17,16 @@ Method | HTTP request | Description
 [**delete_snapshot_snapshots**](SnapshotApi.md#delete_snapshot_snapshots) | **DELETE** /platform/1/snapshot/snapshots | 
 [**get_snapshot_alias**](SnapshotApi.md#get_snapshot_alias) | **GET** /platform/1/snapshot/aliases/{SnapshotAliasId} | 
 [**get_snapshot_changelist**](SnapshotApi.md#get_snapshot_changelist) | **GET** /platform/1/snapshot/changelists/{SnapshotChangelistId} | 
+[**get_snapshot_changelists**](SnapshotApi.md#get_snapshot_changelists) | **GET** /platform/1/snapshot/changelists | 
 [**get_snapshot_license**](SnapshotApi.md#get_snapshot_license) | **GET** /platform/5/snapshot/license | 
 [**get_snapshot_pending**](SnapshotApi.md#get_snapshot_pending) | **GET** /platform/1/snapshot/pending | 
 [**get_snapshot_repstate**](SnapshotApi.md#get_snapshot_repstate) | **GET** /platform/1/snapshot/repstates/{SnapshotRepstateId} | 
+[**get_snapshot_repstates**](SnapshotApi.md#get_snapshot_repstates) | **GET** /platform/1/snapshot/repstates | 
 [**get_snapshot_schedule**](SnapshotApi.md#get_snapshot_schedule) | **GET** /platform/3/snapshot/schedules/{SnapshotScheduleId} | 
 [**get_snapshot_settings**](SnapshotApi.md#get_snapshot_settings) | **GET** /platform/1/snapshot/settings | 
 [**get_snapshot_snapshot**](SnapshotApi.md#get_snapshot_snapshot) | **GET** /platform/1/snapshot/snapshots/{SnapshotSnapshotId} | 
 [**get_snapshot_snapshots_summary**](SnapshotApi.md#get_snapshot_snapshots_summary) | **GET** /platform/1/snapshot/snapshots-summary | 
 [**list_snapshot_aliases**](SnapshotApi.md#list_snapshot_aliases) | **GET** /platform/1/snapshot/aliases | 
-[**list_snapshot_changelists**](SnapshotApi.md#list_snapshot_changelists) | **GET** /platform/1/snapshot/changelists | 
-[**list_snapshot_repstates**](SnapshotApi.md#list_snapshot_repstates) | **GET** /platform/1/snapshot/repstates | 
 [**list_snapshot_schedules**](SnapshotApi.md#list_snapshot_schedules) | **GET** /platform/3/snapshot/schedules | 
 [**list_snapshot_snapshots**](SnapshotApi.md#list_snapshot_snapshots) | **GET** /platform/1/snapshot/snapshots | 
 [**update_snapshot_alias**](SnapshotApi.md#update_snapshot_alias) | **PUT** /platform/1/snapshot/aliases/{SnapshotAliasId} | 
@@ -48,18 +46,18 @@ Create a new snapshot alias.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.SnapshotApi(isi_sdk_8_1_1.ApiClient(configuration))
-snapshot_alias = isi_sdk_8_1_1.SnapshotAliasCreateParams() # SnapshotAliasCreateParams | 
+api_instance = isi_sdk_8_2_0.SnapshotApi(isi_sdk_8_2_0.ApiClient(configuration))
+snapshot_alias = isi_sdk_8_2_0.SnapshotAliasCreateParams() # SnapshotAliasCreateParams | 
 
 try:
     api_response = api_instance.create_snapshot_alias(snapshot_alias)
@@ -89,110 +87,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **create_snapshot_changelist**
-> CreateSnapshotChangelistResponse create_snapshot_changelist(snapshot_changelist)
-
-
-
-Create a new changelist.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
-from pprint import pprint
-
-# Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = isi_sdk_8_1_1.SnapshotApi(isi_sdk_8_1_1.ApiClient(configuration))
-snapshot_changelist = isi_sdk_8_1_1.SnapshotChangelists() # SnapshotChangelists | 
-
-try:
-    api_response = api_instance.create_snapshot_changelist(snapshot_changelist)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling SnapshotApi->create_snapshot_changelist: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **snapshot_changelist** | [**SnapshotChangelists**](SnapshotChangelists.md)|  | 
-
-### Return type
-
-[**CreateSnapshotChangelistResponse**](CreateSnapshotChangelistResponse.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **create_snapshot_repstate**
-> CreateSnapshotRepstateResponse create_snapshot_repstate(snapshot_repstate)
-
-
-
-Create a new repstates.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
-from pprint import pprint
-
-# Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = isi_sdk_8_1_1.SnapshotApi(isi_sdk_8_1_1.ApiClient(configuration))
-snapshot_repstate = isi_sdk_8_1_1.SnapshotRepstates() # SnapshotRepstates | 
-
-try:
-    api_response = api_instance.create_snapshot_repstate(snapshot_repstate)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling SnapshotApi->create_snapshot_repstate: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **snapshot_repstate** | [**SnapshotRepstates**](SnapshotRepstates.md)|  | 
-
-### Return type
-
-[**CreateSnapshotRepstateResponse**](CreateSnapshotRepstateResponse.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **create_snapshot_schedule**
 > CreateSnapshotScheduleResponse create_snapshot_schedule(snapshot_schedule)
 
@@ -204,18 +98,18 @@ Create a new schedule.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.SnapshotApi(isi_sdk_8_1_1.ApiClient(configuration))
-snapshot_schedule = isi_sdk_8_1_1.SnapshotScheduleCreateParams() # SnapshotScheduleCreateParams | 
+api_instance = isi_sdk_8_2_0.SnapshotApi(isi_sdk_8_2_0.ApiClient(configuration))
+snapshot_schedule = isi_sdk_8_2_0.SnapshotScheduleCreateParams() # SnapshotScheduleCreateParams | 
 
 try:
     api_response = api_instance.create_snapshot_schedule(snapshot_schedule)
@@ -256,18 +150,18 @@ Create a new snapshot.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.SnapshotApi(isi_sdk_8_1_1.ApiClient(configuration))
-snapshot_snapshot = isi_sdk_8_1_1.SnapshotSnapshotCreateParams() # SnapshotSnapshotCreateParams | 
+api_instance = isi_sdk_8_2_0.SnapshotApi(isi_sdk_8_2_0.ApiClient(configuration))
+snapshot_snapshot = isi_sdk_8_2_0.SnapshotSnapshotCreateParams() # SnapshotSnapshotCreateParams | 
 
 try:
     api_response = api_instance.create_snapshot_snapshot(snapshot_snapshot)
@@ -308,17 +202,17 @@ Delete the snapshot alias
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.SnapshotApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.SnapshotApi(isi_sdk_8_2_0.ApiClient(configuration))
 snapshot_alias_id = 'snapshot_alias_id_example' # str | Delete the snapshot alias
 
 try:
@@ -359,17 +253,17 @@ Delete all or matching snapshot aliases.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.SnapshotApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.SnapshotApi(isi_sdk_8_2_0.ApiClient(configuration))
 
 try:
     api_instance.delete_snapshot_aliases()
@@ -406,17 +300,17 @@ Delete the specified changelist.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.SnapshotApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.SnapshotApi(isi_sdk_8_2_0.ApiClient(configuration))
 snapshot_changelist_id = 'snapshot_changelist_id_example' # str | Delete the specified changelist.
 
 try:
@@ -457,17 +351,17 @@ Delete the specified repstate.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.SnapshotApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.SnapshotApi(isi_sdk_8_2_0.ApiClient(configuration))
 snapshot_repstate_id = 'snapshot_repstate_id_example' # str | Delete the specified repstate.
 
 try:
@@ -508,17 +402,17 @@ Delete the schedule. This does not affect already created snapshots.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.SnapshotApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.SnapshotApi(isi_sdk_8_2_0.ApiClient(configuration))
 snapshot_schedule_id = 'snapshot_schedule_id_example' # str | Delete the schedule. This does not affect already created snapshots.
 
 try:
@@ -559,17 +453,17 @@ Delete all snapshot schedules.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.SnapshotApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.SnapshotApi(isi_sdk_8_2_0.ApiClient(configuration))
 
 try:
     api_instance.delete_snapshot_schedules()
@@ -606,17 +500,17 @@ Delete the snapshot. Deleted snapshots will be placed into a deleting state unti
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.SnapshotApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.SnapshotApi(isi_sdk_8_2_0.ApiClient(configuration))
 snapshot_snapshot_id = 'snapshot_snapshot_id_example' # str | Delete the snapshot. Deleted snapshots will be placed into a deleting state until the system can reclaim the space used by the snapshot.
 
 try:
@@ -657,17 +551,17 @@ Delete all or matching snapshots.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.SnapshotApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.SnapshotApi(isi_sdk_8_2_0.ApiClient(configuration))
 type = 'type_example' # str | Only list snapshots matching this type. (optional)
 schedule = 'schedule_example' # str | Only list snapshots created by this schedule. (optional)
 
@@ -710,17 +604,17 @@ Retrieve snapshot alias information.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.SnapshotApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.SnapshotApi(isi_sdk_8_2_0.ApiClient(configuration))
 snapshot_alias_id = 'snapshot_alias_id_example' # str | Retrieve snapshot alias information.
 
 try:
@@ -762,17 +656,17 @@ Retrieve basic information on a changelist.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.SnapshotApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.SnapshotApi(isi_sdk_8_2_0.ApiClient(configuration))
 snapshot_changelist_id = 'snapshot_changelist_id_example' # str | Retrieve basic information on a changelist.
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
@@ -807,6 +701,60 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_snapshot_changelists**
+> SnapshotChangelistsExtended get_snapshot_changelists(limit=limit, resume=resume)
+
+
+
+List all changelists.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
+from pprint import pprint
+
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_2_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = isi_sdk_8_2_0.SnapshotApi(isi_sdk_8_2_0.ApiClient(configuration))
+limit = 56 # int | Return no more than this many results at once (see resume). (optional)
+resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
+
+try:
+    api_response = api_instance.get_snapshot_changelists(limit=limit, resume=resume)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SnapshotApi->get_snapshot_changelists: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **int**| Return no more than this many results at once (see resume). | [optional] 
+ **resume** | **str**| Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). | [optional] 
+
+### Return type
+
+[**SnapshotChangelistsExtended**](SnapshotChangelistsExtended.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_snapshot_license**
 > LicenseLicense get_snapshot_license()
 
@@ -818,17 +766,17 @@ Retrieve license information.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.SnapshotApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.SnapshotApi(isi_sdk_8_2_0.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_snapshot_license()
@@ -866,17 +814,17 @@ Return list of snapshots to be taken.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.SnapshotApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.SnapshotApi(isi_sdk_8_2_0.ApiClient(configuration))
 limit = 56 # int | Return no more than this many result at once (see resume). (optional)
 begin = 56 # int | Unix Epoch time to start generating matches. Default is now. (optional)
 schedule = 'schedule_example' # str | Limit output only to the named schedule. (optional)
@@ -926,17 +874,17 @@ Retrieve basic information on a repstate.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.SnapshotApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.SnapshotApi(isi_sdk_8_2_0.ApiClient(configuration))
 snapshot_repstate_id = 'snapshot_repstate_id_example' # str | Retrieve basic information on a repstate.
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
@@ -971,6 +919,60 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_snapshot_repstates**
+> SnapshotRepstatesExtended get_snapshot_repstates(limit=limit, resume=resume)
+
+
+
+List all repstates.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
+from pprint import pprint
+
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_2_0.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = isi_sdk_8_2_0.SnapshotApi(isi_sdk_8_2_0.ApiClient(configuration))
+limit = 56 # int | Return no more than this many results at once (see resume). (optional)
+resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
+
+try:
+    api_response = api_instance.get_snapshot_repstates(limit=limit, resume=resume)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SnapshotApi->get_snapshot_repstates: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **int**| Return no more than this many results at once (see resume). | [optional] 
+ **resume** | **str**| Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). | [optional] 
+
+### Return type
+
+[**SnapshotRepstatesExtended**](SnapshotRepstatesExtended.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_snapshot_schedule**
 > SnapshotSchedules get_snapshot_schedule(snapshot_schedule_id)
 
@@ -982,17 +984,17 @@ Retrieve the schedule.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.SnapshotApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.SnapshotApi(isi_sdk_8_2_0.ApiClient(configuration))
 snapshot_schedule_id = 'snapshot_schedule_id_example' # str | Retrieve the schedule.
 
 try:
@@ -1034,17 +1036,17 @@ List all settings
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.SnapshotApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.SnapshotApi(isi_sdk_8_2_0.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_snapshot_settings()
@@ -1082,17 +1084,17 @@ Retrieve snapshot information.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.SnapshotApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.SnapshotApi(isi_sdk_8_2_0.ApiClient(configuration))
 snapshot_snapshot_id = 'snapshot_snapshot_id_example' # str | Retrieve snapshot information.
 
 try:
@@ -1134,17 +1136,17 @@ Return summary information about snapshots.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.SnapshotApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.SnapshotApi(isi_sdk_8_2_0.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_snapshot_snapshots_summary()
@@ -1182,17 +1184,17 @@ List all or matching snapshot aliases.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.SnapshotApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.SnapshotApi(isi_sdk_8_2_0.ApiClient(configuration))
 sort = 'sort_example' # str | The field that will be used for sorting.  Choices are id, name, snapshot, and created.  Default is id. (optional)
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
 dir = 'dir_example' # str | The direction of the sort. (optional)
@@ -1229,114 +1231,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **list_snapshot_changelists**
-> SnapshotChangelistsExtended list_snapshot_changelists(limit=limit, resume=resume)
-
-
-
-List all changelists.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
-from pprint import pprint
-
-# Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = isi_sdk_8_1_1.SnapshotApi(isi_sdk_8_1_1.ApiClient(configuration))
-limit = 56 # int | Return no more than this many results at once (see resume). (optional)
-resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
-
-try:
-    api_response = api_instance.list_snapshot_changelists(limit=limit, resume=resume)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling SnapshotApi->list_snapshot_changelists: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **int**| Return no more than this many results at once (see resume). | [optional] 
- **resume** | **str**| Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). | [optional] 
-
-### Return type
-
-[**SnapshotChangelistsExtended**](SnapshotChangelistsExtended.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **list_snapshot_repstates**
-> SnapshotRepstatesExtended list_snapshot_repstates(limit=limit, resume=resume)
-
-
-
-List all repstates.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
-from pprint import pprint
-
-# Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = isi_sdk_8_1_1.SnapshotApi(isi_sdk_8_1_1.ApiClient(configuration))
-limit = 56 # int | Return no more than this many results at once (see resume). (optional)
-resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
-
-try:
-    api_response = api_instance.list_snapshot_repstates(limit=limit, resume=resume)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling SnapshotApi->list_snapshot_repstates: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **int**| Return no more than this many results at once (see resume). | [optional] 
- **resume** | **str**| Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). | [optional] 
-
-### Return type
-
-[**SnapshotRepstatesExtended**](SnapshotRepstatesExtended.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **list_snapshot_schedules**
 > SnapshotSchedulesExtended list_snapshot_schedules(sort=sort, limit=limit, dir=dir, resume=resume)
 
@@ -1348,17 +1242,17 @@ List all or matching schedules.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.SnapshotApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.SnapshotApi(isi_sdk_8_2_0.ApiClient(configuration))
 sort = 'sort_example' # str | The field that will be used for sorting.  Choices are id, name, path, pattern, schedule, duration, alias, next_run, and next_snapshot.  Default is id. (optional)
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
 dir = 'dir_example' # str | The direction of the sort. (optional)
@@ -1406,17 +1300,17 @@ List all or matching snapshots.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.SnapshotApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.SnapshotApi(isi_sdk_8_2_0.ApiClient(configuration))
 sort = 'sort_example' # str | The field that will be used for sorting.  Choices are id, name, path, created, expires, size, has_locks, schedule, alias_target, alias_target_name, pct_filesystem, pct_reserve, and state.  Default is id. (optional)
 schedule = 'schedule_example' # str | Only list snapshots created by this schedule. (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
@@ -1470,18 +1364,18 @@ Modify snapshot alias. All input fields are optional, but one or more must be su
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.SnapshotApi(isi_sdk_8_1_1.ApiClient(configuration))
-snapshot_alias = isi_sdk_8_1_1.SnapshotAlias() # SnapshotAlias | 
+api_instance = isi_sdk_8_2_0.SnapshotApi(isi_sdk_8_2_0.ApiClient(configuration))
+snapshot_alias = isi_sdk_8_2_0.SnapshotAlias() # SnapshotAlias | 
 snapshot_alias_id = 'snapshot_alias_id_example' # str | Modify snapshot alias. All input fields are optional, but one or more must be supplied.
 
 try:
@@ -1523,18 +1417,18 @@ Modify the schedule. All input fields are optional, but one or more must be supp
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.SnapshotApi(isi_sdk_8_1_1.ApiClient(configuration))
-snapshot_schedule = isi_sdk_8_1_1.SnapshotSchedule() # SnapshotSchedule | 
+api_instance = isi_sdk_8_2_0.SnapshotApi(isi_sdk_8_2_0.ApiClient(configuration))
+snapshot_schedule = isi_sdk_8_2_0.SnapshotSchedule() # SnapshotSchedule | 
 snapshot_schedule_id = 'snapshot_schedule_id_example' # str | Modify the schedule. All input fields are optional, but one or more must be supplied.
 
 try:
@@ -1576,18 +1470,18 @@ Modify one or more settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.SnapshotApi(isi_sdk_8_1_1.ApiClient(configuration))
-snapshot_settings = isi_sdk_8_1_1.SnapshotSettingsExtended() # SnapshotSettingsExtended | 
+api_instance = isi_sdk_8_2_0.SnapshotApi(isi_sdk_8_2_0.ApiClient(configuration))
+snapshot_settings = isi_sdk_8_2_0.SnapshotSettingsExtended() # SnapshotSettingsExtended | 
 
 try:
     api_instance.update_snapshot_settings(snapshot_settings)
@@ -1627,18 +1521,18 @@ Modify snapshot. All input fields are optional, but one or more must be supplied
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.SnapshotApi(isi_sdk_8_1_1.ApiClient(configuration))
-snapshot_snapshot = isi_sdk_8_1_1.SnapshotSnapshot() # SnapshotSnapshot | 
+api_instance = isi_sdk_8_2_0.SnapshotApi(isi_sdk_8_2_0.ApiClient(configuration))
+snapshot_snapshot = isi_sdk_8_2_0.SnapshotSnapshot() # SnapshotSnapshot | 
 snapshot_snapshot_id = 'snapshot_snapshot_id_example' # str | Modify snapshot. All input fields are optional, but one or more must be supplied.
 
 try:

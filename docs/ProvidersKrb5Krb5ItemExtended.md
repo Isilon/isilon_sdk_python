@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **status** | **str** | Specifies the status of the provider. | [optional] 
 **system** | **bool** | If true, indicates that this provider instance was created by OneFS and cannot be removed | [optional] 
 **user** | **str** | Specifies the name of the user that performs kadmin tasks. | [optional] 
+**zone_name** | **str** | Specifies the name of the access zone in which this provider was created. | [optional] 
 **password** | **str** | Specifies the Kerberos provider password. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

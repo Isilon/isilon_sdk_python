@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **group_members_attribute** | **str** | Sets the LDAP Group Members attribute. | [optional] 
 **homedir_attribute** | **str** | Sets the LDAP Homedir attribute. | [optional] 
 **id** | **str** | Specifies the ID of the LDAP provider field template. | [optional] 
+**member_lookup_method** | **str** | Sets LDAP Member Lookup Method attribute. | [optional] 
 **name_attribute** | **str** | Sets the LDAP UID attribute, which is used as the login name. | [optional] 
 **netgroup_filter** | **str** | Sets LDAP filter for netgroup objects. | [optional] 
 **netgroup_members_attribute** | **str** | Sets the LDAP Netgroup Members attribute. | [optional] 

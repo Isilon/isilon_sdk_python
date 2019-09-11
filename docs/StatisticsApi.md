@@ -1,4 +1,4 @@
-# isi_sdk_8_1_1.StatisticsApi
+# isi_sdk_8_2_0.StatisticsApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -30,20 +30,20 @@ Retrieve stats.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.StatisticsApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.StatisticsApi(isi_sdk_8_2_0.ApiClient(configuration))
 timeout = 56 # int | Time in seconds to wait for results from remote nodes. (optional)
 show_nodes = true # bool | Shows the logical node number or LNN in addition to the devid. (optional)
-keys = ['keys_example'] # list[str] | Multiple key names. May request matching keys or request 'all' keys. Can be comma separated list or can be used more than one time to make queries for multiple keys. May be used in conjunction with 'substr'. Also works with 'key' arguments. (optional)
+keys = ['keys_example'] # list[str] | Multiple key names. Can be a comma separated list, or can be used more than one time to make queries for multiple keys. May be used in conjunction with 'substr'. Also works with 'key' arguments. (optional)
 devid = ['devid_example'] # list[str] | Node devid to query. Either an <integer> or \"all\". Can be used more than one time to query multiple nodes. \"all\" queries all up nodes. 0 means query the local node. For \"cluster\" scoped keys, in any devid including 0 can be used. (optional)
 substr = true # bool | Used in conjunction with the 'keys' argument, alters the behavior of keys. Makes the 'keys' arg perform a partial match. Defaults to false. (optional)
 stale = true # bool | For internal use only, please do not use this. (optional)
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **timeout** | **int**| Time in seconds to wait for results from remote nodes. | [optional] 
  **show_nodes** | **bool**| Shows the logical node number or LNN in addition to the devid. | [optional] 
- **keys** | [**list[str]**](str.md)| Multiple key names. May request matching keys or request &#39;all&#39; keys. Can be comma separated list or can be used more than one time to make queries for multiple keys. May be used in conjunction with &#39;substr&#39;. Also works with &#39;key&#39; arguments. | [optional] 
+ **keys** | [**list[str]**](str.md)| Multiple key names. Can be a comma separated list, or can be used more than one time to make queries for multiple keys. May be used in conjunction with &#39;substr&#39;. Also works with &#39;key&#39; arguments. | [optional] 
  **devid** | [**list[str]**](str.md)| Node devid to query. Either an &lt;integer&gt; or \&quot;all\&quot;. Can be used more than one time to query multiple nodes. \&quot;all\&quot; queries all up nodes. 0 means query the local node. For \&quot;cluster\&quot; scoped keys, in any devid including 0 can be used. | [optional] 
  **substr** | **bool**| Used in conjunction with the &#39;keys&#39; argument, alters the behavior of keys. Makes the &#39;keys&#39; arg perform a partial match. Defaults to false. | [optional] 
  **stale** | **bool**| For internal use only, please do not use this. | [optional] 
@@ -102,23 +102,23 @@ Retrieve stats.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.StatisticsApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.StatisticsApi(isi_sdk_8_2_0.ApiClient(configuration))
 begin = 56 # int | Earliest time (Unix epoch seconds) of interest. Negative times are interpreted as relative (before) now. (optional)
 interval = 56 # int | Minimum sampling interval time in seconds. If native statistics are higher resolution, data will be down-sampled. (optional)
 end = 56 # int | Latest time (Unix epoch seconds) of interest. Negative times are interpreted as relative (before) now. If not supplied, use now as the end time. (optional)
 timeout = 56 # int | Time in seconds to wait for results from remote nodes. (optional)
 raw = true # bool | Causes the output to be in hex format. For internal use only, please do not use this. (optional)
-keys = ['keys_example'] # list[str] | Multiple key names. May request matching keys or request 'all' keys. Can be comma separated list or can be used more than one time to make queries for multiple keys. May be used in conjunction with 'substr'. Also works with 'key' arguments. (optional)
+keys = ['keys_example'] # list[str] | Multiple key names. Can be a comma separated list, or can be used more than one time to make queries for multiple keys. May be used in conjunction with 'substr'. Also works with 'key' arguments. (optional)
 devid = ['devid_example'] # list[str] | Node devid to query. Either an <integer> or \"all\". Can be used more than one time to query multiple nodes. \"all\" queries all up nodes. 0 means query the local node. For \"cluster\" scoped keys, in any devid including 0 can be used. (optional)
 substr = true # bool | Used in conjunction with the 'keys' argument, alters the behavior of keys. Makes the 'keys' arg perform a partial match. Defaults to false. (optional)
 stale = true # bool | For internal use only, please do not use this. (optional)
@@ -146,7 +146,7 @@ Name | Type | Description  | Notes
  **end** | **int**| Latest time (Unix epoch seconds) of interest. Negative times are interpreted as relative (before) now. If not supplied, use now as the end time. | [optional] 
  **timeout** | **int**| Time in seconds to wait for results from remote nodes. | [optional] 
  **raw** | **bool**| Causes the output to be in hex format. For internal use only, please do not use this. | [optional] 
- **keys** | [**list[str]**](str.md)| Multiple key names. May request matching keys or request &#39;all&#39; keys. Can be comma separated list or can be used more than one time to make queries for multiple keys. May be used in conjunction with &#39;substr&#39;. Also works with &#39;key&#39; arguments. | [optional] 
+ **keys** | [**list[str]**](str.md)| Multiple key names. Can be a comma separated list, or can be used more than one time to make queries for multiple keys. May be used in conjunction with &#39;substr&#39;. Also works with &#39;key&#39; arguments. | [optional] 
  **devid** | [**list[str]**](str.md)| Node devid to query. Either an &lt;integer&gt; or \&quot;all\&quot;. Can be used more than one time to query multiple nodes. \&quot;all\&quot; queries all up nodes. 0 means query the local node. For \&quot;cluster\&quot; scoped keys, in any devid including 0 can be used. | [optional] 
  **substr** | **bool**| Used in conjunction with the &#39;keys&#39; argument, alters the behavior of keys. Makes the &#39;keys&#39; arg perform a partial match. Defaults to false. | [optional] 
  **stale** | **bool**| For internal use only, please do not use this. | [optional] 
@@ -184,17 +184,17 @@ List key meta-data.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.StatisticsApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.StatisticsApi(isi_sdk_8_2_0.ApiClient(configuration))
 statistics_key_id = 'statistics_key_id_example' # str | List key meta-data.
 
 try:
@@ -236,17 +236,17 @@ List meta-data for matching keys.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.StatisticsApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.StatisticsApi(isi_sdk_8_2_0.ApiClient(configuration))
 count = true # bool | Only count matching keys, do not return meta-data. (optional)
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
 queryable = true # bool | Only list keys that can/cannot be queries. Default is true. (optional)
@@ -294,17 +294,17 @@ Retrieve operations list.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.StatisticsApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.StatisticsApi(isi_sdk_8_2_0.ApiClient(configuration))
 protocols = ['protocols_example'] # list[str] | A comma separated list. Only report operations for specified protocol(s). Default is all.  (optional)
 
 try:
@@ -346,17 +346,17 @@ Retrieve protocol list.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.StatisticsApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.StatisticsApi(isi_sdk_8_2_0.ApiClient(configuration))
 type = 'type_example' # str | Specifies whether internal, external, or all protocols should be returned. (optional)
 
 try:
@@ -398,17 +398,17 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.StatisticsApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.StatisticsApi(isi_sdk_8_2_0.ApiClient(configuration))
 sort = 'sort_example' # str | Sort data by the specified comma-separated field(s). (num_operations | operation_rate | in_max | in_min | in | in_avg | out_max | out_min | out | out_avg | time_max | time_min | time_avg | node | protocol | class | user_id | user_name | local_addr | local_name | remote_addr | remote_name) Prepend 'asc:' or 'desc:' to a field to change the sort direction.  (optional)
 totalby = 'totalby_example' # str | A comma separated list specifying what should be unique. (node | protocol | class | local_addr | local_name | remote_addr | remote_name | user_id | user_name | devid). Aggregation is performed over all the fields not specified in the list. (optional)
 user_names = 'user_names_example' # str | A comma separated list. Only report statistics for operations requested by users with resolved names enumerated.  (optional)
@@ -476,17 +476,17 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.StatisticsApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.StatisticsApi(isi_sdk_8_2_0.ApiClient(configuration))
 sort = 'sort_example' # str | Sort data by the specified comma-separated field(s). (drive_id | type | xfers_in | bytes_in | xfer_size_in | xfers_out | bytes_out | xfer_size_out | access_latency | access_slow | iosched_latency | iosched_queue | busy | used_bytes_percent | used_inodes). Prepend 'asc:' or 'desc:' to a field to change the sort direction.  (optional)
 degraded = true # bool | Continue to report if some nodes do not respond. (optional)
 type = 'type_example' # str | Specify drive type(s) for which statistics should be reported. (optional)
@@ -536,17 +536,17 @@ File heat map, i.e. rate of file operations, and the type of operation listed by
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.StatisticsApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.StatisticsApi(isi_sdk_8_2_0.ApiClient(configuration))
 sort = 'sort_example' # str | Sort data by the specified comma-separated field(s). (operation_rate | node | event_name | class_name | lin | path). Prepend 'asc:' or 'desc:' to a field to change the sort direction.  (optional)
 convertlin = true # bool | Convert lin to hex. Default is true.  (optional)
 totalby = 'totalby_example' # str | A comma separated list specifying what should be unique. (node | event_name | event_class | operation_rate | path | lin). Aggregation is performed over all the fields not specified in the list. (optional)
@@ -608,17 +608,17 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.StatisticsApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.StatisticsApi(isi_sdk_8_2_0.ApiClient(configuration))
 operations = 'operations_example' # str | Specify operation(s) for which statistics should be reported (See the cli command: 'isi statistics list operations', for a total list). Default is all.  (optional)
 sort = 'sort_example' # str | Sort data by the specified comma-separated field(s). (time | operation_count | operation_rate | in_max | in_min | in | in_avg | in_standard_dev | out_max | out_min | out | out_avg | out_standard_dev | time_max | time_min | time_avg | time_standard_dev | node | protocol | class | operation). Prepend 'asc:' or 'desc:' to a field to change the sort direction.  (optional)
 totalby = 'totalby_example' # str | A comma separated list specifying what should be unique. (node | protocol | class | operation). Aggregation is performed over all the fields not specified in the list. (optional)
@@ -676,17 +676,17 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.StatisticsApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.StatisticsApi(isi_sdk_8_2_0.ApiClient(configuration))
 degraded = true # bool | Continue to report if some nodes do not respond. (optional)
 protocol = 'protocol_example' # str | A single protocol. Default is nfs3. (nfs3 | smb1 | nlm | ftp | http | siq | smb2 | nfs4 | papi | jobd | irp | lsass_in | lsass_out | hdfs) (optional)
 nodes = 'nodes_example' # str | A comma separated list. Specify node(s) for which statistics should be reported. Default is all. Zero (0) should be passed in as the sole argument to indicate local. (optional)
@@ -734,17 +734,17 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.StatisticsApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.StatisticsApi(isi_sdk_8_2_0.ApiClient(configuration))
 sort = 'sort_example' # str | Sort data by the specified comma-separated field(s). (time | node | cpu | smb | ftp | http | nfs | hdfs | total | net_in | net_out | disk_in). Prepend 'asc:' or 'desc:' to a field to change the sort direction.  (optional)
 oprates = true # bool | Display protocol operation rate statistics rather than the default throughput statistics. (optional)
 degraded = true # bool | Continue to report if some nodes do not respond. (optional)
@@ -784,7 +784,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_summary_workload**
-> SummaryWorkload get_summary_workload(sort=sort, job_types=job_types, totalby=totalby, timeout=timeout, degraded=degraded, nodes=nodes, system_names=system_names)
+> SummaryWorkload get_summary_workload(group_sids=group_sids, numeric=numeric, dataset=dataset, degraded=degraded, share_names=share_names, paths=paths, usernames=usernames, remote_addresses=remote_addresses, job_types=job_types, zone_ids=zone_ids, groupnames=groupnames, user_sids=user_sids, sort=sort, domain_ids=domain_ids, zone_names=zone_names, local_names=local_names, user_ids=user_ids, totalby=totalby, local_addresses=local_addresses, remote_names=remote_names, nodes=nodes, protocols=protocols, group_ids=group_ids, timeout=timeout, system_names=system_names)
 
 
 
@@ -794,27 +794,45 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.StatisticsApi(isi_sdk_8_1_1.ApiClient(configuration))
-sort = 'sort_example' # str | Sort data by the specified comma-separated field(s). (node | system_name | job_type | cpu | reads | writes | l2 | l3). Prepend 'asc:' or 'desc:' to a field to change the sort direction.  (optional)
-job_types = ['job_types_example'] # list[str] | A comma separated list. Only report statistics for job(s) specified by type, if configured.  (optional)
-totalby = 'totalby_example' # str | A comma separated list specifying what should be unique. (node | system_name | job_type). Aggregation is performed over all the fields not specified in the list. (optional)
-timeout = 56 # int | Timeout remote commands after NUM seconds, where NUM is the integer passed to the argument. (optional)
+api_instance = isi_sdk_8_2_0.StatisticsApi(isi_sdk_8_2_0.ApiClient(configuration))
+group_sids = 'group_sids_example' # str | A comma separated list. Only report statistics for groups specified by Group Security IDs, if configured.  (optional)
+numeric = true # bool | Do not resolve addresses and usernames to their human readable form(s). Default is false.  (optional)
+dataset = 'dataset_example' # str | Report workload performance metrics for specified dataset. Default is 'System'. (optional)
 degraded = true # bool | Continue to report if some nodes do not respond. (optional)
+share_names = 'share_names_example' # str | A comma separated list. Only report statistics for shares specified by name, if configured.  (optional)
+paths = 'paths_example' # str | A comma separated list. Only report statistics for paths specified by name, if configured.  (optional)
+usernames = 'usernames_example' # str | A comma separated list. Only report statistics for users specified by resolved names, if configured.  (optional)
+remote_addresses = 'remote_addresses_example' # str | A comma separated list. Only report statistics for remote clients specified by IP addresses, if configured.  (optional)
+job_types = ['job_types_example'] # list[str] | A comma separated list. Only report statistics for job(s) specified by type, if configured.  (optional)
+zone_ids = 'zone_ids_example' # str | A comma separated list. Only report statistics for users in zone specified by id, if configured.  (optional)
+groupnames = 'groupnames_example' # str | A comma separated list. Only report statistics for groups specified by resolved names, if configured.  (optional)
+user_sids = 'user_sids_example' # str | A comma separated list. Only report statistics for users specified by Security IDs, if configured.  (optional)
+sort = 'sort_example' # str | Sort data by the specified comma-separated field(s). ( node | workload_id | system_name | user_id | user_sid | username | group_id | group_sid | groupname | domain_id | path | zone_id | zone_name | local_addr | local_name | remote_addr | remote_name | protocol | share_name | job_type | cpu | bytes_in | bytes_out | ops | reads | writes | l2 | l3 | latency_read | latency_write | latency_other | error). Prepend 'asc:' or 'desc:' to a field to change the sort direction.  (optional)
+domain_ids = 'domain_ids_example' # str | A comma separated list. Only report statistics for domains specified by id, if configured.  (optional)
+zone_names = 'zone_names_example' # str | A comma separated list. Only report statistics for users in zone specified by name, if configured.  (optional)
+local_names = 'local_names_example' # str | A comma separated list. Only report statistics for local hosts specified by resolved names, if configured.  (optional)
+user_ids = 'user_ids_example' # str | A comma separated list. Only report statistics for users specified by numeric UIDs, if configured.  (optional)
+totalby = 'totalby_example' # str | A comma separated list specifying what should be unique. (node | system_name | user_id | user_sid | username | zone_id | zone_name | local_addr | local_name | remote_addr | remote_name | group_id | group_sid | groupname | domain_id | path | protocol | share_name | job_type). Aggregation is performed over all the fields not specified in the list. (optional)
+local_addresses = 'local_addresses_example' # str | A comma separated list. Only report statistics for local hosts specified by IP addresses, if configured.  (optional)
+remote_names = 'remote_names_example' # str | A comma separated list. Only report statistics for remote clients specified by resolved names, if configured.  (optional)
 nodes = 'nodes_example' # str | A comma separated list. Specify node(s) for which statistics should be reported. Default is all. Zero (0) should be passed in as the sole argument to indicate local. (optional)
-system_names = 'system_names_example' # str | A comma separated list. Only report statistics for workloads specified by system names. (optional)
+protocols = 'protocols_example' # str | A comma separated list. Default is all. (smb1 and smb2 only at this time.) (optional)
+group_ids = 'group_ids_example' # str | A comma separated list. Only report statistics for groups specified by numeric GIDs, if configured.  (optional)
+timeout = 56 # int | Timeout remote commands after NUM seconds, where NUM is the integer passed to the argument. (optional)
+system_names = 'system_names_example' # str | A comma separated list. Only report statistics for systems specified by resolved names, if configured.  (optional)
 
 try:
-    api_response = api_instance.get_summary_workload(sort=sort, job_types=job_types, totalby=totalby, timeout=timeout, degraded=degraded, nodes=nodes, system_names=system_names)
+    api_response = api_instance.get_summary_workload(group_sids=group_sids, numeric=numeric, dataset=dataset, degraded=degraded, share_names=share_names, paths=paths, usernames=usernames, remote_addresses=remote_addresses, job_types=job_types, zone_ids=zone_ids, groupnames=groupnames, user_sids=user_sids, sort=sort, domain_ids=domain_ids, zone_names=zone_names, local_names=local_names, user_ids=user_ids, totalby=totalby, local_addresses=local_addresses, remote_names=remote_names, nodes=nodes, protocols=protocols, group_ids=group_ids, timeout=timeout, system_names=system_names)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling StatisticsApi->get_summary_workload: %s\n" % e)
@@ -824,13 +842,31 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sort** | **str**| Sort data by the specified comma-separated field(s). (node | system_name | job_type | cpu | reads | writes | l2 | l3). Prepend &#39;asc:&#39; or &#39;desc:&#39; to a field to change the sort direction.  | [optional] 
- **job_types** | [**list[str]**](str.md)| A comma separated list. Only report statistics for job(s) specified by type, if configured.  | [optional] 
- **totalby** | **str**| A comma separated list specifying what should be unique. (node | system_name | job_type). Aggregation is performed over all the fields not specified in the list. | [optional] 
- **timeout** | **int**| Timeout remote commands after NUM seconds, where NUM is the integer passed to the argument. | [optional] 
+ **group_sids** | **str**| A comma separated list. Only report statistics for groups specified by Group Security IDs, if configured.  | [optional] 
+ **numeric** | **bool**| Do not resolve addresses and usernames to their human readable form(s). Default is false.  | [optional] 
+ **dataset** | **str**| Report workload performance metrics for specified dataset. Default is &#39;System&#39;. | [optional] 
  **degraded** | **bool**| Continue to report if some nodes do not respond. | [optional] 
+ **share_names** | **str**| A comma separated list. Only report statistics for shares specified by name, if configured.  | [optional] 
+ **paths** | **str**| A comma separated list. Only report statistics for paths specified by name, if configured.  | [optional] 
+ **usernames** | **str**| A comma separated list. Only report statistics for users specified by resolved names, if configured.  | [optional] 
+ **remote_addresses** | **str**| A comma separated list. Only report statistics for remote clients specified by IP addresses, if configured.  | [optional] 
+ **job_types** | [**list[str]**](str.md)| A comma separated list. Only report statistics for job(s) specified by type, if configured.  | [optional] 
+ **zone_ids** | **str**| A comma separated list. Only report statistics for users in zone specified by id, if configured.  | [optional] 
+ **groupnames** | **str**| A comma separated list. Only report statistics for groups specified by resolved names, if configured.  | [optional] 
+ **user_sids** | **str**| A comma separated list. Only report statistics for users specified by Security IDs, if configured.  | [optional] 
+ **sort** | **str**| Sort data by the specified comma-separated field(s). ( node | workload_id | system_name | user_id | user_sid | username | group_id | group_sid | groupname | domain_id | path | zone_id | zone_name | local_addr | local_name | remote_addr | remote_name | protocol | share_name | job_type | cpu | bytes_in | bytes_out | ops | reads | writes | l2 | l3 | latency_read | latency_write | latency_other | error). Prepend &#39;asc:&#39; or &#39;desc:&#39; to a field to change the sort direction.  | [optional] 
+ **domain_ids** | **str**| A comma separated list. Only report statistics for domains specified by id, if configured.  | [optional] 
+ **zone_names** | **str**| A comma separated list. Only report statistics for users in zone specified by name, if configured.  | [optional] 
+ **local_names** | **str**| A comma separated list. Only report statistics for local hosts specified by resolved names, if configured.  | [optional] 
+ **user_ids** | **str**| A comma separated list. Only report statistics for users specified by numeric UIDs, if configured.  | [optional] 
+ **totalby** | **str**| A comma separated list specifying what should be unique. (node | system_name | user_id | user_sid | username | zone_id | zone_name | local_addr | local_name | remote_addr | remote_name | group_id | group_sid | groupname | domain_id | path | protocol | share_name | job_type). Aggregation is performed over all the fields not specified in the list. | [optional] 
+ **local_addresses** | **str**| A comma separated list. Only report statistics for local hosts specified by IP addresses, if configured.  | [optional] 
+ **remote_names** | **str**| A comma separated list. Only report statistics for remote clients specified by resolved names, if configured.  | [optional] 
  **nodes** | **str**| A comma separated list. Specify node(s) for which statistics should be reported. Default is all. Zero (0) should be passed in as the sole argument to indicate local. | [optional] 
- **system_names** | **str**| A comma separated list. Only report statistics for workloads specified by system names. | [optional] 
+ **protocols** | **str**| A comma separated list. Default is all. (smb1 and smb2 only at this time.) | [optional] 
+ **group_ids** | **str**| A comma separated list. Only report statistics for groups specified by numeric GIDs, if configured.  | [optional] 
+ **timeout** | **int**| Timeout remote commands after NUM seconds, where NUM is the integer passed to the argument. | [optional] 
+ **system_names** | **str**| A comma separated list. Only report statistics for systems specified by resolved names, if configured.  | [optional] 
 
 ### Return type
 

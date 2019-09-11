@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **alert** | [**NodeDriveconfigNodeAlert**](NodeDriveconfigNodeAlert.md) | Configuration setting for drive alerts. | [optional] 
 **allow** | [**NodeDriveconfigNodeAllow**](NodeDriveconfigNodeAllow.md) | Configuration settings for drive formatting. | [optional] 
-**automatic_replacement_recognition** | [**NodeDriveconfigNodeAutomaticReplacementRecognition**](NodeDriveconfigNodeAutomaticReplacementRecognition.md) | Configuration settings for automatic replacement recognition (ARR). | [optional] 
+**automatic_replacement_recognition** | [**NodeDriveconfigNodeAutomaticReplacementRecognition**](NodeDriveconfigNodeAutomaticReplacementRecognition.md) | Configuration settings for Automatic Replacement Recognition (ARR). | [optional] 
 **log** | [**NodeDriveconfigNodeLog**](NodeDriveconfigNodeLog.md) | Configuration settings for drive statistics logs. | [optional] 
 **reboot** | [**NodeDriveconfigNodeReboot**](NodeDriveconfigNodeReboot.md) | Configuration settings for a node reboot due to a drive error. | [optional] 
 **spin_wait** | [**NodeDriveconfigNodeSpinWait**](NodeDriveconfigNodeSpinWait.md) | Configuration settings for sleeping the drive daemon before node is rescanned. | [optional] 

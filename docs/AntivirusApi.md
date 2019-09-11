@@ -1,4 +1,4 @@
-# isi_sdk_8_1_1.AntivirusApi
+# isi_sdk_8_2_0.AntivirusApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 [**get_antivirus_policy**](AntivirusApi.md#get_antivirus_policy) | **GET** /platform/3/antivirus/policies/{AntivirusPolicyId} | 
 [**get_antivirus_quarantine_path**](AntivirusApi.md#get_antivirus_quarantine_path) | **GET** /platform/3/antivirus/quarantine/{AntivirusQuarantinePath} | 
 [**get_antivirus_server**](AntivirusApi.md#get_antivirus_server) | **GET** /platform/3/antivirus/servers/{AntivirusServerId} | 
-[**get_antivirus_settings**](AntivirusApi.md#get_antivirus_settings) | **GET** /platform/3/antivirus/settings | 
+[**get_antivirus_settings**](AntivirusApi.md#get_antivirus_settings) | **GET** /platform/7/antivirus/settings | 
 [**get_reports_scan**](AntivirusApi.md#get_reports_scan) | **GET** /platform/3/antivirus/reports/scans/{ReportsScanId} | 
 [**get_reports_scans**](AntivirusApi.md#get_reports_scans) | **GET** /platform/3/antivirus/reports/scans | 
 [**get_reports_threat**](AntivirusApi.md#get_reports_threat) | **GET** /platform/3/antivirus/reports/threats/{ReportsThreatId} | 
@@ -26,7 +26,7 @@ Method | HTTP request | Description
 [**update_antivirus_policy**](AntivirusApi.md#update_antivirus_policy) | **PUT** /platform/3/antivirus/policies/{AntivirusPolicyId} | 
 [**update_antivirus_quarantine_path**](AntivirusApi.md#update_antivirus_quarantine_path) | **PUT** /platform/3/antivirus/quarantine/{AntivirusQuarantinePath} | 
 [**update_antivirus_server**](AntivirusApi.md#update_antivirus_server) | **PUT** /platform/3/antivirus/servers/{AntivirusServerId} | 
-[**update_antivirus_settings**](AntivirusApi.md#update_antivirus_settings) | **PUT** /platform/3/antivirus/settings | 
+[**update_antivirus_settings**](AntivirusApi.md#update_antivirus_settings) | **PUT** /platform/7/antivirus/settings | 
 
 
 # **create_antivirus_policy**
@@ -40,18 +40,18 @@ Create new antivirus scan policies.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.AntivirusApi(isi_sdk_8_1_1.ApiClient(configuration))
-antivirus_policy = isi_sdk_8_1_1.AntivirusPolicyCreateParams() # AntivirusPolicyCreateParams | 
+api_instance = isi_sdk_8_2_0.AntivirusApi(isi_sdk_8_2_0.ApiClient(configuration))
+antivirus_policy = isi_sdk_8_2_0.AntivirusPolicyCreateParams() # AntivirusPolicyCreateParams | 
 
 try:
     api_response = api_instance.create_antivirus_policy(antivirus_policy)
@@ -92,18 +92,18 @@ Manually scan a file.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.AntivirusApi(isi_sdk_8_1_1.ApiClient(configuration))
-antivirus_scan_item = isi_sdk_8_1_1.AntivirusScanItem() # AntivirusScanItem | 
+api_instance = isi_sdk_8_2_0.AntivirusApi(isi_sdk_8_2_0.ApiClient(configuration))
+antivirus_scan_item = isi_sdk_8_2_0.AntivirusScanItem() # AntivirusScanItem | 
 
 try:
     api_response = api_instance.create_antivirus_scan_item(antivirus_scan_item)
@@ -144,18 +144,18 @@ Create new antivirus servers.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.AntivirusApi(isi_sdk_8_1_1.ApiClient(configuration))
-antivirus_server = isi_sdk_8_1_1.AntivirusServerCreateParams() # AntivirusServerCreateParams | 
+api_instance = isi_sdk_8_2_0.AntivirusApi(isi_sdk_8_2_0.ApiClient(configuration))
+antivirus_server = isi_sdk_8_2_0.AntivirusServerCreateParams() # AntivirusServerCreateParams | 
 
 try:
     api_response = api_instance.create_antivirus_server(antivirus_server)
@@ -196,17 +196,17 @@ Delete all antivirus scan policies.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.AntivirusApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.AntivirusApi(isi_sdk_8_2_0.ApiClient(configuration))
 
 try:
     api_instance.delete_antivirus_policies()
@@ -243,17 +243,17 @@ Delete an antivirus scan policy.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.AntivirusApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.AntivirusApi(isi_sdk_8_2_0.ApiClient(configuration))
 antivirus_policy_id = 'antivirus_policy_id_example' # str | Delete an antivirus scan policy.
 
 try:
@@ -294,17 +294,17 @@ Delete an antivirus server entry.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.AntivirusApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.AntivirusApi(isi_sdk_8_2_0.ApiClient(configuration))
 antivirus_server_id = 'antivirus_server_id_example' # str | Delete an antivirus server entry.
 
 try:
@@ -345,17 +345,17 @@ Delete all antivirus servers.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.AntivirusApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.AntivirusApi(isi_sdk_8_2_0.ApiClient(configuration))
 
 try:
     api_instance.delete_antivirus_servers()
@@ -392,17 +392,17 @@ Delete one antivirus scan report, and all of its associated threat reports.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.AntivirusApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.AntivirusApi(isi_sdk_8_2_0.ApiClient(configuration))
 reports_scan_id = 'reports_scan_id_example' # str | Delete one antivirus scan report, and all of its associated threat reports.
 
 try:
@@ -443,17 +443,17 @@ Delete antivirus scan reports, and any threat reports associated with those scan
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.AntivirusApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.AntivirusApi(isi_sdk_8_2_0.ApiClient(configuration))
 age = 56 # int | An amount of time in seconds. If present, only reports older than this age are deleted. (optional)
 
 try:
@@ -494,17 +494,17 @@ Retrieve one antivirus scan policy.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.AntivirusApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.AntivirusApi(isi_sdk_8_2_0.ApiClient(configuration))
 antivirus_policy_id = 'antivirus_policy_id_example' # str | Retrieve one antivirus scan policy.
 
 try:
@@ -546,17 +546,17 @@ Retrieve the quarantine status of the file at the specified path.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.AntivirusApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.AntivirusApi(isi_sdk_8_2_0.ApiClient(configuration))
 antivirus_quarantine_path = 'antivirus_quarantine_path_example' # str | Retrieve the quarantine status of the file at the specified path.
 
 try:
@@ -598,17 +598,17 @@ Retrieve one antivirus server entry.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.AntivirusApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.AntivirusApi(isi_sdk_8_2_0.ApiClient(configuration))
 antivirus_server_id = 'antivirus_server_id_example' # str | Retrieve one antivirus server entry.
 
 try:
@@ -650,17 +650,17 @@ Retrieve the Antivirus settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.AntivirusApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.AntivirusApi(isi_sdk_8_2_0.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_antivirus_settings()
@@ -698,17 +698,17 @@ Retrieve one antivirus scan report.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.AntivirusApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.AntivirusApi(isi_sdk_8_2_0.ApiClient(configuration))
 reports_scan_id = 'reports_scan_id_example' # str | Retrieve one antivirus scan report.
 
 try:
@@ -740,7 +740,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_reports_scans**
-> ReportsScansExtended get_reports_scans(sort=sort, status=status, resume=resume, limit=limit, dir=dir, policy_id=policy_id)
+> ReportsScansExtended get_reports_scans(sort=sort, status=status, resume=resume, limit=limit, offset=offset, dir=dir, policy_id=policy_id)
 
 
 
@@ -750,26 +750,27 @@ List antivirus scan reports.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.AntivirusApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.AntivirusApi(isi_sdk_8_2_0.ApiClient(configuration))
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 status = 'status_example' # str | If present, only scan reports with this status will be returned. (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
+offset = 56 # int | The position of the first item returned for a paginated query within the full result set. (optional)
 dir = 'dir_example' # str | The direction of the sort. (optional)
 policy_id = 'policy_id_example' # str | If present, only reports for scans associated with this policy will be returned. (optional)
 
 try:
-    api_response = api_instance.get_reports_scans(sort=sort, status=status, resume=resume, limit=limit, dir=dir, policy_id=policy_id)
+    api_response = api_instance.get_reports_scans(sort=sort, status=status, resume=resume, limit=limit, offset=offset, dir=dir, policy_id=policy_id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling AntivirusApi->get_reports_scans: %s\n" % e)
@@ -783,6 +784,7 @@ Name | Type | Description  | Notes
  **status** | **str**| If present, only scan reports with this status will be returned. | [optional] 
  **resume** | **str**| Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). | [optional] 
  **limit** | **int**| Return no more than this many results at once (see resume). | [optional] 
+ **offset** | **int**| The position of the first item returned for a paginated query within the full result set. | [optional] 
  **dir** | **str**| The direction of the sort. | [optional] 
  **policy_id** | **str**| If present, only reports for scans associated with this policy will be returned. | [optional] 
 
@@ -812,17 +814,17 @@ Retrieve one antivirus threat report.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.AntivirusApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.AntivirusApi(isi_sdk_8_2_0.ApiClient(configuration))
 reports_threat_id = 'reports_threat_id_example' # str | Retrieve one antivirus threat report.
 
 try:
@@ -854,7 +856,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_reports_threats**
-> ReportsThreatsExtended get_reports_threats(sort=sort, scan_id=scan_id, resume=resume, limit=limit, file=file, remediation=remediation, dir=dir)
+> ReportsThreatsExtended get_reports_threats(sort=sort, scan_id=scan_id, resume=resume, limit=limit, file=file, offset=offset, remediation=remediation, dir=dir)
 
 
 
@@ -864,27 +866,28 @@ List antivirus threat reports.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.AntivirusApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.AntivirusApi(isi_sdk_8_2_0.ApiClient(configuration))
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 scan_id = 'scan_id_example' # str | If present, only returns threat reports associated with the given scan report. (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
 file = 'file_example' # str | If present, only returns threat reports for the given file. (optional)
+offset = 56 # int | The position of the first item returned for a paginated query within the full result set. (optional)
 remediation = 'remediation_example' # str | If present, only returns threat reports with the given remediation. (optional)
 dir = 'dir_example' # str | The direction of the sort. (optional)
 
 try:
-    api_response = api_instance.get_reports_threats(sort=sort, scan_id=scan_id, resume=resume, limit=limit, file=file, remediation=remediation, dir=dir)
+    api_response = api_instance.get_reports_threats(sort=sort, scan_id=scan_id, resume=resume, limit=limit, file=file, offset=offset, remediation=remediation, dir=dir)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling AntivirusApi->get_reports_threats: %s\n" % e)
@@ -899,6 +902,7 @@ Name | Type | Description  | Notes
  **resume** | **str**| Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). | [optional] 
  **limit** | **int**| Return no more than this many results at once (see resume). | [optional] 
  **file** | **str**| If present, only returns threat reports for the given file. | [optional] 
+ **offset** | **int**| The position of the first item returned for a paginated query within the full result set. | [optional] 
  **remediation** | **str**| If present, only returns threat reports with the given remediation. | [optional] 
  **dir** | **str**| The direction of the sort. | [optional] 
 
@@ -928,17 +932,17 @@ List antivirus scan policies.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.AntivirusApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.AntivirusApi(isi_sdk_8_2_0.ApiClient(configuration))
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
 dir = 'dir_example' # str | The direction of the sort. (optional)
@@ -986,17 +990,17 @@ List antivirus servers.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.AntivirusApi(isi_sdk_8_1_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_0.AntivirusApi(isi_sdk_8_2_0.ApiClient(configuration))
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
 dir = 'dir_example' # str | The direction of the sort. (optional)
@@ -1044,18 +1048,18 @@ Modify an antivirus scan policy.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.AntivirusApi(isi_sdk_8_1_1.ApiClient(configuration))
-antivirus_policy = isi_sdk_8_1_1.AntivirusPolicy() # AntivirusPolicy | 
+api_instance = isi_sdk_8_2_0.AntivirusApi(isi_sdk_8_2_0.ApiClient(configuration))
+antivirus_policy = isi_sdk_8_2_0.AntivirusPolicy() # AntivirusPolicy | 
 antivirus_policy_id = 'antivirus_policy_id_example' # str | Modify an antivirus scan policy.
 
 try:
@@ -1097,18 +1101,18 @@ Set the quarantine status of the file at the specified path.  Use either an empt
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.AntivirusApi(isi_sdk_8_1_1.ApiClient(configuration))
-antivirus_quarantine_path_params = isi_sdk_8_1_1.AntivirusQuarantinePathParams() # AntivirusQuarantinePathParams | 
+api_instance = isi_sdk_8_2_0.AntivirusApi(isi_sdk_8_2_0.ApiClient(configuration))
+antivirus_quarantine_path_params = isi_sdk_8_2_0.AntivirusQuarantinePathParams() # AntivirusQuarantinePathParams | 
 antivirus_quarantine_path = 'antivirus_quarantine_path_example' # str | Set the quarantine status of the file at the specified path.  Use either an empty object {} in the request body or {\"quarantined\":true} to quarantine the file, and {\"quarantined\":false} to unquarantine the file.
 
 try:
@@ -1150,18 +1154,18 @@ Modify an antivirus server entry.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.AntivirusApi(isi_sdk_8_1_1.ApiClient(configuration))
-antivirus_server = isi_sdk_8_1_1.AntivirusServer() # AntivirusServer | 
+api_instance = isi_sdk_8_2_0.AntivirusApi(isi_sdk_8_2_0.ApiClient(configuration))
+antivirus_server = isi_sdk_8_2_0.AntivirusServer() # AntivirusServer | 
 antivirus_server_id = 'antivirus_server_id_example' # str | Modify an antivirus server entry.
 
 try:
@@ -1203,18 +1207,18 @@ Modify the Antivirus settings. All input fields are optional, but one or more mu
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_1_1
-from isi_sdk_8_1_1.rest import ApiException
+import isi_sdk_8_2_0
+from isi_sdk_8_2_0.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_1_1.Configuration()
+configuration = isi_sdk_8_2_0.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_1_1.AntivirusApi(isi_sdk_8_1_1.ApiClient(configuration))
-antivirus_settings = isi_sdk_8_1_1.AntivirusSettingsSettings() # AntivirusSettingsSettings | 
+api_instance = isi_sdk_8_2_0.AntivirusApi(isi_sdk_8_2_0.ApiClient(configuration))
+antivirus_settings = isi_sdk_8_2_0.AntivirusSettingsExtended() # AntivirusSettingsExtended | 
 
 try:
     api_instance.update_antivirus_settings(antivirus_settings)
@@ -1226,7 +1230,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **antivirus_settings** | [**AntivirusSettingsSettings**](AntivirusSettingsSettings.md)|  | 
+ **antivirus_settings** | [**AntivirusSettingsExtended**](AntivirusSettingsExtended.md)|  | 
 
 ### Return type
 

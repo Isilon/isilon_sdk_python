@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **domain** | **str** | The FQDN of the source domain to map. | 
-**id** | **str** |  | [optional] 
+**id** | **str** | The system ID given to the mapping. | 
 **mapping** | **str** | The FQDN of destination domain to map to. | 
 **type** | **str** | The authentication provider type. | 
 

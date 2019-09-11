@@ -36,6 +36,7 @@ Name | Type | Description | Notes
 **listable_groups** | **list[str]** | Specifies the groups that can be viewed in the provider. | [optional] 
 **listable_users** | **list[str]** | Specifies the users that can be viewed in the provider. | [optional] 
 **login_shell** | **str** | Specifies the login shell path. | [optional] 
+**member_lookup_method** | **str** | Sets the method by which group member lookups are performed. Use caution when changing this option directly. | [optional] 
 **member_of_attribute** | **str** | Specifies the LDAP Query Member Of attribute, which performs reverse membership queries. | [optional] 
 **name** | **str** | Specifies the name of the LDAP provider. | [optional] 
 **name_attribute** | **str** | Specifies the LDAP UID attribute, which is used as the login name. | [optional] 
@@ -63,11 +64,11 @@ Name | Type | Description | Notes
 **shadow_min_attribute** | **str** | Sets the attribute name that indicates the minimum number of days between shadow changes. | [optional] 
 **shadow_user_filter** | **str** | Sets LDAP filter for shadow user objects. | [optional] 
 **shadow_warning_attribute** | **str** | Sets the attribute name that indicates the number of days before the password expires to warn the user. | [optional] 
-**shell_attribute** | **str** | Specifies the the LDAP Shell attribute. | [optional] 
+**shell_attribute** | **str** | Specifies the LDAP Shell attribute. | [optional] 
+**ssh_public_key_attribute** | **str** | Sets the attribute name that indicates the SSH Public Key for the user. | [optional] 
 **status** | **str** | Specifies the status of the provider. | [optional] 
 **system** | **bool** | If true, indicates that this provider instance was created by OneFS and cannot be removed. | [optional] 
-**template** | **str** | Specifies template to be used to create the LDAP provider. The list of templates can be found at /auth/providers/ldap-templates.  Any fields directly defined in your request will override the template values. | [optional] 
-**uid_attribute** | **str** | Specifies the the LDAP UID Number attribute. | [optional] 
+**uid_attribute** | **str** | Specifies the LDAP UID Number attribute. | [optional] 
 **unfindable_groups** | **list[str]** | Specifies the groups that cannot be resolved by the provider. | [optional] 
 **unfindable_users** | **list[str]** | Specifies users that cannot be resolved by the provider. | [optional] 
 **unique_group_members_attribute** | **str** | Sets the LDAP Unique Group Members attribute. | [optional] 
@@ -77,6 +78,7 @@ Name | Type | Description | Notes
 **user_domain** | **str** | Specifies the domain for this provider through which users are qualified. | [optional] 
 **user_filter** | **str** | Specifies the LDAP filter for user objects. | [optional] 
 **user_search_scope** | **str** | Specifies the depth from the base DN to perform LDAP searches. | [optional] 
+**zone_name** | **str** | Specifies the name of the access zone in which this provider was created. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

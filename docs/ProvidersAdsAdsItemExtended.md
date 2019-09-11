@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **controller_time** | **int** | Specifies the current time for the domain controllers. | [optional] 
 **create_home_directory** | **bool** | Automatically creates a home directory on the first login. | [optional] 
 **domain_offline_alerts** | **bool** | Sends an alert if the domain goes offline. | [optional] 
+**extra_expected_spns** | **list[str]** | List of additional SPNs to expect beyond what automatic checking routines might find | [optional] 
 **findable_groups** | **list[str]** | Sets list of groups that can be resolved. | [optional] 
 **findable_users** | **list[str]** | Sets list of users that can be resolved. | [optional] 
 **forest** | **str** | Specifies the Active Directory forest. | [optional] 
@@ -29,8 +30,7 @@ Name | Type | Description | Notes
 **lookup_normalize_groups** | **bool** | Normalizes AD group names to lowercase before look up. | [optional] 
 **lookup_normalize_users** | **bool** | Normalize AD user names to lowercase before look up. | [optional] 
 **lookup_users** | **bool** | Looks up AD users in other providers before allocating a user ID. | [optional] 
-**machine_account** | **str** | Specifies the SAM account name of the machine account. | [optional] 
-**machine_name** | **str** | Specifies name to join AD as. | [optional] 
+**machine_account** | **str** | Specifies the machine account name when creating a SAM account with Active Directory. | [optional] 
 **machine_password_changes** | **bool** | Enables periodic changes of the machine password for security. | [optional] 
 **machine_password_lifespan** | **int** | Sets maximum age of a password in seconds. | [optional] 
 **name** | **str** | Specifies the Active Directory provider name. | [optional] 
@@ -47,6 +47,7 @@ Name | Type | Description | Notes
 **system** | **bool** | If set to true, indicates that this provider instance was created by OneFS and cannot be removed. | [optional] 
 **unfindable_groups** | **list[str]** | Specifies groups that cannot be resolved by the provider. | [optional] 
 **unfindable_users** | **list[str]** | Specifies users that cannot be resolved by the provider. | [optional] 
+**zone_name** | **str** | Specifies the name of the access zone in which this provider was created. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

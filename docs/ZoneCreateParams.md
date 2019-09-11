@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **skeleton_directory** | **str** | Specifies the skeleton directory that is used for user home directories. | [optional] 
 **system_provider** | **str** | Specifies the system provider for the access zone. | [optional] 
 **user_mapping_rules** | **list[str]** | Specifies the current ID mapping rules. | [optional] 
-**groupnet** | **str** | Groupnet identitier | [optional] 
+**groupnet** | **str** | Groupnet identifier | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

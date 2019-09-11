@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **shadow_bytes** | **int** | The amount of shadow bytes referred to by this snapshot. | 
 **size** | **int** | The amount of storage in bytes used to store this snapshot. | 
 **state** | **str** | Snapshot state. | 
-**target_id** | **int** | The ID of the snapshot pointed to if this is an alias. | [optional] 
+**target_id** | **int** | The ID of the snapshot pointed to if this is an alias. 18446744073709551615 (max uint64) is returned for an alias to the live filesystem. | [optional] 
 **target_name** | **str** | The name of the snapshot pointed to if this is an alias. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

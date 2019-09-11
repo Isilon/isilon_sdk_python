@@ -4,11 +4,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **devid** | **int** | The device id of the node if it is still part of the cluster otherwise None. | [optional] 
-**ended** | **float** | Time event was ended (eventgroup resolved) | [optional] 
-**event** | **int** | Integer identifier of the event type | [optional] 
+**ended** | **float** | Time event was ended (eventgroup resolved). | [optional] 
+**event** | **int** | Integer identifier of the event type. | [optional] 
 **id** | **str** | Unique identifier of event occurrence. | [optional] 
 **lnn** | **int** | The lnn of the node if it is still part of the cluster, otherwise None. | [optional] 
-**message** | **str** | Human readable description | [optional] 
+**message** | **str** | Human readable description. | [optional] 
 **resolve_time** | **int** | Time the event was resolved. | [optional] 
 **severity** | **str** | Severity of event occurrence. | [optional] 
 **specifier** | [**Empty**](Empty.md) | A collection of parameters defined per event. | [optional] 

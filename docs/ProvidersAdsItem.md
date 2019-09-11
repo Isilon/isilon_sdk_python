@@ -3,7 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**account** | **str** | Specifies the machine account name when creating a SAM account with Active Directory. The default cluster name is called &#39;default&#39;. | [optional] 
 **allocate_gids** | **bool** | Allocates an ID for an unmapped Active Directory (ADS) group. ADS groups without GIDs can be proactively assigned a GID by the ID mapper. If the ID mapper option is disabled, GIDs are not proactively assigned, and when a primary group for a user does not include a GID, the system may allocate one.  | [optional] 
 **allocate_uids** | **bool** | Allocates a user ID for an unmapped Active Directory (ADS) user. ADS users without UIDs can be proactively assigned a UID by the ID mapper. IF the ID mapper option is disabled, UIDs are not proactively assigned, and when an identify for a user does not include a UID, the system may allocate one. | [optional] 
 **assume_default_domain** | **bool** | Enables lookup of unqualified user names in the primary domain. | [optional] 
@@ -13,6 +12,7 @@ Name | Type | Description | Notes
 **create_home_directory** | **bool** | Automatically creates a home directory on the first login. | [optional] 
 **dns_domain** | **str** | Specifies the DNS search domain. Set this parameter if the DNS search domain has a unique name or address. | [optional] 
 **domain_offline_alerts** | **bool** | Sends an alert if the domain goes offline. | [optional] 
+**extra_expected_spns** | **list[str]** | List of additional SPNs to expect beyond what automatic checking routines might find | [optional] 
 **findable_groups** | **list[str]** | Sets list of groups that can be resolved. | [optional] 
 **findable_users** | **list[str]** | Sets list of users that can be resolved. | [optional] 
 **groupnet** | **str** | Groupnet identifier. | [optional] 
@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 **lookup_normalize_groups** | **bool** | Normalizes AD group names to lowercase before look up. | [optional] 
 **lookup_normalize_users** | **bool** | Normalize AD user names to lowercase before look up. | [optional] 
 **lookup_users** | **bool** | Looks up AD users in other providers before allocating a user ID. | [optional] 
-**machine_name** | **str** | Specifies name to join AD as. | [optional] 
+**machine_account** | **str** | Specifies the machine account name when creating a SAM account with Active Directory. | [optional] 
 **machine_password_changes** | **bool** | Enables periodic changes of the machine password for security. | [optional] 
 **machine_password_lifespan** | **int** | Sets maximum age of a password in seconds. | [optional] 
 **name** | **str** | Specifies the Active Directory provider name. | 

@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **current_phase** | **int** | The current phase of the job. | [optional] 
 **description** | **str** | A text representation of the job. | [optional] 
 **end_time** | **int** | The time the job ended, in seconds since the Epoch. | [optional] 
+**human_desc** | **str** | A helpful human-readable description of the job | 
 **id** | **int** | The ID of the job. | 
 **impact** | **str** | The current impact of the job. | 
 **participants** | **list[int]** | The set of devids working on the job. | [optional] 

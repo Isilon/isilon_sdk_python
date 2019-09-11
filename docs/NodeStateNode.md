@@ -4,8 +4,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **error** | **str** | Error message, if the HTTP status returned from this node was not 200. | [optional] 
-**id** | **int** | Node ID of the node reporting this information. | [optional] 
-**lnn** | **int** | Logical node number of the node reporting this information. | [optional] 
+**id** | **int** | Node ID (Device Number) of a node. | [optional] 
+**lnn** | **int** | Logical Node Number (LNN) of a node. | [optional] 
 **readonly** | [**NodeStateReadonlyExtended**](NodeStateReadonlyExtended.md) | Node readonly state. | [optional] 
 **servicelight** | [**NodeStateNodeServicelight**](NodeStateNodeServicelight.md) | Node service light state. | [optional] 
 **smartfail** | [**NodeStateSmartfailExtended**](NodeStateSmartfailExtended.md) | Node smartfail state. | [optional] 

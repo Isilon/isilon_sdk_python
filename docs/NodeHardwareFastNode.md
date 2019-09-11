@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Node ID (Device Number) of this node. | [optional] 
-**lnn** | **int** | Logical Node Number (LNN) of this node. | [optional] 
+**id** | **int** | Node ID (Device Number) of a node. | [optional] 
+**lnn** | **int** | Logical Node Number (LNN) of a node. | [optional] 
 **product** | **str** | Isilon product name. | [optional] 
 **serial_number** | **str** | Serial number of this node. | [optional] 
 **storage_class** | **str** | Storage class of this node (storage or diskless). | [optional] 

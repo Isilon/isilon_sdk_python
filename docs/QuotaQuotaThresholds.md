@@ -5,6 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **advisory** | **int** | Usage bytes at which notifications will be sent but writes will not be denied. | [optional] 
 **hard** | **int** | Usage bytes at which further writes will be denied. | [optional] 
+**percent_advisory** | **float** | Advisory threshold as percent of hard threshold. | [optional] 
+**percent_soft** | **float** | Soft threshold as percent of hard threshold. | [optional] 
 **soft** | **int** | Usage bytes at which notifications will be sent and soft grace time will be started. | [optional] 
 **soft_grace** | **int** | Time in seconds after which the soft threshold has been hit before writes will be denied. | [optional] 
 

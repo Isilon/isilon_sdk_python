@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **password_prompt_time** | **int** | Specifies the time in seconds remaining before a user will be prompted for a password change. | [optional] 
 **status** | **str** | Specifies the status of the provider. | [optional] 
 **system** | **bool** | If true, indicates that this provider instance was created by OneFS and cannot be removed. | [optional] 
+**zone_name** | **str** | Specifies the name of the access zone in which this provider was created. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

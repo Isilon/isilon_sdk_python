@@ -38,6 +38,7 @@ Name | Type | Description | Notes
 **unmodifiable_groups** | **list[str]** | Specifies a group that cannot be modified by the provider. | [optional] 
 **unmodifiable_users** | **list[str]** | Specifies a user that cannot be modified by the provider. | [optional] 
 **user_domain** | **str** | Specifies the domain for this provider through which users are qualified. | [optional] 
+**zone_name** | **str** | Specifies the name of the access zone in which this provider was created. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
