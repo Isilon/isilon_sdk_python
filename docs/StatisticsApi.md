@@ -1,4 +1,4 @@
-# isi_sdk_8_2_0.StatisticsApi
+# isi_sdk_8_2_1.StatisticsApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -30,17 +30,17 @@ Retrieve stats.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.StatisticsApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.StatisticsApi(isi_sdk_8_2_1.ApiClient(configuration))
 timeout = 56 # int | Time in seconds to wait for results from remote nodes. (optional)
 show_nodes = true # bool | Shows the logical node number or LNN in addition to the devid. (optional)
 keys = ['keys_example'] # list[str] | Multiple key names. Can be a comma separated list, or can be used more than one time to make queries for multiple keys. May be used in conjunction with 'substr'. Also works with 'key' arguments. (optional)
@@ -102,17 +102,17 @@ Retrieve stats.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.StatisticsApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.StatisticsApi(isi_sdk_8_2_1.ApiClient(configuration))
 begin = 56 # int | Earliest time (Unix epoch seconds) of interest. Negative times are interpreted as relative (before) now. (optional)
 interval = 56 # int | Minimum sampling interval time in seconds. If native statistics are higher resolution, data will be down-sampled. (optional)
 end = 56 # int | Latest time (Unix epoch seconds) of interest. Negative times are interpreted as relative (before) now. If not supplied, use now as the end time. (optional)
@@ -184,17 +184,17 @@ List key meta-data.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.StatisticsApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.StatisticsApi(isi_sdk_8_2_1.ApiClient(configuration))
 statistics_key_id = 'statistics_key_id_example' # str | List key meta-data.
 
 try:
@@ -236,17 +236,17 @@ List meta-data for matching keys.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.StatisticsApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.StatisticsApi(isi_sdk_8_2_1.ApiClient(configuration))
 count = true # bool | Only count matching keys, do not return meta-data. (optional)
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
 queryable = true # bool | Only list keys that can/cannot be queries. Default is true. (optional)
@@ -294,17 +294,17 @@ Retrieve operations list.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.StatisticsApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.StatisticsApi(isi_sdk_8_2_1.ApiClient(configuration))
 protocols = ['protocols_example'] # list[str] | A comma separated list. Only report operations for specified protocol(s). Default is all.  (optional)
 
 try:
@@ -346,17 +346,17 @@ Retrieve protocol list.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.StatisticsApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.StatisticsApi(isi_sdk_8_2_1.ApiClient(configuration))
 type = 'type_example' # str | Specifies whether internal, external, or all protocols should be returned. (optional)
 
 try:
@@ -398,17 +398,17 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.StatisticsApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.StatisticsApi(isi_sdk_8_2_1.ApiClient(configuration))
 sort = 'sort_example' # str | Sort data by the specified comma-separated field(s). (num_operations | operation_rate | in_max | in_min | in | in_avg | out_max | out_min | out | out_avg | time_max | time_min | time_avg | node | protocol | class | user_id | user_name | local_addr | local_name | remote_addr | remote_name) Prepend 'asc:' or 'desc:' to a field to change the sort direction.  (optional)
 totalby = 'totalby_example' # str | A comma separated list specifying what should be unique. (node | protocol | class | local_addr | local_name | remote_addr | remote_name | user_id | user_name | devid). Aggregation is performed over all the fields not specified in the list. (optional)
 user_names = 'user_names_example' # str | A comma separated list. Only report statistics for operations requested by users with resolved names enumerated.  (optional)
@@ -476,17 +476,17 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.StatisticsApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.StatisticsApi(isi_sdk_8_2_1.ApiClient(configuration))
 sort = 'sort_example' # str | Sort data by the specified comma-separated field(s). (drive_id | type | xfers_in | bytes_in | xfer_size_in | xfers_out | bytes_out | xfer_size_out | access_latency | access_slow | iosched_latency | iosched_queue | busy | used_bytes_percent | used_inodes). Prepend 'asc:' or 'desc:' to a field to change the sort direction.  (optional)
 degraded = true # bool | Continue to report if some nodes do not respond. (optional)
 type = 'type_example' # str | Specify drive type(s) for which statistics should be reported. (optional)
@@ -536,17 +536,17 @@ File heat map, i.e. rate of file operations, and the type of operation listed by
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.StatisticsApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.StatisticsApi(isi_sdk_8_2_1.ApiClient(configuration))
 sort = 'sort_example' # str | Sort data by the specified comma-separated field(s). (operation_rate | node | event_name | class_name | lin | path). Prepend 'asc:' or 'desc:' to a field to change the sort direction.  (optional)
 convertlin = true # bool | Convert lin to hex. Default is true.  (optional)
 totalby = 'totalby_example' # str | A comma separated list specifying what should be unique. (node | event_name | event_class | operation_rate | path | lin). Aggregation is performed over all the fields not specified in the list. (optional)
@@ -608,17 +608,17 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.StatisticsApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.StatisticsApi(isi_sdk_8_2_1.ApiClient(configuration))
 operations = 'operations_example' # str | Specify operation(s) for which statistics should be reported (See the cli command: 'isi statistics list operations', for a total list). Default is all.  (optional)
 sort = 'sort_example' # str | Sort data by the specified comma-separated field(s). (time | operation_count | operation_rate | in_max | in_min | in | in_avg | in_standard_dev | out_max | out_min | out | out_avg | out_standard_dev | time_max | time_min | time_avg | time_standard_dev | node | protocol | class | operation). Prepend 'asc:' or 'desc:' to a field to change the sort direction.  (optional)
 totalby = 'totalby_example' # str | A comma separated list specifying what should be unique. (node | protocol | class | operation). Aggregation is performed over all the fields not specified in the list. (optional)
@@ -676,17 +676,17 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.StatisticsApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.StatisticsApi(isi_sdk_8_2_1.ApiClient(configuration))
 degraded = true # bool | Continue to report if some nodes do not respond. (optional)
 protocol = 'protocol_example' # str | A single protocol. Default is nfs3. (nfs3 | smb1 | nlm | ftp | http | siq | smb2 | nfs4 | papi | jobd | irp | lsass_in | lsass_out | hdfs) (optional)
 nodes = 'nodes_example' # str | A comma separated list. Specify node(s) for which statistics should be reported. Default is all. Zero (0) should be passed in as the sole argument to indicate local. (optional)
@@ -734,17 +734,17 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.StatisticsApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.StatisticsApi(isi_sdk_8_2_1.ApiClient(configuration))
 sort = 'sort_example' # str | Sort data by the specified comma-separated field(s). (time | node | cpu | smb | ftp | http | nfs | hdfs | total | net_in | net_out | disk_in). Prepend 'asc:' or 'desc:' to a field to change the sort direction.  (optional)
 oprates = true # bool | Display protocol operation rate statistics rather than the default throughput statistics. (optional)
 degraded = true # bool | Continue to report if some nodes do not respond. (optional)
@@ -794,17 +794,17 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.StatisticsApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.StatisticsApi(isi_sdk_8_2_1.ApiClient(configuration))
 group_sids = 'group_sids_example' # str | A comma separated list. Only report statistics for groups specified by Group Security IDs, if configured.  (optional)
 numeric = true # bool | Do not resolve addresses and usernames to their human readable form(s). Default is false.  (optional)
 dataset = 'dataset_example' # str | Report workload performance metrics for specified dataset. Default is 'System'. (optional)

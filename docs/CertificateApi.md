@@ -1,4 +1,4 @@
-# isi_sdk_8_2_0.CertificateApi
+# isi_sdk_8_2_1.CertificateApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -29,18 +29,18 @@ Import a TLS certificate authority.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.CertificateApi(isi_sdk_8_2_0.ApiClient(configuration))
-certificate_authority_item = isi_sdk_8_2_0.CertificateAuthorityItem() # CertificateAuthorityItem | 
+api_instance = isi_sdk_8_2_1.CertificateApi(isi_sdk_8_2_1.ApiClient(configuration))
+certificate_authority_item = isi_sdk_8_2_1.CertificateAuthorityItem() # CertificateAuthorityItem | 
 
 try:
     api_response = api_instance.create_certificate_authority_item(certificate_authority_item)
@@ -81,18 +81,18 @@ Import a TLS server certificate.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.CertificateApi(isi_sdk_8_2_0.ApiClient(configuration))
-certificate_server_item = isi_sdk_8_2_0.CertificateServerItem() # CertificateServerItem | 
+api_instance = isi_sdk_8_2_1.CertificateApi(isi_sdk_8_2_1.ApiClient(configuration))
+certificate_server_item = isi_sdk_8_2_1.CertificateServerItem() # CertificateServerItem | 
 
 try:
     api_response = api_instance.create_certificate_server_item(certificate_server_item)
@@ -133,17 +133,17 @@ Delete a TLS certificate authority.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.CertificateApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.CertificateApi(isi_sdk_8_2_1.ApiClient(configuration))
 certificate_authority_id = 'certificate_authority_id_example' # str | Delete a TLS certificate authority.
 
 try:
@@ -184,17 +184,17 @@ Delete a TLS server certificate.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.CertificateApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.CertificateApi(isi_sdk_8_2_1.ApiClient(configuration))
 certificate_server_id = 'certificate_server_id_example' # str | Delete a TLS server certificate.
 
 try:
@@ -235,17 +235,17 @@ Retrieve a single TLS certificate authority.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.CertificateApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.CertificateApi(isi_sdk_8_2_1.ApiClient(configuration))
 certificate_authority_id = 'certificate_authority_id_example' # str | Retrieve a single TLS certificate authority.
 
 try:
@@ -287,17 +287,17 @@ Retrieve a single TLS server certificate.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.CertificateApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.CertificateApi(isi_sdk_8_2_1.ApiClient(configuration))
 certificate_server_id = 'certificate_server_id_example' # str | Retrieve a single TLS server certificate.
 
 try:
@@ -339,17 +339,17 @@ Retrieve system-wide TLS certificate settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.CertificateApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.CertificateApi(isi_sdk_8_2_1.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_certificate_settings()
@@ -387,17 +387,17 @@ Retrieve a list of all configured TLS certificate authorities.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.CertificateApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.CertificateApi(isi_sdk_8_2_1.ApiClient(configuration))
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
 dir = 'dir_example' # str | The direction of the sort. (optional)
@@ -445,17 +445,17 @@ Retrieve a list of all configured TLS server certificates.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.CertificateApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.CertificateApi(isi_sdk_8_2_1.ApiClient(configuration))
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
 dir = 'dir_example' # str | The direction of the sort. (optional)
@@ -503,18 +503,18 @@ Modify a TLS certificate authority.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.CertificateApi(isi_sdk_8_2_0.ApiClient(configuration))
-certificate_authority_id_params = isi_sdk_8_2_0.CertificateServerIdParams() # CertificateServerIdParams | 
+api_instance = isi_sdk_8_2_1.CertificateApi(isi_sdk_8_2_1.ApiClient(configuration))
+certificate_authority_id_params = isi_sdk_8_2_1.CertificateServerIdParams() # CertificateServerIdParams | 
 certificate_authority_id = 'certificate_authority_id_example' # str | Modify a TLS certificate authority.
 
 try:
@@ -556,18 +556,18 @@ Modify a TLS server certificate.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.CertificateApi(isi_sdk_8_2_0.ApiClient(configuration))
-certificate_server_id_params = isi_sdk_8_2_0.CertificateServerIdParams() # CertificateServerIdParams | 
+api_instance = isi_sdk_8_2_1.CertificateApi(isi_sdk_8_2_1.ApiClient(configuration))
+certificate_server_id_params = isi_sdk_8_2_1.CertificateServerIdParams() # CertificateServerIdParams | 
 certificate_server_id = 'certificate_server_id_example' # str | Modify a TLS server certificate.
 
 try:
@@ -609,18 +609,18 @@ Modify system-wide TLS certificate settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.CertificateApi(isi_sdk_8_2_0.ApiClient(configuration))
-certificate_settings = isi_sdk_8_2_0.CertificateSettingsExtended() # CertificateSettingsExtended | 
+api_instance = isi_sdk_8_2_1.CertificateApi(isi_sdk_8_2_1.ApiClient(configuration))
+certificate_settings = isi_sdk_8_2_1.CertificateSettingsExtended() # CertificateSettingsExtended | 
 
 try:
     api_instance.update_certificate_settings(certificate_settings)

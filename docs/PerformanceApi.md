@@ -1,4 +1,4 @@
-# isi_sdk_8_2_0.PerformanceApi
+# isi_sdk_8_2_1.PerformanceApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -26,18 +26,18 @@ Create a new dataset.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.PerformanceApi(isi_sdk_8_2_0.ApiClient(configuration))
-performance_dataset = isi_sdk_8_2_0.PerformanceDatasetCreateParams() # PerformanceDatasetCreateParams | 
+api_instance = isi_sdk_8_2_1.PerformanceApi(isi_sdk_8_2_1.ApiClient(configuration))
+performance_dataset = isi_sdk_8_2_1.PerformanceDatasetCreateParams() # PerformanceDatasetCreateParams | 
 
 try:
     api_response = api_instance.create_performance_dataset(performance_dataset)
@@ -78,17 +78,17 @@ Delete the performance dataset.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.PerformanceApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.PerformanceApi(isi_sdk_8_2_1.ApiClient(configuration))
 performance_dataset_id = 'performance_dataset_id_example' # str | Delete the performance dataset.
 
 try:
@@ -129,17 +129,17 @@ Retrieve the performance dataset.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.PerformanceApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.PerformanceApi(isi_sdk_8_2_1.ApiClient(configuration))
 performance_dataset_id = 'performance_dataset_id_example' # str | Retrieve the performance dataset.
 
 try:
@@ -181,17 +181,17 @@ View a single performance metric.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.PerformanceApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.PerformanceApi(isi_sdk_8_2_1.ApiClient(configuration))
 performance_metric_id = 'performance_metric_id_example' # str | View a single performance metric.
 
 try:
@@ -233,17 +233,17 @@ List all metrics.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.PerformanceApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.PerformanceApi(isi_sdk_8_2_1.ApiClient(configuration))
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 dir = 'dir_example' # str | The direction of the sort. (optional)
 
@@ -287,17 +287,17 @@ List all performance settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.PerformanceApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.PerformanceApi(isi_sdk_8_2_1.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_performance_settings()
@@ -335,17 +335,17 @@ List all datasets.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.PerformanceApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.PerformanceApi(isi_sdk_8_2_1.ApiClient(configuration))
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
 dir = 'dir_example' # str | The direction of the sort. (optional)
@@ -393,18 +393,18 @@ Modify the name of the performance dataset.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.PerformanceApi(isi_sdk_8_2_0.ApiClient(configuration))
-performance_dataset = isi_sdk_8_2_0.PerformanceDataset() # PerformanceDataset | 
+api_instance = isi_sdk_8_2_1.PerformanceApi(isi_sdk_8_2_1.ApiClient(configuration))
+performance_dataset = isi_sdk_8_2_1.PerformanceDataset() # PerformanceDataset | 
 performance_dataset_id = 'performance_dataset_id_example' # str | Modify the name of the performance dataset.
 
 try:
@@ -446,18 +446,18 @@ Configure performance settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.PerformanceApi(isi_sdk_8_2_0.ApiClient(configuration))
-performance_settings = isi_sdk_8_2_0.PerformanceSettingsExtended() # PerformanceSettingsExtended | 
+api_instance = isi_sdk_8_2_1.PerformanceApi(isi_sdk_8_2_1.ApiClient(configuration))
+performance_settings = isi_sdk_8_2_1.PerformanceSettingsExtended() # PerformanceSettingsExtended | 
 force = true # bool | Allow modification of settings outside of recommended limits (optional)
 
 try:

@@ -1,4 +1,4 @@
-# isi_sdk_8_2_0.AuthApi
+# isi_sdk_8_2_1.AuthApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -108,18 +108,18 @@ Flush the Security Objects Cache.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
-auth_cache_item = isi_sdk_8_2_0.AuthCacheItem() # AuthCacheItem | 
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
+auth_cache_item = isi_sdk_8_2_1.AuthCacheItem() # AuthCacheItem | 
 zone = 'zone_example' # str | Specifies access zone from which to flush objects. (optional)
 
 try:
@@ -162,18 +162,18 @@ Create a new group.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
-auth_group = isi_sdk_8_2_0.AuthGroupCreateParams() # AuthGroupCreateParams | 
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
+auth_group = isi_sdk_8_2_1.AuthGroupCreateParams() # AuthGroupCreateParams | 
 force = true # bool | Skip validation checks when creating a group. (optional)
 zone = 'zone_example' # str | Optional zone. (optional)
 provider = 'provider_example' # str | Optional provider type. (optional)
@@ -220,18 +220,18 @@ Refresh the authentication service configuration.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
-auth_refresh_item = isi_sdk_8_2_0.Empty() # Empty | 
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
+auth_refresh_item = isi_sdk_8_2_1.Empty() # Empty | 
 
 try:
     api_response = api_instance.create_auth_refresh_item(auth_refresh_item)
@@ -272,18 +272,18 @@ Create a new role.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
-auth_role = isi_sdk_8_2_0.AuthRoleCreateParams() # AuthRoleCreateParams | 
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
+auth_role = isi_sdk_8_2_1.AuthRoleCreateParams() # AuthRoleCreateParams | 
 zone = 'zone_example' # str | Specifies which access zone to use. (optional)
 
 try:
@@ -326,18 +326,18 @@ Create a new user.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
-auth_user = isi_sdk_8_2_0.AuthUserCreateParams() # AuthUserCreateParams | 
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
+auth_user = isi_sdk_8_2_1.AuthUserCreateParams() # AuthUserCreateParams | 
 force = true # bool | Skip validation checks when creating user. (optional)
 zone = 'zone_example' # str | Optional zone. (optional)
 provider = 'provider_example' # str | Optional provider type. (optional)
@@ -384,18 +384,18 @@ Manually set or modify a mapping between two personae.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
-mapping_identities = isi_sdk_8_2_0.MappingIdentitiesCreateParams() # MappingIdentitiesCreateParams | 
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
+mapping_identities = isi_sdk_8_2_1.MappingIdentitiesCreateParams() # MappingIdentitiesCreateParams | 
 _2way = true # bool | Create a bi-directional mapping from source to target and target to source. (optional)
 zone = 'zone_example' # str | Optional zone. (optional)
 replace = true # bool | Replace existing mappings. (optional)
@@ -442,18 +442,18 @@ Manually set or modify a mapping between two personae.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
-mapping_identity = isi_sdk_8_2_0.Empty() # Empty | 
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
+mapping_identity = isi_sdk_8_2_1.Empty() # Empty | 
 mapping_identity_id = 'mapping_identity_id_example' # str | Manually set or modify a mapping between two personae.
 type = 'type_example' # str | Desired mapping target to fetch/generate. (optional)
 zone = 'zone_example' # str | Optional zone. (optional)
@@ -500,18 +500,18 @@ Create a new ADS provider.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
-providers_ads_item = isi_sdk_8_2_0.ProvidersAdsItem() # ProvidersAdsItem | 
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
+providers_ads_item = isi_sdk_8_2_1.ProvidersAdsItem() # ProvidersAdsItem | 
 
 try:
     api_response = api_instance.create_providers_ads_item(providers_ads_item)
@@ -552,18 +552,18 @@ Create a new file provider.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
-providers_file_item = isi_sdk_8_2_0.ProvidersFileItem() # ProvidersFileItem | 
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
+providers_file_item = isi_sdk_8_2_1.ProvidersFileItem() # ProvidersFileItem | 
 
 try:
     api_response = api_instance.create_providers_file_item(providers_file_item)
@@ -604,18 +604,18 @@ Create a new KRB5 provider.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
-providers_krb5_item = isi_sdk_8_2_0.ProvidersKrb5Item() # ProvidersKrb5Item | 
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
+providers_krb5_item = isi_sdk_8_2_1.ProvidersKrb5Item() # ProvidersKrb5Item | 
 
 try:
     api_response = api_instance.create_providers_krb5_item(providers_krb5_item)
@@ -656,18 +656,18 @@ Create a new LDAP provider.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
-providers_ldap_item = isi_sdk_8_2_0.ProvidersLdapItem() # ProvidersLdapItem | 
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
+providers_ldap_item = isi_sdk_8_2_1.ProvidersLdapItem() # ProvidersLdapItem | 
 force = true # bool | Ignore unresolvable server URIs. (optional)
 
 try:
@@ -710,18 +710,18 @@ Create a new NIS provider.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
-providers_nis_item = isi_sdk_8_2_0.ProvidersNisItem() # ProvidersNisItem | 
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
+providers_nis_item = isi_sdk_8_2_1.ProvidersNisItem() # ProvidersNisItem | 
 
 try:
     api_response = api_instance.create_providers_nis_item(providers_nis_item)
@@ -762,18 +762,18 @@ Create a new krb5 domain.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
-settings_krb5_domain = isi_sdk_8_2_0.SettingsKrb5DomainCreateParams() # SettingsKrb5DomainCreateParams | 
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
+settings_krb5_domain = isi_sdk_8_2_1.SettingsKrb5DomainCreateParams() # SettingsKrb5DomainCreateParams | 
 
 try:
     api_response = api_instance.create_settings_krb5_domain(settings_krb5_domain)
@@ -814,18 +814,18 @@ Create a new krb5 realm.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
-settings_krb5_realm = isi_sdk_8_2_0.SettingsKrb5RealmCreateParams() # SettingsKrb5RealmCreateParams | 
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
+settings_krb5_realm = isi_sdk_8_2_1.SettingsKrb5RealmCreateParams() # SettingsKrb5RealmCreateParams | 
 
 try:
     api_response = api_instance.create_settings_krb5_realm(settings_krb5_realm)
@@ -866,17 +866,17 @@ Delete the group.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 auth_group_id = 'auth_group_id_example' # str | Delete the group.
 cached = true # bool | If true, flush the group from the cache. (optional)
 zone = 'zone_example' # str | Filter groups by zone. (optional)
@@ -923,17 +923,17 @@ Flush the groups cache.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 cached = true # bool | If true, only flush cached objects. (optional)
 zone = 'zone_example' # str | Filter groups by zone. (optional)
 provider = 'provider_example' # str | Filter groups by provider. (optional)
@@ -978,17 +978,17 @@ Delete the role.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 auth_role_id = 'auth_role_id_example' # str | Delete the role.
 zone = 'zone_example' # str | Specifies which access zone to use. (optional)
 
@@ -1031,17 +1031,17 @@ Delete the user.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 auth_user_id = 'auth_user_id_example' # str | Delete the user.
 cached = true # bool | If true, flush the user from the cache. (optional)
 zone = 'zone_example' # str | Filter users by zone. (optional)
@@ -1088,17 +1088,17 @@ Flush the users cache.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 cached = true # bool | If true, only flush cached objects. (optional)
 zone = 'zone_example' # str | Filter users by zone. (optional)
 provider = 'provider_example' # str | Filter users by provider. (optional)
@@ -1143,17 +1143,17 @@ Flush the entire idmap cache.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 filter = 'filter_example' # str | Filter to apply when deleting identity mappings. (optional)
 zone = 'zone_example' # str | Optional zone. (optional)
 remove = true # bool | Delete mapping instead of flush mapping cache. (optional)
@@ -1198,17 +1198,17 @@ Flush the entire idmap cache.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 mapping_identity_id = 'mapping_identity_id_example' # str | Flush the entire idmap cache.
 zone = 'zone_example' # str | Optional zone. (optional)
 _2way = true # bool | Delete the bi-directional mapping from source to target and target to source. (optional)
@@ -1257,17 +1257,17 @@ Delete the ADS provider.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 providers_ads_id = 'providers_ads_id_example' # str | Delete the ADS provider.
 
 try:
@@ -1308,17 +1308,17 @@ Delete the file provider.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 providers_file_id = 'providers_file_id_example' # str | Delete the file provider.
 
 try:
@@ -1359,17 +1359,17 @@ Delete the KRB5 provider.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 providers_krb5_id = 'providers_krb5_id_example' # str | Delete the KRB5 provider.
 
 try:
@@ -1410,17 +1410,17 @@ Delete the LDAP provider.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 providers_ldap_id = 'providers_ldap_id_example' # str | Delete the LDAP provider.
 
 try:
@@ -1461,17 +1461,17 @@ Delete the local provider.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 providers_local_id = 'providers_local_id_example' # str | Delete the local provider.
 
 try:
@@ -1512,17 +1512,17 @@ Delete the NIS provider.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 providers_nis_id = 'providers_nis_id_example' # str | Delete the NIS provider.
 
 try:
@@ -1563,17 +1563,17 @@ Remove a krb5 domain.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 settings_krb5_domain_id = 'settings_krb5_domain_id_example' # str | Remove a krb5 domain.
 
 try:
@@ -1614,17 +1614,17 @@ Remove a realm.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 settings_krb5_realm_id = 'settings_krb5_realm_id_example' # str | Remove a realm.
 
 try:
@@ -1665,17 +1665,17 @@ Determine user's access rights to a file
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 auth_access_user = 'auth_access_user_example' # str | Determine user's access rights to a file
 path = 'path_example' # str | Path to the file. Must be within /ifs. (optional)
 share = 'share_example' # str | SMB share name (optional)
@@ -1725,17 +1725,17 @@ Get descriptions for auth error codes
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 auth_error_error = 'auth_error_error_example' # str | Get descriptions for auth error codes
 
 try:
@@ -1777,17 +1777,17 @@ Retrieve the group information.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 auth_group_id = 'auth_group_id_example' # str | Retrieve the group information.
 cached = true # bool | If true, only return cached objects. (optional)
 resolve_names = true # bool | Resolve names of personas. (optional)
@@ -1839,17 +1839,17 @@ Retrieve the current security token.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_auth_id()
@@ -1887,17 +1887,17 @@ Retrieve the LDAP provider template.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 auth_ldap_template_id = 'auth_ldap_template_id_example' # str | Retrieve the LDAP provider template.
 
 try:
@@ -1939,17 +1939,17 @@ List all LDAP provider templates.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_auth_ldap_templates()
@@ -1987,17 +1987,17 @@ Get the current authentications service and netlogon logging level.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_auth_log_level()
@@ -2035,17 +2035,17 @@ Retrieve the user information.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 auth_netgroup_id = 'auth_netgroup_id_example' # str | Retrieve the user information.
 ignore_errors = true # bool | Ignore netgroup errors. (optional)
 recursive = true # bool | Perform recursive search. (optional)
@@ -2095,17 +2095,17 @@ List all privileges.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 zone = 'zone_example' # str | Specifies which access zone to use. (optional)
 
 try:
@@ -2147,17 +2147,17 @@ Retrieve the role information.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 auth_role_id = 'auth_role_id_example' # str | Retrieve the role information.
 resolve_names = true # bool | Resolve names of personas. (optional)
 zone = 'zone_example' # str | Specifies which access zone to use. (optional)
@@ -2203,17 +2203,17 @@ List all shells.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_auth_shells()
@@ -2251,17 +2251,17 @@ Retrieve the user information.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 auth_user_id = 'auth_user_id_example' # str | Retrieve the user information.
 cached = true # bool | If true, only return cached objects. (optional)
 resolve_names = true # bool | Resolve names of personas. (optional)
@@ -2313,17 +2313,17 @@ Retrieve the wellknown persona.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 auth_wellknown_id = 'auth_wellknown_id_example' # str | Retrieve the wellknown persona.
 scope = 'scope_example' # str | If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned. (optional)
 
@@ -2367,17 +2367,17 @@ List all wellknown personas.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_auth_wellknowns()
@@ -2415,17 +2415,17 @@ Retrieve all identity mappings (uid, gid, sid, and on-disk) for the supplied sou
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 nocreate = true # bool | Idmap should attempt to create missing identity mappings. (optional)
 zone = 'zone_example' # str | Optional zone. (optional)
 
@@ -2469,17 +2469,17 @@ Retrieve all identity mappings (uid, gid, sid, and on-disk) for the supplied sou
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 mapping_identity_id = 'mapping_identity_id_example' # str | Retrieve all identity mappings (uid, gid, sid, and on-disk) for the supplied source persona.
 nocreate = true # bool | Idmap should attempt to create missing identity mappings. (optional)
 zone = 'zone_example' # str | Optional zone. (optional)
@@ -2525,17 +2525,17 @@ Retrieve the user information.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 primary_gid = 56 # int | The user's primary group ID. (optional)
 uid = 56 # int | The user ID. (optional)
 zone = 'zone_example' # str | The zone the user belongs to. (optional)
@@ -2587,17 +2587,17 @@ Retrieve the user mapping rules.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 zone = 'zone_example' # str | The zone to which the user mapping applies. (optional)
 
 try:
@@ -2639,17 +2639,17 @@ Retrieve the ADS provider.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 providers_ads_id = 'providers_ads_id_example' # str | Retrieve the ADS provider.
 scope = 'scope_example' # str | If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned. (optional)
 
@@ -2693,17 +2693,17 @@ Retrieve Duo provider.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_providers_duo()
@@ -2741,17 +2741,17 @@ Retrieve the file provider.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 providers_file_id = 'providers_file_id_example' # str | Retrieve the file provider.
 scope = 'scope_example' # str | If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned. (optional)
 
@@ -2795,17 +2795,17 @@ Retrieve the KRB5 provider.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 providers_krb5_id = 'providers_krb5_id_example' # str | Retrieve the KRB5 provider.
 scope = 'scope_example' # str | If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned. (optional)
 
@@ -2849,17 +2849,17 @@ Retrieve the LDAP provider.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 providers_ldap_id = 'providers_ldap_id_example' # str | Retrieve the LDAP provider.
 scope = 'scope_example' # str | If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned. (optional)
 
@@ -2903,17 +2903,17 @@ List all local providers.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 scope = 'scope_example' # str | If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned. (optional)
 
 try:
@@ -2955,17 +2955,17 @@ Retrieve the local provider.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 providers_local_id = 'providers_local_id_example' # str | Retrieve the local provider.
 scope = 'scope_example' # str | If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned. (optional)
 
@@ -3009,17 +3009,17 @@ Retrieve the NIS provider.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 providers_nis_id = 'providers_nis_id_example' # str | Retrieve the NIS provider.
 scope = 'scope_example' # str | If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned. (optional)
 
@@ -3063,17 +3063,17 @@ Retrieve the summary information.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 groupnet = 'groupnet_example' # str | Filter providers by groupnet. (optional)
 zone = 'zone_example' # str | Filter providers by zone. (optional)
 
@@ -3117,17 +3117,17 @@ Retrieve the ACL policy settings and preset configurations.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 preset = 'preset_example' # str | If specified the preset configuration values for all applicable ACL policies are returned. (optional)
 
 try:
@@ -3169,17 +3169,17 @@ Retrieve the global settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 scope = 'scope_example' # str | If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned. (optional)
 zone = 'zone_example' # str | Zone which contains any per-zone settings. (optional)
 
@@ -3223,17 +3223,17 @@ Retrieve the krb5 settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_settings_krb5_defaults()
@@ -3271,17 +3271,17 @@ View the krb5 domain settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 settings_krb5_domain_id = 'settings_krb5_domain_id_example' # str | View the krb5 domain settings.
 
 try:
@@ -3323,17 +3323,17 @@ Retrieve the krb5 settings for realms.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 settings_krb5_realm_id = 'settings_krb5_realm_id_example' # str | Retrieve the krb5 settings for realms.
 
 try:
@@ -3375,17 +3375,17 @@ Retrieve the mapping settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 scope = 'scope_example' # str | If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned. (optional)
 zone = 'zone_example' # str | Access zone which contains mapping settings. (optional)
 
@@ -3429,17 +3429,17 @@ List all groups.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 domain = 'domain_example' # str | Filter groups by domain. (optional)
 zone = 'zone_example' # str | Filter groups by zone. (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
@@ -3497,17 +3497,17 @@ List all roles.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 zone = 'zone_example' # str | Specifies which access zone to use. (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
@@ -3559,17 +3559,17 @@ List all users.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 domain = 'domain_example' # str | Filter users by domain. (optional)
 zone = 'zone_example' # str | Filter users by zone. (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
@@ -3627,17 +3627,17 @@ List all ADS providers.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 scope = 'scope_example' # str | If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned. (optional)
 
 try:
@@ -3679,17 +3679,17 @@ List all file providers.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 scope = 'scope_example' # str | If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned. (optional)
 
 try:
@@ -3731,17 +3731,17 @@ List all KRB5 providers.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 scope = 'scope_example' # str | If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned. (optional)
 
 try:
@@ -3783,17 +3783,17 @@ List all LDAP providers.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 scope = 'scope_example' # str | If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned. (optional)
 
 try:
@@ -3835,17 +3835,17 @@ List all NIS providers.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 scope = 'scope_example' # str | If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned. (optional)
 
 try:
@@ -3887,17 +3887,17 @@ Retrieve the krb5 settings for domains.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 
 try:
     api_response = api_instance.list_settings_krb5_domains()
@@ -3935,17 +3935,17 @@ Retrieve the krb5 settings for realms.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
 
 try:
     api_response = api_instance.list_settings_krb5_realms()
@@ -3983,18 +3983,18 @@ Modify the group.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
-auth_group = isi_sdk_8_2_0.AuthGroup() # AuthGroup | 
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
+auth_group = isi_sdk_8_2_1.AuthGroup() # AuthGroup | 
 auth_group_id = 'auth_group_id_example' # str | Modify the group.
 force = true # bool | Changes to the group ID can result in loss of access to the file system. To mitigate this risk of lost access, the force option is required for group ID changes. (optional)
 zone = 'zone_example' # str | Optional zone. (optional)
@@ -4042,18 +4042,18 @@ Set the current authentication service and netlogon logging level.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
-auth_log_level = isi_sdk_8_2_0.AuthLogLevelExtended() # AuthLogLevelExtended | 
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
+auth_log_level = isi_sdk_8_2_1.AuthLogLevelExtended() # AuthLogLevelExtended | 
 
 try:
     api_instance.update_auth_log_level(auth_log_level)
@@ -4093,18 +4093,18 @@ Modify the role.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
-auth_role = isi_sdk_8_2_0.AuthRole() # AuthRole | 
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
+auth_role = isi_sdk_8_2_1.AuthRole() # AuthRole | 
 auth_role_id = 'auth_role_id_example' # str | Modify the role.
 zone = 'zone_example' # str | Specifies which access zone to use. (optional)
 
@@ -4148,18 +4148,18 @@ Modify the user.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
-auth_user = isi_sdk_8_2_0.AuthUser() # AuthUser | 
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
+auth_user = isi_sdk_8_2_1.AuthUser() # AuthUser | 
 auth_user_id = 'auth_user_id_example' # str | Modify the user.
 force = true # bool | Changes to the user ID can result in loss of access to the file system. To mitigate this risk of lost access, the force option is required for user ID changes. (optional)
 zone = 'zone_example' # str | Optional zone. (optional)
@@ -4207,18 +4207,18 @@ Set or update a list of mappings between two personae.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
-mapping_import = isi_sdk_8_2_0.MappingDump() # MappingDump | 
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
+mapping_import = isi_sdk_8_2_1.MappingDump() # MappingDump | 
 zone = 'zone_example' # str | Optional zone. (optional)
 replace = true # bool | Specify whether existing mappings should be replaced. The default behavior is to leave existing mappings intact and return an error. (optional)
 
@@ -4262,18 +4262,18 @@ Modify the user mapping rules.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
-mapping_users_rules = isi_sdk_8_2_0.MappingUsersRulesExtended() # MappingUsersRulesExtended | 
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
+mapping_users_rules = isi_sdk_8_2_1.MappingUsersRulesExtended() # MappingUsersRulesExtended | 
 zone = 'zone_example' # str | The zone to which the user mapping applies. (optional)
 
 try:
@@ -4315,18 +4315,18 @@ Modify the ADS provider.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
-providers_ads_id_params = isi_sdk_8_2_0.ProvidersAdsIdParams() # ProvidersAdsIdParams | 
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
+providers_ads_id_params = isi_sdk_8_2_1.ProvidersAdsIdParams() # ProvidersAdsIdParams | 
 providers_ads_id = 'providers_ads_id_example' # str | Modify the ADS provider.
 
 try:
@@ -4368,18 +4368,18 @@ Modify Duo provider.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
-providers_duo = isi_sdk_8_2_0.ProvidersDuoExtended() # ProvidersDuoExtended | 
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
+providers_duo = isi_sdk_8_2_1.ProvidersDuoExtended() # ProvidersDuoExtended | 
 
 try:
     api_instance.update_providers_duo(providers_duo)
@@ -4419,18 +4419,18 @@ Modify the file provider.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
-providers_file_id_params = isi_sdk_8_2_0.ProvidersFileIdParams() # ProvidersFileIdParams | 
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
+providers_file_id_params = isi_sdk_8_2_1.ProvidersFileIdParams() # ProvidersFileIdParams | 
 providers_file_id = 'providers_file_id_example' # str | Modify the file provider.
 
 try:
@@ -4472,18 +4472,18 @@ Modify the KRB5 provider.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
-providers_krb5_id_params = isi_sdk_8_2_0.ProvidersKrb5IdParams() # ProvidersKrb5IdParams | 
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
+providers_krb5_id_params = isi_sdk_8_2_1.ProvidersKrb5IdParams() # ProvidersKrb5IdParams | 
 providers_krb5_id = 'providers_krb5_id_example' # str | Modify the KRB5 provider.
 
 try:
@@ -4525,18 +4525,18 @@ Modify the LDAP provider.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
-providers_ldap_id_params = isi_sdk_8_2_0.ProvidersLdapIdParams() # ProvidersLdapIdParams | 
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
+providers_ldap_id_params = isi_sdk_8_2_1.ProvidersLdapIdParams() # ProvidersLdapIdParams | 
 providers_ldap_id = 'providers_ldap_id_example' # str | Modify the LDAP provider.
 force = true # bool | Ignore unresolvable server URIs. (optional)
 
@@ -4580,18 +4580,18 @@ Modify the local provider.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
-providers_local_id_params = isi_sdk_8_2_0.ProvidersLocalIdParams() # ProvidersLocalIdParams | 
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
+providers_local_id_params = isi_sdk_8_2_1.ProvidersLocalIdParams() # ProvidersLocalIdParams | 
 providers_local_id = 'providers_local_id_example' # str | Modify the local provider.
 
 try:
@@ -4633,18 +4633,18 @@ Modify the NIS provider.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
-providers_nis_id_params = isi_sdk_8_2_0.ProvidersNisIdParams() # ProvidersNisIdParams | 
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
+providers_nis_id_params = isi_sdk_8_2_1.ProvidersNisIdParams() # ProvidersNisIdParams | 
 providers_nis_id = 'providers_nis_id_example' # str | Modify the NIS provider.
 
 try:
@@ -4686,18 +4686,18 @@ Modify cluster ACL policy settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
-settings_acls = isi_sdk_8_2_0.SettingsAclsExtended() # SettingsAclsExtended | 
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
+settings_acls = isi_sdk_8_2_1.SettingsAclsExtended() # SettingsAclsExtended | 
 
 try:
     api_instance.update_settings_acls(settings_acls)
@@ -4737,18 +4737,18 @@ Modify the global settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
-settings_global = isi_sdk_8_2_0.SettingsGlobalGlobalSettings() # SettingsGlobalGlobalSettings | 
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
+settings_global = isi_sdk_8_2_1.SettingsGlobalGlobalSettings() # SettingsGlobalGlobalSettings | 
 zone = 'zone_example' # str | Zone which contains any per-zone settings. (optional)
 
 try:
@@ -4790,18 +4790,18 @@ Modify the krb5 settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
-settings_krb5_defaults = isi_sdk_8_2_0.SettingsKrb5DefaultsKrb5Settings() # SettingsKrb5DefaultsKrb5Settings | 
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
+settings_krb5_defaults = isi_sdk_8_2_1.SettingsKrb5DefaultsKrb5Settings() # SettingsKrb5DefaultsKrb5Settings | 
 
 try:
     api_instance.update_settings_krb5_defaults(settings_krb5_defaults)
@@ -4841,18 +4841,18 @@ Modify the krb5 domain settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
-settings_krb5_domain = isi_sdk_8_2_0.SettingsKrb5Domain() # SettingsKrb5Domain | 
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
+settings_krb5_domain = isi_sdk_8_2_1.SettingsKrb5Domain() # SettingsKrb5Domain | 
 settings_krb5_domain_id = 'settings_krb5_domain_id_example' # str | Modify the krb5 domain settings.
 
 try:
@@ -4894,18 +4894,18 @@ Modify the krb5 realm settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
-settings_krb5_realm = isi_sdk_8_2_0.SettingsKrb5Realm() # SettingsKrb5Realm | 
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
+settings_krb5_realm = isi_sdk_8_2_1.SettingsKrb5Realm() # SettingsKrb5Realm | 
 settings_krb5_realm_id = 'settings_krb5_realm_id_example' # str | Modify the krb5 realm settings.
 
 try:
@@ -4947,18 +4947,18 @@ Modify the mapping settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthApi(isi_sdk_8_2_0.ApiClient(configuration))
-settings_mapping = isi_sdk_8_2_0.SettingsMappingMappingSettings() # SettingsMappingMappingSettings | 
+api_instance = isi_sdk_8_2_1.AuthApi(isi_sdk_8_2_1.ApiClient(configuration))
+settings_mapping = isi_sdk_8_2_1.SettingsMappingMappingSettings() # SettingsMappingMappingSettings | 
 zone = 'zone_example' # str | Access zone which contains mapping settings. (optional)
 
 try:

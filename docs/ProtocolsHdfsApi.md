@@ -1,4 +1,4 @@
-# isi_sdk_8_2_0.ProtocolsHdfsApi
+# isi_sdk_8_2_1.ProtocolsHdfsApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -21,18 +21,18 @@ Add a member to the HDFS proxyuser.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.ProtocolsHdfsApi(isi_sdk_8_2_0.ApiClient(configuration))
-proxyusers_name_member = isi_sdk_8_2_0.AuthAccessAccessItemFileGroup() # AuthAccessAccessItemFileGroup | 
+api_instance = isi_sdk_8_2_1.ProtocolsHdfsApi(isi_sdk_8_2_1.ApiClient(configuration))
+proxyusers_name_member = isi_sdk_8_2_1.AuthAccessAccessItemFileGroup() # AuthAccessAccessItemFileGroup | 
 name = 'name_example' # str | 
 zone = 'zone_example' # str | Specifies which access zone to use. (optional)
 
@@ -77,17 +77,17 @@ Remove a member from the HDFS proxyuser.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.ProtocolsHdfsApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.ProtocolsHdfsApi(isi_sdk_8_2_1.ApiClient(configuration))
 proxyusers_name_member_id = 'proxyusers_name_member_id_example' # str | Remove a member from the HDFS proxyuser.
 name = 'name_example' # str | 
 zone = 'zone_example' # str | Specifies which access zone to use. (optional)
@@ -132,17 +132,17 @@ List all the members of the HDFS proxyuser.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.ProtocolsHdfsApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.ProtocolsHdfsApi(isi_sdk_8_2_1.ApiClient(configuration))
 name = 'name_example' # str | 
 zone = 'zone_example' # str | Specifies which access zone to use. (optional)
 
@@ -186,18 +186,18 @@ Create a new HDFS proxyuser.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.ProtocolsHdfsApi(isi_sdk_8_2_0.ApiClient(configuration))
-proxyusers_name_member = isi_sdk_8_2_0.Empty() # Empty | 
+api_instance = isi_sdk_8_2_1.ProtocolsHdfsApi(isi_sdk_8_2_1.ApiClient(configuration))
+proxyusers_name_member = isi_sdk_8_2_1.Empty() # Empty | 
 proxyusers_name_member_id = 'proxyusers_name_member_id_example' # str | Create a new HDFS proxyuser.
 name = 'name_example' # str | 
 zone = 'zone_example' # str | Specifies which access zone to use. (optional)

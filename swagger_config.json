@@ -29,7 +29,7 @@
                 },
                 "inherit_flags": {
                     "items": {
-                        "type": "boolean"
+                        "type": "string"
                     },
                     "minItems": 0,
                     "type": "array"
@@ -2988,6 +2988,233 @@
             ],
             "type": "object"
         },
+        "ChangelistEntries": {
+            "additionalProperties": false,
+            "properties": {
+                "entries": {
+                    "items": {
+                        "$ref": "#/definitions/ChangelistEntry",
+                        "description": ""
+                    },
+                    "maxItems": 1,
+                    "minItems": 1,
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ChangelistEntriesExtended": {
+            "additionalProperties": false,
+            "properties": {
+                "entries": {
+                    "items": {
+                        "$ref": "#/definitions/ChangelistEntry",
+                        "description": ""
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "resume": {
+                    "description": "Provide this token as the 'resume' query argument to continue listing results.",
+                    "maxLength": 8192,
+                    "minLength": 0,
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ChangelistEntry": {
+            "properties": {
+                "atime": {
+                    "$ref": "#/definitions/ChangelistEntryCtime",
+                    "description": ""
+                },
+                "btime": {
+                    "$ref": "#/definitions/ChangelistEntryCtime",
+                    "description": ""
+                },
+                "change_types": {
+                    "description": "The types of change for this entry.",
+                    "items": {
+                        "enum": [
+                            "ENTRY_MODIFIED",
+                            "ENTRY_ADDED",
+                            "ENTRY_REMOVED",
+                            "ENTRY_PATH_CHANGED",
+                            "ENTRY_HAS_ADS",
+                            "ENTRY_ADS",
+                            "ENTRY_HAS_HARDLINKS",
+                            "ENTRY_PARENT_REMOVED",
+                            "ENTRY_PATH_LOOKUP_REQ",
+                            "ENTRY_WORM_COMMITTED"
+                        ],
+                        "type": "string"
+                    },
+                    "maxItems": 9,
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "ctime": {
+                    "$ref": "#/definitions/ChangelistEntryCtime",
+                    "description": ""
+                },
+                "data_pool": {
+                    "description": "The data disk pool ID of the file associated with the entry.",
+                    "maximum": 4294967295,
+                    "minimum": 0,
+                    "type": "integer"
+                },
+                "file_type": {
+                    "description": "Type of file.",
+                    "enum": [
+                        "(REMOVED)",
+                        "regular",
+                        "directory",
+                        "symlink",
+                        "fifo",
+                        "socket",
+                        "char device",
+                        "block device",
+                        "unknown"
+                    ],
+                    "type": "string"
+                },
+                "gid": {
+                    "description": "The Group ID defined flags of the file associated with the entry.",
+                    "maximum": 4294967295,
+                    "minimum": 0,
+                    "type": "integer"
+                },
+                "id": {
+                    "description": "The ID of the changelist entry.",
+                    "maxLength": 20,
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "lin": {
+                    "description": "The LIN number of the file associated with the entry.",
+                    "maximum": 9223372036854775807,
+                    "minimum": 0,
+                    "type": "integer"
+                },
+                "metadata_pool": {
+                    "description": "The metadata disk pool ID of the file associated with the entry.",
+                    "maximum": 4294967295,
+                    "minimum": 0,
+                    "type": "integer"
+                },
+                "mtime": {
+                    "$ref": "#/definitions/ChangelistEntryCtime",
+                    "description": ""
+                },
+                "parent_lin": {
+                    "description": "The Parent LIN number of the file associated with the entry.",
+                    "maximum": 9223372036854775807,
+                    "minimum": 0,
+                    "type": "integer"
+                },
+                "path": {
+                    "description": "The relative path to the file associated with the entry.",
+                    "maxLength": 4096,
+                    "minLength": 0,
+                    "type": "string"
+                },
+                "physical_size": {
+                    "description": "The physical size of the file associated with the entry.",
+                    "maximum": 4294967295,
+                    "minimum": 0,
+                    "type": "integer"
+                },
+                "size": {
+                    "description": "The size of the file associated with the entry.",
+                    "maximum": 4294967295,
+                    "minimum": 0,
+                    "type": "integer"
+                },
+                "uid": {
+                    "description": "The User ID flags of the file associated with the entry.",
+                    "maximum": 4294967295,
+                    "minimum": 0,
+                    "type": "integer"
+                },
+                "user_flags": {
+                    "description": "The user defined flags of the file associated with the entry.",
+                    "items": {
+                        "enum": [
+                            "sappnd",
+                            "arch",
+                            "schg",
+                            "sunlnk",
+                            "snapshot",
+                            "uappnd",
+                            "uarch",
+                            "hidden",
+                            "uchg",
+                            "nodump",
+                            "uunlnk",
+                            "offline",
+                            "opaque",
+                            "rdonly",
+                            "reparse",
+                            "sparse",
+                            "system",
+                            "inherit",
+                            "writecache",
+                            "wcinherit",
+                            "noindex",
+                            "ssmartlinked",
+                            "noscow",
+                            "scachedsmartlink",
+                            "shasntfsacl",
+                            "shasntfsog",
+                            "sparentsupgraded",
+                            "sbackupsparse",
+                            "ads",
+                            "hasads",
+                            "wcendurant"
+                        ],
+                        "type": "string"
+                    },
+                    "maxItems": 32,
+                    "minItems": 0,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "parent_lin",
+                "file_type",
+                "lin",
+                "physical_size",
+                "metadata_pool",
+                "gid",
+                "data_pool",
+                "path",
+                "uid",
+                "id",
+                "size"
+            ],
+            "type": "object"
+        },
+        "ChangelistEntryCtime": {
+            "properties": {
+                "nsec": {
+                    "description": "Nanoseconds component of timespec.",
+                    "maximum": 9223372036854775807,
+                    "minimum": 0,
+                    "type": "integer"
+                },
+                "sec": {
+                    "description": "Seconds component of timespec.",
+                    "maximum": 9223372036854775807,
+                    "minimum": 0,
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "sec"
+            ],
+            "type": "object"
+        },
         "ChangelistLins": {
             "properties": {
                 "atime": {
@@ -5219,6 +5446,10 @@
                 "automatic_replacement_recognition": {
                     "$ref": "#/definitions/NodeDriveconfigNodeAutomaticReplacementRecognition",
                     "description": "Configuration settings for Automatic Replacement Recognition (ARR)."
+                },
+                "instant_secure_erase": {
+                    "$ref": "#/definitions/NodeDriveconfigNodeInstantSecureErase",
+                    "description": "Configuration settings for instant secure erase (ISE)."
                 },
                 "log": {
                     "$ref": "#/definitions/NodeDriveconfigNodeLog",
@@ -9448,8 +9679,8 @@
                 },
                 "value": {
                     "description": "Value of measurement associated with this event.",
-                    "maximum": 2147483647,
-                    "minimum": -2147483648,
+                    "maximum": 9223372036854775807,
+                    "minimum": -9223372036854775808,
                     "type": "number"
                 }
             },
@@ -9982,6 +10213,25 @@
                     "type": "object"
                 }
             ]
+        },
+        "FsaIndex": {
+            "properties": {
+                "index": {
+                    "items": {
+                        "description": "The name of an FSA index table.",
+                        "maxLength": 256,
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "maxItems": 1024,
+                    "minItems": 0,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "index"
+            ],
+            "type": "object"
         },
         "FsaResult": {
             "properties": {
@@ -11978,12 +12228,13 @@
                         "CRITICAL",
                         "EMERGENCY",
                         "UNSUPPORTED",
-                        "ERROR"
+                        "ERROR",
+                        "INFO"
                     ],
                     "type": "string"
                 },
                 "value": {
-                    "description": "Normalised measured value 0 (bad) to 100 (perfect)",
+                    "description": "Normalized measured value 0 (bad) to 100 (perfect)",
                     "maximum": 100,
                     "minimum": 0,
                     "type": "integer"
@@ -12640,6 +12891,34 @@
                     "type": "object"
                 }
             ]
+        },
+        "InlineSettings": {
+            "additionalProperties": false,
+            "properties": {
+                "settings": {
+                    "$ref": "#/definitions/InlineSettingsSettings",
+                    "description": "Inline dedupe settings."
+                }
+            },
+            "type": "object"
+        },
+        "InlineSettingsSettings": {
+            "properties": {
+                "mode": {
+                    "description": "Target operating mode: disabled, paused, assess or enabled.",
+                    "enum": [
+                        "disabled",
+                        "paused",
+                        "assess",
+                        "enabled"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "mode"
+            ],
+            "type": "object"
         },
         "JobEvent": {
             "properties": {
@@ -15342,6 +15621,176 @@
                     "type": "string"
                 }
             },
+            "type": "object"
+        },
+        "NameLin": {
+            "properties": {
+                "atime": {
+                    "description": "The Unix epoch time of the file access.",
+                    "maximum": 9223372036854775807,
+                    "minimum": -9223372036854775808,
+                    "type": "integer"
+                },
+                "btime": {
+                    "description": "The Unix epoch time of the file birth.",
+                    "maximum": 9223372036854775807,
+                    "minimum": -9223372036854775808,
+                    "type": "integer"
+                },
+                "ctime": {
+                    "description": "The Unix epoch time of the file creation.",
+                    "maximum": 9223372036854775807,
+                    "minimum": -9223372036854775808,
+                    "type": "integer"
+                },
+                "flags": {
+                    "description": "Bitmap of flags representing file or directory attributes.",
+                    "maximum": 9223372036854775807,
+                    "minimum": 1,
+                    "type": "integer"
+                },
+                "gid": {
+                    "description": "Group ID of the file.",
+                    "maximum": 4294967295,
+                    "minimum": 0,
+                    "type": "integer"
+                },
+                "lin": {
+                    "description": "Logical Inode Number of file or directory.",
+                    "maximum": 9223372036854775807,
+                    "minimum": 0,
+                    "type": "integer"
+                },
+                "link_count": {
+                    "description": "Link count of file.",
+                    "maximum": 4294967295,
+                    "minimum": 0,
+                    "type": "integer"
+                },
+                "logical_size": {
+                    "description": "Logical file size in bytes.",
+                    "maximum": 9223372036854775807,
+                    "minimum": 0,
+                    "type": "integer"
+                },
+                "max_snapid": {
+                    "description": "Maximum Snapshot ID for file.",
+                    "maximum": 9223372036854775807,
+                    "minimum": 0,
+                    "type": "integer"
+                },
+                "min_snapid": {
+                    "description": "Minimum Snapshot ID for file.",
+                    "maximum": 9223372036854775807,
+                    "minimum": 0,
+                    "type": "integer"
+                },
+                "mode": {
+                    "description": "Mode bits (Unix file permissions) on the file.",
+                    "maximum": 4294967295,
+                    "minimum": 0,
+                    "type": "integer"
+                },
+                "mtime": {
+                    "description": "The Unix epoch time of the file modification.",
+                    "maximum": 9223372036854775807,
+                    "minimum": -9223372036854775808,
+                    "type": "integer"
+                },
+                "name": {
+                    "description": "Name of file or directory.",
+                    "maxLength": 256,
+                    "minLength": 0,
+                    "type": "string"
+                },
+                "parent_lin": {
+                    "description": "Parent Logical Inode Number of file or directory.",
+                    "maximum": 9223372036854775807,
+                    "minimum": 0,
+                    "type": "integer"
+                },
+                "path": {
+                    "description": "Path of file or directory.",
+                    "maxLength": 4096,
+                    "minLength": 4,
+                    "pattern": "^/ifs|^/ifs/.*",
+                    "type": "string"
+                },
+                "physical_size": {
+                    "description": "Physical file size in bytes.",
+                    "maximum": 9223372036854775807,
+                    "minimum": 0,
+                    "type": "integer"
+                },
+                "uid": {
+                    "description": "User ID of the file.",
+                    "maximum": 4294967295,
+                    "minimum": 0,
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "max_snapid",
+                "logical_size",
+                "ctime",
+                "physical_size",
+                "lin",
+                "min_snapid",
+                "btime",
+                "gid",
+                "flags",
+                "mode",
+                "mtime",
+                "uid",
+                "atime",
+                "parent_lin",
+                "link_count",
+                "name"
+            ],
+            "type": "object"
+        },
+        "NameLins": {
+            "additionalProperties": false,
+            "properties": {
+                "lins": {
+                    "items": {
+                        "$ref": "#/definitions/NameLin",
+                        "description": ""
+                    },
+                    "maxItems": 1,
+                    "minItems": 1,
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "NameLinsExtended": {
+            "additionalProperties": false,
+            "properties": {
+                "length": {
+                    "description": "The number of entries in the output.",
+                    "maximum": 9223372036854775807,
+                    "minimum": 0,
+                    "type": "integer"
+                },
+                "lins": {
+                    "items": {
+                        "$ref": "#/definitions/NameLin",
+                        "description": ""
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "resume": {
+                    "description": "Provide this token as the 'resume' query argument to continue listing results.",
+                    "maxLength": 8192,
+                    "minLength": 0,
+                    "type": "string"
+                }
+            },
+            "required": [
+                "length"
+            ],
             "type": "object"
         },
         "NamespaceAccessPoints": {
@@ -18308,6 +18757,10 @@
                 "automatic_replacement_recognition": {
                     "$ref": "#/definitions/NodeDriveconfigNodeAutomaticReplacementRecognition",
                     "description": "Configuration settings for Automatic Replacement Recognition (ARR)."
+                },
+                "instant_secure_erase": {
+                    "$ref": "#/definitions/NodeDriveconfigNodeInstantSecureErase",
+                    "description": "Configuration settings for instant secure erase (ISE)."
                 }
             },
             "type": "object"
@@ -18331,6 +18784,10 @@
                     "maximum": 2147483647,
                     "minimum": 0,
                     "type": "integer"
+                },
+                "instant_secure_erase": {
+                    "$ref": "#/definitions/NodeDriveconfigNodeInstantSecureErase",
+                    "description": "Configuration settings for instant secure erase (ISE)."
                 },
                 "lnn": {
                     "description": "Logical Node Number (LNN) of a node.",
@@ -18392,6 +18849,16 @@
                 "enabled": {
                     "default": true,
                     "description": "Enable Automatic Replacement Recognition (ARR).",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "NodeDriveconfigNodeInstantSecureErase": {
+            "properties": {
+                "enabled": {
+                    "default": true,
+                    "description": "Instant Secure Erase (ISE).",
                     "type": "boolean"
                 }
             },
@@ -26602,6 +27069,12 @@
                     "description": "If true, SMB shares using the quota directory see the quota thresholds as share size.",
                     "type": "boolean"
                 },
+                "efficiency_ratio": {
+                    "description": "Represents the ratio of logical space provided to physical space used. This accounts for protection overhead, metadata, and compression ratios for the data.",
+                    "maximum": 1.79769e+308,
+                    "minimum": 0.0,
+                    "type": "number"
+                },
                 "enforced": {
                     "description": "True if the quota provides enforcement, otherwise a accounting quota.",
                     "type": "boolean"
@@ -26813,6 +27286,16 @@
                     "description": "True if fslogical resource accounting is accurate on the quota. If false, this quota is waiting on completion of a QuotaScan job.",
                     "type": "boolean"
                 },
+                "fsphysical": {
+                    "description": "Physical data usage adjusted to account for shadow store efficiency",
+                    "maximum": 9223372036854775807,
+                    "minimum": 0,
+                    "type": "integer"
+                },
+                "fsphysical_ready": {
+                    "description": "True if fsphysical resource accounting is accurate on the quota. If false, this quota is waiting on completion of a QuotaScan job.",
+                    "type": "boolean"
+                },
                 "inodes": {
                     "description": "Number of inodes (filesystem entities) used by governed data.",
                     "maximum": 9223372036854775807,
@@ -26832,15 +27315,29 @@
                 "physical_ready": {
                     "description": "True if physical resource accounting is accurate on the quota. If false, this quota is waiting on completion of a QuotaScan job.",
                     "type": "boolean"
+                },
+                "shadow_refs": {
+                    "description": "Number of shadow references (cloned, deduplicated or packed filesystem blocks) used by governed data.",
+                    "maximum": 9223372036854775807,
+                    "minimum": 0,
+                    "type": "integer"
+                },
+                "shadow_refs_ready": {
+                    "description": "True if shadow_refs resource accounting is accurate on the quota. If false, this quota is waiting on completion of a QuotaScan job.",
+                    "type": "boolean"
                 }
             },
             "required": [
                 "inodes_ready",
                 "physical_ready",
                 "fslogical_ready",
+                "fsphysical_ready",
                 "fslogical",
+                "fsphysical",
                 "applogical",
+                "shadow_refs",
                 "applogical_ready",
+                "shadow_refs_ready",
                 "inodes",
                 "physical"
             ],
@@ -30293,6 +30790,36 @@
                 "encodings",
                 "current_encoding",
                 "default_encoding"
+            ],
+            "type": "object"
+        },
+        "SettingsCompression": {
+            "properties": {
+                "settings": {
+                    "$ref": "#/definitions/SettingsCompressionSettings",
+                    "description": ""
+                }
+            },
+            "type": "object"
+        },
+        "SettingsCompressionExtended": {
+            "properties": {
+                "enabled": {
+                    "description": "Enable filesystem compression.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "SettingsCompressionSettings": {
+            "properties": {
+                "enabled": {
+                    "description": "Enable filesystem compression.",
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "enabled"
             ],
             "type": "object"
         },
@@ -33867,6 +34394,13 @@
                     "pattern": "^[^\n]*$",
                     "type": "string"
                 },
+                "ca_signature_algorithms": {
+                    "description": "Specifies which algorithms are allowed for signing of certificates by certificate authorities (CAs).",
+                    "maxLength": 4096,
+                    "minLength": 0,
+                    "pattern": "^(\\+?)(ecdsa-sha2-nistp256|ecdsa-sha2-nistp384|ecdsa-sha2-nistp521|ssh-ed25519|rsa-sha2-512|rsa-sha2-256|ssh-rsa)(,(ecdsa-sha2-nistp256|ecdsa-sha2-nistp384|ecdsa-sha2-nistp521|ssh-ed25519|rsa-sha2-512|rsa-sha2-256|ssh-rsa))*$",
+                    "type": "string"
+                },
                 "challenge_response_authentication": {
                     "description": "Specifies whether challenge-response authentication is allowed.",
                     "type": "boolean"
@@ -34400,6 +34934,10 @@
         },
         "StoragepoolNodepoolExtended": {
             "properties": {
+                "can_disable_l3": {
+                    "description": "Indicates if disabling L3 is possible.",
+                    "type": "boolean"
+                },
                 "can_enable_l3": {
                     "description": "Indicates if enabling L3 is possible. L3 cannot be enabled if there are unprovisioned drives.",
                     "type": "boolean"
@@ -34468,10 +35006,11 @@
                 "lnns",
                 "l3_status",
                 "manual",
-                "id",
+                "can_enable_l3",
                 "usage",
                 "l3",
-                "can_enable_l3"
+                "can_disable_l3",
+                "id"
             ],
             "type": "object"
         },
@@ -35039,20 +35578,6 @@
             "type": "object"
         },
         "StoragepoolSuggestedProtection": {
-            "additionalProperties": false,
-            "properties": {
-                "suggested_protection": {
-                    "items": {
-                        "$ref": "#/definitions/StoragepoolSuggestedProtectionSuggestedProtectionItem",
-                        "description": ""
-                    },
-                    "minItems": 0,
-                    "type": "array"
-                }
-            },
-            "type": "object"
-        },
-        "StoragepoolSuggestedProtectionSuggestedProtectionItem": {
             "properties": {
                 "suggested_protection": {
                     "description": "The suggested protection policy.",
@@ -42322,7 +42847,7 @@
         },
         "termsOfService": "https://github.com/emccode/emccode.github.io/wiki/EMC-CODE-Governance,-Contributing,-and-Code-of-Conduct",
         "title": "Isilon SDK",
-        "version": "7"
+        "version": "8"
     },
     "paths": {
         "/namespace": {
@@ -63327,79 +63852,6 @@
                 ]
             }
         },
-        "/platform/5/cluster/nodes/{Lnn}/driveconfig": {
-            "get": {
-                "description": "View a node's drive subsystem XML configuration file.",
-                "operationId": "getNodeDriveconfig",
-                "parameters": [
-                    {
-                        "description": "Request timeout",
-                        "in": "query",
-                        "maximum": 4294967295,
-                        "minimum": 0,
-                        "name": "timeout",
-                        "type": "number"
-                    },
-                    {
-                        "in": "path",
-                        "name": "Lnn",
-                        "required": true,
-                        "type": "integer"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "View a node's drive subsystem XML configuration file.",
-                        "schema": {
-                            "$ref": "#/definitions/NodeDriveconfig"
-                        }
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                },
-                "tags": [
-                    "ClusterNodes"
-                ]
-            },
-            "put": {
-                "description": "Modify a node's drive subsystem XML configuration file.",
-                "operationId": "updateNodeDriveconfig",
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "NodeDriveconfig",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/NodeDriveconfigExtended"
-                        }
-                    },
-                    {
-                        "in": "path",
-                        "name": "Lnn",
-                        "required": true,
-                        "type": "integer"
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": "Success."
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                },
-                "tags": [
-                    "ClusterNodes"
-                ]
-            }
-        },
         "/platform/5/cluster/nodes/{Lnn}/hardware": {
             "get": {
                 "description": "Retrieve node hardware identity information.",
@@ -64456,6 +64908,110 @@
                 },
                 "tags": [
                     "Upgrade"
+                ]
+            }
+        },
+        "/platform/6/dedupe/inline/settings": {
+            "get": {
+                "description": "Retrieve the inline dedupe settings.",
+                "operationId": "getInlineSettings",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Retrieve the inline dedupe settings.",
+                        "schema": {
+                            "$ref": "#/definitions/InlineSettings"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "Dedupe"
+                ]
+            },
+            "put": {
+                "description": "Modify the inline dedupe settings.",
+                "operationId": "updateInlineSettings",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "InlineSettings",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/InlineSettingsSettings"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success."
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "Dedupe"
+                ]
+            }
+        },
+        "/platform/6/filesystem/settings/compression": {
+            "get": {
+                "description": "Retrieve settings for filesystem compression.",
+                "operationId": "getSettingsCompression",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Retrieve settings for filesystem compression.",
+                        "schema": {
+                            "$ref": "#/definitions/SettingsCompression"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "Filesystem"
+                ]
+            },
+            "put": {
+                "description": "Set settings for filesystem compression.",
+                "operationId": "updateSettingsCompression",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "SettingsCompression",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/SettingsCompressionExtended"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success."
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "Filesystem"
                 ]
             }
         },
@@ -66282,139 +66838,6 @@
                 ]
             }
         },
-        "/platform/7/auth/roles/{Role}/members": {
-            "get": {
-                "description": "List all the members of the role.",
-                "operationId": "listRoleMembers",
-                "parameters": [
-                    {
-                        "description": "Resolve names of personas.",
-                        "in": "query",
-                        "name": "resolve_names",
-                        "type": "boolean"
-                    },
-                    {
-                        "description": "Specifies which access zone to use.",
-                        "in": "query",
-                        "maxLength": 255,
-                        "minLength": 0,
-                        "name": "zone",
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
-                        "name": "Role",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "List all the members of the role.",
-                        "schema": {
-                            "$ref": "#/definitions/ProxyusersNameMembers"
-                        }
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                },
-                "tags": [
-                    "AuthRoles"
-                ]
-            },
-            "post": {
-                "description": "Add a member to the role.",
-                "operationId": "createRoleMember",
-                "parameters": [
-                    {
-                        "description": "Specifies which access zone to use.",
-                        "in": "query",
-                        "maxLength": 255,
-                        "minLength": 0,
-                        "name": "zone",
-                        "type": "string"
-                    },
-                    {
-                        "in": "body",
-                        "name": "RoleMember",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/AuthAccessAccessItemFileGroup"
-                        }
-                    },
-                    {
-                        "in": "path",
-                        "name": "Role",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Add a member to the role.",
-                        "schema": {
-                            "$ref": "#/definitions/CreateResponse"
-                        }
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                },
-                "tags": [
-                    "AuthRoles"
-                ]
-            }
-        },
-        "/platform/7/auth/roles/{Role}/members/{RoleMemberId}": {
-            "delete": {
-                "description": "Remove a member from the role.",
-                "operationId": "deleteRoleMember",
-                "parameters": [
-                    {
-                        "description": "Specifies which access zone to use.",
-                        "in": "query",
-                        "maxLength": 255,
-                        "minLength": 0,
-                        "name": "zone",
-                        "type": "string"
-                    },
-                    {
-                        "description": "Remove a member from the role.",
-                        "in": "path",
-                        "name": "RoleMemberId",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
-                        "name": "Role",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": "Success."
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                },
-                "tags": [
-                    "AuthRoles"
-                ]
-            }
-        },
         "/platform/7/auth/roles/{Role}/privileges": {
             "get": {
                 "description": "List all privileges in the role.",
@@ -67905,6 +68328,79 @@
                 },
                 "tags": [
                     "Cluster"
+                ]
+            }
+        },
+        "/platform/7/cluster/nodes/{Lnn}/driveconfig": {
+            "get": {
+                "description": "View a node's drive subsystem XML configuration file.",
+                "operationId": "getNodeDriveconfig",
+                "parameters": [
+                    {
+                        "description": "Request timeout",
+                        "in": "query",
+                        "maximum": 4294967295,
+                        "minimum": 0,
+                        "name": "timeout",
+                        "type": "number"
+                    },
+                    {
+                        "in": "path",
+                        "name": "Lnn",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "View a node's drive subsystem XML configuration file.",
+                        "schema": {
+                            "$ref": "#/definitions/NodeDriveconfig"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "ClusterNodes"
+                ]
+            },
+            "put": {
+                "description": "Modify a node's drive subsystem XML configuration file.",
+                "operationId": "updateNodeDriveconfig",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "NodeDriveconfig",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/NodeDriveconfigExtended"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "Lnn",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success."
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "ClusterNodes"
                 ]
             }
         },
@@ -71183,286 +71679,6 @@
                 ]
             }
         },
-        "/platform/7/protocols/ssh/settings": {
-            "get": {
-                "description": "ssh settings",
-                "operationId": "getSshSettings",
-                "parameters": [],
-                "responses": {
-                    "200": {
-                        "description": "ssh settings",
-                        "schema": {
-                            "$ref": "#/definitions/SshSettings"
-                        }
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                },
-                "tags": [
-                    "Protocols"
-                ]
-            },
-            "put": {
-                "description": "ssh settings",
-                "operationId": "updateSshSettings",
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "SshSettings",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/SshSettingsSettings"
-                        }
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": "Success."
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                },
-                "tags": [
-                    "Protocols"
-                ]
-            }
-        },
-        "/platform/7/quota/quotas": {
-            "delete": {
-                "description": "Delete all or matching quotas.",
-                "operationId": "deleteQuotaQuotas",
-                "parameters": [
-                    {
-                        "description": "Only delete quotas with this enforcement (non-accounting).",
-                        "in": "query",
-                        "name": "enforced",
-                        "type": "boolean"
-                    },
-                    {
-                        "description": "Only delete quotas with this setting for include_snapshots.",
-                        "in": "query",
-                        "name": "include_snapshots",
-                        "type": "boolean"
-                    },
-                    {
-                        "description": "Optional named zone to use for user and group resolution.",
-                        "in": "query",
-                        "name": "zone",
-                        "type": "string"
-                    },
-                    {
-                        "description": "If used with the path argument, delete all quotas at that path or any descendent sub-directory.",
-                        "in": "query",
-                        "name": "recurse_path_children",
-                        "type": "boolean"
-                    },
-                    {
-                        "description": "If used with the path argument, delete all quotas at that path or any parent directory.",
-                        "in": "query",
-                        "name": "recurse_path_parents",
-                        "type": "boolean"
-                    },
-                    {
-                        "description": "Only delete user or group quotas matching this persona (must be used with the corresponding type argument).  Format is <PERSONA_TYPE>:<string/integer>, where PERSONA_TYPE is one of USER, GROUP, SID, ID, or GID.",
-                        "in": "query",
-                        "name": "persona",
-                        "type": "string"
-                    },
-                    {
-                        "description": "Only delete quotas matching this path (see also recurse_path_*).",
-                        "in": "query",
-                        "name": "path",
-                        "type": "string"
-                    },
-                    {
-                        "description": "Only delete quotas matching this type.",
-                        "enum": [
-                            "directory",
-                            "user",
-                            "group",
-                            "default-directory",
-                            "default-user",
-                            "default-group"
-                        ],
-                        "in": "query",
-                        "name": "type",
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": "Success."
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                },
-                "tags": [
-                    "Quota"
-                ]
-            },
-            "get": {
-                "description": "List all or matching quotas. Can also be used to retrieve quota state from existing reports. For any query argument not supplied, the default behavior is return all.",
-                "operationId": "listQuotaQuotas",
-                "parameters": [
-                    {
-                        "description": "Only list quotas with this enforcement (non-accounting).",
-                        "in": "query",
-                        "name": "enforced",
-                        "type": "boolean"
-                    },
-                    {
-                        "description": "Only list quotas with this setting for include_snapshots.",
-                        "in": "query",
-                        "name": "include_snapshots",
-                        "type": "boolean"
-                    },
-                    {
-                        "description": "Optional named zone to use for user and group resolution.",
-                        "in": "query",
-                        "name": "zone",
-                        "type": "string"
-                    },
-                    {
-                        "description": "Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).",
-                        "in": "query",
-                        "maxLength": 8192,
-                        "minLength": 0,
-                        "name": "resume",
-                        "type": "string"
-                    },
-                    {
-                        "description": "If used with the path argument, match all quotas at that path or any descendent sub-directory.",
-                        "in": "query",
-                        "name": "recurse_path_children",
-                        "type": "boolean"
-                    },
-                    {
-                        "description": "If true, resolve group and user names in personas.",
-                        "in": "query",
-                        "name": "resolve_names",
-                        "type": "boolean"
-                    },
-                    {
-                        "description": "If used with the path argument, match all quotas at that path or any parent directory.",
-                        "in": "query",
-                        "name": "recurse_path_parents",
-                        "type": "boolean"
-                    },
-                    {
-                        "description": "Only list user or group quotas matching this persona (must be used with the corresponding type argument).  Format is <PERSONA_TYPE>:<string/integer>, where PERSONA_TYPE is one of USER, GROUP, SID, ID, or GID.",
-                        "in": "query",
-                        "name": "persona",
-                        "type": "string"
-                    },
-                    {
-                        "description": "Return no more than this many results at once (see resume).",
-                        "in": "query",
-                        "maximum": 4294967295,
-                        "minimum": 1,
-                        "name": "limit",
-                        "type": "integer"
-                    },
-                    {
-                        "description": "Set to true to only list quotas which have exceeded one or more of their thresholds.",
-                        "in": "query",
-                        "name": "exceeded",
-                        "type": "boolean"
-                    },
-                    {
-                        "description": "Only list quotas matching this path (see also recurse_path_*).",
-                        "in": "query",
-                        "name": "path",
-                        "type": "string"
-                    },
-                    {
-                        "description": "Only list quotas matching this type.",
-                        "enum": [
-                            "directory",
-                            "user",
-                            "group",
-                            "default-directory",
-                            "default-user",
-                            "default-group"
-                        ],
-                        "in": "query",
-                        "name": "type",
-                        "type": "string"
-                    },
-                    {
-                        "description": "Use the named report as a source rather than the live quotas. See the /q/quota/reports resource for a list of valid reports.",
-                        "in": "query",
-                        "name": "report_id",
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "List all or matching quotas. Can also be used to retrieve quota state from existing reports. For any query argument not supplied, the default behavior is return all.",
-                        "schema": {
-                            "$ref": "#/definitions/QuotaQuotasExtended"
-                        }
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                },
-                "tags": [
-                    "Quota"
-                ]
-            },
-            "post": {
-                "description": "Create a new quota.",
-                "operationId": "createQuotaQuota",
-                "parameters": [
-                    {
-                        "description": "Optional named zone to use for user and group resolution.",
-                        "in": "query",
-                        "name": "zone",
-                        "type": "string"
-                    },
-                    {
-                        "in": "body",
-                        "name": "QuotaQuota",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/QuotaQuotaCreateParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Create a new quota.",
-                        "schema": {
-                            "$ref": "#/definitions/CreateResponse"
-                        }
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                },
-                "tags": [
-                    "Quota"
-                ]
-            }
-        },
         "/platform/7/quota/quotas/{Qid}/notifications": {
             "delete": {
                 "description": "Delete all quota specific rules. The quota will then use the global rules.",
@@ -71700,114 +71916,6 @@
                 },
                 "tags": [
                     "QuotaQuotas"
-                ]
-            }
-        },
-        "/platform/7/quota/quotas/{QuotaQuotaId}": {
-            "delete": {
-                "description": "Delete the quota.",
-                "operationId": "deleteQuotaQuota",
-                "parameters": [
-                    {
-                        "description": "Delete the quota.",
-                        "in": "path",
-                        "name": "QuotaQuotaId",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": "Success."
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                },
-                "tags": [
-                    "Quota"
-                ]
-            },
-            "get": {
-                "description": "Retrieve quota information.",
-                "operationId": "getQuotaQuota",
-                "parameters": [
-                    {
-                        "description": "If true, resolve group and user names in personas.",
-                        "in": "query",
-                        "name": "resolve_names",
-                        "type": "boolean"
-                    },
-                    {
-                        "description": "Optional named zone to use for user and group resolution.",
-                        "in": "query",
-                        "maxLength": 255,
-                        "minLength": 0,
-                        "name": "zone",
-                        "type": "string"
-                    },
-                    {
-                        "description": "Retrieve quota information.",
-                        "in": "path",
-                        "name": "QuotaQuotaId",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Retrieve quota information.",
-                        "schema": {
-                            "$ref": "#/definitions/QuotaQuotas"
-                        }
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                },
-                "tags": [
-                    "Quota"
-                ]
-            },
-            "put": {
-                "description": "Modify quota. All input fields are optional, but one or more must be supplied.",
-                "operationId": "updateQuotaQuota",
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "QuotaQuota",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/QuotaQuota"
-                        }
-                    },
-                    {
-                        "description": "Modify quota. All input fields are optional, but one or more must be supplied.",
-                        "in": "path",
-                        "name": "QuotaQuotaId",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": "Success."
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                },
-                "tags": [
-                    "Quota"
                 ]
             }
         },
@@ -74432,6 +74540,782 @@
                 },
                 "tags": [
                     "Worm"
+                ]
+            }
+        },
+        "/platform/8/auth/roles/{Role}/members": {
+            "get": {
+                "description": "List all the members of the role.",
+                "operationId": "listRoleMembers",
+                "parameters": [
+                    {
+                        "description": "The field that will be used for sorting.",
+                        "in": "query",
+                        "maxLength": 255,
+                        "minLength": 0,
+                        "name": "sort",
+                        "type": "string"
+                    },
+                    {
+                        "description": "Specifies which access zone to use.",
+                        "in": "query",
+                        "maxLength": 255,
+                        "minLength": 0,
+                        "name": "zone",
+                        "type": "string"
+                    },
+                    {
+                        "description": "Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).",
+                        "in": "query",
+                        "maxLength": 8192,
+                        "minLength": 0,
+                        "name": "resume",
+                        "type": "string"
+                    },
+                    {
+                        "description": "Resolve names of personas.",
+                        "in": "query",
+                        "name": "resolve_names",
+                        "type": "boolean"
+                    },
+                    {
+                        "description": "Return no more than this many results at once (see resume).",
+                        "in": "query",
+                        "maximum": 4294967295,
+                        "minimum": 1,
+                        "name": "limit",
+                        "type": "integer"
+                    },
+                    {
+                        "description": "The direction of the sort.",
+                        "enum": [
+                            "ASC",
+                            "DESC"
+                        ],
+                        "in": "query",
+                        "minLength": 0,
+                        "name": "dir",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "Role",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List all the members of the role.",
+                        "schema": {
+                            "$ref": "#/definitions/GroupMembers"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "AuthRoles"
+                ]
+            },
+            "post": {
+                "description": "Add a member to the role.",
+                "operationId": "createRoleMember",
+                "parameters": [
+                    {
+                        "description": "Specifies which access zone to use.",
+                        "in": "query",
+                        "maxLength": 255,
+                        "minLength": 0,
+                        "name": "zone",
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "RoleMember",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/AuthAccessAccessItemFileGroup"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "Role",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Add a member to the role.",
+                        "schema": {
+                            "$ref": "#/definitions/CreateResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "AuthRoles"
+                ]
+            }
+        },
+        "/platform/8/auth/roles/{Role}/members/{RoleMemberId}": {
+            "delete": {
+                "description": "Remove a member from the role.",
+                "operationId": "deleteRoleMember",
+                "parameters": [
+                    {
+                        "description": "Specifies which access zone to use.",
+                        "in": "query",
+                        "maxLength": 255,
+                        "minLength": 0,
+                        "name": "zone",
+                        "type": "string"
+                    },
+                    {
+                        "description": "Remove a member from the role.",
+                        "in": "path",
+                        "name": "RoleMemberId",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "Role",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success."
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "AuthRoles"
+                ]
+            }
+        },
+        "/platform/8/fsa/index": {
+            "get": {
+                "description": "Retrieve all the FSA index table names available on an Isilon cluster.",
+                "operationId": "getFsaIndex",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Retrieve all the FSA index table names available on an Isilon cluster.",
+                        "schema": {
+                            "$ref": "#/definitions/FsaIndex"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "Fsa"
+                ]
+            }
+        },
+        "/platform/8/fsa/index/{Name}/lins": {
+            "get": {
+                "description": "Get index entries from the given index table.",
+                "operationId": "getNameLins",
+                "parameters": [
+                    {
+                        "description": "Resolve the path for an index entry. This query argument is invalid if an initial index job is in progress or incomplete or if an incremental index job is in progress or incomplete.",
+                        "in": "query",
+                        "name": "path",
+                        "required": false,
+                        "type": "boolean"
+                    },
+                    {
+                        "description": "LIN of file or directory to lookup. Accepts multiple query arguments.",
+                        "in": "query",
+                        "items": {
+                            "maximum": 18446744073709551615,
+                            "minimum": 0,
+                            "type": "integer"
+                        },
+                        "name": "lin",
+                        "required": false,
+                        "type": "array"
+                    },
+                    {
+                        "description": "Return no more than this many results at once (see resume).",
+                        "in": "query",
+                        "maximum": 100000,
+                        "minimum": 1,
+                        "name": "limit",
+                        "type": "integer"
+                    },
+                    {
+                        "description": "Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).",
+                        "in": "query",
+                        "maxLength": 8192,
+                        "minLength": 0,
+                        "name": "resume",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "Name",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get index entries from the given index table.",
+                        "schema": {
+                            "$ref": "#/definitions/NameLinsExtended"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "FsaIndex"
+                ]
+            }
+        },
+        "/platform/8/fsa/index/{Name}/lins/{NameLinId}": {
+            "get": {
+                "description": "Get a single index entry from the index table.",
+                "operationId": "getNameLin",
+                "parameters": [
+                    {
+                        "description": "Resolve the path for an index entry. This query argument is invalid if an initial index job is in progress or incomplete or if an incremental index job is in progress or incomplete.",
+                        "in": "query",
+                        "name": "path",
+                        "required": false,
+                        "type": "boolean"
+                    },
+                    {
+                        "description": "Get a single index entry from the index table.",
+                        "in": "path",
+                        "name": "NameLinId",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "in": "path",
+                        "name": "Name",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get a single index entry from the index table.",
+                        "schema": {
+                            "$ref": "#/definitions/NameLins"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "FsaIndex"
+                ]
+            }
+        },
+        "/platform/8/protocols/ssh/settings": {
+            "get": {
+                "description": "ssh settings",
+                "operationId": "getSshSettings",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "ssh settings",
+                        "schema": {
+                            "$ref": "#/definitions/SshSettings"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "Protocols"
+                ]
+            },
+            "put": {
+                "description": "ssh settings",
+                "operationId": "updateSshSettings",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "SshSettings",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/SshSettingsSettings"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success."
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "Protocols"
+                ]
+            }
+        },
+        "/platform/8/quota/quotas": {
+            "delete": {
+                "description": "Delete all or matching quotas.",
+                "operationId": "deleteQuotaQuotas",
+                "parameters": [
+                    {
+                        "description": "Only delete quotas with this enforcement (non-accounting).",
+                        "in": "query",
+                        "name": "enforced",
+                        "type": "boolean"
+                    },
+                    {
+                        "description": "Only delete quotas with this setting for include_snapshots.",
+                        "in": "query",
+                        "name": "include_snapshots",
+                        "type": "boolean"
+                    },
+                    {
+                        "description": "Optional named zone to use for user and group resolution.",
+                        "in": "query",
+                        "name": "zone",
+                        "type": "string"
+                    },
+                    {
+                        "description": "If used with the path argument, delete all quotas at that path or any descendent sub-directory.",
+                        "in": "query",
+                        "name": "recurse_path_children",
+                        "type": "boolean"
+                    },
+                    {
+                        "description": "If used with the path argument, delete all quotas at that path or any parent directory.",
+                        "in": "query",
+                        "name": "recurse_path_parents",
+                        "type": "boolean"
+                    },
+                    {
+                        "description": "Only delete user or group quotas matching this persona (must be used with the corresponding type argument).  Format is <PERSONA_TYPE>:<string/integer>, where PERSONA_TYPE is one of USER, GROUP, SID, ID, or GID.",
+                        "in": "query",
+                        "name": "persona",
+                        "type": "string"
+                    },
+                    {
+                        "description": "Only delete quotas matching this path (see also recurse_path_*).",
+                        "in": "query",
+                        "name": "path",
+                        "type": "string"
+                    },
+                    {
+                        "description": "Only delete quotas matching this type.",
+                        "enum": [
+                            "directory",
+                            "user",
+                            "group",
+                            "default-directory",
+                            "default-user",
+                            "default-group"
+                        ],
+                        "in": "query",
+                        "name": "type",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success."
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "Quota"
+                ]
+            },
+            "get": {
+                "description": "List all or matching quotas. Can also be used to retrieve quota state from existing reports. For any query argument not supplied, the default behavior is return all.",
+                "operationId": "listQuotaQuotas",
+                "parameters": [
+                    {
+                        "description": "Only list quotas with this enforcement (non-accounting).",
+                        "in": "query",
+                        "name": "enforced",
+                        "type": "boolean"
+                    },
+                    {
+                        "description": "Only list quotas with this setting for include_snapshots.",
+                        "in": "query",
+                        "name": "include_snapshots",
+                        "type": "boolean"
+                    },
+                    {
+                        "description": "Optional named zone to use for user and group resolution.",
+                        "in": "query",
+                        "name": "zone",
+                        "type": "string"
+                    },
+                    {
+                        "description": "Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).",
+                        "in": "query",
+                        "maxLength": 8192,
+                        "minLength": 0,
+                        "name": "resume",
+                        "type": "string"
+                    },
+                    {
+                        "description": "If used with the path argument, match all quotas at that path or any descendent sub-directory.",
+                        "in": "query",
+                        "name": "recurse_path_children",
+                        "type": "boolean"
+                    },
+                    {
+                        "description": "If true, resolve group and user names in personas.",
+                        "in": "query",
+                        "name": "resolve_names",
+                        "type": "boolean"
+                    },
+                    {
+                        "description": "If used with the path argument, match all quotas at that path or any parent directory.",
+                        "in": "query",
+                        "name": "recurse_path_parents",
+                        "type": "boolean"
+                    },
+                    {
+                        "description": "Only list user or group quotas matching this persona (must be used with the corresponding type argument).  Format is <PERSONA_TYPE>:<string/integer>, where PERSONA_TYPE is one of USER, GROUP, SID, ID, or GID.",
+                        "in": "query",
+                        "name": "persona",
+                        "type": "string"
+                    },
+                    {
+                        "description": "Return no more than this many results at once (see resume).",
+                        "in": "query",
+                        "maximum": 4294967295,
+                        "minimum": 1,
+                        "name": "limit",
+                        "type": "integer"
+                    },
+                    {
+                        "description": "Set to true to only list quotas which have exceeded one or more of their thresholds.",
+                        "in": "query",
+                        "name": "exceeded",
+                        "type": "boolean"
+                    },
+                    {
+                        "description": "Only list quotas matching this path (see also recurse_path_*).",
+                        "in": "query",
+                        "name": "path",
+                        "type": "string"
+                    },
+                    {
+                        "description": "Only list quotas matching this type.",
+                        "enum": [
+                            "directory",
+                            "user",
+                            "group",
+                            "default-directory",
+                            "default-user",
+                            "default-group"
+                        ],
+                        "in": "query",
+                        "name": "type",
+                        "type": "string"
+                    },
+                    {
+                        "description": "Use the named report as a source rather than the live quotas. See the /q/quota/reports resource for a list of valid reports.",
+                        "in": "query",
+                        "name": "report_id",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List all or matching quotas. Can also be used to retrieve quota state from existing reports. For any query argument not supplied, the default behavior is return all.",
+                        "schema": {
+                            "$ref": "#/definitions/QuotaQuotasExtended"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "Quota"
+                ]
+            },
+            "post": {
+                "description": "Create a new quota.",
+                "operationId": "createQuotaQuota",
+                "parameters": [
+                    {
+                        "description": "Optional named zone to use for user and group resolution.",
+                        "in": "query",
+                        "name": "zone",
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "QuotaQuota",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/QuotaQuotaCreateParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Create a new quota.",
+                        "schema": {
+                            "$ref": "#/definitions/CreateResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "Quota"
+                ]
+            }
+        },
+        "/platform/8/quota/quotas/{QuotaQuotaId}": {
+            "delete": {
+                "description": "Delete the quota.",
+                "operationId": "deleteQuotaQuota",
+                "parameters": [
+                    {
+                        "description": "Delete the quota.",
+                        "in": "path",
+                        "name": "QuotaQuotaId",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success."
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "Quota"
+                ]
+            },
+            "get": {
+                "description": "Retrieve quota information.",
+                "operationId": "getQuotaQuota",
+                "parameters": [
+                    {
+                        "description": "If true, resolve group and user names in personas.",
+                        "in": "query",
+                        "name": "resolve_names",
+                        "type": "boolean"
+                    },
+                    {
+                        "description": "Optional named zone to use for user and group resolution.",
+                        "in": "query",
+                        "maxLength": 255,
+                        "minLength": 0,
+                        "name": "zone",
+                        "type": "string"
+                    },
+                    {
+                        "description": "Retrieve quota information.",
+                        "in": "path",
+                        "name": "QuotaQuotaId",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Retrieve quota information.",
+                        "schema": {
+                            "$ref": "#/definitions/QuotaQuotas"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "Quota"
+                ]
+            },
+            "put": {
+                "description": "Modify quota. All input fields are optional, but one or more must be supplied.",
+                "operationId": "updateQuotaQuota",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "QuotaQuota",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/QuotaQuota"
+                        }
+                    },
+                    {
+                        "description": "Modify quota. All input fields are optional, but one or more must be supplied.",
+                        "in": "path",
+                        "name": "QuotaQuotaId",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success."
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "Quota"
+                ]
+            }
+        },
+        "/platform/8/snapshot/changelists/{Changelist}/entries": {
+            "get": {
+                "description": "Get entries from a changelist.",
+                "operationId": "getChangelistEntries",
+                "parameters": [
+                    {
+                        "description": "Return no more than this many results at once (see resume).",
+                        "in": "query",
+                        "maximum": 2048,
+                        "minimum": 1,
+                        "name": "limit",
+                        "type": "integer"
+                    },
+                    {
+                        "description": "Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).",
+                        "in": "query",
+                        "maxLength": 8192,
+                        "minLength": 0,
+                        "name": "resume",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "Changelist",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get entries from a changelist.",
+                        "schema": {
+                            "$ref": "#/definitions/ChangelistEntriesExtended"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "SnapshotChangelists"
+                ]
+            }
+        },
+        "/platform/8/snapshot/changelists/{Changelist}/entries/{ChangelistEntryId}": {
+            "get": {
+                "description": "Get a single entry from the changelist.",
+                "operationId": "getChangelistEntry",
+                "parameters": [
+                    {
+                        "description": "Get a single entry from the changelist.",
+                        "in": "path",
+                        "name": "ChangelistEntryId",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "Changelist",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get a single entry from the changelist.",
+                        "schema": {
+                            "$ref": "#/definitions/ChangelistEntries"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "tags": [
+                    "SnapshotChangelists"
                 ]
             }
         }

@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **container** | **bool** | If true, SMB shares using the quota directory see the quota thresholds as share size. | 
+**efficiency_ratio** | **float** | Represents the ratio of logical space provided to physical space used. This accounts for protection overhead, metadata, and compression ratios for the data. | [optional] 
 **enforced** | **bool** | True if the quota provides enforcement, otherwise a accounting quota. | 
 **id** | **str** | The system ID given to the quota. | 
 **include_snapshots** | **bool** | If true, quota governs snapshot data as well as head data. | 

@@ -1,4 +1,4 @@
-# isi_sdk_8_2_0.PerformanceDatasetsApi
+# isi_sdk_8_2_1.PerformanceDatasetsApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -29,18 +29,18 @@ Create a new filter.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.PerformanceDatasetsApi(isi_sdk_8_2_0.ApiClient(configuration))
-dataset_filter = isi_sdk_8_2_0.DatasetFilterCreateParams() # DatasetFilterCreateParams | 
+api_instance = isi_sdk_8_2_1.PerformanceDatasetsApi(isi_sdk_8_2_1.ApiClient(configuration))
+dataset_filter = isi_sdk_8_2_1.DatasetFilterCreateParams() # DatasetFilterCreateParams | 
 dataset = 'dataset_example' # str | 
 
 try:
@@ -83,18 +83,18 @@ Create a new workload.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.PerformanceDatasetsApi(isi_sdk_8_2_0.ApiClient(configuration))
-dataset_workload = isi_sdk_8_2_0.DatasetWorkloadCreateParams() # DatasetWorkloadCreateParams | 
+api_instance = isi_sdk_8_2_1.PerformanceDatasetsApi(isi_sdk_8_2_1.ApiClient(configuration))
+dataset_workload = isi_sdk_8_2_1.DatasetWorkloadCreateParams() # DatasetWorkloadCreateParams | 
 dataset = 'dataset_example' # str | 
 
 try:
@@ -137,17 +137,17 @@ Delete the filter.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.PerformanceDatasetsApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.PerformanceDatasetsApi(isi_sdk_8_2_1.ApiClient(configuration))
 dataset_filter_id = 'dataset_filter_id_example' # str | Delete the filter.
 dataset = 'dataset_example' # str | 
 
@@ -190,17 +190,17 @@ Delete all filters associated with the dataset.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.PerformanceDatasetsApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.PerformanceDatasetsApi(isi_sdk_8_2_1.ApiClient(configuration))
 dataset = 'dataset_example' # str | 
 
 try:
@@ -241,17 +241,17 @@ Delete the workload.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.PerformanceDatasetsApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.PerformanceDatasetsApi(isi_sdk_8_2_1.ApiClient(configuration))
 dataset_workload_id = 'dataset_workload_id_example' # str | Delete the workload.
 dataset = 'dataset_example' # str | 
 
@@ -294,17 +294,17 @@ Delete all workloads associated with the dataset.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.PerformanceDatasetsApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.PerformanceDatasetsApi(isi_sdk_8_2_1.ApiClient(configuration))
 dataset = 'dataset_example' # str | 
 
 try:
@@ -345,17 +345,17 @@ Retrieve the filter.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.PerformanceDatasetsApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.PerformanceDatasetsApi(isi_sdk_8_2_1.ApiClient(configuration))
 dataset_filter_id = 'dataset_filter_id_example' # str | Retrieve the filter.
 dataset = 'dataset_example' # str | 
 
@@ -399,17 +399,17 @@ Retrieve the workload.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.PerformanceDatasetsApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.PerformanceDatasetsApi(isi_sdk_8_2_1.ApiClient(configuration))
 dataset_workload_id = 'dataset_workload_id_example' # str | Retrieve the workload.
 dataset = 'dataset_example' # str | 
 
@@ -453,17 +453,17 @@ List all filters.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.PerformanceDatasetsApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.PerformanceDatasetsApi(isi_sdk_8_2_1.ApiClient(configuration))
 dataset = 'dataset_example' # str | 
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
@@ -513,17 +513,17 @@ List all workloads.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.PerformanceDatasetsApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.PerformanceDatasetsApi(isi_sdk_8_2_1.ApiClient(configuration))
 dataset = 'dataset_example' # str | 
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
@@ -573,18 +573,18 @@ Modify the filter.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.PerformanceDatasetsApi(isi_sdk_8_2_0.ApiClient(configuration))
-dataset_filter = isi_sdk_8_2_0.DatasetFilter() # DatasetFilter | 
+api_instance = isi_sdk_8_2_1.PerformanceDatasetsApi(isi_sdk_8_2_1.ApiClient(configuration))
+dataset_filter = isi_sdk_8_2_1.DatasetFilter() # DatasetFilter | 
 dataset_filter_id = 'dataset_filter_id_example' # str | Modify the filter.
 dataset = 'dataset_example' # str | 
 
@@ -628,18 +628,18 @@ Modify the workload.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.PerformanceDatasetsApi(isi_sdk_8_2_0.ApiClient(configuration))
-dataset_workload = isi_sdk_8_2_0.DatasetWorkload() # DatasetWorkload | 
+api_instance = isi_sdk_8_2_1.PerformanceDatasetsApi(isi_sdk_8_2_1.ApiClient(configuration))
+dataset_workload = isi_sdk_8_2_1.DatasetWorkload() # DatasetWorkload | 
 dataset_workload_id = 'dataset_workload_id_example' # str | Modify the workload.
 dataset = 'dataset_example' # str | 
 

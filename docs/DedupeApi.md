@@ -1,4 +1,4 @@
-# isi_sdk_8_2_0.DedupeApi
+# isi_sdk_8_2_1.DedupeApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -8,7 +8,9 @@ Method | HTTP request | Description
 [**get_dedupe_report**](DedupeApi.md#get_dedupe_report) | **GET** /platform/1/dedupe/reports/{DedupeReportId} | 
 [**get_dedupe_reports**](DedupeApi.md#get_dedupe_reports) | **GET** /platform/1/dedupe/reports | 
 [**get_dedupe_settings**](DedupeApi.md#get_dedupe_settings) | **GET** /platform/1/dedupe/settings | 
+[**get_inline_settings**](DedupeApi.md#get_inline_settings) | **GET** /platform/6/dedupe/inline/settings | 
 [**update_dedupe_settings**](DedupeApi.md#update_dedupe_settings) | **PUT** /platform/1/dedupe/settings | 
+[**update_inline_settings**](DedupeApi.md#update_inline_settings) | **PUT** /platform/6/dedupe/inline/settings | 
 
 
 # **get_dedupe_dedupe_summary**
@@ -22,17 +24,17 @@ Return summary information about dedupe.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.DedupeApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.DedupeApi(isi_sdk_8_2_1.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_dedupe_dedupe_summary()
@@ -70,17 +72,17 @@ Retrieve a report for a single dedupe job.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.DedupeApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.DedupeApi(isi_sdk_8_2_1.ApiClient(configuration))
 dedupe_report_id = 'dedupe_report_id_example' # str | Retrieve a report for a single dedupe job.
 scope = 'scope_example' # str | If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned. (optional)
 
@@ -124,17 +126,17 @@ List dedupe reports.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.DedupeApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.DedupeApi(isi_sdk_8_2_1.ApiClient(configuration))
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 begin = 56 # int | Restrict the query to reports at or after the given time, in seconds since the Epoch. (optional)
 end = 56 # int | Restrict the query to reports at or before the given time, in seconds since the Epoch. (optional)
@@ -190,17 +192,17 @@ Retrieve the dedupe settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.DedupeApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.DedupeApi(isi_sdk_8_2_1.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_dedupe_settings()
@@ -227,6 +229,54 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_inline_settings**
+> InlineSettings get_inline_settings()
+
+
+
+Retrieve the inline dedupe settings.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
+from pprint import pprint
+
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_2_1.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = isi_sdk_8_2_1.DedupeApi(isi_sdk_8_2_1.ApiClient(configuration))
+
+try:
+    api_response = api_instance.get_inline_settings()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DedupeApi->get_inline_settings: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**InlineSettings**](InlineSettings.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **update_dedupe_settings**
 > update_dedupe_settings(dedupe_settings)
 
@@ -238,18 +288,18 @@ Modify the dedupe settings. All input fields are optional, but one or more must 
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.DedupeApi(isi_sdk_8_2_0.ApiClient(configuration))
-dedupe_settings = isi_sdk_8_2_0.DedupeSettingsExtended() # DedupeSettingsExtended | 
+api_instance = isi_sdk_8_2_1.DedupeApi(isi_sdk_8_2_1.ApiClient(configuration))
+dedupe_settings = isi_sdk_8_2_1.DedupeSettingsExtended() # DedupeSettingsExtended | 
 
 try:
     api_instance.update_dedupe_settings(dedupe_settings)
@@ -262,6 +312,57 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **dedupe_settings** | [**DedupeSettingsExtended**](DedupeSettingsExtended.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_inline_settings**
+> update_inline_settings(inline_settings)
+
+
+
+Modify the inline dedupe settings.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
+from pprint import pprint
+
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_2_1.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = isi_sdk_8_2_1.DedupeApi(isi_sdk_8_2_1.ApiClient(configuration))
+inline_settings = isi_sdk_8_2_1.InlineSettingsSettings() # InlineSettingsSettings | 
+
+try:
+    api_instance.update_inline_settings(inline_settings)
+except ApiException as e:
+    print("Exception when calling DedupeApi->update_inline_settings: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inline_settings** | [**InlineSettingsSettings**](InlineSettingsSettings.md)|  | 
 
 ### Return type
 

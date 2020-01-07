@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **auth_settings_template** | **str** | Specifies the configuration template for the supported method by which a user is authenticated. | [optional] 
 **authentication_methods** | **str** | Specifies the authentication methods that must be successfully completed for a user to be granted access. | [optional] 
 **banner** | **str** | Specifies file name to be used as SSH warning banner that is shown before the password prompt | [optional] 
+**ca_signature_algorithms** | **str** | Specifies which algorithms are allowed for signing of certificates by certificate authorities (CAs). | [optional] 
 **challenge_response_authentication** | **bool** | Specifies whether challenge-response authentication is allowed. | [optional] 
 **ciphers** | **str** | Specifies the ciphers allowed for protocol version 2. | [optional] 
 **host_key_algorithms** | **str** | Specifies the protocol version 2 host key algorithms the server offers. | [optional] 

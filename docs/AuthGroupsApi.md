@@ -1,4 +1,4 @@
-# isi_sdk_8_2_0.AuthGroupsApi
+# isi_sdk_8_2_1.AuthGroupsApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -20,18 +20,18 @@ Add a member to the group.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthGroupsApi(isi_sdk_8_2_0.ApiClient(configuration))
-group_member = isi_sdk_8_2_0.AuthAccessAccessItemFileGroup() # AuthAccessAccessItemFileGroup | 
+api_instance = isi_sdk_8_2_1.AuthGroupsApi(isi_sdk_8_2_1.ApiClient(configuration))
+group_member = isi_sdk_8_2_1.AuthAccessAccessItemFileGroup() # AuthAccessAccessItemFileGroup | 
 group = 'group_example' # str | 
 zone = 'zone_example' # str | Filter group members by zone. (optional)
 provider = 'provider_example' # str | Filter group members by provider. (optional)
@@ -78,17 +78,17 @@ Remove the member from the group.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthGroupsApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthGroupsApi(isi_sdk_8_2_1.ApiClient(configuration))
 group_member_id = 'group_member_id_example' # str | Remove the member from the group.
 group = 'group_example' # str | 
 zone = 'zone_example' # str | Filter group members by zone. (optional)
@@ -135,17 +135,17 @@ List all the members of the group.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.AuthGroupsApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.AuthGroupsApi(isi_sdk_8_2_1.ApiClient(configuration))
 group = 'group_example' # str | 
 resolve_names = true # bool | Resolve names of personas. (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)

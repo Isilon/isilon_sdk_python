@@ -1,4 +1,4 @@
-# isi_sdk_8_2_0.SyncTargetApi
+# isi_sdk_8_2_1.SyncTargetApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -20,18 +20,18 @@ Cancel the most recent SyncIQ job for this policy from the target side.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.SyncTargetApi(isi_sdk_8_2_0.ApiClient(configuration))
-policies_policy_cancel_item = isi_sdk_8_2_0.Empty() # Empty | 
+api_instance = isi_sdk_8_2_1.SyncTargetApi(isi_sdk_8_2_1.ApiClient(configuration))
+policies_policy_cancel_item = isi_sdk_8_2_1.Empty() # Empty | 
 policy = 'policy_example' # str | 
 
 try:
@@ -74,17 +74,17 @@ View a single SyncIQ target subreport.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.SyncTargetApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.SyncTargetApi(isi_sdk_8_2_1.ApiClient(configuration))
 reports_report_subreport_id = 'reports_report_subreport_id_example' # str | View a single SyncIQ target subreport.
 rid = 'rid_example' # str | 
 
@@ -128,17 +128,17 @@ Get a list of SyncIQ target subreports for a report.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_0
-from isi_sdk_8_2_0.rest import ApiException
+import isi_sdk_8_2_1
+from isi_sdk_8_2_1.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_0.Configuration()
+configuration = isi_sdk_8_2_1.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_0.SyncTargetApi(isi_sdk_8_2_0.ApiClient(configuration))
+api_instance = isi_sdk_8_2_1.SyncTargetApi(isi_sdk_8_2_1.ApiClient(configuration))
 rid = 'rid_example' # str | 
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)

@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**can_disable_l3** | **bool** | Indicates if disabling L3 is possible. | 
 **can_enable_l3** | **bool** | Indicates if enabling L3 is possible. L3 cannot be enabled if there are unprovisioned drives. | 
 **health_flags** | **list[str]** | An array of containing any health issues with this pool.  If the pool is healthy, the list is empty. | [optional] 
 **id** | **int** | The system ID given to the node pool. | 
