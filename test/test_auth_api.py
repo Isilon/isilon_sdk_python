@@ -47,14 +47,14 @@ class TestAuthApi(unittest.TestCase):
         """
         pass
 
-    def test_create_mapping_identity(self):
-        """Test case for create_mapping_identity
+    def test_create_mapping_identities(self):
+        """Test case for create_mapping_identities
 
         """
         pass
 
-    def test_create_mapping_identity_0(self):
-        """Test case for create_mapping_identity_0
+    def test_create_mapping_identity(self):
+        """Test case for create_mapping_identity
 
         """
         pass
