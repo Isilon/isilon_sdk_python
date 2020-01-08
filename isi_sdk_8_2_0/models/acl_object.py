@@ -35,7 +35,7 @@ class AclObject(object):
     swagger_types = {
         'accessrights': 'list[str]',
         'accesstype': 'str',
-        'inherit_flags': 'list[bool]',
+        'inherit_flags': 'list[str]',
         'op': 'str',
         'trustee': 'MemberObject'
     }
@@ -117,7 +117,7 @@ class AclObject(object):
 
 
         :return: The inherit_flags of this AclObject.  # noqa: E501
-        :rtype: list[bool]
+        :rtype: list[str]
         """
         return self._inherit_flags
 
@@ -127,7 +127,7 @@ class AclObject(object):
 
 
         :param inherit_flags: The inherit_flags of this AclObject.  # noqa: E501
-        :type: list[bool]
+        :type: list[str]
         """
 
         self._inherit_flags = inherit_flags
