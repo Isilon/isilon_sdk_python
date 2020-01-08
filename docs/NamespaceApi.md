@@ -1103,7 +1103,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **query_directory**
-> NamespaceObjects query_directory(query_path, query, directory_query, limit=limit, detail=detail, max_depth=max_depth)
+> NamespaceObjects query_directory(query_path, query, directory_query, limit=limit, detail=detail, resume=resume, sort=sort, dir=dir, type=type, hidden=hidden, max_depth=max_depth)
 
 
 
@@ -1129,10 +1129,15 @@ query = true # bool | Enable directory query.
 directory_query = isi_sdk_8_1_0.DirectoryQuery() # DirectoryQuery | Directory query parameters model.
 limit = 56 # int | Specifies the maximum number of objects to send to the client. You can set the value to a negative number to retrieve all objects. (optional)
 detail = 'detail_example' # str | Specifies which object attributes are displayed. If the detail parameter is excluded, only the name of the object is returned. (optional)
+resume = 'resume_example' # str | Specifies a token to return in the JSON result to indicate when there is a next page. (optional)
+sort = 'sort_example' # str | Specifies one or more attributes to sort on the directory entries. (optional)
+dir = 'dir_example' # str | Specifies the sort direction. This value can be either ascending (ASC) or descending (DESC). (optional)
+type = 'type_example' # str | Specifies the object type to return, which can be one of the following values: container, object, pipe, character_device, block_device, symbolic_link, socket, or whiteout_file. (optional)
+hidden = true # bool | Specifies if hidden objects are returned. (optional)
 max_depth = 56 # int | Specifies the maximum directory level depth to search for objects. (optional)
 
 try:
-    api_response = api_instance.query_directory(query_path, query, directory_query, limit=limit, detail=detail, max_depth=max_depth)
+    api_response = api_instance.query_directory(query_path, query, directory_query, limit=limit, detail=detail, resume=resume, sort=sort, dir=dir, type=type, hidden=hidden, max_depth=max_depth)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling NamespaceApi->query_directory: %s\n" % e)
@@ -1147,6 +1152,11 @@ Name | Type | Description  | Notes
  **directory_query** | [**DirectoryQuery**](DirectoryQuery.md)| Directory query parameters model. | 
  **limit** | **int**| Specifies the maximum number of objects to send to the client. You can set the value to a negative number to retrieve all objects. | [optional] 
  **detail** | **str**| Specifies which object attributes are displayed. If the detail parameter is excluded, only the name of the object is returned. | [optional] 
+ **resume** | **str**| Specifies a token to return in the JSON result to indicate when there is a next page. | [optional] 
+ **sort** | **str**| Specifies one or more attributes to sort on the directory entries. | [optional] 
+ **dir** | **str**| Specifies the sort direction. This value can be either ascending (ASC) or descending (DESC). | [optional] 
+ **type** | **str**| Specifies the object type to return, which can be one of the following values: container, object, pipe, character_device, block_device, symbolic_link, socket, or whiteout_file. | [optional] 
+ **hidden** | **bool**| Specifies if hidden objects are returned. | [optional] 
  **max_depth** | **int**| Specifies the maximum directory level depth to search for objects. | [optional] 
 
 ### Return type

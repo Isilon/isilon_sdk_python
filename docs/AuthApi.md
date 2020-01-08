@@ -9,8 +9,8 @@ Method | HTTP request | Description
 [**create_auth_refresh_item**](AuthApi.md#create_auth_refresh_item) | **POST** /platform/3/auth/refresh | 
 [**create_auth_role**](AuthApi.md#create_auth_role) | **POST** /platform/1/auth/roles | 
 [**create_auth_user**](AuthApi.md#create_auth_user) | **POST** /platform/1/auth/users | 
-[**create_mapping_identity**](AuthApi.md#create_mapping_identity) | **POST** /platform/1/auth/mapping/identities | 
-[**create_mapping_identity_0**](AuthApi.md#create_mapping_identity_0) | **POST** /platform/1/auth/mapping/identities/{MappingIdentityId} | 
+[**create_mapping_identities**](AuthApi.md#create_mapping_identities) | **POST** /platform/1/auth/mapping/identities | 
+[**create_mapping_identity**](AuthApi.md#create_mapping_identity) | **POST** /platform/1/auth/mapping/identities/{MappingIdentityId} | 
 [**create_providers_ads_item**](AuthApi.md#create_providers_ads_item) | **POST** /platform/3/auth/providers/ads | 
 [**create_providers_file_item**](AuthApi.md#create_providers_file_item) | **POST** /platform/1/auth/providers/file | 
 [**create_providers_krb5_item**](AuthApi.md#create_providers_krb5_item) | **POST** /platform/3/auth/providers/krb5 | 
@@ -368,8 +368,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **create_mapping_identity**
-> Empty create_mapping_identity(mapping_identity, _2way=_2way, zone=zone, replace=replace)
+# **create_mapping_identities**
+> Empty create_mapping_identities(mapping_identities, _2way=_2way, zone=zone, replace=replace)
 
 
 
@@ -390,23 +390,23 @@ configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = isi_sdk_8_1_0.AuthApi(isi_sdk_8_1_0.ApiClient(configuration))
-mapping_identity = isi_sdk_8_1_0.MappingIdentityCreateParams() # MappingIdentityCreateParams | 
+mapping_identities = isi_sdk_8_1_0.MappingIdentitiesCreateParams() # MappingIdentitiesCreateParams | 
 _2way = true # bool | Create a bi-directional mapping from source to target and target to source. (optional)
 zone = 'zone_example' # str | Optional zone. (optional)
 replace = true # bool | Replace existing mappings. (optional)
 
 try:
-    api_response = api_instance.create_mapping_identity(mapping_identity, _2way=_2way, zone=zone, replace=replace)
+    api_response = api_instance.create_mapping_identities(mapping_identities, _2way=_2way, zone=zone, replace=replace)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling AuthApi->create_mapping_identity: %s\n" % e)
+    print("Exception when calling AuthApi->create_mapping_identities: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mapping_identity** | [**MappingIdentityCreateParams**](MappingIdentityCreateParams.md)|  | 
+ **mapping_identities** | [**MappingIdentitiesCreateParams**](MappingIdentitiesCreateParams.md)|  | 
  **_2way** | **bool**| Create a bi-directional mapping from source to target and target to source. | [optional] 
  **zone** | **str**| Optional zone. | [optional] 
  **replace** | **bool**| Replace existing mappings. | [optional] 
@@ -426,8 +426,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **create_mapping_identity_0**
-> MappingIdentities create_mapping_identity_0(mapping_identity, mapping_identity_id, type=type, zone=zone)
+# **create_mapping_identity**
+> MappingIdentities create_mapping_identity(mapping_identity, mapping_identity_id, type=type, zone=zone)
 
 
 
@@ -454,10 +454,10 @@ type = 'type_example' # str | Desired mapping target to fetch/generate. (optiona
 zone = 'zone_example' # str | Optional zone. (optional)
 
 try:
-    api_response = api_instance.create_mapping_identity_0(mapping_identity, mapping_identity_id, type=type, zone=zone)
+    api_response = api_instance.create_mapping_identity(mapping_identity, mapping_identity_id, type=type, zone=zone)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling AuthApi->create_mapping_identity_0: %s\n" % e)
+    print("Exception when calling AuthApi->create_mapping_identity: %s\n" % e)
 ```
 
 ### Parameters
