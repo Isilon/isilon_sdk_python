@@ -29,7 +29,7 @@
                 },
                 "inherit_flags": {
                     "items": {
-                        "type": "boolean"
+                        "type": "string"
                     },
                     "minItems": 0,
                     "type": "array"
@@ -8910,6 +8910,52 @@
             },
             "type": "object"
         },
+        "MappingIdentitiesCreateParams": {
+            "description": "Specifies the properties for the identity mapping entry.",
+            "properties": {
+                "source": {
+                    "$ref": "#/definitions/GroupMember",
+                    "description": "Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'."
+                },
+                "targets": {
+                    "items": {
+                        "$ref": "#/definitions/MappingIdentitiesTarget",
+                        "description": "Specifies the target identity mappings."
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "source",
+                "targets"
+            ],
+            "type": "object"
+        },
+        "MappingIdentitiesTarget": {
+            "properties": {
+                "on_disk": {
+                    "description": "Identity is preferred on-disk.",
+                    "type": "boolean"
+                },
+                "target": {
+                    "$ref": "#/definitions/GroupMember",
+                    "description": "Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'."
+                },
+                "type": {
+                    "description": "Origin of identity mapping.",
+                    "enum": [
+                        "auto",
+                        "external",
+                        "manual"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "target"
+            ],
+            "type": "object"
+        },
         "MappingIdentity": {
             "properties": {
                 "id": {
@@ -8934,27 +8980,6 @@
             ],
             "type": "object"
         },
-        "MappingIdentityCreateParams": {
-            "description": "Specifies the properties for the identity mapping entry.",
-            "properties": {
-                "source": {
-                    "$ref": "#/definitions/GroupMember",
-                    "description": "Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'."
-                },
-                "targets": {
-                    "items": {
-                        "$ref": "#/definitions/MappingIdentityTargetCreateParams",
-                        "description": "Specifies the target identity mappings."
-                    },
-                    "type": "array"
-                }
-            },
-            "required": [
-                "source",
-                "targets"
-            ],
-            "type": "object"
-        },
         "MappingIdentityTarget": {
             "properties": {
                 "on_disk": {
@@ -8975,31 +9000,6 @@
                     "type": "string"
                 }
             },
-            "type": "object"
-        },
-        "MappingIdentityTargetCreateParams": {
-            "properties": {
-                "on_disk": {
-                    "description": "Identity is preferred on-disk.",
-                    "type": "boolean"
-                },
-                "target": {
-                    "$ref": "#/definitions/GroupMember",
-                    "description": "Specifies properties for a persona, which consists of either a 'type' and a 'name' or an 'ID'."
-                },
-                "type": {
-                    "description": "Origin of identity mapping.",
-                    "enum": [
-                        "auto",
-                        "external",
-                        "manual"
-                    ],
-                    "type": "string"
-                }
-            },
-            "required": [
-                "target"
-            ],
             "type": "object"
         },
         "MappingImport": {
@@ -9770,6 +9770,14 @@
                     "description": "Specifies the date when the object was last changed (including data and metadata changes) in HTTP date/time format.",
                     "type": "string"
                 },
+                "container": {
+                    "description": "Specifies the name of the queried container.",
+                    "type": "string"
+                },
+                "container_path": {
+                    "description": "Specifies the container path on the file system.",
+                    "type": "string"
+                },
                 "create_time": {
                     "description": "Specifies the date when the object data was created in HTTP date/time format.",
                     "type": "string"
@@ -9823,6 +9831,7 @@
                     "type": "integer"
                 },
                 "stub": {
+                    "description": "Specifies whether the file is a stub or not.",
                     "type": "boolean"
                 },
                 "type": {
@@ -29895,6 +29904,36 @@
                         "type": "string"
                     },
                     {
+                        "description": "Specifies a token to return in the JSON result to indicate when there is a next page.",
+                        "in": "query",
+                        "name": "resume",
+                        "type": "string"
+                    },
+                    {
+                        "description": "Specifies one or more attributes to sort on the directory entries.",
+                        "in": "query",
+                        "name": "sort",
+                        "type": "string"
+                    },
+                    {
+                        "description": "Specifies the sort direction. This value can be either ascending (ASC) or descending (DESC).",
+                        "in": "query",
+                        "name": "dir",
+                        "type": "string"
+                    },
+                    {
+                        "description": "Specifies the object type to return, which can be one of the following values: container, object, pipe, character_device, block_device, symbolic_link, socket, or whiteout_file.",
+                        "in": "query",
+                        "name": "type",
+                        "type": "string"
+                    },
+                    {
+                        "description": "Specifies if hidden objects are returned.",
+                        "in": "query",
+                        "name": "hidden",
+                        "type": "boolean"
+                    },
+                    {
                         "description": "Specifies the maximum directory level depth to search for objects.",
                         "in": "query",
                         "name": "max-depth",
@@ -30749,7 +30788,7 @@
             },
             "post": {
                 "description": "Manually set or modify a mapping between two personae.",
-                "operationId": "createMappingIdentity",
+                "operationId": "createMappingIdentities",
                 "parameters": [
                     {
                         "description": "Create a bi-directional mapping from source to target and target to source.",
@@ -30771,10 +30810,10 @@
                     },
                     {
                         "in": "body",
-                        "name": "MappingIdentity",
+                        "name": "MappingIdentities",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/MappingIdentityCreateParams"
+                            "$ref": "#/definitions/MappingIdentitiesCreateParams"
                         }
                     }
                 ],
