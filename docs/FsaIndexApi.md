@@ -1,4 +1,4 @@
-# isi_sdk_8_2_1.FsaIndexApi
+# isi_sdk_8_2_2.FsaIndexApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -19,17 +19,17 @@ Get a single index entry from the index table.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.FsaIndexApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.FsaIndexApi(isi_sdk_8_2_2.ApiClient(configuration))
 name_lin_id = 56 # int | Get a single index entry from the index table.
 name = 'name_example' # str | 
 path = true # bool | Resolve the path for an index entry. This query argument is invalid if an initial index job is in progress or incomplete or if an incremental index job is in progress or incomplete. (optional)
@@ -75,17 +75,17 @@ Get index entries from the given index table.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.FsaIndexApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.FsaIndexApi(isi_sdk_8_2_2.ApiClient(configuration))
 name = 'name_example' # str | 
 path = true # bool | Resolve the path for an index entry. This query argument is invalid if an initial index job is in progress or incomplete or if an incremental index job is in progress or incomplete. (optional)
 lin = [56] # list[int] | LIN of file or directory to lookup. Accepts multiple query arguments. (optional)

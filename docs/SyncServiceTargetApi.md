@@ -1,4 +1,4 @@
-# isi_sdk_8_2_1.SyncServiceTargetApi
+# isi_sdk_8_2_2.SyncServiceTargetApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -18,18 +18,18 @@ Cancel the most recent SyncIQ job for this service replication policy from the t
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.SyncServiceTargetApi(isi_sdk_8_2_1.ApiClient(configuration))
-policies_policy_cancel_item = isi_sdk_8_2_1.Empty() # Empty | 
+api_instance = isi_sdk_8_2_2.SyncServiceTargetApi(isi_sdk_8_2_2.ApiClient(configuration))
+policies_policy_cancel_item = isi_sdk_8_2_2.Empty() # Empty | 
 policy = 'policy_example' # str | 
 
 try:

@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **filters** | **list[str]** | Filtered metrics for configuring this dataset. | 
 **id** | **int** | Unique identifier for the configured dataset. | 
 **metrics** | **list[str]** | Performance metrics defining the dataset. | 
+**note** | **str** | Additional information about this dataset | [optional] 
 **statkey** | **str** | Key for use in viewing associated raw statistics under the endpoints /statistics/history and /statistics/current. | 
 **workload_count** | **int** | Number of workloads pinned to this dataset. | 
 

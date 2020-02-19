@@ -1,4 +1,4 @@
-# isi_sdk_8_2_1.FsaResultsApi
+# isi_sdk_8_2_2.FsaResultsApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -6,6 +6,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_histogram_stat_by**](FsaResultsApi.md#get_histogram_stat_by) | **GET** /platform/3/fsa/results/{Id}/histogram/{Stat}/by | 
 [**get_histogram_stat_by_breakout**](FsaResultsApi.md#get_histogram_stat_by_breakout) | **GET** /platform/3/fsa/results/{Id}/histogram/{Stat}/by/{HistogramStatByBreakout} | 
+[**get_result_dir_pools_usage**](FsaResultsApi.md#get_result_dir_pools_usage) | **GET** /platform/9/fsa/results/{Id}/dir_pools_usage | 
+[**get_result_dir_pools_usage_lin**](FsaResultsApi.md#get_result_dir_pools_usage_lin) | **GET** /platform/9/fsa/results/{Id}/dir_pools_usage/{ResultDirPoolsUsageLin} | 
 [**get_result_directories**](FsaResultsApi.md#get_result_directories) | **GET** /platform/3/fsa/results/{Id}/directories | 
 [**get_result_directory**](FsaResultsApi.md#get_result_directory) | **GET** /platform/3/fsa/results/{Id}/directories/{ResultDirectoryId} | 
 [**get_result_histogram**](FsaResultsApi.md#get_result_histogram) | **GET** /platform/3/fsa/results/{Id}/histogram | 
@@ -27,17 +29,17 @@ This resource retrieves a histogram breakout for an individual FSA result set. I
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.FsaResultsApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.FsaResultsApi(isi_sdk_8_2_2.ApiClient(configuration))
 id = 'id_example' # str | 
 stat = 'stat_example' # str | 
 
@@ -81,17 +83,17 @@ This resource retrieves a histogram breakout for an individual FSA result set. I
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.FsaResultsApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.FsaResultsApi(isi_sdk_8_2_2.ApiClient(configuration))
 histogram_stat_by_breakout = 'histogram_stat_by_breakout_example' # str | This resource retrieves a histogram breakout for an individual FSA result set. ID in the resource path is the result set ID.
 id = 'id_example' # str | 
 stat = 'stat_example' # str | 
@@ -150,8 +152,124 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_result_dir_pools_usage**
+> ResultDirPoolsUsage get_result_dir_pools_usage(id, path=path, comp_report=comp_report, storage_pool_type=storage_pool_type)
+
+
+
+ View pool usage information of a directory, classified by storage pools in response \"usage_data\". The storage pool type can be specified by query parameter \"storage_pool_type\". The directory is \"path\" query parameter. The response \"dir_usage\" is total disk usage of directory, over all pools at a given storage pool level. When path cannot be found within result, status code 404 and error message will be returned.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
+from pprint import pprint
+
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_2_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = isi_sdk_8_2_2.FsaResultsApi(isi_sdk_8_2_2.ApiClient(configuration))
+id = 'id_example' # str | 
+path = 'path_example' # str |  Directory absolute path to report usage information. Path should be UTF8 percent encoded, should be within \"/ifs\". Defaults to \"/ifs\". (optional)
+comp_report = 56 # int | Result set identifier for comparison of database results. (optional)
+storage_pool_type = 'storage_pool_type_example' # str | The type of the storage pool. (optional)
+
+try:
+    api_response = api_instance.get_result_dir_pools_usage(id, path=path, comp_report=comp_report, storage_pool_type=storage_pool_type)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling FsaResultsApi->get_result_dir_pools_usage: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**|  | 
+ **path** | **str**|  Directory absolute path to report usage information. Path should be UTF8 percent encoded, should be within \&quot;/ifs\&quot;. Defaults to \&quot;/ifs\&quot;. | [optional] 
+ **comp_report** | **int**| Result set identifier for comparison of database results. | [optional] 
+ **storage_pool_type** | **str**| The type of the storage pool. | [optional] 
+
+### Return type
+
+[**ResultDirPoolsUsage**](ResultDirPoolsUsage.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_result_dir_pools_usage_lin**
+> ResultDirPoolsUsage get_result_dir_pools_usage_lin(result_dir_pools_usage_lin, id, comp_report=comp_report, storage_pool_type=storage_pool_type)
+
+
+
+ View pool usage information of a directory, classified by storage pools in response \"usage_data\". The storage pool type can be specified by query parameter \"storage_pool_type\". The directory is LIN token of URI. The response \"dir_usage\" is total disk usage of directory, over all pools at a given storage pool level. When LIN cannot be found within result, status code 404 and error message will be returned.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
+from pprint import pprint
+
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_2_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = isi_sdk_8_2_2.FsaResultsApi(isi_sdk_8_2_2.ApiClient(configuration))
+result_dir_pools_usage_lin = 56 # int |  View pool usage information of a directory, classified by storage pools in response \"usage_data\". The storage pool type can be specified by query parameter \"storage_pool_type\". The directory is LIN token of URI. The response \"dir_usage\" is total disk usage of directory, over all pools at a given storage pool level. When LIN cannot be found within result, status code 404 and error message will be returned.
+id = 'id_example' # str | 
+comp_report = 56 # int | Result set identifier for comparison of database results. (optional)
+storage_pool_type = 'storage_pool_type_example' # str | The type of the storage pool. (optional)
+
+try:
+    api_response = api_instance.get_result_dir_pools_usage_lin(result_dir_pools_usage_lin, id, comp_report=comp_report, storage_pool_type=storage_pool_type)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling FsaResultsApi->get_result_dir_pools_usage_lin: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **result_dir_pools_usage_lin** | **int**|  View pool usage information of a directory, classified by storage pools in response \&quot;usage_data\&quot;. The storage pool type can be specified by query parameter \&quot;storage_pool_type\&quot;. The directory is LIN token of URI. The response \&quot;dir_usage\&quot; is total disk usage of directory, over all pools at a given storage pool level. When LIN cannot be found within result, status code 404 and error message will be returned. | 
+ **id** | **str**|  | 
+ **comp_report** | **int**| Result set identifier for comparison of database results. | [optional] 
+ **storage_pool_type** | **str**| The type of the storage pool. | [optional] 
+
+### Return type
+
+[**ResultDirPoolsUsage**](ResultDirPoolsUsage.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_result_directories**
-> ResultDirectories get_result_directories(id, sort=sort, path=path, limit=limit, comp_report=comp_report, dir=dir)
+> ResultDirectoriesExtended get_result_directories(id, sort=sort, path=path, limit=limit, comp_report=comp_report, dir=dir)
 
 
 
@@ -161,17 +279,17 @@ This resource retrieves directory information. ID in the resource path is the re
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.FsaResultsApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.FsaResultsApi(isi_sdk_8_2_2.ApiClient(configuration))
 id = 'id_example' # str | 
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 path = 'path_example' # str | Primary directory path to report usage information, which may be specified instead of a LIN. (optional)
@@ -199,7 +317,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResultDirectories**](ResultDirectories.md)
+[**ResultDirectoriesExtended**](ResultDirectoriesExtended.md)
 
 ### Authorization
 
@@ -223,17 +341,17 @@ This resource retrieves directory information. ID in the resource path is the re
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.FsaResultsApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.FsaResultsApi(isi_sdk_8_2_2.ApiClient(configuration))
 result_directory_id = 56 # int | This resource retrieves directory information. ID in the resource path is the result set ID.
 id = 'id_example' # str | 
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
@@ -285,17 +403,17 @@ This resource retrieves a histogram of file counts for an individual FSA result 
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.FsaResultsApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.FsaResultsApi(isi_sdk_8_2_2.ApiClient(configuration))
 id = 'id_example' # str | 
 
 try:
@@ -337,17 +455,17 @@ This resource retrieves a histogram of file counts for an individual FSA result 
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.FsaResultsApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.FsaResultsApi(isi_sdk_8_2_2.ApiClient(configuration))
 result_histogram_stat = 'result_histogram_stat_example' # str | This resource retrieves a histogram of file counts for an individual FSA result set. ID in the resource path is the result set ID.
 id = 'id_example' # str | 
 directory_filter = 'directory_filter_example' # str | Filter according to a specific directory, which includes all of its subdirectories. (optional)
@@ -413,17 +531,17 @@ This resource retrieves the top directories. ID in the resource path is the resu
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.FsaResultsApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.FsaResultsApi(isi_sdk_8_2_2.ApiClient(configuration))
 result_top_dir_id = 'result_top_dir_id_example' # str | This resource retrieves the top directories. ID in the resource path is the result set ID.
 id = 'id_example' # str | 
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
@@ -477,17 +595,17 @@ This resource retrieves the top directories. ID in the resource path is the resu
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.FsaResultsApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.FsaResultsApi(isi_sdk_8_2_2.ApiClient(configuration))
 id = 'id_example' # str | 
 
 try:
@@ -529,17 +647,17 @@ This resource retrieves the top files. ID in the resource path is the result set
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.FsaResultsApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.FsaResultsApi(isi_sdk_8_2_2.ApiClient(configuration))
 result_top_file_id = 'result_top_file_id_example' # str | This resource retrieves the top files. ID in the resource path is the result set ID.
 id = 'id_example' # str | 
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
@@ -593,17 +711,17 @@ This resource retrieves the top files. ID in the resource path is the result set
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.FsaResultsApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.FsaResultsApi(isi_sdk_8_2_2.ApiClient(configuration))
 id = 'id_example' # str | 
 
 try:

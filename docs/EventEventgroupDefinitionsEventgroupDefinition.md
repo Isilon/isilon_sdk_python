@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **description** | **str** | Human readable description - may contain value placeholders. | [optional] 
 **id** | **str** | Unique Identifier. | [optional] 
 **name** | **str** | Name for eventgroup. | [optional] 
+**no_ignore** | **bool** | True if event should not be ignored. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

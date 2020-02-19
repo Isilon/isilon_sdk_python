@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **used_bytes** | **str** | Used bytes in the pool. | [optional] 
 **used_hdd_bytes** | **str** | Used bytes in the pool on HDD drives. | 
 **used_ssd_bytes** | **str** | Used bytes in the pool on SSD drives. | 
-**virtual_hot_spare_bytes** | **str** |  | [optional] 
+**virtual_hot_spare_bytes** | **str** | Bytes reserved for virtual hot spare in the pool. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

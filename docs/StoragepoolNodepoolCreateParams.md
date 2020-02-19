@@ -3,9 +3,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**assess** | **bool** | Test that the action is possible | [optional] 
 **l3** | **bool** | Use SSDs in this node pool for L3 cache. | [optional] 
-**lnns** | **list[int]** | The nodes that are part of this node pool. | 
+**lnns** | **list[int]** | The node membership change requested for this node pool. | 
 **name** | **str** | The node pool name. | 
+**node_type_ids** | **list[int]** | The node types that are part of this pool. | [optional] 
 **protection_policy** | **str** | The node pool protection policy. | [optional] 
 **tier** | **str** | The name or ID of the node pool&#39;s tier, if it is in a tier. | [optional] 
 

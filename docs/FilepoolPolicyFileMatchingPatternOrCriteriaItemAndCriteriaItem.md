@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **attribute_exists** | **bool** | Indicates whether the existence of an attribute indicates a match (valid only with &#39;type&#39; &#x3D; &#39;custom_attribute&#39;) | [optional] 
-**begins_with** | **bool** | True to match files recursively under the given path. (valid only with &#39;type&#39; &#x3D; &#39;path&#39;) | [optional] 
+**begins_with** | **bool** | True to match the path exactly, False to match any subtree. (valid only with &#39;type&#39; &#x3D; &#39;path&#39;) | [optional] 
 **case_sensitive** | **bool** | True to indicate case sensitivity when comparing file attributes (valid only with &#39;type&#39; &#x3D; &#39;name&#39; or &#39;type&#39; &#x3D; &#39;path&#39;) | [optional] 
 **field** | **str** | File attribute field name to be compared in a custom comparison (valid only with &#39;type&#39; &#x3D; &#39;custom_attribute&#39;) | [optional] 
 **operator** | **str** | The comparison operator to use while comparing an attribute with its value | [optional] 

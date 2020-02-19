@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**export_id** | **float** | NFS export ID | [optional] 
 **groupname** | **str** | groupname | [optional] 
 **job_type** | **str** | The job type. | [optional] 
 **local_address** | **str** | Local IPv4, IPv6 address, address range, or subnet. | [optional] 

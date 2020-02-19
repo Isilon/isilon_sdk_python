@@ -1,4 +1,4 @@
-# isi_sdk_8_2_1.IdResolutionApi
+# isi_sdk_8_2_2.IdResolutionApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -23,17 +23,17 @@ List domain to path mappings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.IdResolutionApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.IdResolutionApi(isi_sdk_8_2_2.ApiClient(configuration))
 id_resolution_domain_id = 'id_resolution_domain_id_example' # str | List domain to path mappings.
 
 try:
@@ -75,17 +75,17 @@ List domain to path mappings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.IdResolutionApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.IdResolutionApi(isi_sdk_8_2_2.ApiClient(configuration))
 domains = 'domains_example' # str | A comma separated list specifying the domains that will be mapped with a path. Only the domains specified in this list will be mapped. (optional)
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
@@ -125,7 +125,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_id_resolution_lin**
-> IdResolutionDomains get_id_resolution_lin(id_resolution_lin_id)
+> IdResolutionLins get_id_resolution_lin(id_resolution_lin_id)
 
 
 
@@ -135,17 +135,17 @@ List lin to path mappings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.IdResolutionApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.IdResolutionApi(isi_sdk_8_2_2.ApiClient(configuration))
 id_resolution_lin_id = 56 # int | List lin to path mappings.
 
 try:
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**IdResolutionDomains**](IdResolutionDomains.md)
+[**IdResolutionLins**](IdResolutionLins.md)
 
 ### Authorization
 
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_id_resolution_lins**
-> IdResolutionDomainsExtended get_id_resolution_lins(sort=sort, lins=lins, limit=limit, dir=dir, resume=resume)
+> IdResolutionLinsExtended get_id_resolution_lins(sort=sort, lins=lins, limit=limit, dir=dir, resume=resume)
 
 
 
@@ -187,17 +187,17 @@ List lin to path mappings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.IdResolutionApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.IdResolutionApi(isi_sdk_8_2_2.ApiClient(configuration))
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 lins = 'lins_example' # str | A comma separated list specifying the lins that will be mapped with a path. Only the lins specified in this list will be mapped. (optional)
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
@@ -223,7 +223,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**IdResolutionDomainsExtended**](IdResolutionDomainsExtended.md)
+[**IdResolutionLinsExtended**](IdResolutionLinsExtended.md)
 
 ### Authorization
 
@@ -247,17 +247,17 @@ List zone id to zone name mappings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.IdResolutionApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.IdResolutionApi(isi_sdk_8_2_2.ApiClient(configuration))
 id_resolution_zone_id = 'id_resolution_zone_id_example' # str | List zone id to zone name mappings.
 
 try:
@@ -299,17 +299,17 @@ List zone id to zone name mappings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.IdResolutionApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.IdResolutionApi(isi_sdk_8_2_2.ApiClient(configuration))
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
 zone_ids = 'zone_ids_example' # str | A comma separated list specifying the zone IDs to map with a zone name. (optional)

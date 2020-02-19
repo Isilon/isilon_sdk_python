@@ -1,4 +1,4 @@
-# isi_sdk_8_2_1.FileFilterApi
+# isi_sdk_8_2_2.FileFilterApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -19,17 +19,17 @@ View File Filtering settings of an access zone
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.FileFilterApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.FileFilterApi(isi_sdk_8_2_2.ApiClient(configuration))
 zone = 'zone_example' # str | Specifies the access zones in which these settings apply. (optional)
 
 try:
@@ -71,18 +71,18 @@ Modify one or more File Filtering settings for an access zone
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.FileFilterApi(isi_sdk_8_2_1.ApiClient(configuration))
-file_filter_settings = isi_sdk_8_2_1.FileFilterSettingsExtended() # FileFilterSettingsExtended | 
+api_instance = isi_sdk_8_2_2.FileFilterApi(isi_sdk_8_2_2.ApiClient(configuration))
+file_filter_settings = isi_sdk_8_2_2.FileFilterSettingsExtended() # FileFilterSettingsExtended | 
 zone = 'zone_example' # str | Specifies the access zones in which these settings apply. (optional)
 
 try:

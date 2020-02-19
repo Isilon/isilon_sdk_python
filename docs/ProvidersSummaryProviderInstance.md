@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **name** | **str** | Specifies the name of the provider. | [optional] 
 **status** | **str** | Indicates the status of the provider. | [optional] 
 **type** | **str** | Specifies the type of provider. | [optional] 
+**zone_name** | **str** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **lnns** | **list[int]** | The nodes that are part of this pool. | 
 **manual** | **bool** | Whether or not the node pool is manually managed. | [optional] 
 **name** | **str** | The pool name. | 
+**node_type_ids** | **list[int]** | The node types that are part of this pool. | 
 **protection_policy** | **str** | The underlying protection policy. | [optional] 
 **type** | **str** | The pool type. | 
 **usage** | [**StoragepoolTierUsage**](StoragepoolTierUsage.md) | Total pool usage. | 

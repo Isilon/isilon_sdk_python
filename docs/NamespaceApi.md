@@ -1,4 +1,4 @@
-# isi_sdk_8_2_1.NamespaceApi
+# isi_sdk_8_2_2.NamespaceApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -8,20 +8,24 @@ Method | HTTP request | Description
 [**copy_file**](NamespaceApi.md#copy_file) | **PUT** /namespace/{FileCopyTarget} | 
 [**create_access_point**](NamespaceApi.md#create_access_point) | **PUT** /namespace/{AccessPointName} | 
 [**create_directory**](NamespaceApi.md#create_directory) | **PUT** /namespace/{DirectoryPath} | 
+[**create_directory_with_access_point_container_path**](NamespaceApi.md#create_directory_with_access_point_container_path) | **PUT** /namespace/{AccessPoint}/{ContainerPath} | 
 [**create_file**](NamespaceApi.md#create_file) | **PUT** /namespace/{FilePath} | 
 [**delete_access_point**](NamespaceApi.md#delete_access_point) | **DELETE** /namespace/{AccessPointName} | 
 [**delete_directory**](NamespaceApi.md#delete_directory) | **DELETE** /namespace/{DirectoryPath} | 
+[**delete_directory_with_access_point_container_path**](NamespaceApi.md#delete_directory_with_access_point_container_path) | **DELETE** /namespace/{AccessPoint}/{ContainerPath} | 
 [**delete_file**](NamespaceApi.md#delete_file) | **DELETE** /namespace/{FilePath} | 
 [**get_acl**](NamespaceApi.md#get_acl) | **GET** /namespace/{NamespacePath} | 
 [**get_directory_attributes**](NamespaceApi.md#get_directory_attributes) | **HEAD** /namespace/{DirectoryPath} | 
 [**get_directory_contents**](NamespaceApi.md#get_directory_contents) | **GET** /namespace/{DirectoryPath} | 
 [**get_directory_metadata**](NamespaceApi.md#get_directory_metadata) | **GET** /namespace/{DirectoryMetadataPath} | 
+[**get_directory_with_access_point_container_path**](NamespaceApi.md#get_directory_with_access_point_container_path) | **GET** /namespace/{AccessPoint}/{ContainerPath} | 
 [**get_file_attributes**](NamespaceApi.md#get_file_attributes) | **HEAD** /namespace/{FilePath} | 
 [**get_file_contents**](NamespaceApi.md#get_file_contents) | **GET** /namespace/{FilePath} | 
 [**get_file_metadata**](NamespaceApi.md#get_file_metadata) | **GET** /namespace/{FileMetadataPath} | 
 [**get_worm_properties**](NamespaceApi.md#get_worm_properties) | **GET** /namespace/{WormFilePath} | 
 [**list_access_points**](NamespaceApi.md#list_access_points) | **GET** /namespace | 
 [**move_directory**](NamespaceApi.md#move_directory) | **POST** /namespace/{DirectoryPath} | 
+[**move_directory_with_access_point_container_path**](NamespaceApi.md#move_directory_with_access_point_container_path) | **POST** /namespace/{AccessPoint}/{ContainerPath} | 
 [**move_file**](NamespaceApi.md#move_file) | **POST** /namespace/{FilePath} | 
 [**query_directory**](NamespaceApi.md#query_directory) | **POST** /namespace/{QueryPath} | 
 [**set_acl**](NamespaceApi.md#set_acl) | **PUT** /namespace/{NamespacePath} | 
@@ -41,17 +45,17 @@ Recursively copies a directory to a specified destination path. Symbolic links a
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.NamespaceApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.NamespaceApi(isi_sdk_8_2_2.ApiClient(configuration))
 directory_copy_target = 'directory_copy_target_example' # str | Directory copy destination relative to /.
 x_isi_ifs_copy_source = 'x_isi_ifs_copy_source_example' # str | Specifies the full path to the source directory.
 overwrite = true # bool | Deletes and replaces the existing user attributes and ACLs of the directory with user-specified attributes and ACLS from the header, when set to true. (optional)
@@ -101,17 +105,17 @@ Copies a file to the specified destination path.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.NamespaceApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.NamespaceApi(isi_sdk_8_2_2.ApiClient(configuration))
 file_copy_target = 'file_copy_target_example' # str | File copy destination relative to /.
 x_isi_ifs_copy_source = 'x_isi_ifs_copy_source_example' # str | Specifies the full path to the source file.
 clone = true # bool | You must set this parameter to true in order to clone a file. (optional)
@@ -161,19 +165,19 @@ Creates a namespace access point in the file system. Only root users can create 
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.NamespaceApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.NamespaceApi(isi_sdk_8_2_2.ApiClient(configuration))
 access_point_name = 'access_point_name_example' # str | Access point name.
-access_point = isi_sdk_8_2_1.AccessPointCreateParams() # AccessPointCreateParams | Access point parameters model.
+access_point = isi_sdk_8_2_2.AccessPointCreateParams() # AccessPointCreateParams | Access point parameters model.
 
 try:
     api_response = api_instance.create_access_point(access_point_name, access_point)
@@ -215,17 +219,17 @@ Creates a directory with a specified path.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.NamespaceApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.NamespaceApi(isi_sdk_8_2_2.ApiClient(configuration))
 directory_path = 'directory_path_example' # str | Directory path relative to /.
 x_isi_ifs_target_type = 'container' # str | Specifies the resource type. (default to container)
 x_isi_ifs_access_control = '0700' # str | Specifies a pre-defined ACL value or POSIX mode with a string in octal string format. (optional) (default to 0700)
@@ -266,6 +270,70 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **create_directory_with_access_point_container_path**
+> Empty create_directory_with_access_point_container_path(access_point, container_path, x_isi_ifs_target_type, x_isi_ifs_access_control=x_isi_ifs_access_control, x_isi_ifs_node_pool_name=x_isi_ifs_node_pool_name, recursive=recursive, overwrite=overwrite)
+
+
+
+Creates a directory with a specified accesspoint and container path.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
+from pprint import pprint
+
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_2_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = isi_sdk_8_2_2.NamespaceApi(isi_sdk_8_2_2.ApiClient(configuration))
+access_point = 'access_point_example' # str | Access point.
+container_path = 'container_path_example' # str | Directory path relative to access point.
+x_isi_ifs_target_type = 'container' # str | Specifies the resource type. (default to container)
+x_isi_ifs_access_control = '0700' # str | Specifies a pre-defined ACL value or POSIX mode with a string in octal string format. (optional) (default to 0700)
+x_isi_ifs_node_pool_name = 'x_isi_ifs_node_pool_name_example' # str | Specifies a pre-defined ACL value or POSIX mode with a string. (optional)
+recursive = true # bool | Specifies the OneFS node pool name. (optional)
+overwrite = true # bool | Deletes and replaces the existing user attributes and ACLs of the directory with user-specified attributes and ACLS from the header, when set to true. (optional)
+
+try:
+    api_response = api_instance.create_directory_with_access_point_container_path(access_point, container_path, x_isi_ifs_target_type, x_isi_ifs_access_control=x_isi_ifs_access_control, x_isi_ifs_node_pool_name=x_isi_ifs_node_pool_name, recursive=recursive, overwrite=overwrite)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling NamespaceApi->create_directory_with_access_point_container_path: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **access_point** | **str**| Access point. | 
+ **container_path** | **str**| Directory path relative to access point. | 
+ **x_isi_ifs_target_type** | **str**| Specifies the resource type. | [default to container]
+ **x_isi_ifs_access_control** | **str**| Specifies a pre-defined ACL value or POSIX mode with a string in octal string format. | [optional] [default to 0700]
+ **x_isi_ifs_node_pool_name** | **str**| Specifies a pre-defined ACL value or POSIX mode with a string. | [optional] 
+ **recursive** | **bool**| Specifies the OneFS node pool name. | [optional] 
+ **overwrite** | **bool**| Deletes and replaces the existing user attributes and ACLs of the directory with user-specified attributes and ACLS from the header, when set to true. | [optional] 
+
+### Return type
+
+[**Empty**](Empty.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **create_file**
 > Empty create_file(file_path, x_isi_ifs_target_type, file_contents, x_isi_ifs_access_control=x_isi_ifs_access_control, content_encoding=content_encoding, content_type=content_type, overwrite=overwrite)
 
@@ -277,17 +345,17 @@ Creates a file object with a given path. Note that file streaming is not support
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.NamespaceApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.NamespaceApi(isi_sdk_8_2_2.ApiClient(configuration))
 file_path = 'file_path_example' # str | File path relative to /.
 x_isi_ifs_target_type = 'object' # str | Specifies the resource type. (default to object)
 file_contents = 'file_contents_example' # str | The contents of the file object.
@@ -341,17 +409,17 @@ Deletes a namespace access point. Only root users can delete namespace access po
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.NamespaceApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.NamespaceApi(isi_sdk_8_2_2.ApiClient(configuration))
 access_point_name = 'access_point_name_example' # str | Access point name.
 
 try:
@@ -393,17 +461,17 @@ Deletes the directory at the specified path.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.NamespaceApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.NamespaceApi(isi_sdk_8_2_2.ApiClient(configuration))
 directory_path = 'directory_path_example' # str | Directory path relative to /.
 recursive = true # bool | Deletes directories recursively, when set to true. (optional)
 
@@ -436,6 +504,62 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **delete_directory_with_access_point_container_path**
+> Empty delete_directory_with_access_point_container_path(access_point, container_path, recursive=recursive)
+
+
+
+Deletes the directory at the specified path.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
+from pprint import pprint
+
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_2_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = isi_sdk_8_2_2.NamespaceApi(isi_sdk_8_2_2.ApiClient(configuration))
+access_point = 'access_point_example' # str | Access point.
+container_path = 'container_path_example' # str | Directory path relative to access point.
+recursive = true # bool | Deletes directories recursively, when set to true. (optional)
+
+try:
+    api_response = api_instance.delete_directory_with_access_point_container_path(access_point, container_path, recursive=recursive)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling NamespaceApi->delete_directory_with_access_point_container_path: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **access_point** | **str**| Access point. | 
+ **container_path** | **str**| Directory path relative to access point. | 
+ **recursive** | **bool**| Deletes directories recursively, when set to true. | [optional] 
+
+### Return type
+
+[**Empty**](Empty.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **delete_file**
 > Empty delete_file(file_path)
 
@@ -447,17 +571,17 @@ Deletes the specified file.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.NamespaceApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.NamespaceApi(isi_sdk_8_2_2.ApiClient(configuration))
 file_path = 'file_path_example' # str | File path relative to /.
 
 try:
@@ -499,17 +623,17 @@ Retrieves the access control list for a namespace object.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.NamespaceApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.NamespaceApi(isi_sdk_8_2_2.ApiClient(configuration))
 namespace_path = 'namespace_path_example' # str | Namespace path relative to /.
 acl = true # bool | Show access control lists.
 nsaccess = true # bool | Indicates that the operation is on the access point instead of the store path. (optional)
@@ -555,17 +679,17 @@ Retrieves the attribute information for a specified directory without transferri
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.NamespaceApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.NamespaceApi(isi_sdk_8_2_2.ApiClient(configuration))
 directory_path = 'directory_path_example' # str | Directory path relative to /.
 if_modified_since = 'if_modified_since_example' # str | Returns only files that were modified since the specified time. If no files were modified since this time, a 304 message is returned. (optional)
 if_unmodified_since = 'if_unmodified_since_example' # str | Returns only files that were not modified since the specified time. If there are no unmodified files since this time, a 412 message is returned to indicate that the precondition failed. (optional)
@@ -611,17 +735,17 @@ Retrieves a list of files and subdirectories from a directory.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.NamespaceApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.NamespaceApi(isi_sdk_8_2_2.ApiClient(configuration))
 directory_path = 'directory_path_example' # str | Directory path relative to /.
 detail = 'detail_example' # str | Specifies which object attributes are displayed. (optional)
 limit = 56 # int | Specifies the maximum number of objects to send to the client. (optional)
@@ -677,17 +801,17 @@ Retrieves the attribute information for a specified directory with the metadata 
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.NamespaceApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.NamespaceApi(isi_sdk_8_2_2.ApiClient(configuration))
 directory_metadata_path = 'directory_metadata_path_example' # str | Directory path relative to /.
 metadata = true # bool | Show directory metadata.
 
@@ -720,6 +844,74 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_directory_with_access_point_container_path**
+> NamespaceObjects get_directory_with_access_point_container_path(access_point, container_path, detail=detail, limit=limit, resume=resume, sort=sort, dir=dir, type=type, hidden=hidden)
+
+
+
+Retrieves a list of files and subdirectories from a directory.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
+from pprint import pprint
+
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_2_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = isi_sdk_8_2_2.NamespaceApi(isi_sdk_8_2_2.ApiClient(configuration))
+access_point = 'access_point_example' # str | Access point.
+container_path = 'container_path_example' # str | Container path relative to access point.
+detail = 'detail_example' # str | Specifies which object attributes are displayed. (optional)
+limit = 56 # int | Specifies the maximum number of objects to send to the client. (optional)
+resume = 'resume_example' # str | Specifies a token to return in the JSON result to indicate when there is a next page. (optional)
+sort = 'sort_example' # str | Specifies one or more attributes to sort on the directory entries. (optional)
+dir = 'dir_example' # str | Specifies the sort direction. This value can be either ascending (ASC) or descending (DESC). (optional)
+type = 'type_example' # str | Specifies the object type to return, which can be one of the following values: container, object, pipe, character_device, block_device, symbolic_link, socket, or whiteout_file. (optional)
+hidden = true # bool | Specifies if hidden objects are returned. (optional)
+
+try:
+    api_response = api_instance.get_directory_with_access_point_container_path(access_point, container_path, detail=detail, limit=limit, resume=resume, sort=sort, dir=dir, type=type, hidden=hidden)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling NamespaceApi->get_directory_with_access_point_container_path: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **access_point** | **str**| Access point. | 
+ **container_path** | **str**| Container path relative to access point. | 
+ **detail** | **str**| Specifies which object attributes are displayed. | [optional] 
+ **limit** | **int**| Specifies the maximum number of objects to send to the client. | [optional] 
+ **resume** | **str**| Specifies a token to return in the JSON result to indicate when there is a next page. | [optional] 
+ **sort** | **str**| Specifies one or more attributes to sort on the directory entries. | [optional] 
+ **dir** | **str**| Specifies the sort direction. This value can be either ascending (ASC) or descending (DESC). | [optional] 
+ **type** | **str**| Specifies the object type to return, which can be one of the following values: container, object, pipe, character_device, block_device, symbolic_link, socket, or whiteout_file. | [optional] 
+ **hidden** | **bool**| Specifies if hidden objects are returned. | [optional] 
+
+### Return type
+
+[**NamespaceObjects**](NamespaceObjects.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_file_attributes**
 > Empty get_file_attributes(file_path, if_modified_since=if_modified_since, if_unmodified_since=if_unmodified_since)
 
@@ -731,17 +923,17 @@ Retrieves the attribute information for a specified file.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.NamespaceApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.NamespaceApi(isi_sdk_8_2_2.ApiClient(configuration))
 file_path = 'file_path_example' # str | File path relative to /.
 if_modified_since = 'if_modified_since_example' # str | Returns only files that were modified since the specified time. If no files were modified since this time, a 304 message is returned. (optional)
 if_unmodified_since = 'if_unmodified_since_example' # str | Returns only files that were not modified since the specified time. If there are no unmodified files since this time, a 412 message is returned to indicate that the precondition failed. (optional)
@@ -787,17 +979,17 @@ Retrieves the contents of a file from a specified path. Note that file streaming
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.NamespaceApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.NamespaceApi(isi_sdk_8_2_2.ApiClient(configuration))
 file_path = 'file_path_example' # str | File path relative to /.
 range = 'range_example' # str | Returns the specified range bytes of an object.  (optional)
 if_modified_since = 'if_modified_since_example' # str | Returns only files that were modified since the specified time. If no files were modified since this time, a 304 message is returned. (optional)
@@ -845,17 +1037,17 @@ Retrieves the attribute information for a specified file with the metadata query
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.NamespaceApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.NamespaceApi(isi_sdk_8_2_2.ApiClient(configuration))
 file_metadata_path = 'file_metadata_path_example' # str | File path relative to /.
 metadata = true # bool | Show file metadata.
 
@@ -899,17 +1091,17 @@ Retrieves the WORM retention date and committed state of the file.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.NamespaceApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.NamespaceApi(isi_sdk_8_2_2.ApiClient(configuration))
 worm_file_path = 'worm_file_path_example' # str | Write once read many file path relative to /.
 worm = true # bool | View WORM properties
 
@@ -953,17 +1145,17 @@ Retrieves the namespace access points available for the authenticated user.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.NamespaceApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.NamespaceApi(isi_sdk_8_2_2.ApiClient(configuration))
 versions = true # bool | Protocol versions that are supported for the current namespace access server. (optional)
 
 try:
@@ -1005,17 +1197,17 @@ Moves a directory from an existing source to a new destination path.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.NamespaceApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.NamespaceApi(isi_sdk_8_2_2.ApiClient(configuration))
 directory_path = 'directory_path_example' # str | Directory path relative to /.
 x_isi_ifs_set_location = 'x_isi_ifs_set_location_example' # str | Specifies the full path for the destination directory.
 
@@ -1048,6 +1240,62 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **move_directory_with_access_point_container_path**
+> Empty move_directory_with_access_point_container_path(access_point, container_path, x_isi_ifs_set_location)
+
+
+
+Moves a directory from an existing source to a new destination path.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
+from pprint import pprint
+
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_2_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = isi_sdk_8_2_2.NamespaceApi(isi_sdk_8_2_2.ApiClient(configuration))
+access_point = 'access_point_example' # str | Access point.
+container_path = 'container_path_example' # str | Directory path relative to access point.
+x_isi_ifs_set_location = 'x_isi_ifs_set_location_example' # str | Specifies the full path for the destination directory.
+
+try:
+    api_response = api_instance.move_directory_with_access_point_container_path(access_point, container_path, x_isi_ifs_set_location)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling NamespaceApi->move_directory_with_access_point_container_path: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **access_point** | **str**| Access point. | 
+ **container_path** | **str**| Directory path relative to access point. | 
+ **x_isi_ifs_set_location** | **str**| Specifies the full path for the destination directory. | 
+
+### Return type
+
+[**Empty**](Empty.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **move_file**
 > Empty move_file(file_path, x_isi_ifs_set_location)
 
@@ -1059,17 +1307,17 @@ Moves a file to a destination path that does not yet exist.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.NamespaceApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.NamespaceApi(isi_sdk_8_2_2.ApiClient(configuration))
 file_path = 'file_path_example' # str | File path relative to /.
 x_isi_ifs_set_location = 'x_isi_ifs_set_location_example' # str | Specifies the full path for the destination file. 
 
@@ -1113,20 +1361,20 @@ Query objects by system-defined and user-defined attributes in a directory.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.NamespaceApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.NamespaceApi(isi_sdk_8_2_2.ApiClient(configuration))
 query_path = 'query_path_example' # str | Directory path relative to /.
 query = true # bool | Enable directory query.
-directory_query = isi_sdk_8_2_1.DirectoryQuery() # DirectoryQuery | Directory query parameters model.
+directory_query = isi_sdk_8_2_2.DirectoryQuery() # DirectoryQuery | Directory query parameters model.
 limit = 56 # int | Specifies the maximum number of objects to send to the client. You can set the value to a negative number to retrieve all objects. (optional)
 detail = 'detail_example' # str | Specifies which object attributes are displayed. If the detail parameter is excluded, only the name of the object is returned. (optional)
 resume = 'resume_example' # str | Specifies a token to return in the JSON result to indicate when there is a next page. (optional)
@@ -1185,20 +1433,20 @@ Sets the access control list for a namespace.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.NamespaceApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.NamespaceApi(isi_sdk_8_2_2.ApiClient(configuration))
 namespace_path = 'namespace_path_example' # str | Namespace path relative to /.
 acl = true # bool | Update access control lists.
-namespace_acl = isi_sdk_8_2_1.NamespaceAcl() # NamespaceAcl | Namespace ACL parameters model.
+namespace_acl = isi_sdk_8_2_2.NamespaceAcl() # NamespaceAcl | Namespace ACL parameters model.
 nsaccess = true # bool | Indicates that the operation is on the access point instead of the store path. (optional)
 
 try:
@@ -1243,20 +1491,20 @@ Sets attributes on a specified directory with the metadata query argument.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.NamespaceApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.NamespaceApi(isi_sdk_8_2_2.ApiClient(configuration))
 directory_metadata_path = 'directory_metadata_path_example' # str | Directory path relative to /.
 metadata = true # bool | Set directory metadata.
-directory_metadata = isi_sdk_8_2_1.NamespaceMetadata() # NamespaceMetadata | Directory metadata parameters model.
+directory_metadata = isi_sdk_8_2_2.NamespaceMetadata() # NamespaceMetadata | Directory metadata parameters model.
 
 try:
     api_response = api_instance.set_directory_metadata(directory_metadata_path, metadata, directory_metadata)
@@ -1299,20 +1547,20 @@ Sets attributes on a specified file with the metadata query argument through the
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.NamespaceApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.NamespaceApi(isi_sdk_8_2_2.ApiClient(configuration))
 file_metadata_path = 'file_metadata_path_example' # str | File path relative to /.
 metadata = true # bool | Set file metadata.
-file_metadata = isi_sdk_8_2_1.NamespaceMetadata() # NamespaceMetadata | File metadata parameters model.
+file_metadata = isi_sdk_8_2_2.NamespaceMetadata() # NamespaceMetadata | File metadata parameters model.
 
 try:
     api_response = api_instance.set_file_metadata(file_metadata_path, metadata, file_metadata)
@@ -1355,20 +1603,20 @@ Sets the retention period and commits a file in a SmartLock directory.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.NamespaceApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.NamespaceApi(isi_sdk_8_2_2.ApiClient(configuration))
 worm_file_path = 'worm_file_path_example' # str | Write once read many file path relative to /.
 worm = true # bool | View WORM properties
-worm_properties = isi_sdk_8_2_1.WormCreateParams() # WormCreateParams | WORM parameters model.
+worm_properties = isi_sdk_8_2_2.WormCreateParams() # WormCreateParams | WORM parameters model.
 
 try:
     api_response = api_instance.set_worm_properties(worm_file_path, worm, worm_properties)

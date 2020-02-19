@@ -1,4 +1,4 @@
-# isi_sdk_8_2_1.QuotaApi
+# isi_sdk_8_2_2.QuotaApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -43,18 +43,18 @@ Create a new quota.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.QuotaApi(isi_sdk_8_2_1.ApiClient(configuration))
-quota_quota = isi_sdk_8_2_1.QuotaQuotaCreateParams() # QuotaQuotaCreateParams | 
+api_instance = isi_sdk_8_2_2.QuotaApi(isi_sdk_8_2_2.ApiClient(configuration))
+quota_quota = isi_sdk_8_2_2.QuotaQuotaCreateParams() # QuotaQuotaCreateParams | 
 zone = 'zone_example' # str | Optional named zone to use for user and group resolution. (optional)
 
 try:
@@ -97,18 +97,18 @@ Create a new report. The type of this report is 'manual'; it is also sometimes c
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.QuotaApi(isi_sdk_8_2_1.ApiClient(configuration))
-quota_report = isi_sdk_8_2_1.Empty() # Empty | 
+api_instance = isi_sdk_8_2_2.QuotaApi(isi_sdk_8_2_2.ApiClient(configuration))
+quota_report = isi_sdk_8_2_2.Empty() # Empty | 
 
 try:
     api_response = api_instance.create_quota_report(quota_report)
@@ -149,18 +149,18 @@ Create a new rule. The new rule must not conflict with an existing rule (e.g. ma
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.QuotaApi(isi_sdk_8_2_1.ApiClient(configuration))
-settings_mapping = isi_sdk_8_2_1.SettingsMappingCreateParams() # SettingsMappingCreateParams | 
+api_instance = isi_sdk_8_2_2.QuotaApi(isi_sdk_8_2_2.ApiClient(configuration))
+settings_mapping = isi_sdk_8_2_2.SettingsMappingCreateParams() # SettingsMappingCreateParams | 
 
 try:
     api_response = api_instance.create_settings_mapping(settings_mapping)
@@ -201,18 +201,18 @@ Create a new global notification rule.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.QuotaApi(isi_sdk_8_2_1.ApiClient(configuration))
-settings_notification = isi_sdk_8_2_1.QuotaNotificationCreateParams() # QuotaNotificationCreateParams | 
+api_instance = isi_sdk_8_2_2.QuotaApi(isi_sdk_8_2_2.ApiClient(configuration))
+settings_notification = isi_sdk_8_2_2.QuotaNotificationCreateParams() # QuotaNotificationCreateParams | 
 
 try:
     api_response = api_instance.create_settings_notification(settings_notification)
@@ -253,17 +253,17 @@ Delete the quota.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.QuotaApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.QuotaApi(isi_sdk_8_2_2.ApiClient(configuration))
 quota_quota_id = 'quota_quota_id_example' # str | Delete the quota.
 
 try:
@@ -304,17 +304,17 @@ Delete all or matching quotas.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.QuotaApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.QuotaApi(isi_sdk_8_2_2.ApiClient(configuration))
 enforced = true # bool | Only delete quotas with this enforcement (non-accounting). (optional)
 include_snapshots = true # bool | Only delete quotas with this setting for include_snapshots. (optional)
 zone = 'zone_example' # str | Optional named zone to use for user and group resolution. (optional)
@@ -369,17 +369,17 @@ Delete the report.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.QuotaApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.QuotaApi(isi_sdk_8_2_2.ApiClient(configuration))
 quota_report_id = 'quota_report_id_example' # str | Delete the report.
 
 try:
@@ -420,17 +420,17 @@ Delete the mapping.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.QuotaApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.QuotaApi(isi_sdk_8_2_2.ApiClient(configuration))
 settings_mapping_id = 'settings_mapping_id_example' # str | Delete the mapping.
 
 try:
@@ -471,17 +471,17 @@ Delete all rules.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.QuotaApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.QuotaApi(isi_sdk_8_2_2.ApiClient(configuration))
 
 try:
     api_instance.delete_settings_mappings()
@@ -518,17 +518,17 @@ Delete the notification rule.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.QuotaApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.QuotaApi(isi_sdk_8_2_2.ApiClient(configuration))
 settings_notification_id = 'settings_notification_id_example' # str | Delete the notification rule.
 
 try:
@@ -569,17 +569,17 @@ Delete all rules.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.QuotaApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.QuotaApi(isi_sdk_8_2_2.ApiClient(configuration))
 
 try:
     api_instance.delete_settings_notifications()
@@ -616,17 +616,17 @@ Retrieve license information.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.QuotaApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.QuotaApi(isi_sdk_8_2_2.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_quota_license()
@@ -664,17 +664,17 @@ Retrieve quota information.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.QuotaApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.QuotaApi(isi_sdk_8_2_2.ApiClient(configuration))
 quota_quota_id = 'quota_quota_id_example' # str | Retrieve quota information.
 resolve_names = true # bool | If true, resolve group and user names in personas. (optional)
 zone = 'zone_example' # str | Optional named zone to use for user and group resolution. (optional)
@@ -720,17 +720,17 @@ Return summary information about quotas.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.QuotaApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.QuotaApi(isi_sdk_8_2_2.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_quota_quotas_summary()
@@ -768,17 +768,17 @@ Retrieve report data (XML) or contents (meta-data).
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.QuotaApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.QuotaApi(isi_sdk_8_2_2.ApiClient(configuration))
 quota_report_id = 'quota_report_id_example' # str | Retrieve report data (XML) or contents (meta-data).
 contents = true # bool | Display JSON meta-data contents instead of report data. (optional)
 
@@ -822,17 +822,17 @@ Retrieve the mapping information.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.QuotaApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.QuotaApi(isi_sdk_8_2_2.ApiClient(configuration))
 settings_mapping_id = 'settings_mapping_id_example' # str | Retrieve the mapping information.
 
 try:
@@ -874,17 +874,17 @@ Retrieve notification rule information.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.QuotaApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.QuotaApi(isi_sdk_8_2_2.ApiClient(configuration))
 settings_notification_id = 'settings_notification_id_example' # str | Retrieve notification rule information.
 
 try:
@@ -926,17 +926,17 @@ List all settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.QuotaApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.QuotaApi(isi_sdk_8_2_2.ApiClient(configuration))
 scope = 'scope_example' # str | If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned. (optional)
 
 try:
@@ -978,17 +978,17 @@ List all or matching quotas. Can also be used to retrieve quota state from exist
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.QuotaApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.QuotaApi(isi_sdk_8_2_2.ApiClient(configuration))
 enforced = true # bool | Only list quotas with this enforcement (non-accounting). (optional)
 include_snapshots = true # bool | Only list quotas with this setting for include_snapshots. (optional)
 zone = 'zone_example' # str | Optional named zone to use for user and group resolution. (optional)
@@ -1054,17 +1054,17 @@ List all or matching reports.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.QuotaApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.QuotaApi(isi_sdk_8_2_2.ApiClient(configuration))
 sort = 'sort_example' # str | Order results by this field. (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
 generated = 'generated_example' # str | Only list reports matching this source. (optional)
@@ -1116,17 +1116,17 @@ List all rules.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.QuotaApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.QuotaApi(isi_sdk_8_2_2.ApiClient(configuration))
 
 try:
     api_response = api_instance.list_settings_mappings()
@@ -1164,17 +1164,17 @@ List all rules.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.QuotaApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.QuotaApi(isi_sdk_8_2_2.ApiClient(configuration))
 
 try:
     api_response = api_instance.list_settings_notifications()
@@ -1212,18 +1212,18 @@ Modify quota. All input fields are optional, but one or more must be supplied.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.QuotaApi(isi_sdk_8_2_1.ApiClient(configuration))
-quota_quota = isi_sdk_8_2_1.QuotaQuota() # QuotaQuota | 
+api_instance = isi_sdk_8_2_2.QuotaApi(isi_sdk_8_2_2.ApiClient(configuration))
+quota_quota = isi_sdk_8_2_2.QuotaQuota() # QuotaQuota | 
 quota_quota_id = 'quota_quota_id_example' # str | Modify quota. All input fields are optional, but one or more must be supplied.
 
 try:
@@ -1265,18 +1265,18 @@ Modify the mapping.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.QuotaApi(isi_sdk_8_2_1.ApiClient(configuration))
-settings_mapping = isi_sdk_8_2_1.SettingsMappingExtended() # SettingsMappingExtended | 
+api_instance = isi_sdk_8_2_2.QuotaApi(isi_sdk_8_2_2.ApiClient(configuration))
+settings_mapping = isi_sdk_8_2_2.SettingsMappingExtended() # SettingsMappingExtended | 
 settings_mapping_id = 'settings_mapping_id_example' # str | Modify the mapping.
 
 try:
@@ -1318,18 +1318,18 @@ Modify notification rule. All input fields are optional, but one or more must be
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.QuotaApi(isi_sdk_8_2_1.ApiClient(configuration))
-settings_notification = isi_sdk_8_2_1.QuotaNotification() # QuotaNotification | 
+api_instance = isi_sdk_8_2_2.QuotaApi(isi_sdk_8_2_2.ApiClient(configuration))
+settings_notification = isi_sdk_8_2_2.QuotaNotification() # QuotaNotification | 
 settings_notification_id = 'settings_notification_id_example' # str | Modify notification rule. All input fields are optional, but one or more must be supplied.
 
 try:
@@ -1371,18 +1371,18 @@ Modify one or more settings.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.QuotaApi(isi_sdk_8_2_1.ApiClient(configuration))
-settings_reports = isi_sdk_8_2_1.SettingsReportsExtended() # SettingsReportsExtended | 
+api_instance = isi_sdk_8_2_2.QuotaApi(isi_sdk_8_2_2.ApiClient(configuration))
+settings_reports = isi_sdk_8_2_2.SettingsReportsExtended() # SettingsReportsExtended | 
 
 try:
     api_instance.update_settings_reports(settings_reports)

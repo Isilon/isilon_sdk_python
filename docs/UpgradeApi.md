@@ -1,4 +1,4 @@
-# isi_sdk_8_2_1.UpgradeApi
+# isi_sdk_8_2_2.UpgradeApi
 
 All URIs are relative to *https://YOUR_CLUSTER_HOSTNAME_OR_NODE_IP:8080*
 
@@ -16,19 +16,17 @@ Method | HTTP request | Description
 [**create_cluster_resume_item**](UpgradeApi.md#create_cluster_resume_item) | **POST** /platform/7/upgrade/cluster/resume | 
 [**create_cluster_retry_last_action_item**](UpgradeApi.md#create_cluster_retry_last_action_item) | **POST** /platform/3/upgrade/cluster/retry_last_action | 
 [**create_cluster_rollback_item**](UpgradeApi.md#create_cluster_rollback_item) | **POST** /platform/3/upgrade/cluster/rollback | 
-[**create_cluster_upgrade_item**](UpgradeApi.md#create_cluster_upgrade_item) | **POST** /platform/7/upgrade/cluster/upgrade | 
-[**create_hardware_start_item**](UpgradeApi.md#create_hardware_start_item) | **POST** /platform/5/upgrade/hardware/start | 
-[**create_hardware_stop_item**](UpgradeApi.md#create_hardware_stop_item) | **POST** /platform/5/upgrade/hardware/stop | 
+[**create_cluster_upgrade_item**](UpgradeApi.md#create_cluster_upgrade_item) | **POST** /platform/9/upgrade/cluster/upgrade | 
 [**delete_cluster_patch_patch**](UpgradeApi.md#delete_cluster_patch_patch) | **DELETE** /platform/7/upgrade/cluster/patch/patches/{ClusterPatchPatchId} | 
 [**get_cluster_firmware_progress**](UpgradeApi.md#get_cluster_firmware_progress) | **GET** /platform/3/upgrade/cluster/firmware/progress | 
 [**get_cluster_firmware_status**](UpgradeApi.md#get_cluster_firmware_status) | **GET** /platform/3/upgrade/cluster/firmware/status | 
 [**get_cluster_node**](UpgradeApi.md#get_cluster_node) | **GET** /platform/3/upgrade/cluster/nodes/{ClusterNodeId} | 
 [**get_cluster_nodes**](UpgradeApi.md#get_cluster_nodes) | **GET** /platform/3/upgrade/cluster/nodes | 
 [**get_cluster_patch_patch**](UpgradeApi.md#get_cluster_patch_patch) | **GET** /platform/7/upgrade/cluster/patch/patches/{ClusterPatchPatchId} | 
-[**get_hardware_status**](UpgradeApi.md#get_hardware_status) | **GET** /platform/5/upgrade/hardware/status | 
 [**get_upgrade_cluster**](UpgradeApi.md#get_upgrade_cluster) | **GET** /platform/7/upgrade/cluster | 
 [**list_cluster_patch_patches**](UpgradeApi.md#list_cluster_patch_patches) | **GET** /platform/7/upgrade/cluster/patch/patches | 
-[**update_cluster_upgrade**](UpgradeApi.md#update_cluster_upgrade) | **PUT** /platform/7/upgrade/cluster/upgrade | 
+[**update_cluster_unblock**](UpgradeApi.md#update_cluster_unblock) | **PUT** /platform/9/upgrade/cluster/unblock | 
+[**update_cluster_upgrade**](UpgradeApi.md#update_cluster_upgrade) | **PUT** /platform/9/upgrade/cluster/upgrade | 
 
 
 # **create_cluster_add_remaining_node**
@@ -42,18 +40,18 @@ Let system absorb any remaining or new nodes inside the existing upgrade.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.UpgradeApi(isi_sdk_8_2_1.ApiClient(configuration))
-cluster_add_remaining_node = isi_sdk_8_2_1.Empty() # Empty | 
+api_instance = isi_sdk_8_2_2.UpgradeApi(isi_sdk_8_2_2.ApiClient(configuration))
+cluster_add_remaining_node = isi_sdk_8_2_2.Empty() # Empty | 
 
 try:
     api_response = api_instance.create_cluster_add_remaining_node(cluster_add_remaining_node)
@@ -94,18 +92,18 @@ Start an archive of an upgrade.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.UpgradeApi(isi_sdk_8_2_1.ApiClient(configuration))
-cluster_archive_item = isi_sdk_8_2_1.ClusterArchiveItem() # ClusterArchiveItem | 
+api_instance = isi_sdk_8_2_2.UpgradeApi(isi_sdk_8_2_2.ApiClient(configuration))
+cluster_archive_item = isi_sdk_8_2_2.ClusterArchiveItem() # ClusterArchiveItem | 
 
 try:
     api_response = api_instance.create_cluster_archive_item(cluster_archive_item)
@@ -146,18 +144,18 @@ Start upgrade assessment on cluster.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.UpgradeApi(isi_sdk_8_2_1.ApiClient(configuration))
-cluster_assess_item = isi_sdk_8_2_1.ClusterAssessItem() # ClusterAssessItem | 
+api_instance = isi_sdk_8_2_2.UpgradeApi(isi_sdk_8_2_2.ApiClient(configuration))
+cluster_assess_item = isi_sdk_8_2_2.ClusterAssessItem() # ClusterAssessItem | 
 
 try:
     api_response = api_instance.create_cluster_assess_item(cluster_assess_item)
@@ -198,18 +196,18 @@ Commit the upgrade of a cluster.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.UpgradeApi(isi_sdk_8_2_1.ApiClient(configuration))
-cluster_commit_item = isi_sdk_8_2_1.Empty() # Empty | 
+api_instance = isi_sdk_8_2_2.UpgradeApi(isi_sdk_8_2_2.ApiClient(configuration))
+cluster_commit_item = isi_sdk_8_2_2.Empty() # Empty | 
 
 try:
     api_response = api_instance.create_cluster_commit_item(cluster_commit_item)
@@ -250,18 +248,18 @@ Start firmware upgrade assessment on cluster.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.UpgradeApi(isi_sdk_8_2_1.ApiClient(configuration))
-cluster_firmware_assess_item = isi_sdk_8_2_1.Empty() # Empty | 
+api_instance = isi_sdk_8_2_2.UpgradeApi(isi_sdk_8_2_2.ApiClient(configuration))
+cluster_firmware_assess_item = isi_sdk_8_2_2.Empty() # Empty | 
 
 try:
     api_response = api_instance.create_cluster_firmware_assess_item(cluster_firmware_assess_item)
@@ -302,18 +300,18 @@ The settings necessary to start a firmware upgrade.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.UpgradeApi(isi_sdk_8_2_1.ApiClient(configuration))
-cluster_firmware_upgrade_item = isi_sdk_8_2_1.ClusterFirmwareUpgradeItem() # ClusterFirmwareUpgradeItem | 
+api_instance = isi_sdk_8_2_2.UpgradeApi(isi_sdk_8_2_2.ApiClient(configuration))
+cluster_firmware_upgrade_item = isi_sdk_8_2_2.ClusterFirmwareUpgradeItem() # ClusterFirmwareUpgradeItem | 
 
 try:
     api_response = api_instance.create_cluster_firmware_upgrade_item(cluster_firmware_upgrade_item)
@@ -354,18 +352,18 @@ Abort the previous action performed by the patch system.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.UpgradeApi(isi_sdk_8_2_1.ApiClient(configuration))
-cluster_patch_abort_item = isi_sdk_8_2_1.Empty() # Empty | 
+api_instance = isi_sdk_8_2_2.UpgradeApi(isi_sdk_8_2_2.ApiClient(configuration))
+cluster_patch_abort_item = isi_sdk_8_2_2.Empty() # Empty | 
 
 try:
     api_response = api_instance.create_cluster_patch_abort_item(cluster_patch_abort_item)
@@ -406,18 +404,18 @@ Install a patch.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.UpgradeApi(isi_sdk_8_2_1.ApiClient(configuration))
-cluster_patch_patch = isi_sdk_8_2_1.ClusterPatchPatch() # ClusterPatchPatch | 
+api_instance = isi_sdk_8_2_2.UpgradeApi(isi_sdk_8_2_2.ApiClient(configuration))
+cluster_patch_patch = isi_sdk_8_2_2.ClusterPatchPatch() # ClusterPatchPatch | 
 skip_version_check = true # bool | Bypass version checks. Defaults to false. (optional)
 skip_conflict_check = true # bool | Bypass conflict checks. Defaults to false. (optional)
 skip_restricted_check = true # bool | Bypass restricted checks. Defaults to false. (optional)
@@ -470,18 +468,18 @@ Pause a running upgrade process.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.UpgradeApi(isi_sdk_8_2_1.ApiClient(configuration))
-cluster_pause_item = isi_sdk_8_2_1.Empty() # Empty | 
+api_instance = isi_sdk_8_2_2.UpgradeApi(isi_sdk_8_2_2.ApiClient(configuration))
+cluster_pause_item = isi_sdk_8_2_2.Empty() # Empty | 
 
 try:
     api_response = api_instance.create_cluster_pause_item(cluster_pause_item)
@@ -522,18 +520,18 @@ Resume a paused upgrade process.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.UpgradeApi(isi_sdk_8_2_1.ApiClient(configuration))
-cluster_resume_item = isi_sdk_8_2_1.Empty() # Empty | 
+api_instance = isi_sdk_8_2_2.UpgradeApi(isi_sdk_8_2_2.ApiClient(configuration))
+cluster_resume_item = isi_sdk_8_2_2.Empty() # Empty | 
 
 try:
     api_response = api_instance.create_cluster_resume_item(cluster_resume_item)
@@ -574,18 +572,18 @@ Retry the last upgrade action, in-case the previous attempt failed.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.UpgradeApi(isi_sdk_8_2_1.ApiClient(configuration))
-cluster_retry_last_action_item = isi_sdk_8_2_1.ClusterRetryLastActionItem() # ClusterRetryLastActionItem | 
+api_instance = isi_sdk_8_2_2.UpgradeApi(isi_sdk_8_2_2.ApiClient(configuration))
+cluster_retry_last_action_item = isi_sdk_8_2_2.ClusterRetryLastActionItem() # ClusterRetryLastActionItem | 
 
 try:
     api_response = api_instance.create_cluster_retry_last_action_item(cluster_retry_last_action_item)
@@ -626,18 +624,18 @@ Rollback the upgrade of a cluster.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.UpgradeApi(isi_sdk_8_2_1.ApiClient(configuration))
-cluster_rollback_item = isi_sdk_8_2_1.Empty() # Empty | 
+api_instance = isi_sdk_8_2_2.UpgradeApi(isi_sdk_8_2_2.ApiClient(configuration))
+cluster_rollback_item = isi_sdk_8_2_2.Empty() # Empty | 
 
 try:
     api_response = api_instance.create_cluster_rollback_item(cluster_rollback_item)
@@ -678,18 +676,18 @@ The settings necessary to start an upgrade.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.UpgradeApi(isi_sdk_8_2_1.ApiClient(configuration))
-cluster_upgrade_item = isi_sdk_8_2_1.ClusterUpgradeItem() # ClusterUpgradeItem | 
+api_instance = isi_sdk_8_2_2.UpgradeApi(isi_sdk_8_2_2.ApiClient(configuration))
+cluster_upgrade_item = isi_sdk_8_2_2.ClusterUpgradeItem() # ClusterUpgradeItem | 
 
 try:
     api_response = api_instance.create_cluster_upgrade_item(cluster_upgrade_item)
@@ -719,108 +717,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **create_hardware_start_item**
-> create_hardware_start_item(hardware_start_item)
-
-
-
-Start a hardware upgrade
-
-### Example
-```python
-from __future__ import print_function
-import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
-from pprint import pprint
-
-# Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = isi_sdk_8_2_1.UpgradeApi(isi_sdk_8_2_1.ApiClient(configuration))
-hardware_start_item = isi_sdk_8_2_1.HardwareStartItem() # HardwareStartItem | 
-
-try:
-    api_instance.create_hardware_start_item(hardware_start_item)
-except ApiException as e:
-    print("Exception when calling UpgradeApi->create_hardware_start_item: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **hardware_start_item** | [**HardwareStartItem**](HardwareStartItem.md)|  | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **create_hardware_stop_item**
-> create_hardware_stop_item(hardware_stop_item)
-
-
-
-Stop an in-progress hardware upgrade process
-
-### Example
-```python
-from __future__ import print_function
-import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
-from pprint import pprint
-
-# Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = isi_sdk_8_2_1.UpgradeApi(isi_sdk_8_2_1.ApiClient(configuration))
-hardware_stop_item = isi_sdk_8_2_1.HardwareStopItem() # HardwareStopItem | 
-
-try:
-    api_instance.create_hardware_stop_item(hardware_stop_item)
-except ApiException as e:
-    print("Exception when calling UpgradeApi->create_hardware_stop_item: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **hardware_stop_item** | [**HardwareStopItem**](HardwareStopItem.md)|  | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **delete_cluster_patch_patch**
 > delete_cluster_patch_patch(cluster_patch_patch_id, skip_version_check=skip_version_check, skip_conflict_check=skip_conflict_check, skip_restricted_check=skip_restricted_check, simultaneous=simultaneous, rolling=rolling, skip_dependency_check=skip_dependency_check)
 
@@ -832,17 +728,17 @@ Uninstall a patch.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.UpgradeApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.UpgradeApi(isi_sdk_8_2_2.ApiClient(configuration))
 cluster_patch_patch_id = 'cluster_patch_patch_id_example' # str | Uninstall a patch.
 skip_version_check = true # bool | Bypass version checks. Defaults to false. (optional)
 skip_conflict_check = true # bool | Bypass conflict checks. Defaults to false. (optional)
@@ -895,17 +791,17 @@ Cluster wide firmware upgrade status info.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.UpgradeApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.UpgradeApi(isi_sdk_8_2_2.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_cluster_firmware_progress()
@@ -943,17 +839,17 @@ The firmware status for the cluster.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.UpgradeApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.UpgradeApi(isi_sdk_8_2_2.ApiClient(configuration))
 refresh = true # bool | Re-gather firmware status. Default is false. (optional)
 devices = true # bool | Show devices. If false, this returns an empty list. Default is false. (optional)
 package = true # bool | Show package. If false, this returns an empty list. Default is false. (optional)
@@ -999,17 +895,17 @@ The node details useful during an upgrade or assessment.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.UpgradeApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.UpgradeApi(isi_sdk_8_2_2.ApiClient(configuration))
 cluster_node_id = 56 # int | The node details useful during an upgrade or assessment.
 
 try:
@@ -1051,17 +947,17 @@ View information about nodes during an upgrade, rollback, or pre-upgrade assessm
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.UpgradeApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.UpgradeApi(isi_sdk_8_2_2.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_cluster_nodes()
@@ -1099,17 +995,17 @@ View a single patch.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.UpgradeApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.UpgradeApi(isi_sdk_8_2_2.ApiClient(configuration))
 cluster_patch_patch_id = 'cluster_patch_patch_id_example' # str | View a single patch.
 local = true # bool | View patch information on local node only. (optional)
 location = 'location_example' # str | Path location of patch file. (optional)
@@ -1144,54 +1040,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_hardware_status**
-> HardwareStatus get_hardware_status()
-
-
-
-View the status of hardware upgrades in progress
-
-### Example
-```python
-from __future__ import print_function
-import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
-from pprint import pprint
-
-# Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = isi_sdk_8_2_1.UpgradeApi(isi_sdk_8_2_1.ApiClient(configuration))
-
-try:
-    api_response = api_instance.get_hardware_status()
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling UpgradeApi->get_hardware_status: %s\n" % e)
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**HardwareStatus**](HardwareStatus.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **get_upgrade_cluster**
 > UpgradeCluster get_upgrade_cluster()
 
@@ -1203,17 +1051,17 @@ Cluster wide upgrade status info.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.UpgradeApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.UpgradeApi(isi_sdk_8_2_2.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_upgrade_cluster()
@@ -1251,17 +1099,17 @@ List all patches.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.UpgradeApi(isi_sdk_8_2_1.ApiClient(configuration))
+api_instance = isi_sdk_8_2_2.UpgradeApi(isi_sdk_8_2_2.ApiClient(configuration))
 sort = 'sort_example' # str | The field that will be used for sorting. (optional)
 resume = 'resume_example' # str | Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options). (optional)
 limit = 56 # int | Return no more than this many results at once (see resume). (optional)
@@ -1302,6 +1150,57 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **update_cluster_unblock**
+> update_cluster_unblock(cluster_unblock)
+
+
+
+Unblock parallel upgrade.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
+from pprint import pprint
+
+# Configure HTTP basic authorization: basicAuth
+configuration = isi_sdk_8_2_2.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = isi_sdk_8_2_2.UpgradeApi(isi_sdk_8_2_2.ApiClient(configuration))
+cluster_unblock = isi_sdk_8_2_2.ClusterUnblock() # ClusterUnblock | 
+
+try:
+    api_instance.update_cluster_unblock(cluster_unblock)
+except ApiException as e:
+    print("Exception when calling UpgradeApi->update_cluster_unblock: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cluster_unblock** | [**ClusterUnblock**](ClusterUnblock.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **update_cluster_upgrade**
 > update_cluster_upgrade(cluster_upgrade)
 
@@ -1313,18 +1212,18 @@ Add nodes to a running upgrade.
 ```python
 from __future__ import print_function
 import time
-import isi_sdk_8_2_1
-from isi_sdk_8_2_1.rest import ApiException
+import isi_sdk_8_2_2
+from isi_sdk_8_2_2.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-configuration = isi_sdk_8_2_1.Configuration()
+configuration = isi_sdk_8_2_2.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = isi_sdk_8_2_1.UpgradeApi(isi_sdk_8_2_1.ApiClient(configuration))
-cluster_upgrade = isi_sdk_8_2_1.ClusterUpgrade() # ClusterUpgrade | 
+api_instance = isi_sdk_8_2_2.UpgradeApi(isi_sdk_8_2_2.ApiClient(configuration))
+cluster_upgrade = isi_sdk_8_2_2.ClusterUpgrade() # ClusterUpgrade | 
 
 try:
     api_instance.update_cluster_upgrade(cluster_upgrade)
