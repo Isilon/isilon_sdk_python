@@ -1,0 +1,19 @@
+# UpgradeCluster
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**cluster_overview** | [**UpgradeClusterClusterOverview**](UpgradeClusterClusterOverview.md) | The cluster overview of an upgrade process. | [optional] 
+**cluster_state** | **str** | The different states of an upgrade, rollback, or assessment. One of the following values: &#39;committed&#39;, &#39;upgraded&#39;, &#39;partially upgraded&#39;, &#39;upgrading&#39;, &#39;rolling back&#39;, &#39;assessing&#39;, &#39;error&#39; | [optional] 
+**finish_time** | **str** | The time when a rollback, assessment or upgrade has finished completely. Use ISO 8601 standard. Null if the cluster_state is not &#39;upgraded&#39;. | [optional] 
+**install_image_path** | **str** | The location (path) of the upgrade image which must be within /ifs. Null if the cluster_state is &#39;committed&#39; or &#39;upgraded.&#39; | [optional] 
+**onefs_version_current** | [**ClusterNodesOnefsVersion**](ClusterNodesOnefsVersion.md) | The current OneFS version before upgrade. | [optional] 
+**onefs_version_upgrade** | [**ClusterNodesOnefsVersion**](ClusterNodesOnefsVersion.md) | The OneFS version the user is attempting to upgrade to. Null if the cluster_state is &#39;committed&#39; or &#39;assessing.&#39; | [optional] 
+**patch_action** | **str** | The most recent patch action performed. | [optional] 
+**patch_name** | **str** | The patch with the most recent patch action. | [optional] 
+**start_time** | **str** | The time when an upgrade, rollback, or assessment was started. Use ISO 8601 standard. Null if the cluster_state is &#39;committed&#39; or &#39;partially upgraded.&#39; | [optional] 
+**upgrade_settings** | [**UpgradeClusterUpgradeSettings**](UpgradeClusterUpgradeSettings.md) | The settings neccessary when starting an upgrade. Null if the cluster_state is not &#39;upgrading&#39; or &#39;partially upgraded.&#39; or &#39;error&#39;. | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
