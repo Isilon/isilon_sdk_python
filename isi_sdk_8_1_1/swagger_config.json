@@ -34752,7 +34752,7 @@
         },
         "termsOfService": "https://github.com/emccode/emccode.github.io/wiki/EMC-CODE-Governance,-Contributing,-and-Code-of-Conduct",
         "title": "Isilon SDK",
-        "version": 6
+        "version": "6"
     },
     "paths": {
         "/namespace": {

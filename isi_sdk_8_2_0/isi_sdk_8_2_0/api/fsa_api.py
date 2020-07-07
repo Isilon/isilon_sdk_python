@@ -38,18 +38,18 @@ class FsaApi(object):
 
         Delete the result set.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_fsa_result(fsa_result_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_fsa_result(fsa_result_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str fsa_result_id: Delete the result set. (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_fsa_result_with_http_info(fsa_result_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_fsa_result_with_http_info(fsa_result_id, **kwargs)  # noqa: E501
@@ -60,11 +60,11 @@ class FsaApi(object):
 
         Delete the result set.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_fsa_result_with_http_info(fsa_result_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_fsa_result_with_http_info(fsa_result_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str fsa_result_id: Delete the result set. (required)
         :return: None
                  If the method is called asynchronously,
@@ -72,7 +72,7 @@ class FsaApi(object):
         """
 
         all_params = ['fsa_result_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -126,7 +126,7 @@ class FsaApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -137,17 +137,17 @@ class FsaApi(object):
 
         Revert all settings to their defaults.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_fsa_settings(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_fsa_settings(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_fsa_settings_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.delete_fsa_settings_with_http_info(**kwargs)  # noqa: E501
@@ -158,18 +158,18 @@ class FsaApi(object):
 
         Revert all settings to their defaults.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_fsa_settings_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_fsa_settings_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -217,7 +217,7 @@ class FsaApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -228,18 +228,18 @@ class FsaApi(object):
 
         Retrieve result set information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_fsa_result(fsa_result_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_fsa_result(fsa_result_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str fsa_result_id: Retrieve result set information. (required)
         :return: FsaResults
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_fsa_result_with_http_info(fsa_result_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_fsa_result_with_http_info(fsa_result_id, **kwargs)  # noqa: E501
@@ -250,11 +250,11 @@ class FsaApi(object):
 
         Retrieve result set information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_fsa_result_with_http_info(fsa_result_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_fsa_result_with_http_info(fsa_result_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str fsa_result_id: Retrieve result set information. (required)
         :return: FsaResults
                  If the method is called asynchronously,
@@ -262,7 +262,7 @@ class FsaApi(object):
         """
 
         all_params = ['fsa_result_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -316,7 +316,7 @@ class FsaApi(object):
             files=local_var_files,
             response_type='FsaResults',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -327,17 +327,17 @@ class FsaApi(object):
 
         List all results.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_fsa_results(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_fsa_results(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: FsaResultsExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_fsa_results_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_fsa_results_with_http_info(**kwargs)  # noqa: E501
@@ -348,18 +348,18 @@ class FsaApi(object):
 
         List all results.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_fsa_results_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_fsa_results_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: FsaResultsExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -407,7 +407,7 @@ class FsaApi(object):
             files=local_var_files,
             response_type='FsaResultsExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -418,18 +418,18 @@ class FsaApi(object):
 
         List all settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_fsa_settings(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_fsa_settings(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str scope: If specified as effective or not specified, all fields are returned.  If specified as user, only fields with non-default values are shown.  If specified as default, the original values are returned.
         :return: FsaSettings
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_fsa_settings_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_fsa_settings_with_http_info(**kwargs)  # noqa: E501
@@ -440,11 +440,11 @@ class FsaApi(object):
 
         List all settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_fsa_settings_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_fsa_settings_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str scope: If specified as effective or not specified, all fields are returned.  If specified as user, only fields with non-default values are shown.  If specified as default, the original values are returned.
         :return: FsaSettings
                  If the method is called asynchronously,
@@ -452,7 +452,7 @@ class FsaApi(object):
         """
 
         all_params = ['scope']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -502,7 +502,7 @@ class FsaApi(object):
             files=local_var_files,
             response_type='FsaSettings',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -513,11 +513,11 @@ class FsaApi(object):
 
         Modify result set. Only the pinned property can be changed at this time.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_fsa_result(fsa_result, fsa_result_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_fsa_result(fsa_result, fsa_result_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FsaResult fsa_result: (required)
         :param str fsa_result_id: Modify result set. Only the pinned property can be changed at this time. (required)
         :return: None
@@ -525,7 +525,7 @@ class FsaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_fsa_result_with_http_info(fsa_result, fsa_result_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_fsa_result_with_http_info(fsa_result, fsa_result_id, **kwargs)  # noqa: E501
@@ -536,11 +536,11 @@ class FsaApi(object):
 
         Modify result set. Only the pinned property can be changed at this time.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_fsa_result_with_http_info(fsa_result, fsa_result_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_fsa_result_with_http_info(fsa_result, fsa_result_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FsaResult fsa_result: (required)
         :param str fsa_result_id: Modify result set. Only the pinned property can be changed at this time. (required)
         :return: None
@@ -549,7 +549,7 @@ class FsaApi(object):
         """
 
         all_params = ['fsa_result', 'fsa_result_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -609,7 +609,7 @@ class FsaApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -620,18 +620,18 @@ class FsaApi(object):
 
         Modify one or more settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_fsa_settings(fsa_settings, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_fsa_settings(fsa_settings, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FsaSettingsSettings fsa_settings: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_fsa_settings_with_http_info(fsa_settings, **kwargs)  # noqa: E501
         else:
             (data) = self.update_fsa_settings_with_http_info(fsa_settings, **kwargs)  # noqa: E501
@@ -642,11 +642,11 @@ class FsaApi(object):
 
         Modify one or more settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_fsa_settings_with_http_info(fsa_settings, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_fsa_settings_with_http_info(fsa_settings, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FsaSettingsSettings fsa_settings: (required)
         :return: None
                  If the method is called asynchronously,
@@ -654,7 +654,7 @@ class FsaApi(object):
         """
 
         all_params = ['fsa_settings']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -708,7 +708,7 @@ class FsaApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

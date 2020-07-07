@@ -38,17 +38,17 @@ class DedupeApi(object):
 
         Return summary information about dedupe.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_dedupe_dedupe_summary(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_dedupe_dedupe_summary(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: DedupeDedupeSummary
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_dedupe_dedupe_summary_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_dedupe_dedupe_summary_with_http_info(**kwargs)  # noqa: E501
@@ -59,18 +59,18 @@ class DedupeApi(object):
 
         Return summary information about dedupe.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_dedupe_dedupe_summary_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_dedupe_dedupe_summary_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: DedupeDedupeSummary
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -118,7 +118,7 @@ class DedupeApi(object):
             files=local_var_files,
             response_type='DedupeDedupeSummary',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -129,11 +129,11 @@ class DedupeApi(object):
 
         Retrieve a report for a single dedupe job.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_dedupe_report(dedupe_report_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_dedupe_report(dedupe_report_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str dedupe_report_id: Retrieve a report for a single dedupe job. (required)
         :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
         :return: DedupeReports
@@ -141,7 +141,7 @@ class DedupeApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_dedupe_report_with_http_info(dedupe_report_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_dedupe_report_with_http_info(dedupe_report_id, **kwargs)  # noqa: E501
@@ -152,11 +152,11 @@ class DedupeApi(object):
 
         Retrieve a report for a single dedupe job.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_dedupe_report_with_http_info(dedupe_report_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_dedupe_report_with_http_info(dedupe_report_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str dedupe_report_id: Retrieve a report for a single dedupe job. (required)
         :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
         :return: DedupeReports
@@ -165,7 +165,7 @@ class DedupeApi(object):
         """
 
         all_params = ['dedupe_report_id', 'scope']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -221,7 +221,7 @@ class DedupeApi(object):
             files=local_var_files,
             response_type='DedupeReports',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -232,11 +232,11 @@ class DedupeApi(object):
 
         List dedupe reports.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_dedupe_reports(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_dedupe_reports(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param int begin: Restrict the query to reports at or after the given time, in seconds since the Epoch.
         :param int end: Restrict the query to reports at or before the given time, in seconds since the Epoch.
@@ -250,7 +250,7 @@ class DedupeApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_dedupe_reports_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_dedupe_reports_with_http_info(**kwargs)  # noqa: E501
@@ -261,11 +261,11 @@ class DedupeApi(object):
 
         List dedupe reports.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_dedupe_reports_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_dedupe_reports_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param int begin: Restrict the query to reports at or after the given time, in seconds since the Epoch.
         :param int end: Restrict the query to reports at or before the given time, in seconds since the Epoch.
@@ -280,7 +280,7 @@ class DedupeApi(object):
         """
 
         all_params = ['sort', 'begin', 'end', 'job_id', 'resume', 'job_type', 'limit', 'dir']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -346,7 +346,7 @@ class DedupeApi(object):
             files=local_var_files,
             response_type='DedupeReportsExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -357,17 +357,17 @@ class DedupeApi(object):
 
         Retrieve the dedupe settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_dedupe_settings(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_dedupe_settings(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: DedupeSettings
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_dedupe_settings_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_dedupe_settings_with_http_info(**kwargs)  # noqa: E501
@@ -378,18 +378,18 @@ class DedupeApi(object):
 
         Retrieve the dedupe settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_dedupe_settings_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_dedupe_settings_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: DedupeSettings
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -437,7 +437,7 @@ class DedupeApi(object):
             files=local_var_files,
             response_type='DedupeSettings',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -448,18 +448,18 @@ class DedupeApi(object):
 
         Modify the dedupe settings. All input fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_dedupe_settings(dedupe_settings, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_dedupe_settings(dedupe_settings, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param DedupeSettingsExtended dedupe_settings: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_dedupe_settings_with_http_info(dedupe_settings, **kwargs)  # noqa: E501
         else:
             (data) = self.update_dedupe_settings_with_http_info(dedupe_settings, **kwargs)  # noqa: E501
@@ -470,11 +470,11 @@ class DedupeApi(object):
 
         Modify the dedupe settings. All input fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_dedupe_settings_with_http_info(dedupe_settings, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_dedupe_settings_with_http_info(dedupe_settings, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param DedupeSettingsExtended dedupe_settings: (required)
         :return: None
                  If the method is called asynchronously,
@@ -482,7 +482,7 @@ class DedupeApi(object):
         """
 
         all_params = ['dedupe_settings']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -536,7 +536,7 @@ class DedupeApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

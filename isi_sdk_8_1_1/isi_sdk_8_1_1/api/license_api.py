@@ -38,18 +38,18 @@ class LicenseApi(object):
 
         Install a new license file and/or activate evaluation licenses.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_license_license(license_license, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_license_license(license_license, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param LicenseLicenseCreateParams license_license: (required)
         :return: Empty
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_license_license_with_http_info(license_license, **kwargs)  # noqa: E501
         else:
             (data) = self.create_license_license_with_http_info(license_license, **kwargs)  # noqa: E501
@@ -60,11 +60,11 @@ class LicenseApi(object):
 
         Install a new license file and/or activate evaluation licenses.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_license_license_with_http_info(license_license, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_license_license_with_http_info(license_license, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param LicenseLicenseCreateParams license_license: (required)
         :return: Empty
                  If the method is called asynchronously,
@@ -72,7 +72,7 @@ class LicenseApi(object):
         """
 
         all_params = ['license_license']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -126,7 +126,7 @@ class LicenseApi(object):
             files=local_var_files,
             response_type='Empty',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -137,11 +137,11 @@ class LicenseApi(object):
 
         Generate license activation file.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_license_generate(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_license_generate(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str action: enum: license_list_only (default), generate_activation, download_activation. Generate an activation file or return a list of activated licenses. If generating an activation file and no licenses are specified, the default configuration is to generate an activation file with the current set of licensed features. download_activation returns HTTP headers and the same XML content as seen in the response activation.
         :param str licenses_to_include: Licenses to include in activation file.
         :param str licenses_to_exclude: Licenses to omit from activation file.
@@ -151,7 +151,7 @@ class LicenseApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_license_generate_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_license_generate_with_http_info(**kwargs)  # noqa: E501
@@ -162,11 +162,11 @@ class LicenseApi(object):
 
         Generate license activation file.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_license_generate_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_license_generate_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str action: enum: license_list_only (default), generate_activation, download_activation. Generate an activation file or return a list of activated licenses. If generating an activation file and no licenses are specified, the default configuration is to generate an activation file with the current set of licensed features. download_activation returns HTTP headers and the same XML content as seen in the response activation.
         :param str licenses_to_include: Licenses to include in activation file.
         :param str licenses_to_exclude: Licenses to omit from activation file.
@@ -177,7 +177,7 @@ class LicenseApi(object):
         """
 
         all_params = ['action', 'licenses_to_include', 'licenses_to_exclude', 'only_these_licenses']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -260,7 +260,7 @@ class LicenseApi(object):
             files=local_var_files,
             response_type='LicenseGenerate',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -271,18 +271,18 @@ class LicenseApi(object):
 
         Retrieve license information for the feature.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_license_license(license_license_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_license_license(license_license_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str license_license_id: Retrieve license information for the feature. (required)
         :return: LicenseLicenses
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_license_license_with_http_info(license_license_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_license_license_with_http_info(license_license_id, **kwargs)  # noqa: E501
@@ -293,11 +293,11 @@ class LicenseApi(object):
 
         Retrieve license information for the feature.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_license_license_with_http_info(license_license_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_license_license_with_http_info(license_license_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str license_license_id: Retrieve license information for the feature. (required)
         :return: LicenseLicenses
                  If the method is called asynchronously,
@@ -305,7 +305,7 @@ class LicenseApi(object):
         """
 
         all_params = ['license_license_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -359,7 +359,7 @@ class LicenseApi(object):
             files=local_var_files,
             response_type='LicenseLicenses',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -370,17 +370,17 @@ class LicenseApi(object):
 
         Retrieve license information for all licensable products.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_license_licenses(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_license_licenses(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: LicenseLicensesExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_license_licenses_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_license_licenses_with_http_info(**kwargs)  # noqa: E501
@@ -391,18 +391,18 @@ class LicenseApi(object):
 
         Retrieve license information for all licensable products.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_license_licenses_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_license_licenses_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: LicenseLicensesExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -450,7 +450,7 @@ class LicenseApi(object):
             files=local_var_files,
             response_type='LicenseLicensesExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

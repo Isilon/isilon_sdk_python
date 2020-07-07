@@ -38,18 +38,18 @@ class SnapshotApi(object):
 
         Create a new snapshot alias.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_snapshot_alias(snapshot_alias, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_snapshot_alias(snapshot_alias, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SnapshotAliasCreateParams snapshot_alias: (required)
         :return: CreateSnapshotAliasResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_snapshot_alias_with_http_info(snapshot_alias, **kwargs)  # noqa: E501
         else:
             (data) = self.create_snapshot_alias_with_http_info(snapshot_alias, **kwargs)  # noqa: E501
@@ -60,11 +60,11 @@ class SnapshotApi(object):
 
         Create a new snapshot alias.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_snapshot_alias_with_http_info(snapshot_alias, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_snapshot_alias_with_http_info(snapshot_alias, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SnapshotAliasCreateParams snapshot_alias: (required)
         :return: CreateSnapshotAliasResponse
                  If the method is called asynchronously,
@@ -72,7 +72,7 @@ class SnapshotApi(object):
         """
 
         all_params = ['snapshot_alias']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -126,7 +126,7 @@ class SnapshotApi(object):
             files=local_var_files,
             response_type='CreateSnapshotAliasResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -137,18 +137,18 @@ class SnapshotApi(object):
 
         Create a new schedule.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_snapshot_schedule(snapshot_schedule, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_snapshot_schedule(snapshot_schedule, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SnapshotScheduleCreateParams snapshot_schedule: (required)
         :return: CreateSnapshotScheduleResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_snapshot_schedule_with_http_info(snapshot_schedule, **kwargs)  # noqa: E501
         else:
             (data) = self.create_snapshot_schedule_with_http_info(snapshot_schedule, **kwargs)  # noqa: E501
@@ -159,11 +159,11 @@ class SnapshotApi(object):
 
         Create a new schedule.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_snapshot_schedule_with_http_info(snapshot_schedule, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_snapshot_schedule_with_http_info(snapshot_schedule, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SnapshotScheduleCreateParams snapshot_schedule: (required)
         :return: CreateSnapshotScheduleResponse
                  If the method is called asynchronously,
@@ -171,7 +171,7 @@ class SnapshotApi(object):
         """
 
         all_params = ['snapshot_schedule']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -225,7 +225,7 @@ class SnapshotApi(object):
             files=local_var_files,
             response_type='CreateSnapshotScheduleResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -236,18 +236,18 @@ class SnapshotApi(object):
 
         Create a new snapshot.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_snapshot_snapshot(snapshot_snapshot, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_snapshot_snapshot(snapshot_snapshot, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SnapshotSnapshotCreateParams snapshot_snapshot: (required)
         :return: SnapshotSnapshotExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_snapshot_snapshot_with_http_info(snapshot_snapshot, **kwargs)  # noqa: E501
         else:
             (data) = self.create_snapshot_snapshot_with_http_info(snapshot_snapshot, **kwargs)  # noqa: E501
@@ -258,11 +258,11 @@ class SnapshotApi(object):
 
         Create a new snapshot.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_snapshot_snapshot_with_http_info(snapshot_snapshot, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_snapshot_snapshot_with_http_info(snapshot_snapshot, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SnapshotSnapshotCreateParams snapshot_snapshot: (required)
         :return: SnapshotSnapshotExtended
                  If the method is called asynchronously,
@@ -270,7 +270,7 @@ class SnapshotApi(object):
         """
 
         all_params = ['snapshot_snapshot']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -324,7 +324,7 @@ class SnapshotApi(object):
             files=local_var_files,
             response_type='SnapshotSnapshotExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -335,18 +335,18 @@ class SnapshotApi(object):
 
         Delete the snapshot alias  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_snapshot_alias(snapshot_alias_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_snapshot_alias(snapshot_alias_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str snapshot_alias_id: Delete the snapshot alias (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_snapshot_alias_with_http_info(snapshot_alias_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_snapshot_alias_with_http_info(snapshot_alias_id, **kwargs)  # noqa: E501
@@ -357,11 +357,11 @@ class SnapshotApi(object):
 
         Delete the snapshot alias  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_snapshot_alias_with_http_info(snapshot_alias_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_snapshot_alias_with_http_info(snapshot_alias_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str snapshot_alias_id: Delete the snapshot alias (required)
         :return: None
                  If the method is called asynchronously,
@@ -369,7 +369,7 @@ class SnapshotApi(object):
         """
 
         all_params = ['snapshot_alias_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -423,7 +423,7 @@ class SnapshotApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -434,17 +434,17 @@ class SnapshotApi(object):
 
         Delete all or matching snapshot aliases.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_snapshot_aliases(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_snapshot_aliases(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_snapshot_aliases_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.delete_snapshot_aliases_with_http_info(**kwargs)  # noqa: E501
@@ -455,18 +455,18 @@ class SnapshotApi(object):
 
         Delete all or matching snapshot aliases.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_snapshot_aliases_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_snapshot_aliases_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -514,7 +514,7 @@ class SnapshotApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -525,18 +525,18 @@ class SnapshotApi(object):
 
         Delete the specified changelist.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_snapshot_changelist(snapshot_changelist_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_snapshot_changelist(snapshot_changelist_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str snapshot_changelist_id: Delete the specified changelist. (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_snapshot_changelist_with_http_info(snapshot_changelist_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_snapshot_changelist_with_http_info(snapshot_changelist_id, **kwargs)  # noqa: E501
@@ -547,11 +547,11 @@ class SnapshotApi(object):
 
         Delete the specified changelist.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_snapshot_changelist_with_http_info(snapshot_changelist_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_snapshot_changelist_with_http_info(snapshot_changelist_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str snapshot_changelist_id: Delete the specified changelist. (required)
         :return: None
                  If the method is called asynchronously,
@@ -559,7 +559,7 @@ class SnapshotApi(object):
         """
 
         all_params = ['snapshot_changelist_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -613,7 +613,7 @@ class SnapshotApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -624,18 +624,18 @@ class SnapshotApi(object):
 
         Delete the specified repstate.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_snapshot_repstate(snapshot_repstate_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_snapshot_repstate(snapshot_repstate_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str snapshot_repstate_id: Delete the specified repstate. (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_snapshot_repstate_with_http_info(snapshot_repstate_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_snapshot_repstate_with_http_info(snapshot_repstate_id, **kwargs)  # noqa: E501
@@ -646,11 +646,11 @@ class SnapshotApi(object):
 
         Delete the specified repstate.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_snapshot_repstate_with_http_info(snapshot_repstate_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_snapshot_repstate_with_http_info(snapshot_repstate_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str snapshot_repstate_id: Delete the specified repstate. (required)
         :return: None
                  If the method is called asynchronously,
@@ -658,7 +658,7 @@ class SnapshotApi(object):
         """
 
         all_params = ['snapshot_repstate_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -712,7 +712,7 @@ class SnapshotApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -723,18 +723,18 @@ class SnapshotApi(object):
 
         Delete the schedule. This does not affect already created snapshots.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_snapshot_schedule(snapshot_schedule_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_snapshot_schedule(snapshot_schedule_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str snapshot_schedule_id: Delete the schedule. This does not affect already created snapshots. (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_snapshot_schedule_with_http_info(snapshot_schedule_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_snapshot_schedule_with_http_info(snapshot_schedule_id, **kwargs)  # noqa: E501
@@ -745,11 +745,11 @@ class SnapshotApi(object):
 
         Delete the schedule. This does not affect already created snapshots.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_snapshot_schedule_with_http_info(snapshot_schedule_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_snapshot_schedule_with_http_info(snapshot_schedule_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str snapshot_schedule_id: Delete the schedule. This does not affect already created snapshots. (required)
         :return: None
                  If the method is called asynchronously,
@@ -757,7 +757,7 @@ class SnapshotApi(object):
         """
 
         all_params = ['snapshot_schedule_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -811,7 +811,7 @@ class SnapshotApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -822,18 +822,18 @@ class SnapshotApi(object):
 
         Delete the snapshot. Deleted snapshots will be placed into a deleting state until the system can reclaim the space used by the snapshot.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_snapshot_snapshot(snapshot_snapshot_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_snapshot_snapshot(snapshot_snapshot_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str snapshot_snapshot_id: Delete the snapshot. Deleted snapshots will be placed into a deleting state until the system can reclaim the space used by the snapshot. (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_snapshot_snapshot_with_http_info(snapshot_snapshot_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_snapshot_snapshot_with_http_info(snapshot_snapshot_id, **kwargs)  # noqa: E501
@@ -844,11 +844,11 @@ class SnapshotApi(object):
 
         Delete the snapshot. Deleted snapshots will be placed into a deleting state until the system can reclaim the space used by the snapshot.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_snapshot_snapshot_with_http_info(snapshot_snapshot_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_snapshot_snapshot_with_http_info(snapshot_snapshot_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str snapshot_snapshot_id: Delete the snapshot. Deleted snapshots will be placed into a deleting state until the system can reclaim the space used by the snapshot. (required)
         :return: None
                  If the method is called asynchronously,
@@ -856,7 +856,7 @@ class SnapshotApi(object):
         """
 
         all_params = ['snapshot_snapshot_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -910,7 +910,7 @@ class SnapshotApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -921,11 +921,11 @@ class SnapshotApi(object):
 
         Delete all or matching snapshots.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_snapshot_snapshots(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_snapshot_snapshots(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str type: Only list snapshots matching this type.
         :param str schedule: Only list snapshots created by this schedule.
         :return: None
@@ -933,7 +933,7 @@ class SnapshotApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_snapshot_snapshots_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.delete_snapshot_snapshots_with_http_info(**kwargs)  # noqa: E501
@@ -944,11 +944,11 @@ class SnapshotApi(object):
 
         Delete all or matching snapshots.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_snapshot_snapshots_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_snapshot_snapshots_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str type: Only list snapshots matching this type.
         :param str schedule: Only list snapshots created by this schedule.
         :return: None
@@ -957,7 +957,7 @@ class SnapshotApi(object):
         """
 
         all_params = ['type', 'schedule']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1009,7 +1009,7 @@ class SnapshotApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1020,18 +1020,18 @@ class SnapshotApi(object):
 
         Retrieve snapshot alias information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_snapshot_alias(snapshot_alias_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_snapshot_alias(snapshot_alias_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str snapshot_alias_id: Retrieve snapshot alias information. (required)
         :return: SnapshotAliases
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_snapshot_alias_with_http_info(snapshot_alias_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_snapshot_alias_with_http_info(snapshot_alias_id, **kwargs)  # noqa: E501
@@ -1042,11 +1042,11 @@ class SnapshotApi(object):
 
         Retrieve snapshot alias information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_snapshot_alias_with_http_info(snapshot_alias_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_snapshot_alias_with_http_info(snapshot_alias_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str snapshot_alias_id: Retrieve snapshot alias information. (required)
         :return: SnapshotAliases
                  If the method is called asynchronously,
@@ -1054,7 +1054,7 @@ class SnapshotApi(object):
         """
 
         all_params = ['snapshot_alias_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1108,7 +1108,7 @@ class SnapshotApi(object):
             files=local_var_files,
             response_type='SnapshotAliases',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1119,18 +1119,18 @@ class SnapshotApi(object):
 
         Retrieve basic information on a changelist.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_snapshot_changelist(snapshot_changelist_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_snapshot_changelist(snapshot_changelist_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str snapshot_changelist_id: Retrieve basic information on a changelist. (required)
         :return: SnapshotChangelists
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_snapshot_changelist_with_http_info(snapshot_changelist_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_snapshot_changelist_with_http_info(snapshot_changelist_id, **kwargs)  # noqa: E501
@@ -1141,11 +1141,11 @@ class SnapshotApi(object):
 
         Retrieve basic information on a changelist.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_snapshot_changelist_with_http_info(snapshot_changelist_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_snapshot_changelist_with_http_info(snapshot_changelist_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str snapshot_changelist_id: Retrieve basic information on a changelist. (required)
         :return: SnapshotChangelists
                  If the method is called asynchronously,
@@ -1153,7 +1153,7 @@ class SnapshotApi(object):
         """
 
         all_params = ['snapshot_changelist_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1207,7 +1207,7 @@ class SnapshotApi(object):
             files=local_var_files,
             response_type='SnapshotChangelists',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1218,17 +1218,17 @@ class SnapshotApi(object):
 
         List all changelists.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_snapshot_changelists(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_snapshot_changelists(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: SnapshotChangelistsExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_snapshot_changelists_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_snapshot_changelists_with_http_info(**kwargs)  # noqa: E501
@@ -1239,18 +1239,18 @@ class SnapshotApi(object):
 
         List all changelists.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_snapshot_changelists_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_snapshot_changelists_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: SnapshotChangelistsExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1298,7 +1298,7 @@ class SnapshotApi(object):
             files=local_var_files,
             response_type='SnapshotChangelistsExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1309,17 +1309,17 @@ class SnapshotApi(object):
 
         Retrieve license information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_snapshot_license(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_snapshot_license(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: LicenseLicense
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_snapshot_license_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_snapshot_license_with_http_info(**kwargs)  # noqa: E501
@@ -1330,18 +1330,18 @@ class SnapshotApi(object):
 
         Retrieve license information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_snapshot_license_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_snapshot_license_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: LicenseLicense
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1389,7 +1389,7 @@ class SnapshotApi(object):
             files=local_var_files,
             response_type='LicenseLicense',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1400,11 +1400,11 @@ class SnapshotApi(object):
 
         Return list of snapshots to be taken.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_snapshot_pending(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_snapshot_pending(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int limit: Return no more than this many result at once (see resume).
         :param int begin: Unix Epoch time to start generating matches. Default is now.
         :param str schedule: Limit output only to the named schedule.
@@ -1415,7 +1415,7 @@ class SnapshotApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_snapshot_pending_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_snapshot_pending_with_http_info(**kwargs)  # noqa: E501
@@ -1426,11 +1426,11 @@ class SnapshotApi(object):
 
         Return list of snapshots to be taken.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_snapshot_pending_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_snapshot_pending_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int limit: Return no more than this many result at once (see resume).
         :param int begin: Unix Epoch time to start generating matches. Default is now.
         :param str schedule: Limit output only to the named schedule.
@@ -1442,7 +1442,7 @@ class SnapshotApi(object):
         """
 
         all_params = ['limit', 'begin', 'schedule', 'end', 'resume']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1500,7 +1500,7 @@ class SnapshotApi(object):
             files=local_var_files,
             response_type='SnapshotPending',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1511,18 +1511,18 @@ class SnapshotApi(object):
 
         Retrieve basic information on a repstate.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_snapshot_repstate(snapshot_repstate_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_snapshot_repstate(snapshot_repstate_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str snapshot_repstate_id: Retrieve basic information on a repstate. (required)
         :return: SnapshotRepstates
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_snapshot_repstate_with_http_info(snapshot_repstate_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_snapshot_repstate_with_http_info(snapshot_repstate_id, **kwargs)  # noqa: E501
@@ -1533,11 +1533,11 @@ class SnapshotApi(object):
 
         Retrieve basic information on a repstate.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_snapshot_repstate_with_http_info(snapshot_repstate_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_snapshot_repstate_with_http_info(snapshot_repstate_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str snapshot_repstate_id: Retrieve basic information on a repstate. (required)
         :return: SnapshotRepstates
                  If the method is called asynchronously,
@@ -1545,7 +1545,7 @@ class SnapshotApi(object):
         """
 
         all_params = ['snapshot_repstate_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1599,7 +1599,7 @@ class SnapshotApi(object):
             files=local_var_files,
             response_type='SnapshotRepstates',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1610,17 +1610,17 @@ class SnapshotApi(object):
 
         List all repstates.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_snapshot_repstates(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_snapshot_repstates(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: SnapshotRepstatesExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_snapshot_repstates_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_snapshot_repstates_with_http_info(**kwargs)  # noqa: E501
@@ -1631,18 +1631,18 @@ class SnapshotApi(object):
 
         List all repstates.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_snapshot_repstates_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_snapshot_repstates_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: SnapshotRepstatesExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1690,7 +1690,7 @@ class SnapshotApi(object):
             files=local_var_files,
             response_type='SnapshotRepstatesExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1701,18 +1701,18 @@ class SnapshotApi(object):
 
         Retrieve the schedule.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_snapshot_schedule(snapshot_schedule_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_snapshot_schedule(snapshot_schedule_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str snapshot_schedule_id: Retrieve the schedule. (required)
         :return: SnapshotSchedules
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_snapshot_schedule_with_http_info(snapshot_schedule_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_snapshot_schedule_with_http_info(snapshot_schedule_id, **kwargs)  # noqa: E501
@@ -1723,11 +1723,11 @@ class SnapshotApi(object):
 
         Retrieve the schedule.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_snapshot_schedule_with_http_info(snapshot_schedule_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_snapshot_schedule_with_http_info(snapshot_schedule_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str snapshot_schedule_id: Retrieve the schedule. (required)
         :return: SnapshotSchedules
                  If the method is called asynchronously,
@@ -1735,7 +1735,7 @@ class SnapshotApi(object):
         """
 
         all_params = ['snapshot_schedule_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1789,7 +1789,7 @@ class SnapshotApi(object):
             files=local_var_files,
             response_type='SnapshotSchedules',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1800,17 +1800,17 @@ class SnapshotApi(object):
 
         List all settings  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_snapshot_settings(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_snapshot_settings(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: SnapshotSettings
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_snapshot_settings_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_snapshot_settings_with_http_info(**kwargs)  # noqa: E501
@@ -1821,18 +1821,18 @@ class SnapshotApi(object):
 
         List all settings  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_snapshot_settings_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_snapshot_settings_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: SnapshotSettings
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1880,7 +1880,7 @@ class SnapshotApi(object):
             files=local_var_files,
             response_type='SnapshotSettings',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1891,18 +1891,18 @@ class SnapshotApi(object):
 
         Retrieve snapshot information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_snapshot_snapshot(snapshot_snapshot_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_snapshot_snapshot(snapshot_snapshot_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str snapshot_snapshot_id: Retrieve snapshot information. (required)
         :return: SnapshotSnapshots
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_snapshot_snapshot_with_http_info(snapshot_snapshot_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_snapshot_snapshot_with_http_info(snapshot_snapshot_id, **kwargs)  # noqa: E501
@@ -1913,11 +1913,11 @@ class SnapshotApi(object):
 
         Retrieve snapshot information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_snapshot_snapshot_with_http_info(snapshot_snapshot_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_snapshot_snapshot_with_http_info(snapshot_snapshot_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str snapshot_snapshot_id: Retrieve snapshot information. (required)
         :return: SnapshotSnapshots
                  If the method is called asynchronously,
@@ -1925,7 +1925,7 @@ class SnapshotApi(object):
         """
 
         all_params = ['snapshot_snapshot_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1979,7 +1979,7 @@ class SnapshotApi(object):
             files=local_var_files,
             response_type='SnapshotSnapshots',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1990,17 +1990,17 @@ class SnapshotApi(object):
 
         Return summary information about snapshots.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_snapshot_snapshots_summary(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_snapshot_snapshots_summary(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: SnapshotSnapshotsSummary
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_snapshot_snapshots_summary_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_snapshot_snapshots_summary_with_http_info(**kwargs)  # noqa: E501
@@ -2011,18 +2011,18 @@ class SnapshotApi(object):
 
         Return summary information about snapshots.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_snapshot_snapshots_summary_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_snapshot_snapshots_summary_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: SnapshotSnapshotsSummary
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2070,7 +2070,7 @@ class SnapshotApi(object):
             files=local_var_files,
             response_type='SnapshotSnapshotsSummary',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2081,11 +2081,11 @@ class SnapshotApi(object):
 
         List all or matching snapshot aliases.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_snapshot_aliases(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_snapshot_aliases(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.  Choices are id, name, snapshot, and created.  Default is id.
         :param int limit: Return no more than this many results at once (see resume).
         :param str dir: The direction of the sort.
@@ -2095,7 +2095,7 @@ class SnapshotApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_snapshot_aliases_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_snapshot_aliases_with_http_info(**kwargs)  # noqa: E501
@@ -2106,11 +2106,11 @@ class SnapshotApi(object):
 
         List all or matching snapshot aliases.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_snapshot_aliases_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_snapshot_aliases_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.  Choices are id, name, snapshot, and created.  Default is id.
         :param int limit: Return no more than this many results at once (see resume).
         :param str dir: The direction of the sort.
@@ -2121,7 +2121,7 @@ class SnapshotApi(object):
         """
 
         all_params = ['sort', 'limit', 'dir', 'resume']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2179,7 +2179,7 @@ class SnapshotApi(object):
             files=local_var_files,
             response_type='SnapshotAliasesExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2190,11 +2190,11 @@ class SnapshotApi(object):
 
         List all or matching schedules.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_snapshot_schedules(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_snapshot_schedules(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.  Choices are id, name, path, pattern, schedule, duration, alias, next_run, and next_snapshot.  Default is id.
         :param int limit: Return no more than this many results at once (see resume).
         :param str dir: The direction of the sort.
@@ -2204,7 +2204,7 @@ class SnapshotApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_snapshot_schedules_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_snapshot_schedules_with_http_info(**kwargs)  # noqa: E501
@@ -2215,11 +2215,11 @@ class SnapshotApi(object):
 
         List all or matching schedules.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_snapshot_schedules_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_snapshot_schedules_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.  Choices are id, name, path, pattern, schedule, duration, alias, next_run, and next_snapshot.  Default is id.
         :param int limit: Return no more than this many results at once (see resume).
         :param str dir: The direction of the sort.
@@ -2230,7 +2230,7 @@ class SnapshotApi(object):
         """
 
         all_params = ['sort', 'limit', 'dir', 'resume']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2288,7 +2288,7 @@ class SnapshotApi(object):
             files=local_var_files,
             response_type='SnapshotSchedulesExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2299,11 +2299,11 @@ class SnapshotApi(object):
 
         List all or matching snapshots.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_snapshot_snapshots(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_snapshot_snapshots(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.  Choices are id, name, path, created, expires, size, has_locks, schedule, alias_target, alias_target_name, pct_filesystem, pct_reserve, and state.  Default is id.
         :param str schedule: Only list snapshots created by this schedule.
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
@@ -2316,7 +2316,7 @@ class SnapshotApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_snapshot_snapshots_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_snapshot_snapshots_with_http_info(**kwargs)  # noqa: E501
@@ -2327,11 +2327,11 @@ class SnapshotApi(object):
 
         List all or matching snapshots.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_snapshot_snapshots_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_snapshot_snapshots_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.  Choices are id, name, path, created, expires, size, has_locks, schedule, alias_target, alias_target_name, pct_filesystem, pct_reserve, and state.  Default is id.
         :param str schedule: Only list snapshots created by this schedule.
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
@@ -2345,7 +2345,7 @@ class SnapshotApi(object):
         """
 
         all_params = ['sort', 'schedule', 'resume', 'state', 'limit', 'type', 'dir']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2409,7 +2409,7 @@ class SnapshotApi(object):
             files=local_var_files,
             response_type='SnapshotSnapshotsExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2420,11 +2420,11 @@ class SnapshotApi(object):
 
         Modify snapshot alias. All input fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_snapshot_alias(snapshot_alias, snapshot_alias_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_snapshot_alias(snapshot_alias, snapshot_alias_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SnapshotAlias snapshot_alias: (required)
         :param str snapshot_alias_id: Modify snapshot alias. All input fields are optional, but one or more must be supplied. (required)
         :return: None
@@ -2432,7 +2432,7 @@ class SnapshotApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_snapshot_alias_with_http_info(snapshot_alias, snapshot_alias_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_snapshot_alias_with_http_info(snapshot_alias, snapshot_alias_id, **kwargs)  # noqa: E501
@@ -2443,11 +2443,11 @@ class SnapshotApi(object):
 
         Modify snapshot alias. All input fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_snapshot_alias_with_http_info(snapshot_alias, snapshot_alias_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_snapshot_alias_with_http_info(snapshot_alias, snapshot_alias_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SnapshotAlias snapshot_alias: (required)
         :param str snapshot_alias_id: Modify snapshot alias. All input fields are optional, but one or more must be supplied. (required)
         :return: None
@@ -2456,7 +2456,7 @@ class SnapshotApi(object):
         """
 
         all_params = ['snapshot_alias', 'snapshot_alias_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2516,7 +2516,7 @@ class SnapshotApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2527,11 +2527,11 @@ class SnapshotApi(object):
 
         Modify the schedule. All input fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_snapshot_schedule(snapshot_schedule, snapshot_schedule_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_snapshot_schedule(snapshot_schedule, snapshot_schedule_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SnapshotSchedule snapshot_schedule: (required)
         :param str snapshot_schedule_id: Modify the schedule. All input fields are optional, but one or more must be supplied. (required)
         :return: None
@@ -2539,7 +2539,7 @@ class SnapshotApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_snapshot_schedule_with_http_info(snapshot_schedule, snapshot_schedule_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_snapshot_schedule_with_http_info(snapshot_schedule, snapshot_schedule_id, **kwargs)  # noqa: E501
@@ -2550,11 +2550,11 @@ class SnapshotApi(object):
 
         Modify the schedule. All input fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_snapshot_schedule_with_http_info(snapshot_schedule, snapshot_schedule_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_snapshot_schedule_with_http_info(snapshot_schedule, snapshot_schedule_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SnapshotSchedule snapshot_schedule: (required)
         :param str snapshot_schedule_id: Modify the schedule. All input fields are optional, but one or more must be supplied. (required)
         :return: None
@@ -2563,7 +2563,7 @@ class SnapshotApi(object):
         """
 
         all_params = ['snapshot_schedule', 'snapshot_schedule_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2623,7 +2623,7 @@ class SnapshotApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2634,18 +2634,18 @@ class SnapshotApi(object):
 
         Modify one or more settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_snapshot_settings(snapshot_settings, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_snapshot_settings(snapshot_settings, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SnapshotSettingsExtended snapshot_settings: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_snapshot_settings_with_http_info(snapshot_settings, **kwargs)  # noqa: E501
         else:
             (data) = self.update_snapshot_settings_with_http_info(snapshot_settings, **kwargs)  # noqa: E501
@@ -2656,11 +2656,11 @@ class SnapshotApi(object):
 
         Modify one or more settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_snapshot_settings_with_http_info(snapshot_settings, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_snapshot_settings_with_http_info(snapshot_settings, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SnapshotSettingsExtended snapshot_settings: (required)
         :return: None
                  If the method is called asynchronously,
@@ -2668,7 +2668,7 @@ class SnapshotApi(object):
         """
 
         all_params = ['snapshot_settings']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2722,7 +2722,7 @@ class SnapshotApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2733,11 +2733,11 @@ class SnapshotApi(object):
 
         Modify snapshot. All input fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_snapshot_snapshot(snapshot_snapshot, snapshot_snapshot_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_snapshot_snapshot(snapshot_snapshot, snapshot_snapshot_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SnapshotSnapshot snapshot_snapshot: (required)
         :param str snapshot_snapshot_id: Modify snapshot. All input fields are optional, but one or more must be supplied. (required)
         :return: None
@@ -2745,7 +2745,7 @@ class SnapshotApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_snapshot_snapshot_with_http_info(snapshot_snapshot, snapshot_snapshot_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_snapshot_snapshot_with_http_info(snapshot_snapshot, snapshot_snapshot_id, **kwargs)  # noqa: E501
@@ -2756,11 +2756,11 @@ class SnapshotApi(object):
 
         Modify snapshot. All input fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_snapshot_snapshot_with_http_info(snapshot_snapshot, snapshot_snapshot_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_snapshot_snapshot_with_http_info(snapshot_snapshot, snapshot_snapshot_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SnapshotSnapshot snapshot_snapshot: (required)
         :param str snapshot_snapshot_id: Modify snapshot. All input fields are optional, but one or more must be supplied. (required)
         :return: None
@@ -2769,7 +2769,7 @@ class SnapshotApi(object):
         """
 
         all_params = ['snapshot_snapshot', 'snapshot_snapshot_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2829,7 +2829,7 @@ class SnapshotApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

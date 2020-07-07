@@ -38,11 +38,11 @@ class HardwareApi(object):
 
         Tape/Changer devices rescan  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_hardware_tape_name(hardware_tape_name, hardware_tape_name2, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_hardware_tape_name(hardware_tape_name, hardware_tape_name2, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty hardware_tape_name: (required)
         :param str hardware_tape_name2: Tape/Changer devices rescan (required)
         :param str lnn: Logical node number.
@@ -54,7 +54,7 @@ class HardwareApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_hardware_tape_name_with_http_info(hardware_tape_name, hardware_tape_name2, **kwargs)  # noqa: E501
         else:
             (data) = self.create_hardware_tape_name_with_http_info(hardware_tape_name, hardware_tape_name2, **kwargs)  # noqa: E501
@@ -65,11 +65,11 @@ class HardwareApi(object):
 
         Tape/Changer devices rescan  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_hardware_tape_name_with_http_info(hardware_tape_name, hardware_tape_name2, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_hardware_tape_name_with_http_info(hardware_tape_name, hardware_tape_name2, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty hardware_tape_name: (required)
         :param str hardware_tape_name2: Tape/Changer devices rescan (required)
         :param str lnn: Logical node number.
@@ -82,7 +82,7 @@ class HardwareApi(object):
         """
 
         all_params = ['hardware_tape_name', 'hardware_tape_name2', 'lnn', 'port', 'timeout', 'reconcile']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -150,7 +150,7 @@ class HardwareApi(object):
             files=local_var_files,
             response_type='CreateHardwareTapeNameResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -161,18 +161,18 @@ class HardwareApi(object):
 
         Tape/Changer devices remove  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_hardware_tape_name(hardware_tape_name, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_hardware_tape_name(hardware_tape_name, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str hardware_tape_name: Tape/Changer devices remove (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_hardware_tape_name_with_http_info(hardware_tape_name, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_hardware_tape_name_with_http_info(hardware_tape_name, **kwargs)  # noqa: E501
@@ -183,11 +183,11 @@ class HardwareApi(object):
 
         Tape/Changer devices remove  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_hardware_tape_name_with_http_info(hardware_tape_name, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_hardware_tape_name_with_http_info(hardware_tape_name, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str hardware_tape_name: Tape/Changer devices remove (required)
         :return: None
                  If the method is called asynchronously,
@@ -195,7 +195,7 @@ class HardwareApi(object):
         """
 
         all_params = ['hardware_tape_name']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -249,7 +249,7 @@ class HardwareApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -260,11 +260,11 @@ class HardwareApi(object):
 
         Get one fibre-channel port  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_hardware_fcport(hardware_fcport_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_hardware_fcport(hardware_fcport_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int hardware_fcport_id: Get one fibre-channel port (required)
         :param str lnn: Logical node number.
         :return: HardwareFcports
@@ -272,7 +272,7 @@ class HardwareApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_hardware_fcport_with_http_info(hardware_fcport_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_hardware_fcport_with_http_info(hardware_fcport_id, **kwargs)  # noqa: E501
@@ -283,11 +283,11 @@ class HardwareApi(object):
 
         Get one fibre-channel port  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_hardware_fcport_with_http_info(hardware_fcport_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_hardware_fcport_with_http_info(hardware_fcport_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int hardware_fcport_id: Get one fibre-channel port (required)
         :param str lnn: Logical node number.
         :return: HardwareFcports
@@ -296,7 +296,7 @@ class HardwareApi(object):
         """
 
         all_params = ['hardware_fcport_id', 'lnn']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -352,7 +352,7 @@ class HardwareApi(object):
             files=local_var_files,
             response_type='HardwareFcports',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -363,11 +363,11 @@ class HardwareApi(object):
 
         Get list of fibre-channel ports  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_hardware_fcports(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_hardware_fcports(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str lnn: Logical node number.
         :param int limit: Return no more than this many results at once (see resume).
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
@@ -376,7 +376,7 @@ class HardwareApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_hardware_fcports_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_hardware_fcports_with_http_info(**kwargs)  # noqa: E501
@@ -387,11 +387,11 @@ class HardwareApi(object):
 
         Get list of fibre-channel ports  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_hardware_fcports_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_hardware_fcports_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str lnn: Logical node number.
         :param int limit: Return no more than this many results at once (see resume).
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
@@ -401,7 +401,7 @@ class HardwareApi(object):
         """
 
         all_params = ['lnn', 'limit', 'resume']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -465,7 +465,7 @@ class HardwareApi(object):
             files=local_var_files,
             response_type='HardwareFcports',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -476,11 +476,11 @@ class HardwareApi(object):
 
         Get list Tape and Changer devices  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_hardware_tapes(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_hardware_tapes(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str node: List only devices on the specified node.
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
         :param str devname: List only the named device.
@@ -492,7 +492,7 @@ class HardwareApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_hardware_tapes_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_hardware_tapes_with_http_info(**kwargs)  # noqa: E501
@@ -503,11 +503,11 @@ class HardwareApi(object):
 
         Get list Tape and Changer devices  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_hardware_tapes_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_hardware_tapes_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str node: List only devices on the specified node.
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
         :param str devname: List only the named device.
@@ -520,7 +520,7 @@ class HardwareApi(object):
         """
 
         all_params = ['node', 'resume', 'devname', 'limit', 'activepath', 'type']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -590,7 +590,7 @@ class HardwareApi(object):
             files=local_var_files,
             response_type='HardwareTapes',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -601,11 +601,11 @@ class HardwareApi(object):
 
         Change wwnn, wwpn, state, topology, or rate of a FC port  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_hardware_fcport(hardware_fcport, hardware_fcport_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_hardware_fcport(hardware_fcport, hardware_fcport_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param HardwareFcport hardware_fcport: (required)
         :param int hardware_fcport_id: Change wwnn, wwpn, state, topology, or rate of a FC port (required)
         :param str lnn: Logical node number.
@@ -614,7 +614,7 @@ class HardwareApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_hardware_fcport_with_http_info(hardware_fcport, hardware_fcport_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_hardware_fcport_with_http_info(hardware_fcport, hardware_fcport_id, **kwargs)  # noqa: E501
@@ -625,11 +625,11 @@ class HardwareApi(object):
 
         Change wwnn, wwpn, state, topology, or rate of a FC port  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_hardware_fcport_with_http_info(hardware_fcport, hardware_fcport_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_hardware_fcport_with_http_info(hardware_fcport, hardware_fcport_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param HardwareFcport hardware_fcport: (required)
         :param int hardware_fcport_id: Change wwnn, wwpn, state, topology, or rate of a FC port (required)
         :param str lnn: Logical node number.
@@ -639,7 +639,7 @@ class HardwareApi(object):
         """
 
         all_params = ['hardware_fcport', 'hardware_fcport_id', 'lnn']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -701,7 +701,7 @@ class HardwareApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -712,11 +712,11 @@ class HardwareApi(object):
 
         Tape/Changer device modify  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_hardware_tape_name(hardware_tape_name_params, hardware_tape_name, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_hardware_tape_name(hardware_tape_name_params, hardware_tape_name, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param HardwareTapeNameParams hardware_tape_name_params: (required)
         :param str hardware_tape_name: Tape/Changer device modify (required)
         :return: None
@@ -724,7 +724,7 @@ class HardwareApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_hardware_tape_name_with_http_info(hardware_tape_name_params, hardware_tape_name, **kwargs)  # noqa: E501
         else:
             (data) = self.update_hardware_tape_name_with_http_info(hardware_tape_name_params, hardware_tape_name, **kwargs)  # noqa: E501
@@ -735,11 +735,11 @@ class HardwareApi(object):
 
         Tape/Changer device modify  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_hardware_tape_name_with_http_info(hardware_tape_name_params, hardware_tape_name, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_hardware_tape_name_with_http_info(hardware_tape_name_params, hardware_tape_name, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param HardwareTapeNameParams hardware_tape_name_params: (required)
         :param str hardware_tape_name: Tape/Changer device modify (required)
         :return: None
@@ -748,7 +748,7 @@ class HardwareApi(object):
         """
 
         all_params = ['hardware_tape_name_params', 'hardware_tape_name']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -808,7 +808,7 @@ class HardwareApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

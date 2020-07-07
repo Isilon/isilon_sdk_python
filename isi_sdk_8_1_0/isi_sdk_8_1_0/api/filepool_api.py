@@ -38,18 +38,18 @@ class FilepoolApi(object):
 
         Create a new policy.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_filepool_policy(filepool_policy, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_filepool_policy(filepool_policy, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FilepoolPolicyCreateParams filepool_policy: (required)
         :return: CreateFilepoolPolicyResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_filepool_policy_with_http_info(filepool_policy, **kwargs)  # noqa: E501
         else:
             (data) = self.create_filepool_policy_with_http_info(filepool_policy, **kwargs)  # noqa: E501
@@ -60,11 +60,11 @@ class FilepoolApi(object):
 
         Create a new policy.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_filepool_policy_with_http_info(filepool_policy, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_filepool_policy_with_http_info(filepool_policy, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FilepoolPolicyCreateParams filepool_policy: (required)
         :return: CreateFilepoolPolicyResponse
                  If the method is called asynchronously,
@@ -72,7 +72,7 @@ class FilepoolApi(object):
         """
 
         all_params = ['filepool_policy']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -126,7 +126,7 @@ class FilepoolApi(object):
             files=local_var_files,
             response_type='CreateFilepoolPolicyResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -137,18 +137,18 @@ class FilepoolApi(object):
 
         Delete file pool policy.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_filepool_policy(filepool_policy_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_filepool_policy(filepool_policy_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str filepool_policy_id: Delete file pool policy. (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_filepool_policy_with_http_info(filepool_policy_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_filepool_policy_with_http_info(filepool_policy_id, **kwargs)  # noqa: E501
@@ -159,11 +159,11 @@ class FilepoolApi(object):
 
         Delete file pool policy.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_filepool_policy_with_http_info(filepool_policy_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_filepool_policy_with_http_info(filepool_policy_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str filepool_policy_id: Delete file pool policy. (required)
         :return: None
                  If the method is called asynchronously,
@@ -171,7 +171,7 @@ class FilepoolApi(object):
         """
 
         all_params = ['filepool_policy_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -225,7 +225,7 @@ class FilepoolApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -236,17 +236,17 @@ class FilepoolApi(object):
 
         List default file pool policy.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_filepool_default_policy(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_filepool_default_policy(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: FilepoolDefaultPolicy
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_filepool_default_policy_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_filepool_default_policy_with_http_info(**kwargs)  # noqa: E501
@@ -257,18 +257,18 @@ class FilepoolApi(object):
 
         List default file pool policy.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_filepool_default_policy_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_filepool_default_policy_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: FilepoolDefaultPolicy
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -316,7 +316,7 @@ class FilepoolApi(object):
             files=local_var_files,
             response_type='FilepoolDefaultPolicy',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -327,18 +327,18 @@ class FilepoolApi(object):
 
         Retrieve file pool policy information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_filepool_policy(filepool_policy_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_filepool_policy(filepool_policy_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str filepool_policy_id: Retrieve file pool policy information. (required)
         :return: FilepoolPolicies
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_filepool_policy_with_http_info(filepool_policy_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_filepool_policy_with_http_info(filepool_policy_id, **kwargs)  # noqa: E501
@@ -349,11 +349,11 @@ class FilepoolApi(object):
 
         Retrieve file pool policy information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_filepool_policy_with_http_info(filepool_policy_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_filepool_policy_with_http_info(filepool_policy_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str filepool_policy_id: Retrieve file pool policy information. (required)
         :return: FilepoolPolicies
                  If the method is called asynchronously,
@@ -361,7 +361,7 @@ class FilepoolApi(object):
         """
 
         all_params = ['filepool_policy_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -415,7 +415,7 @@ class FilepoolApi(object):
             files=local_var_files,
             response_type='FilepoolPolicies',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -426,18 +426,18 @@ class FilepoolApi(object):
 
         List all templates.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_filepool_template(filepool_template_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_filepool_template(filepool_template_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str filepool_template_id: List all templates. (required)
         :return: FilepoolTemplates
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_filepool_template_with_http_info(filepool_template_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_filepool_template_with_http_info(filepool_template_id, **kwargs)  # noqa: E501
@@ -448,11 +448,11 @@ class FilepoolApi(object):
 
         List all templates.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_filepool_template_with_http_info(filepool_template_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_filepool_template_with_http_info(filepool_template_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str filepool_template_id: List all templates. (required)
         :return: FilepoolTemplates
                  If the method is called asynchronously,
@@ -460,7 +460,7 @@ class FilepoolApi(object):
         """
 
         all_params = ['filepool_template_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -514,7 +514,7 @@ class FilepoolApi(object):
             files=local_var_files,
             response_type='FilepoolTemplates',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -525,17 +525,17 @@ class FilepoolApi(object):
 
         List all templates.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_filepool_templates(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_filepool_templates(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: FilepoolTemplates
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_filepool_templates_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_filepool_templates_with_http_info(**kwargs)  # noqa: E501
@@ -546,18 +546,18 @@ class FilepoolApi(object):
 
         List all templates.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_filepool_templates_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_filepool_templates_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: FilepoolTemplates
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -605,7 +605,7 @@ class FilepoolApi(object):
             files=local_var_files,
             response_type='FilepoolTemplates',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -616,17 +616,17 @@ class FilepoolApi(object):
 
         List all policies.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_filepool_policies(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_filepool_policies(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: FilepoolPoliciesExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_filepool_policies_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_filepool_policies_with_http_info(**kwargs)  # noqa: E501
@@ -637,18 +637,18 @@ class FilepoolApi(object):
 
         List all policies.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_filepool_policies_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_filepool_policies_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: FilepoolPoliciesExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -696,7 +696,7 @@ class FilepoolApi(object):
             files=local_var_files,
             response_type='FilepoolPoliciesExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -707,18 +707,18 @@ class FilepoolApi(object):
 
         Set default file pool policy.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_filepool_default_policy(filepool_default_policy, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_filepool_default_policy(filepool_default_policy, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FilepoolDefaultPolicyExtended filepool_default_policy: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_filepool_default_policy_with_http_info(filepool_default_policy, **kwargs)  # noqa: E501
         else:
             (data) = self.update_filepool_default_policy_with_http_info(filepool_default_policy, **kwargs)  # noqa: E501
@@ -729,11 +729,11 @@ class FilepoolApi(object):
 
         Set default file pool policy.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_filepool_default_policy_with_http_info(filepool_default_policy, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_filepool_default_policy_with_http_info(filepool_default_policy, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FilepoolDefaultPolicyExtended filepool_default_policy: (required)
         :return: None
                  If the method is called asynchronously,
@@ -741,7 +741,7 @@ class FilepoolApi(object):
         """
 
         all_params = ['filepool_default_policy']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -795,7 +795,7 @@ class FilepoolApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -806,11 +806,11 @@ class FilepoolApi(object):
 
         Modify file pool policy. All input fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_filepool_policy(filepool_policy, filepool_policy_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_filepool_policy(filepool_policy, filepool_policy_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FilepoolPolicy filepool_policy: (required)
         :param str filepool_policy_id: Modify file pool policy. All input fields are optional, but one or more must be supplied. (required)
         :return: None
@@ -818,7 +818,7 @@ class FilepoolApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_filepool_policy_with_http_info(filepool_policy, filepool_policy_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_filepool_policy_with_http_info(filepool_policy, filepool_policy_id, **kwargs)  # noqa: E501
@@ -829,11 +829,11 @@ class FilepoolApi(object):
 
         Modify file pool policy. All input fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_filepool_policy_with_http_info(filepool_policy, filepool_policy_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_filepool_policy_with_http_info(filepool_policy, filepool_policy_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FilepoolPolicy filepool_policy: (required)
         :param str filepool_policy_id: Modify file pool policy. All input fields are optional, but one or more must be supplied. (required)
         :return: None
@@ -842,7 +842,7 @@ class FilepoolApi(object):
         """
 
         all_params = ['filepool_policy', 'filepool_policy_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -902,7 +902,7 @@ class FilepoolApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

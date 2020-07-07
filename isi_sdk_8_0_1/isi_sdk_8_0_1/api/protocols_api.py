@@ -38,11 +38,11 @@ class ProtocolsApi(object):
 
         Create a new HDFS proxyuser.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_hdfs_proxyuser(hdfs_proxyuser, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_hdfs_proxyuser(hdfs_proxyuser, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param HdfsProxyuserCreateParams hdfs_proxyuser: (required)
         :param str zone: Access zone which contains HDFS proxyuser.
         :return: CreateResponse
@@ -50,7 +50,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_hdfs_proxyuser_with_http_info(hdfs_proxyuser, **kwargs)  # noqa: E501
         else:
             (data) = self.create_hdfs_proxyuser_with_http_info(hdfs_proxyuser, **kwargs)  # noqa: E501
@@ -61,11 +61,11 @@ class ProtocolsApi(object):
 
         Create a new HDFS proxyuser.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_hdfs_proxyuser_with_http_info(hdfs_proxyuser, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_hdfs_proxyuser_with_http_info(hdfs_proxyuser, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param HdfsProxyuserCreateParams hdfs_proxyuser: (required)
         :param str zone: Access zone which contains HDFS proxyuser.
         :return: CreateResponse
@@ -74,7 +74,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['hdfs_proxyuser', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -130,7 +130,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='CreateResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -141,11 +141,11 @@ class ProtocolsApi(object):
 
         Create a new HDFS rack.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_hdfs_rack(hdfs_rack, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_hdfs_rack(hdfs_rack, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param HdfsRackCreateParams hdfs_rack: (required)
         :param str zone: Access zone which contains HDFS rack.
         :return: CreateResponse
@@ -153,7 +153,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_hdfs_rack_with_http_info(hdfs_rack, **kwargs)  # noqa: E501
         else:
             (data) = self.create_hdfs_rack_with_http_info(hdfs_rack, **kwargs)  # noqa: E501
@@ -164,11 +164,11 @@ class ProtocolsApi(object):
 
         Create a new HDFS rack.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_hdfs_rack_with_http_info(hdfs_rack, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_hdfs_rack_with_http_info(hdfs_rack, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param HdfsRackCreateParams hdfs_rack: (required)
         :param str zone: Access zone which contains HDFS rack.
         :return: CreateResponse
@@ -177,7 +177,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['hdfs_rack', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -233,7 +233,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='CreateResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -244,18 +244,18 @@ class ProtocolsApi(object):
 
         Create a preferred ip preference.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_ndmp_settings_preferred_ip(ndmp_settings_preferred_ip, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_ndmp_settings_preferred_ip(ndmp_settings_preferred_ip, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NdmpSettingsPreferredIpCreateParams ndmp_settings_preferred_ip: (required)
         :return: Empty
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_ndmp_settings_preferred_ip_with_http_info(ndmp_settings_preferred_ip, **kwargs)  # noqa: E501
         else:
             (data) = self.create_ndmp_settings_preferred_ip_with_http_info(ndmp_settings_preferred_ip, **kwargs)  # noqa: E501
@@ -266,11 +266,11 @@ class ProtocolsApi(object):
 
         Create a preferred ip preference.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_ndmp_settings_preferred_ip_with_http_info(ndmp_settings_preferred_ip, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_ndmp_settings_preferred_ip_with_http_info(ndmp_settings_preferred_ip, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NdmpSettingsPreferredIpCreateParams ndmp_settings_preferred_ip: (required)
         :return: Empty
                  If the method is called asynchronously,
@@ -278,7 +278,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['ndmp_settings_preferred_ip']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -332,7 +332,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='Empty',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -343,11 +343,11 @@ class ProtocolsApi(object):
 
         Create a preferred NDMP environment variable.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_ndmp_settings_variable(ndmp_settings_variable, ndmp_settings_variable_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_ndmp_settings_variable(ndmp_settings_variable, ndmp_settings_variable_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NdmpSettingsVariableCreateParams ndmp_settings_variable: (required)
         :param str ndmp_settings_variable_id: Create a preferred NDMP environment variable. (required)
         :return: Empty
@@ -355,7 +355,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_ndmp_settings_variable_with_http_info(ndmp_settings_variable, ndmp_settings_variable_id, **kwargs)  # noqa: E501
         else:
             (data) = self.create_ndmp_settings_variable_with_http_info(ndmp_settings_variable, ndmp_settings_variable_id, **kwargs)  # noqa: E501
@@ -366,11 +366,11 @@ class ProtocolsApi(object):
 
         Create a preferred NDMP environment variable.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_ndmp_settings_variable_with_http_info(ndmp_settings_variable, ndmp_settings_variable_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_ndmp_settings_variable_with_http_info(ndmp_settings_variable, ndmp_settings_variable_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NdmpSettingsVariableCreateParams ndmp_settings_variable: (required)
         :param str ndmp_settings_variable_id: Create a preferred NDMP environment variable. (required)
         :return: Empty
@@ -379,7 +379,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['ndmp_settings_variable', 'ndmp_settings_variable_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -439,7 +439,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='Empty',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -450,18 +450,18 @@ class ProtocolsApi(object):
 
         Created a new user.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_ndmp_user(ndmp_user, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_ndmp_user(ndmp_user, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NdmpUserCreateParams ndmp_user: (required)
         :return: Empty
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_ndmp_user_with_http_info(ndmp_user, **kwargs)  # noqa: E501
         else:
             (data) = self.create_ndmp_user_with_http_info(ndmp_user, **kwargs)  # noqa: E501
@@ -472,11 +472,11 @@ class ProtocolsApi(object):
 
         Created a new user.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_ndmp_user_with_http_info(ndmp_user, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_ndmp_user_with_http_info(ndmp_user, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NdmpUserCreateParams ndmp_user: (required)
         :return: Empty
                  If the method is called asynchronously,
@@ -484,7 +484,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['ndmp_user']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -538,7 +538,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='Empty',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -549,11 +549,11 @@ class ProtocolsApi(object):
 
         Create a new NFS alias.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_nfs_alias(nfs_alias, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_nfs_alias(nfs_alias, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NfsAliasCreateParams nfs_alias: (required)
         :param str zone: Access zone
         :return: CreateNfsAliasResponse
@@ -561,7 +561,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_nfs_alias_with_http_info(nfs_alias, **kwargs)  # noqa: E501
         else:
             (data) = self.create_nfs_alias_with_http_info(nfs_alias, **kwargs)  # noqa: E501
@@ -572,11 +572,11 @@ class ProtocolsApi(object):
 
         Create a new NFS alias.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_nfs_alias_with_http_info(nfs_alias, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_nfs_alias_with_http_info(nfs_alias, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NfsAliasCreateParams nfs_alias: (required)
         :param str zone: Access zone
         :return: CreateNfsAliasResponse
@@ -585,7 +585,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['nfs_alias', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -641,7 +641,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='CreateNfsAliasResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -652,11 +652,11 @@ class ProtocolsApi(object):
 
         Create a new NFS export.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_nfs_export(nfs_export, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_nfs_export(nfs_export, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NfsExportCreateParams nfs_export: (required)
         :param bool force: If true, the export will be created even if it conflicts with another export.
         :param str zone: Access zone
@@ -665,7 +665,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_nfs_export_with_http_info(nfs_export, **kwargs)  # noqa: E501
         else:
             (data) = self.create_nfs_export_with_http_info(nfs_export, **kwargs)  # noqa: E501
@@ -676,11 +676,11 @@ class ProtocolsApi(object):
 
         Create a new NFS export.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_nfs_export_with_http_info(nfs_export, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_nfs_export_with_http_info(nfs_export, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NfsExportCreateParams nfs_export: (required)
         :param bool force: If true, the export will be created even if it conflicts with another export.
         :param str zone: Access zone
@@ -690,7 +690,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['nfs_export', 'force', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -748,7 +748,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='CreateQuotaReportResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -759,11 +759,11 @@ class ProtocolsApi(object):
 
         Update the NFS netgroups in the cache.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_nfs_netgroup_check_item(nfs_netgroup_check_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_nfs_netgroup_check_item(nfs_netgroup_check_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty nfs_netgroup_check_item: (required)
         :param str host: IP address of node to update. If unspecified, the local nodes cache is updated.
         :return: Empty
@@ -771,7 +771,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_nfs_netgroup_check_item_with_http_info(nfs_netgroup_check_item, **kwargs)  # noqa: E501
         else:
             (data) = self.create_nfs_netgroup_check_item_with_http_info(nfs_netgroup_check_item, **kwargs)  # noqa: E501
@@ -782,11 +782,11 @@ class ProtocolsApi(object):
 
         Update the NFS netgroups in the cache.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_nfs_netgroup_check_item_with_http_info(nfs_netgroup_check_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_nfs_netgroup_check_item_with_http_info(nfs_netgroup_check_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty nfs_netgroup_check_item: (required)
         :param str host: IP address of node to update. If unspecified, the local nodes cache is updated.
         :return: Empty
@@ -795,7 +795,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['nfs_netgroup_check_item', 'host']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -851,7 +851,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='Empty',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -862,11 +862,11 @@ class ProtocolsApi(object):
 
         Flush the NFS netgroups in the cache.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_nfs_netgroup_flush_item(nfs_netgroup_flush_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_nfs_netgroup_flush_item(nfs_netgroup_flush_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty nfs_netgroup_flush_item: (required)
         :param str host: IP address of node to flush. If unspecified, all nodes on the cluster are flushed.
         :return: Empty
@@ -874,7 +874,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_nfs_netgroup_flush_item_with_http_info(nfs_netgroup_flush_item, **kwargs)  # noqa: E501
         else:
             (data) = self.create_nfs_netgroup_flush_item_with_http_info(nfs_netgroup_flush_item, **kwargs)  # noqa: E501
@@ -885,11 +885,11 @@ class ProtocolsApi(object):
 
         Flush the NFS netgroups in the cache.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_nfs_netgroup_flush_item_with_http_info(nfs_netgroup_flush_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_nfs_netgroup_flush_item_with_http_info(nfs_netgroup_flush_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty nfs_netgroup_flush_item: (required)
         :param str host: IP address of node to flush. If unspecified, all nodes on the cluster are flushed.
         :return: Empty
@@ -898,7 +898,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['nfs_netgroup_flush_item', 'host']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -954,7 +954,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='Empty',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -965,11 +965,11 @@ class ProtocolsApi(object):
 
         Perform an active scan for lost NFSv3 locks.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_nfs_nlm_sessions_check_item(nfs_nlm_sessions_check_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_nfs_nlm_sessions_check_item(nfs_nlm_sessions_check_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty nfs_nlm_sessions_check_item: (required)
         :param str cluster_ip: An IP address for which NSM has client records
         :param str zone: Represents an extant auth zone
@@ -978,7 +978,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_nfs_nlm_sessions_check_item_with_http_info(nfs_nlm_sessions_check_item, **kwargs)  # noqa: E501
         else:
             (data) = self.create_nfs_nlm_sessions_check_item_with_http_info(nfs_nlm_sessions_check_item, **kwargs)  # noqa: E501
@@ -989,11 +989,11 @@ class ProtocolsApi(object):
 
         Perform an active scan for lost NFSv3 locks.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_nfs_nlm_sessions_check_item_with_http_info(nfs_nlm_sessions_check_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_nfs_nlm_sessions_check_item_with_http_info(nfs_nlm_sessions_check_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty nfs_nlm_sessions_check_item: (required)
         :param str cluster_ip: An IP address for which NSM has client records
         :param str zone: Represents an extant auth zone
@@ -1003,7 +1003,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['nfs_nlm_sessions_check_item', 'cluster_ip', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1061,7 +1061,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='CreateNfsNlmSessionsCheckItemResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1072,11 +1072,11 @@ class ProtocolsApi(object):
 
         Reload default NFS export configuration.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_nfs_reload_item(nfs_reload_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_nfs_reload_item(nfs_reload_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty nfs_reload_item: (required)
         :param str zone: Access zone
         :return: Empty
@@ -1084,7 +1084,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_nfs_reload_item_with_http_info(nfs_reload_item, **kwargs)  # noqa: E501
         else:
             (data) = self.create_nfs_reload_item_with_http_info(nfs_reload_item, **kwargs)  # noqa: E501
@@ -1095,11 +1095,11 @@ class ProtocolsApi(object):
 
         Reload default NFS export configuration.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_nfs_reload_item_with_http_info(nfs_reload_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_nfs_reload_item_with_http_info(nfs_reload_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty nfs_reload_item: (required)
         :param str zone: Access zone
         :return: Empty
@@ -1108,7 +1108,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['nfs_reload_item', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1164,7 +1164,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='Empty',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1175,18 +1175,18 @@ class ProtocolsApi(object):
 
         Create an NTP server entry.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_ntp_server(ntp_server, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_ntp_server(ntp_server, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NtpServerCreateParams ntp_server: (required)
         :return: Empty
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_ntp_server_with_http_info(ntp_server, **kwargs)  # noqa: E501
         else:
             (data) = self.create_ntp_server_with_http_info(ntp_server, **kwargs)  # noqa: E501
@@ -1197,11 +1197,11 @@ class ProtocolsApi(object):
 
         Create an NTP server entry.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_ntp_server_with_http_info(ntp_server, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_ntp_server_with_http_info(ntp_server, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NtpServerCreateParams ntp_server: (required)
         :return: Empty
                  If the method is called asynchronously,
@@ -1209,7 +1209,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['ntp_server']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1263,7 +1263,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='Empty',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1274,18 +1274,18 @@ class ProtocolsApi(object):
 
         Add an SMB log filter.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_smb_log_level_filter(smb_log_level_filter, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_smb_log_level_filter(smb_log_level_filter, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SmbLogLevelFilter smb_log_level_filter: (required)
         :return: CreateAuthRefreshItemResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_smb_log_level_filter_with_http_info(smb_log_level_filter, **kwargs)  # noqa: E501
         else:
             (data) = self.create_smb_log_level_filter_with_http_info(smb_log_level_filter, **kwargs)  # noqa: E501
@@ -1296,11 +1296,11 @@ class ProtocolsApi(object):
 
         Add an SMB log filter.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_smb_log_level_filter_with_http_info(smb_log_level_filter, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_smb_log_level_filter_with_http_info(smb_log_level_filter, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SmbLogLevelFilter smb_log_level_filter: (required)
         :return: CreateAuthRefreshItemResponse
                  If the method is called asynchronously,
@@ -1308,7 +1308,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['smb_log_level_filter']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1362,7 +1362,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='CreateAuthRefreshItemResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1373,11 +1373,11 @@ class ProtocolsApi(object):
 
         Create a new share.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_smb_share(smb_share, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_smb_share(smb_share, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SmbShareCreateParams smb_share: (required)
         :param str zone: Zone which contains this share.
         :return: CreateResponse
@@ -1385,7 +1385,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_smb_share_with_http_info(smb_share, **kwargs)  # noqa: E501
         else:
             (data) = self.create_smb_share_with_http_info(smb_share, **kwargs)  # noqa: E501
@@ -1396,11 +1396,11 @@ class ProtocolsApi(object):
 
         Create a new share.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_smb_share_with_http_info(smb_share, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_smb_share_with_http_info(smb_share, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SmbShareCreateParams smb_share: (required)
         :param str zone: Zone which contains this share.
         :return: CreateResponse
@@ -1409,7 +1409,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['smb_share', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1465,7 +1465,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='CreateResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1476,11 +1476,11 @@ class ProtocolsApi(object):
 
         Create a new Swift account  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_swift_account(swift_account, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_swift_account(swift_account, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SwiftAccount swift_account: (required)
         :param str zone: Access zone which contains Swift account.
         :return: Empty
@@ -1488,7 +1488,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_swift_account_with_http_info(swift_account, **kwargs)  # noqa: E501
         else:
             (data) = self.create_swift_account_with_http_info(swift_account, **kwargs)  # noqa: E501
@@ -1499,11 +1499,11 @@ class ProtocolsApi(object):
 
         Create a new Swift account  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_swift_account_with_http_info(swift_account, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_swift_account_with_http_info(swift_account, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SwiftAccount swift_account: (required)
         :param str zone: Access zone which contains Swift account.
         :return: Empty
@@ -1512,7 +1512,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['swift_account', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1568,7 +1568,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='Empty',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1579,11 +1579,11 @@ class ProtocolsApi(object):
 
         Delete an HDFS proxyuser.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_hdfs_proxyuser(hdfs_proxyuser_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_hdfs_proxyuser(hdfs_proxyuser_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str hdfs_proxyuser_id: Delete an HDFS proxyuser. (required)
         :param str zone: Access zone which contains HDFS proxyuser.
         :return: None
@@ -1591,7 +1591,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_hdfs_proxyuser_with_http_info(hdfs_proxyuser_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_hdfs_proxyuser_with_http_info(hdfs_proxyuser_id, **kwargs)  # noqa: E501
@@ -1602,11 +1602,11 @@ class ProtocolsApi(object):
 
         Delete an HDFS proxyuser.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_hdfs_proxyuser_with_http_info(hdfs_proxyuser_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_hdfs_proxyuser_with_http_info(hdfs_proxyuser_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str hdfs_proxyuser_id: Delete an HDFS proxyuser. (required)
         :param str zone: Access zone which contains HDFS proxyuser.
         :return: None
@@ -1615,7 +1615,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['hdfs_proxyuser_id', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1671,7 +1671,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1682,11 +1682,11 @@ class ProtocolsApi(object):
 
         Delete the HDFS rack.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_hdfs_rack(hdfs_rack_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_hdfs_rack(hdfs_rack_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str hdfs_rack_id: Delete the HDFS rack. (required)
         :param str zone: Access zone which contains HDFS rack.
         :return: None
@@ -1694,7 +1694,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_hdfs_rack_with_http_info(hdfs_rack_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_hdfs_rack_with_http_info(hdfs_rack_id, **kwargs)  # noqa: E501
@@ -1705,11 +1705,11 @@ class ProtocolsApi(object):
 
         Delete the HDFS rack.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_hdfs_rack_with_http_info(hdfs_rack_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_hdfs_rack_with_http_info(hdfs_rack_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str hdfs_rack_id: Delete the HDFS rack. (required)
         :param str zone: Access zone which contains HDFS rack.
         :return: None
@@ -1718,7 +1718,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['hdfs_rack_id', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1774,7 +1774,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1785,18 +1785,18 @@ class ProtocolsApi(object):
 
         Delete a backup context  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_ndmp_contexts_backup_by_id(ndmp_contexts_backup_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_ndmp_contexts_backup_by_id(ndmp_contexts_backup_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str ndmp_contexts_backup_id: Delete a backup context (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_ndmp_contexts_backup_by_id_with_http_info(ndmp_contexts_backup_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_ndmp_contexts_backup_by_id_with_http_info(ndmp_contexts_backup_id, **kwargs)  # noqa: E501
@@ -1807,11 +1807,11 @@ class ProtocolsApi(object):
 
         Delete a backup context  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_ndmp_contexts_backup_by_id_with_http_info(ndmp_contexts_backup_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_ndmp_contexts_backup_by_id_with_http_info(ndmp_contexts_backup_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str ndmp_contexts_backup_id: Delete a backup context (required)
         :return: None
                  If the method is called asynchronously,
@@ -1819,7 +1819,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['ndmp_contexts_backup_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1873,7 +1873,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1884,18 +1884,18 @@ class ProtocolsApi(object):
 
         Delete a NDMP BRE context  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_ndmp_contexts_bre_by_id(ndmp_contexts_bre_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_ndmp_contexts_bre_by_id(ndmp_contexts_bre_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str ndmp_contexts_bre_id: Delete a NDMP BRE context (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_ndmp_contexts_bre_by_id_with_http_info(ndmp_contexts_bre_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_ndmp_contexts_bre_by_id_with_http_info(ndmp_contexts_bre_id, **kwargs)  # noqa: E501
@@ -1906,11 +1906,11 @@ class ProtocolsApi(object):
 
         Delete a NDMP BRE context  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_ndmp_contexts_bre_by_id_with_http_info(ndmp_contexts_bre_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_ndmp_contexts_bre_by_id_with_http_info(ndmp_contexts_bre_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str ndmp_contexts_bre_id: Delete a NDMP BRE context (required)
         :return: None
                  If the method is called asynchronously,
@@ -1918,7 +1918,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['ndmp_contexts_bre_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1972,7 +1972,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1983,18 +1983,18 @@ class ProtocolsApi(object):
 
         Delete a restore context  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_ndmp_contexts_restore_by_id(ndmp_contexts_restore_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_ndmp_contexts_restore_by_id(ndmp_contexts_restore_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str ndmp_contexts_restore_id: Delete a restore context (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_ndmp_contexts_restore_by_id_with_http_info(ndmp_contexts_restore_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_ndmp_contexts_restore_by_id_with_http_info(ndmp_contexts_restore_id, **kwargs)  # noqa: E501
@@ -2005,11 +2005,11 @@ class ProtocolsApi(object):
 
         Delete a restore context  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_ndmp_contexts_restore_by_id_with_http_info(ndmp_contexts_restore_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_ndmp_contexts_restore_by_id_with_http_info(ndmp_contexts_restore_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str ndmp_contexts_restore_id: Delete a restore context (required)
         :return: None
                  If the method is called asynchronously,
@@ -2017,7 +2017,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['ndmp_contexts_restore_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2071,7 +2071,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2082,11 +2082,11 @@ class ProtocolsApi(object):
 
         Delete dumpdates entries of a specified path.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_ndmp_dumpdate(ndmp_dumpdate_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_ndmp_dumpdate(ndmp_dumpdate_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str ndmp_dumpdate_id: Delete dumpdates entries of a specified path. (required)
         :param int level: Level is an input from 0 to 10.
         :return: None
@@ -2094,7 +2094,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_ndmp_dumpdate_with_http_info(ndmp_dumpdate_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_ndmp_dumpdate_with_http_info(ndmp_dumpdate_id, **kwargs)  # noqa: E501
@@ -2105,11 +2105,11 @@ class ProtocolsApi(object):
 
         Delete dumpdates entries of a specified path.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_ndmp_dumpdate_with_http_info(ndmp_dumpdate_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_ndmp_dumpdate_with_http_info(ndmp_dumpdate_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str ndmp_dumpdate_id: Delete dumpdates entries of a specified path. (required)
         :param int level: Level is an input from 0 to 10.
         :return: None
@@ -2118,7 +2118,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['ndmp_dumpdate_id', 'level']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2174,7 +2174,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2185,11 +2185,11 @@ class ProtocolsApi(object):
 
         Delete the ndmp session.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_ndmp_session(ndmp_session_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_ndmp_session(ndmp_session_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str ndmp_session_id: Delete the ndmp session. (required)
         :param str lnn: Logical node number.
         :return: None
@@ -2197,7 +2197,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_ndmp_session_with_http_info(ndmp_session_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_ndmp_session_with_http_info(ndmp_session_id, **kwargs)  # noqa: E501
@@ -2208,11 +2208,11 @@ class ProtocolsApi(object):
 
         Delete the ndmp session.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_ndmp_session_with_http_info(ndmp_session_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_ndmp_session_with_http_info(ndmp_session_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str ndmp_session_id: Delete the ndmp session. (required)
         :param str lnn: Logical node number.
         :return: None
@@ -2221,7 +2221,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['ndmp_session_id', 'lnn']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2277,7 +2277,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2288,18 +2288,18 @@ class ProtocolsApi(object):
 
         Delete a preferred ip preference.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_ndmp_settings_preferred_ip(ndmp_settings_preferred_ip_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_ndmp_settings_preferred_ip(ndmp_settings_preferred_ip_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str ndmp_settings_preferred_ip_id: Delete a preferred ip preference. (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_ndmp_settings_preferred_ip_with_http_info(ndmp_settings_preferred_ip_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_ndmp_settings_preferred_ip_with_http_info(ndmp_settings_preferred_ip_id, **kwargs)  # noqa: E501
@@ -2310,11 +2310,11 @@ class ProtocolsApi(object):
 
         Delete a preferred ip preference.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_ndmp_settings_preferred_ip_with_http_info(ndmp_settings_preferred_ip_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_ndmp_settings_preferred_ip_with_http_info(ndmp_settings_preferred_ip_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str ndmp_settings_preferred_ip_id: Delete a preferred ip preference. (required)
         :return: None
                  If the method is called asynchronously,
@@ -2322,7 +2322,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['ndmp_settings_preferred_ip_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2376,7 +2376,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2387,11 +2387,11 @@ class ProtocolsApi(object):
 
         Delete preferred environment variable entries  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_ndmp_settings_variable(ndmp_settings_variable_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_ndmp_settings_variable(ndmp_settings_variable_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str ndmp_settings_variable_id: Delete preferred environment variable entries (required)
         :param str name: Name of the variable to delete.
         :return: None
@@ -2399,7 +2399,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_ndmp_settings_variable_with_http_info(ndmp_settings_variable_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_ndmp_settings_variable_with_http_info(ndmp_settings_variable_id, **kwargs)  # noqa: E501
@@ -2410,11 +2410,11 @@ class ProtocolsApi(object):
 
         Delete preferred environment variable entries  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_ndmp_settings_variable_with_http_info(ndmp_settings_variable_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_ndmp_settings_variable_with_http_info(ndmp_settings_variable_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str ndmp_settings_variable_id: Delete preferred environment variable entries (required)
         :param str name: Name of the variable to delete.
         :return: None
@@ -2423,7 +2423,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['ndmp_settings_variable_id', 'name']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2479,7 +2479,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2490,18 +2490,18 @@ class ProtocolsApi(object):
 
         Delete the user.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_ndmp_user(ndmp_user_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_ndmp_user(ndmp_user_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str ndmp_user_id: Delete the user. (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_ndmp_user_with_http_info(ndmp_user_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_ndmp_user_with_http_info(ndmp_user_id, **kwargs)  # noqa: E501
@@ -2512,11 +2512,11 @@ class ProtocolsApi(object):
 
         Delete the user.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_ndmp_user_with_http_info(ndmp_user_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_ndmp_user_with_http_info(ndmp_user_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str ndmp_user_id: Delete the user. (required)
         :return: None
                  If the method is called asynchronously,
@@ -2524,7 +2524,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['ndmp_user_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2578,7 +2578,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2589,11 +2589,11 @@ class ProtocolsApi(object):
 
         Delete the export.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_nfs_alias(nfs_alias_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_nfs_alias(nfs_alias_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str nfs_alias_id: Delete the export. (required)
         :param str zone: Access zone
         :return: None
@@ -2601,7 +2601,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_nfs_alias_with_http_info(nfs_alias_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_nfs_alias_with_http_info(nfs_alias_id, **kwargs)  # noqa: E501
@@ -2612,11 +2612,11 @@ class ProtocolsApi(object):
 
         Delete the export.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_nfs_alias_with_http_info(nfs_alias_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_nfs_alias_with_http_info(nfs_alias_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str nfs_alias_id: Delete the export. (required)
         :param str zone: Access zone
         :return: None
@@ -2625,7 +2625,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['nfs_alias_id', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2686,7 +2686,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2697,11 +2697,11 @@ class ProtocolsApi(object):
 
         Delete the export.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_nfs_export(nfs_export_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_nfs_export(nfs_export_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str nfs_export_id: Delete the export. (required)
         :param str zone: Access zone
         :return: None
@@ -2709,7 +2709,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_nfs_export_with_http_info(nfs_export_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_nfs_export_with_http_info(nfs_export_id, **kwargs)  # noqa: E501
@@ -2720,11 +2720,11 @@ class ProtocolsApi(object):
 
         Delete the export.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_nfs_export_with_http_info(nfs_export_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_nfs_export_with_http_info(nfs_export_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str nfs_export_id: Delete the export. (required)
         :param str zone: Access zone
         :return: None
@@ -2733,7 +2733,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['nfs_export_id', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2789,7 +2789,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2800,11 +2800,11 @@ class ProtocolsApi(object):
 
         Delete all lock state for this host.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_nfs_nlm_session(nfs_nlm_session_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_nfs_nlm_session(nfs_nlm_session_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str nfs_nlm_session_id: Delete all lock state for this host. (required)
         :param str cluster_ip: An IP address for which NSM has client records
         :param str zone: Represents an extant auth zone
@@ -2814,7 +2814,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_nfs_nlm_session_with_http_info(nfs_nlm_session_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_nfs_nlm_session_with_http_info(nfs_nlm_session_id, **kwargs)  # noqa: E501
@@ -2825,11 +2825,11 @@ class ProtocolsApi(object):
 
         Delete all lock state for this host.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_nfs_nlm_session_with_http_info(nfs_nlm_session_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_nfs_nlm_session_with_http_info(nfs_nlm_session_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str nfs_nlm_session_id: Delete all lock state for this host. (required)
         :param str cluster_ip: An IP address for which NSM has client records
         :param str zone: Represents an extant auth zone
@@ -2840,7 +2840,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['nfs_nlm_session_id', 'cluster_ip', 'zone', 'refresh']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2900,7 +2900,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2911,18 +2911,18 @@ class ProtocolsApi(object):
 
         Delete an NTP server entry.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_ntp_server(ntp_server_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_ntp_server(ntp_server_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str ntp_server_id: Delete an NTP server entry. (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_ntp_server_with_http_info(ntp_server_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_ntp_server_with_http_info(ntp_server_id, **kwargs)  # noqa: E501
@@ -2933,11 +2933,11 @@ class ProtocolsApi(object):
 
         Delete an NTP server entry.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_ntp_server_with_http_info(ntp_server_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_ntp_server_with_http_info(ntp_server_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str ntp_server_id: Delete an NTP server entry. (required)
         :return: None
                  If the method is called asynchronously,
@@ -2945,7 +2945,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['ntp_server_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2999,7 +2999,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -3010,17 +3010,17 @@ class ProtocolsApi(object):
 
         Delete all NTP server entries.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_ntp_servers(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_ntp_servers(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_ntp_servers_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.delete_ntp_servers_with_http_info(**kwargs)  # noqa: E501
@@ -3031,18 +3031,18 @@ class ProtocolsApi(object):
 
         Delete all NTP server entries.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_ntp_servers_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_ntp_servers_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3090,7 +3090,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -3101,18 +3101,18 @@ class ProtocolsApi(object):
 
         Delete log filter.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_smb_log_level_filter(smb_log_level_filter_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_smb_log_level_filter(smb_log_level_filter_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str smb_log_level_filter_id: Delete log filter. (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_smb_log_level_filter_with_http_info(smb_log_level_filter_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_smb_log_level_filter_with_http_info(smb_log_level_filter_id, **kwargs)  # noqa: E501
@@ -3123,11 +3123,11 @@ class ProtocolsApi(object):
 
         Delete log filter.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_smb_log_level_filter_with_http_info(smb_log_level_filter_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_smb_log_level_filter_with_http_info(smb_log_level_filter_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str smb_log_level_filter_id: Delete log filter. (required)
         :return: None
                  If the method is called asynchronously,
@@ -3135,7 +3135,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['smb_log_level_filter_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3189,7 +3189,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -3200,18 +3200,18 @@ class ProtocolsApi(object):
 
         Delete existing SMB log filters.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_smb_log_level_filters(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_smb_log_level_filters(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str level: Only return results with a given level.
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_smb_log_level_filters_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.delete_smb_log_level_filters_with_http_info(**kwargs)  # noqa: E501
@@ -3222,11 +3222,11 @@ class ProtocolsApi(object):
 
         Delete existing SMB log filters.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_smb_log_level_filters_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_smb_log_level_filters_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str level: Only return results with a given level.
         :return: None
                  If the method is called asynchronously,
@@ -3234,7 +3234,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['level']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3284,7 +3284,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -3295,18 +3295,18 @@ class ProtocolsApi(object):
 
         Close the file in the SMB server.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_smb_openfile(smb_openfile_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_smb_openfile(smb_openfile_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str smb_openfile_id: Close the file in the SMB server. (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_smb_openfile_with_http_info(smb_openfile_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_smb_openfile_with_http_info(smb_openfile_id, **kwargs)  # noqa: E501
@@ -3317,11 +3317,11 @@ class ProtocolsApi(object):
 
         Close the file in the SMB server.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_smb_openfile_with_http_info(smb_openfile_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_smb_openfile_with_http_info(smb_openfile_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str smb_openfile_id: Close the file in the SMB server. (required)
         :return: None
                  If the method is called asynchronously,
@@ -3329,7 +3329,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['smb_openfile_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3383,7 +3383,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -3394,18 +3394,18 @@ class ProtocolsApi(object):
 
         Close the SMB session.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_smb_session(smb_session_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_smb_session(smb_session_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str smb_session_id: Close the SMB session. (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_smb_session_with_http_info(smb_session_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_smb_session_with_http_info(smb_session_id, **kwargs)  # noqa: E501
@@ -3416,11 +3416,11 @@ class ProtocolsApi(object):
 
         Close the SMB session.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_smb_session_with_http_info(smb_session_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_smb_session_with_http_info(smb_session_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str smb_session_id: Close the SMB session. (required)
         :return: None
                  If the method is called asynchronously,
@@ -3428,7 +3428,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['smb_session_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3482,7 +3482,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -3493,11 +3493,11 @@ class ProtocolsApi(object):
 
         Close the SMB session.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_smb_sessions_computer_user(smb_sessions_computer_user, computer, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_smb_sessions_computer_user(smb_sessions_computer_user, computer, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str smb_sessions_computer_user: Close the SMB session. (required)
         :param str computer: (required)
         :return: None
@@ -3505,7 +3505,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_smb_sessions_computer_user_with_http_info(smb_sessions_computer_user, computer, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_smb_sessions_computer_user_with_http_info(smb_sessions_computer_user, computer, **kwargs)  # noqa: E501
@@ -3516,11 +3516,11 @@ class ProtocolsApi(object):
 
         Close the SMB session.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_smb_sessions_computer_user_with_http_info(smb_sessions_computer_user, computer, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_smb_sessions_computer_user_with_http_info(smb_sessions_computer_user, computer, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str smb_sessions_computer_user: Close the SMB session. (required)
         :param str computer: (required)
         :return: None
@@ -3529,7 +3529,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['smb_sessions_computer_user', 'computer']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3589,7 +3589,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -3600,11 +3600,11 @@ class ProtocolsApi(object):
 
         Delete the share.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_smb_share(smb_share_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_smb_share(smb_share_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str smb_share_id: Delete the share. (required)
         :param str zone: Zone which contains this share.
         :return: None
@@ -3612,7 +3612,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_smb_share_with_http_info(smb_share_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_smb_share_with_http_info(smb_share_id, **kwargs)  # noqa: E501
@@ -3623,11 +3623,11 @@ class ProtocolsApi(object):
 
         Delete the share.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_smb_share_with_http_info(smb_share_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_smb_share_with_http_info(smb_share_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str smb_share_id: Delete the share. (required)
         :param str zone: Zone which contains this share.
         :return: None
@@ -3636,7 +3636,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['smb_share_id', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3692,7 +3692,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -3703,17 +3703,17 @@ class ProtocolsApi(object):
 
         Delete multiple smb shares.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_smb_shares(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_smb_shares(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_smb_shares_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.delete_smb_shares_with_http_info(**kwargs)  # noqa: E501
@@ -3724,18 +3724,18 @@ class ProtocolsApi(object):
 
         Delete multiple smb shares.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_smb_shares_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_smb_shares_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3783,7 +3783,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -3794,11 +3794,11 @@ class ProtocolsApi(object):
 
         Delete a Swift account.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_swift_account(swift_account_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_swift_account(swift_account_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str swift_account_id: Delete a Swift account. (required)
         :param str zone: Access zone which contains Swift account.
         :return: None
@@ -3806,7 +3806,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_swift_account_with_http_info(swift_account_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_swift_account_with_http_info(swift_account_id, **kwargs)  # noqa: E501
@@ -3817,11 +3817,11 @@ class ProtocolsApi(object):
 
         Delete a Swift account.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_swift_account_with_http_info(swift_account_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_swift_account_with_http_info(swift_account_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str swift_account_id: Delete a Swift account. (required)
         :param str zone: Access zone which contains Swift account.
         :return: None
@@ -3830,7 +3830,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['swift_account_id', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3886,7 +3886,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -3897,17 +3897,17 @@ class ProtocolsApi(object):
 
         Retrieve the FTP settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ftp_settings(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ftp_settings(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: FtpSettings
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_ftp_settings_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_ftp_settings_with_http_info(**kwargs)  # noqa: E501
@@ -3918,18 +3918,18 @@ class ProtocolsApi(object):
 
         Retrieve the FTP settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ftp_settings_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ftp_settings_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: FtpSettings
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3977,7 +3977,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='FtpSettings',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -3988,17 +3988,17 @@ class ProtocolsApi(object):
 
         Retrieve the HDFS service log-level.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_hdfs_log_level(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_hdfs_log_level(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: HdfsLogLevel
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_hdfs_log_level_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_hdfs_log_level_with_http_info(**kwargs)  # noqa: E501
@@ -4009,18 +4009,18 @@ class ProtocolsApi(object):
 
         Retrieve the HDFS service log-level.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_hdfs_log_level_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_hdfs_log_level_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: HdfsLogLevel
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -4068,7 +4068,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='HdfsLogLevel',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -4079,11 +4079,11 @@ class ProtocolsApi(object):
 
         View the proxyuser.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_hdfs_proxyuser(hdfs_proxyuser_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_hdfs_proxyuser(hdfs_proxyuser_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str hdfs_proxyuser_id: View the proxyuser. (required)
         :param str zone: Access zone which contains HDFS proxyuser.
         :return: HdfsProxyusers
@@ -4091,7 +4091,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_hdfs_proxyuser_with_http_info(hdfs_proxyuser_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_hdfs_proxyuser_with_http_info(hdfs_proxyuser_id, **kwargs)  # noqa: E501
@@ -4102,11 +4102,11 @@ class ProtocolsApi(object):
 
         View the proxyuser.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_hdfs_proxyuser_with_http_info(hdfs_proxyuser_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_hdfs_proxyuser_with_http_info(hdfs_proxyuser_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str hdfs_proxyuser_id: View the proxyuser. (required)
         :param str zone: Access zone which contains HDFS proxyuser.
         :return: HdfsProxyusers
@@ -4115,7 +4115,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['hdfs_proxyuser_id', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -4171,7 +4171,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='HdfsProxyusers',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -4182,11 +4182,11 @@ class ProtocolsApi(object):
 
         Retrieve the HDFS rack.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_hdfs_rack(hdfs_rack_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_hdfs_rack(hdfs_rack_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str hdfs_rack_id: Retrieve the HDFS rack. (required)
         :param str zone: Access zone which contains HDFS rack.
         :return: HdfsRacks
@@ -4194,7 +4194,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_hdfs_rack_with_http_info(hdfs_rack_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_hdfs_rack_with_http_info(hdfs_rack_id, **kwargs)  # noqa: E501
@@ -4205,11 +4205,11 @@ class ProtocolsApi(object):
 
         Retrieve the HDFS rack.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_hdfs_rack_with_http_info(hdfs_rack_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_hdfs_rack_with_http_info(hdfs_rack_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str hdfs_rack_id: Retrieve the HDFS rack. (required)
         :param str zone: Access zone which contains HDFS rack.
         :return: HdfsRacks
@@ -4218,7 +4218,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['hdfs_rack_id', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -4274,7 +4274,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='HdfsRacks',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -4285,17 +4285,17 @@ class ProtocolsApi(object):
 
         Retrieve HDFS ranger-plugin properties.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_hdfs_ranger_plugin_settings(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_hdfs_ranger_plugin_settings(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: HdfsRangerPluginSettings
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_hdfs_ranger_plugin_settings_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_hdfs_ranger_plugin_settings_with_http_info(**kwargs)  # noqa: E501
@@ -4306,18 +4306,18 @@ class ProtocolsApi(object):
 
         Retrieve HDFS ranger-plugin properties.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_hdfs_ranger_plugin_settings_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_hdfs_ranger_plugin_settings_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: HdfsRangerPluginSettings
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -4365,7 +4365,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='HdfsRangerPluginSettings',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -4376,18 +4376,18 @@ class ProtocolsApi(object):
 
         Retrieve HDFS properties.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_hdfs_settings(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_hdfs_settings(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str zone: Access zone which contains HDFS settings.
         :return: HdfsSettings
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_hdfs_settings_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_hdfs_settings_with_http_info(**kwargs)  # noqa: E501
@@ -4398,11 +4398,11 @@ class ProtocolsApi(object):
 
         Retrieve HDFS properties.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_hdfs_settings_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_hdfs_settings_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str zone: Access zone which contains HDFS settings.
         :return: HdfsSettings
                  If the method is called asynchronously,
@@ -4410,7 +4410,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -4460,7 +4460,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='HdfsSettings',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -4471,17 +4471,17 @@ class ProtocolsApi(object):
 
         Retrieve HTTP properties.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_http_settings(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_http_settings(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: HttpSettings
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_http_settings_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_http_settings_with_http_info(**kwargs)  # noqa: E501
@@ -4492,18 +4492,18 @@ class ProtocolsApi(object):
 
         Retrieve HTTP properties.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_http_settings_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_http_settings_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: HttpSettings
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -4551,7 +4551,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='HttpSettings',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -4562,11 +4562,11 @@ class ProtocolsApi(object):
 
         Get List of NDMP Backup Contexts.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ndmp_contexts_backup(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ndmp_contexts_backup(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int limit: Return no more than this many results at once (see resume).
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
         :return: NdmpContextsBackupExtended
@@ -4574,7 +4574,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_ndmp_contexts_backup_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_ndmp_contexts_backup_with_http_info(**kwargs)  # noqa: E501
@@ -4585,11 +4585,11 @@ class ProtocolsApi(object):
 
         Get List of NDMP Backup Contexts.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ndmp_contexts_backup_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ndmp_contexts_backup_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int limit: Return no more than this many results at once (see resume).
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
         :return: NdmpContextsBackupExtended
@@ -4598,7 +4598,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['limit', 'resume']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -4652,7 +4652,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='NdmpContextsBackupExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -4663,18 +4663,18 @@ class ProtocolsApi(object):
 
         View a NDMP backup context  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ndmp_contexts_backup_by_id(ndmp_contexts_backup_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ndmp_contexts_backup_by_id(ndmp_contexts_backup_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str ndmp_contexts_backup_id: View a NDMP backup context (required)
         :return: NdmpContextsBackup
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_ndmp_contexts_backup_by_id_with_http_info(ndmp_contexts_backup_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_ndmp_contexts_backup_by_id_with_http_info(ndmp_contexts_backup_id, **kwargs)  # noqa: E501
@@ -4685,11 +4685,11 @@ class ProtocolsApi(object):
 
         View a NDMP backup context  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ndmp_contexts_backup_by_id_with_http_info(ndmp_contexts_backup_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ndmp_contexts_backup_by_id_with_http_info(ndmp_contexts_backup_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str ndmp_contexts_backup_id: View a NDMP backup context (required)
         :return: NdmpContextsBackup
                  If the method is called asynchronously,
@@ -4697,7 +4697,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['ndmp_contexts_backup_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -4751,7 +4751,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='NdmpContextsBackup',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -4762,11 +4762,11 @@ class ProtocolsApi(object):
 
         Get list of NDMP BRE Contexts.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ndmp_contexts_bre(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ndmp_contexts_bre(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int limit: Return no more than this many results at once (see resume).
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
         :return: NdmpContextsBreExtended
@@ -4774,7 +4774,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_ndmp_contexts_bre_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_ndmp_contexts_bre_with_http_info(**kwargs)  # noqa: E501
@@ -4785,11 +4785,11 @@ class ProtocolsApi(object):
 
         Get list of NDMP BRE Contexts.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ndmp_contexts_bre_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ndmp_contexts_bre_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int limit: Return no more than this many results at once (see resume).
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
         :return: NdmpContextsBreExtended
@@ -4798,7 +4798,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['limit', 'resume']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -4852,7 +4852,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='NdmpContextsBreExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -4863,18 +4863,18 @@ class ProtocolsApi(object):
 
         View a NDMP BRE context  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ndmp_contexts_bre_by_id(ndmp_contexts_bre_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ndmp_contexts_bre_by_id(ndmp_contexts_bre_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str ndmp_contexts_bre_id: View a NDMP BRE context (required)
         :return: NdmpContextsBre
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_ndmp_contexts_bre_by_id_with_http_info(ndmp_contexts_bre_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_ndmp_contexts_bre_by_id_with_http_info(ndmp_contexts_bre_id, **kwargs)  # noqa: E501
@@ -4885,11 +4885,11 @@ class ProtocolsApi(object):
 
         View a NDMP BRE context  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ndmp_contexts_bre_by_id_with_http_info(ndmp_contexts_bre_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ndmp_contexts_bre_by_id_with_http_info(ndmp_contexts_bre_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str ndmp_contexts_bre_id: View a NDMP BRE context (required)
         :return: NdmpContextsBre
                  If the method is called asynchronously,
@@ -4897,7 +4897,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['ndmp_contexts_bre_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -4951,7 +4951,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='NdmpContextsBre',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -4962,11 +4962,11 @@ class ProtocolsApi(object):
 
         Get List of NDMP Restore Contexts.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ndmp_contexts_restore(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ndmp_contexts_restore(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int limit: Return no more than this many results at once (see resume).
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
         :return: NdmpContextsBackupExtended
@@ -4974,7 +4974,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_ndmp_contexts_restore_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_ndmp_contexts_restore_with_http_info(**kwargs)  # noqa: E501
@@ -4985,11 +4985,11 @@ class ProtocolsApi(object):
 
         Get List of NDMP Restore Contexts.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ndmp_contexts_restore_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ndmp_contexts_restore_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int limit: Return no more than this many results at once (see resume).
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
         :return: NdmpContextsBackupExtended
@@ -4998,7 +4998,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['limit', 'resume']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -5052,7 +5052,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='NdmpContextsBackupExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -5063,18 +5063,18 @@ class ProtocolsApi(object):
 
         View a NDMP restore context  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ndmp_contexts_restore_by_id(ndmp_contexts_restore_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ndmp_contexts_restore_by_id(ndmp_contexts_restore_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str ndmp_contexts_restore_id: View a NDMP restore context (required)
         :return: NdmpContextsBackup
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_ndmp_contexts_restore_by_id_with_http_info(ndmp_contexts_restore_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_ndmp_contexts_restore_by_id_with_http_info(ndmp_contexts_restore_id, **kwargs)  # noqa: E501
@@ -5085,11 +5085,11 @@ class ProtocolsApi(object):
 
         View a NDMP restore context  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ndmp_contexts_restore_by_id_with_http_info(ndmp_contexts_restore_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ndmp_contexts_restore_by_id_with_http_info(ndmp_contexts_restore_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str ndmp_contexts_restore_id: View a NDMP restore context (required)
         :return: NdmpContextsBackup
                  If the method is called asynchronously,
@@ -5097,7 +5097,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['ndmp_contexts_restore_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -5151,7 +5151,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='NdmpContextsBackup',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -5162,17 +5162,17 @@ class ProtocolsApi(object):
 
         List ndmp diagnostics settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ndmp_diagnostics(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ndmp_diagnostics(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: NdmpDiagnostics
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_ndmp_diagnostics_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_ndmp_diagnostics_with_http_info(**kwargs)  # noqa: E501
@@ -5183,18 +5183,18 @@ class ProtocolsApi(object):
 
         List ndmp diagnostics settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ndmp_diagnostics_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ndmp_diagnostics_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: NdmpDiagnostics
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -5242,7 +5242,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='NdmpDiagnostics',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -5253,11 +5253,11 @@ class ProtocolsApi(object):
 
         List of dumpdates entries.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ndmp_dumpdate(ndmp_dumpdate_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ndmp_dumpdate(ndmp_dumpdate_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str ndmp_dumpdate_id: List of dumpdates entries. (required)
         :param str sort: The field that will be used for sorting.
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
@@ -5270,7 +5270,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_ndmp_dumpdate_with_http_info(ndmp_dumpdate_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_ndmp_dumpdate_with_http_info(ndmp_dumpdate_id, **kwargs)  # noqa: E501
@@ -5281,11 +5281,11 @@ class ProtocolsApi(object):
 
         List of dumpdates entries.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ndmp_dumpdate_with_http_info(ndmp_dumpdate_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ndmp_dumpdate_with_http_info(ndmp_dumpdate_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str ndmp_dumpdate_id: List of dumpdates entries. (required)
         :param str sort: The field that will be used for sorting.
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
@@ -5299,7 +5299,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['ndmp_dumpdate_id', 'sort', 'resume', 'level', 'limit', 'path', 'dir']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -5367,7 +5367,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='NdmpDumpdates',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -5378,11 +5378,11 @@ class ProtocolsApi(object):
 
         Get NDMP logs  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ndmp_logs(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ndmp_logs(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str lnn: Logical node number.
         :param int page: The page number of the NDMP logs file.
         :param int pagesize: The page size of each page of the NDMP log file.
@@ -5391,7 +5391,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_ndmp_logs_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_ndmp_logs_with_http_info(**kwargs)  # noqa: E501
@@ -5402,11 +5402,11 @@ class ProtocolsApi(object):
 
         Get NDMP logs  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ndmp_logs_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ndmp_logs_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str lnn: Logical node number.
         :param int page: The page number of the NDMP logs file.
         :param int pagesize: The page size of each page of the NDMP log file.
@@ -5416,7 +5416,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['lnn', 'page', 'pagesize']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -5470,7 +5470,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='NdmpLogs',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -5481,11 +5481,11 @@ class ProtocolsApi(object):
 
         Retrieve the ndmp session.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ndmp_session(ndmp_session_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ndmp_session(ndmp_session_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str ndmp_session_id: Retrieve the ndmp session. (required)
         :param str lnn: Logical node number.
         :return: NdmpSessions
@@ -5493,7 +5493,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_ndmp_session_with_http_info(ndmp_session_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_ndmp_session_with_http_info(ndmp_session_id, **kwargs)  # noqa: E501
@@ -5504,11 +5504,11 @@ class ProtocolsApi(object):
 
         Retrieve the ndmp session.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ndmp_session_with_http_info(ndmp_session_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ndmp_session_with_http_info(ndmp_session_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str ndmp_session_id: Retrieve the ndmp session. (required)
         :param str lnn: Logical node number.
         :return: NdmpSessions
@@ -5517,7 +5517,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['ndmp_session_id', 'lnn']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -5573,7 +5573,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='NdmpSessions',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -5584,11 +5584,11 @@ class ProtocolsApi(object):
 
         List all ndmp sessions.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ndmp_sessions(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ndmp_sessions(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param bool consolidate: Combine sessions in the same context.
         :param str node: Only return sessions of the node.
         :param str session: Only return the specified session.
@@ -5599,7 +5599,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_ndmp_sessions_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_ndmp_sessions_with_http_info(**kwargs)  # noqa: E501
@@ -5610,11 +5610,11 @@ class ProtocolsApi(object):
 
         List all ndmp sessions.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ndmp_sessions_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ndmp_sessions_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param bool consolidate: Combine sessions in the same context.
         :param str node: Only return sessions of the node.
         :param str session: Only return the specified session.
@@ -5626,7 +5626,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['consolidate', 'node', 'session', 'limit', 'resume']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -5686,7 +5686,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='NdmpSessionsExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -5697,17 +5697,17 @@ class ProtocolsApi(object):
 
         List of supported dma vendors.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ndmp_settings_dmas(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ndmp_settings_dmas(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: NdmpSettingsDmas
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_ndmp_settings_dmas_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_ndmp_settings_dmas_with_http_info(**kwargs)  # noqa: E501
@@ -5718,18 +5718,18 @@ class ProtocolsApi(object):
 
         List of supported dma vendors.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ndmp_settings_dmas_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ndmp_settings_dmas_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: NdmpSettingsDmas
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -5777,7 +5777,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='NdmpSettingsDmas',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -5788,17 +5788,17 @@ class ProtocolsApi(object):
 
         List global ndmp settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ndmp_settings_global(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ndmp_settings_global(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: NdmpSettingsGlobal
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_ndmp_settings_global_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_ndmp_settings_global_with_http_info(**kwargs)  # noqa: E501
@@ -5809,18 +5809,18 @@ class ProtocolsApi(object):
 
         List global ndmp settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ndmp_settings_global_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ndmp_settings_global_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: NdmpSettingsGlobal
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -5868,7 +5868,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='NdmpSettingsGlobal',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -5879,18 +5879,18 @@ class ProtocolsApi(object):
 
         Get one preference by id.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ndmp_settings_preferred_ip(ndmp_settings_preferred_ip_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ndmp_settings_preferred_ip(ndmp_settings_preferred_ip_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str ndmp_settings_preferred_ip_id: Get one preference by id. (required)
         :return: NdmpSettingsPreferredIps
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_ndmp_settings_preferred_ip_with_http_info(ndmp_settings_preferred_ip_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_ndmp_settings_preferred_ip_with_http_info(ndmp_settings_preferred_ip_id, **kwargs)  # noqa: E501
@@ -5901,11 +5901,11 @@ class ProtocolsApi(object):
 
         Get one preference by id.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ndmp_settings_preferred_ip_with_http_info(ndmp_settings_preferred_ip_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ndmp_settings_preferred_ip_with_http_info(ndmp_settings_preferred_ip_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str ndmp_settings_preferred_ip_id: Get one preference by id. (required)
         :return: NdmpSettingsPreferredIps
                  If the method is called asynchronously,
@@ -5913,7 +5913,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['ndmp_settings_preferred_ip_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -5967,7 +5967,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='NdmpSettingsPreferredIps',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -5978,11 +5978,11 @@ class ProtocolsApi(object):
 
         List of preferred environment variables.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ndmp_settings_variable(ndmp_settings_variable_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ndmp_settings_variable(ndmp_settings_variable_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str ndmp_settings_variable_id: List of preferred environment variables. (required)
         :param str path: Return variables of the path.
         :param int limit: Return no more than this many results at once (see resume).
@@ -5992,7 +5992,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_ndmp_settings_variable_with_http_info(ndmp_settings_variable_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_ndmp_settings_variable_with_http_info(ndmp_settings_variable_id, **kwargs)  # noqa: E501
@@ -6003,11 +6003,11 @@ class ProtocolsApi(object):
 
         List of preferred environment variables.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ndmp_settings_variable_with_http_info(ndmp_settings_variable_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ndmp_settings_variable_with_http_info(ndmp_settings_variable_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str ndmp_settings_variable_id: List of preferred environment variables. (required)
         :param str path: Return variables of the path.
         :param int limit: Return no more than this many results at once (see resume).
@@ -6018,7 +6018,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['ndmp_settings_variable_id', 'path', 'limit', 'resume']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -6080,7 +6080,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='NdmpSettingsVariables',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -6091,18 +6091,18 @@ class ProtocolsApi(object):
 
         Retrieve the user.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ndmp_user(ndmp_user_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ndmp_user(ndmp_user_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str ndmp_user_id: Retrieve the user. (required)
         :return: NdmpUsers
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_ndmp_user_with_http_info(ndmp_user_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_ndmp_user_with_http_info(ndmp_user_id, **kwargs)  # noqa: E501
@@ -6113,11 +6113,11 @@ class ProtocolsApi(object):
 
         Retrieve the user.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ndmp_user_with_http_info(ndmp_user_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ndmp_user_with_http_info(ndmp_user_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str ndmp_user_id: Retrieve the user. (required)
         :return: NdmpUsers
                  If the method is called asynchronously,
@@ -6125,7 +6125,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['ndmp_user_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -6179,7 +6179,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='NdmpUsers',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -6190,11 +6190,11 @@ class ProtocolsApi(object):
 
         Retrieve export information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_nfs_alias(nfs_alias_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_nfs_alias(nfs_alias_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str nfs_alias_id: Retrieve export information. (required)
         :param str scope: When specified as 'effective', or not specified, all fields are returned. When specified as 'user', only fields with non-default values are shown. When specified as 'default', the original values are returned.
         :param bool check: Check for conflicts when viewing alias.
@@ -6204,7 +6204,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_nfs_alias_with_http_info(nfs_alias_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_nfs_alias_with_http_info(nfs_alias_id, **kwargs)  # noqa: E501
@@ -6215,11 +6215,11 @@ class ProtocolsApi(object):
 
         Retrieve export information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_nfs_alias_with_http_info(nfs_alias_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_nfs_alias_with_http_info(nfs_alias_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str nfs_alias_id: Retrieve export information. (required)
         :param str scope: When specified as 'effective', or not specified, all fields are returned. When specified as 'user', only fields with non-default values are shown. When specified as 'default', the original values are returned.
         :param bool check: Check for conflicts when viewing alias.
@@ -6230,7 +6230,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['nfs_alias_id', 'scope', 'check', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -6295,7 +6295,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='NfsAliases',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -6306,11 +6306,11 @@ class ProtocolsApi(object):
 
         Retrieve NFS export validation information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_nfs_check(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_nfs_check(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param bool ignore_bad_paths: Ignore nonexistent or otherwise bad paths.
         :param bool ignore_bad_auth: Ignore invalid users.
         :param str zone: Access zone
@@ -6320,7 +6320,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_nfs_check_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_nfs_check_with_http_info(**kwargs)  # noqa: E501
@@ -6331,11 +6331,11 @@ class ProtocolsApi(object):
 
         Retrieve NFS export validation information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_nfs_check_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_nfs_check_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param bool ignore_bad_paths: Ignore nonexistent or otherwise bad paths.
         :param bool ignore_bad_auth: Ignore invalid users.
         :param str zone: Access zone
@@ -6346,7 +6346,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['ignore_bad_paths', 'ignore_bad_auth', 'zone', 'ignore_unresolvable_hosts']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -6402,7 +6402,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='NfsCheckExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -6413,11 +6413,11 @@ class ProtocolsApi(object):
 
         Retrieve export information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_nfs_export(nfs_export_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_nfs_export(nfs_export_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str nfs_export_id: Retrieve export information. (required)
         :param str scope: When specified as 'effective', or not specified, all fields are returned. When specified as 'user', only fields with non-default values are shown. When specified as 'default', the original values are returned.
         :param str zone: Access zone
@@ -6426,7 +6426,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_nfs_export_with_http_info(nfs_export_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_nfs_export_with_http_info(nfs_export_id, **kwargs)  # noqa: E501
@@ -6437,11 +6437,11 @@ class ProtocolsApi(object):
 
         Retrieve export information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_nfs_export_with_http_info(nfs_export_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_nfs_export_with_http_info(nfs_export_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str nfs_export_id: Retrieve export information. (required)
         :param str scope: When specified as 'effective', or not specified, all fields are returned. When specified as 'user', only fields with non-default values are shown. When specified as 'default', the original values are returned.
         :param str zone: Access zone
@@ -6451,7 +6451,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['nfs_export_id', 'scope', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -6509,7 +6509,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='NfsExports',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -6520,18 +6520,18 @@ class ProtocolsApi(object):
 
         Retrieve NFS export summary information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_nfs_exports_summary(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_nfs_exports_summary(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str zone: Access zone
         :return: NfsExportsSummary
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_nfs_exports_summary_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_nfs_exports_summary_with_http_info(**kwargs)  # noqa: E501
@@ -6542,11 +6542,11 @@ class ProtocolsApi(object):
 
         Retrieve NFS export summary information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_nfs_exports_summary_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_nfs_exports_summary_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str zone: Access zone
         :return: NfsExportsSummary
                  If the method is called asynchronously,
@@ -6554,7 +6554,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -6604,7 +6604,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='NfsExportsSummary',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -6615,17 +6615,17 @@ class ProtocolsApi(object):
 
         Get the current NFS service logging level.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_nfs_log_level(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_nfs_log_level(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: NfsLogLevel
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_nfs_log_level_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_nfs_log_level_with_http_info(**kwargs)  # noqa: E501
@@ -6636,18 +6636,18 @@ class ProtocolsApi(object):
 
         Get the current NFS service logging level.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_nfs_log_level_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_nfs_log_level_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: NfsLogLevel
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -6695,7 +6695,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='NfsLogLevel',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -6706,18 +6706,18 @@ class ProtocolsApi(object):
 
         Get the current NFS netgroup cache settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_nfs_netgroup(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_nfs_netgroup(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str host: Host to retrieve netgroup cache settings from.
         :return: NfsNetgroup
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_nfs_netgroup_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_nfs_netgroup_with_http_info(**kwargs)  # noqa: E501
@@ -6728,11 +6728,11 @@ class ProtocolsApi(object):
 
         Get the current NFS netgroup cache settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_nfs_netgroup_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_nfs_netgroup_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str host: Host to retrieve netgroup cache settings from.
         :return: NfsNetgroup
                  If the method is called asynchronously,
@@ -6740,7 +6740,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['host']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -6790,7 +6790,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='NfsNetgroup',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -6801,11 +6801,11 @@ class ProtocolsApi(object):
 
         List all NLM locks.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_nfs_nlm_locks(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_nfs_nlm_locks(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param str created: Return locks created after the specified unix epoch time.
         :param str lin: Filter locks by the specified LIN in /ifs that is locked.
@@ -6820,7 +6820,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_nfs_nlm_locks_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_nfs_nlm_locks_with_http_info(**kwargs)  # noqa: E501
@@ -6831,11 +6831,11 @@ class ProtocolsApi(object):
 
         List all NLM locks.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_nfs_nlm_locks_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_nfs_nlm_locks_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param str created: Return locks created after the specified unix epoch time.
         :param str lin: Filter locks by the specified LIN in /ifs that is locked.
@@ -6851,7 +6851,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['sort', 'created', 'lin', 'resume', 'client', 'limit', 'client_id', 'path', 'dir']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -6919,7 +6919,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='NfsNlmLocks',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -6930,11 +6930,11 @@ class ProtocolsApi(object):
 
         Retrieve all lock state for a single client.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_nfs_nlm_session(nfs_nlm_session_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_nfs_nlm_session(nfs_nlm_session_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str nfs_nlm_session_id: Retrieve all lock state for a single client. (required)
         :param str cluster_ip: An IP address for which NSM has client records
         :param str zone: Represents an extant auth zone
@@ -6943,7 +6943,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_nfs_nlm_session_with_http_info(nfs_nlm_session_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_nfs_nlm_session_with_http_info(nfs_nlm_session_id, **kwargs)  # noqa: E501
@@ -6954,11 +6954,11 @@ class ProtocolsApi(object):
 
         Retrieve all lock state for a single client.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_nfs_nlm_session_with_http_info(nfs_nlm_session_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_nfs_nlm_session_with_http_info(nfs_nlm_session_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str nfs_nlm_session_id: Retrieve all lock state for a single client. (required)
         :param str cluster_ip: An IP address for which NSM has client records
         :param str zone: Represents an extant auth zone
@@ -6968,7 +6968,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['nfs_nlm_session_id', 'cluster_ip', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -7026,7 +7026,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='NfsNlmSessions',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -7037,11 +7037,11 @@ class ProtocolsApi(object):
 
         List all NSM clients (optionally filtered by either zone or IP)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_nfs_nlm_sessions(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_nfs_nlm_sessions(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param str ip: An IP address for which NSM has client records
         :param int limit: Return no more than this many results at once (see resume).
@@ -7052,7 +7052,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_nfs_nlm_sessions_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_nfs_nlm_sessions_with_http_info(**kwargs)  # noqa: E501
@@ -7063,11 +7063,11 @@ class ProtocolsApi(object):
 
         List all NSM clients (optionally filtered by either zone or IP)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_nfs_nlm_sessions_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_nfs_nlm_sessions_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param str ip: An IP address for which NSM has client records
         :param int limit: Return no more than this many results at once (see resume).
@@ -7079,7 +7079,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['sort', 'ip', 'limit', 'zone', 'dir']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -7139,7 +7139,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='NfsNlmSessionsExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -7150,11 +7150,11 @@ class ProtocolsApi(object):
 
         List all NLM lock waiters.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_nfs_nlm_waiters(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_nfs_nlm_waiters(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param int limit: Return no more than this many results at once (see resume).
         :param str dir: The direction of the sort.
@@ -7164,7 +7164,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_nfs_nlm_waiters_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_nfs_nlm_waiters_with_http_info(**kwargs)  # noqa: E501
@@ -7175,11 +7175,11 @@ class ProtocolsApi(object):
 
         List all NLM lock waiters.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_nfs_nlm_waiters_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_nfs_nlm_waiters_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param int limit: Return no more than this many results at once (see resume).
         :param str dir: The direction of the sort.
@@ -7190,7 +7190,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['sort', 'limit', 'dir', 'resume']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -7248,7 +7248,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='NfsNlmWaiters',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -7259,11 +7259,11 @@ class ProtocolsApi(object):
 
         Retrieve export information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_nfs_settings_export(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_nfs_settings_export(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
         :param str zone: Access zone
         :return: NfsSettingsExport
@@ -7271,7 +7271,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_nfs_settings_export_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_nfs_settings_export_with_http_info(**kwargs)  # noqa: E501
@@ -7282,11 +7282,11 @@ class ProtocolsApi(object):
 
         Retrieve export information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_nfs_settings_export_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_nfs_settings_export_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
         :param str zone: Access zone
         :return: NfsSettingsExport
@@ -7295,7 +7295,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['scope', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -7347,7 +7347,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='NfsSettingsExport',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -7358,17 +7358,17 @@ class ProtocolsApi(object):
 
         Retrieve the NFS configuration.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_nfs_settings_global(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_nfs_settings_global(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: NfsSettingsGlobal
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_nfs_settings_global_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_nfs_settings_global_with_http_info(**kwargs)  # noqa: E501
@@ -7379,18 +7379,18 @@ class ProtocolsApi(object):
 
         Retrieve the NFS configuration.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_nfs_settings_global_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_nfs_settings_global_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: NfsSettingsGlobal
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -7438,7 +7438,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='NfsSettingsGlobal',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -7449,18 +7449,18 @@ class ProtocolsApi(object):
 
         Retrieve the NFS server settings for this zone.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_nfs_settings_zone(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_nfs_settings_zone(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str zone: Access zone
         :return: NfsSettingsZone
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_nfs_settings_zone_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_nfs_settings_zone_with_http_info(**kwargs)  # noqa: E501
@@ -7471,11 +7471,11 @@ class ProtocolsApi(object):
 
         Retrieve the NFS server settings for this zone.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_nfs_settings_zone_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_nfs_settings_zone_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str zone: Access zone
         :return: NfsSettingsZone
                  If the method is called asynchronously,
@@ -7483,7 +7483,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -7533,7 +7533,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='NfsSettingsZone',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -7544,18 +7544,18 @@ class ProtocolsApi(object):
 
         Retrieve one NTP server.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ntp_server(ntp_server_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ntp_server(ntp_server_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str ntp_server_id: Retrieve one NTP server. (required)
         :return: NtpServers
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_ntp_server_with_http_info(ntp_server_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_ntp_server_with_http_info(ntp_server_id, **kwargs)  # noqa: E501
@@ -7566,11 +7566,11 @@ class ProtocolsApi(object):
 
         Retrieve one NTP server.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ntp_server_with_http_info(ntp_server_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ntp_server_with_http_info(ntp_server_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str ntp_server_id: Retrieve one NTP server. (required)
         :return: NtpServers
                  If the method is called asynchronously,
@@ -7578,7 +7578,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['ntp_server_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -7632,7 +7632,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='NtpServers',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -7643,17 +7643,17 @@ class ProtocolsApi(object):
 
         Retrieve the NTP settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ntp_settings(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ntp_settings(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: NtpSettings
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_ntp_settings_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_ntp_settings_with_http_info(**kwargs)  # noqa: E501
@@ -7664,18 +7664,18 @@ class ProtocolsApi(object):
 
         Retrieve the NTP settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ntp_settings_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ntp_settings_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: NtpSettings
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -7723,7 +7723,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='NtpSettings',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -7734,17 +7734,17 @@ class ProtocolsApi(object):
 
         Get the current SMB logging level.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_smb_log_level(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_smb_log_level(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: SmbLogLevel
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_smb_log_level_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_smb_log_level_with_http_info(**kwargs)  # noqa: E501
@@ -7755,18 +7755,18 @@ class ProtocolsApi(object):
 
         Get the current SMB logging level.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_smb_log_level_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_smb_log_level_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: SmbLogLevel
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -7814,7 +7814,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='SmbLogLevel',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -7825,18 +7825,18 @@ class ProtocolsApi(object):
 
         View log filter.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_smb_log_level_filter(smb_log_level_filter_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_smb_log_level_filter(smb_log_level_filter_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str smb_log_level_filter_id: View log filter. (required)
         :return: SmbLogLevelFilters
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_smb_log_level_filter_with_http_info(smb_log_level_filter_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_smb_log_level_filter_with_http_info(smb_log_level_filter_id, **kwargs)  # noqa: E501
@@ -7847,11 +7847,11 @@ class ProtocolsApi(object):
 
         View log filter.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_smb_log_level_filter_with_http_info(smb_log_level_filter_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_smb_log_level_filter_with_http_info(smb_log_level_filter_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str smb_log_level_filter_id: View log filter. (required)
         :return: SmbLogLevelFilters
                  If the method is called asynchronously,
@@ -7859,7 +7859,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['smb_log_level_filter_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -7913,7 +7913,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='SmbLogLevelFilters',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -7924,11 +7924,11 @@ class ProtocolsApi(object):
 
         List open files.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_smb_openfiles(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_smb_openfiles(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: Order results by this field. Default is id.
         :param int limit: Return no more than this many results at once (see resume).
         :param str dir: The direction of the sort.
@@ -7938,7 +7938,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_smb_openfiles_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_smb_openfiles_with_http_info(**kwargs)  # noqa: E501
@@ -7949,11 +7949,11 @@ class ProtocolsApi(object):
 
         List open files.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_smb_openfiles_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_smb_openfiles_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: Order results by this field. Default is id.
         :param int limit: Return no more than this many results at once (see resume).
         :param str dir: The direction of the sort.
@@ -7964,7 +7964,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['sort', 'limit', 'dir', 'resume']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -8022,7 +8022,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='SmbOpenfiles',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -8033,11 +8033,11 @@ class ProtocolsApi(object):
 
         List open sessions.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_smb_sessions(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_smb_sessions(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: Order results by this field.
         :param int limit: Return no more than this many results at once (see resume).
         :param str dir: The direction of the sort.
@@ -8047,7 +8047,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_smb_sessions_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_smb_sessions_with_http_info(**kwargs)  # noqa: E501
@@ -8058,11 +8058,11 @@ class ProtocolsApi(object):
 
         List open sessions.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_smb_sessions_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_smb_sessions_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: Order results by this field.
         :param int limit: Return no more than this many results at once (see resume).
         :param str dir: The direction of the sort.
@@ -8073,7 +8073,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['sort', 'limit', 'dir', 'resume']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -8131,7 +8131,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='SmbSessions',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -8142,18 +8142,18 @@ class ProtocolsApi(object):
 
         List all settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_smb_settings_global(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_smb_settings_global(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
         :return: SmbSettingsGlobal
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_smb_settings_global_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_smb_settings_global_with_http_info(**kwargs)  # noqa: E501
@@ -8164,11 +8164,11 @@ class ProtocolsApi(object):
 
         List all settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_smb_settings_global_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_smb_settings_global_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
         :return: SmbSettingsGlobal
                  If the method is called asynchronously,
@@ -8176,7 +8176,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['scope']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -8226,7 +8226,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='SmbSettingsGlobal',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -8237,11 +8237,11 @@ class ProtocolsApi(object):
 
         List all settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_smb_settings_share(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_smb_settings_share(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
         :param str zone: Zone which contains these share settings.
         :return: SmbSettingsShare
@@ -8249,7 +8249,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_smb_settings_share_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_smb_settings_share_with_http_info(**kwargs)  # noqa: E501
@@ -8260,11 +8260,11 @@ class ProtocolsApi(object):
 
         List all settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_smb_settings_share_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_smb_settings_share_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
         :param str zone: Zone which contains these share settings.
         :return: SmbSettingsShare
@@ -8273,7 +8273,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['scope', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -8325,7 +8325,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='SmbSettingsShare',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -8336,11 +8336,11 @@ class ProtocolsApi(object):
 
         Retrieve share.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_smb_share(smb_share_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_smb_share(smb_share_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str smb_share_id: Retrieve share. (required)
         :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
         :param bool resolve_names: If true, resolve group and user names in personas.
@@ -8350,7 +8350,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_smb_share_with_http_info(smb_share_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_smb_share_with_http_info(smb_share_id, **kwargs)  # noqa: E501
@@ -8361,11 +8361,11 @@ class ProtocolsApi(object):
 
         Retrieve share.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_smb_share_with_http_info(smb_share_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_smb_share_with_http_info(smb_share_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str smb_share_id: Retrieve share. (required)
         :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
         :param bool resolve_names: If true, resolve group and user names in personas.
@@ -8376,7 +8376,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['smb_share_id', 'scope', 'resolve_names', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -8436,7 +8436,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='SmbShares',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -8447,18 +8447,18 @@ class ProtocolsApi(object):
 
         Return summary information about shares.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_smb_shares_summary(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_smb_shares_summary(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str zone: Specifies which access zone or zones to use.
         :return: SmbSharesSummary
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_smb_shares_summary_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_smb_shares_summary_with_http_info(**kwargs)  # noqa: E501
@@ -8469,11 +8469,11 @@ class ProtocolsApi(object):
 
         Return summary information about shares.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_smb_shares_summary_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_smb_shares_summary_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str zone: Specifies which access zone or zones to use.
         :return: SmbSharesSummary
                  If the method is called asynchronously,
@@ -8481,7 +8481,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -8531,7 +8531,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='SmbSharesSummary',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -8542,17 +8542,17 @@ class ProtocolsApi(object):
 
         Retrieve the SNMP settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_snmp_settings(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_snmp_settings(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: SnmpSettings
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_snmp_settings_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_snmp_settings_with_http_info(**kwargs)  # noqa: E501
@@ -8563,18 +8563,18 @@ class ProtocolsApi(object):
 
         Retrieve the SNMP settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_snmp_settings_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_snmp_settings_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: SnmpSettings
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -8622,7 +8622,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='SnmpSettings',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -8633,11 +8633,11 @@ class ProtocolsApi(object):
 
         List a swift account.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_swift_account(swift_account_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_swift_account(swift_account_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str swift_account_id: List a swift account. (required)
         :param str zone: Access zone which contains Swift account.
         :return: SwiftAccounts
@@ -8645,7 +8645,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_swift_account_with_http_info(swift_account_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_swift_account_with_http_info(swift_account_id, **kwargs)  # noqa: E501
@@ -8656,11 +8656,11 @@ class ProtocolsApi(object):
 
         List a swift account.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_swift_account_with_http_info(swift_account_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_swift_account_with_http_info(swift_account_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str swift_account_id: List a swift account. (required)
         :param str zone: Access zone which contains Swift account.
         :return: SwiftAccounts
@@ -8669,7 +8669,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['swift_account_id', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -8725,7 +8725,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='SwiftAccounts',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -8736,18 +8736,18 @@ class ProtocolsApi(object):
 
         List all proxyusers.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_hdfs_proxyusers(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_hdfs_proxyusers(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str zone: Access zone which contains HDFS proxyusers.
         :return: HdfsProxyusers
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_hdfs_proxyusers_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_hdfs_proxyusers_with_http_info(**kwargs)  # noqa: E501
@@ -8758,11 +8758,11 @@ class ProtocolsApi(object):
 
         List all proxyusers.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_hdfs_proxyusers_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_hdfs_proxyusers_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str zone: Access zone which contains HDFS proxyusers.
         :return: HdfsProxyusers
                  If the method is called asynchronously,
@@ -8770,7 +8770,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -8820,7 +8820,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='HdfsProxyusers',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -8831,18 +8831,18 @@ class ProtocolsApi(object):
 
         List all racks.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_hdfs_racks(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_hdfs_racks(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str zone: Access zone which contains HDFS racks.
         :return: HdfsRacksExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_hdfs_racks_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_hdfs_racks_with_http_info(**kwargs)  # noqa: E501
@@ -8853,11 +8853,11 @@ class ProtocolsApi(object):
 
         List all racks.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_hdfs_racks_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_hdfs_racks_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str zone: Access zone which contains HDFS racks.
         :return: HdfsRacksExtended
                  If the method is called asynchronously,
@@ -8865,7 +8865,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -8915,7 +8915,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='HdfsRacksExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -8926,17 +8926,17 @@ class ProtocolsApi(object):
 
         Get list of preferences.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_ndmp_settings_preferred_ips(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_ndmp_settings_preferred_ips(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: NdmpSettingsPreferredIps
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_ndmp_settings_preferred_ips_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_ndmp_settings_preferred_ips_with_http_info(**kwargs)  # noqa: E501
@@ -8947,18 +8947,18 @@ class ProtocolsApi(object):
 
         Get list of preferences.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_ndmp_settings_preferred_ips_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_ndmp_settings_preferred_ips_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: NdmpSettingsPreferredIps
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -9006,7 +9006,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='NdmpSettingsPreferredIps',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -9017,17 +9017,17 @@ class ProtocolsApi(object):
 
         List all ndmp administrators.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_ndmp_users(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_ndmp_users(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: NdmpUsersExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_ndmp_users_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_ndmp_users_with_http_info(**kwargs)  # noqa: E501
@@ -9038,18 +9038,18 @@ class ProtocolsApi(object):
 
         List all ndmp administrators.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_ndmp_users_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_ndmp_users_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: NdmpUsersExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -9097,7 +9097,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='NdmpUsersExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -9108,11 +9108,11 @@ class ProtocolsApi(object):
 
         List all NFS aliases.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_nfs_aliases(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_nfs_aliases(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param str zone: Access zone
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
@@ -9124,7 +9124,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_nfs_aliases_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_nfs_aliases_with_http_info(**kwargs)  # noqa: E501
@@ -9135,11 +9135,11 @@ class ProtocolsApi(object):
 
         List all NFS aliases.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_nfs_aliases_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_nfs_aliases_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param str zone: Access zone
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
@@ -9152,7 +9152,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['sort', 'zone', 'resume', 'limit', 'check', 'dir']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -9214,7 +9214,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='NfsAliasesExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -9225,11 +9225,11 @@ class ProtocolsApi(object):
 
         List all NFS exports.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_nfs_exports(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_nfs_exports(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting. Default is id.
         :param str zone: Access zone
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
@@ -9244,7 +9244,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_nfs_exports_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_nfs_exports_with_http_info(**kwargs)  # noqa: E501
@@ -9255,11 +9255,11 @@ class ProtocolsApi(object):
 
         List all NFS exports.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_nfs_exports_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_nfs_exports_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting. Default is id.
         :param str zone: Access zone
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
@@ -9275,7 +9275,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['sort', 'zone', 'resume', 'scope', 'limit', 'offset', 'path', 'check', 'dir']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -9347,7 +9347,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='NfsExportsExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -9358,11 +9358,11 @@ class ProtocolsApi(object):
 
         List all NTP servers.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_ntp_servers(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_ntp_servers(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param int limit: Return no more than this many results at once (see resume).
         :param str dir: The direction of the sort.
@@ -9372,7 +9372,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_ntp_servers_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_ntp_servers_with_http_info(**kwargs)  # noqa: E501
@@ -9383,11 +9383,11 @@ class ProtocolsApi(object):
 
         List all NTP servers.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_ntp_servers_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_ntp_servers_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param int limit: Return no more than this many results at once (see resume).
         :param str dir: The direction of the sort.
@@ -9398,7 +9398,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['sort', 'limit', 'dir', 'resume']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -9456,7 +9456,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='NtpServersExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -9467,11 +9467,11 @@ class ProtocolsApi(object):
 
         Get the current SMB log filters.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_smb_log_level_filters(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_smb_log_level_filters(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param str dir: The direction of the sort.
         :param str level: Only return results with a given level.
@@ -9480,7 +9480,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_smb_log_level_filters_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_smb_log_level_filters_with_http_info(**kwargs)  # noqa: E501
@@ -9491,11 +9491,11 @@ class ProtocolsApi(object):
 
         Get the current SMB log filters.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_smb_log_level_filters_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_smb_log_level_filters_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param str dir: The direction of the sort.
         :param str level: Only return results with a given level.
@@ -9505,7 +9505,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['sort', 'dir', 'level']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -9559,7 +9559,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='SmbLogLevelFilters',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -9570,11 +9570,11 @@ class ProtocolsApi(object):
 
         List all shares.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_smb_shares(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_smb_shares(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: Order results by this field. Default is id.
         :param str zone: Zone which contains this share.
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
@@ -9588,7 +9588,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_smb_shares_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_smb_shares_with_http_info(**kwargs)  # noqa: E501
@@ -9599,11 +9599,11 @@ class ProtocolsApi(object):
 
         List all shares.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_smb_shares_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_smb_shares_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: Order results by this field. Default is id.
         :param str zone: Zone which contains this share.
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
@@ -9618,7 +9618,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['sort', 'zone', 'resume', 'resolve_names', 'limit', 'offset', 'scope', 'dir']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -9688,7 +9688,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='SmbSharesExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -9699,18 +9699,18 @@ class ProtocolsApi(object):
 
         List all swift accounts.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_swift_accounts(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_swift_accounts(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str zone: Access zone which contains Swift accounts.
         :return: SwiftAccounts
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_swift_accounts_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_swift_accounts_with_http_info(**kwargs)  # noqa: E501
@@ -9721,11 +9721,11 @@ class ProtocolsApi(object):
 
         List all swift accounts.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_swift_accounts_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_swift_accounts_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str zone: Access zone which contains Swift accounts.
         :return: SwiftAccounts
                  If the method is called asynchronously,
@@ -9733,7 +9733,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -9783,7 +9783,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type='SwiftAccounts',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -9794,18 +9794,18 @@ class ProtocolsApi(object):
 
         Modify the FTP settings. All input fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_ftp_settings(ftp_settings, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_ftp_settings(ftp_settings, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FtpSettingsExtended ftp_settings: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_ftp_settings_with_http_info(ftp_settings, **kwargs)  # noqa: E501
         else:
             (data) = self.update_ftp_settings_with_http_info(ftp_settings, **kwargs)  # noqa: E501
@@ -9816,11 +9816,11 @@ class ProtocolsApi(object):
 
         Modify the FTP settings. All input fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_ftp_settings_with_http_info(ftp_settings, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_ftp_settings_with_http_info(ftp_settings, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FtpSettingsExtended ftp_settings: (required)
         :return: None
                  If the method is called asynchronously,
@@ -9828,7 +9828,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['ftp_settings']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -9882,7 +9882,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -9893,18 +9893,18 @@ class ProtocolsApi(object):
 
         Modify the HDFS service log-level.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_hdfs_log_level(hdfs_log_level, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_hdfs_log_level(hdfs_log_level, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param HdfsLogLevel hdfs_log_level: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_hdfs_log_level_with_http_info(hdfs_log_level, **kwargs)  # noqa: E501
         else:
             (data) = self.update_hdfs_log_level_with_http_info(hdfs_log_level, **kwargs)  # noqa: E501
@@ -9915,11 +9915,11 @@ class ProtocolsApi(object):
 
         Modify the HDFS service log-level.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_hdfs_log_level_with_http_info(hdfs_log_level, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_hdfs_log_level_with_http_info(hdfs_log_level, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param HdfsLogLevel hdfs_log_level: (required)
         :return: None
                  If the method is called asynchronously,
@@ -9927,7 +9927,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['hdfs_log_level']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -9981,7 +9981,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -9992,11 +9992,11 @@ class ProtocolsApi(object):
 
         Modify an HDFS proxyuser.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_hdfs_proxyuser(hdfs_proxyuser, hdfs_proxyuser_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_hdfs_proxyuser(hdfs_proxyuser, hdfs_proxyuser_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty hdfs_proxyuser: (required)
         :param str hdfs_proxyuser_id: Modify an HDFS proxyuser. (required)
         :param str zone: Access zone which contains HDFS proxyuser.
@@ -10005,7 +10005,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_hdfs_proxyuser_with_http_info(hdfs_proxyuser, hdfs_proxyuser_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_hdfs_proxyuser_with_http_info(hdfs_proxyuser, hdfs_proxyuser_id, **kwargs)  # noqa: E501
@@ -10016,11 +10016,11 @@ class ProtocolsApi(object):
 
         Modify an HDFS proxyuser.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_hdfs_proxyuser_with_http_info(hdfs_proxyuser, hdfs_proxyuser_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_hdfs_proxyuser_with_http_info(hdfs_proxyuser, hdfs_proxyuser_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty hdfs_proxyuser: (required)
         :param str hdfs_proxyuser_id: Modify an HDFS proxyuser. (required)
         :param str zone: Access zone which contains HDFS proxyuser.
@@ -10030,7 +10030,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['hdfs_proxyuser', 'hdfs_proxyuser_id', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -10092,7 +10092,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -10103,11 +10103,11 @@ class ProtocolsApi(object):
 
         Modify the HDFS rack  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_hdfs_rack(hdfs_rack, hdfs_rack_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_hdfs_rack(hdfs_rack, hdfs_rack_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param HdfsRack hdfs_rack: (required)
         :param str hdfs_rack_id: Modify the HDFS rack (required)
         :param str zone: Access zone which contains HDFS rack.
@@ -10116,7 +10116,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_hdfs_rack_with_http_info(hdfs_rack, hdfs_rack_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_hdfs_rack_with_http_info(hdfs_rack, hdfs_rack_id, **kwargs)  # noqa: E501
@@ -10127,11 +10127,11 @@ class ProtocolsApi(object):
 
         Modify the HDFS rack  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_hdfs_rack_with_http_info(hdfs_rack, hdfs_rack_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_hdfs_rack_with_http_info(hdfs_rack, hdfs_rack_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param HdfsRack hdfs_rack: (required)
         :param str hdfs_rack_id: Modify the HDFS rack (required)
         :param str zone: Access zone which contains HDFS rack.
@@ -10141,7 +10141,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['hdfs_rack', 'hdfs_rack_id', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -10203,7 +10203,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -10214,18 +10214,18 @@ class ProtocolsApi(object):
 
         Modify HDFS ranger-plugin properties.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_hdfs_ranger_plugin_settings(hdfs_ranger_plugin_settings, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_hdfs_ranger_plugin_settings(hdfs_ranger_plugin_settings, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param HdfsRangerPluginSettingsSettings hdfs_ranger_plugin_settings: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_hdfs_ranger_plugin_settings_with_http_info(hdfs_ranger_plugin_settings, **kwargs)  # noqa: E501
         else:
             (data) = self.update_hdfs_ranger_plugin_settings_with_http_info(hdfs_ranger_plugin_settings, **kwargs)  # noqa: E501
@@ -10236,11 +10236,11 @@ class ProtocolsApi(object):
 
         Modify HDFS ranger-plugin properties.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_hdfs_ranger_plugin_settings_with_http_info(hdfs_ranger_plugin_settings, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_hdfs_ranger_plugin_settings_with_http_info(hdfs_ranger_plugin_settings, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param HdfsRangerPluginSettingsSettings hdfs_ranger_plugin_settings: (required)
         :return: None
                  If the method is called asynchronously,
@@ -10248,7 +10248,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['hdfs_ranger_plugin_settings']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -10302,7 +10302,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -10313,11 +10313,11 @@ class ProtocolsApi(object):
 
         Modify HDFS properties.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_hdfs_settings(hdfs_settings, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_hdfs_settings(hdfs_settings, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param HdfsSettingsSettings hdfs_settings: (required)
         :param str zone: Access zone which contains HDFS settings.
         :return: None
@@ -10325,7 +10325,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_hdfs_settings_with_http_info(hdfs_settings, **kwargs)  # noqa: E501
         else:
             (data) = self.update_hdfs_settings_with_http_info(hdfs_settings, **kwargs)  # noqa: E501
@@ -10336,11 +10336,11 @@ class ProtocolsApi(object):
 
         Modify HDFS properties.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_hdfs_settings_with_http_info(hdfs_settings, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_hdfs_settings_with_http_info(hdfs_settings, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param HdfsSettingsSettings hdfs_settings: (required)
         :param str zone: Access zone which contains HDFS settings.
         :return: None
@@ -10349,7 +10349,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['hdfs_settings', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -10405,7 +10405,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -10416,18 +10416,18 @@ class ProtocolsApi(object):
 
         Modify HTTP properties.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_http_settings(http_settings, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_http_settings(http_settings, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param HttpSettingsSettings http_settings: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_http_settings_with_http_info(http_settings, **kwargs)  # noqa: E501
         else:
             (data) = self.update_http_settings_with_http_info(http_settings, **kwargs)  # noqa: E501
@@ -10438,11 +10438,11 @@ class ProtocolsApi(object):
 
         Modify HTTP properties.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_http_settings_with_http_info(http_settings, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_http_settings_with_http_info(http_settings, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param HttpSettingsSettings http_settings: (required)
         :return: None
                  If the method is called asynchronously,
@@ -10450,7 +10450,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['http_settings']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -10504,7 +10504,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -10515,18 +10515,18 @@ class ProtocolsApi(object):
 
         Modify ndmp diagnostics settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_ndmp_diagnostics(ndmp_diagnostics, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_ndmp_diagnostics(ndmp_diagnostics, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NdmpDiagnosticsDiagnostics ndmp_diagnostics: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_ndmp_diagnostics_with_http_info(ndmp_diagnostics, **kwargs)  # noqa: E501
         else:
             (data) = self.update_ndmp_diagnostics_with_http_info(ndmp_diagnostics, **kwargs)  # noqa: E501
@@ -10537,11 +10537,11 @@ class ProtocolsApi(object):
 
         Modify ndmp diagnostics settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_ndmp_diagnostics_with_http_info(ndmp_diagnostics, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_ndmp_diagnostics_with_http_info(ndmp_diagnostics, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NdmpDiagnosticsDiagnostics ndmp_diagnostics: (required)
         :return: None
                  If the method is called asynchronously,
@@ -10549,7 +10549,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['ndmp_diagnostics']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -10603,7 +10603,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -10614,18 +10614,18 @@ class ProtocolsApi(object):
 
         Modify one or more settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_ndmp_settings_global(ndmp_settings_global, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_ndmp_settings_global(ndmp_settings_global, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NdmpSettingsGlobalGlobal ndmp_settings_global: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_ndmp_settings_global_with_http_info(ndmp_settings_global, **kwargs)  # noqa: E501
         else:
             (data) = self.update_ndmp_settings_global_with_http_info(ndmp_settings_global, **kwargs)  # noqa: E501
@@ -10636,11 +10636,11 @@ class ProtocolsApi(object):
 
         Modify one or more settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_ndmp_settings_global_with_http_info(ndmp_settings_global, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_ndmp_settings_global_with_http_info(ndmp_settings_global, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NdmpSettingsGlobalGlobal ndmp_settings_global: (required)
         :return: None
                  If the method is called asynchronously,
@@ -10648,7 +10648,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['ndmp_settings_global']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -10702,7 +10702,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -10713,11 +10713,11 @@ class ProtocolsApi(object):
 
         Modify a preferred ip preference.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_ndmp_settings_preferred_ip(ndmp_settings_preferred_ip, ndmp_settings_preferred_ip_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_ndmp_settings_preferred_ip(ndmp_settings_preferred_ip, ndmp_settings_preferred_ip_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NdmpSettingsPreferredIp ndmp_settings_preferred_ip: (required)
         :param str ndmp_settings_preferred_ip_id: Modify a preferred ip preference. (required)
         :return: None
@@ -10725,7 +10725,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_ndmp_settings_preferred_ip_with_http_info(ndmp_settings_preferred_ip, ndmp_settings_preferred_ip_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_ndmp_settings_preferred_ip_with_http_info(ndmp_settings_preferred_ip, ndmp_settings_preferred_ip_id, **kwargs)  # noqa: E501
@@ -10736,11 +10736,11 @@ class ProtocolsApi(object):
 
         Modify a preferred ip preference.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_ndmp_settings_preferred_ip_with_http_info(ndmp_settings_preferred_ip, ndmp_settings_preferred_ip_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_ndmp_settings_preferred_ip_with_http_info(ndmp_settings_preferred_ip, ndmp_settings_preferred_ip_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NdmpSettingsPreferredIp ndmp_settings_preferred_ip: (required)
         :param str ndmp_settings_preferred_ip_id: Modify a preferred ip preference. (required)
         :return: None
@@ -10749,7 +10749,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['ndmp_settings_preferred_ip', 'ndmp_settings_preferred_ip_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -10809,7 +10809,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -10820,11 +10820,11 @@ class ProtocolsApi(object):
 
         Modify or create a NDMP preferred environment variable.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_ndmp_settings_variable(ndmp_settings_variable, ndmp_settings_variable_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_ndmp_settings_variable(ndmp_settings_variable, ndmp_settings_variable_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NdmpSettingsVariable ndmp_settings_variable: (required)
         :param str ndmp_settings_variable_id: Modify or create a NDMP preferred environment variable. (required)
         :param str name: Name of the variable to modify.
@@ -10833,7 +10833,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_ndmp_settings_variable_with_http_info(ndmp_settings_variable, ndmp_settings_variable_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_ndmp_settings_variable_with_http_info(ndmp_settings_variable, ndmp_settings_variable_id, **kwargs)  # noqa: E501
@@ -10844,11 +10844,11 @@ class ProtocolsApi(object):
 
         Modify or create a NDMP preferred environment variable.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_ndmp_settings_variable_with_http_info(ndmp_settings_variable, ndmp_settings_variable_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_ndmp_settings_variable_with_http_info(ndmp_settings_variable, ndmp_settings_variable_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NdmpSettingsVariable ndmp_settings_variable: (required)
         :param str ndmp_settings_variable_id: Modify or create a NDMP preferred environment variable. (required)
         :param str name: Name of the variable to modify.
@@ -10858,7 +10858,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['ndmp_settings_variable', 'ndmp_settings_variable_id', 'name']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -10920,7 +10920,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -10931,11 +10931,11 @@ class ProtocolsApi(object):
 
         Modify the user  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_ndmp_user(ndmp_user, ndmp_user_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_ndmp_user(ndmp_user, ndmp_user_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NdmpUser ndmp_user: (required)
         :param str ndmp_user_id: Modify the user (required)
         :return: None
@@ -10943,7 +10943,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_ndmp_user_with_http_info(ndmp_user, ndmp_user_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_ndmp_user_with_http_info(ndmp_user, ndmp_user_id, **kwargs)  # noqa: E501
@@ -10954,11 +10954,11 @@ class ProtocolsApi(object):
 
         Modify the user  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_ndmp_user_with_http_info(ndmp_user, ndmp_user_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_ndmp_user_with_http_info(ndmp_user, ndmp_user_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NdmpUser ndmp_user: (required)
         :param str ndmp_user_id: Modify the user (required)
         :return: None
@@ -10967,7 +10967,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['ndmp_user', 'ndmp_user_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -11027,7 +11027,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -11038,11 +11038,11 @@ class ProtocolsApi(object):
 
         Modify the alias. All input fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_nfs_alias(nfs_alias, nfs_alias_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_nfs_alias(nfs_alias, nfs_alias_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NfsAlias nfs_alias: (required)
         :param str nfs_alias_id: Modify the alias. All input fields are optional, but one or more must be supplied. (required)
         :param str zone: Access zone
@@ -11051,7 +11051,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_nfs_alias_with_http_info(nfs_alias, nfs_alias_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_nfs_alias_with_http_info(nfs_alias, nfs_alias_id, **kwargs)  # noqa: E501
@@ -11062,11 +11062,11 @@ class ProtocolsApi(object):
 
         Modify the alias. All input fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_nfs_alias_with_http_info(nfs_alias, nfs_alias_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_nfs_alias_with_http_info(nfs_alias, nfs_alias_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NfsAlias nfs_alias: (required)
         :param str nfs_alias_id: Modify the alias. All input fields are optional, but one or more must be supplied. (required)
         :param str zone: Access zone
@@ -11076,7 +11076,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['nfs_alias', 'nfs_alias_id', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -11143,7 +11143,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -11154,11 +11154,11 @@ class ProtocolsApi(object):
 
         Modify the export. All input fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_nfs_export(nfs_export, nfs_export_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_nfs_export(nfs_export, nfs_export_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NfsExport nfs_export: (required)
         :param str nfs_export_id: Modify the export. All input fields are optional, but one or more must be supplied. (required)
         :param bool force: If true, the export will be updated even if that change conflicts with another export.
@@ -11172,7 +11172,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_nfs_export_with_http_info(nfs_export, nfs_export_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_nfs_export_with_http_info(nfs_export, nfs_export_id, **kwargs)  # noqa: E501
@@ -11183,11 +11183,11 @@ class ProtocolsApi(object):
 
         Modify the export. All input fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_nfs_export_with_http_info(nfs_export, nfs_export_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_nfs_export_with_http_info(nfs_export, nfs_export_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NfsExport nfs_export: (required)
         :param str nfs_export_id: Modify the export. All input fields are optional, but one or more must be supplied. (required)
         :param bool force: If true, the export will be updated even if that change conflicts with another export.
@@ -11202,7 +11202,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['nfs_export', 'nfs_export_id', 'force', 'ignore_unresolvable_hosts', 'zone', 'ignore_conflicts', 'ignore_bad_paths', 'ignore_bad_auth']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -11274,7 +11274,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -11285,18 +11285,18 @@ class ProtocolsApi(object):
 
         Set the current NFS service logging level.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_nfs_log_level(nfs_log_level, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_nfs_log_level(nfs_log_level, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NfsLogLevel nfs_log_level: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_nfs_log_level_with_http_info(nfs_log_level, **kwargs)  # noqa: E501
         else:
             (data) = self.update_nfs_log_level_with_http_info(nfs_log_level, **kwargs)  # noqa: E501
@@ -11307,11 +11307,11 @@ class ProtocolsApi(object):
 
         Set the current NFS service logging level.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_nfs_log_level_with_http_info(nfs_log_level, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_nfs_log_level_with_http_info(nfs_log_level, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NfsLogLevel nfs_log_level: (required)
         :return: None
                  If the method is called asynchronously,
@@ -11319,7 +11319,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['nfs_log_level']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -11373,7 +11373,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -11384,11 +11384,11 @@ class ProtocolsApi(object):
 
         Modify the current NFS netgroup settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_nfs_netgroup(nfs_netgroup, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_nfs_netgroup(nfs_netgroup, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NfsNetgroup nfs_netgroup: (required)
         :param str host: Host to retrieve netgroup cache settings for.
         :return: None
@@ -11396,7 +11396,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_nfs_netgroup_with_http_info(nfs_netgroup, **kwargs)  # noqa: E501
         else:
             (data) = self.update_nfs_netgroup_with_http_info(nfs_netgroup, **kwargs)  # noqa: E501
@@ -11407,11 +11407,11 @@ class ProtocolsApi(object):
 
         Modify the current NFS netgroup settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_nfs_netgroup_with_http_info(nfs_netgroup, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_nfs_netgroup_with_http_info(nfs_netgroup, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NfsNetgroup nfs_netgroup: (required)
         :param str host: Host to retrieve netgroup cache settings for.
         :return: None
@@ -11420,7 +11420,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['nfs_netgroup', 'host']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -11476,7 +11476,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -11487,11 +11487,11 @@ class ProtocolsApi(object):
 
         Modify the default values for NFS exports. All input fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_nfs_settings_export(nfs_settings_export, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_nfs_settings_export(nfs_settings_export, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NfsSettingsExportSettings nfs_settings_export: (required)
         :param str zone: Access zone
         :return: None
@@ -11499,7 +11499,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_nfs_settings_export_with_http_info(nfs_settings_export, **kwargs)  # noqa: E501
         else:
             (data) = self.update_nfs_settings_export_with_http_info(nfs_settings_export, **kwargs)  # noqa: E501
@@ -11510,11 +11510,11 @@ class ProtocolsApi(object):
 
         Modify the default values for NFS exports. All input fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_nfs_settings_export_with_http_info(nfs_settings_export, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_nfs_settings_export_with_http_info(nfs_settings_export, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NfsSettingsExportSettings nfs_settings_export: (required)
         :param str zone: Access zone
         :return: None
@@ -11523,7 +11523,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['nfs_settings_export', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -11579,7 +11579,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -11590,18 +11590,18 @@ class ProtocolsApi(object):
 
         Modify the default values for NFS exports. All input fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_nfs_settings_global(nfs_settings_global, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_nfs_settings_global(nfs_settings_global, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NfsSettingsGlobalSettings nfs_settings_global: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_nfs_settings_global_with_http_info(nfs_settings_global, **kwargs)  # noqa: E501
         else:
             (data) = self.update_nfs_settings_global_with_http_info(nfs_settings_global, **kwargs)  # noqa: E501
@@ -11612,11 +11612,11 @@ class ProtocolsApi(object):
 
         Modify the default values for NFS exports. All input fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_nfs_settings_global_with_http_info(nfs_settings_global, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_nfs_settings_global_with_http_info(nfs_settings_global, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NfsSettingsGlobalSettings nfs_settings_global: (required)
         :return: None
                  If the method is called asynchronously,
@@ -11624,7 +11624,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['nfs_settings_global']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -11678,7 +11678,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -11689,11 +11689,11 @@ class ProtocolsApi(object):
 
         Modify the NFS server settings for this zone.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_nfs_settings_zone(nfs_settings_zone, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_nfs_settings_zone(nfs_settings_zone, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NfsSettingsZoneSettings nfs_settings_zone: (required)
         :param str zone: Access zone
         :return: None
@@ -11701,7 +11701,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_nfs_settings_zone_with_http_info(nfs_settings_zone, **kwargs)  # noqa: E501
         else:
             (data) = self.update_nfs_settings_zone_with_http_info(nfs_settings_zone, **kwargs)  # noqa: E501
@@ -11712,11 +11712,11 @@ class ProtocolsApi(object):
 
         Modify the NFS server settings for this zone.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_nfs_settings_zone_with_http_info(nfs_settings_zone, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_nfs_settings_zone_with_http_info(nfs_settings_zone, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NfsSettingsZoneSettings nfs_settings_zone: (required)
         :param str zone: Access zone
         :return: None
@@ -11725,7 +11725,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['nfs_settings_zone', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -11781,7 +11781,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -11792,11 +11792,11 @@ class ProtocolsApi(object):
 
         Modify the key value for an NTP server.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_ntp_server(ntp_server, ntp_server_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_ntp_server(ntp_server, ntp_server_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NtpServer ntp_server: (required)
         :param str ntp_server_id: Modify the key value for an NTP server. (required)
         :return: None
@@ -11804,7 +11804,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_ntp_server_with_http_info(ntp_server, ntp_server_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_ntp_server_with_http_info(ntp_server, ntp_server_id, **kwargs)  # noqa: E501
@@ -11815,11 +11815,11 @@ class ProtocolsApi(object):
 
         Modify the key value for an NTP server.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_ntp_server_with_http_info(ntp_server, ntp_server_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_ntp_server_with_http_info(ntp_server, ntp_server_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NtpServer ntp_server: (required)
         :param str ntp_server_id: Modify the key value for an NTP server. (required)
         :return: None
@@ -11828,7 +11828,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['ntp_server', 'ntp_server_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -11888,7 +11888,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -11899,18 +11899,18 @@ class ProtocolsApi(object):
 
         Modify the NTP settings. All input fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_ntp_settings(ntp_settings, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_ntp_settings(ntp_settings, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NtpSettingsSettings ntp_settings: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_ntp_settings_with_http_info(ntp_settings, **kwargs)  # noqa: E501
         else:
             (data) = self.update_ntp_settings_with_http_info(ntp_settings, **kwargs)  # noqa: E501
@@ -11921,11 +11921,11 @@ class ProtocolsApi(object):
 
         Modify the NTP settings. All input fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_ntp_settings_with_http_info(ntp_settings, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_ntp_settings_with_http_info(ntp_settings, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NtpSettingsSettings ntp_settings: (required)
         :return: None
                  If the method is called asynchronously,
@@ -11933,7 +11933,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['ntp_settings']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -11987,7 +11987,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -11998,18 +11998,18 @@ class ProtocolsApi(object):
 
         Set the current SMB logging level.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_smb_log_level(smb_log_level, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_smb_log_level(smb_log_level, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SmbLogLevel smb_log_level: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_smb_log_level_with_http_info(smb_log_level, **kwargs)  # noqa: E501
         else:
             (data) = self.update_smb_log_level_with_http_info(smb_log_level, **kwargs)  # noqa: E501
@@ -12020,11 +12020,11 @@ class ProtocolsApi(object):
 
         Set the current SMB logging level.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_smb_log_level_with_http_info(smb_log_level, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_smb_log_level_with_http_info(smb_log_level, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SmbLogLevel smb_log_level: (required)
         :return: None
                  If the method is called asynchronously,
@@ -12032,7 +12032,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['smb_log_level']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -12086,7 +12086,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -12097,18 +12097,18 @@ class ProtocolsApi(object):
 
         Modify one or more settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_smb_settings_global(smb_settings_global, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_smb_settings_global(smb_settings_global, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SmbSettingsGlobalExtended smb_settings_global: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_smb_settings_global_with_http_info(smb_settings_global, **kwargs)  # noqa: E501
         else:
             (data) = self.update_smb_settings_global_with_http_info(smb_settings_global, **kwargs)  # noqa: E501
@@ -12119,11 +12119,11 @@ class ProtocolsApi(object):
 
         Modify one or more settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_smb_settings_global_with_http_info(smb_settings_global, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_smb_settings_global_with_http_info(smb_settings_global, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SmbSettingsGlobalExtended smb_settings_global: (required)
         :return: None
                  If the method is called asynchronously,
@@ -12131,7 +12131,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['smb_settings_global']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -12185,7 +12185,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -12196,11 +12196,11 @@ class ProtocolsApi(object):
 
         Modify one or more settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_smb_settings_share(smb_settings_share, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_smb_settings_share(smb_settings_share, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SmbSettingsShareExtended smb_settings_share: (required)
         :param str zone: Zone which contains these share settings.
         :return: None
@@ -12208,7 +12208,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_smb_settings_share_with_http_info(smb_settings_share, **kwargs)  # noqa: E501
         else:
             (data) = self.update_smb_settings_share_with_http_info(smb_settings_share, **kwargs)  # noqa: E501
@@ -12219,11 +12219,11 @@ class ProtocolsApi(object):
 
         Modify one or more settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_smb_settings_share_with_http_info(smb_settings_share, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_smb_settings_share_with_http_info(smb_settings_share, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SmbSettingsShareExtended smb_settings_share: (required)
         :param str zone: Zone which contains these share settings.
         :return: None
@@ -12232,7 +12232,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['smb_settings_share', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -12288,7 +12288,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -12299,11 +12299,11 @@ class ProtocolsApi(object):
 
         Modify share. All input fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_smb_share(smb_share, smb_share_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_smb_share(smb_share, smb_share_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SmbShare smb_share: (required)
         :param str smb_share_id: Modify share. All input fields are optional, but one or more must be supplied. (required)
         :param str zone: Zone which contains this share.
@@ -12312,7 +12312,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_smb_share_with_http_info(smb_share, smb_share_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_smb_share_with_http_info(smb_share, smb_share_id, **kwargs)  # noqa: E501
@@ -12323,11 +12323,11 @@ class ProtocolsApi(object):
 
         Modify share. All input fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_smb_share_with_http_info(smb_share, smb_share_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_smb_share_with_http_info(smb_share, smb_share_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SmbShare smb_share: (required)
         :param str smb_share_id: Modify share. All input fields are optional, but one or more must be supplied. (required)
         :param str zone: Zone which contains this share.
@@ -12337,7 +12337,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['smb_share', 'smb_share_id', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -12399,7 +12399,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -12410,18 +12410,18 @@ class ProtocolsApi(object):
 
         Modify the SNMO settings. All input fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_snmp_settings(snmp_settings, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_snmp_settings(snmp_settings, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SnmpSettingsExtended snmp_settings: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_snmp_settings_with_http_info(snmp_settings, **kwargs)  # noqa: E501
         else:
             (data) = self.update_snmp_settings_with_http_info(snmp_settings, **kwargs)  # noqa: E501
@@ -12432,11 +12432,11 @@ class ProtocolsApi(object):
 
         Modify the SNMO settings. All input fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_snmp_settings_with_http_info(snmp_settings, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_snmp_settings_with_http_info(snmp_settings, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SnmpSettingsExtended snmp_settings: (required)
         :return: None
                  If the method is called asynchronously,
@@ -12444,7 +12444,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['snmp_settings']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -12498,7 +12498,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -12509,11 +12509,11 @@ class ProtocolsApi(object):
 
         Modify a Swift account  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_swift_account(swift_account, swift_account_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_swift_account(swift_account, swift_account_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SwiftAccount swift_account: (required)
         :param str swift_account_id: Modify a Swift account (required)
         :param str zone: Access zone which contains Swift account.
@@ -12522,7 +12522,7 @@ class ProtocolsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_swift_account_with_http_info(swift_account, swift_account_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_swift_account_with_http_info(swift_account, swift_account_id, **kwargs)  # noqa: E501
@@ -12533,11 +12533,11 @@ class ProtocolsApi(object):
 
         Modify a Swift account  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_swift_account_with_http_info(swift_account, swift_account_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_swift_account_with_http_info(swift_account, swift_account_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SwiftAccount swift_account: (required)
         :param str swift_account_id: Modify a Swift account (required)
         :param str zone: Access zone which contains Swift account.
@@ -12547,7 +12547,7 @@ class ProtocolsApi(object):
         """
 
         all_params = ['swift_account', 'swift_account_id', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -12609,7 +12609,7 @@ class ProtocolsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

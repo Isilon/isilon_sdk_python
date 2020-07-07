@@ -38,18 +38,18 @@ class NetworkApi(object):
 
         Flush the DNSCache.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_dnscache_flush_item(dnscache_flush_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_dnscache_flush_item(dnscache_flush_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty dnscache_flush_item: (required)
         :return: Empty
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_dnscache_flush_item_with_http_info(dnscache_flush_item, **kwargs)  # noqa: E501
         else:
             (data) = self.create_dnscache_flush_item_with_http_info(dnscache_flush_item, **kwargs)  # noqa: E501
@@ -60,11 +60,11 @@ class NetworkApi(object):
 
         Flush the DNSCache.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_dnscache_flush_item_with_http_info(dnscache_flush_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_dnscache_flush_item_with_http_info(dnscache_flush_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty dnscache_flush_item: (required)
         :return: Empty
                  If the method is called asynchronously,
@@ -72,7 +72,7 @@ class NetworkApi(object):
         """
 
         all_params = ['dnscache_flush_item']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -126,7 +126,7 @@ class NetworkApi(object):
             files=local_var_files,
             response_type='Empty',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -137,18 +137,18 @@ class NetworkApi(object):
 
         Create a new groupnet.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_network_groupnet(network_groupnet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_network_groupnet(network_groupnet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NetworkGroupnetCreateParams network_groupnet: (required)
         :return: CreateResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_network_groupnet_with_http_info(network_groupnet, **kwargs)  # noqa: E501
         else:
             (data) = self.create_network_groupnet_with_http_info(network_groupnet, **kwargs)  # noqa: E501
@@ -159,11 +159,11 @@ class NetworkApi(object):
 
         Create a new groupnet.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_network_groupnet_with_http_info(network_groupnet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_network_groupnet_with_http_info(network_groupnet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NetworkGroupnetCreateParams network_groupnet: (required)
         :return: CreateResponse
                  If the method is called asynchronously,
@@ -171,7 +171,7 @@ class NetworkApi(object):
         """
 
         all_params = ['network_groupnet']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -225,7 +225,7 @@ class NetworkApi(object):
             files=local_var_files,
             response_type='CreateResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -236,18 +236,18 @@ class NetworkApi(object):
 
         Rebalance IP addresses in all pools.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_network_sc_rebalance_all_item(network_sc_rebalance_all_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_network_sc_rebalance_all_item(network_sc_rebalance_all_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty network_sc_rebalance_all_item: (required)
         :return: Empty
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_network_sc_rebalance_all_item_with_http_info(network_sc_rebalance_all_item, **kwargs)  # noqa: E501
         else:
             (data) = self.create_network_sc_rebalance_all_item_with_http_info(network_sc_rebalance_all_item, **kwargs)  # noqa: E501
@@ -258,11 +258,11 @@ class NetworkApi(object):
 
         Rebalance IP addresses in all pools.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_network_sc_rebalance_all_item_with_http_info(network_sc_rebalance_all_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_network_sc_rebalance_all_item_with_http_info(network_sc_rebalance_all_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty network_sc_rebalance_all_item: (required)
         :return: Empty
                  If the method is called asynchronously,
@@ -270,7 +270,7 @@ class NetworkApi(object):
         """
 
         all_params = ['network_sc_rebalance_all_item']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -324,7 +324,7 @@ class NetworkApi(object):
             files=local_var_files,
             response_type='Empty',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -335,18 +335,18 @@ class NetworkApi(object):
 
         Delete a network groupnet.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_network_groupnet(network_groupnet_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_network_groupnet(network_groupnet_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str network_groupnet_id: Delete a network groupnet. (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_network_groupnet_with_http_info(network_groupnet_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_network_groupnet_with_http_info(network_groupnet_id, **kwargs)  # noqa: E501
@@ -357,11 +357,11 @@ class NetworkApi(object):
 
         Delete a network groupnet.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_network_groupnet_with_http_info(network_groupnet_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_network_groupnet_with_http_info(network_groupnet_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str network_groupnet_id: Delete a network groupnet. (required)
         :return: None
                  If the method is called asynchronously,
@@ -369,7 +369,7 @@ class NetworkApi(object):
         """
 
         all_params = ['network_groupnet_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -423,7 +423,7 @@ class NetworkApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -434,17 +434,17 @@ class NetworkApi(object):
 
         View network dns cache settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_network_dnscache(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_network_dnscache(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: NetworkDnscache
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_network_dnscache_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_network_dnscache_with_http_info(**kwargs)  # noqa: E501
@@ -455,18 +455,18 @@ class NetworkApi(object):
 
         View network dns cache settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_network_dnscache_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_network_dnscache_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: NetworkDnscache
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -514,7 +514,7 @@ class NetworkApi(object):
             files=local_var_files,
             response_type='NetworkDnscache',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -525,17 +525,17 @@ class NetworkApi(object):
 
         View external network settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_network_external(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_network_external(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: NetworkExternal
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_network_external_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_network_external_with_http_info(**kwargs)  # noqa: E501
@@ -546,18 +546,18 @@ class NetworkApi(object):
 
         View external network settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_network_external_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_network_external_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: NetworkExternal
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -605,7 +605,7 @@ class NetworkApi(object):
             files=local_var_files,
             response_type='NetworkExternal',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -616,18 +616,18 @@ class NetworkApi(object):
 
         View a network groupnet.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_network_groupnet(network_groupnet_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_network_groupnet(network_groupnet_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str network_groupnet_id: View a network groupnet. (required)
         :return: NetworkGroupnets
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_network_groupnet_with_http_info(network_groupnet_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_network_groupnet_with_http_info(network_groupnet_id, **kwargs)  # noqa: E501
@@ -638,11 +638,11 @@ class NetworkApi(object):
 
         View a network groupnet.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_network_groupnet_with_http_info(network_groupnet_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_network_groupnet_with_http_info(network_groupnet_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str network_groupnet_id: View a network groupnet. (required)
         :return: NetworkGroupnets
                  If the method is called asynchronously,
@@ -650,7 +650,7 @@ class NetworkApi(object):
         """
 
         all_params = ['network_groupnet_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -704,7 +704,7 @@ class NetworkApi(object):
             files=local_var_files,
             response_type='NetworkGroupnets',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -715,11 +715,11 @@ class NetworkApi(object):
 
         Get a list of interfaces.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_network_interfaces(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_network_interfaces(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param str network: Show interfaces associated with external and/or internal networks. Default is 'external'
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
@@ -732,7 +732,7 @@ class NetworkApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_network_interfaces_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_network_interfaces_with_http_info(**kwargs)  # noqa: E501
@@ -743,11 +743,11 @@ class NetworkApi(object):
 
         Get a list of interfaces.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_network_interfaces_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_network_interfaces_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param str network: Show interfaces associated with external and/or internal networks. Default is 'external'
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
@@ -761,7 +761,7 @@ class NetworkApi(object):
         """
 
         all_params = ['sort', 'network', 'resume', 'lnns', 'alloc_method', 'limit', 'dir']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -825,7 +825,7 @@ class NetworkApi(object):
             files=local_var_files,
             response_type='PoolsPoolInterfaces',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -836,11 +836,11 @@ class NetworkApi(object):
 
         Get a list of flexnet pools.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_network_pools(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_network_pools(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param str subnet: If specified, only pools for this subnet will be returned.
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
@@ -854,7 +854,7 @@ class NetworkApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_network_pools_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_network_pools_with_http_info(**kwargs)  # noqa: E501
@@ -865,11 +865,11 @@ class NetworkApi(object):
 
         Get a list of flexnet pools.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_network_pools_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_network_pools_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param str subnet: If specified, only pools for this subnet will be returned.
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
@@ -884,7 +884,7 @@ class NetworkApi(object):
         """
 
         all_params = ['sort', 'subnet', 'resume', 'access_zone', 'alloc_method', 'limit', 'groupnet', 'dir']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -950,7 +950,7 @@ class NetworkApi(object):
             files=local_var_files,
             response_type='NetworkPools',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -961,11 +961,11 @@ class NetworkApi(object):
 
         Get a list of network rules.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_network_rules(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_network_rules(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param str subnet: Name of the subnet to list rules from.
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
@@ -978,7 +978,7 @@ class NetworkApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_network_rules_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_network_rules_with_http_info(**kwargs)  # noqa: E501
@@ -989,11 +989,11 @@ class NetworkApi(object):
 
         Get a list of network rules.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_network_rules_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_network_rules_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param str subnet: Name of the subnet to list rules from.
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
@@ -1007,7 +1007,7 @@ class NetworkApi(object):
         """
 
         all_params = ['sort', 'subnet', 'resume', 'limit', 'dir', 'groupnet', 'pool']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1071,7 +1071,7 @@ class NetworkApi(object):
             files=local_var_files,
             response_type='PoolsPoolRulesExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1082,11 +1082,11 @@ class NetworkApi(object):
 
         Get a list of subnets.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_network_subnets(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_network_subnets(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param str groupnet: If specified, only subnets for this groupnet will be returned.
         :param int limit: Return no more than this many results at once (see resume).
@@ -1097,7 +1097,7 @@ class NetworkApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_network_subnets_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_network_subnets_with_http_info(**kwargs)  # noqa: E501
@@ -1108,11 +1108,11 @@ class NetworkApi(object):
 
         Get a list of subnets.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_network_subnets_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_network_subnets_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param str groupnet: If specified, only subnets for this groupnet will be returned.
         :param int limit: Return no more than this many results at once (see resume).
@@ -1124,7 +1124,7 @@ class NetworkApi(object):
         """
 
         all_params = ['sort', 'groupnet', 'limit', 'dir', 'resume']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1184,7 +1184,7 @@ class NetworkApi(object):
             files=local_var_files,
             response_type='GroupnetSubnetsExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1195,11 +1195,11 @@ class NetworkApi(object):
 
         Get a list of groupnets.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_network_groupnets(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_network_groupnets(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param int limit: Return no more than this many results at once (see resume).
         :param str dir: The direction of the sort.
@@ -1209,7 +1209,7 @@ class NetworkApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_network_groupnets_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_network_groupnets_with_http_info(**kwargs)  # noqa: E501
@@ -1220,11 +1220,11 @@ class NetworkApi(object):
 
         Get a list of groupnets.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_network_groupnets_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_network_groupnets_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param int limit: Return no more than this many results at once (see resume).
         :param str dir: The direction of the sort.
@@ -1235,7 +1235,7 @@ class NetworkApi(object):
         """
 
         all_params = ['sort', 'limit', 'dir', 'resume']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1293,7 +1293,7 @@ class NetworkApi(object):
             files=local_var_files,
             response_type='NetworkGroupnetsExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1304,18 +1304,18 @@ class NetworkApi(object):
 
         Modify network dns cache settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_network_dnscache(network_dnscache, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_network_dnscache(network_dnscache, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NetworkDnscacheExtended network_dnscache: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_network_dnscache_with_http_info(network_dnscache, **kwargs)  # noqa: E501
         else:
             (data) = self.update_network_dnscache_with_http_info(network_dnscache, **kwargs)  # noqa: E501
@@ -1326,11 +1326,11 @@ class NetworkApi(object):
 
         Modify network dns cache settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_network_dnscache_with_http_info(network_dnscache, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_network_dnscache_with_http_info(network_dnscache, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NetworkDnscacheExtended network_dnscache: (required)
         :return: None
                  If the method is called asynchronously,
@@ -1338,7 +1338,7 @@ class NetworkApi(object):
         """
 
         all_params = ['network_dnscache']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1392,7 +1392,7 @@ class NetworkApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1403,18 +1403,18 @@ class NetworkApi(object):
 
         Modify external network settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_network_external(network_external, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_network_external(network_external, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NetworkExternalExtended network_external: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_network_external_with_http_info(network_external, **kwargs)  # noqa: E501
         else:
             (data) = self.update_network_external_with_http_info(network_external, **kwargs)  # noqa: E501
@@ -1425,11 +1425,11 @@ class NetworkApi(object):
 
         Modify external network settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_network_external_with_http_info(network_external, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_network_external_with_http_info(network_external, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NetworkExternalExtended network_external: (required)
         :return: None
                  If the method is called asynchronously,
@@ -1437,7 +1437,7 @@ class NetworkApi(object):
         """
 
         all_params = ['network_external']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1491,7 +1491,7 @@ class NetworkApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1502,11 +1502,11 @@ class NetworkApi(object):
 
         Modify a network groupnet.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_network_groupnet(network_groupnet, network_groupnet_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_network_groupnet(network_groupnet, network_groupnet_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NetworkGroupnet network_groupnet: (required)
         :param str network_groupnet_id: Modify a network groupnet. (required)
         :return: None
@@ -1514,7 +1514,7 @@ class NetworkApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_network_groupnet_with_http_info(network_groupnet, network_groupnet_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_network_groupnet_with_http_info(network_groupnet, network_groupnet_id, **kwargs)  # noqa: E501
@@ -1525,11 +1525,11 @@ class NetworkApi(object):
 
         Modify a network groupnet.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_network_groupnet_with_http_info(network_groupnet, network_groupnet_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_network_groupnet_with_http_info(network_groupnet, network_groupnet_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NetworkGroupnet network_groupnet: (required)
         :param str network_groupnet_id: Modify a network groupnet. (required)
         :return: None
@@ -1538,7 +1538,7 @@ class NetworkApi(object):
         """
 
         all_params = ['network_groupnet', 'network_groupnet_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1598,7 +1598,7 @@ class NetworkApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

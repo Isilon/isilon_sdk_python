@@ -38,11 +38,11 @@ class AuthRolesApi(object):
 
         Add a member to the role.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_role_member(role_member, role, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_role_member(role_member, role, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param AuthAccessAccessItemFileGroup role_member: (required)
         :param str role: (required)
         :return: CreateResponse
@@ -50,7 +50,7 @@ class AuthRolesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_role_member_with_http_info(role_member, role, **kwargs)  # noqa: E501
         else:
             (data) = self.create_role_member_with_http_info(role_member, role, **kwargs)  # noqa: E501
@@ -61,11 +61,11 @@ class AuthRolesApi(object):
 
         Add a member to the role.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_role_member_with_http_info(role_member, role, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_role_member_with_http_info(role_member, role, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param AuthAccessAccessItemFileGroup role_member: (required)
         :param str role: (required)
         :return: CreateResponse
@@ -74,7 +74,7 @@ class AuthRolesApi(object):
         """
 
         all_params = ['role_member', 'role']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -134,7 +134,7 @@ class AuthRolesApi(object):
             files=local_var_files,
             response_type='CreateResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -145,11 +145,11 @@ class AuthRolesApi(object):
 
         Add a privilege to the role.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_role_privilege(role_privilege, role, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_role_privilege(role_privilege, role, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param AuthIdNtokenPrivilegeItem role_privilege: (required)
         :param str role: (required)
         :return: CreateResponse
@@ -157,7 +157,7 @@ class AuthRolesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_role_privilege_with_http_info(role_privilege, role, **kwargs)  # noqa: E501
         else:
             (data) = self.create_role_privilege_with_http_info(role_privilege, role, **kwargs)  # noqa: E501
@@ -168,11 +168,11 @@ class AuthRolesApi(object):
 
         Add a privilege to the role.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_role_privilege_with_http_info(role_privilege, role, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_role_privilege_with_http_info(role_privilege, role, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param AuthIdNtokenPrivilegeItem role_privilege: (required)
         :param str role: (required)
         :return: CreateResponse
@@ -181,7 +181,7 @@ class AuthRolesApi(object):
         """
 
         all_params = ['role_privilege', 'role']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -241,7 +241,7 @@ class AuthRolesApi(object):
             files=local_var_files,
             response_type='CreateResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -252,11 +252,11 @@ class AuthRolesApi(object):
 
         Remove a member from the role.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_role_member(role_member_id, role, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_role_member(role_member_id, role, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str role_member_id: Remove a member from the role. (required)
         :param str role: (required)
         :return: None
@@ -264,7 +264,7 @@ class AuthRolesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_role_member_with_http_info(role_member_id, role, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_role_member_with_http_info(role_member_id, role, **kwargs)  # noqa: E501
@@ -275,11 +275,11 @@ class AuthRolesApi(object):
 
         Remove a member from the role.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_role_member_with_http_info(role_member_id, role, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_role_member_with_http_info(role_member_id, role, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str role_member_id: Remove a member from the role. (required)
         :param str role: (required)
         :return: None
@@ -288,7 +288,7 @@ class AuthRolesApi(object):
         """
 
         all_params = ['role_member_id', 'role']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -348,7 +348,7 @@ class AuthRolesApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -359,11 +359,11 @@ class AuthRolesApi(object):
 
         Remove a privilege from a role.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_role_privilege(role_privilege_id, role, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_role_privilege(role_privilege_id, role, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str role_privilege_id: Remove a privilege from a role. (required)
         :param str role: (required)
         :return: None
@@ -371,7 +371,7 @@ class AuthRolesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_role_privilege_with_http_info(role_privilege_id, role, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_role_privilege_with_http_info(role_privilege_id, role, **kwargs)  # noqa: E501
@@ -382,11 +382,11 @@ class AuthRolesApi(object):
 
         Remove a privilege from a role.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_role_privilege_with_http_info(role_privilege_id, role, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_role_privilege_with_http_info(role_privilege_id, role, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str role_privilege_id: Remove a privilege from a role. (required)
         :param str role: (required)
         :return: None
@@ -395,7 +395,7 @@ class AuthRolesApi(object):
         """
 
         all_params = ['role_privilege_id', 'role']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -455,7 +455,7 @@ class AuthRolesApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -466,11 +466,11 @@ class AuthRolesApi(object):
 
         List all the members of the role.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_role_members(role, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_role_members(role, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str role: (required)
         :param bool resolve_names: Resolve names of personas.
         :return: GroupMembers
@@ -478,7 +478,7 @@ class AuthRolesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_role_members_with_http_info(role, **kwargs)  # noqa: E501
         else:
             (data) = self.list_role_members_with_http_info(role, **kwargs)  # noqa: E501
@@ -489,11 +489,11 @@ class AuthRolesApi(object):
 
         List all the members of the role.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_role_members_with_http_info(role, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_role_members_with_http_info(role, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str role: (required)
         :param bool resolve_names: Resolve names of personas.
         :return: GroupMembers
@@ -502,7 +502,7 @@ class AuthRolesApi(object):
         """
 
         all_params = ['role', 'resolve_names']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -558,7 +558,7 @@ class AuthRolesApi(object):
             files=local_var_files,
             response_type='GroupMembers',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -569,18 +569,18 @@ class AuthRolesApi(object):
 
         List all privileges in the role.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_role_privileges(role, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_role_privileges(role, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str role: (required)
         :return: RolePrivileges
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_role_privileges_with_http_info(role, **kwargs)  # noqa: E501
         else:
             (data) = self.list_role_privileges_with_http_info(role, **kwargs)  # noqa: E501
@@ -591,11 +591,11 @@ class AuthRolesApi(object):
 
         List all privileges in the role.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_role_privileges_with_http_info(role, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_role_privileges_with_http_info(role, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str role: (required)
         :return: RolePrivileges
                  If the method is called asynchronously,
@@ -603,7 +603,7 @@ class AuthRolesApi(object):
         """
 
         all_params = ['role']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -657,7 +657,7 @@ class AuthRolesApi(object):
             files=local_var_files,
             response_type='RolePrivileges',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

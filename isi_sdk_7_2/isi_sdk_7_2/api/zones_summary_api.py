@@ -38,17 +38,17 @@ class ZonesSummaryApi(object):
 
         Retrieve access zone summary information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_zones_summary(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_zones_summary(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: ZonesSummaryExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_zones_summary_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_zones_summary_with_http_info(**kwargs)  # noqa: E501
@@ -59,18 +59,18 @@ class ZonesSummaryApi(object):
 
         Retrieve access zone summary information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_zones_summary_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_zones_summary_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: ZonesSummaryExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -118,7 +118,7 @@ class ZonesSummaryApi(object):
             files=local_var_files,
             response_type='ZonesSummaryExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -129,18 +129,18 @@ class ZonesSummaryApi(object):
 
         Retrieve non-privileged access zone information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_zones_summary_zone(zones_summary_zone, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_zones_summary_zone(zones_summary_zone, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int zones_summary_zone: Retrieve non-privileged access zone information. (required)
         :return: ZonesSummary
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_zones_summary_zone_with_http_info(zones_summary_zone, **kwargs)  # noqa: E501
         else:
             (data) = self.get_zones_summary_zone_with_http_info(zones_summary_zone, **kwargs)  # noqa: E501
@@ -151,11 +151,11 @@ class ZonesSummaryApi(object):
 
         Retrieve non-privileged access zone information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_zones_summary_zone_with_http_info(zones_summary_zone, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_zones_summary_zone_with_http_info(zones_summary_zone, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int zones_summary_zone: Retrieve non-privileged access zone information. (required)
         :return: ZonesSummary
                  If the method is called asynchronously,
@@ -163,7 +163,7 @@ class ZonesSummaryApi(object):
         """
 
         all_params = ['zones_summary_zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -217,7 +217,7 @@ class ZonesSummaryApi(object):
             files=local_var_files,
             response_type='ZonesSummary',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

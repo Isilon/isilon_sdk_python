@@ -38,11 +38,11 @@ class SyncReportsApi(object):
 
         View a single SyncIQ subreport.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_report_subreport(report_subreport_id, rid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_report_subreport(report_subreport_id, rid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str report_subreport_id: View a single SyncIQ subreport. (required)
         :param str rid: (required)
         :return: ReportSubreports
@@ -50,7 +50,7 @@ class SyncReportsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_report_subreport_with_http_info(report_subreport_id, rid, **kwargs)  # noqa: E501
         else:
             (data) = self.get_report_subreport_with_http_info(report_subreport_id, rid, **kwargs)  # noqa: E501
@@ -61,11 +61,11 @@ class SyncReportsApi(object):
 
         View a single SyncIQ subreport.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_report_subreport_with_http_info(report_subreport_id, rid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_report_subreport_with_http_info(report_subreport_id, rid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str report_subreport_id: View a single SyncIQ subreport. (required)
         :param str rid: (required)
         :return: ReportSubreports
@@ -74,7 +74,7 @@ class SyncReportsApi(object):
         """
 
         all_params = ['report_subreport_id', 'rid']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -134,7 +134,7 @@ class SyncReportsApi(object):
             files=local_var_files,
             response_type='ReportSubreports',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -145,11 +145,11 @@ class SyncReportsApi(object):
 
         Get a list of SyncIQ subreports for a report.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_report_subreports(rid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_report_subreports(rid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str rid: (required)
         :param str sort: The field that will be used for sorting.
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
@@ -162,7 +162,7 @@ class SyncReportsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_report_subreports_with_http_info(rid, **kwargs)  # noqa: E501
         else:
             (data) = self.get_report_subreports_with_http_info(rid, **kwargs)  # noqa: E501
@@ -173,11 +173,11 @@ class SyncReportsApi(object):
 
         Get a list of SyncIQ subreports for a report.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_report_subreports_with_http_info(rid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_report_subreports_with_http_info(rid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str rid: (required)
         :param str sort: The field that will be used for sorting.
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
@@ -191,7 +191,7 @@ class SyncReportsApi(object):
         """
 
         all_params = ['rid', 'sort', 'resume', 'newer_than', 'state', 'limit', 'dir']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -276,7 +276,7 @@ class SyncReportsApi(object):
             files=local_var_files,
             response_type='ReportSubreportsExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

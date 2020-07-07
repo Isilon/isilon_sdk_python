@@ -38,11 +38,11 @@ class PerformanceDatasetsApi(object):
 
         Create a new filter.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_dataset_filter(dataset_filter, dataset, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_dataset_filter(dataset_filter, dataset, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param DatasetFilterCreateParams dataset_filter: (required)
         :param str dataset: (required)
         :param bool force: For use by support only.
@@ -51,7 +51,7 @@ class PerformanceDatasetsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_dataset_filter_with_http_info(dataset_filter, dataset, **kwargs)  # noqa: E501
         else:
             (data) = self.create_dataset_filter_with_http_info(dataset_filter, dataset, **kwargs)  # noqa: E501
@@ -62,11 +62,11 @@ class PerformanceDatasetsApi(object):
 
         Create a new filter.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_dataset_filter_with_http_info(dataset_filter, dataset, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_dataset_filter_with_http_info(dataset_filter, dataset, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param DatasetFilterCreateParams dataset_filter: (required)
         :param str dataset: (required)
         :param bool force: For use by support only.
@@ -76,7 +76,7 @@ class PerformanceDatasetsApi(object):
         """
 
         all_params = ['dataset_filter', 'dataset', 'force']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -138,7 +138,7 @@ class PerformanceDatasetsApi(object):
             files=local_var_files,
             response_type='CreateDatasetFilterResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -149,11 +149,11 @@ class PerformanceDatasetsApi(object):
 
         Create a new workload.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_dataset_workload(dataset_workload, dataset, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_dataset_workload(dataset_workload, dataset, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param DatasetWorkloadCreateParams dataset_workload: (required)
         :param str dataset: (required)
         :param bool force: For use by support only.
@@ -162,7 +162,7 @@ class PerformanceDatasetsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_dataset_workload_with_http_info(dataset_workload, dataset, **kwargs)  # noqa: E501
         else:
             (data) = self.create_dataset_workload_with_http_info(dataset_workload, dataset, **kwargs)  # noqa: E501
@@ -173,11 +173,11 @@ class PerformanceDatasetsApi(object):
 
         Create a new workload.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_dataset_workload_with_http_info(dataset_workload, dataset, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_dataset_workload_with_http_info(dataset_workload, dataset, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param DatasetWorkloadCreateParams dataset_workload: (required)
         :param str dataset: (required)
         :param bool force: For use by support only.
@@ -187,7 +187,7 @@ class PerformanceDatasetsApi(object):
         """
 
         all_params = ['dataset_workload', 'dataset', 'force']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -249,7 +249,7 @@ class PerformanceDatasetsApi(object):
             files=local_var_files,
             response_type='CreateDatasetWorkloadResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -260,11 +260,11 @@ class PerformanceDatasetsApi(object):
 
         Delete the filter.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_dataset_filter(dataset_filter_id, dataset, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_dataset_filter(dataset_filter_id, dataset, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str dataset_filter_id: Delete the filter. (required)
         :param str dataset: (required)
         :return: None
@@ -272,7 +272,7 @@ class PerformanceDatasetsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_dataset_filter_with_http_info(dataset_filter_id, dataset, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_dataset_filter_with_http_info(dataset_filter_id, dataset, **kwargs)  # noqa: E501
@@ -283,11 +283,11 @@ class PerformanceDatasetsApi(object):
 
         Delete the filter.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_dataset_filter_with_http_info(dataset_filter_id, dataset, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_dataset_filter_with_http_info(dataset_filter_id, dataset, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str dataset_filter_id: Delete the filter. (required)
         :param str dataset: (required)
         :return: None
@@ -296,7 +296,7 @@ class PerformanceDatasetsApi(object):
         """
 
         all_params = ['dataset_filter_id', 'dataset']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -356,7 +356,7 @@ class PerformanceDatasetsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -367,18 +367,18 @@ class PerformanceDatasetsApi(object):
 
         Delete all filters associated with the dataset.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_dataset_filters(dataset, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_dataset_filters(dataset, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str dataset: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_dataset_filters_with_http_info(dataset, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_dataset_filters_with_http_info(dataset, **kwargs)  # noqa: E501
@@ -389,11 +389,11 @@ class PerformanceDatasetsApi(object):
 
         Delete all filters associated with the dataset.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_dataset_filters_with_http_info(dataset, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_dataset_filters_with_http_info(dataset, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str dataset: (required)
         :return: None
                  If the method is called asynchronously,
@@ -401,7 +401,7 @@ class PerformanceDatasetsApi(object):
         """
 
         all_params = ['dataset']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -455,7 +455,7 @@ class PerformanceDatasetsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -466,11 +466,11 @@ class PerformanceDatasetsApi(object):
 
         Delete the workload.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_dataset_workload(dataset_workload_id, dataset, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_dataset_workload(dataset_workload_id, dataset, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str dataset_workload_id: Delete the workload. (required)
         :param str dataset: (required)
         :return: None
@@ -478,7 +478,7 @@ class PerformanceDatasetsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_dataset_workload_with_http_info(dataset_workload_id, dataset, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_dataset_workload_with_http_info(dataset_workload_id, dataset, **kwargs)  # noqa: E501
@@ -489,11 +489,11 @@ class PerformanceDatasetsApi(object):
 
         Delete the workload.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_dataset_workload_with_http_info(dataset_workload_id, dataset, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_dataset_workload_with_http_info(dataset_workload_id, dataset, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str dataset_workload_id: Delete the workload. (required)
         :param str dataset: (required)
         :return: None
@@ -502,7 +502,7 @@ class PerformanceDatasetsApi(object):
         """
 
         all_params = ['dataset_workload_id', 'dataset']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -562,7 +562,7 @@ class PerformanceDatasetsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -573,18 +573,18 @@ class PerformanceDatasetsApi(object):
 
         Delete all workloads associated with the dataset.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_dataset_workloads(dataset, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_dataset_workloads(dataset, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str dataset: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_dataset_workloads_with_http_info(dataset, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_dataset_workloads_with_http_info(dataset, **kwargs)  # noqa: E501
@@ -595,11 +595,11 @@ class PerformanceDatasetsApi(object):
 
         Delete all workloads associated with the dataset.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_dataset_workloads_with_http_info(dataset, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_dataset_workloads_with_http_info(dataset, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str dataset: (required)
         :return: None
                  If the method is called asynchronously,
@@ -607,7 +607,7 @@ class PerformanceDatasetsApi(object):
         """
 
         all_params = ['dataset']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -661,7 +661,7 @@ class PerformanceDatasetsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -672,11 +672,11 @@ class PerformanceDatasetsApi(object):
 
         Retrieve the filter.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_dataset_filter(dataset_filter_id, dataset, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_dataset_filter(dataset_filter_id, dataset, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str dataset_filter_id: Retrieve the filter. (required)
         :param str dataset: (required)
         :return: DatasetFilters
@@ -684,7 +684,7 @@ class PerformanceDatasetsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_dataset_filter_with_http_info(dataset_filter_id, dataset, **kwargs)  # noqa: E501
         else:
             (data) = self.get_dataset_filter_with_http_info(dataset_filter_id, dataset, **kwargs)  # noqa: E501
@@ -695,11 +695,11 @@ class PerformanceDatasetsApi(object):
 
         Retrieve the filter.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_dataset_filter_with_http_info(dataset_filter_id, dataset, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_dataset_filter_with_http_info(dataset_filter_id, dataset, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str dataset_filter_id: Retrieve the filter. (required)
         :param str dataset: (required)
         :return: DatasetFilters
@@ -708,7 +708,7 @@ class PerformanceDatasetsApi(object):
         """
 
         all_params = ['dataset_filter_id', 'dataset']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -768,7 +768,7 @@ class PerformanceDatasetsApi(object):
             files=local_var_files,
             response_type='DatasetFilters',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -779,11 +779,11 @@ class PerformanceDatasetsApi(object):
 
         Retrieve the workload.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_dataset_workload(dataset_workload_id, dataset, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_dataset_workload(dataset_workload_id, dataset, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str dataset_workload_id: Retrieve the workload. (required)
         :param str dataset: (required)
         :return: DatasetWorkloads
@@ -791,7 +791,7 @@ class PerformanceDatasetsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_dataset_workload_with_http_info(dataset_workload_id, dataset, **kwargs)  # noqa: E501
         else:
             (data) = self.get_dataset_workload_with_http_info(dataset_workload_id, dataset, **kwargs)  # noqa: E501
@@ -802,11 +802,11 @@ class PerformanceDatasetsApi(object):
 
         Retrieve the workload.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_dataset_workload_with_http_info(dataset_workload_id, dataset, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_dataset_workload_with_http_info(dataset_workload_id, dataset, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str dataset_workload_id: Retrieve the workload. (required)
         :param str dataset: (required)
         :return: DatasetWorkloads
@@ -815,7 +815,7 @@ class PerformanceDatasetsApi(object):
         """
 
         all_params = ['dataset_workload_id', 'dataset']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -875,7 +875,7 @@ class PerformanceDatasetsApi(object):
             files=local_var_files,
             response_type='DatasetWorkloads',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -886,11 +886,11 @@ class PerformanceDatasetsApi(object):
 
         List all filters.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_dataset_filters(dataset, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_dataset_filters(dataset, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str dataset: (required)
         :param str sort: The field that will be used for sorting.
         :param int limit: Return no more than this many results at once (see resume).
@@ -901,7 +901,7 @@ class PerformanceDatasetsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_dataset_filters_with_http_info(dataset, **kwargs)  # noqa: E501
         else:
             (data) = self.list_dataset_filters_with_http_info(dataset, **kwargs)  # noqa: E501
@@ -912,11 +912,11 @@ class PerformanceDatasetsApi(object):
 
         List all filters.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_dataset_filters_with_http_info(dataset, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_dataset_filters_with_http_info(dataset, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str dataset: (required)
         :param str sort: The field that will be used for sorting.
         :param int limit: Return no more than this many results at once (see resume).
@@ -928,7 +928,7 @@ class PerformanceDatasetsApi(object):
         """
 
         all_params = ['dataset', 'sort', 'limit', 'dir', 'resume']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1009,7 +1009,7 @@ class PerformanceDatasetsApi(object):
             files=local_var_files,
             response_type='DatasetFiltersExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1020,11 +1020,11 @@ class PerformanceDatasetsApi(object):
 
         List all workloads.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_dataset_workloads(dataset, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_dataset_workloads(dataset, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str dataset: (required)
         :param str sort: The field that will be used for sorting.
         :param int limit: Return no more than this many results at once (see resume).
@@ -1035,7 +1035,7 @@ class PerformanceDatasetsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_dataset_workloads_with_http_info(dataset, **kwargs)  # noqa: E501
         else:
             (data) = self.list_dataset_workloads_with_http_info(dataset, **kwargs)  # noqa: E501
@@ -1046,11 +1046,11 @@ class PerformanceDatasetsApi(object):
 
         List all workloads.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_dataset_workloads_with_http_info(dataset, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_dataset_workloads_with_http_info(dataset, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str dataset: (required)
         :param str sort: The field that will be used for sorting.
         :param int limit: Return no more than this many results at once (see resume).
@@ -1062,7 +1062,7 @@ class PerformanceDatasetsApi(object):
         """
 
         all_params = ['dataset', 'sort', 'limit', 'dir', 'resume']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1143,7 +1143,7 @@ class PerformanceDatasetsApi(object):
             files=local_var_files,
             response_type='DatasetWorkloadsExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1154,11 +1154,11 @@ class PerformanceDatasetsApi(object):
 
         Modify the filter.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_dataset_filter(dataset_filter, dataset_filter_id, dataset, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_dataset_filter(dataset_filter, dataset_filter_id, dataset, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param DatasetFilter dataset_filter: (required)
         :param str dataset_filter_id: Modify the filter. (required)
         :param str dataset: (required)
@@ -1167,7 +1167,7 @@ class PerformanceDatasetsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_dataset_filter_with_http_info(dataset_filter, dataset_filter_id, dataset, **kwargs)  # noqa: E501
         else:
             (data) = self.update_dataset_filter_with_http_info(dataset_filter, dataset_filter_id, dataset, **kwargs)  # noqa: E501
@@ -1178,11 +1178,11 @@ class PerformanceDatasetsApi(object):
 
         Modify the filter.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_dataset_filter_with_http_info(dataset_filter, dataset_filter_id, dataset, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_dataset_filter_with_http_info(dataset_filter, dataset_filter_id, dataset, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param DatasetFilter dataset_filter: (required)
         :param str dataset_filter_id: Modify the filter. (required)
         :param str dataset: (required)
@@ -1192,7 +1192,7 @@ class PerformanceDatasetsApi(object):
         """
 
         all_params = ['dataset_filter', 'dataset_filter_id', 'dataset']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1258,7 +1258,7 @@ class PerformanceDatasetsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1269,11 +1269,11 @@ class PerformanceDatasetsApi(object):
 
         Modify the workload.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_dataset_workload(dataset_workload, dataset_workload_id, dataset, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_dataset_workload(dataset_workload, dataset_workload_id, dataset, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param DatasetWorkload dataset_workload: (required)
         :param str dataset_workload_id: Modify the workload. (required)
         :param str dataset: (required)
@@ -1282,7 +1282,7 @@ class PerformanceDatasetsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_dataset_workload_with_http_info(dataset_workload, dataset_workload_id, dataset, **kwargs)  # noqa: E501
         else:
             (data) = self.update_dataset_workload_with_http_info(dataset_workload, dataset_workload_id, dataset, **kwargs)  # noqa: E501
@@ -1293,11 +1293,11 @@ class PerformanceDatasetsApi(object):
 
         Modify the workload.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_dataset_workload_with_http_info(dataset_workload, dataset_workload_id, dataset, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_dataset_workload_with_http_info(dataset_workload, dataset_workload_id, dataset, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param DatasetWorkload dataset_workload: (required)
         :param str dataset_workload_id: Modify the workload. (required)
         :param str dataset: (required)
@@ -1307,7 +1307,7 @@ class PerformanceDatasetsApi(object):
         """
 
         all_params = ['dataset_workload', 'dataset_workload_id', 'dataset']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1373,7 +1373,7 @@ class PerformanceDatasetsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

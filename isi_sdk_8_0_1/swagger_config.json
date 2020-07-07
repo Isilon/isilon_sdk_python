@@ -31112,7 +31112,7 @@
         },
         "termsOfService": "https://github.com/emccode/emccode.github.io/wiki/EMC-CODE-Governance,-Contributing,-and-Code-of-Conduct",
         "title": "Isilon SDK",
-        "version": 4
+        "version": "4"
     },
     "paths": {
         "/namespace": {

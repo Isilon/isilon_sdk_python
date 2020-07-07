@@ -38,11 +38,11 @@ class IdResolutionZonesApi(object):
 
         List a mapping of gid/gsid to groupname.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_zone_group(zone_group_id, zid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_zone_group(zone_group_id, zid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str zone_group_id: List a mapping of gid/gsid to groupname. (required)
         :param str zid: (required)
         :return: ZoneGroups
@@ -50,7 +50,7 @@ class IdResolutionZonesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_zone_group_with_http_info(zone_group_id, zid, **kwargs)  # noqa: E501
         else:
             (data) = self.get_zone_group_with_http_info(zone_group_id, zid, **kwargs)  # noqa: E501
@@ -61,11 +61,11 @@ class IdResolutionZonesApi(object):
 
         List a mapping of gid/gsid to groupname.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_zone_group_with_http_info(zone_group_id, zid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_zone_group_with_http_info(zone_group_id, zid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str zone_group_id: List a mapping of gid/gsid to groupname. (required)
         :param str zid: (required)
         :return: ZoneGroups
@@ -74,7 +74,7 @@ class IdResolutionZonesApi(object):
         """
 
         all_params = ['zone_group_id', 'zid']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -134,7 +134,7 @@ class IdResolutionZonesApi(object):
             files=local_var_files,
             response_type='ZoneGroups',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -145,11 +145,11 @@ class IdResolutionZonesApi(object):
 
         List gid/gsid to groupname mappings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_zone_groups(zid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_zone_groups(zid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str zid: (required)
         :param str sort: The field that will be used for sorting.
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
@@ -162,7 +162,7 @@ class IdResolutionZonesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_zone_groups_with_http_info(zid, **kwargs)  # noqa: E501
         else:
             (data) = self.get_zone_groups_with_http_info(zid, **kwargs)  # noqa: E501
@@ -173,11 +173,11 @@ class IdResolutionZonesApi(object):
 
         List gid/gsid to groupname mappings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_zone_groups_with_http_info(zid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_zone_groups_with_http_info(zid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str zid: (required)
         :param str sort: The field that will be used for sorting.
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
@@ -191,7 +191,7 @@ class IdResolutionZonesApi(object):
         """
 
         all_params = ['zid', 'sort', 'resume', 'gsids', 'gids', 'limit', 'dir']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -276,7 +276,7 @@ class IdResolutionZonesApi(object):
             files=local_var_files,
             response_type='ZoneGroupsExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -287,11 +287,11 @@ class IdResolutionZonesApi(object):
 
         List a mapping of uid/sid to username.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_zone_user(zone_user_id, zid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_zone_user(zone_user_id, zid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str zone_user_id: List a mapping of uid/sid to username. (required)
         :param str zid: (required)
         :return: ZoneUsers
@@ -299,7 +299,7 @@ class IdResolutionZonesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_zone_user_with_http_info(zone_user_id, zid, **kwargs)  # noqa: E501
         else:
             (data) = self.get_zone_user_with_http_info(zone_user_id, zid, **kwargs)  # noqa: E501
@@ -310,11 +310,11 @@ class IdResolutionZonesApi(object):
 
         List a mapping of uid/sid to username.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_zone_user_with_http_info(zone_user_id, zid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_zone_user_with_http_info(zone_user_id, zid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str zone_user_id: List a mapping of uid/sid to username. (required)
         :param str zid: (required)
         :return: ZoneUsers
@@ -323,7 +323,7 @@ class IdResolutionZonesApi(object):
         """
 
         all_params = ['zone_user_id', 'zid']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -383,7 +383,7 @@ class IdResolutionZonesApi(object):
             files=local_var_files,
             response_type='ZoneUsers',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -394,11 +394,11 @@ class IdResolutionZonesApi(object):
 
         List uid/sid to username mappings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_zone_users(zid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_zone_users(zid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str zid: (required)
         :param str sort: The field that will be used for sorting.
         :param str uids: A comma separated list specifying the uids to map with a username.
@@ -411,7 +411,7 @@ class IdResolutionZonesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_zone_users_with_http_info(zid, **kwargs)  # noqa: E501
         else:
             (data) = self.get_zone_users_with_http_info(zid, **kwargs)  # noqa: E501
@@ -422,11 +422,11 @@ class IdResolutionZonesApi(object):
 
         List uid/sid to username mappings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_zone_users_with_http_info(zid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_zone_users_with_http_info(zid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str zid: (required)
         :param str sort: The field that will be used for sorting.
         :param str uids: A comma separated list specifying the uids to map with a username.
@@ -440,7 +440,7 @@ class IdResolutionZonesApi(object):
         """
 
         all_params = ['zid', 'sort', 'uids', 'resume', 'sids', 'limit', 'dir']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -525,7 +525,7 @@ class IdResolutionZonesApi(object):
             files=local_var_files,
             response_type='ZoneUsersExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

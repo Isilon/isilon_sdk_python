@@ -38,11 +38,11 @@ class AuthApi(object):
 
         Flush the Security Objects Cache.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_auth_cache_item(auth_cache_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_auth_cache_item(auth_cache_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param AuthCacheItem auth_cache_item: (required)
         :param str zone: Specifies access zone from which to flush objects.
         :return: CreateResponse
@@ -50,7 +50,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_auth_cache_item_with_http_info(auth_cache_item, **kwargs)  # noqa: E501
         else:
             (data) = self.create_auth_cache_item_with_http_info(auth_cache_item, **kwargs)  # noqa: E501
@@ -61,11 +61,11 @@ class AuthApi(object):
 
         Flush the Security Objects Cache.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_auth_cache_item_with_http_info(auth_cache_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_auth_cache_item_with_http_info(auth_cache_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param AuthCacheItem auth_cache_item: (required)
         :param str zone: Specifies access zone from which to flush objects.
         :return: CreateResponse
@@ -74,7 +74,7 @@ class AuthApi(object):
         """
 
         all_params = ['auth_cache_item', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -130,7 +130,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='CreateResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -141,11 +141,11 @@ class AuthApi(object):
 
         Create a new group.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_auth_group(auth_group, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_auth_group(auth_group, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param AuthGroupCreateParams auth_group: (required)
         :param bool force: Skip validation checks when creating a group.
         :param str zone: Optional zone.
@@ -155,7 +155,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_auth_group_with_http_info(auth_group, **kwargs)  # noqa: E501
         else:
             (data) = self.create_auth_group_with_http_info(auth_group, **kwargs)  # noqa: E501
@@ -166,11 +166,11 @@ class AuthApi(object):
 
         Create a new group.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_auth_group_with_http_info(auth_group, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_auth_group_with_http_info(auth_group, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param AuthGroupCreateParams auth_group: (required)
         :param bool force: Skip validation checks when creating a group.
         :param str zone: Optional zone.
@@ -181,7 +181,7 @@ class AuthApi(object):
         """
 
         all_params = ['auth_group', 'force', 'zone', 'provider']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -241,7 +241,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='CreateResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -252,18 +252,18 @@ class AuthApi(object):
 
         Refresh the authentication service configuration.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_auth_refresh_item(auth_refresh_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_auth_refresh_item(auth_refresh_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty auth_refresh_item: (required)
         :return: CreateAuthRefreshItemResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_auth_refresh_item_with_http_info(auth_refresh_item, **kwargs)  # noqa: E501
         else:
             (data) = self.create_auth_refresh_item_with_http_info(auth_refresh_item, **kwargs)  # noqa: E501
@@ -274,11 +274,11 @@ class AuthApi(object):
 
         Refresh the authentication service configuration.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_auth_refresh_item_with_http_info(auth_refresh_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_auth_refresh_item_with_http_info(auth_refresh_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty auth_refresh_item: (required)
         :return: CreateAuthRefreshItemResponse
                  If the method is called asynchronously,
@@ -286,7 +286,7 @@ class AuthApi(object):
         """
 
         all_params = ['auth_refresh_item']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -340,7 +340,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='CreateAuthRefreshItemResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -351,18 +351,18 @@ class AuthApi(object):
 
         Create a new role.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_auth_role(auth_role, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_auth_role(auth_role, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param AuthRoleCreateParams auth_role: (required)
         :return: CreateResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_auth_role_with_http_info(auth_role, **kwargs)  # noqa: E501
         else:
             (data) = self.create_auth_role_with_http_info(auth_role, **kwargs)  # noqa: E501
@@ -373,11 +373,11 @@ class AuthApi(object):
 
         Create a new role.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_auth_role_with_http_info(auth_role, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_auth_role_with_http_info(auth_role, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param AuthRoleCreateParams auth_role: (required)
         :return: CreateResponse
                  If the method is called asynchronously,
@@ -385,7 +385,7 @@ class AuthApi(object):
         """
 
         all_params = ['auth_role']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -439,7 +439,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='CreateResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -450,11 +450,11 @@ class AuthApi(object):
 
         Create a new user.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_auth_user(auth_user, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_auth_user(auth_user, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param AuthUserCreateParams auth_user: (required)
         :param bool force: Skip validation checks when creating user.
         :param str zone: Optional zone.
@@ -464,7 +464,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_auth_user_with_http_info(auth_user, **kwargs)  # noqa: E501
         else:
             (data) = self.create_auth_user_with_http_info(auth_user, **kwargs)  # noqa: E501
@@ -475,11 +475,11 @@ class AuthApi(object):
 
         Create a new user.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_auth_user_with_http_info(auth_user, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_auth_user_with_http_info(auth_user, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param AuthUserCreateParams auth_user: (required)
         :param bool force: Skip validation checks when creating user.
         :param str zone: Optional zone.
@@ -490,7 +490,7 @@ class AuthApi(object):
         """
 
         all_params = ['auth_user', 'force', 'zone', 'provider']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -550,7 +550,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='CreateResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -561,11 +561,11 @@ class AuthApi(object):
 
         Manually set or modify a mapping between two personae.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_mapping_identities(mapping_identities, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_mapping_identities(mapping_identities, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param MappingIdentitiesCreateParams mapping_identities: (required)
         :param bool _2way: Create a bi-directional mapping from source to target and target to source.
         :param str zone: Optional zone.
@@ -575,7 +575,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_mapping_identities_with_http_info(mapping_identities, **kwargs)  # noqa: E501
         else:
             (data) = self.create_mapping_identities_with_http_info(mapping_identities, **kwargs)  # noqa: E501
@@ -586,11 +586,11 @@ class AuthApi(object):
 
         Manually set or modify a mapping between two personae.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_mapping_identities_with_http_info(mapping_identities, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_mapping_identities_with_http_info(mapping_identities, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param MappingIdentitiesCreateParams mapping_identities: (required)
         :param bool _2way: Create a bi-directional mapping from source to target and target to source.
         :param str zone: Optional zone.
@@ -601,7 +601,7 @@ class AuthApi(object):
         """
 
         all_params = ['mapping_identities', '_2way', 'zone', 'replace']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -661,7 +661,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='Empty',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -672,11 +672,11 @@ class AuthApi(object):
 
         Manually set or modify a mapping between two personae.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_mapping_identity(mapping_identity, mapping_identity_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_mapping_identity(mapping_identity, mapping_identity_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty mapping_identity: (required)
         :param str mapping_identity_id: Manually set or modify a mapping between two personae. (required)
         :param str type: Desired mapping target to fetch/generate.
@@ -686,7 +686,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_mapping_identity_with_http_info(mapping_identity, mapping_identity_id, **kwargs)  # noqa: E501
         else:
             (data) = self.create_mapping_identity_with_http_info(mapping_identity, mapping_identity_id, **kwargs)  # noqa: E501
@@ -697,11 +697,11 @@ class AuthApi(object):
 
         Manually set or modify a mapping between two personae.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_mapping_identity_with_http_info(mapping_identity, mapping_identity_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_mapping_identity_with_http_info(mapping_identity, mapping_identity_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty mapping_identity: (required)
         :param str mapping_identity_id: Manually set or modify a mapping between two personae. (required)
         :param str type: Desired mapping target to fetch/generate.
@@ -712,7 +712,7 @@ class AuthApi(object):
         """
 
         all_params = ['mapping_identity', 'mapping_identity_id', 'type', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -776,7 +776,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='MappingIdentities',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -787,18 +787,18 @@ class AuthApi(object):
 
         Create a new ADS provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_providers_ads_item(providers_ads_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_providers_ads_item(providers_ads_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param ProvidersAdsItem providers_ads_item: (required)
         :return: CreateResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_providers_ads_item_with_http_info(providers_ads_item, **kwargs)  # noqa: E501
         else:
             (data) = self.create_providers_ads_item_with_http_info(providers_ads_item, **kwargs)  # noqa: E501
@@ -809,11 +809,11 @@ class AuthApi(object):
 
         Create a new ADS provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_providers_ads_item_with_http_info(providers_ads_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_providers_ads_item_with_http_info(providers_ads_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param ProvidersAdsItem providers_ads_item: (required)
         :return: CreateResponse
                  If the method is called asynchronously,
@@ -821,7 +821,7 @@ class AuthApi(object):
         """
 
         all_params = ['providers_ads_item']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -875,7 +875,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='CreateResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -886,18 +886,18 @@ class AuthApi(object):
 
         Create a new file provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_providers_file_item(providers_file_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_providers_file_item(providers_file_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param ProvidersFileItem providers_file_item: (required)
         :return: CreateResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_providers_file_item_with_http_info(providers_file_item, **kwargs)  # noqa: E501
         else:
             (data) = self.create_providers_file_item_with_http_info(providers_file_item, **kwargs)  # noqa: E501
@@ -908,11 +908,11 @@ class AuthApi(object):
 
         Create a new file provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_providers_file_item_with_http_info(providers_file_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_providers_file_item_with_http_info(providers_file_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param ProvidersFileItem providers_file_item: (required)
         :return: CreateResponse
                  If the method is called asynchronously,
@@ -920,7 +920,7 @@ class AuthApi(object):
         """
 
         all_params = ['providers_file_item']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -974,7 +974,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='CreateResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -985,18 +985,18 @@ class AuthApi(object):
 
         Create a new KRB5 provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_providers_krb5_item(providers_krb5_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_providers_krb5_item(providers_krb5_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param ProvidersKrb5Item providers_krb5_item: (required)
         :return: CreateResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_providers_krb5_item_with_http_info(providers_krb5_item, **kwargs)  # noqa: E501
         else:
             (data) = self.create_providers_krb5_item_with_http_info(providers_krb5_item, **kwargs)  # noqa: E501
@@ -1007,11 +1007,11 @@ class AuthApi(object):
 
         Create a new KRB5 provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_providers_krb5_item_with_http_info(providers_krb5_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_providers_krb5_item_with_http_info(providers_krb5_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param ProvidersKrb5Item providers_krb5_item: (required)
         :return: CreateResponse
                  If the method is called asynchronously,
@@ -1019,7 +1019,7 @@ class AuthApi(object):
         """
 
         all_params = ['providers_krb5_item']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1073,7 +1073,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='CreateResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1084,11 +1084,11 @@ class AuthApi(object):
 
         Create a new LDAP provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_providers_ldap_item(providers_ldap_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_providers_ldap_item(providers_ldap_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param ProvidersLdapItem providers_ldap_item: (required)
         :param bool force: Ignore unresolvable server URIs.
         :return: CreateResponse
@@ -1096,7 +1096,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_providers_ldap_item_with_http_info(providers_ldap_item, **kwargs)  # noqa: E501
         else:
             (data) = self.create_providers_ldap_item_with_http_info(providers_ldap_item, **kwargs)  # noqa: E501
@@ -1107,11 +1107,11 @@ class AuthApi(object):
 
         Create a new LDAP provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_providers_ldap_item_with_http_info(providers_ldap_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_providers_ldap_item_with_http_info(providers_ldap_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param ProvidersLdapItem providers_ldap_item: (required)
         :param bool force: Ignore unresolvable server URIs.
         :return: CreateResponse
@@ -1120,7 +1120,7 @@ class AuthApi(object):
         """
 
         all_params = ['providers_ldap_item', 'force']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1176,7 +1176,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='CreateResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1187,18 +1187,18 @@ class AuthApi(object):
 
         Create a new NIS provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_providers_nis_item(providers_nis_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_providers_nis_item(providers_nis_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param ProvidersNisItem providers_nis_item: (required)
         :return: CreateResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_providers_nis_item_with_http_info(providers_nis_item, **kwargs)  # noqa: E501
         else:
             (data) = self.create_providers_nis_item_with_http_info(providers_nis_item, **kwargs)  # noqa: E501
@@ -1209,11 +1209,11 @@ class AuthApi(object):
 
         Create a new NIS provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_providers_nis_item_with_http_info(providers_nis_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_providers_nis_item_with_http_info(providers_nis_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param ProvidersNisItem providers_nis_item: (required)
         :return: CreateResponse
                  If the method is called asynchronously,
@@ -1221,7 +1221,7 @@ class AuthApi(object):
         """
 
         all_params = ['providers_nis_item']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1275,7 +1275,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='CreateResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1286,18 +1286,18 @@ class AuthApi(object):
 
         Create a new krb5 domain.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_settings_krb5_domain(settings_krb5_domain, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_settings_krb5_domain(settings_krb5_domain, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SettingsKrb5DomainCreateParams settings_krb5_domain: (required)
         :return: CreateResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_settings_krb5_domain_with_http_info(settings_krb5_domain, **kwargs)  # noqa: E501
         else:
             (data) = self.create_settings_krb5_domain_with_http_info(settings_krb5_domain, **kwargs)  # noqa: E501
@@ -1308,11 +1308,11 @@ class AuthApi(object):
 
         Create a new krb5 domain.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_settings_krb5_domain_with_http_info(settings_krb5_domain, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_settings_krb5_domain_with_http_info(settings_krb5_domain, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SettingsKrb5DomainCreateParams settings_krb5_domain: (required)
         :return: CreateResponse
                  If the method is called asynchronously,
@@ -1320,7 +1320,7 @@ class AuthApi(object):
         """
 
         all_params = ['settings_krb5_domain']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1374,7 +1374,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='CreateResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1385,18 +1385,18 @@ class AuthApi(object):
 
         Create a new krb5 realm.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_settings_krb5_realm(settings_krb5_realm, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_settings_krb5_realm(settings_krb5_realm, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SettingsKrb5RealmCreateParams settings_krb5_realm: (required)
         :return: CreateResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_settings_krb5_realm_with_http_info(settings_krb5_realm, **kwargs)  # noqa: E501
         else:
             (data) = self.create_settings_krb5_realm_with_http_info(settings_krb5_realm, **kwargs)  # noqa: E501
@@ -1407,11 +1407,11 @@ class AuthApi(object):
 
         Create a new krb5 realm.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_settings_krb5_realm_with_http_info(settings_krb5_realm, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_settings_krb5_realm_with_http_info(settings_krb5_realm, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SettingsKrb5RealmCreateParams settings_krb5_realm: (required)
         :return: CreateResponse
                  If the method is called asynchronously,
@@ -1419,7 +1419,7 @@ class AuthApi(object):
         """
 
         all_params = ['settings_krb5_realm']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1473,7 +1473,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='CreateResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1484,11 +1484,11 @@ class AuthApi(object):
 
         Delete the group.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_auth_group(auth_group_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_auth_group(auth_group_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str auth_group_id: Delete the group. (required)
         :param bool cached: If true, flush the group from the cache.
         :param str zone: Filter groups by zone.
@@ -1498,7 +1498,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_auth_group_with_http_info(auth_group_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_auth_group_with_http_info(auth_group_id, **kwargs)  # noqa: E501
@@ -1509,11 +1509,11 @@ class AuthApi(object):
 
         Delete the group.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_auth_group_with_http_info(auth_group_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_auth_group_with_http_info(auth_group_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str auth_group_id: Delete the group. (required)
         :param bool cached: If true, flush the group from the cache.
         :param str zone: Filter groups by zone.
@@ -1524,7 +1524,7 @@ class AuthApi(object):
         """
 
         all_params = ['auth_group_id', 'cached', 'zone', 'provider']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1584,7 +1584,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1595,11 +1595,11 @@ class AuthApi(object):
 
         Flush the groups cache.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_auth_groups(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_auth_groups(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param bool cached: If true, only flush cached objects.
         :param str zone: Filter groups by zone.
         :param str provider: Filter groups by provider.
@@ -1608,7 +1608,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_auth_groups_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.delete_auth_groups_with_http_info(**kwargs)  # noqa: E501
@@ -1619,11 +1619,11 @@ class AuthApi(object):
 
         Flush the groups cache.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_auth_groups_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_auth_groups_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param bool cached: If true, only flush cached objects.
         :param str zone: Filter groups by zone.
         :param str provider: Filter groups by provider.
@@ -1633,7 +1633,7 @@ class AuthApi(object):
         """
 
         all_params = ['cached', 'zone', 'provider']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1687,7 +1687,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1698,18 +1698,18 @@ class AuthApi(object):
 
         Delete the role.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_auth_role(auth_role_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_auth_role(auth_role_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str auth_role_id: Delete the role. (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_auth_role_with_http_info(auth_role_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_auth_role_with_http_info(auth_role_id, **kwargs)  # noqa: E501
@@ -1720,11 +1720,11 @@ class AuthApi(object):
 
         Delete the role.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_auth_role_with_http_info(auth_role_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_auth_role_with_http_info(auth_role_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str auth_role_id: Delete the role. (required)
         :return: None
                  If the method is called asynchronously,
@@ -1732,7 +1732,7 @@ class AuthApi(object):
         """
 
         all_params = ['auth_role_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1786,7 +1786,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1797,11 +1797,11 @@ class AuthApi(object):
 
         Delete the user.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_auth_user(auth_user_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_auth_user(auth_user_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str auth_user_id: Delete the user. (required)
         :param bool cached: If true, flush the user from the cache.
         :param str zone: Filter users by zone.
@@ -1811,7 +1811,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_auth_user_with_http_info(auth_user_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_auth_user_with_http_info(auth_user_id, **kwargs)  # noqa: E501
@@ -1822,11 +1822,11 @@ class AuthApi(object):
 
         Delete the user.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_auth_user_with_http_info(auth_user_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_auth_user_with_http_info(auth_user_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str auth_user_id: Delete the user. (required)
         :param bool cached: If true, flush the user from the cache.
         :param str zone: Filter users by zone.
@@ -1837,7 +1837,7 @@ class AuthApi(object):
         """
 
         all_params = ['auth_user_id', 'cached', 'zone', 'provider']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1897,7 +1897,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1908,11 +1908,11 @@ class AuthApi(object):
 
         Flush the users cache.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_auth_users(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_auth_users(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param bool cached: If true, only flush cached objects.
         :param str zone: Filter users by zone.
         :param str provider: Filter users by provider.
@@ -1921,7 +1921,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_auth_users_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.delete_auth_users_with_http_info(**kwargs)  # noqa: E501
@@ -1932,11 +1932,11 @@ class AuthApi(object):
 
         Flush the users cache.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_auth_users_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_auth_users_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param bool cached: If true, only flush cached objects.
         :param str zone: Filter users by zone.
         :param str provider: Filter users by provider.
@@ -1946,7 +1946,7 @@ class AuthApi(object):
         """
 
         all_params = ['cached', 'zone', 'provider']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2000,7 +2000,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2011,11 +2011,11 @@ class AuthApi(object):
 
         Flush the entire idmap cache.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_mapping_identities(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_mapping_identities(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str filter: Filter to apply when deleting identity mappings.
         :param str zone: Optional zone.
         :param bool remove: Delete mapping instead of flush mapping cache.
@@ -2024,7 +2024,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_mapping_identities_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.delete_mapping_identities_with_http_info(**kwargs)  # noqa: E501
@@ -2035,11 +2035,11 @@ class AuthApi(object):
 
         Flush the entire idmap cache.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_mapping_identities_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_mapping_identities_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str filter: Filter to apply when deleting identity mappings.
         :param str zone: Optional zone.
         :param bool remove: Delete mapping instead of flush mapping cache.
@@ -2049,7 +2049,7 @@ class AuthApi(object):
         """
 
         all_params = ['filter', 'zone', 'remove']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2103,7 +2103,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2114,11 +2114,11 @@ class AuthApi(object):
 
         Flush the entire idmap cache.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_mapping_identity(mapping_identity_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_mapping_identity(mapping_identity_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str mapping_identity_id: Flush the entire idmap cache. (required)
         :param str zone: Optional zone.
         :param bool _2way: Delete the bi-directional mapping from source to target and target to source.
@@ -2129,7 +2129,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_mapping_identity_with_http_info(mapping_identity_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_mapping_identity_with_http_info(mapping_identity_id, **kwargs)  # noqa: E501
@@ -2140,11 +2140,11 @@ class AuthApi(object):
 
         Flush the entire idmap cache.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_mapping_identity_with_http_info(mapping_identity_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_mapping_identity_with_http_info(mapping_identity_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str mapping_identity_id: Flush the entire idmap cache. (required)
         :param str zone: Optional zone.
         :param bool _2way: Delete the bi-directional mapping from source to target and target to source.
@@ -2156,7 +2156,7 @@ class AuthApi(object):
         """
 
         all_params = ['mapping_identity_id', 'zone', '_2way', 'target', 'remove']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2218,7 +2218,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2229,18 +2229,18 @@ class AuthApi(object):
 
         Delete the ADS provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_providers_ads_by_id(providers_ads_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_providers_ads_by_id(providers_ads_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str providers_ads_id: Delete the ADS provider. (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_providers_ads_by_id_with_http_info(providers_ads_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_providers_ads_by_id_with_http_info(providers_ads_id, **kwargs)  # noqa: E501
@@ -2251,11 +2251,11 @@ class AuthApi(object):
 
         Delete the ADS provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_providers_ads_by_id_with_http_info(providers_ads_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_providers_ads_by_id_with_http_info(providers_ads_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str providers_ads_id: Delete the ADS provider. (required)
         :return: None
                  If the method is called asynchronously,
@@ -2263,7 +2263,7 @@ class AuthApi(object):
         """
 
         all_params = ['providers_ads_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2317,7 +2317,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2328,18 +2328,18 @@ class AuthApi(object):
 
         Delete the file provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_providers_file_by_id(providers_file_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_providers_file_by_id(providers_file_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str providers_file_id: Delete the file provider. (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_providers_file_by_id_with_http_info(providers_file_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_providers_file_by_id_with_http_info(providers_file_id, **kwargs)  # noqa: E501
@@ -2350,11 +2350,11 @@ class AuthApi(object):
 
         Delete the file provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_providers_file_by_id_with_http_info(providers_file_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_providers_file_by_id_with_http_info(providers_file_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str providers_file_id: Delete the file provider. (required)
         :return: None
                  If the method is called asynchronously,
@@ -2362,7 +2362,7 @@ class AuthApi(object):
         """
 
         all_params = ['providers_file_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2416,7 +2416,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2427,18 +2427,18 @@ class AuthApi(object):
 
         Delete the KRB5 provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_providers_krb5_by_id(providers_krb5_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_providers_krb5_by_id(providers_krb5_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str providers_krb5_id: Delete the KRB5 provider. (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_providers_krb5_by_id_with_http_info(providers_krb5_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_providers_krb5_by_id_with_http_info(providers_krb5_id, **kwargs)  # noqa: E501
@@ -2449,11 +2449,11 @@ class AuthApi(object):
 
         Delete the KRB5 provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_providers_krb5_by_id_with_http_info(providers_krb5_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_providers_krb5_by_id_with_http_info(providers_krb5_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str providers_krb5_id: Delete the KRB5 provider. (required)
         :return: None
                  If the method is called asynchronously,
@@ -2461,7 +2461,7 @@ class AuthApi(object):
         """
 
         all_params = ['providers_krb5_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2515,7 +2515,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2526,18 +2526,18 @@ class AuthApi(object):
 
         Delete the LDAP provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_providers_ldap_by_id(providers_ldap_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_providers_ldap_by_id(providers_ldap_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str providers_ldap_id: Delete the LDAP provider. (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_providers_ldap_by_id_with_http_info(providers_ldap_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_providers_ldap_by_id_with_http_info(providers_ldap_id, **kwargs)  # noqa: E501
@@ -2548,11 +2548,11 @@ class AuthApi(object):
 
         Delete the LDAP provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_providers_ldap_by_id_with_http_info(providers_ldap_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_providers_ldap_by_id_with_http_info(providers_ldap_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str providers_ldap_id: Delete the LDAP provider. (required)
         :return: None
                  If the method is called asynchronously,
@@ -2560,7 +2560,7 @@ class AuthApi(object):
         """
 
         all_params = ['providers_ldap_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2614,7 +2614,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2625,18 +2625,18 @@ class AuthApi(object):
 
         Delete the local provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_providers_local_by_id(providers_local_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_providers_local_by_id(providers_local_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str providers_local_id: Delete the local provider. (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_providers_local_by_id_with_http_info(providers_local_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_providers_local_by_id_with_http_info(providers_local_id, **kwargs)  # noqa: E501
@@ -2647,11 +2647,11 @@ class AuthApi(object):
 
         Delete the local provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_providers_local_by_id_with_http_info(providers_local_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_providers_local_by_id_with_http_info(providers_local_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str providers_local_id: Delete the local provider. (required)
         :return: None
                  If the method is called asynchronously,
@@ -2659,7 +2659,7 @@ class AuthApi(object):
         """
 
         all_params = ['providers_local_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2713,7 +2713,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2724,18 +2724,18 @@ class AuthApi(object):
 
         Delete the NIS provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_providers_nis_by_id(providers_nis_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_providers_nis_by_id(providers_nis_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str providers_nis_id: Delete the NIS provider. (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_providers_nis_by_id_with_http_info(providers_nis_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_providers_nis_by_id_with_http_info(providers_nis_id, **kwargs)  # noqa: E501
@@ -2746,11 +2746,11 @@ class AuthApi(object):
 
         Delete the NIS provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_providers_nis_by_id_with_http_info(providers_nis_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_providers_nis_by_id_with_http_info(providers_nis_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str providers_nis_id: Delete the NIS provider. (required)
         :return: None
                  If the method is called asynchronously,
@@ -2758,7 +2758,7 @@ class AuthApi(object):
         """
 
         all_params = ['providers_nis_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2812,7 +2812,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2823,18 +2823,18 @@ class AuthApi(object):
 
         Remove a krb5 domain.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_settings_krb5_domain(settings_krb5_domain_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_settings_krb5_domain(settings_krb5_domain_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str settings_krb5_domain_id: Remove a krb5 domain. (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_settings_krb5_domain_with_http_info(settings_krb5_domain_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_settings_krb5_domain_with_http_info(settings_krb5_domain_id, **kwargs)  # noqa: E501
@@ -2845,11 +2845,11 @@ class AuthApi(object):
 
         Remove a krb5 domain.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_settings_krb5_domain_with_http_info(settings_krb5_domain_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_settings_krb5_domain_with_http_info(settings_krb5_domain_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str settings_krb5_domain_id: Remove a krb5 domain. (required)
         :return: None
                  If the method is called asynchronously,
@@ -2857,7 +2857,7 @@ class AuthApi(object):
         """
 
         all_params = ['settings_krb5_domain_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2911,7 +2911,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2922,18 +2922,18 @@ class AuthApi(object):
 
         Remove a realm.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_settings_krb5_realm(settings_krb5_realm_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_settings_krb5_realm(settings_krb5_realm_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str settings_krb5_realm_id: Remove a realm. (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_settings_krb5_realm_with_http_info(settings_krb5_realm_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_settings_krb5_realm_with_http_info(settings_krb5_realm_id, **kwargs)  # noqa: E501
@@ -2944,11 +2944,11 @@ class AuthApi(object):
 
         Remove a realm.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_settings_krb5_realm_with_http_info(settings_krb5_realm_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_settings_krb5_realm_with_http_info(settings_krb5_realm_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str settings_krb5_realm_id: Remove a realm. (required)
         :return: None
                  If the method is called asynchronously,
@@ -2956,7 +2956,7 @@ class AuthApi(object):
         """
 
         all_params = ['settings_krb5_realm_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3010,7 +3010,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -3021,11 +3021,11 @@ class AuthApi(object):
 
         Determine user's access rights to a file  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_auth_access_user(auth_access_user, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_auth_access_user(auth_access_user, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str auth_access_user: Determine user's access rights to a file (required)
         :param str path: Path to the file. Must be within /ifs.
         :param str share: SMB share name
@@ -3036,7 +3036,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_auth_access_user_with_http_info(auth_access_user, **kwargs)  # noqa: E501
         else:
             (data) = self.get_auth_access_user_with_http_info(auth_access_user, **kwargs)  # noqa: E501
@@ -3047,11 +3047,11 @@ class AuthApi(object):
 
         Determine user's access rights to a file  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_auth_access_user_with_http_info(auth_access_user, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_auth_access_user_with_http_info(auth_access_user, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str auth_access_user: Determine user's access rights to a file (required)
         :param str path: Path to the file. Must be within /ifs.
         :param str share: SMB share name
@@ -3063,7 +3063,7 @@ class AuthApi(object):
         """
 
         all_params = ['auth_access_user', 'path', 'share', 'zone', 'numeric']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3125,7 +3125,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='AuthAccess',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -3136,11 +3136,11 @@ class AuthApi(object):
 
         Retrieve the group information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_auth_group(auth_group_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_auth_group(auth_group_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str auth_group_id: Retrieve the group information. (required)
         :param bool cached: If true, only return cached objects.
         :param bool resolve_names: Resolve names of personas.
@@ -3152,7 +3152,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_auth_group_with_http_info(auth_group_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_auth_group_with_http_info(auth_group_id, **kwargs)  # noqa: E501
@@ -3163,11 +3163,11 @@ class AuthApi(object):
 
         Retrieve the group information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_auth_group_with_http_info(auth_group_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_auth_group_with_http_info(auth_group_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str auth_group_id: Retrieve the group information. (required)
         :param bool cached: If true, only return cached objects.
         :param bool resolve_names: Resolve names of personas.
@@ -3180,7 +3180,7 @@ class AuthApi(object):
         """
 
         all_params = ['auth_group_id', 'cached', 'resolve_names', 'query_member_of', 'zone', 'provider']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3244,7 +3244,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='AuthGroups',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -3255,17 +3255,17 @@ class AuthApi(object):
 
         Retrieve the current security token.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_auth_id(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_auth_id(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: AuthId
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_auth_id_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_auth_id_with_http_info(**kwargs)  # noqa: E501
@@ -3276,18 +3276,18 @@ class AuthApi(object):
 
         Retrieve the current security token.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_auth_id_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_auth_id_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: AuthId
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3335,7 +3335,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='AuthId',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -3346,18 +3346,18 @@ class AuthApi(object):
 
         Retrieve the LDAP provider template.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_auth_ldap_template(auth_ldap_template_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_auth_ldap_template(auth_ldap_template_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str auth_ldap_template_id: Retrieve the LDAP provider template. (required)
         :return: AuthLdapTemplates
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_auth_ldap_template_with_http_info(auth_ldap_template_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_auth_ldap_template_with_http_info(auth_ldap_template_id, **kwargs)  # noqa: E501
@@ -3368,11 +3368,11 @@ class AuthApi(object):
 
         Retrieve the LDAP provider template.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_auth_ldap_template_with_http_info(auth_ldap_template_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_auth_ldap_template_with_http_info(auth_ldap_template_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str auth_ldap_template_id: Retrieve the LDAP provider template. (required)
         :return: AuthLdapTemplates
                  If the method is called asynchronously,
@@ -3380,7 +3380,7 @@ class AuthApi(object):
         """
 
         all_params = ['auth_ldap_template_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3434,7 +3434,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='AuthLdapTemplates',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -3445,17 +3445,17 @@ class AuthApi(object):
 
         List all LDAP provider templates.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_auth_ldap_templates(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_auth_ldap_templates(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: AuthLdapTemplatesExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_auth_ldap_templates_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_auth_ldap_templates_with_http_info(**kwargs)  # noqa: E501
@@ -3466,18 +3466,18 @@ class AuthApi(object):
 
         List all LDAP provider templates.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_auth_ldap_templates_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_auth_ldap_templates_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: AuthLdapTemplatesExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3525,7 +3525,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='AuthLdapTemplatesExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -3536,17 +3536,17 @@ class AuthApi(object):
 
         Get the current authentications service and netlogon logging level.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_auth_log_level(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_auth_log_level(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: AuthLogLevel
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_auth_log_level_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_auth_log_level_with_http_info(**kwargs)  # noqa: E501
@@ -3557,18 +3557,18 @@ class AuthApi(object):
 
         Get the current authentications service and netlogon logging level.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_auth_log_level_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_auth_log_level_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: AuthLogLevel
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3616,7 +3616,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='AuthLogLevel',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -3627,11 +3627,11 @@ class AuthApi(object):
 
         Retrieve the user information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_auth_netgroup(auth_netgroup_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_auth_netgroup(auth_netgroup_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str auth_netgroup_id: Retrieve the user information. (required)
         :param bool ignore_errors: Ignore netgroup errors.
         :param bool recursive: Perform recursive search.
@@ -3642,7 +3642,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_auth_netgroup_with_http_info(auth_netgroup_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_auth_netgroup_with_http_info(auth_netgroup_id, **kwargs)  # noqa: E501
@@ -3653,11 +3653,11 @@ class AuthApi(object):
 
         Retrieve the user information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_auth_netgroup_with_http_info(auth_netgroup_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_auth_netgroup_with_http_info(auth_netgroup_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str auth_netgroup_id: Retrieve the user information. (required)
         :param bool ignore_errors: Ignore netgroup errors.
         :param bool recursive: Perform recursive search.
@@ -3669,7 +3669,7 @@ class AuthApi(object):
         """
 
         all_params = ['auth_netgroup_id', 'ignore_errors', 'recursive', 'zone', 'provider']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3731,7 +3731,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='AuthNetgroups',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -3742,17 +3742,17 @@ class AuthApi(object):
 
         List all privileges.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_auth_privileges(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_auth_privileges(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: AuthPrivileges
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_auth_privileges_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_auth_privileges_with_http_info(**kwargs)  # noqa: E501
@@ -3763,18 +3763,18 @@ class AuthApi(object):
 
         List all privileges.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_auth_privileges_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_auth_privileges_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: AuthPrivileges
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3822,7 +3822,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='AuthPrivileges',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -3833,11 +3833,11 @@ class AuthApi(object):
 
         Retrieve the role information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_auth_role(auth_role_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_auth_role(auth_role_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str auth_role_id: Retrieve the role information. (required)
         :param bool resolve_names: Resolve names of personas.
         :return: AuthRoles
@@ -3845,7 +3845,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_auth_role_with_http_info(auth_role_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_auth_role_with_http_info(auth_role_id, **kwargs)  # noqa: E501
@@ -3856,11 +3856,11 @@ class AuthApi(object):
 
         Retrieve the role information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_auth_role_with_http_info(auth_role_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_auth_role_with_http_info(auth_role_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str auth_role_id: Retrieve the role information. (required)
         :param bool resolve_names: Resolve names of personas.
         :return: AuthRoles
@@ -3869,7 +3869,7 @@ class AuthApi(object):
         """
 
         all_params = ['auth_role_id', 'resolve_names']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3925,7 +3925,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='AuthRoles',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -3936,17 +3936,17 @@ class AuthApi(object):
 
         List all shells.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_auth_shells(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_auth_shells(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: AuthShells
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_auth_shells_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_auth_shells_with_http_info(**kwargs)  # noqa: E501
@@ -3957,18 +3957,18 @@ class AuthApi(object):
 
         List all shells.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_auth_shells_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_auth_shells_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: AuthShells
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -4016,7 +4016,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='AuthShells',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -4027,11 +4027,11 @@ class AuthApi(object):
 
         Retrieve the user information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_auth_user(auth_user_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_auth_user(auth_user_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str auth_user_id: Retrieve the user information. (required)
         :param bool cached: If true, only return cached objects.
         :param bool resolve_names: Resolve names of personas.
@@ -4043,7 +4043,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_auth_user_with_http_info(auth_user_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_auth_user_with_http_info(auth_user_id, **kwargs)  # noqa: E501
@@ -4054,11 +4054,11 @@ class AuthApi(object):
 
         Retrieve the user information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_auth_user_with_http_info(auth_user_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_auth_user_with_http_info(auth_user_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str auth_user_id: Retrieve the user information. (required)
         :param bool cached: If true, only return cached objects.
         :param bool resolve_names: Resolve names of personas.
@@ -4071,7 +4071,7 @@ class AuthApi(object):
         """
 
         all_params = ['auth_user_id', 'cached', 'resolve_names', 'query_member_of', 'zone', 'provider']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -4135,7 +4135,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='AuthUsers',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -4146,11 +4146,11 @@ class AuthApi(object):
 
         Retrieve the wellknown persona.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_auth_wellknown(auth_wellknown_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_auth_wellknown(auth_wellknown_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str auth_wellknown_id: Retrieve the wellknown persona. (required)
         :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
         :return: AuthWellknowns
@@ -4158,7 +4158,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_auth_wellknown_with_http_info(auth_wellknown_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_auth_wellknown_with_http_info(auth_wellknown_id, **kwargs)  # noqa: E501
@@ -4169,11 +4169,11 @@ class AuthApi(object):
 
         Retrieve the wellknown persona.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_auth_wellknown_with_http_info(auth_wellknown_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_auth_wellknown_with_http_info(auth_wellknown_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str auth_wellknown_id: Retrieve the wellknown persona. (required)
         :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
         :return: AuthWellknowns
@@ -4182,7 +4182,7 @@ class AuthApi(object):
         """
 
         all_params = ['auth_wellknown_id', 'scope']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -4244,7 +4244,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='AuthWellknowns',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -4255,17 +4255,17 @@ class AuthApi(object):
 
         List all wellknown personas.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_auth_wellknowns(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_auth_wellknowns(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: AuthWellknowns
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_auth_wellknowns_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_auth_wellknowns_with_http_info(**kwargs)  # noqa: E501
@@ -4276,18 +4276,18 @@ class AuthApi(object):
 
         List all wellknown personas.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_auth_wellknowns_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_auth_wellknowns_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: AuthWellknowns
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -4335,7 +4335,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='AuthWellknowns',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -4346,11 +4346,11 @@ class AuthApi(object):
 
         Retrieve all identity mappings (uid, gid, sid, and on-disk) for the supplied source persona.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_mapping_dump(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_mapping_dump(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param bool nocreate: Idmap should attempt to create missing identity mappings.
         :param str zone: Optional zone.
         :return: MappingDump
@@ -4358,7 +4358,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_mapping_dump_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_mapping_dump_with_http_info(**kwargs)  # noqa: E501
@@ -4369,11 +4369,11 @@ class AuthApi(object):
 
         Retrieve all identity mappings (uid, gid, sid, and on-disk) for the supplied source persona.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_mapping_dump_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_mapping_dump_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param bool nocreate: Idmap should attempt to create missing identity mappings.
         :param str zone: Optional zone.
         :return: MappingDump
@@ -4382,7 +4382,7 @@ class AuthApi(object):
         """
 
         all_params = ['nocreate', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -4434,7 +4434,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='MappingDump',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -4445,11 +4445,11 @@ class AuthApi(object):
 
         Retrieve all identity mappings (uid, gid, sid, and on-disk) for the supplied source persona.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_mapping_identity(mapping_identity_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_mapping_identity(mapping_identity_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str mapping_identity_id: Retrieve all identity mappings (uid, gid, sid, and on-disk) for the supplied source persona. (required)
         :param bool nocreate: Idmap should attempt to create missing identity mappings.
         :param str zone: Optional zone.
@@ -4458,7 +4458,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_mapping_identity_with_http_info(mapping_identity_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_mapping_identity_with_http_info(mapping_identity_id, **kwargs)  # noqa: E501
@@ -4469,11 +4469,11 @@ class AuthApi(object):
 
         Retrieve all identity mappings (uid, gid, sid, and on-disk) for the supplied source persona.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_mapping_identity_with_http_info(mapping_identity_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_mapping_identity_with_http_info(mapping_identity_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str mapping_identity_id: Retrieve all identity mappings (uid, gid, sid, and on-disk) for the supplied source persona. (required)
         :param bool nocreate: Idmap should attempt to create missing identity mappings.
         :param str zone: Optional zone.
@@ -4483,7 +4483,7 @@ class AuthApi(object):
         """
 
         all_params = ['mapping_identity_id', 'nocreate', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -4541,7 +4541,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='MappingIdentities',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -4552,11 +4552,11 @@ class AuthApi(object):
 
         Retrieve the user information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_mapping_users_lookup(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_mapping_users_lookup(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int primary_gid: The user's primary group ID.
         :param int uid: The user ID.
         :param str zone: The zone the user belongs to.
@@ -4568,7 +4568,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_mapping_users_lookup_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_mapping_users_lookup_with_http_info(**kwargs)  # noqa: E501
@@ -4579,11 +4579,11 @@ class AuthApi(object):
 
         Retrieve the user information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_mapping_users_lookup_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_mapping_users_lookup_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int primary_gid: The user's primary group ID.
         :param int uid: The user ID.
         :param str zone: The zone the user belongs to.
@@ -4596,7 +4596,7 @@ class AuthApi(object):
         """
 
         all_params = ['primary_gid', 'uid', 'zone', 'gid', 'user', 'kerberos_principal']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -4657,7 +4657,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='MappingUsersLookup',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -4668,18 +4668,18 @@ class AuthApi(object):
 
         Retrieve the user mapping rules.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_mapping_users_rules(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_mapping_users_rules(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str zone: The zone to which the user mapping applies.
         :return: MappingUsersRules
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_mapping_users_rules_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_mapping_users_rules_with_http_info(**kwargs)  # noqa: E501
@@ -4690,11 +4690,11 @@ class AuthApi(object):
 
         Retrieve the user mapping rules.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_mapping_users_rules_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_mapping_users_rules_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str zone: The zone to which the user mapping applies.
         :return: MappingUsersRules
                  If the method is called asynchronously,
@@ -4702,7 +4702,7 @@ class AuthApi(object):
         """
 
         all_params = ['zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -4752,7 +4752,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='MappingUsersRules',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -4763,11 +4763,11 @@ class AuthApi(object):
 
         Retrieve the ADS provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_providers_ads_by_id(providers_ads_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_providers_ads_by_id(providers_ads_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str providers_ads_id: Retrieve the ADS provider. (required)
         :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
         :return: ProvidersAds
@@ -4775,7 +4775,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_providers_ads_by_id_with_http_info(providers_ads_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_providers_ads_by_id_with_http_info(providers_ads_id, **kwargs)  # noqa: E501
@@ -4786,11 +4786,11 @@ class AuthApi(object):
 
         Retrieve the ADS provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_providers_ads_by_id_with_http_info(providers_ads_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_providers_ads_by_id_with_http_info(providers_ads_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str providers_ads_id: Retrieve the ADS provider. (required)
         :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
         :return: ProvidersAds
@@ -4799,7 +4799,7 @@ class AuthApi(object):
         """
 
         all_params = ['providers_ads_id', 'scope']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -4861,7 +4861,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='ProvidersAds',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -4872,11 +4872,11 @@ class AuthApi(object):
 
         Retrieve the file provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_providers_file_by_id(providers_file_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_providers_file_by_id(providers_file_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str providers_file_id: Retrieve the file provider. (required)
         :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
         :return: ProvidersFile
@@ -4884,7 +4884,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_providers_file_by_id_with_http_info(providers_file_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_providers_file_by_id_with_http_info(providers_file_id, **kwargs)  # noqa: E501
@@ -4895,11 +4895,11 @@ class AuthApi(object):
 
         Retrieve the file provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_providers_file_by_id_with_http_info(providers_file_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_providers_file_by_id_with_http_info(providers_file_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str providers_file_id: Retrieve the file provider. (required)
         :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
         :return: ProvidersFile
@@ -4908,7 +4908,7 @@ class AuthApi(object):
         """
 
         all_params = ['providers_file_id', 'scope']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -4970,7 +4970,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='ProvidersFile',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -4981,11 +4981,11 @@ class AuthApi(object):
 
         Retrieve the KRB5 provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_providers_krb5_by_id(providers_krb5_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_providers_krb5_by_id(providers_krb5_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str providers_krb5_id: Retrieve the KRB5 provider. (required)
         :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
         :return: ProvidersKrb5
@@ -4993,7 +4993,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_providers_krb5_by_id_with_http_info(providers_krb5_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_providers_krb5_by_id_with_http_info(providers_krb5_id, **kwargs)  # noqa: E501
@@ -5004,11 +5004,11 @@ class AuthApi(object):
 
         Retrieve the KRB5 provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_providers_krb5_by_id_with_http_info(providers_krb5_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_providers_krb5_by_id_with_http_info(providers_krb5_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str providers_krb5_id: Retrieve the KRB5 provider. (required)
         :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
         :return: ProvidersKrb5
@@ -5017,7 +5017,7 @@ class AuthApi(object):
         """
 
         all_params = ['providers_krb5_id', 'scope']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -5079,7 +5079,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='ProvidersKrb5',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -5090,11 +5090,11 @@ class AuthApi(object):
 
         Retrieve the LDAP provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_providers_ldap_by_id(providers_ldap_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_providers_ldap_by_id(providers_ldap_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str providers_ldap_id: Retrieve the LDAP provider. (required)
         :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
         :return: ProvidersLdap
@@ -5102,7 +5102,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_providers_ldap_by_id_with_http_info(providers_ldap_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_providers_ldap_by_id_with_http_info(providers_ldap_id, **kwargs)  # noqa: E501
@@ -5113,11 +5113,11 @@ class AuthApi(object):
 
         Retrieve the LDAP provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_providers_ldap_by_id_with_http_info(providers_ldap_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_providers_ldap_by_id_with_http_info(providers_ldap_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str providers_ldap_id: Retrieve the LDAP provider. (required)
         :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
         :return: ProvidersLdap
@@ -5126,7 +5126,7 @@ class AuthApi(object):
         """
 
         all_params = ['providers_ldap_id', 'scope']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -5188,7 +5188,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='ProvidersLdap',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -5199,18 +5199,18 @@ class AuthApi(object):
 
         List all local providers.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_providers_local(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_providers_local(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
         :return: ProvidersLocal
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_providers_local_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_providers_local_with_http_info(**kwargs)  # noqa: E501
@@ -5221,11 +5221,11 @@ class AuthApi(object):
 
         List all local providers.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_providers_local_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_providers_local_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
         :return: ProvidersLocal
                  If the method is called asynchronously,
@@ -5233,7 +5233,7 @@ class AuthApi(object):
         """
 
         all_params = ['scope']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -5289,7 +5289,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='ProvidersLocal',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -5300,11 +5300,11 @@ class AuthApi(object):
 
         Retrieve the local provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_providers_local_by_id(providers_local_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_providers_local_by_id(providers_local_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str providers_local_id: Retrieve the local provider. (required)
         :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
         :return: ProvidersLocal
@@ -5312,7 +5312,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_providers_local_by_id_with_http_info(providers_local_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_providers_local_by_id_with_http_info(providers_local_id, **kwargs)  # noqa: E501
@@ -5323,11 +5323,11 @@ class AuthApi(object):
 
         Retrieve the local provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_providers_local_by_id_with_http_info(providers_local_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_providers_local_by_id_with_http_info(providers_local_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str providers_local_id: Retrieve the local provider. (required)
         :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
         :return: ProvidersLocal
@@ -5336,7 +5336,7 @@ class AuthApi(object):
         """
 
         all_params = ['providers_local_id', 'scope']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -5398,7 +5398,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='ProvidersLocal',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -5409,11 +5409,11 @@ class AuthApi(object):
 
         Retrieve the NIS provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_providers_nis_by_id(providers_nis_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_providers_nis_by_id(providers_nis_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str providers_nis_id: Retrieve the NIS provider. (required)
         :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
         :return: ProvidersNis
@@ -5421,7 +5421,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_providers_nis_by_id_with_http_info(providers_nis_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_providers_nis_by_id_with_http_info(providers_nis_id, **kwargs)  # noqa: E501
@@ -5432,11 +5432,11 @@ class AuthApi(object):
 
         Retrieve the NIS provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_providers_nis_by_id_with_http_info(providers_nis_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_providers_nis_by_id_with_http_info(providers_nis_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str providers_nis_id: Retrieve the NIS provider. (required)
         :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
         :return: ProvidersNis
@@ -5445,7 +5445,7 @@ class AuthApi(object):
         """
 
         all_params = ['providers_nis_id', 'scope']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -5507,7 +5507,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='ProvidersNis',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -5518,11 +5518,11 @@ class AuthApi(object):
 
         Retrieve the summary information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_providers_summary(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_providers_summary(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str groupnet: Filter providers by groupnet.
         :param str zone: Filter providers by zone.
         :return: ProvidersSummary
@@ -5530,7 +5530,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_providers_summary_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_providers_summary_with_http_info(**kwargs)  # noqa: E501
@@ -5541,11 +5541,11 @@ class AuthApi(object):
 
         Retrieve the summary information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_providers_summary_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_providers_summary_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str groupnet: Filter providers by groupnet.
         :param str zone: Filter providers by zone.
         :return: ProvidersSummary
@@ -5554,7 +5554,7 @@ class AuthApi(object):
         """
 
         all_params = ['groupnet', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -5606,7 +5606,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='ProvidersSummary',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -5617,18 +5617,18 @@ class AuthApi(object):
 
         Retrieve the ACL policy settings and preset configurations.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_settings_acls(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_settings_acls(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str preset: If specified the preset configuration values for all applicable ACL policies are returned.
         :return: SettingsAcls
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_settings_acls_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_settings_acls_with_http_info(**kwargs)  # noqa: E501
@@ -5639,11 +5639,11 @@ class AuthApi(object):
 
         Retrieve the ACL policy settings and preset configurations.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_settings_acls_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_settings_acls_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str preset: If specified the preset configuration values for all applicable ACL policies are returned.
         :return: SettingsAcls
                  If the method is called asynchronously,
@@ -5651,7 +5651,7 @@ class AuthApi(object):
         """
 
         all_params = ['preset']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -5701,7 +5701,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='SettingsAcls',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -5712,11 +5712,11 @@ class AuthApi(object):
 
         Retrieve the global settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_settings_global(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_settings_global(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
         :param str zone: Zone which contains any per-zone settings.
         :return: SettingsGlobal
@@ -5724,7 +5724,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_settings_global_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_settings_global_with_http_info(**kwargs)  # noqa: E501
@@ -5735,11 +5735,11 @@ class AuthApi(object):
 
         Retrieve the global settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_settings_global_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_settings_global_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
         :param str zone: Zone which contains any per-zone settings.
         :return: SettingsGlobal
@@ -5748,7 +5748,7 @@ class AuthApi(object):
         """
 
         all_params = ['scope', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -5806,7 +5806,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='SettingsGlobal',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -5817,17 +5817,17 @@ class AuthApi(object):
 
         Retrieve the krb5 settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_settings_krb5_defaults(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_settings_krb5_defaults(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: SettingsKrb5Defaults
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_settings_krb5_defaults_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_settings_krb5_defaults_with_http_info(**kwargs)  # noqa: E501
@@ -5838,18 +5838,18 @@ class AuthApi(object):
 
         Retrieve the krb5 settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_settings_krb5_defaults_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_settings_krb5_defaults_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: SettingsKrb5Defaults
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -5897,7 +5897,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='SettingsKrb5Defaults',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -5908,18 +5908,18 @@ class AuthApi(object):
 
         View the krb5 domain settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_settings_krb5_domain(settings_krb5_domain_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_settings_krb5_domain(settings_krb5_domain_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str settings_krb5_domain_id: View the krb5 domain settings. (required)
         :return: SettingsKrb5Domains
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_settings_krb5_domain_with_http_info(settings_krb5_domain_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_settings_krb5_domain_with_http_info(settings_krb5_domain_id, **kwargs)  # noqa: E501
@@ -5930,11 +5930,11 @@ class AuthApi(object):
 
         View the krb5 domain settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_settings_krb5_domain_with_http_info(settings_krb5_domain_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_settings_krb5_domain_with_http_info(settings_krb5_domain_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str settings_krb5_domain_id: View the krb5 domain settings. (required)
         :return: SettingsKrb5Domains
                  If the method is called asynchronously,
@@ -5942,7 +5942,7 @@ class AuthApi(object):
         """
 
         all_params = ['settings_krb5_domain_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -5996,7 +5996,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='SettingsKrb5Domains',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -6007,18 +6007,18 @@ class AuthApi(object):
 
         Retrieve the krb5 settings for realms.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_settings_krb5_realm(settings_krb5_realm_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_settings_krb5_realm(settings_krb5_realm_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str settings_krb5_realm_id: Retrieve the krb5 settings for realms. (required)
         :return: SettingsKrb5Realms
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_settings_krb5_realm_with_http_info(settings_krb5_realm_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_settings_krb5_realm_with_http_info(settings_krb5_realm_id, **kwargs)  # noqa: E501
@@ -6029,11 +6029,11 @@ class AuthApi(object):
 
         Retrieve the krb5 settings for realms.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_settings_krb5_realm_with_http_info(settings_krb5_realm_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_settings_krb5_realm_with_http_info(settings_krb5_realm_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str settings_krb5_realm_id: Retrieve the krb5 settings for realms. (required)
         :return: SettingsKrb5Realms
                  If the method is called asynchronously,
@@ -6041,7 +6041,7 @@ class AuthApi(object):
         """
 
         all_params = ['settings_krb5_realm_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -6095,7 +6095,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='SettingsKrb5Realms',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -6106,11 +6106,11 @@ class AuthApi(object):
 
         Retrieve the mapping settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_settings_mapping(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_settings_mapping(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
         :param str zone: Access zone which contains mapping settings.
         :return: SettingsMapping
@@ -6118,7 +6118,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_settings_mapping_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_settings_mapping_with_http_info(**kwargs)  # noqa: E501
@@ -6129,11 +6129,11 @@ class AuthApi(object):
 
         Retrieve the mapping settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_settings_mapping_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_settings_mapping_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
         :param str zone: Access zone which contains mapping settings.
         :return: SettingsMapping
@@ -6142,7 +6142,7 @@ class AuthApi(object):
         """
 
         all_params = ['scope', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -6200,7 +6200,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='SettingsMapping',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -6211,11 +6211,11 @@ class AuthApi(object):
 
         List all groups.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_auth_groups(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_auth_groups(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str domain: Filter groups by domain.
         :param str zone: Filter groups by zone.
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
@@ -6230,7 +6230,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_auth_groups_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_auth_groups_with_http_info(**kwargs)  # noqa: E501
@@ -6241,11 +6241,11 @@ class AuthApi(object):
 
         List all groups.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_auth_groups_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_auth_groups_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str domain: Filter groups by domain.
         :param str zone: Filter groups by zone.
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
@@ -6261,7 +6261,7 @@ class AuthApi(object):
         """
 
         all_params = ['domain', 'zone', 'resume', 'cached', 'resolve_names', 'filter', 'limit', 'provider', 'query_member_of']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -6337,7 +6337,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='AuthGroupsExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -6348,11 +6348,11 @@ class AuthApi(object):
 
         List all roles.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_auth_roles(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_auth_roles(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param bool resolve_names: Filter users by zone.
         :param int limit: Return no more than this many results at once (see resume).
@@ -6363,7 +6363,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_auth_roles_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_auth_roles_with_http_info(**kwargs)  # noqa: E501
@@ -6374,11 +6374,11 @@ class AuthApi(object):
 
         List all roles.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_auth_roles_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_auth_roles_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param bool resolve_names: Filter users by zone.
         :param int limit: Return no more than this many results at once (see resume).
@@ -6390,7 +6390,7 @@ class AuthApi(object):
         """
 
         all_params = ['sort', 'resolve_names', 'limit', 'dir', 'resume']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -6467,7 +6467,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='AuthRolesExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -6478,11 +6478,11 @@ class AuthApi(object):
 
         List all users.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_auth_users(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_auth_users(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str domain: Filter users by domain.
         :param str zone: Filter users by zone.
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
@@ -6497,7 +6497,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_auth_users_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_auth_users_with_http_info(**kwargs)  # noqa: E501
@@ -6508,11 +6508,11 @@ class AuthApi(object):
 
         List all users.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_auth_users_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_auth_users_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str domain: Filter users by domain.
         :param str zone: Filter users by zone.
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
@@ -6528,7 +6528,7 @@ class AuthApi(object):
         """
 
         all_params = ['domain', 'zone', 'resume', 'cached', 'resolve_names', 'filter', 'limit', 'provider', 'query_member_of']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -6604,7 +6604,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='AuthUsersExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -6615,18 +6615,18 @@ class AuthApi(object):
 
         List all ADS providers.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_providers_ads(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_providers_ads(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
         :return: ProvidersAdsExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_providers_ads_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_providers_ads_with_http_info(**kwargs)  # noqa: E501
@@ -6637,11 +6637,11 @@ class AuthApi(object):
 
         List all ADS providers.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_providers_ads_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_providers_ads_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
         :return: ProvidersAdsExtended
                  If the method is called asynchronously,
@@ -6649,7 +6649,7 @@ class AuthApi(object):
         """
 
         all_params = ['scope']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -6705,7 +6705,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='ProvidersAdsExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -6716,18 +6716,18 @@ class AuthApi(object):
 
         List all file providers.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_providers_file(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_providers_file(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
         :return: ProvidersFile
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_providers_file_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_providers_file_with_http_info(**kwargs)  # noqa: E501
@@ -6738,11 +6738,11 @@ class AuthApi(object):
 
         List all file providers.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_providers_file_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_providers_file_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
         :return: ProvidersFile
                  If the method is called asynchronously,
@@ -6750,7 +6750,7 @@ class AuthApi(object):
         """
 
         all_params = ['scope']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -6806,7 +6806,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='ProvidersFile',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -6817,18 +6817,18 @@ class AuthApi(object):
 
         List all KRB5 providers.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_providers_krb5(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_providers_krb5(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
         :return: ProvidersKrb5Extended
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_providers_krb5_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_providers_krb5_with_http_info(**kwargs)  # noqa: E501
@@ -6839,11 +6839,11 @@ class AuthApi(object):
 
         List all KRB5 providers.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_providers_krb5_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_providers_krb5_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
         :return: ProvidersKrb5Extended
                  If the method is called asynchronously,
@@ -6851,7 +6851,7 @@ class AuthApi(object):
         """
 
         all_params = ['scope']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -6907,7 +6907,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='ProvidersKrb5Extended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -6918,18 +6918,18 @@ class AuthApi(object):
 
         List all LDAP providers.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_providers_ldap(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_providers_ldap(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
         :return: ProvidersLdap
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_providers_ldap_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_providers_ldap_with_http_info(**kwargs)  # noqa: E501
@@ -6940,11 +6940,11 @@ class AuthApi(object):
 
         List all LDAP providers.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_providers_ldap_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_providers_ldap_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
         :return: ProvidersLdap
                  If the method is called asynchronously,
@@ -6952,7 +6952,7 @@ class AuthApi(object):
         """
 
         all_params = ['scope']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -7008,7 +7008,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='ProvidersLdap',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -7019,18 +7019,18 @@ class AuthApi(object):
 
         List all NIS providers.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_providers_nis(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_providers_nis(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
         :return: ProvidersNisExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_providers_nis_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_providers_nis_with_http_info(**kwargs)  # noqa: E501
@@ -7041,11 +7041,11 @@ class AuthApi(object):
 
         List all NIS providers.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_providers_nis_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_providers_nis_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
         :return: ProvidersNisExtended
                  If the method is called asynchronously,
@@ -7053,7 +7053,7 @@ class AuthApi(object):
         """
 
         all_params = ['scope']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -7109,7 +7109,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='ProvidersNisExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -7120,17 +7120,17 @@ class AuthApi(object):
 
         Retrieve the krb5 settings for domains.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_settings_krb5_domains(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_settings_krb5_domains(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: SettingsKrb5Domains
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_settings_krb5_domains_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_settings_krb5_domains_with_http_info(**kwargs)  # noqa: E501
@@ -7141,18 +7141,18 @@ class AuthApi(object):
 
         Retrieve the krb5 settings for domains.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_settings_krb5_domains_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_settings_krb5_domains_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: SettingsKrb5Domains
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -7200,7 +7200,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='SettingsKrb5Domains',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -7211,17 +7211,17 @@ class AuthApi(object):
 
         Retrieve the krb5 settings for realms.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_settings_krb5_realms(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_settings_krb5_realms(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: SettingsKrb5Realms
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_settings_krb5_realms_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_settings_krb5_realms_with_http_info(**kwargs)  # noqa: E501
@@ -7232,18 +7232,18 @@ class AuthApi(object):
 
         Retrieve the krb5 settings for realms.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_settings_krb5_realms_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_settings_krb5_realms_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: SettingsKrb5Realms
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -7291,7 +7291,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type='SettingsKrb5Realms',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -7302,11 +7302,11 @@ class AuthApi(object):
 
         Modify the group.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_auth_group(auth_group, auth_group_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_auth_group(auth_group, auth_group_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param AuthGroup auth_group: (required)
         :param str auth_group_id: Modify the group. (required)
         :param bool force: Changes to the group ID can result in loss of access to the file system. To mitigate this risk of lost access, the force option is required for group ID changes.
@@ -7317,7 +7317,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_auth_group_with_http_info(auth_group, auth_group_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_auth_group_with_http_info(auth_group, auth_group_id, **kwargs)  # noqa: E501
@@ -7328,11 +7328,11 @@ class AuthApi(object):
 
         Modify the group.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_auth_group_with_http_info(auth_group, auth_group_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_auth_group_with_http_info(auth_group, auth_group_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param AuthGroup auth_group: (required)
         :param str auth_group_id: Modify the group. (required)
         :param bool force: Changes to the group ID can result in loss of access to the file system. To mitigate this risk of lost access, the force option is required for group ID changes.
@@ -7344,7 +7344,7 @@ class AuthApi(object):
         """
 
         all_params = ['auth_group', 'auth_group_id', 'force', 'zone', 'provider']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -7410,7 +7410,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -7421,18 +7421,18 @@ class AuthApi(object):
 
         Set the current authentication service and netlogon logging level.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_auth_log_level(auth_log_level, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_auth_log_level(auth_log_level, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param AuthLogLevelExtended auth_log_level: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_auth_log_level_with_http_info(auth_log_level, **kwargs)  # noqa: E501
         else:
             (data) = self.update_auth_log_level_with_http_info(auth_log_level, **kwargs)  # noqa: E501
@@ -7443,11 +7443,11 @@ class AuthApi(object):
 
         Set the current authentication service and netlogon logging level.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_auth_log_level_with_http_info(auth_log_level, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_auth_log_level_with_http_info(auth_log_level, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param AuthLogLevelExtended auth_log_level: (required)
         :return: None
                  If the method is called asynchronously,
@@ -7455,7 +7455,7 @@ class AuthApi(object):
         """
 
         all_params = ['auth_log_level']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -7509,7 +7509,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -7520,11 +7520,11 @@ class AuthApi(object):
 
         Modify the role.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_auth_role(auth_role, auth_role_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_auth_role(auth_role, auth_role_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param AuthRole auth_role: (required)
         :param str auth_role_id: Modify the role. (required)
         :return: None
@@ -7532,7 +7532,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_auth_role_with_http_info(auth_role, auth_role_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_auth_role_with_http_info(auth_role, auth_role_id, **kwargs)  # noqa: E501
@@ -7543,11 +7543,11 @@ class AuthApi(object):
 
         Modify the role.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_auth_role_with_http_info(auth_role, auth_role_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_auth_role_with_http_info(auth_role, auth_role_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param AuthRole auth_role: (required)
         :param str auth_role_id: Modify the role. (required)
         :return: None
@@ -7556,7 +7556,7 @@ class AuthApi(object):
         """
 
         all_params = ['auth_role', 'auth_role_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -7616,7 +7616,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -7627,11 +7627,11 @@ class AuthApi(object):
 
         Modify the user.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_auth_user(auth_user, auth_user_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_auth_user(auth_user, auth_user_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param AuthUser auth_user: (required)
         :param str auth_user_id: Modify the user. (required)
         :param bool force: Changes to the user ID can result in loss of access to the file system. To mitigate this risk of lost access, the force option is required for user ID changes.
@@ -7642,7 +7642,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_auth_user_with_http_info(auth_user, auth_user_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_auth_user_with_http_info(auth_user, auth_user_id, **kwargs)  # noqa: E501
@@ -7653,11 +7653,11 @@ class AuthApi(object):
 
         Modify the user.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_auth_user_with_http_info(auth_user, auth_user_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_auth_user_with_http_info(auth_user, auth_user_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param AuthUser auth_user: (required)
         :param str auth_user_id: Modify the user. (required)
         :param bool force: Changes to the user ID can result in loss of access to the file system. To mitigate this risk of lost access, the force option is required for user ID changes.
@@ -7669,7 +7669,7 @@ class AuthApi(object):
         """
 
         all_params = ['auth_user', 'auth_user_id', 'force', 'zone', 'provider']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -7735,7 +7735,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -7746,11 +7746,11 @@ class AuthApi(object):
 
         Set or update a list of mappings between two personae.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_mapping_import(mapping_import, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_mapping_import(mapping_import, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param MappingImport mapping_import: (required)
         :param str zone: Optional zone.
         :param bool replace: Specify whether existing mappings should be replaced. The default behavior is to leave existing mappings intact and return an error.
@@ -7759,7 +7759,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_mapping_import_with_http_info(mapping_import, **kwargs)  # noqa: E501
         else:
             (data) = self.update_mapping_import_with_http_info(mapping_import, **kwargs)  # noqa: E501
@@ -7770,11 +7770,11 @@ class AuthApi(object):
 
         Set or update a list of mappings between two personae.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_mapping_import_with_http_info(mapping_import, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_mapping_import_with_http_info(mapping_import, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param MappingImport mapping_import: (required)
         :param str zone: Optional zone.
         :param bool replace: Specify whether existing mappings should be replaced. The default behavior is to leave existing mappings intact and return an error.
@@ -7784,7 +7784,7 @@ class AuthApi(object):
         """
 
         all_params = ['mapping_import', 'zone', 'replace']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -7842,7 +7842,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -7853,11 +7853,11 @@ class AuthApi(object):
 
         Modify the user mapping rules.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_mapping_users_rules(mapping_users_rules, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_mapping_users_rules(mapping_users_rules, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param MappingUsersRulesExtended mapping_users_rules: (required)
         :param str zone: The zone to which the user mapping applies.
         :return: None
@@ -7865,7 +7865,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_mapping_users_rules_with_http_info(mapping_users_rules, **kwargs)  # noqa: E501
         else:
             (data) = self.update_mapping_users_rules_with_http_info(mapping_users_rules, **kwargs)  # noqa: E501
@@ -7876,11 +7876,11 @@ class AuthApi(object):
 
         Modify the user mapping rules.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_mapping_users_rules_with_http_info(mapping_users_rules, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_mapping_users_rules_with_http_info(mapping_users_rules, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param MappingUsersRulesExtended mapping_users_rules: (required)
         :param str zone: The zone to which the user mapping applies.
         :return: None
@@ -7889,7 +7889,7 @@ class AuthApi(object):
         """
 
         all_params = ['mapping_users_rules', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -7945,7 +7945,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -7956,11 +7956,11 @@ class AuthApi(object):
 
         Modify the ADS provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_providers_ads_by_id(providers_ads_id_params, providers_ads_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_providers_ads_by_id(providers_ads_id_params, providers_ads_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param ProvidersAdsIdParams providers_ads_id_params: (required)
         :param str providers_ads_id: Modify the ADS provider. (required)
         :return: None
@@ -7968,7 +7968,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_providers_ads_by_id_with_http_info(providers_ads_id_params, providers_ads_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_providers_ads_by_id_with_http_info(providers_ads_id_params, providers_ads_id, **kwargs)  # noqa: E501
@@ -7979,11 +7979,11 @@ class AuthApi(object):
 
         Modify the ADS provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_providers_ads_by_id_with_http_info(providers_ads_id_params, providers_ads_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_providers_ads_by_id_with_http_info(providers_ads_id_params, providers_ads_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param ProvidersAdsIdParams providers_ads_id_params: (required)
         :param str providers_ads_id: Modify the ADS provider. (required)
         :return: None
@@ -7992,7 +7992,7 @@ class AuthApi(object):
         """
 
         all_params = ['providers_ads_id_params', 'providers_ads_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -8052,7 +8052,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -8063,11 +8063,11 @@ class AuthApi(object):
 
         Modify the file provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_providers_file_by_id(providers_file_id_params, providers_file_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_providers_file_by_id(providers_file_id_params, providers_file_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param ProvidersFileIdParams providers_file_id_params: (required)
         :param str providers_file_id: Modify the file provider. (required)
         :return: None
@@ -8075,7 +8075,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_providers_file_by_id_with_http_info(providers_file_id_params, providers_file_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_providers_file_by_id_with_http_info(providers_file_id_params, providers_file_id, **kwargs)  # noqa: E501
@@ -8086,11 +8086,11 @@ class AuthApi(object):
 
         Modify the file provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_providers_file_by_id_with_http_info(providers_file_id_params, providers_file_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_providers_file_by_id_with_http_info(providers_file_id_params, providers_file_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param ProvidersFileIdParams providers_file_id_params: (required)
         :param str providers_file_id: Modify the file provider. (required)
         :return: None
@@ -8099,7 +8099,7 @@ class AuthApi(object):
         """
 
         all_params = ['providers_file_id_params', 'providers_file_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -8159,7 +8159,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -8170,11 +8170,11 @@ class AuthApi(object):
 
         Modify the KRB5 provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_providers_krb5_by_id(providers_krb5_id_params, providers_krb5_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_providers_krb5_by_id(providers_krb5_id_params, providers_krb5_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param ProvidersKrb5IdParams providers_krb5_id_params: (required)
         :param str providers_krb5_id: Modify the KRB5 provider. (required)
         :return: None
@@ -8182,7 +8182,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_providers_krb5_by_id_with_http_info(providers_krb5_id_params, providers_krb5_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_providers_krb5_by_id_with_http_info(providers_krb5_id_params, providers_krb5_id, **kwargs)  # noqa: E501
@@ -8193,11 +8193,11 @@ class AuthApi(object):
 
         Modify the KRB5 provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_providers_krb5_by_id_with_http_info(providers_krb5_id_params, providers_krb5_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_providers_krb5_by_id_with_http_info(providers_krb5_id_params, providers_krb5_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param ProvidersKrb5IdParams providers_krb5_id_params: (required)
         :param str providers_krb5_id: Modify the KRB5 provider. (required)
         :return: None
@@ -8206,7 +8206,7 @@ class AuthApi(object):
         """
 
         all_params = ['providers_krb5_id_params', 'providers_krb5_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -8266,7 +8266,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -8277,11 +8277,11 @@ class AuthApi(object):
 
         Modify the LDAP provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_providers_ldap_by_id(providers_ldap_id_params, providers_ldap_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_providers_ldap_by_id(providers_ldap_id_params, providers_ldap_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param ProvidersLdapIdParams providers_ldap_id_params: (required)
         :param str providers_ldap_id: Modify the LDAP provider. (required)
         :param bool force: Ignore unresolvable server URIs.
@@ -8290,7 +8290,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_providers_ldap_by_id_with_http_info(providers_ldap_id_params, providers_ldap_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_providers_ldap_by_id_with_http_info(providers_ldap_id_params, providers_ldap_id, **kwargs)  # noqa: E501
@@ -8301,11 +8301,11 @@ class AuthApi(object):
 
         Modify the LDAP provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_providers_ldap_by_id_with_http_info(providers_ldap_id_params, providers_ldap_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_providers_ldap_by_id_with_http_info(providers_ldap_id_params, providers_ldap_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param ProvidersLdapIdParams providers_ldap_id_params: (required)
         :param str providers_ldap_id: Modify the LDAP provider. (required)
         :param bool force: Ignore unresolvable server URIs.
@@ -8315,7 +8315,7 @@ class AuthApi(object):
         """
 
         all_params = ['providers_ldap_id_params', 'providers_ldap_id', 'force']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -8377,7 +8377,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -8388,11 +8388,11 @@ class AuthApi(object):
 
         Modify the local provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_providers_local_by_id(providers_local_id_params, providers_local_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_providers_local_by_id(providers_local_id_params, providers_local_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param ProvidersLocalIdParams providers_local_id_params: (required)
         :param str providers_local_id: Modify the local provider. (required)
         :return: None
@@ -8400,7 +8400,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_providers_local_by_id_with_http_info(providers_local_id_params, providers_local_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_providers_local_by_id_with_http_info(providers_local_id_params, providers_local_id, **kwargs)  # noqa: E501
@@ -8411,11 +8411,11 @@ class AuthApi(object):
 
         Modify the local provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_providers_local_by_id_with_http_info(providers_local_id_params, providers_local_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_providers_local_by_id_with_http_info(providers_local_id_params, providers_local_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param ProvidersLocalIdParams providers_local_id_params: (required)
         :param str providers_local_id: Modify the local provider. (required)
         :return: None
@@ -8424,7 +8424,7 @@ class AuthApi(object):
         """
 
         all_params = ['providers_local_id_params', 'providers_local_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -8484,7 +8484,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -8495,11 +8495,11 @@ class AuthApi(object):
 
         Modify the NIS provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_providers_nis_by_id(providers_nis_id_params, providers_nis_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_providers_nis_by_id(providers_nis_id_params, providers_nis_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param ProvidersNisIdParams providers_nis_id_params: (required)
         :param str providers_nis_id: Modify the NIS provider. (required)
         :return: None
@@ -8507,7 +8507,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_providers_nis_by_id_with_http_info(providers_nis_id_params, providers_nis_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_providers_nis_by_id_with_http_info(providers_nis_id_params, providers_nis_id, **kwargs)  # noqa: E501
@@ -8518,11 +8518,11 @@ class AuthApi(object):
 
         Modify the NIS provider.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_providers_nis_by_id_with_http_info(providers_nis_id_params, providers_nis_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_providers_nis_by_id_with_http_info(providers_nis_id_params, providers_nis_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param ProvidersNisIdParams providers_nis_id_params: (required)
         :param str providers_nis_id: Modify the NIS provider. (required)
         :return: None
@@ -8531,7 +8531,7 @@ class AuthApi(object):
         """
 
         all_params = ['providers_nis_id_params', 'providers_nis_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -8591,7 +8591,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -8602,18 +8602,18 @@ class AuthApi(object):
 
         Modify cluster ACL policy settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_settings_acls(settings_acls, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_settings_acls(settings_acls, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SettingsAclsExtended settings_acls: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_settings_acls_with_http_info(settings_acls, **kwargs)  # noqa: E501
         else:
             (data) = self.update_settings_acls_with_http_info(settings_acls, **kwargs)  # noqa: E501
@@ -8624,11 +8624,11 @@ class AuthApi(object):
 
         Modify cluster ACL policy settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_settings_acls_with_http_info(settings_acls, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_settings_acls_with_http_info(settings_acls, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SettingsAclsExtended settings_acls: (required)
         :return: None
                  If the method is called asynchronously,
@@ -8636,7 +8636,7 @@ class AuthApi(object):
         """
 
         all_params = ['settings_acls']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -8690,7 +8690,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -8701,11 +8701,11 @@ class AuthApi(object):
 
         Modify the global settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_settings_global(settings_global, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_settings_global(settings_global, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SettingsGlobalGlobalSettings settings_global: (required)
         :param str zone: Zone which contains any per-zone settings.
         :return: None
@@ -8713,7 +8713,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_settings_global_with_http_info(settings_global, **kwargs)  # noqa: E501
         else:
             (data) = self.update_settings_global_with_http_info(settings_global, **kwargs)  # noqa: E501
@@ -8724,11 +8724,11 @@ class AuthApi(object):
 
         Modify the global settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_settings_global_with_http_info(settings_global, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_settings_global_with_http_info(settings_global, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SettingsGlobalGlobalSettings settings_global: (required)
         :param str zone: Zone which contains any per-zone settings.
         :return: None
@@ -8737,7 +8737,7 @@ class AuthApi(object):
         """
 
         all_params = ['settings_global', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -8793,7 +8793,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -8804,18 +8804,18 @@ class AuthApi(object):
 
         Modify the krb5 settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_settings_krb5_defaults(settings_krb5_defaults, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_settings_krb5_defaults(settings_krb5_defaults, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SettingsKrb5DefaultsKrb5Settings settings_krb5_defaults: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_settings_krb5_defaults_with_http_info(settings_krb5_defaults, **kwargs)  # noqa: E501
         else:
             (data) = self.update_settings_krb5_defaults_with_http_info(settings_krb5_defaults, **kwargs)  # noqa: E501
@@ -8826,11 +8826,11 @@ class AuthApi(object):
 
         Modify the krb5 settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_settings_krb5_defaults_with_http_info(settings_krb5_defaults, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_settings_krb5_defaults_with_http_info(settings_krb5_defaults, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SettingsKrb5DefaultsKrb5Settings settings_krb5_defaults: (required)
         :return: None
                  If the method is called asynchronously,
@@ -8838,7 +8838,7 @@ class AuthApi(object):
         """
 
         all_params = ['settings_krb5_defaults']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -8892,7 +8892,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -8903,11 +8903,11 @@ class AuthApi(object):
 
         Modify the krb5 domain settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_settings_krb5_domain(settings_krb5_domain, settings_krb5_domain_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_settings_krb5_domain(settings_krb5_domain, settings_krb5_domain_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SettingsKrb5Domain settings_krb5_domain: (required)
         :param str settings_krb5_domain_id: Modify the krb5 domain settings. (required)
         :return: None
@@ -8915,7 +8915,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_settings_krb5_domain_with_http_info(settings_krb5_domain, settings_krb5_domain_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_settings_krb5_domain_with_http_info(settings_krb5_domain, settings_krb5_domain_id, **kwargs)  # noqa: E501
@@ -8926,11 +8926,11 @@ class AuthApi(object):
 
         Modify the krb5 domain settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_settings_krb5_domain_with_http_info(settings_krb5_domain, settings_krb5_domain_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_settings_krb5_domain_with_http_info(settings_krb5_domain, settings_krb5_domain_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SettingsKrb5Domain settings_krb5_domain: (required)
         :param str settings_krb5_domain_id: Modify the krb5 domain settings. (required)
         :return: None
@@ -8939,7 +8939,7 @@ class AuthApi(object):
         """
 
         all_params = ['settings_krb5_domain', 'settings_krb5_domain_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -8999,7 +8999,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -9010,11 +9010,11 @@ class AuthApi(object):
 
         Modify the krb5 realm settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_settings_krb5_realm(settings_krb5_realm, settings_krb5_realm_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_settings_krb5_realm(settings_krb5_realm, settings_krb5_realm_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SettingsKrb5Realm settings_krb5_realm: (required)
         :param str settings_krb5_realm_id: Modify the krb5 realm settings. (required)
         :return: None
@@ -9022,7 +9022,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_settings_krb5_realm_with_http_info(settings_krb5_realm, settings_krb5_realm_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_settings_krb5_realm_with_http_info(settings_krb5_realm, settings_krb5_realm_id, **kwargs)  # noqa: E501
@@ -9033,11 +9033,11 @@ class AuthApi(object):
 
         Modify the krb5 realm settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_settings_krb5_realm_with_http_info(settings_krb5_realm, settings_krb5_realm_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_settings_krb5_realm_with_http_info(settings_krb5_realm, settings_krb5_realm_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SettingsKrb5Realm settings_krb5_realm: (required)
         :param str settings_krb5_realm_id: Modify the krb5 realm settings. (required)
         :return: None
@@ -9046,7 +9046,7 @@ class AuthApi(object):
         """
 
         all_params = ['settings_krb5_realm', 'settings_krb5_realm_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -9106,7 +9106,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -9117,11 +9117,11 @@ class AuthApi(object):
 
         Modify the mapping settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_settings_mapping(settings_mapping, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_settings_mapping(settings_mapping, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SettingsMappingMappingSettings settings_mapping: (required)
         :param str zone: Access zone which contains mapping settings.
         :return: None
@@ -9129,7 +9129,7 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_settings_mapping_with_http_info(settings_mapping, **kwargs)  # noqa: E501
         else:
             (data) = self.update_settings_mapping_with_http_info(settings_mapping, **kwargs)  # noqa: E501
@@ -9140,11 +9140,11 @@ class AuthApi(object):
 
         Modify the mapping settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_settings_mapping_with_http_info(settings_mapping, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_settings_mapping_with_http_info(settings_mapping, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SettingsMappingMappingSettings settings_mapping: (required)
         :param str zone: Access zone which contains mapping settings.
         :return: None
@@ -9153,7 +9153,7 @@ class AuthApi(object):
         """
 
         all_params = ['settings_mapping', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -9209,7 +9209,7 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

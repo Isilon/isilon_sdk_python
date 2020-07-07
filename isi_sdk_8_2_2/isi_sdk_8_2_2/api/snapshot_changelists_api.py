@@ -38,11 +38,11 @@ class SnapshotChangelistsApi(object):
 
         Get entries from a changelist.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_changelist_entries(changelist, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_changelist_entries(changelist, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str changelist: (required)
         :param int limit: Return no more than this many results at once (see resume).
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
@@ -51,7 +51,7 @@ class SnapshotChangelistsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_changelist_entries_with_http_info(changelist, **kwargs)  # noqa: E501
         else:
             (data) = self.get_changelist_entries_with_http_info(changelist, **kwargs)  # noqa: E501
@@ -62,11 +62,11 @@ class SnapshotChangelistsApi(object):
 
         Get entries from a changelist.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_changelist_entries_with_http_info(changelist, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_changelist_entries_with_http_info(changelist, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str changelist: (required)
         :param int limit: Return no more than this many results at once (see resume).
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
@@ -76,7 +76,7 @@ class SnapshotChangelistsApi(object):
         """
 
         all_params = ['changelist', 'limit', 'resume']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -144,7 +144,7 @@ class SnapshotChangelistsApi(object):
             files=local_var_files,
             response_type='ChangelistEntriesExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -155,11 +155,11 @@ class SnapshotChangelistsApi(object):
 
         Get a single entry from the changelist.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_changelist_entry(changelist_entry_id, changelist, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_changelist_entry(changelist_entry_id, changelist, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str changelist_entry_id: Get a single entry from the changelist. (required)
         :param str changelist: (required)
         :return: ChangelistEntries
@@ -167,7 +167,7 @@ class SnapshotChangelistsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_changelist_entry_with_http_info(changelist_entry_id, changelist, **kwargs)  # noqa: E501
         else:
             (data) = self.get_changelist_entry_with_http_info(changelist_entry_id, changelist, **kwargs)  # noqa: E501
@@ -178,11 +178,11 @@ class SnapshotChangelistsApi(object):
 
         Get a single entry from the changelist.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_changelist_entry_with_http_info(changelist_entry_id, changelist, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_changelist_entry_with_http_info(changelist_entry_id, changelist, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str changelist_entry_id: Get a single entry from the changelist. (required)
         :param str changelist: (required)
         :return: ChangelistEntries
@@ -191,7 +191,7 @@ class SnapshotChangelistsApi(object):
         """
 
         all_params = ['changelist_entry_id', 'changelist']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -251,7 +251,7 @@ class SnapshotChangelistsApi(object):
             files=local_var_files,
             response_type='ChangelistEntries',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -262,11 +262,11 @@ class SnapshotChangelistsApi(object):
 
         Get a single entry from the changelist.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_changelist_lin(changelist_lin_id, changelist, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_changelist_lin(changelist_lin_id, changelist, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int changelist_lin_id: Get a single entry from the changelist. (required)
         :param str changelist: (required)
         :param int limit: Return no more than this many results at once (see resume).
@@ -276,7 +276,7 @@ class SnapshotChangelistsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_changelist_lin_with_http_info(changelist_lin_id, changelist, **kwargs)  # noqa: E501
         else:
             (data) = self.get_changelist_lin_with_http_info(changelist_lin_id, changelist, **kwargs)  # noqa: E501
@@ -287,11 +287,11 @@ class SnapshotChangelistsApi(object):
 
         Get a single entry from the changelist.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_changelist_lin_with_http_info(changelist_lin_id, changelist, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_changelist_lin_with_http_info(changelist_lin_id, changelist, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int changelist_lin_id: Get a single entry from the changelist. (required)
         :param str changelist: (required)
         :param int limit: Return no more than this many results at once (see resume).
@@ -302,7 +302,7 @@ class SnapshotChangelistsApi(object):
         """
 
         all_params = ['changelist_lin_id', 'changelist', 'limit', 'resume']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -376,7 +376,7 @@ class SnapshotChangelistsApi(object):
             files=local_var_files,
             response_type='ChangelistLins',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -387,11 +387,11 @@ class SnapshotChangelistsApi(object):
 
         Get entries from a changelist.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_changelist_lins(changelist, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_changelist_lins(changelist, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str changelist: (required)
         :param int limit: Return no more than this many results at once (see resume).
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
@@ -400,7 +400,7 @@ class SnapshotChangelistsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_changelist_lins_with_http_info(changelist, **kwargs)  # noqa: E501
         else:
             (data) = self.get_changelist_lins_with_http_info(changelist, **kwargs)  # noqa: E501
@@ -411,11 +411,11 @@ class SnapshotChangelistsApi(object):
 
         Get entries from a changelist.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_changelist_lins_with_http_info(changelist, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_changelist_lins_with_http_info(changelist, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str changelist: (required)
         :param int limit: Return no more than this many results at once (see resume).
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
@@ -425,7 +425,7 @@ class SnapshotChangelistsApi(object):
         """
 
         all_params = ['changelist', 'limit', 'resume']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -493,7 +493,7 @@ class SnapshotChangelistsApi(object):
             files=local_var_files,
             response_type='ChangelistLinsExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

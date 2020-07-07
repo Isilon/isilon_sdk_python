@@ -38,11 +38,11 @@ class FsaResultsApi(object):
 
         This resource retrieves a histogram breakout for an individual FSA result set. ID in the resource path is the result set ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_histogram_stat_by(id, stat, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_histogram_stat_by(id, stat, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param str stat: (required)
         :return: HistogramStatBy
@@ -50,7 +50,7 @@ class FsaResultsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_histogram_stat_by_with_http_info(id, stat, **kwargs)  # noqa: E501
         else:
             (data) = self.get_histogram_stat_by_with_http_info(id, stat, **kwargs)  # noqa: E501
@@ -61,11 +61,11 @@ class FsaResultsApi(object):
 
         This resource retrieves a histogram breakout for an individual FSA result set. ID in the resource path is the result set ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_histogram_stat_by_with_http_info(id, stat, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_histogram_stat_by_with_http_info(id, stat, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param str stat: (required)
         :return: HistogramStatBy
@@ -74,7 +74,7 @@ class FsaResultsApi(object):
         """
 
         all_params = ['id', 'stat']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -134,7 +134,7 @@ class FsaResultsApi(object):
             files=local_var_files,
             response_type='HistogramStatBy',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -145,11 +145,11 @@ class FsaResultsApi(object):
 
         This resource retrieves a histogram breakout for an individual FSA result set. ID in the resource path is the result set ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_histogram_stat_by_breakout(histogram_stat_by_breakout, id, stat, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_histogram_stat_by_breakout(histogram_stat_by_breakout, id, stat, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str histogram_stat_by_breakout: This resource retrieves a histogram breakout for an individual FSA result set. ID in the resource path is the result set ID. (required)
         :param str id: (required)
         :param str stat: (required)
@@ -170,7 +170,7 @@ class FsaResultsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_histogram_stat_by_breakout_with_http_info(histogram_stat_by_breakout, id, stat, **kwargs)  # noqa: E501
         else:
             (data) = self.get_histogram_stat_by_breakout_with_http_info(histogram_stat_by_breakout, id, stat, **kwargs)  # noqa: E501
@@ -181,11 +181,11 @@ class FsaResultsApi(object):
 
         This resource retrieves a histogram breakout for an individual FSA result set. ID in the resource path is the result set ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_histogram_stat_by_breakout_with_http_info(histogram_stat_by_breakout, id, stat, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_histogram_stat_by_breakout_with_http_info(histogram_stat_by_breakout, id, stat, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str histogram_stat_by_breakout: This resource retrieves a histogram breakout for an individual FSA result set. ID in the resource path is the result set ID. (required)
         :param str id: (required)
         :param str stat: (required)
@@ -207,7 +207,7 @@ class FsaResultsApi(object):
         """
 
         all_params = ['histogram_stat_by_breakout', 'id', 'stat', 'directory_filter', 'attribute_filter', 'node_pool_filter', 'disk_pool_filter', 'tier_filter', 'comp_report', 'log_size_filter', 'phys_size_filter', 'limit', 'path_ext_filter', 'ctime_filter', 'atime_filter']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -297,7 +297,7 @@ class FsaResultsApi(object):
             files=local_var_files,
             response_type='HistogramStatBy',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -308,11 +308,11 @@ class FsaResultsApi(object):
 
         This resource retrieves directory information. ID in the resource path is the result set ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_result_directories(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_result_directories(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param str sort: The field that will be used for sorting.
         :param str path: Primary directory path to report usage information, which may be specified instead of a LIN.
@@ -324,7 +324,7 @@ class FsaResultsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_result_directories_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_result_directories_with_http_info(id, **kwargs)  # noqa: E501
@@ -335,11 +335,11 @@ class FsaResultsApi(object):
 
         This resource retrieves directory information. ID in the resource path is the result set ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_result_directories_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_result_directories_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param str sort: The field that will be used for sorting.
         :param str path: Primary directory path to report usage information, which may be specified instead of a LIN.
@@ -352,7 +352,7 @@ class FsaResultsApi(object):
         """
 
         all_params = ['id', 'sort', 'path', 'limit', 'comp_report', 'dir']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -416,7 +416,7 @@ class FsaResultsApi(object):
             files=local_var_files,
             response_type='ResultDirectories',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -427,11 +427,11 @@ class FsaResultsApi(object):
 
         This resource retrieves directory information. ID in the resource path is the result set ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_result_directory(result_directory_id, id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_result_directory(result_directory_id, id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int result_directory_id: This resource retrieves directory information. ID in the resource path is the result set ID. (required)
         :param str id: (required)
         :param str sort: The field that will be used for sorting.
@@ -443,7 +443,7 @@ class FsaResultsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_result_directory_with_http_info(result_directory_id, id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_result_directory_with_http_info(result_directory_id, id, **kwargs)  # noqa: E501
@@ -454,11 +454,11 @@ class FsaResultsApi(object):
 
         This resource retrieves directory information. ID in the resource path is the result set ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_result_directory_with_http_info(result_directory_id, id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_result_directory_with_http_info(result_directory_id, id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int result_directory_id: This resource retrieves directory information. ID in the resource path is the result set ID. (required)
         :param str id: (required)
         :param str sort: The field that will be used for sorting.
@@ -471,7 +471,7 @@ class FsaResultsApi(object):
         """
 
         all_params = ['result_directory_id', 'id', 'sort', 'limit', 'comp_report', 'dir']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -539,7 +539,7 @@ class FsaResultsApi(object):
             files=local_var_files,
             response_type='ResultDirectories',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -550,18 +550,18 @@ class FsaResultsApi(object):
 
         This resource retrieves a histogram of file counts for an individual FSA result set. ID in the resource path is the result set ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_result_histogram(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_result_histogram(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResultHistogram
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_result_histogram_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_result_histogram_with_http_info(id, **kwargs)  # noqa: E501
@@ -572,11 +572,11 @@ class FsaResultsApi(object):
 
         This resource retrieves a histogram of file counts for an individual FSA result set. ID in the resource path is the result set ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_result_histogram_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_result_histogram_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResultHistogram
                  If the method is called asynchronously,
@@ -584,7 +584,7 @@ class FsaResultsApi(object):
         """
 
         all_params = ['id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -638,7 +638,7 @@ class FsaResultsApi(object):
             files=local_var_files,
             response_type='ResultHistogram',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -649,11 +649,11 @@ class FsaResultsApi(object):
 
         This resource retrieves a histogram of file counts for an individual FSA result set. ID in the resource path is the result set ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_result_histogram_stat(result_histogram_stat, id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_result_histogram_stat(result_histogram_stat, id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str result_histogram_stat: This resource retrieves a histogram of file counts for an individual FSA result set. ID in the resource path is the result set ID. (required)
         :param str id: (required)
         :param str directory_filter: Filter according to a specific directory, which includes all of its subdirectories.
@@ -672,7 +672,7 @@ class FsaResultsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_result_histogram_stat_with_http_info(result_histogram_stat, id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_result_histogram_stat_with_http_info(result_histogram_stat, id, **kwargs)  # noqa: E501
@@ -683,11 +683,11 @@ class FsaResultsApi(object):
 
         This resource retrieves a histogram of file counts for an individual FSA result set. ID in the resource path is the result set ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_result_histogram_stat_with_http_info(result_histogram_stat, id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_result_histogram_stat_with_http_info(result_histogram_stat, id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str result_histogram_stat: This resource retrieves a histogram of file counts for an individual FSA result set. ID in the resource path is the result set ID. (required)
         :param str id: (required)
         :param str directory_filter: Filter according to a specific directory, which includes all of its subdirectories.
@@ -707,7 +707,7 @@ class FsaResultsApi(object):
         """
 
         all_params = ['result_histogram_stat', 'id', 'directory_filter', 'attribute_filter', 'node_pool_filter', 'disk_pool_filter', 'tier_filter', 'comp_report', 'log_size_filter', 'phys_size_filter', 'path_ext_filter', 'ctime_filter', 'atime_filter']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -789,7 +789,7 @@ class FsaResultsApi(object):
             files=local_var_files,
             response_type='ResultHistogram',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -800,11 +800,11 @@ class FsaResultsApi(object):
 
         This resource retrieves the top directories. ID in the resource path is the result set ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_result_top_dir(result_top_dir_id, id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_result_top_dir(result_top_dir_id, id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str result_top_dir_id: This resource retrieves the top directories. ID in the resource path is the result set ID. (required)
         :param str id: (required)
         :param str sort: The field that will be used for sorting.
@@ -817,7 +817,7 @@ class FsaResultsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_result_top_dir_with_http_info(result_top_dir_id, id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_result_top_dir_with_http_info(result_top_dir_id, id, **kwargs)  # noqa: E501
@@ -828,11 +828,11 @@ class FsaResultsApi(object):
 
         This resource retrieves the top directories. ID in the resource path is the result set ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_result_top_dir_with_http_info(result_top_dir_id, id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_result_top_dir_with_http_info(result_top_dir_id, id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str result_top_dir_id: This resource retrieves the top directories. ID in the resource path is the result set ID. (required)
         :param str id: (required)
         :param str sort: The field that will be used for sorting.
@@ -846,7 +846,7 @@ class FsaResultsApi(object):
         """
 
         all_params = ['result_top_dir_id', 'id', 'sort', 'start', 'limit', 'comp_report', 'dir']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -916,7 +916,7 @@ class FsaResultsApi(object):
             files=local_var_files,
             response_type='ResultTopDirs',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -927,18 +927,18 @@ class FsaResultsApi(object):
 
         This resource retrieves the top directories. ID in the resource path is the result set ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_result_top_dirs(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_result_top_dirs(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResultTopDirs
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_result_top_dirs_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_result_top_dirs_with_http_info(id, **kwargs)  # noqa: E501
@@ -949,11 +949,11 @@ class FsaResultsApi(object):
 
         This resource retrieves the top directories. ID in the resource path is the result set ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_result_top_dirs_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_result_top_dirs_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResultTopDirs
                  If the method is called asynchronously,
@@ -961,7 +961,7 @@ class FsaResultsApi(object):
         """
 
         all_params = ['id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1015,7 +1015,7 @@ class FsaResultsApi(object):
             files=local_var_files,
             response_type='ResultTopDirs',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1026,11 +1026,11 @@ class FsaResultsApi(object):
 
         This resource retrieves the top files. ID in the resource path is the result set ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_result_top_file(result_top_file_id, id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_result_top_file(result_top_file_id, id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str result_top_file_id: This resource retrieves the top files. ID in the resource path is the result set ID. (required)
         :param str id: (required)
         :param str sort: The field that will be used for sorting.
@@ -1043,7 +1043,7 @@ class FsaResultsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_result_top_file_with_http_info(result_top_file_id, id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_result_top_file_with_http_info(result_top_file_id, id, **kwargs)  # noqa: E501
@@ -1054,11 +1054,11 @@ class FsaResultsApi(object):
 
         This resource retrieves the top files. ID in the resource path is the result set ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_result_top_file_with_http_info(result_top_file_id, id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_result_top_file_with_http_info(result_top_file_id, id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str result_top_file_id: This resource retrieves the top files. ID in the resource path is the result set ID. (required)
         :param str id: (required)
         :param str sort: The field that will be used for sorting.
@@ -1072,7 +1072,7 @@ class FsaResultsApi(object):
         """
 
         all_params = ['result_top_file_id', 'id', 'sort', 'start', 'limit', 'comp_report', 'dir']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1142,7 +1142,7 @@ class FsaResultsApi(object):
             files=local_var_files,
             response_type='ResultTopFiles',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1153,18 +1153,18 @@ class FsaResultsApi(object):
 
         This resource retrieves the top files. ID in the resource path is the result set ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_result_top_files(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_result_top_files(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResultTopFiles
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_result_top_files_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_result_top_files_with_http_info(id, **kwargs)  # noqa: E501
@@ -1175,11 +1175,11 @@ class FsaResultsApi(object):
 
         This resource retrieves the top files. ID in the resource path is the result set ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_result_top_files_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_result_top_files_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResultTopFiles
                  If the method is called asynchronously,
@@ -1187,7 +1187,7 @@ class FsaResultsApi(object):
         """
 
         all_params = ['id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1241,7 +1241,7 @@ class FsaResultsApi(object):
             files=local_var_files,
             response_type='ResultTopFiles',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

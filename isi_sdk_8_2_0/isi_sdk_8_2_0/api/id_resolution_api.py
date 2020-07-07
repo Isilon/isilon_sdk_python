@@ -38,18 +38,18 @@ class IdResolutionApi(object):
 
         List domain to path mappings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_id_resolution_domain(id_resolution_domain_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_id_resolution_domain(id_resolution_domain_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id_resolution_domain_id: List domain to path mappings. (required)
         :return: IdResolutionDomains
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_id_resolution_domain_with_http_info(id_resolution_domain_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_id_resolution_domain_with_http_info(id_resolution_domain_id, **kwargs)  # noqa: E501
@@ -60,11 +60,11 @@ class IdResolutionApi(object):
 
         List domain to path mappings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_id_resolution_domain_with_http_info(id_resolution_domain_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_id_resolution_domain_with_http_info(id_resolution_domain_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id_resolution_domain_id: List domain to path mappings. (required)
         :return: IdResolutionDomains
                  If the method is called asynchronously,
@@ -72,7 +72,7 @@ class IdResolutionApi(object):
         """
 
         all_params = ['id_resolution_domain_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -126,7 +126,7 @@ class IdResolutionApi(object):
             files=local_var_files,
             response_type='IdResolutionDomains',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -137,11 +137,11 @@ class IdResolutionApi(object):
 
         List domain to path mappings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_id_resolution_domains(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_id_resolution_domains(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str domains: A comma separated list specifying the domains that will be mapped with a path. Only the domains specified in this list will be mapped.
         :param str sort: The field that will be used for sorting.
         :param int limit: Return no more than this many results at once (see resume).
@@ -152,7 +152,7 @@ class IdResolutionApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_id_resolution_domains_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_id_resolution_domains_with_http_info(**kwargs)  # noqa: E501
@@ -163,11 +163,11 @@ class IdResolutionApi(object):
 
         List domain to path mappings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_id_resolution_domains_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_id_resolution_domains_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str domains: A comma separated list specifying the domains that will be mapped with a path. Only the domains specified in this list will be mapped.
         :param str sort: The field that will be used for sorting.
         :param int limit: Return no more than this many results at once (see resume).
@@ -179,7 +179,7 @@ class IdResolutionApi(object):
         """
 
         all_params = ['domains', 'sort', 'limit', 'dir', 'resume']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -256,7 +256,7 @@ class IdResolutionApi(object):
             files=local_var_files,
             response_type='IdResolutionDomainsExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -267,18 +267,18 @@ class IdResolutionApi(object):
 
         List lin to path mappings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_id_resolution_lin(id_resolution_lin_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_id_resolution_lin(id_resolution_lin_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int id_resolution_lin_id: List lin to path mappings. (required)
         :return: IdResolutionDomains
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_id_resolution_lin_with_http_info(id_resolution_lin_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_id_resolution_lin_with_http_info(id_resolution_lin_id, **kwargs)  # noqa: E501
@@ -289,11 +289,11 @@ class IdResolutionApi(object):
 
         List lin to path mappings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_id_resolution_lin_with_http_info(id_resolution_lin_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_id_resolution_lin_with_http_info(id_resolution_lin_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int id_resolution_lin_id: List lin to path mappings. (required)
         :return: IdResolutionDomains
                  If the method is called asynchronously,
@@ -301,7 +301,7 @@ class IdResolutionApi(object):
         """
 
         all_params = ['id_resolution_lin_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -355,7 +355,7 @@ class IdResolutionApi(object):
             files=local_var_files,
             response_type='IdResolutionDomains',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -366,11 +366,11 @@ class IdResolutionApi(object):
 
         List lin to path mappings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_id_resolution_lins(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_id_resolution_lins(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param str lins: A comma separated list specifying the lins that will be mapped with a path. Only the lins specified in this list will be mapped.
         :param int limit: Return no more than this many results at once (see resume).
@@ -381,7 +381,7 @@ class IdResolutionApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_id_resolution_lins_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_id_resolution_lins_with_http_info(**kwargs)  # noqa: E501
@@ -392,11 +392,11 @@ class IdResolutionApi(object):
 
         List lin to path mappings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_id_resolution_lins_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_id_resolution_lins_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param str lins: A comma separated list specifying the lins that will be mapped with a path. Only the lins specified in this list will be mapped.
         :param int limit: Return no more than this many results at once (see resume).
@@ -408,7 +408,7 @@ class IdResolutionApi(object):
         """
 
         all_params = ['sort', 'lins', 'limit', 'dir', 'resume']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -485,7 +485,7 @@ class IdResolutionApi(object):
             files=local_var_files,
             response_type='IdResolutionDomainsExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -496,18 +496,18 @@ class IdResolutionApi(object):
 
         List zone id to zone name mappings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_id_resolution_zone(id_resolution_zone_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_id_resolution_zone(id_resolution_zone_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id_resolution_zone_id: List zone id to zone name mappings. (required)
         :return: IdResolutionZones
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_id_resolution_zone_with_http_info(id_resolution_zone_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_id_resolution_zone_with_http_info(id_resolution_zone_id, **kwargs)  # noqa: E501
@@ -518,11 +518,11 @@ class IdResolutionApi(object):
 
         List zone id to zone name mappings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_id_resolution_zone_with_http_info(id_resolution_zone_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_id_resolution_zone_with_http_info(id_resolution_zone_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id_resolution_zone_id: List zone id to zone name mappings. (required)
         :return: IdResolutionZones
                  If the method is called asynchronously,
@@ -530,7 +530,7 @@ class IdResolutionApi(object):
         """
 
         all_params = ['id_resolution_zone_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -584,7 +584,7 @@ class IdResolutionApi(object):
             files=local_var_files,
             response_type='IdResolutionZones',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -595,11 +595,11 @@ class IdResolutionApi(object):
 
         List zone id to zone name mappings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_id_resolution_zones(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_id_resolution_zones(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param int limit: Return no more than this many results at once (see resume).
         :param str zone_ids: A comma separated list specifying the zone IDs to map with a zone name.
@@ -610,7 +610,7 @@ class IdResolutionApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_id_resolution_zones_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_id_resolution_zones_with_http_info(**kwargs)  # noqa: E501
@@ -621,11 +621,11 @@ class IdResolutionApi(object):
 
         List zone id to zone name mappings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_id_resolution_zones_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_id_resolution_zones_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param int limit: Return no more than this many results at once (see resume).
         :param str zone_ids: A comma separated list specifying the zone IDs to map with a zone name.
@@ -637,7 +637,7 @@ class IdResolutionApi(object):
         """
 
         all_params = ['sort', 'limit', 'zone_ids', 'dir', 'resume']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -714,7 +714,7 @@ class IdResolutionApi(object):
             files=local_var_files,
             response_type='IdResolutionZonesExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

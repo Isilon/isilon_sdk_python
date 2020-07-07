@@ -38,17 +38,17 @@ class FilesystemApi(object):
 
         Retrieve settings for access time.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_settings_access_time(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_settings_access_time(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: SettingsAccessTime
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_settings_access_time_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_settings_access_time_with_http_info(**kwargs)  # noqa: E501
@@ -59,18 +59,18 @@ class FilesystemApi(object):
 
         Retrieve settings for access time.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_settings_access_time_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_settings_access_time_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: SettingsAccessTime
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -118,7 +118,7 @@ class FilesystemApi(object):
             files=local_var_files,
             response_type='SettingsAccessTime',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -129,17 +129,17 @@ class FilesystemApi(object):
 
         Retrieve current cluster character encoding settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_settings_character_encodings(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_settings_character_encodings(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: SettingsCharacterEncodings
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_settings_character_encodings_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_settings_character_encodings_with_http_info(**kwargs)  # noqa: E501
@@ -150,18 +150,18 @@ class FilesystemApi(object):
 
         Retrieve current cluster character encoding settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_settings_character_encodings_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_settings_character_encodings_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: SettingsCharacterEncodings
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -209,7 +209,7 @@ class FilesystemApi(object):
             files=local_var_files,
             response_type='SettingsCharacterEncodings',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -220,18 +220,18 @@ class FilesystemApi(object):
 
         Set settings for access time.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_settings_access_time(settings_access_time, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_settings_access_time(settings_access_time, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SettingsAccessTimeExtended settings_access_time: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_settings_access_time_with_http_info(settings_access_time, **kwargs)  # noqa: E501
         else:
             (data) = self.update_settings_access_time_with_http_info(settings_access_time, **kwargs)  # noqa: E501
@@ -242,11 +242,11 @@ class FilesystemApi(object):
 
         Set settings for access time.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_settings_access_time_with_http_info(settings_access_time, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_settings_access_time_with_http_info(settings_access_time, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SettingsAccessTimeExtended settings_access_time: (required)
         :return: None
                  If the method is called asynchronously,
@@ -254,7 +254,7 @@ class FilesystemApi(object):
         """
 
         all_params = ['settings_access_time']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -308,7 +308,7 @@ class FilesystemApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -319,18 +319,18 @@ class FilesystemApi(object):
 
         Set current character encoding.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_settings_character_encodings(settings_character_encodings, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_settings_character_encodings(settings_character_encodings, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SettingsCharacterEncodingsExtended settings_character_encodings: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_settings_character_encodings_with_http_info(settings_character_encodings, **kwargs)  # noqa: E501
         else:
             (data) = self.update_settings_character_encodings_with_http_info(settings_character_encodings, **kwargs)  # noqa: E501
@@ -341,11 +341,11 @@ class FilesystemApi(object):
 
         Set current character encoding.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_settings_character_encodings_with_http_info(settings_character_encodings, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_settings_character_encodings_with_http_info(settings_character_encodings, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SettingsCharacterEncodingsExtended settings_character_encodings: (required)
         :return: None
                  If the method is called asynchronously,
@@ -353,7 +353,7 @@ class FilesystemApi(object):
         """
 
         all_params = ['settings_character_encodings']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -407,7 +407,7 @@ class FilesystemApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

@@ -38,18 +38,18 @@ class UpgradeApi(object):
 
         Let system absorb any remaining or new nodes inside the existing upgrade.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_cluster_add_remaining_node(cluster_add_remaining_node, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_cluster_add_remaining_node(cluster_add_remaining_node, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty cluster_add_remaining_node: (required)
         :return: Empty
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_cluster_add_remaining_node_with_http_info(cluster_add_remaining_node, **kwargs)  # noqa: E501
         else:
             (data) = self.create_cluster_add_remaining_node_with_http_info(cluster_add_remaining_node, **kwargs)  # noqa: E501
@@ -60,11 +60,11 @@ class UpgradeApi(object):
 
         Let system absorb any remaining or new nodes inside the existing upgrade.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_cluster_add_remaining_node_with_http_info(cluster_add_remaining_node, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_cluster_add_remaining_node_with_http_info(cluster_add_remaining_node, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty cluster_add_remaining_node: (required)
         :return: Empty
                  If the method is called asynchronously,
@@ -72,7 +72,7 @@ class UpgradeApi(object):
         """
 
         all_params = ['cluster_add_remaining_node']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -126,7 +126,7 @@ class UpgradeApi(object):
             files=local_var_files,
             response_type='Empty',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -137,18 +137,18 @@ class UpgradeApi(object):
 
         Start an archive of an upgrade.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_cluster_archive_item(cluster_archive_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_cluster_archive_item(cluster_archive_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param ClusterArchiveItem cluster_archive_item: (required)
         :return: Empty
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_cluster_archive_item_with_http_info(cluster_archive_item, **kwargs)  # noqa: E501
         else:
             (data) = self.create_cluster_archive_item_with_http_info(cluster_archive_item, **kwargs)  # noqa: E501
@@ -159,11 +159,11 @@ class UpgradeApi(object):
 
         Start an archive of an upgrade.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_cluster_archive_item_with_http_info(cluster_archive_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_cluster_archive_item_with_http_info(cluster_archive_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param ClusterArchiveItem cluster_archive_item: (required)
         :return: Empty
                  If the method is called asynchronously,
@@ -171,7 +171,7 @@ class UpgradeApi(object):
         """
 
         all_params = ['cluster_archive_item']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -225,7 +225,7 @@ class UpgradeApi(object):
             files=local_var_files,
             response_type='Empty',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -236,18 +236,18 @@ class UpgradeApi(object):
 
         Start upgrade assessment on cluster.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_cluster_assess_item(cluster_assess_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_cluster_assess_item(cluster_assess_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param ClusterAssessItem cluster_assess_item: (required)
         :return: Empty
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_cluster_assess_item_with_http_info(cluster_assess_item, **kwargs)  # noqa: E501
         else:
             (data) = self.create_cluster_assess_item_with_http_info(cluster_assess_item, **kwargs)  # noqa: E501
@@ -258,11 +258,11 @@ class UpgradeApi(object):
 
         Start upgrade assessment on cluster.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_cluster_assess_item_with_http_info(cluster_assess_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_cluster_assess_item_with_http_info(cluster_assess_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param ClusterAssessItem cluster_assess_item: (required)
         :return: Empty
                  If the method is called asynchronously,
@@ -270,7 +270,7 @@ class UpgradeApi(object):
         """
 
         all_params = ['cluster_assess_item']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -324,7 +324,7 @@ class UpgradeApi(object):
             files=local_var_files,
             response_type='Empty',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -335,18 +335,18 @@ class UpgradeApi(object):
 
         Commit the upgrade of a cluster.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_cluster_commit_item(cluster_commit_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_cluster_commit_item(cluster_commit_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty cluster_commit_item: (required)
         :return: Empty
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_cluster_commit_item_with_http_info(cluster_commit_item, **kwargs)  # noqa: E501
         else:
             (data) = self.create_cluster_commit_item_with_http_info(cluster_commit_item, **kwargs)  # noqa: E501
@@ -357,11 +357,11 @@ class UpgradeApi(object):
 
         Commit the upgrade of a cluster.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_cluster_commit_item_with_http_info(cluster_commit_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_cluster_commit_item_with_http_info(cluster_commit_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty cluster_commit_item: (required)
         :return: Empty
                  If the method is called asynchronously,
@@ -369,7 +369,7 @@ class UpgradeApi(object):
         """
 
         all_params = ['cluster_commit_item']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -423,7 +423,7 @@ class UpgradeApi(object):
             files=local_var_files,
             response_type='Empty',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -434,18 +434,18 @@ class UpgradeApi(object):
 
         Start firmware upgrade assessment on cluster.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_cluster_firmware_assess_item(cluster_firmware_assess_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_cluster_firmware_assess_item(cluster_firmware_assess_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty cluster_firmware_assess_item: (required)
         :return: Empty
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_cluster_firmware_assess_item_with_http_info(cluster_firmware_assess_item, **kwargs)  # noqa: E501
         else:
             (data) = self.create_cluster_firmware_assess_item_with_http_info(cluster_firmware_assess_item, **kwargs)  # noqa: E501
@@ -456,11 +456,11 @@ class UpgradeApi(object):
 
         Start firmware upgrade assessment on cluster.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_cluster_firmware_assess_item_with_http_info(cluster_firmware_assess_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_cluster_firmware_assess_item_with_http_info(cluster_firmware_assess_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty cluster_firmware_assess_item: (required)
         :return: Empty
                  If the method is called asynchronously,
@@ -468,7 +468,7 @@ class UpgradeApi(object):
         """
 
         all_params = ['cluster_firmware_assess_item']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -522,7 +522,7 @@ class UpgradeApi(object):
             files=local_var_files,
             response_type='Empty',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -533,18 +533,18 @@ class UpgradeApi(object):
 
         The settings necessary to start a firmware upgrade.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_cluster_firmware_upgrade_item(cluster_firmware_upgrade_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_cluster_firmware_upgrade_item(cluster_firmware_upgrade_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param ClusterFirmwareUpgradeItem cluster_firmware_upgrade_item: (required)
         :return: Empty
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_cluster_firmware_upgrade_item_with_http_info(cluster_firmware_upgrade_item, **kwargs)  # noqa: E501
         else:
             (data) = self.create_cluster_firmware_upgrade_item_with_http_info(cluster_firmware_upgrade_item, **kwargs)  # noqa: E501
@@ -555,11 +555,11 @@ class UpgradeApi(object):
 
         The settings necessary to start a firmware upgrade.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_cluster_firmware_upgrade_item_with_http_info(cluster_firmware_upgrade_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_cluster_firmware_upgrade_item_with_http_info(cluster_firmware_upgrade_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param ClusterFirmwareUpgradeItem cluster_firmware_upgrade_item: (required)
         :return: Empty
                  If the method is called asynchronously,
@@ -567,7 +567,7 @@ class UpgradeApi(object):
         """
 
         all_params = ['cluster_firmware_upgrade_item']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -621,7 +621,7 @@ class UpgradeApi(object):
             files=local_var_files,
             response_type='Empty',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -632,18 +632,18 @@ class UpgradeApi(object):
 
         Abort the previous action performed by the patch system.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_cluster_patch_abort_item(cluster_patch_abort_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_cluster_patch_abort_item(cluster_patch_abort_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty cluster_patch_abort_item: (required)
         :return: Empty
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_cluster_patch_abort_item_with_http_info(cluster_patch_abort_item, **kwargs)  # noqa: E501
         else:
             (data) = self.create_cluster_patch_abort_item_with_http_info(cluster_patch_abort_item, **kwargs)  # noqa: E501
@@ -654,11 +654,11 @@ class UpgradeApi(object):
 
         Abort the previous action performed by the patch system.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_cluster_patch_abort_item_with_http_info(cluster_patch_abort_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_cluster_patch_abort_item_with_http_info(cluster_patch_abort_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty cluster_patch_abort_item: (required)
         :return: Empty
                  If the method is called asynchronously,
@@ -666,7 +666,7 @@ class UpgradeApi(object):
         """
 
         all_params = ['cluster_patch_abort_item']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -720,7 +720,7 @@ class UpgradeApi(object):
             files=local_var_files,
             response_type='Empty',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -731,11 +731,11 @@ class UpgradeApi(object):
 
         Install a patch.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_cluster_patch_patch(cluster_patch_patch, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_cluster_patch_patch(cluster_patch_patch, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param ClusterPatchPatch cluster_patch_patch: (required)
         :param bool override: Whether to ignore patch system validation and force the installation.
         :param bool rolling: Whether to install the patch on one node at a time. Defaults to true.
@@ -744,7 +744,7 @@ class UpgradeApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_cluster_patch_patch_with_http_info(cluster_patch_patch, **kwargs)  # noqa: E501
         else:
             (data) = self.create_cluster_patch_patch_with_http_info(cluster_patch_patch, **kwargs)  # noqa: E501
@@ -755,11 +755,11 @@ class UpgradeApi(object):
 
         Install a patch.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_cluster_patch_patch_with_http_info(cluster_patch_patch, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_cluster_patch_patch_with_http_info(cluster_patch_patch, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param ClusterPatchPatch cluster_patch_patch: (required)
         :param bool override: Whether to ignore patch system validation and force the installation.
         :param bool rolling: Whether to install the patch on one node at a time. Defaults to true.
@@ -769,7 +769,7 @@ class UpgradeApi(object):
         """
 
         all_params = ['cluster_patch_patch', 'override', 'rolling']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -827,7 +827,7 @@ class UpgradeApi(object):
             files=local_var_files,
             response_type='CreateResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -838,18 +838,18 @@ class UpgradeApi(object):
 
         Retry the last upgrade action, in-case the previous attempt failed.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_cluster_retry_last_action_item(cluster_retry_last_action_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_cluster_retry_last_action_item(cluster_retry_last_action_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param ClusterRetryLastActionItem cluster_retry_last_action_item: (required)
         :return: Empty
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_cluster_retry_last_action_item_with_http_info(cluster_retry_last_action_item, **kwargs)  # noqa: E501
         else:
             (data) = self.create_cluster_retry_last_action_item_with_http_info(cluster_retry_last_action_item, **kwargs)  # noqa: E501
@@ -860,11 +860,11 @@ class UpgradeApi(object):
 
         Retry the last upgrade action, in-case the previous attempt failed.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_cluster_retry_last_action_item_with_http_info(cluster_retry_last_action_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_cluster_retry_last_action_item_with_http_info(cluster_retry_last_action_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param ClusterRetryLastActionItem cluster_retry_last_action_item: (required)
         :return: Empty
                  If the method is called asynchronously,
@@ -872,7 +872,7 @@ class UpgradeApi(object):
         """
 
         all_params = ['cluster_retry_last_action_item']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -926,7 +926,7 @@ class UpgradeApi(object):
             files=local_var_files,
             response_type='Empty',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -937,18 +937,18 @@ class UpgradeApi(object):
 
         Rollback the upgrade of a cluster.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_cluster_rollback_item(cluster_rollback_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_cluster_rollback_item(cluster_rollback_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty cluster_rollback_item: (required)
         :return: Empty
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_cluster_rollback_item_with_http_info(cluster_rollback_item, **kwargs)  # noqa: E501
         else:
             (data) = self.create_cluster_rollback_item_with_http_info(cluster_rollback_item, **kwargs)  # noqa: E501
@@ -959,11 +959,11 @@ class UpgradeApi(object):
 
         Rollback the upgrade of a cluster.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_cluster_rollback_item_with_http_info(cluster_rollback_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_cluster_rollback_item_with_http_info(cluster_rollback_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty cluster_rollback_item: (required)
         :return: Empty
                  If the method is called asynchronously,
@@ -971,7 +971,7 @@ class UpgradeApi(object):
         """
 
         all_params = ['cluster_rollback_item']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1025,7 +1025,7 @@ class UpgradeApi(object):
             files=local_var_files,
             response_type='Empty',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1036,18 +1036,18 @@ class UpgradeApi(object):
 
         The settings necessary to start an upgrade.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_cluster_upgrade_item(cluster_upgrade_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_cluster_upgrade_item(cluster_upgrade_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param ClusterUpgradeItem cluster_upgrade_item: (required)
         :return: Empty
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_cluster_upgrade_item_with_http_info(cluster_upgrade_item, **kwargs)  # noqa: E501
         else:
             (data) = self.create_cluster_upgrade_item_with_http_info(cluster_upgrade_item, **kwargs)  # noqa: E501
@@ -1058,11 +1058,11 @@ class UpgradeApi(object):
 
         The settings necessary to start an upgrade.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_cluster_upgrade_item_with_http_info(cluster_upgrade_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_cluster_upgrade_item_with_http_info(cluster_upgrade_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param ClusterUpgradeItem cluster_upgrade_item: (required)
         :return: Empty
                  If the method is called asynchronously,
@@ -1070,7 +1070,7 @@ class UpgradeApi(object):
         """
 
         all_params = ['cluster_upgrade_item']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1124,7 +1124,7 @@ class UpgradeApi(object):
             files=local_var_files,
             response_type='Empty',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1135,11 +1135,11 @@ class UpgradeApi(object):
 
         Uninstall a patch.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_cluster_patch_patch(cluster_patch_patch_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_cluster_patch_patch(cluster_patch_patch_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str cluster_patch_patch_id: Uninstall a patch. (required)
         :param bool override: Whether to ignore patch system validation and force the uninstallation.
         :param bool rolling: Whether to uninstall the patch on one node at a time. Defaults to true.
@@ -1148,7 +1148,7 @@ class UpgradeApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_cluster_patch_patch_with_http_info(cluster_patch_patch_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_cluster_patch_patch_with_http_info(cluster_patch_patch_id, **kwargs)  # noqa: E501
@@ -1159,11 +1159,11 @@ class UpgradeApi(object):
 
         Uninstall a patch.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_cluster_patch_patch_with_http_info(cluster_patch_patch_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_cluster_patch_patch_with_http_info(cluster_patch_patch_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str cluster_patch_patch_id: Uninstall a patch. (required)
         :param bool override: Whether to ignore patch system validation and force the uninstallation.
         :param bool rolling: Whether to uninstall the patch on one node at a time. Defaults to true.
@@ -1173,7 +1173,7 @@ class UpgradeApi(object):
         """
 
         all_params = ['cluster_patch_patch_id', 'override', 'rolling']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1231,7 +1231,7 @@ class UpgradeApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1242,17 +1242,17 @@ class UpgradeApi(object):
 
         Cluster wide firmware upgrade status info.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_cluster_firmware_progress(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_cluster_firmware_progress(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: ClusterFirmwareProgress
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_cluster_firmware_progress_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_cluster_firmware_progress_with_http_info(**kwargs)  # noqa: E501
@@ -1263,18 +1263,18 @@ class UpgradeApi(object):
 
         Cluster wide firmware upgrade status info.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_cluster_firmware_progress_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_cluster_firmware_progress_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: ClusterFirmwareProgress
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1322,7 +1322,7 @@ class UpgradeApi(object):
             files=local_var_files,
             response_type='ClusterFirmwareProgress',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1333,11 +1333,11 @@ class UpgradeApi(object):
 
         The firmware status for the cluster.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_cluster_firmware_status(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_cluster_firmware_status(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param bool devices: Show devices. If false, this returns an empty list. Default is false.
         :param bool package: Show package. If false, this returns an empty list.Default is false.
         :return: ClusterFirmwareStatus
@@ -1345,7 +1345,7 @@ class UpgradeApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_cluster_firmware_status_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_cluster_firmware_status_with_http_info(**kwargs)  # noqa: E501
@@ -1356,11 +1356,11 @@ class UpgradeApi(object):
 
         The firmware status for the cluster.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_cluster_firmware_status_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_cluster_firmware_status_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param bool devices: Show devices. If false, this returns an empty list. Default is false.
         :param bool package: Show package. If false, this returns an empty list.Default is false.
         :return: ClusterFirmwareStatus
@@ -1369,7 +1369,7 @@ class UpgradeApi(object):
         """
 
         all_params = ['devices', 'package']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1421,7 +1421,7 @@ class UpgradeApi(object):
             files=local_var_files,
             response_type='ClusterFirmwareStatus',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1432,18 +1432,18 @@ class UpgradeApi(object):
 
         The node details useful during an upgrade or assessment.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_cluster_node(cluster_node_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_cluster_node(cluster_node_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int cluster_node_id: The node details useful during an upgrade or assessment. (required)
         :return: ClusterNodesExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_cluster_node_with_http_info(cluster_node_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_cluster_node_with_http_info(cluster_node_id, **kwargs)  # noqa: E501
@@ -1454,11 +1454,11 @@ class UpgradeApi(object):
 
         The node details useful during an upgrade or assessment.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_cluster_node_with_http_info(cluster_node_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_cluster_node_with_http_info(cluster_node_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int cluster_node_id: The node details useful during an upgrade or assessment. (required)
         :return: ClusterNodesExtended
                  If the method is called asynchronously,
@@ -1466,7 +1466,7 @@ class UpgradeApi(object):
         """
 
         all_params = ['cluster_node_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1520,7 +1520,7 @@ class UpgradeApi(object):
             files=local_var_files,
             response_type='ClusterNodesExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1531,17 +1531,17 @@ class UpgradeApi(object):
 
         View information about nodes during an upgrade, rollback, or pre-upgrade assessment.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_cluster_nodes(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_cluster_nodes(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: ClusterNodesExtendedExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_cluster_nodes_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_cluster_nodes_with_http_info(**kwargs)  # noqa: E501
@@ -1552,18 +1552,18 @@ class UpgradeApi(object):
 
         View information about nodes during an upgrade, rollback, or pre-upgrade assessment.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_cluster_nodes_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_cluster_nodes_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: ClusterNodesExtendedExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1611,7 +1611,7 @@ class UpgradeApi(object):
             files=local_var_files,
             response_type='ClusterNodesExtendedExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1622,11 +1622,11 @@ class UpgradeApi(object):
 
         View a single patch.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_cluster_patch_patch(cluster_patch_patch_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_cluster_patch_patch(cluster_patch_patch_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str cluster_patch_patch_id: View a single patch. (required)
         :param bool local: Only view patch information on the local node.
         :param str location: Path location of patch file.
@@ -1635,7 +1635,7 @@ class UpgradeApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_cluster_patch_patch_with_http_info(cluster_patch_patch_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_cluster_patch_patch_with_http_info(cluster_patch_patch_id, **kwargs)  # noqa: E501
@@ -1646,11 +1646,11 @@ class UpgradeApi(object):
 
         View a single patch.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_cluster_patch_patch_with_http_info(cluster_patch_patch_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_cluster_patch_patch_with_http_info(cluster_patch_patch_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str cluster_patch_patch_id: View a single patch. (required)
         :param bool local: Only view patch information on the local node.
         :param str location: Path location of patch file.
@@ -1660,7 +1660,7 @@ class UpgradeApi(object):
         """
 
         all_params = ['cluster_patch_patch_id', 'local', 'location']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1718,7 +1718,7 @@ class UpgradeApi(object):
             files=local_var_files,
             response_type='ClusterPatchPatches',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1729,17 +1729,17 @@ class UpgradeApi(object):
 
         Cluster wide upgrade status info.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_upgrade_cluster(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_upgrade_cluster(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: UpgradeCluster
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_upgrade_cluster_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_upgrade_cluster_with_http_info(**kwargs)  # noqa: E501
@@ -1750,18 +1750,18 @@ class UpgradeApi(object):
 
         Cluster wide upgrade status info.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_upgrade_cluster_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_upgrade_cluster_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: UpgradeCluster
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1809,7 +1809,7 @@ class UpgradeApi(object):
             files=local_var_files,
             response_type='UpgradeCluster',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1820,11 +1820,11 @@ class UpgradeApi(object):
 
         List all patches.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_cluster_patch_patches(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_cluster_patch_patches(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param bool local: Whether to view patches on the local node only.
         :param int limit: Return no more than this many results at once (see resume).
@@ -1835,7 +1835,7 @@ class UpgradeApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_cluster_patch_patches_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_cluster_patch_patches_with_http_info(**kwargs)  # noqa: E501
@@ -1846,11 +1846,11 @@ class UpgradeApi(object):
 
         List all patches.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_cluster_patch_patches_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_cluster_patch_patches_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param bool local: Whether to view patches on the local node only.
         :param int limit: Return no more than this many results at once (see resume).
@@ -1862,7 +1862,7 @@ class UpgradeApi(object):
         """
 
         all_params = ['sort', 'local', 'limit', 'dir', 'resume']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1922,7 +1922,7 @@ class UpgradeApi(object):
             files=local_var_files,
             response_type='ClusterPatchPatchesExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1933,18 +1933,18 @@ class UpgradeApi(object):
 
         Add nodes to a running upgrade.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_cluster_upgrade(cluster_upgrade, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_cluster_upgrade(cluster_upgrade, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param ClusterUpgrade cluster_upgrade: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_cluster_upgrade_with_http_info(cluster_upgrade, **kwargs)  # noqa: E501
         else:
             (data) = self.update_cluster_upgrade_with_http_info(cluster_upgrade, **kwargs)  # noqa: E501
@@ -1955,11 +1955,11 @@ class UpgradeApi(object):
 
         Add nodes to a running upgrade.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_cluster_upgrade_with_http_info(cluster_upgrade, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_cluster_upgrade_with_http_info(cluster_upgrade, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param ClusterUpgrade cluster_upgrade: (required)
         :return: None
                  If the method is called asynchronously,
@@ -1967,7 +1967,7 @@ class UpgradeApi(object):
         """
 
         all_params = ['cluster_upgrade']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2021,7 +2021,7 @@ class UpgradeApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

@@ -38,11 +38,11 @@ class ClusterNodesApi(object):
 
         Add a drive to a node.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_drives_drive_add_item(drives_drive_add_item, lnn, driveid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_drives_drive_add_item(drives_drive_add_item, lnn, driveid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty drives_drive_add_item: (required)
         :param int lnn: (required)
         :param str driveid: (required)
@@ -51,7 +51,7 @@ class ClusterNodesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_drives_drive_add_item_with_http_info(drives_drive_add_item, lnn, driveid, **kwargs)  # noqa: E501
         else:
             (data) = self.create_drives_drive_add_item_with_http_info(drives_drive_add_item, lnn, driveid, **kwargs)  # noqa: E501
@@ -62,11 +62,11 @@ class ClusterNodesApi(object):
 
         Add a drive to a node.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_drives_drive_add_item_with_http_info(drives_drive_add_item, lnn, driveid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_drives_drive_add_item_with_http_info(drives_drive_add_item, lnn, driveid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty drives_drive_add_item: (required)
         :param int lnn: (required)
         :param str driveid: (required)
@@ -76,7 +76,7 @@ class ClusterNodesApi(object):
         """
 
         all_params = ['drives_drive_add_item', 'lnn', 'driveid']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -142,7 +142,7 @@ class ClusterNodesApi(object):
             files=local_var_files,
             response_type='Empty',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -153,11 +153,11 @@ class ClusterNodesApi(object):
 
         Start a drive firmware update.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_drives_drive_firmware_update_item(drives_drive_firmware_update_item, lnn, driveid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_drives_drive_firmware_update_item(drives_drive_firmware_update_item, lnn, driveid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param DrivesDriveFirmwareUpdateItem drives_drive_firmware_update_item: (required)
         :param int lnn: (required)
         :param str driveid: (required)
@@ -166,7 +166,7 @@ class ClusterNodesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_drives_drive_firmware_update_item_with_http_info(drives_drive_firmware_update_item, lnn, driveid, **kwargs)  # noqa: E501
         else:
             (data) = self.create_drives_drive_firmware_update_item_with_http_info(drives_drive_firmware_update_item, lnn, driveid, **kwargs)  # noqa: E501
@@ -177,11 +177,11 @@ class ClusterNodesApi(object):
 
         Start a drive firmware update.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_drives_drive_firmware_update_item_with_http_info(drives_drive_firmware_update_item, lnn, driveid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_drives_drive_firmware_update_item_with_http_info(drives_drive_firmware_update_item, lnn, driveid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param DrivesDriveFirmwareUpdateItem drives_drive_firmware_update_item: (required)
         :param int lnn: (required)
         :param str driveid: (required)
@@ -191,7 +191,7 @@ class ClusterNodesApi(object):
         """
 
         all_params = ['drives_drive_firmware_update_item', 'lnn', 'driveid']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -257,7 +257,7 @@ class ClusterNodesApi(object):
             files=local_var_files,
             response_type='Empty',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -268,11 +268,11 @@ class ClusterNodesApi(object):
 
         Format a drive for use by OneFS.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_drives_drive_format_item(drives_drive_format_item, lnn, driveid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_drives_drive_format_item(drives_drive_format_item, lnn, driveid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param DrivesDriveFormatItem drives_drive_format_item: (required)
         :param int lnn: (required)
         :param str driveid: (required)
@@ -281,7 +281,7 @@ class ClusterNodesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_drives_drive_format_item_with_http_info(drives_drive_format_item, lnn, driveid, **kwargs)  # noqa: E501
         else:
             (data) = self.create_drives_drive_format_item_with_http_info(drives_drive_format_item, lnn, driveid, **kwargs)  # noqa: E501
@@ -292,11 +292,11 @@ class ClusterNodesApi(object):
 
         Format a drive for use by OneFS.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_drives_drive_format_item_with_http_info(drives_drive_format_item, lnn, driveid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_drives_drive_format_item_with_http_info(drives_drive_format_item, lnn, driveid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param DrivesDriveFormatItem drives_drive_format_item: (required)
         :param int lnn: (required)
         :param str driveid: (required)
@@ -306,7 +306,7 @@ class ClusterNodesApi(object):
         """
 
         all_params = ['drives_drive_format_item', 'lnn', 'driveid']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -372,7 +372,7 @@ class ClusterNodesApi(object):
             files=local_var_files,
             response_type='Empty',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -383,11 +383,11 @@ class ClusterNodesApi(object):
 
         Assign a drive to a specific use case.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_drives_drive_purpose_item(drives_drive_purpose_item, lnn, driveid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_drives_drive_purpose_item(drives_drive_purpose_item, lnn, driveid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param DrivesDrivePurposeItem drives_drive_purpose_item: (required)
         :param int lnn: (required)
         :param str driveid: (required)
@@ -396,7 +396,7 @@ class ClusterNodesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_drives_drive_purpose_item_with_http_info(drives_drive_purpose_item, lnn, driveid, **kwargs)  # noqa: E501
         else:
             (data) = self.create_drives_drive_purpose_item_with_http_info(drives_drive_purpose_item, lnn, driveid, **kwargs)  # noqa: E501
@@ -407,11 +407,11 @@ class ClusterNodesApi(object):
 
         Assign a drive to a specific use case.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_drives_drive_purpose_item_with_http_info(drives_drive_purpose_item, lnn, driveid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_drives_drive_purpose_item_with_http_info(drives_drive_purpose_item, lnn, driveid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param DrivesDrivePurposeItem drives_drive_purpose_item: (required)
         :param int lnn: (required)
         :param str driveid: (required)
@@ -421,7 +421,7 @@ class ClusterNodesApi(object):
         """
 
         all_params = ['drives_drive_purpose_item', 'lnn', 'driveid']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -487,7 +487,7 @@ class ClusterNodesApi(object):
             files=local_var_files,
             response_type='Empty',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -498,11 +498,11 @@ class ClusterNodesApi(object):
 
         Remove a drive from use by OneFS.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_drives_drive_smartfail_item(drives_drive_smartfail_item, lnn, driveid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_drives_drive_smartfail_item(drives_drive_smartfail_item, lnn, driveid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty drives_drive_smartfail_item: (required)
         :param int lnn: (required)
         :param str driveid: (required)
@@ -511,7 +511,7 @@ class ClusterNodesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_drives_drive_smartfail_item_with_http_info(drives_drive_smartfail_item, lnn, driveid, **kwargs)  # noqa: E501
         else:
             (data) = self.create_drives_drive_smartfail_item_with_http_info(drives_drive_smartfail_item, lnn, driveid, **kwargs)  # noqa: E501
@@ -522,11 +522,11 @@ class ClusterNodesApi(object):
 
         Remove a drive from use by OneFS.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_drives_drive_smartfail_item_with_http_info(drives_drive_smartfail_item, lnn, driveid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_drives_drive_smartfail_item_with_http_info(drives_drive_smartfail_item, lnn, driveid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty drives_drive_smartfail_item: (required)
         :param int lnn: (required)
         :param str driveid: (required)
@@ -536,7 +536,7 @@ class ClusterNodesApi(object):
         """
 
         all_params = ['drives_drive_smartfail_item', 'lnn', 'driveid']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -602,7 +602,7 @@ class ClusterNodesApi(object):
             files=local_var_files,
             response_type='Empty',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -613,11 +613,11 @@ class ClusterNodesApi(object):
 
         Stop restriping from a smartfailing drive.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_drives_drive_stopfail_item(drives_drive_stopfail_item, lnn, driveid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_drives_drive_stopfail_item(drives_drive_stopfail_item, lnn, driveid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty drives_drive_stopfail_item: (required)
         :param int lnn: (required)
         :param str driveid: (required)
@@ -626,7 +626,7 @@ class ClusterNodesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_drives_drive_stopfail_item_with_http_info(drives_drive_stopfail_item, lnn, driveid, **kwargs)  # noqa: E501
         else:
             (data) = self.create_drives_drive_stopfail_item_with_http_info(drives_drive_stopfail_item, lnn, driveid, **kwargs)  # noqa: E501
@@ -637,11 +637,11 @@ class ClusterNodesApi(object):
 
         Stop restriping from a smartfailing drive.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_drives_drive_stopfail_item_with_http_info(drives_drive_stopfail_item, lnn, driveid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_drives_drive_stopfail_item_with_http_info(drives_drive_stopfail_item, lnn, driveid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty drives_drive_stopfail_item: (required)
         :param int lnn: (required)
         :param str driveid: (required)
@@ -651,7 +651,7 @@ class ClusterNodesApi(object):
         """
 
         all_params = ['drives_drive_stopfail_item', 'lnn', 'driveid']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -717,7 +717,7 @@ class ClusterNodesApi(object):
             files=local_var_files,
             response_type='Empty',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -728,11 +728,11 @@ class ClusterNodesApi(object):
 
         Temporarily remove a drive from use by OneFS.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_drives_drive_suspend_item(drives_drive_suspend_item, lnn, driveid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_drives_drive_suspend_item(drives_drive_suspend_item, lnn, driveid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty drives_drive_suspend_item: (required)
         :param int lnn: (required)
         :param str driveid: (required)
@@ -741,7 +741,7 @@ class ClusterNodesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_drives_drive_suspend_item_with_http_info(drives_drive_suspend_item, lnn, driveid, **kwargs)  # noqa: E501
         else:
             (data) = self.create_drives_drive_suspend_item_with_http_info(drives_drive_suspend_item, lnn, driveid, **kwargs)  # noqa: E501
@@ -752,11 +752,11 @@ class ClusterNodesApi(object):
 
         Temporarily remove a drive from use by OneFS.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_drives_drive_suspend_item_with_http_info(drives_drive_suspend_item, lnn, driveid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_drives_drive_suspend_item_with_http_info(drives_drive_suspend_item, lnn, driveid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty drives_drive_suspend_item: (required)
         :param int lnn: (required)
         :param str driveid: (required)
@@ -766,7 +766,7 @@ class ClusterNodesApi(object):
         """
 
         all_params = ['drives_drive_suspend_item', 'lnn', 'driveid']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -832,7 +832,7 @@ class ClusterNodesApi(object):
             files=local_var_files,
             response_type='Empty',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -843,11 +843,11 @@ class ClusterNodesApi(object):
 
         Reboot the node specified by <LNN>.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_node_reboot_item(node_reboot_item, lnn, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_node_reboot_item(node_reboot_item, lnn, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty node_reboot_item: (required)
         :param int lnn: (required)
         :return: Empty
@@ -855,7 +855,7 @@ class ClusterNodesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_node_reboot_item_with_http_info(node_reboot_item, lnn, **kwargs)  # noqa: E501
         else:
             (data) = self.create_node_reboot_item_with_http_info(node_reboot_item, lnn, **kwargs)  # noqa: E501
@@ -866,11 +866,11 @@ class ClusterNodesApi(object):
 
         Reboot the node specified by <LNN>.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_node_reboot_item_with_http_info(node_reboot_item, lnn, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_node_reboot_item_with_http_info(node_reboot_item, lnn, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty node_reboot_item: (required)
         :param int lnn: (required)
         :return: Empty
@@ -879,7 +879,7 @@ class ClusterNodesApi(object):
         """
 
         all_params = ['node_reboot_item', 'lnn']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -939,7 +939,7 @@ class ClusterNodesApi(object):
             files=local_var_files,
             response_type='Empty',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -950,11 +950,11 @@ class ClusterNodesApi(object):
 
         Shutdown the node specified by <LNN>.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_node_shutdown_item(node_shutdown_item, lnn, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_node_shutdown_item(node_shutdown_item, lnn, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty node_shutdown_item: (required)
         :param int lnn: (required)
         :return: Empty
@@ -962,7 +962,7 @@ class ClusterNodesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_node_shutdown_item_with_http_info(node_shutdown_item, lnn, **kwargs)  # noqa: E501
         else:
             (data) = self.create_node_shutdown_item_with_http_info(node_shutdown_item, lnn, **kwargs)  # noqa: E501
@@ -973,11 +973,11 @@ class ClusterNodesApi(object):
 
         Shutdown the node specified by <LNN>.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_node_shutdown_item_with_http_info(node_shutdown_item, lnn, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_node_shutdown_item_with_http_info(node_shutdown_item, lnn, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty node_shutdown_item: (required)
         :param int lnn: (required)
         :return: Empty
@@ -986,7 +986,7 @@ class ClusterNodesApi(object):
         """
 
         all_params = ['node_shutdown_item', 'lnn']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1046,7 +1046,7 @@ class ClusterNodesApi(object):
             files=local_var_files,
             response_type='Empty',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1057,11 +1057,11 @@ class ClusterNodesApi(object):
 
         Retrieve drive firmware information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_drives_drive_firmware(lnn, driveid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_drives_drive_firmware(lnn, driveid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int lnn: (required)
         :param str driveid: (required)
         :return: DrivesDriveFirmware
@@ -1069,7 +1069,7 @@ class ClusterNodesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_drives_drive_firmware_with_http_info(lnn, driveid, **kwargs)  # noqa: E501
         else:
             (data) = self.get_drives_drive_firmware_with_http_info(lnn, driveid, **kwargs)  # noqa: E501
@@ -1080,11 +1080,11 @@ class ClusterNodesApi(object):
 
         Retrieve drive firmware information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_drives_drive_firmware_with_http_info(lnn, driveid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_drives_drive_firmware_with_http_info(lnn, driveid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int lnn: (required)
         :param str driveid: (required)
         :return: DrivesDriveFirmware
@@ -1093,7 +1093,7 @@ class ClusterNodesApi(object):
         """
 
         all_params = ['lnn', 'driveid']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1153,7 +1153,7 @@ class ClusterNodesApi(object):
             files=local_var_files,
             response_type='DrivesDriveFirmware',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1164,11 +1164,11 @@ class ClusterNodesApi(object):
 
         Retrieve drive information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_node_drive(node_drive_id, lnn, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_node_drive(node_drive_id, lnn, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str node_drive_id: Retrieve drive information. (required)
         :param int lnn: (required)
         :return: NodeDrives
@@ -1176,7 +1176,7 @@ class ClusterNodesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_node_drive_with_http_info(node_drive_id, lnn, **kwargs)  # noqa: E501
         else:
             (data) = self.get_node_drive_with_http_info(node_drive_id, lnn, **kwargs)  # noqa: E501
@@ -1187,11 +1187,11 @@ class ClusterNodesApi(object):
 
         Retrieve drive information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_node_drive_with_http_info(node_drive_id, lnn, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_node_drive_with_http_info(node_drive_id, lnn, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str node_drive_id: Retrieve drive information. (required)
         :param int lnn: (required)
         :return: NodeDrives
@@ -1200,7 +1200,7 @@ class ClusterNodesApi(object):
         """
 
         all_params = ['node_drive_id', 'lnn']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1260,7 +1260,7 @@ class ClusterNodesApi(object):
             files=local_var_files,
             response_type='NodeDrives',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1271,18 +1271,18 @@ class ClusterNodesApi(object):
 
         List the drives on this node.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_node_drives(lnn, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_node_drives(lnn, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int lnn: (required)
         :return: NodeDrives
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_node_drives_with_http_info(lnn, **kwargs)  # noqa: E501
         else:
             (data) = self.get_node_drives_with_http_info(lnn, **kwargs)  # noqa: E501
@@ -1293,11 +1293,11 @@ class ClusterNodesApi(object):
 
         List the drives on this node.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_node_drives_with_http_info(lnn, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_node_drives_with_http_info(lnn, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int lnn: (required)
         :return: NodeDrives
                  If the method is called asynchronously,
@@ -1305,7 +1305,7 @@ class ClusterNodesApi(object):
         """
 
         all_params = ['lnn']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1359,7 +1359,7 @@ class ClusterNodesApi(object):
             files=local_var_files,
             response_type='NodeDrives',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1370,18 +1370,18 @@ class ClusterNodesApi(object):
 
         Lists the available purposes for drives in this node.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_node_drives_purposelist(lnn, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_node_drives_purposelist(lnn, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int lnn: (required)
         :return: NodeDrivesPurposelist
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_node_drives_purposelist_with_http_info(lnn, **kwargs)  # noqa: E501
         else:
             (data) = self.get_node_drives_purposelist_with_http_info(lnn, **kwargs)  # noqa: E501
@@ -1392,11 +1392,11 @@ class ClusterNodesApi(object):
 
         Lists the available purposes for drives in this node.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_node_drives_purposelist_with_http_info(lnn, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_node_drives_purposelist_with_http_info(lnn, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int lnn: (required)
         :return: NodeDrivesPurposelist
                  If the method is called asynchronously,
@@ -1404,7 +1404,7 @@ class ClusterNodesApi(object):
         """
 
         all_params = ['lnn']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1458,7 +1458,7 @@ class ClusterNodesApi(object):
             files=local_var_files,
             response_type='NodeDrivesPurposelist',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1469,18 +1469,18 @@ class ClusterNodesApi(object):
 
         Retrieve node hardware identity information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_node_hardware(lnn, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_node_hardware(lnn, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int lnn: (required)
         :return: NodeHardware
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_node_hardware_with_http_info(lnn, **kwargs)  # noqa: E501
         else:
             (data) = self.get_node_hardware_with_http_info(lnn, **kwargs)  # noqa: E501
@@ -1491,11 +1491,11 @@ class ClusterNodesApi(object):
 
         Retrieve node hardware identity information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_node_hardware_with_http_info(lnn, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_node_hardware_with_http_info(lnn, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int lnn: (required)
         :return: NodeHardware
                  If the method is called asynchronously,
@@ -1503,7 +1503,7 @@ class ClusterNodesApi(object):
         """
 
         all_params = ['lnn']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1557,7 +1557,7 @@ class ClusterNodesApi(object):
             files=local_var_files,
             response_type='NodeHardware',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1568,18 +1568,18 @@ class ClusterNodesApi(object):
 
         Quickly retrieve a subset of node hardware identity information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_node_hardware_fast(lnn, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_node_hardware_fast(lnn, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int lnn: (required)
         :return: NodeHardwareFast
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_node_hardware_fast_with_http_info(lnn, **kwargs)  # noqa: E501
         else:
             (data) = self.get_node_hardware_fast_with_http_info(lnn, **kwargs)  # noqa: E501
@@ -1590,11 +1590,11 @@ class ClusterNodesApi(object):
 
         Quickly retrieve a subset of node hardware identity information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_node_hardware_fast_with_http_info(lnn, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_node_hardware_fast_with_http_info(lnn, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int lnn: (required)
         :return: NodeHardwareFast
                  If the method is called asynchronously,
@@ -1602,7 +1602,7 @@ class ClusterNodesApi(object):
         """
 
         all_params = ['lnn']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1656,7 +1656,7 @@ class ClusterNodesApi(object):
             files=local_var_files,
             response_type='NodeHardwareFast',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1667,18 +1667,18 @@ class ClusterNodesApi(object):
 
         Retrieve node partition information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_node_partitions(lnn, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_node_partitions(lnn, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int lnn: (required)
         :return: NodePartitions
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_node_partitions_with_http_info(lnn, **kwargs)  # noqa: E501
         else:
             (data) = self.get_node_partitions_with_http_info(lnn, **kwargs)  # noqa: E501
@@ -1689,11 +1689,11 @@ class ClusterNodesApi(object):
 
         Retrieve node partition information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_node_partitions_with_http_info(lnn, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_node_partitions_with_http_info(lnn, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int lnn: (required)
         :return: NodePartitions
                  If the method is called asynchronously,
@@ -1701,7 +1701,7 @@ class ClusterNodesApi(object):
         """
 
         all_params = ['lnn']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1755,7 +1755,7 @@ class ClusterNodesApi(object):
             files=local_var_files,
             response_type='NodePartitions',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1766,18 +1766,18 @@ class ClusterNodesApi(object):
 
         Retrieve node sensor information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_node_sensors(lnn, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_node_sensors(lnn, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int lnn: (required)
         :return: NodeSensors
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_node_sensors_with_http_info(lnn, **kwargs)  # noqa: E501
         else:
             (data) = self.get_node_sensors_with_http_info(lnn, **kwargs)  # noqa: E501
@@ -1788,11 +1788,11 @@ class ClusterNodesApi(object):
 
         Retrieve node sensor information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_node_sensors_with_http_info(lnn, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_node_sensors_with_http_info(lnn, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int lnn: (required)
         :return: NodeSensors
                  If the method is called asynchronously,
@@ -1800,7 +1800,7 @@ class ClusterNodesApi(object):
         """
 
         all_params = ['lnn']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1854,7 +1854,7 @@ class ClusterNodesApi(object):
             files=local_var_files,
             response_type='NodeSensors',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1865,18 +1865,18 @@ class ClusterNodesApi(object):
 
         Retrieve node state information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_node_state(lnn, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_node_state(lnn, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int lnn: (required)
         :return: NodeState
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_node_state_with_http_info(lnn, **kwargs)  # noqa: E501
         else:
             (data) = self.get_node_state_with_http_info(lnn, **kwargs)  # noqa: E501
@@ -1887,11 +1887,11 @@ class ClusterNodesApi(object):
 
         Retrieve node state information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_node_state_with_http_info(lnn, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_node_state_with_http_info(lnn, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int lnn: (required)
         :return: NodeState
                  If the method is called asynchronously,
@@ -1899,7 +1899,7 @@ class ClusterNodesApi(object):
         """
 
         all_params = ['lnn']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1953,7 +1953,7 @@ class ClusterNodesApi(object):
             files=local_var_files,
             response_type='NodeState',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1964,18 +1964,18 @@ class ClusterNodesApi(object):
 
         Retrieve node readonly state information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_node_state_readonly(lnn, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_node_state_readonly(lnn, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int lnn: (required)
         :return: NodeStateReadonly
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_node_state_readonly_with_http_info(lnn, **kwargs)  # noqa: E501
         else:
             (data) = self.get_node_state_readonly_with_http_info(lnn, **kwargs)  # noqa: E501
@@ -1986,11 +1986,11 @@ class ClusterNodesApi(object):
 
         Retrieve node readonly state information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_node_state_readonly_with_http_info(lnn, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_node_state_readonly_with_http_info(lnn, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int lnn: (required)
         :return: NodeStateReadonly
                  If the method is called asynchronously,
@@ -1998,7 +1998,7 @@ class ClusterNodesApi(object):
         """
 
         all_params = ['lnn']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2052,7 +2052,7 @@ class ClusterNodesApi(object):
             files=local_var_files,
             response_type='NodeStateReadonly',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2063,18 +2063,18 @@ class ClusterNodesApi(object):
 
         Retrieve node service light state information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_node_state_servicelight(lnn, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_node_state_servicelight(lnn, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int lnn: (required)
         :return: NodeStateServicelight
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_node_state_servicelight_with_http_info(lnn, **kwargs)  # noqa: E501
         else:
             (data) = self.get_node_state_servicelight_with_http_info(lnn, **kwargs)  # noqa: E501
@@ -2085,11 +2085,11 @@ class ClusterNodesApi(object):
 
         Retrieve node service light state information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_node_state_servicelight_with_http_info(lnn, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_node_state_servicelight_with_http_info(lnn, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int lnn: (required)
         :return: NodeStateServicelight
                  If the method is called asynchronously,
@@ -2097,7 +2097,7 @@ class ClusterNodesApi(object):
         """
 
         all_params = ['lnn']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2151,7 +2151,7 @@ class ClusterNodesApi(object):
             files=local_var_files,
             response_type='NodeStateServicelight',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2162,18 +2162,18 @@ class ClusterNodesApi(object):
 
         Retrieve node smartfail state information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_node_state_smartfail(lnn, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_node_state_smartfail(lnn, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int lnn: (required)
         :return: NodeStateSmartfail
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_node_state_smartfail_with_http_info(lnn, **kwargs)  # noqa: E501
         else:
             (data) = self.get_node_state_smartfail_with_http_info(lnn, **kwargs)  # noqa: E501
@@ -2184,11 +2184,11 @@ class ClusterNodesApi(object):
 
         Retrieve node smartfail state information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_node_state_smartfail_with_http_info(lnn, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_node_state_smartfail_with_http_info(lnn, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int lnn: (required)
         :return: NodeStateSmartfail
                  If the method is called asynchronously,
@@ -2196,7 +2196,7 @@ class ClusterNodesApi(object):
         """
 
         all_params = ['lnn']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2250,7 +2250,7 @@ class ClusterNodesApi(object):
             files=local_var_files,
             response_type='NodeStateSmartfail',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2261,18 +2261,18 @@ class ClusterNodesApi(object):
 
         Retrieve node status information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_node_status(lnn, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_node_status(lnn, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int lnn: (required)
         :return: NodeStatus
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_node_status_with_http_info(lnn, **kwargs)  # noqa: E501
         else:
             (data) = self.get_node_status_with_http_info(lnn, **kwargs)  # noqa: E501
@@ -2283,11 +2283,11 @@ class ClusterNodesApi(object):
 
         Retrieve node status information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_node_status_with_http_info(lnn, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_node_status_with_http_info(lnn, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int lnn: (required)
         :return: NodeStatus
                  If the method is called asynchronously,
@@ -2295,7 +2295,7 @@ class ClusterNodesApi(object):
         """
 
         all_params = ['lnn']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2349,7 +2349,7 @@ class ClusterNodesApi(object):
             files=local_var_files,
             response_type='NodeStatus',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2360,18 +2360,18 @@ class ClusterNodesApi(object):
 
         Retrieve node battery status information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_node_status_batterystatus(lnn, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_node_status_batterystatus(lnn, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int lnn: (required)
         :return: NodeStatusBatterystatus
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_node_status_batterystatus_with_http_info(lnn, **kwargs)  # noqa: E501
         else:
             (data) = self.get_node_status_batterystatus_with_http_info(lnn, **kwargs)  # noqa: E501
@@ -2382,11 +2382,11 @@ class ClusterNodesApi(object):
 
         Retrieve node battery status information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_node_status_batterystatus_with_http_info(lnn, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_node_status_batterystatus_with_http_info(lnn, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int lnn: (required)
         :return: NodeStatusBatterystatus
                  If the method is called asynchronously,
@@ -2394,7 +2394,7 @@ class ClusterNodesApi(object):
         """
 
         all_params = ['lnn']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2448,7 +2448,7 @@ class ClusterNodesApi(object):
             files=local_var_files,
             response_type='NodeStatusBatterystatus',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2459,11 +2459,11 @@ class ClusterNodesApi(object):
 
         Retrieve firmware update information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_drives_drive_firmware_update(lnn, driveid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_drives_drive_firmware_update(lnn, driveid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int lnn: (required)
         :param str driveid: (required)
         :return: DrivesDriveFirmwareUpdate
@@ -2471,7 +2471,7 @@ class ClusterNodesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_drives_drive_firmware_update_with_http_info(lnn, driveid, **kwargs)  # noqa: E501
         else:
             (data) = self.list_drives_drive_firmware_update_with_http_info(lnn, driveid, **kwargs)  # noqa: E501
@@ -2482,11 +2482,11 @@ class ClusterNodesApi(object):
 
         Retrieve firmware update information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_drives_drive_firmware_update_with_http_info(lnn, driveid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_drives_drive_firmware_update_with_http_info(lnn, driveid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int lnn: (required)
         :param str driveid: (required)
         :return: DrivesDriveFirmwareUpdate
@@ -2495,7 +2495,7 @@ class ClusterNodesApi(object):
         """
 
         all_params = ['lnn', 'driveid']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2555,7 +2555,7 @@ class ClusterNodesApi(object):
             files=local_var_files,
             response_type='DrivesDriveFirmwareUpdate',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2566,11 +2566,11 @@ class ClusterNodesApi(object):
 
         Modify one or more node readonly state settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_node_state_readonly(node_state_readonly, lnn, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_node_state_readonly(node_state_readonly, lnn, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NodeStateReadonlyExtended node_state_readonly: (required)
         :param int lnn: (required)
         :return: None
@@ -2578,7 +2578,7 @@ class ClusterNodesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_node_state_readonly_with_http_info(node_state_readonly, lnn, **kwargs)  # noqa: E501
         else:
             (data) = self.update_node_state_readonly_with_http_info(node_state_readonly, lnn, **kwargs)  # noqa: E501
@@ -2589,11 +2589,11 @@ class ClusterNodesApi(object):
 
         Modify one or more node readonly state settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_node_state_readonly_with_http_info(node_state_readonly, lnn, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_node_state_readonly_with_http_info(node_state_readonly, lnn, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NodeStateReadonlyExtended node_state_readonly: (required)
         :param int lnn: (required)
         :return: None
@@ -2602,7 +2602,7 @@ class ClusterNodesApi(object):
         """
 
         all_params = ['node_state_readonly', 'lnn']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2662,7 +2662,7 @@ class ClusterNodesApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2673,11 +2673,11 @@ class ClusterNodesApi(object):
 
         Modify one or more node service light state settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_node_state_servicelight(node_state_servicelight, lnn, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_node_state_servicelight(node_state_servicelight, lnn, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NodeStateServicelightExtended node_state_servicelight: (required)
         :param int lnn: (required)
         :return: None
@@ -2685,7 +2685,7 @@ class ClusterNodesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_node_state_servicelight_with_http_info(node_state_servicelight, lnn, **kwargs)  # noqa: E501
         else:
             (data) = self.update_node_state_servicelight_with_http_info(node_state_servicelight, lnn, **kwargs)  # noqa: E501
@@ -2696,11 +2696,11 @@ class ClusterNodesApi(object):
 
         Modify one or more node service light state settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_node_state_servicelight_with_http_info(node_state_servicelight, lnn, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_node_state_servicelight_with_http_info(node_state_servicelight, lnn, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NodeStateServicelightExtended node_state_servicelight: (required)
         :param int lnn: (required)
         :return: None
@@ -2709,7 +2709,7 @@ class ClusterNodesApi(object):
         """
 
         all_params = ['node_state_servicelight', 'lnn']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2769,7 +2769,7 @@ class ClusterNodesApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2780,11 +2780,11 @@ class ClusterNodesApi(object):
 
         Modify smartfail state of the node.  Only the 'smartfailed' body member has any effect on node smartfail state.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_node_state_smartfail(node_state_smartfail, lnn, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_node_state_smartfail(node_state_smartfail, lnn, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NodeStateSmartfailExtended node_state_smartfail: (required)
         :param int lnn: (required)
         :return: None
@@ -2792,7 +2792,7 @@ class ClusterNodesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_node_state_smartfail_with_http_info(node_state_smartfail, lnn, **kwargs)  # noqa: E501
         else:
             (data) = self.update_node_state_smartfail_with_http_info(node_state_smartfail, lnn, **kwargs)  # noqa: E501
@@ -2803,11 +2803,11 @@ class ClusterNodesApi(object):
 
         Modify smartfail state of the node.  Only the 'smartfailed' body member has any effect on node smartfail state.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_node_state_smartfail_with_http_info(node_state_smartfail, lnn, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_node_state_smartfail_with_http_info(node_state_smartfail, lnn, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param NodeStateSmartfailExtended node_state_smartfail: (required)
         :param int lnn: (required)
         :return: None
@@ -2816,7 +2816,7 @@ class ClusterNodesApi(object):
         """
 
         all_params = ['node_state_smartfail', 'lnn']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2876,7 +2876,7 @@ class ClusterNodesApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

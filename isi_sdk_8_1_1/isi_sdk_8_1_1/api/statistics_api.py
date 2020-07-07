@@ -38,11 +38,11 @@ class StatisticsApi(object):
 
         Retrieve stats.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_statistics_current(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_statistics_current(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int timeout: Time in seconds to wait for results from remote nodes.
         :param bool show_nodes: Shows the logical node number or LNN in addition to the devid.
         :param list[str] keys: Multiple key names. May request matching keys or request 'all' keys. Can be comma separated list or can be used more than one time to make queries for multiple keys. May be used in conjunction with 'substr'. Also works with 'key' arguments.
@@ -59,7 +59,7 @@ class StatisticsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_statistics_current_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_statistics_current_with_http_info(**kwargs)  # noqa: E501
@@ -70,11 +70,11 @@ class StatisticsApi(object):
 
         Retrieve stats.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_statistics_current_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_statistics_current_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int timeout: Time in seconds to wait for results from remote nodes.
         :param bool show_nodes: Shows the logical node number or LNN in addition to the devid.
         :param list[str] keys: Multiple key names. May request matching keys or request 'all' keys. Can be comma separated list or can be used more than one time to make queries for multiple keys. May be used in conjunction with 'substr'. Also works with 'key' arguments.
@@ -92,7 +92,7 @@ class StatisticsApi(object):
         """
 
         all_params = ['timeout', 'show_nodes', 'keys', 'devid', 'substr', 'stale', 'type_info', 'raw', 'key', 'degraded', 'nodes']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -166,7 +166,7 @@ class StatisticsApi(object):
             files=local_var_files,
             response_type='StatisticsCurrent',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -177,11 +177,11 @@ class StatisticsApi(object):
 
         Retrieve stats.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_statistics_history(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_statistics_history(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int begin: Earliest time (Unix epoch seconds) of interest. Negative times are interpreted as relative (before) now.
         :param int interval: Minimum sampling interval time in seconds. If native statistics are higher resolution, data will be down-sampled.
         :param int end: Latest time (Unix epoch seconds) of interest. Negative times are interpreted as relative (before) now. If not supplied, use now as the end time.
@@ -203,7 +203,7 @@ class StatisticsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_statistics_history_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_statistics_history_with_http_info(**kwargs)  # noqa: E501
@@ -214,11 +214,11 @@ class StatisticsApi(object):
 
         Retrieve stats.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_statistics_history_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_statistics_history_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int begin: Earliest time (Unix epoch seconds) of interest. Negative times are interpreted as relative (before) now.
         :param int interval: Minimum sampling interval time in seconds. If native statistics are higher resolution, data will be down-sampled.
         :param int end: Latest time (Unix epoch seconds) of interest. Negative times are interpreted as relative (before) now. If not supplied, use now as the end time.
@@ -241,7 +241,7 @@ class StatisticsApi(object):
         """
 
         all_params = ['begin', 'interval', 'end', 'timeout', 'raw', 'keys', 'devid', 'substr', 'stale', 'type_info', 'memory_only', 'key', 'degraded', 'show_nodes', 'resolution', 'nodes']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -325,7 +325,7 @@ class StatisticsApi(object):
             files=local_var_files,
             response_type='StatisticsHistory',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -336,18 +336,18 @@ class StatisticsApi(object):
 
         List key meta-data.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_statistics_key(statistics_key_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_statistics_key(statistics_key_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str statistics_key_id: List key meta-data. (required)
         :return: StatisticsKeys
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_statistics_key_with_http_info(statistics_key_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_statistics_key_with_http_info(statistics_key_id, **kwargs)  # noqa: E501
@@ -358,11 +358,11 @@ class StatisticsApi(object):
 
         List key meta-data.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_statistics_key_with_http_info(statistics_key_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_statistics_key_with_http_info(statistics_key_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str statistics_key_id: List key meta-data. (required)
         :return: StatisticsKeys
                  If the method is called asynchronously,
@@ -370,7 +370,7 @@ class StatisticsApi(object):
         """
 
         all_params = ['statistics_key_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -424,7 +424,7 @@ class StatisticsApi(object):
             files=local_var_files,
             response_type='StatisticsKeys',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -435,11 +435,11 @@ class StatisticsApi(object):
 
         List meta-data for matching keys.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_statistics_keys(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_statistics_keys(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param bool count: Only count matching keys, do not return meta-data.
         :param int limit: Return no more than this many results at once (see resume).
         :param bool queryable: Only list keys that can/cannot be queries. Default is true.
@@ -449,7 +449,7 @@ class StatisticsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_statistics_keys_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_statistics_keys_with_http_info(**kwargs)  # noqa: E501
@@ -460,11 +460,11 @@ class StatisticsApi(object):
 
         List meta-data for matching keys.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_statistics_keys_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_statistics_keys_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param bool count: Only count matching keys, do not return meta-data.
         :param int limit: Return no more than this many results at once (see resume).
         :param bool queryable: Only list keys that can/cannot be queries. Default is true.
@@ -475,7 +475,7 @@ class StatisticsApi(object):
         """
 
         all_params = ['count', 'limit', 'queryable', 'resume']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -541,7 +541,7 @@ class StatisticsApi(object):
             files=local_var_files,
             response_type='StatisticsKeysExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -552,18 +552,18 @@ class StatisticsApi(object):
 
         Retrieve operations list.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_statistics_operations(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_statistics_operations(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param list[str] protocols: A comma separated list. Only report operations for specified protocol(s). Default is all. 
         :return: StatisticsOperations
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_statistics_operations_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_statistics_operations_with_http_info(**kwargs)  # noqa: E501
@@ -574,11 +574,11 @@ class StatisticsApi(object):
 
         Retrieve operations list.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_statistics_operations_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_statistics_operations_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param list[str] protocols: A comma separated list. Only report operations for specified protocol(s). Default is all. 
         :return: StatisticsOperations
                  If the method is called asynchronously,
@@ -586,7 +586,7 @@ class StatisticsApi(object):
         """
 
         all_params = ['protocols']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -637,7 +637,7 @@ class StatisticsApi(object):
             files=local_var_files,
             response_type='StatisticsOperations',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -648,18 +648,18 @@ class StatisticsApi(object):
 
         Retrieve protocol list.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_statistics_protocols(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_statistics_protocols(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str type: Specifies whether internal, external, or all protocols should be returned.
         :return: StatisticsProtocols
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_statistics_protocols_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_statistics_protocols_with_http_info(**kwargs)  # noqa: E501
@@ -670,11 +670,11 @@ class StatisticsApi(object):
 
         Retrieve protocol list.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_statistics_protocols_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_statistics_protocols_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str type: Specifies whether internal, external, or all protocols should be returned.
         :return: StatisticsProtocols
                  If the method is called asynchronously,
@@ -682,7 +682,7 @@ class StatisticsApi(object):
         """
 
         all_params = ['type']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -732,7 +732,7 @@ class StatisticsApi(object):
             files=local_var_files,
             response_type='StatisticsProtocols',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -743,11 +743,11 @@ class StatisticsApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_summary_client(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_summary_client(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: Sort data by the specified comma-separated field(s). (num_operations | operation_rate | in_max | in_min | in | in_avg | out_max | out_min | out | out_avg | time_max | time_min | time_avg | node | protocol | class | user_id | user_name | local_addr | local_name | remote_addr | remote_name) Prepend 'asc:' or 'desc:' to a field to change the sort direction. 
         :param str totalby: A comma separated list specifying what should be unique. (node | protocol | class | local_addr | local_name | remote_addr | remote_name | user_id | user_name | devid). Aggregation is performed over all the fields not specified in the list.
         :param str user_names: A comma separated list. Only report statistics for operations requested by users with resolved names enumerated. 
@@ -767,7 +767,7 @@ class StatisticsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_summary_client_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_summary_client_with_http_info(**kwargs)  # noqa: E501
@@ -778,11 +778,11 @@ class StatisticsApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_summary_client_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_summary_client_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: Sort data by the specified comma-separated field(s). (num_operations | operation_rate | in_max | in_min | in | in_avg | out_max | out_min | out | out_avg | time_max | time_min | time_avg | node | protocol | class | user_id | user_name | local_addr | local_name | remote_addr | remote_name) Prepend 'asc:' or 'desc:' to a field to change the sort direction. 
         :param str totalby: A comma separated list specifying what should be unique. (node | protocol | class | local_addr | local_name | remote_addr | remote_name | user_id | user_name | devid). Aggregation is performed over all the fields not specified in the list.
         :param str user_names: A comma separated list. Only report statistics for operations requested by users with resolved names enumerated. 
@@ -803,7 +803,7 @@ class StatisticsApi(object):
         """
 
         all_params = ['sort', 'totalby', 'user_names', 'remote_addresses', 'numeric', 'local_names', 'user_ids', 'classes', 'timeout', 'local_addresses', 'degraded', 'remote_names', 'nodes', 'protocols']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -879,7 +879,7 @@ class StatisticsApi(object):
             files=local_var_files,
             response_type='SummaryClient',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -890,11 +890,11 @@ class StatisticsApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_summary_drive(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_summary_drive(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: Sort data by the specified comma-separated field(s). (drive_id | type | xfers_in | bytes_in | xfer_size_in | xfers_out | bytes_out | xfer_size_out | access_latency | access_slow | iosched_latency | iosched_queue | busy | used_bytes_percent | used_inodes). Prepend 'asc:' or 'desc:' to a field to change the sort direction. 
         :param bool degraded: Continue to report if some nodes do not respond.
         :param str type: Specify drive type(s) for which statistics should be reported.
@@ -905,7 +905,7 @@ class StatisticsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_summary_drive_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_summary_drive_with_http_info(**kwargs)  # noqa: E501
@@ -916,11 +916,11 @@ class StatisticsApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_summary_drive_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_summary_drive_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: Sort data by the specified comma-separated field(s). (drive_id | type | xfers_in | bytes_in | xfer_size_in | xfers_out | bytes_out | xfer_size_out | access_latency | access_slow | iosched_latency | iosched_queue | busy | used_bytes_percent | used_inodes). Prepend 'asc:' or 'desc:' to a field to change the sort direction. 
         :param bool degraded: Continue to report if some nodes do not respond.
         :param str type: Specify drive type(s) for which statistics should be reported.
@@ -932,7 +932,7 @@ class StatisticsApi(object):
         """
 
         all_params = ['sort', 'degraded', 'type', 'nodes', 'timeout']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -990,7 +990,7 @@ class StatisticsApi(object):
             files=local_var_files,
             response_type='SummaryDrive',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1001,11 +1001,11 @@ class StatisticsApi(object):
 
         File heat map, i.e. rate of file operations, and the type of operation listed by path/lin(s).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_summary_heat(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_summary_heat(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: Sort data by the specified comma-separated field(s). (operation_rate | node | event_name | class_name | lin | path). Prepend 'asc:' or 'desc:' to a field to change the sort direction. 
         :param bool convertlin: Convert lin to hex. Default is true. 
         :param str totalby: A comma separated list specifying what should be unique. (node | event_name | event_class | operation_rate | path | lin). Aggregation is performed over all the fields not specified in the list.
@@ -1022,7 +1022,7 @@ class StatisticsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_summary_heat_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_summary_heat_with_http_info(**kwargs)  # noqa: E501
@@ -1033,11 +1033,11 @@ class StatisticsApi(object):
 
         File heat map, i.e. rate of file operations, and the type of operation listed by path/lin(s).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_summary_heat_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_summary_heat_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: Sort data by the specified comma-separated field(s). (operation_rate | node | event_name | class_name | lin | path). Prepend 'asc:' or 'desc:' to a field to change the sort direction. 
         :param bool convertlin: Convert lin to hex. Default is true. 
         :param str totalby: A comma separated list specifying what should be unique. (node | event_name | event_class | operation_rate | path | lin). Aggregation is performed over all the fields not specified in the list.
@@ -1055,7 +1055,7 @@ class StatisticsApi(object):
         """
 
         all_params = ['sort', 'convertlin', 'totalby', 'pathdepth', 'numeric', 'events', 'maxpath', 'classes', 'timeout', 'nodes', 'degraded']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1125,7 +1125,7 @@ class StatisticsApi(object):
             files=local_var_files,
             response_type='SummaryHeat',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1136,11 +1136,11 @@ class StatisticsApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_summary_protocol(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_summary_protocol(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str operations: Specify operation(s) for which statistics should be reported (See the cli command: 'isi statistics list operations', for a total list). Default is all. 
         :param str sort: Sort data by the specified comma-separated field(s). (time | operation_count | operation_rate | in_max | in_min | in | in_avg | in_standard_dev | out_max | out_min | out | out_avg | out_standard_dev | time_max | time_min | time_avg | time_standard_dev | node | protocol | class | operation). Prepend 'asc:' or 'desc:' to a field to change the sort direction. 
         :param str totalby: A comma separated list specifying what should be unique. (node | protocol | class | operation). Aggregation is performed over all the fields not specified in the list.
@@ -1155,7 +1155,7 @@ class StatisticsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_summary_protocol_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_summary_protocol_with_http_info(**kwargs)  # noqa: E501
@@ -1166,11 +1166,11 @@ class StatisticsApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_summary_protocol_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_summary_protocol_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str operations: Specify operation(s) for which statistics should be reported (See the cli command: 'isi statistics list operations', for a total list). Default is all. 
         :param str sort: Sort data by the specified comma-separated field(s). (time | operation_count | operation_rate | in_max | in_min | in | in_avg | in_standard_dev | out_max | out_min | out | out_avg | out_standard_dev | time_max | time_min | time_avg | time_standard_dev | node | protocol | class | operation). Prepend 'asc:' or 'desc:' to a field to change the sort direction. 
         :param str totalby: A comma separated list specifying what should be unique. (node | protocol | class | operation). Aggregation is performed over all the fields not specified in the list.
@@ -1186,7 +1186,7 @@ class StatisticsApi(object):
         """
 
         all_params = ['operations', 'sort', 'totalby', 'zero', 'classes', 'timeout', 'degraded', 'nodes', 'protocols']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1252,7 +1252,7 @@ class StatisticsApi(object):
             files=local_var_files,
             response_type='SummaryProtocol',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1263,11 +1263,11 @@ class StatisticsApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_summary_protocol_stats(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_summary_protocol_stats(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param bool degraded: Continue to report if some nodes do not respond.
         :param str protocol: A single protocol. Default is nfs3. (nfs3 | smb1 | nlm | ftp | http | siq | smb2 | nfs4 | papi | jobd | irp | lsass_in | lsass_out | hdfs)
         :param str nodes: A comma separated list. Specify node(s) for which statistics should be reported. Default is all. Zero (0) should be passed in as the sole argument to indicate local.
@@ -1277,7 +1277,7 @@ class StatisticsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_summary_protocol_stats_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_summary_protocol_stats_with_http_info(**kwargs)  # noqa: E501
@@ -1288,11 +1288,11 @@ class StatisticsApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_summary_protocol_stats_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_summary_protocol_stats_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param bool degraded: Continue to report if some nodes do not respond.
         :param str protocol: A single protocol. Default is nfs3. (nfs3 | smb1 | nlm | ftp | http | siq | smb2 | nfs4 | papi | jobd | irp | lsass_in | lsass_out | hdfs)
         :param str nodes: A comma separated list. Specify node(s) for which statistics should be reported. Default is all. Zero (0) should be passed in as the sole argument to indicate local.
@@ -1303,7 +1303,7 @@ class StatisticsApi(object):
         """
 
         all_params = ['degraded', 'protocol', 'nodes', 'timeout']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1359,7 +1359,7 @@ class StatisticsApi(object):
             files=local_var_files,
             response_type='SummaryProtocolStats',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1370,11 +1370,11 @@ class StatisticsApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_summary_system(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_summary_system(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: Sort data by the specified comma-separated field(s). (time | node | cpu | smb | ftp | http | nfs | hdfs | total | net_in | net_out | disk_in). Prepend 'asc:' or 'desc:' to a field to change the sort direction. 
         :param bool oprates: Display protocol operation rate statistics rather than the default throughput statistics.
         :param bool degraded: Continue to report if some nodes do not respond.
@@ -1385,7 +1385,7 @@ class StatisticsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_summary_system_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_summary_system_with_http_info(**kwargs)  # noqa: E501
@@ -1396,11 +1396,11 @@ class StatisticsApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_summary_system_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_summary_system_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: Sort data by the specified comma-separated field(s). (time | node | cpu | smb | ftp | http | nfs | hdfs | total | net_in | net_out | disk_in). Prepend 'asc:' or 'desc:' to a field to change the sort direction. 
         :param bool oprates: Display protocol operation rate statistics rather than the default throughput statistics.
         :param bool degraded: Continue to report if some nodes do not respond.
@@ -1412,7 +1412,7 @@ class StatisticsApi(object):
         """
 
         all_params = ['sort', 'oprates', 'degraded', 'nodes', 'timeout']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1470,7 +1470,7 @@ class StatisticsApi(object):
             files=local_var_files,
             response_type='SummarySystem',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1481,11 +1481,11 @@ class StatisticsApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_summary_workload(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_summary_workload(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: Sort data by the specified comma-separated field(s). (node | system_name | job_type | cpu | reads | writes | l2 | l3). Prepend 'asc:' or 'desc:' to a field to change the sort direction. 
         :param list[str] job_types: A comma separated list. Only report statistics for job(s) specified by type, if configured. 
         :param str totalby: A comma separated list specifying what should be unique. (node | system_name | job_type). Aggregation is performed over all the fields not specified in the list.
@@ -1498,7 +1498,7 @@ class StatisticsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_summary_workload_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_summary_workload_with_http_info(**kwargs)  # noqa: E501
@@ -1509,11 +1509,11 @@ class StatisticsApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_summary_workload_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_summary_workload_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: Sort data by the specified comma-separated field(s). (node | system_name | job_type | cpu | reads | writes | l2 | l3). Prepend 'asc:' or 'desc:' to a field to change the sort direction. 
         :param list[str] job_types: A comma separated list. Only report statistics for job(s) specified by type, if configured. 
         :param str totalby: A comma separated list specifying what should be unique. (node | system_name | job_type). Aggregation is performed over all the fields not specified in the list.
@@ -1527,7 +1527,7 @@ class StatisticsApi(object):
         """
 
         all_params = ['sort', 'job_types', 'totalby', 'timeout', 'degraded', 'nodes', 'system_names']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1590,7 +1590,7 @@ class StatisticsApi(object):
             files=local_var_files,
             response_type='SummaryWorkload',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

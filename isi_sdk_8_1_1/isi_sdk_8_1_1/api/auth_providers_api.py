@@ -38,11 +38,11 @@ class AuthProvidersApi(object):
 
         List all ADS controllers.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ads_provider_controllers(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ads_provider_controllers(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param str groupnet: Groupnet identifier
         :return: AdsProviderControllers
@@ -50,7 +50,7 @@ class AuthProvidersApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_ads_provider_controllers_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_ads_provider_controllers_with_http_info(id, **kwargs)  # noqa: E501
@@ -61,11 +61,11 @@ class AuthProvidersApi(object):
 
         List all ADS controllers.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ads_provider_controllers_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ads_provider_controllers_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param str groupnet: Groupnet identifier
         :return: AdsProviderControllers
@@ -74,7 +74,7 @@ class AuthProvidersApi(object):
         """
 
         all_params = ['id', 'groupnet']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -130,7 +130,7 @@ class AuthProvidersApi(object):
             files=local_var_files,
             response_type='AdsProviderControllers',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -141,11 +141,11 @@ class AuthProvidersApi(object):
 
         Retrieve the ADS domain information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ads_provider_domain(ads_provider_domain_id, id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ads_provider_domain(ads_provider_domain_id, id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str ads_provider_domain_id: Retrieve the ADS domain information. (required)
         :param str id: (required)
         :return: AdsProviderDomains
@@ -153,7 +153,7 @@ class AuthProvidersApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_ads_provider_domain_with_http_info(ads_provider_domain_id, id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_ads_provider_domain_with_http_info(ads_provider_domain_id, id, **kwargs)  # noqa: E501
@@ -164,11 +164,11 @@ class AuthProvidersApi(object):
 
         Retrieve the ADS domain information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ads_provider_domain_with_http_info(ads_provider_domain_id, id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ads_provider_domain_with_http_info(ads_provider_domain_id, id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str ads_provider_domain_id: Retrieve the ADS domain information. (required)
         :param str id: (required)
         :return: AdsProviderDomains
@@ -177,7 +177,7 @@ class AuthProvidersApi(object):
         """
 
         all_params = ['ads_provider_domain_id', 'id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -237,7 +237,7 @@ class AuthProvidersApi(object):
             files=local_var_files,
             response_type='AdsProviderDomains',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -248,11 +248,11 @@ class AuthProvidersApi(object):
 
         List all ADS domains.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ads_provider_domains(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ads_provider_domains(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
         :return: AdsProviderDomains
@@ -260,7 +260,7 @@ class AuthProvidersApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_ads_provider_domains_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_ads_provider_domains_with_http_info(id, **kwargs)  # noqa: E501
@@ -271,11 +271,11 @@ class AuthProvidersApi(object):
 
         List all ADS domains.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ads_provider_domains_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ads_provider_domains_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param str scope: If specified as \"effective\" or not specified, all fields are returned.  If specified as \"user\", only fields with non-default values are shown.  If specified as \"default\", the original values are returned.
         :return: AdsProviderDomains
@@ -284,7 +284,7 @@ class AuthProvidersApi(object):
         """
 
         all_params = ['id', 'scope']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -346,7 +346,7 @@ class AuthProvidersApi(object):
             files=local_var_files,
             response_type='AdsProviderDomains',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -357,11 +357,11 @@ class AuthProvidersApi(object):
 
         Retrieve search results.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ads_provider_search(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ads_provider_search(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param str domain: The domain to search in.
         :param str description: The user or group description to search for.
@@ -377,7 +377,7 @@ class AuthProvidersApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_ads_provider_search_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_ads_provider_search_with_http_info(id, **kwargs)  # noqa: E501
@@ -388,11 +388,11 @@ class AuthProvidersApi(object):
 
         Retrieve search results.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_ads_provider_search_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ads_provider_search_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param str domain: The domain to search in.
         :param str description: The user or group description to search for.
@@ -409,7 +409,7 @@ class AuthProvidersApi(object):
         """
 
         all_params = ['id', 'domain', 'description', 'resume', 'search_users', 'filter', 'limit', 'user', 'password', 'search_groups']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -491,7 +491,7 @@ class AuthProvidersApi(object):
             files=local_var_files,
             response_type='AdsProviderSearch',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

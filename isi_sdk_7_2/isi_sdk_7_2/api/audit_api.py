@@ -38,18 +38,18 @@ class AuditApi(object):
 
         Create a new audit topic.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_audit_topic(audit_topic, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_audit_topic(audit_topic, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param AuditTopicCreateParams audit_topic: (required)
         :return: CreateResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_audit_topic_with_http_info(audit_topic, **kwargs)  # noqa: E501
         else:
             (data) = self.create_audit_topic_with_http_info(audit_topic, **kwargs)  # noqa: E501
@@ -60,11 +60,11 @@ class AuditApi(object):
 
         Create a new audit topic.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_audit_topic_with_http_info(audit_topic, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_audit_topic_with_http_info(audit_topic, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param AuditTopicCreateParams audit_topic: (required)
         :return: CreateResponse
                  If the method is called asynchronously,
@@ -72,7 +72,7 @@ class AuditApi(object):
         """
 
         all_params = ['audit_topic']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -126,7 +126,7 @@ class AuditApi(object):
             files=local_var_files,
             response_type='CreateResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -137,18 +137,18 @@ class AuditApi(object):
 
         Delete the audit topic.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_audit_topic(audit_topic_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_audit_topic(audit_topic_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str audit_topic_id: Delete the audit topic. (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_audit_topic_with_http_info(audit_topic_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_audit_topic_with_http_info(audit_topic_id, **kwargs)  # noqa: E501
@@ -159,11 +159,11 @@ class AuditApi(object):
 
         Delete the audit topic.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_audit_topic_with_http_info(audit_topic_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_audit_topic_with_http_info(audit_topic_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str audit_topic_id: Delete the audit topic. (required)
         :return: None
                  If the method is called asynchronously,
@@ -171,7 +171,7 @@ class AuditApi(object):
         """
 
         all_params = ['audit_topic_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -225,7 +225,7 @@ class AuditApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -236,17 +236,17 @@ class AuditApi(object):
 
         Retrieves the auditing global settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_audit_settings(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_audit_settings(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: AuditSettings
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_audit_settings_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_audit_settings_with_http_info(**kwargs)  # noqa: E501
@@ -257,18 +257,18 @@ class AuditApi(object):
 
         Retrieves the auditing global settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_audit_settings_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_audit_settings_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: AuditSettings
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -316,7 +316,7 @@ class AuditApi(object):
             files=local_var_files,
             response_type='AuditSettings',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -327,18 +327,18 @@ class AuditApi(object):
 
         Retrieve the audit topic information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_audit_topic(audit_topic_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_audit_topic(audit_topic_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str audit_topic_id: Retrieve the audit topic information. (required)
         :return: AuditTopics
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_audit_topic_with_http_info(audit_topic_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_audit_topic_with_http_info(audit_topic_id, **kwargs)  # noqa: E501
@@ -349,11 +349,11 @@ class AuditApi(object):
 
         Retrieve the audit topic information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_audit_topic_with_http_info(audit_topic_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_audit_topic_with_http_info(audit_topic_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str audit_topic_id: Retrieve the audit topic information. (required)
         :return: AuditTopics
                  If the method is called asynchronously,
@@ -361,7 +361,7 @@ class AuditApi(object):
         """
 
         all_params = ['audit_topic_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -415,7 +415,7 @@ class AuditApi(object):
             files=local_var_files,
             response_type='AuditTopics',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -426,17 +426,17 @@ class AuditApi(object):
 
         Retrieve a list of audit topics.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_audit_topics(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_audit_topics(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: AuditTopicsExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_audit_topics_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_audit_topics_with_http_info(**kwargs)  # noqa: E501
@@ -447,18 +447,18 @@ class AuditApi(object):
 
         Retrieve a list of audit topics.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_audit_topics_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_audit_topics_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: AuditTopicsExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -506,7 +506,7 @@ class AuditApi(object):
             files=local_var_files,
             response_type='AuditTopicsExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -517,18 +517,18 @@ class AuditApi(object):
 
         Modify the auditing global settings.  All input fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_audit_settings(audit_settings, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_audit_settings(audit_settings, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param AuditSettingsSettings audit_settings: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_audit_settings_with_http_info(audit_settings, **kwargs)  # noqa: E501
         else:
             (data) = self.update_audit_settings_with_http_info(audit_settings, **kwargs)  # noqa: E501
@@ -539,11 +539,11 @@ class AuditApi(object):
 
         Modify the auditing global settings.  All input fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_audit_settings_with_http_info(audit_settings, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_audit_settings_with_http_info(audit_settings, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param AuditSettingsSettings audit_settings: (required)
         :return: None
                  If the method is called asynchronously,
@@ -551,7 +551,7 @@ class AuditApi(object):
         """
 
         all_params = ['audit_settings']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -605,7 +605,7 @@ class AuditApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -616,11 +616,11 @@ class AuditApi(object):
 
         Modify the audit topic.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_audit_topic(audit_topic, audit_topic_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_audit_topic(audit_topic, audit_topic_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param AuditTopic audit_topic: (required)
         :param str audit_topic_id: Modify the audit topic. (required)
         :return: None
@@ -628,7 +628,7 @@ class AuditApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_audit_topic_with_http_info(audit_topic, audit_topic_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_audit_topic_with_http_info(audit_topic, audit_topic_id, **kwargs)  # noqa: E501
@@ -639,11 +639,11 @@ class AuditApi(object):
 
         Modify the audit topic.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_audit_topic_with_http_info(audit_topic, audit_topic_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_audit_topic_with_http_info(audit_topic, audit_topic_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param AuditTopic audit_topic: (required)
         :param str audit_topic_id: Modify the audit topic. (required)
         :return: None
@@ -652,7 +652,7 @@ class AuditApi(object):
         """
 
         all_params = ['audit_topic', 'audit_topic_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -712,7 +712,7 @@ class AuditApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

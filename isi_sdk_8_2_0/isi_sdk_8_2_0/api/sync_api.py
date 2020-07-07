@@ -38,18 +38,18 @@ class SyncApi(object):
 
         Import a trusted SyncIQ TLS certificate.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_certificates_peer_item(certificates_peer_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_certificates_peer_item(certificates_peer_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CertificateAuthorityItem certificates_peer_item: (required)
         :return: CreateResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_certificates_peer_item_with_http_info(certificates_peer_item, **kwargs)  # noqa: E501
         else:
             (data) = self.create_certificates_peer_item_with_http_info(certificates_peer_item, **kwargs)  # noqa: E501
@@ -60,11 +60,11 @@ class SyncApi(object):
 
         Import a trusted SyncIQ TLS certificate.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_certificates_peer_item_with_http_info(certificates_peer_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_certificates_peer_item_with_http_info(certificates_peer_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CertificateAuthorityItem certificates_peer_item: (required)
         :return: CreateResponse
                  If the method is called asynchronously,
@@ -72,7 +72,7 @@ class SyncApi(object):
         """
 
         all_params = ['certificates_peer_item']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -126,7 +126,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type='CreateResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -137,18 +137,18 @@ class SyncApi(object):
 
         Import a SyncIQ TLS server certificate.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_certificates_server_item(certificates_server_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_certificates_server_item(certificates_server_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CertificateServerItem certificates_server_item: (required)
         :return: CreateResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_certificates_server_item_with_http_info(certificates_server_item, **kwargs)  # noqa: E501
         else:
             (data) = self.create_certificates_server_item_with_http_info(certificates_server_item, **kwargs)  # noqa: E501
@@ -159,11 +159,11 @@ class SyncApi(object):
 
         Import a SyncIQ TLS server certificate.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_certificates_server_item_with_http_info(certificates_server_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_certificates_server_item_with_http_info(certificates_server_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CertificateServerItem certificates_server_item: (required)
         :return: CreateResponse
                  If the method is called asynchronously,
@@ -171,7 +171,7 @@ class SyncApi(object):
         """
 
         all_params = ['certificates_server_item']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -225,7 +225,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type='CreateResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -236,18 +236,18 @@ class SyncApi(object):
 
         Create a SyncIQ service replication policy.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_service_policy(service_policy, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_service_policy(service_policy, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param ServicePolicyCreateParams service_policy: (required)
         :return: CreateResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_service_policy_with_http_info(service_policy, **kwargs)  # noqa: E501
         else:
             (data) = self.create_service_policy_with_http_info(service_policy, **kwargs)  # noqa: E501
@@ -258,11 +258,11 @@ class SyncApi(object):
 
         Create a SyncIQ service replication policy.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_service_policy_with_http_info(service_policy, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_service_policy_with_http_info(service_policy, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param ServicePolicyCreateParams service_policy: (required)
         :return: CreateResponse
                  If the method is called asynchronously,
@@ -270,7 +270,7 @@ class SyncApi(object):
         """
 
         all_params = ['service_policy']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -324,7 +324,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type='CreateResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -335,18 +335,18 @@ class SyncApi(object):
 
         Start a SyncIQ job.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_sync_job(sync_job, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_sync_job(sync_job, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SyncJobCreateParams sync_job: (required)
         :return: CreateResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_sync_job_with_http_info(sync_job, **kwargs)  # noqa: E501
         else:
             (data) = self.create_sync_job_with_http_info(sync_job, **kwargs)  # noqa: E501
@@ -357,11 +357,11 @@ class SyncApi(object):
 
         Start a SyncIQ job.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_sync_job_with_http_info(sync_job, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_sync_job_with_http_info(sync_job, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SyncJobCreateParams sync_job: (required)
         :return: CreateResponse
                  If the method is called asynchronously,
@@ -369,7 +369,7 @@ class SyncApi(object):
         """
 
         all_params = ['sync_job']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -423,7 +423,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type='CreateResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -434,18 +434,18 @@ class SyncApi(object):
 
         Create a SyncIQ policy.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_sync_policy(sync_policy, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_sync_policy(sync_policy, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SyncPolicyCreateParams sync_policy: (required)
         :return: CreateResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_sync_policy_with_http_info(sync_policy, **kwargs)  # noqa: E501
         else:
             (data) = self.create_sync_policy_with_http_info(sync_policy, **kwargs)  # noqa: E501
@@ -456,11 +456,11 @@ class SyncApi(object):
 
         Create a SyncIQ policy.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_sync_policy_with_http_info(sync_policy, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_sync_policy_with_http_info(sync_policy, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SyncPolicyCreateParams sync_policy: (required)
         :return: CreateResponse
                  If the method is called asynchronously,
@@ -468,7 +468,7 @@ class SyncApi(object):
         """
 
         all_params = ['sync_policy']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -522,7 +522,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type='CreateResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -533,18 +533,18 @@ class SyncApi(object):
 
         Rotate the records in the database(s).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_sync_reports_rotate_item(sync_reports_rotate_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_sync_reports_rotate_item(sync_reports_rotate_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty sync_reports_rotate_item: (required)
         :return: CreateSyncReportsRotateItemResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_sync_reports_rotate_item_with_http_info(sync_reports_rotate_item, **kwargs)  # noqa: E501
         else:
             (data) = self.create_sync_reports_rotate_item_with_http_info(sync_reports_rotate_item, **kwargs)  # noqa: E501
@@ -555,11 +555,11 @@ class SyncApi(object):
 
         Rotate the records in the database(s).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_sync_reports_rotate_item_with_http_info(sync_reports_rotate_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_sync_reports_rotate_item_with_http_info(sync_reports_rotate_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty sync_reports_rotate_item: (required)
         :return: CreateSyncReportsRotateItemResponse
                  If the method is called asynchronously,
@@ -567,7 +567,7 @@ class SyncApi(object):
         """
 
         all_params = ['sync_reports_rotate_item']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -621,7 +621,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type='CreateSyncReportsRotateItemResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -632,18 +632,18 @@ class SyncApi(object):
 
         Create a new SyncIQ performance rule.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_sync_rule(sync_rule, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_sync_rule(sync_rule, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SyncRuleCreateParams sync_rule: (required)
         :return: CreateResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_sync_rule_with_http_info(sync_rule, **kwargs)  # noqa: E501
         else:
             (data) = self.create_sync_rule_with_http_info(sync_rule, **kwargs)  # noqa: E501
@@ -654,11 +654,11 @@ class SyncApi(object):
 
         Create a new SyncIQ performance rule.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_sync_rule_with_http_info(sync_rule, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_sync_rule_with_http_info(sync_rule, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SyncRuleCreateParams sync_rule: (required)
         :return: CreateResponse
                  If the method is called asynchronously,
@@ -666,7 +666,7 @@ class SyncApi(object):
         """
 
         all_params = ['sync_rule']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -720,7 +720,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type='CreateResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -731,18 +731,18 @@ class SyncApi(object):
 
         Delete a trusted SyncIQ TLS certificate.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_certificates_peer_by_id(certificates_peer_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_certificates_peer_by_id(certificates_peer_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str certificates_peer_id: Delete a trusted SyncIQ TLS certificate. (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_certificates_peer_by_id_with_http_info(certificates_peer_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_certificates_peer_by_id_with_http_info(certificates_peer_id, **kwargs)  # noqa: E501
@@ -753,11 +753,11 @@ class SyncApi(object):
 
         Delete a trusted SyncIQ TLS certificate.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_certificates_peer_by_id_with_http_info(certificates_peer_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_certificates_peer_by_id_with_http_info(certificates_peer_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str certificates_peer_id: Delete a trusted SyncIQ TLS certificate. (required)
         :return: None
                  If the method is called asynchronously,
@@ -765,7 +765,7 @@ class SyncApi(object):
         """
 
         all_params = ['certificates_peer_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -819,7 +819,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -830,18 +830,18 @@ class SyncApi(object):
 
         Delete a SyncIQ TLS server certificate.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_certificates_server_by_id(certificates_server_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_certificates_server_by_id(certificates_server_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str certificates_server_id: Delete a SyncIQ TLS server certificate. (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_certificates_server_by_id_with_http_info(certificates_server_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_certificates_server_by_id_with_http_info(certificates_server_id, **kwargs)  # noqa: E501
@@ -852,11 +852,11 @@ class SyncApi(object):
 
         Delete a SyncIQ TLS server certificate.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_certificates_server_by_id_with_http_info(certificates_server_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_certificates_server_by_id_with_http_info(certificates_server_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str certificates_server_id: Delete a SyncIQ TLS server certificate. (required)
         :return: None
                  If the method is called asynchronously,
@@ -864,7 +864,7 @@ class SyncApi(object):
         """
 
         all_params = ['certificates_server_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -918,7 +918,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -929,11 +929,11 @@ class SyncApi(object):
 
         Delete all SyncIQ service replication policies.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_service_policies(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_service_policies(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param bool local_only: Skip deleting the policy association on the target.
         :param bool force: Ignore any running jobs when preparing to delete a policy.
         :return: None
@@ -941,7 +941,7 @@ class SyncApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_service_policies_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.delete_service_policies_with_http_info(**kwargs)  # noqa: E501
@@ -952,11 +952,11 @@ class SyncApi(object):
 
         Delete all SyncIQ service replication policies.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_service_policies_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_service_policies_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param bool local_only: Skip deleting the policy association on the target.
         :param bool force: Ignore any running jobs when preparing to delete a policy.
         :return: None
@@ -965,7 +965,7 @@ class SyncApi(object):
         """
 
         all_params = ['local_only', 'force']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1017,7 +1017,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1028,11 +1028,11 @@ class SyncApi(object):
 
         Delete a single SyncIQ service replication policy.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_service_policy(service_policy_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_service_policy(service_policy_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str service_policy_id: Delete a single SyncIQ service replication policy. (required)
         :param bool local_only: Skip deleting the policy association on the target.
         :param bool force: Ignore any running jobs when preparing to delete a policy.
@@ -1041,7 +1041,7 @@ class SyncApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_service_policy_with_http_info(service_policy_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_service_policy_with_http_info(service_policy_id, **kwargs)  # noqa: E501
@@ -1052,11 +1052,11 @@ class SyncApi(object):
 
         Delete a single SyncIQ service replication policy.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_service_policy_with_http_info(service_policy_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_service_policy_with_http_info(service_policy_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str service_policy_id: Delete a single SyncIQ service replication policy. (required)
         :param bool local_only: Skip deleting the policy association on the target.
         :param bool force: Ignore any running jobs when preparing to delete a policy.
@@ -1066,7 +1066,7 @@ class SyncApi(object):
         """
 
         all_params = ['service_policy_id', 'local_only', 'force']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1124,7 +1124,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1135,11 +1135,11 @@ class SyncApi(object):
 
         Break the target association with this cluster for this policy.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_service_target_policy(service_target_policy_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_service_target_policy(service_target_policy_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str service_target_policy_id: Break the target association with this cluster for this policy. (required)
         :param bool force: Ignore any running jobs when preparing to delete the policy target association.
         :return: None
@@ -1147,7 +1147,7 @@ class SyncApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_service_target_policy_with_http_info(service_target_policy_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_service_target_policy_with_http_info(service_target_policy_id, **kwargs)  # noqa: E501
@@ -1158,11 +1158,11 @@ class SyncApi(object):
 
         Break the target association with this cluster for this policy.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_service_target_policy_with_http_info(service_target_policy_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_service_target_policy_with_http_info(service_target_policy_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str service_target_policy_id: Break the target association with this cluster for this policy. (required)
         :param bool force: Ignore any running jobs when preparing to delete the policy target association.
         :return: None
@@ -1171,7 +1171,7 @@ class SyncApi(object):
         """
 
         all_params = ['service_target_policy_id', 'force']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1227,7 +1227,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1238,17 +1238,17 @@ class SyncApi(object):
 
         Cancel all SyncIQ jobs.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_sync_jobs(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_sync_jobs(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_sync_jobs_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.delete_sync_jobs_with_http_info(**kwargs)  # noqa: E501
@@ -1259,18 +1259,18 @@ class SyncApi(object):
 
         Cancel all SyncIQ jobs.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_sync_jobs_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_sync_jobs_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1318,7 +1318,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1329,11 +1329,11 @@ class SyncApi(object):
 
         Delete all SyncIQ policies.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_sync_policies(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_sync_policies(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param bool local_only: Skip deleting the policy association on the target.
         :param bool force: Ignore any running jobs when preparing to delete a policy.
         :return: None
@@ -1341,7 +1341,7 @@ class SyncApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_sync_policies_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.delete_sync_policies_with_http_info(**kwargs)  # noqa: E501
@@ -1352,11 +1352,11 @@ class SyncApi(object):
 
         Delete all SyncIQ policies.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_sync_policies_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_sync_policies_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param bool local_only: Skip deleting the policy association on the target.
         :param bool force: Ignore any running jobs when preparing to delete a policy.
         :return: None
@@ -1365,7 +1365,7 @@ class SyncApi(object):
         """
 
         all_params = ['local_only', 'force']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1417,7 +1417,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1428,11 +1428,11 @@ class SyncApi(object):
 
         Delete a single SyncIQ policy.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_sync_policy(sync_policy_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_sync_policy(sync_policy_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sync_policy_id: Delete a single SyncIQ policy. (required)
         :param bool local_only: Skip deleting the policy association on the target.
         :param bool force: Ignore any running jobs when preparing to delete a policy.
@@ -1441,7 +1441,7 @@ class SyncApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_sync_policy_with_http_info(sync_policy_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_sync_policy_with_http_info(sync_policy_id, **kwargs)  # noqa: E501
@@ -1452,11 +1452,11 @@ class SyncApi(object):
 
         Delete a single SyncIQ policy.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_sync_policy_with_http_info(sync_policy_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_sync_policy_with_http_info(sync_policy_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sync_policy_id: Delete a single SyncIQ policy. (required)
         :param bool local_only: Skip deleting the policy association on the target.
         :param bool force: Ignore any running jobs when preparing to delete a policy.
@@ -1466,7 +1466,7 @@ class SyncApi(object):
         """
 
         all_params = ['sync_policy_id', 'local_only', 'force']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1524,7 +1524,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1535,18 +1535,18 @@ class SyncApi(object):
 
         Delete a single SyncIQ performance rule.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_sync_rule(sync_rule_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_sync_rule(sync_rule_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sync_rule_id: Delete a single SyncIQ performance rule. (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_sync_rule_with_http_info(sync_rule_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_sync_rule_with_http_info(sync_rule_id, **kwargs)  # noqa: E501
@@ -1557,11 +1557,11 @@ class SyncApi(object):
 
         Delete a single SyncIQ performance rule.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_sync_rule_with_http_info(sync_rule_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_sync_rule_with_http_info(sync_rule_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sync_rule_id: Delete a single SyncIQ performance rule. (required)
         :return: None
                  If the method is called asynchronously,
@@ -1569,7 +1569,7 @@ class SyncApi(object):
         """
 
         all_params = ['sync_rule_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1623,7 +1623,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1634,18 +1634,18 @@ class SyncApi(object):
 
         Delete all SyncIQ performance rules or all rules of a specified type.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_sync_rules(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_sync_rules(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str type: Delete all rules of the specified rule type only.
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_sync_rules_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.delete_sync_rules_with_http_info(**kwargs)  # noqa: E501
@@ -1656,11 +1656,11 @@ class SyncApi(object):
 
         Delete all SyncIQ performance rules or all rules of a specified type.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_sync_rules_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_sync_rules_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str type: Delete all rules of the specified rule type only.
         :return: None
                  If the method is called asynchronously,
@@ -1668,7 +1668,7 @@ class SyncApi(object):
         """
 
         all_params = ['type']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1718,7 +1718,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1729,11 +1729,11 @@ class SyncApi(object):
 
         Break the target association with this cluster for this policy.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_target_policy(target_policy_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_target_policy(target_policy_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str target_policy_id: Break the target association with this cluster for this policy. (required)
         :param bool force: Ignore any running jobs when preparing to delete the policy target association.
         :return: None
@@ -1741,7 +1741,7 @@ class SyncApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_target_policy_with_http_info(target_policy_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_target_policy_with_http_info(target_policy_id, **kwargs)  # noqa: E501
@@ -1752,11 +1752,11 @@ class SyncApi(object):
 
         Break the target association with this cluster for this policy.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_target_policy_with_http_info(target_policy_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_target_policy_with_http_info(target_policy_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str target_policy_id: Break the target association with this cluster for this policy. (required)
         :param bool force: Ignore any running jobs when preparing to delete the policy target association.
         :return: None
@@ -1765,7 +1765,7 @@ class SyncApi(object):
         """
 
         all_params = ['target_policy_id', 'force']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1821,7 +1821,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1832,18 +1832,18 @@ class SyncApi(object):
 
         Retrieve a single trusted SyncIQ TLS certificate.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_certificates_peer_by_id(certificates_peer_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_certificates_peer_by_id(certificates_peer_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str certificates_peer_id: Retrieve a single trusted SyncIQ TLS certificate. (required)
         :return: CertificateAuthority
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_certificates_peer_by_id_with_http_info(certificates_peer_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_certificates_peer_by_id_with_http_info(certificates_peer_id, **kwargs)  # noqa: E501
@@ -1854,11 +1854,11 @@ class SyncApi(object):
 
         Retrieve a single trusted SyncIQ TLS certificate.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_certificates_peer_by_id_with_http_info(certificates_peer_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_certificates_peer_by_id_with_http_info(certificates_peer_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str certificates_peer_id: Retrieve a single trusted SyncIQ TLS certificate. (required)
         :return: CertificateAuthority
                  If the method is called asynchronously,
@@ -1866,7 +1866,7 @@ class SyncApi(object):
         """
 
         all_params = ['certificates_peer_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1920,7 +1920,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type='CertificateAuthority',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1931,18 +1931,18 @@ class SyncApi(object):
 
         Retrieve a SyncIQ TLS server certificate.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_certificates_server_by_id(certificates_server_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_certificates_server_by_id(certificates_server_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str certificates_server_id: Retrieve a SyncIQ TLS server certificate. (required)
         :return: CertificateServer
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_certificates_server_by_id_with_http_info(certificates_server_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_certificates_server_by_id_with_http_info(certificates_server_id, **kwargs)  # noqa: E501
@@ -1953,11 +1953,11 @@ class SyncApi(object):
 
         Retrieve a SyncIQ TLS server certificate.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_certificates_server_by_id_with_http_info(certificates_server_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_certificates_server_by_id_with_http_info(certificates_server_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str certificates_server_id: Retrieve a SyncIQ TLS server certificate. (required)
         :return: CertificateServer
                  If the method is called asynchronously,
@@ -1965,7 +1965,7 @@ class SyncApi(object):
         """
 
         all_params = ['certificates_server_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2019,7 +2019,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type='CertificateServer',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2030,11 +2030,11 @@ class SyncApi(object):
 
         List cpu performance data.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_history_cpu(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_history_cpu(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int begin: Begin timestamp for time-series report.
         :param int end: End timestamp for time-series report.
         :return: HistoryFile
@@ -2042,7 +2042,7 @@ class SyncApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_history_cpu_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_history_cpu_with_http_info(**kwargs)  # noqa: E501
@@ -2053,11 +2053,11 @@ class SyncApi(object):
 
         List cpu performance data.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_history_cpu_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_history_cpu_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int begin: Begin timestamp for time-series report.
         :param int end: End timestamp for time-series report.
         :return: HistoryFile
@@ -2066,7 +2066,7 @@ class SyncApi(object):
         """
 
         all_params = ['begin', 'end']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2118,7 +2118,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type='HistoryFile',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2129,11 +2129,11 @@ class SyncApi(object):
 
         List file operations performance data.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_history_file(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_history_file(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int begin: Begin timestamp for time-series report.
         :param int end: End timestamp for time-series report.
         :return: HistoryFile
@@ -2141,7 +2141,7 @@ class SyncApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_history_file_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_history_file_with_http_info(**kwargs)  # noqa: E501
@@ -2152,11 +2152,11 @@ class SyncApi(object):
 
         List file operations performance data.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_history_file_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_history_file_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int begin: Begin timestamp for time-series report.
         :param int end: End timestamp for time-series report.
         :return: HistoryFile
@@ -2165,7 +2165,7 @@ class SyncApi(object):
         """
 
         all_params = ['begin', 'end']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2217,7 +2217,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type='HistoryFile',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2228,11 +2228,11 @@ class SyncApi(object):
 
         List network operations performance data.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_history_network(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_history_network(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param bool running_jobs: Receive network history for all currently running SyncIQ jobs.
         :param int end: End timestamp for time-series report.
         :param int start: Begin timestamp for time-series report.
@@ -2242,7 +2242,7 @@ class SyncApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_history_network_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_history_network_with_http_info(**kwargs)  # noqa: E501
@@ -2253,11 +2253,11 @@ class SyncApi(object):
 
         List network operations performance data.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_history_network_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_history_network_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param bool running_jobs: Receive network history for all currently running SyncIQ jobs.
         :param int end: End timestamp for time-series report.
         :param int start: Begin timestamp for time-series report.
@@ -2268,7 +2268,7 @@ class SyncApi(object):
         """
 
         all_params = ['running_jobs', 'end', 'start', 'policy_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2324,7 +2324,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type='HistoryFile',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2335,11 +2335,11 @@ class SyncApi(object):
 
         List worker performance data.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_history_worker(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_history_worker(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int begin: Begin timestamp for time-series report.
         :param int end: End timestamp for time-series report.
         :return: HistoryFile
@@ -2347,7 +2347,7 @@ class SyncApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_history_worker_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_history_worker_with_http_info(**kwargs)  # noqa: E501
@@ -2358,11 +2358,11 @@ class SyncApi(object):
 
         List worker performance data.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_history_worker_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_history_worker_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int begin: Begin timestamp for time-series report.
         :param int end: End timestamp for time-series report.
         :return: HistoryFile
@@ -2371,7 +2371,7 @@ class SyncApi(object):
         """
 
         all_params = ['begin', 'end']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2423,7 +2423,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type='HistoryFile',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2434,18 +2434,18 @@ class SyncApi(object):
 
         View a single SyncIQ service replication policy.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_service_policy(service_policy_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_service_policy(service_policy_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str service_policy_id: View a single SyncIQ service replication policy. (required)
         :return: ServicePolicies
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_service_policy_with_http_info(service_policy_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_service_policy_with_http_info(service_policy_id, **kwargs)  # noqa: E501
@@ -2456,11 +2456,11 @@ class SyncApi(object):
 
         View a single SyncIQ service replication policy.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_service_policy_with_http_info(service_policy_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_service_policy_with_http_info(service_policy_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str service_policy_id: View a single SyncIQ service replication policy. (required)
         :return: ServicePolicies
                  If the method is called asynchronously,
@@ -2468,7 +2468,7 @@ class SyncApi(object):
         """
 
         all_params = ['service_policy_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2522,7 +2522,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type='ServicePolicies',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2533,11 +2533,11 @@ class SyncApi(object):
 
         List all SyncIQ target service replication policies.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_service_target_policies(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_service_target_policies(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param str target_path: Filter the returned policies to include only those with this target path.
         :param int limit: Return no more than this many results at once (see resume).
@@ -2548,7 +2548,7 @@ class SyncApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_service_target_policies_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_service_target_policies_with_http_info(**kwargs)  # noqa: E501
@@ -2559,11 +2559,11 @@ class SyncApi(object):
 
         List all SyncIQ target service replication policies.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_service_target_policies_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_service_target_policies_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param str target_path: Filter the returned policies to include only those with this target path.
         :param int limit: Return no more than this many results at once (see resume).
@@ -2575,7 +2575,7 @@ class SyncApi(object):
         """
 
         all_params = ['sort', 'target_path', 'limit', 'dir', 'resume']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2652,7 +2652,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type='TargetPoliciesExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2663,18 +2663,18 @@ class SyncApi(object):
 
         View a single SyncIQ target service replication policy.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_service_target_policy(service_target_policy_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_service_target_policy(service_target_policy_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str service_target_policy_id: View a single SyncIQ target service replication policy. (required)
         :return: TargetPolicies
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_service_target_policy_with_http_info(service_target_policy_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_service_target_policy_with_http_info(service_target_policy_id, **kwargs)  # noqa: E501
@@ -2685,11 +2685,11 @@ class SyncApi(object):
 
         View a single SyncIQ target service replication policy.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_service_target_policy_with_http_info(service_target_policy_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_service_target_policy_with_http_info(service_target_policy_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str service_target_policy_id: View a single SyncIQ target service replication policy. (required)
         :return: TargetPolicies
                  If the method is called asynchronously,
@@ -2697,7 +2697,7 @@ class SyncApi(object):
         """
 
         all_params = ['service_target_policy_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2751,7 +2751,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type='TargetPolicies',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2762,18 +2762,18 @@ class SyncApi(object):
 
         View a single SyncIQ job.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_sync_job(sync_job_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_sync_job(sync_job_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sync_job_id: View a single SyncIQ job. (required)
         :return: SyncJobs
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_sync_job_with_http_info(sync_job_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_sync_job_with_http_info(sync_job_id, **kwargs)  # noqa: E501
@@ -2784,11 +2784,11 @@ class SyncApi(object):
 
         View a single SyncIQ job.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_sync_job_with_http_info(sync_job_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_sync_job_with_http_info(sync_job_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sync_job_id: View a single SyncIQ job. (required)
         :return: SyncJobs
                  If the method is called asynchronously,
@@ -2796,7 +2796,7 @@ class SyncApi(object):
         """
 
         all_params = ['sync_job_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2850,7 +2850,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type='SyncJobs',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2861,17 +2861,17 @@ class SyncApi(object):
 
         Retrieve license information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_sync_license(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_sync_license(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: LicenseLicense
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_sync_license_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_sync_license_with_http_info(**kwargs)  # noqa: E501
@@ -2882,18 +2882,18 @@ class SyncApi(object):
 
         Retrieve license information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_sync_license_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_sync_license_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: LicenseLicense
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2941,7 +2941,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type='LicenseLicense',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2952,18 +2952,18 @@ class SyncApi(object):
 
         View a single SyncIQ policy.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_sync_policy(sync_policy_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_sync_policy(sync_policy_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sync_policy_id: View a single SyncIQ policy. (required)
         :return: SyncPolicies
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_sync_policy_with_http_info(sync_policy_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_sync_policy_with_http_info(sync_policy_id, **kwargs)  # noqa: E501
@@ -2974,11 +2974,11 @@ class SyncApi(object):
 
         View a single SyncIQ policy.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_sync_policy_with_http_info(sync_policy_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_sync_policy_with_http_info(sync_policy_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sync_policy_id: View a single SyncIQ policy. (required)
         :return: SyncPolicies
                  If the method is called asynchronously,
@@ -2986,7 +2986,7 @@ class SyncApi(object):
         """
 
         all_params = ['sync_policy_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3040,7 +3040,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type='SyncPolicies',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -3051,18 +3051,18 @@ class SyncApi(object):
 
         View a single SyncIQ report.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_sync_report(sync_report_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_sync_report(sync_report_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sync_report_id: View a single SyncIQ report. (required)
         :return: SyncReports
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_sync_report_with_http_info(sync_report_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_sync_report_with_http_info(sync_report_id, **kwargs)  # noqa: E501
@@ -3073,11 +3073,11 @@ class SyncApi(object):
 
         View a single SyncIQ report.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_sync_report_with_http_info(sync_report_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_sync_report_with_http_info(sync_report_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sync_report_id: View a single SyncIQ report. (required)
         :return: SyncReports
                  If the method is called asynchronously,
@@ -3085,7 +3085,7 @@ class SyncApi(object):
         """
 
         all_params = ['sync_report_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3139,7 +3139,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type='SyncReports',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -3150,11 +3150,11 @@ class SyncApi(object):
 
         Get a list of SyncIQ reports.  By default 1 report is returned per policy, unless otherwise specified by 'reports_per_policy'.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_sync_reports(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_sync_reports(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
         :param int newer_than: Filter the returned reports to include only those whose jobs started more recently than the specified number of days ago.
@@ -3169,7 +3169,7 @@ class SyncApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_sync_reports_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_sync_reports_with_http_info(**kwargs)  # noqa: E501
@@ -3180,11 +3180,11 @@ class SyncApi(object):
 
         Get a list of SyncIQ reports.  By default 1 report is returned per policy, unless otherwise specified by 'reports_per_policy'.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_sync_reports_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_sync_reports_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
         :param int newer_than: Filter the returned reports to include only those whose jobs started more recently than the specified number of days ago.
@@ -3200,7 +3200,7 @@ class SyncApi(object):
         """
 
         all_params = ['sort', 'resume', 'newer_than', 'policy_name', 'state', 'limit', 'reports_per_policy', 'summary', 'dir']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3285,7 +3285,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type='SyncReportsExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -3296,18 +3296,18 @@ class SyncApi(object):
 
         View a single SyncIQ performance rule.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_sync_rule(sync_rule_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_sync_rule(sync_rule_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sync_rule_id: View a single SyncIQ performance rule. (required)
         :return: SyncRules
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_sync_rule_with_http_info(sync_rule_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_sync_rule_with_http_info(sync_rule_id, **kwargs)  # noqa: E501
@@ -3318,11 +3318,11 @@ class SyncApi(object):
 
         View a single SyncIQ performance rule.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_sync_rule_with_http_info(sync_rule_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_sync_rule_with_http_info(sync_rule_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sync_rule_id: View a single SyncIQ performance rule. (required)
         :return: SyncRules
                  If the method is called asynchronously,
@@ -3330,7 +3330,7 @@ class SyncApi(object):
         """
 
         all_params = ['sync_rule_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3384,7 +3384,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type='SyncRules',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -3395,17 +3395,17 @@ class SyncApi(object):
 
         Retrieve the global SyncIQ settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_sync_settings(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_sync_settings(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: SyncSettings
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_sync_settings_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_sync_settings_with_http_info(**kwargs)  # noqa: E501
@@ -3416,18 +3416,18 @@ class SyncApi(object):
 
         Retrieve the global SyncIQ settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_sync_settings_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_sync_settings_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: SyncSettings
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3475,7 +3475,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type='SyncSettings',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -3486,11 +3486,11 @@ class SyncApi(object):
 
         List all SyncIQ target policies.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_target_policies(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_target_policies(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param str target_path: Filter the returned policies to include only those with this target path.
         :param int limit: Return no more than this many results at once (see resume).
@@ -3501,7 +3501,7 @@ class SyncApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_target_policies_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_target_policies_with_http_info(**kwargs)  # noqa: E501
@@ -3512,11 +3512,11 @@ class SyncApi(object):
 
         List all SyncIQ target policies.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_target_policies_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_target_policies_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param str target_path: Filter the returned policies to include only those with this target path.
         :param int limit: Return no more than this many results at once (see resume).
@@ -3528,7 +3528,7 @@ class SyncApi(object):
         """
 
         all_params = ['sort', 'target_path', 'limit', 'dir', 'resume']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3605,7 +3605,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type='TargetPoliciesExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -3616,18 +3616,18 @@ class SyncApi(object):
 
         View a single SyncIQ target policy.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_target_policy(target_policy_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_target_policy(target_policy_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str target_policy_id: View a single SyncIQ target policy. (required)
         :return: TargetPolicies
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_target_policy_with_http_info(target_policy_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_target_policy_with_http_info(target_policy_id, **kwargs)  # noqa: E501
@@ -3638,11 +3638,11 @@ class SyncApi(object):
 
         View a single SyncIQ target policy.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_target_policy_with_http_info(target_policy_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_target_policy_with_http_info(target_policy_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str target_policy_id: View a single SyncIQ target policy. (required)
         :return: TargetPolicies
                  If the method is called asynchronously,
@@ -3650,7 +3650,7 @@ class SyncApi(object):
         """
 
         all_params = ['target_policy_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3704,7 +3704,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type='TargetPolicies',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -3715,18 +3715,18 @@ class SyncApi(object):
 
         View a single SyncIQ target report.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_target_report(target_report_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_target_report(target_report_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str target_report_id: View a single SyncIQ target report. (required)
         :return: TargetReports
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_target_report_with_http_info(target_report_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_target_report_with_http_info(target_report_id, **kwargs)  # noqa: E501
@@ -3737,11 +3737,11 @@ class SyncApi(object):
 
         View a single SyncIQ target report.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_target_report_with_http_info(target_report_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_target_report_with_http_info(target_report_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str target_report_id: View a single SyncIQ target report. (required)
         :return: TargetReports
                  If the method is called asynchronously,
@@ -3749,7 +3749,7 @@ class SyncApi(object):
         """
 
         all_params = ['target_report_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3803,7 +3803,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type='TargetReports',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -3814,11 +3814,11 @@ class SyncApi(object):
 
         Get a list of SyncIQ target reports.  By default 1 report is returned per policy, unless otherwise specified by 'reports_per_policy'.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_target_reports(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_target_reports(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
         :param int newer_than: Filter the returned reports to include only those whose jobs started more recently than the specified number of days ago.
@@ -3833,7 +3833,7 @@ class SyncApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_target_reports_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_target_reports_with_http_info(**kwargs)  # noqa: E501
@@ -3844,11 +3844,11 @@ class SyncApi(object):
 
         Get a list of SyncIQ target reports.  By default 1 report is returned per policy, unless otherwise specified by 'reports_per_policy'.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_target_reports_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_target_reports_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
         :param int newer_than: Filter the returned reports to include only those whose jobs started more recently than the specified number of days ago.
@@ -3864,7 +3864,7 @@ class SyncApi(object):
         """
 
         all_params = ['sort', 'resume', 'newer_than', 'policy_name', 'state', 'limit', 'reports_per_policy', 'summary', 'dir']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3949,7 +3949,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type='TargetReportsExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -3960,11 +3960,11 @@ class SyncApi(object):
 
         Retrieve a list of all trusted SyncIQ peer TLS certificates.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_certificates_peer(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_certificates_peer(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param int limit: Return no more than this many results at once (see resume).
         :param str dir: The direction of the sort.
@@ -3974,7 +3974,7 @@ class SyncApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_certificates_peer_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_certificates_peer_with_http_info(**kwargs)  # noqa: E501
@@ -3985,11 +3985,11 @@ class SyncApi(object):
 
         Retrieve a list of all trusted SyncIQ peer TLS certificates.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_certificates_peer_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_certificates_peer_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param int limit: Return no more than this many results at once (see resume).
         :param str dir: The direction of the sort.
@@ -4000,7 +4000,7 @@ class SyncApi(object):
         """
 
         all_params = ['sort', 'limit', 'dir', 'resume']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -4075,7 +4075,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type='CertificateAuthorityExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -4086,11 +4086,11 @@ class SyncApi(object):
 
         Retrieve a list of all SyncIQ TLS server certificates.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_certificates_server(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_certificates_server(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param int limit: Return no more than this many results at once (see resume).
         :param str dir: The direction of the sort.
@@ -4100,7 +4100,7 @@ class SyncApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_certificates_server_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_certificates_server_with_http_info(**kwargs)  # noqa: E501
@@ -4111,11 +4111,11 @@ class SyncApi(object):
 
         Retrieve a list of all SyncIQ TLS server certificates.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_certificates_server_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_certificates_server_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param int limit: Return no more than this many results at once (see resume).
         :param str dir: The direction of the sort.
@@ -4126,7 +4126,7 @@ class SyncApi(object):
         """
 
         all_params = ['sort', 'limit', 'dir', 'resume']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -4201,7 +4201,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type='CertificateServerExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -4212,11 +4212,11 @@ class SyncApi(object):
 
         List all SyncIQ service replication policies.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_service_policies(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_service_policies(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
         :param bool summary: Return a summary rather than entire objects.
@@ -4228,7 +4228,7 @@ class SyncApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_service_policies_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_service_policies_with_http_info(**kwargs)  # noqa: E501
@@ -4239,11 +4239,11 @@ class SyncApi(object):
 
         List all SyncIQ service replication policies.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_service_policies_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_service_policies_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
         :param bool summary: Return a summary rather than entire objects.
@@ -4256,7 +4256,7 @@ class SyncApi(object):
         """
 
         all_params = ['sort', 'resume', 'summary', 'limit', 'scope', 'dir']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -4341,7 +4341,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type='ServicePoliciesExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -4352,11 +4352,11 @@ class SyncApi(object):
 
         Get a list of SyncIQ jobs.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_sync_jobs(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_sync_jobs(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param str state: The state of the job.
         :param int limit: Return no more than this many results at once (see resume).
@@ -4367,7 +4367,7 @@ class SyncApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_sync_jobs_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_sync_jobs_with_http_info(**kwargs)  # noqa: E501
@@ -4378,11 +4378,11 @@ class SyncApi(object):
 
         Get a list of SyncIQ jobs.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_sync_jobs_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_sync_jobs_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param str state: The state of the job.
         :param int limit: Return no more than this many results at once (see resume).
@@ -4394,7 +4394,7 @@ class SyncApi(object):
         """
 
         all_params = ['sort', 'state', 'limit', 'dir', 'resume']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -4477,7 +4477,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type='SyncJobsExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -4488,11 +4488,11 @@ class SyncApi(object):
 
         List all SyncIQ policies.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_sync_policies(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_sync_policies(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
         :param bool summary: Return a summary rather than entire objects.
@@ -4504,7 +4504,7 @@ class SyncApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_sync_policies_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_sync_policies_with_http_info(**kwargs)  # noqa: E501
@@ -4515,11 +4515,11 @@ class SyncApi(object):
 
         List all SyncIQ policies.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_sync_policies_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_sync_policies_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
         :param bool summary: Return a summary rather than entire objects.
@@ -4532,7 +4532,7 @@ class SyncApi(object):
         """
 
         all_params = ['sort', 'resume', 'summary', 'limit', 'scope', 'dir']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -4617,7 +4617,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type='SyncPoliciesExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -4628,17 +4628,17 @@ class SyncApi(object):
 
         Whether the rotation is still running or not.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_sync_reports_rotate(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_sync_reports_rotate(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: SyncReportsRotate
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_sync_reports_rotate_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_sync_reports_rotate_with_http_info(**kwargs)  # noqa: E501
@@ -4649,18 +4649,18 @@ class SyncApi(object):
 
         Whether the rotation is still running or not.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_sync_reports_rotate_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_sync_reports_rotate_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: SyncReportsRotate
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -4708,7 +4708,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type='SyncReportsRotate',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -4719,11 +4719,11 @@ class SyncApi(object):
 
         List all SyncIQ performance rules.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_sync_rules(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_sync_rules(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param str type: Filter the returned rules to include only those with this rule type.
         :param int limit: Return no more than this many results at once (see resume).
@@ -4734,7 +4734,7 @@ class SyncApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_sync_rules_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_sync_rules_with_http_info(**kwargs)  # noqa: E501
@@ -4745,11 +4745,11 @@ class SyncApi(object):
 
         List all SyncIQ performance rules.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_sync_rules_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_sync_rules_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param str type: Filter the returned rules to include only those with this rule type.
         :param int limit: Return no more than this many results at once (see resume).
@@ -4761,7 +4761,7 @@ class SyncApi(object):
         """
 
         all_params = ['sort', 'type', 'limit', 'dir', 'resume']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -4838,7 +4838,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type='SyncRulesExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -4849,11 +4849,11 @@ class SyncApi(object):
 
         Modify a trusted SyncIQ TLS certificate.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_certificates_peer_by_id(certificates_peer_id_params, certificates_peer_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_certificates_peer_by_id(certificates_peer_id_params, certificates_peer_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CertificateServerIdParams certificates_peer_id_params: (required)
         :param str certificates_peer_id: Modify a trusted SyncIQ TLS certificate. (required)
         :return: None
@@ -4861,7 +4861,7 @@ class SyncApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_certificates_peer_by_id_with_http_info(certificates_peer_id_params, certificates_peer_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_certificates_peer_by_id_with_http_info(certificates_peer_id_params, certificates_peer_id, **kwargs)  # noqa: E501
@@ -4872,11 +4872,11 @@ class SyncApi(object):
 
         Modify a trusted SyncIQ TLS certificate.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_certificates_peer_by_id_with_http_info(certificates_peer_id_params, certificates_peer_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_certificates_peer_by_id_with_http_info(certificates_peer_id_params, certificates_peer_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CertificateServerIdParams certificates_peer_id_params: (required)
         :param str certificates_peer_id: Modify a trusted SyncIQ TLS certificate. (required)
         :return: None
@@ -4885,7 +4885,7 @@ class SyncApi(object):
         """
 
         all_params = ['certificates_peer_id_params', 'certificates_peer_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -4945,7 +4945,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -4956,11 +4956,11 @@ class SyncApi(object):
 
         Modify a SyncIQ TLS server certificate.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_certificates_server_by_id(certificates_server_id_params, certificates_server_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_certificates_server_by_id(certificates_server_id_params, certificates_server_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CertificateServerIdParams certificates_server_id_params: (required)
         :param str certificates_server_id: Modify a SyncIQ TLS server certificate. (required)
         :return: None
@@ -4968,7 +4968,7 @@ class SyncApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_certificates_server_by_id_with_http_info(certificates_server_id_params, certificates_server_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_certificates_server_by_id_with_http_info(certificates_server_id_params, certificates_server_id, **kwargs)  # noqa: E501
@@ -4979,11 +4979,11 @@ class SyncApi(object):
 
         Modify a SyncIQ TLS server certificate.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_certificates_server_by_id_with_http_info(certificates_server_id_params, certificates_server_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_certificates_server_by_id_with_http_info(certificates_server_id_params, certificates_server_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CertificateServerIdParams certificates_server_id_params: (required)
         :param str certificates_server_id: Modify a SyncIQ TLS server certificate. (required)
         :return: None
@@ -4992,7 +4992,7 @@ class SyncApi(object):
         """
 
         all_params = ['certificates_server_id_params', 'certificates_server_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -5052,7 +5052,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -5063,11 +5063,11 @@ class SyncApi(object):
 
         Modify a single SyncIQ service replication policy.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_service_policy(service_policy, service_policy_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_service_policy(service_policy, service_policy_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param ServicePolicy service_policy: (required)
         :param str service_policy_id: Modify a single SyncIQ service replication policy. (required)
         :return: None
@@ -5075,7 +5075,7 @@ class SyncApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_service_policy_with_http_info(service_policy, service_policy_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_service_policy_with_http_info(service_policy, service_policy_id, **kwargs)  # noqa: E501
@@ -5086,11 +5086,11 @@ class SyncApi(object):
 
         Modify a single SyncIQ service replication policy.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_service_policy_with_http_info(service_policy, service_policy_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_service_policy_with_http_info(service_policy, service_policy_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param ServicePolicy service_policy: (required)
         :param str service_policy_id: Modify a single SyncIQ service replication policy. (required)
         :return: None
@@ -5099,7 +5099,7 @@ class SyncApi(object):
         """
 
         all_params = ['service_policy', 'service_policy_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -5159,7 +5159,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -5170,11 +5170,11 @@ class SyncApi(object):
 
         Perform an action (pause, cancel, etc...) on a single job.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_sync_job(sync_job, sync_job_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_sync_job(sync_job, sync_job_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SyncJob sync_job: (required)
         :param str sync_job_id: Perform an action (pause, cancel, etc...) on a single job. (required)
         :return: None
@@ -5182,7 +5182,7 @@ class SyncApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_sync_job_with_http_info(sync_job, sync_job_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_sync_job_with_http_info(sync_job, sync_job_id, **kwargs)  # noqa: E501
@@ -5193,11 +5193,11 @@ class SyncApi(object):
 
         Perform an action (pause, cancel, etc...) on a single job.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_sync_job_with_http_info(sync_job, sync_job_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_sync_job_with_http_info(sync_job, sync_job_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SyncJob sync_job: (required)
         :param str sync_job_id: Perform an action (pause, cancel, etc...) on a single job. (required)
         :return: None
@@ -5206,7 +5206,7 @@ class SyncApi(object):
         """
 
         all_params = ['sync_job', 'sync_job_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -5266,7 +5266,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -5277,11 +5277,11 @@ class SyncApi(object):
 
         Modify a single SyncIQ policy.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_sync_policy(sync_policy, sync_policy_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_sync_policy(sync_policy, sync_policy_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SyncPolicy sync_policy: (required)
         :param str sync_policy_id: Modify a single SyncIQ policy. (required)
         :return: None
@@ -5289,7 +5289,7 @@ class SyncApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_sync_policy_with_http_info(sync_policy, sync_policy_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_sync_policy_with_http_info(sync_policy, sync_policy_id, **kwargs)  # noqa: E501
@@ -5300,11 +5300,11 @@ class SyncApi(object):
 
         Modify a single SyncIQ policy.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_sync_policy_with_http_info(sync_policy, sync_policy_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_sync_policy_with_http_info(sync_policy, sync_policy_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SyncPolicy sync_policy: (required)
         :param str sync_policy_id: Modify a single SyncIQ policy. (required)
         :return: None
@@ -5313,7 +5313,7 @@ class SyncApi(object):
         """
 
         all_params = ['sync_policy', 'sync_policy_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -5373,7 +5373,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -5384,11 +5384,11 @@ class SyncApi(object):
 
         Modify a single SyncIQ performance rule.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_sync_rule(sync_rule, sync_rule_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_sync_rule(sync_rule, sync_rule_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SyncRule sync_rule: (required)
         :param str sync_rule_id: Modify a single SyncIQ performance rule. (required)
         :return: None
@@ -5396,7 +5396,7 @@ class SyncApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_sync_rule_with_http_info(sync_rule, sync_rule_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_sync_rule_with_http_info(sync_rule, sync_rule_id, **kwargs)  # noqa: E501
@@ -5407,11 +5407,11 @@ class SyncApi(object):
 
         Modify a single SyncIQ performance rule.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_sync_rule_with_http_info(sync_rule, sync_rule_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_sync_rule_with_http_info(sync_rule, sync_rule_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SyncRule sync_rule: (required)
         :param str sync_rule_id: Modify a single SyncIQ performance rule. (required)
         :return: None
@@ -5420,7 +5420,7 @@ class SyncApi(object):
         """
 
         all_params = ['sync_rule', 'sync_rule_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -5480,7 +5480,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -5491,18 +5491,18 @@ class SyncApi(object):
 
         Modify the global SyncIQ settings.  All input fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_sync_settings(sync_settings, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_sync_settings(sync_settings, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SyncSettingsExtended sync_settings: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_sync_settings_with_http_info(sync_settings, **kwargs)  # noqa: E501
         else:
             (data) = self.update_sync_settings_with_http_info(sync_settings, **kwargs)  # noqa: E501
@@ -5513,11 +5513,11 @@ class SyncApi(object):
 
         Modify the global SyncIQ settings.  All input fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_sync_settings_with_http_info(sync_settings, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_sync_settings_with_http_info(sync_settings, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SyncSettingsExtended sync_settings: (required)
         :return: None
                  If the method is called asynchronously,
@@ -5525,7 +5525,7 @@ class SyncApi(object):
         """
 
         all_params = ['sync_settings']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -5579,7 +5579,7 @@ class SyncApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

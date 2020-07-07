@@ -14,7 +14,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "isi-sdk-8-2-1"
-VERSION = "0.2.10"
+VERSION = "0.2.11"
 # To install the library, run the following
 #
 # python setup.py install
@@ -105,7 +105,7 @@ subdirectory of the repo. The tests currently run against a generic
 if you build your own bindings. If you want to run the tests against one
 of the libraries you've downloaded from the prebuilt releases page, you
 should change the ``import isi_sdk`` lines to ``import isi_sdk_7_2`` or
-``import isi_sdk_8_2_2`` depending on which one you downloaded.
+``import isi_sdk_9_0_0`` depending on which one you downloaded.
 
 More info
 ---------

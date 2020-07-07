@@ -38,11 +38,11 @@ class AuthGroupsApi(object):
 
         Add a member to the group.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_group_member(group_member, group, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_group_member(group_member, group, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param AuthAccessAccessItemFileGroup group_member: (required)
         :param str group: (required)
         :param str zone: Filter group members by zone.
@@ -52,7 +52,7 @@ class AuthGroupsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_group_member_with_http_info(group_member, group, **kwargs)  # noqa: E501
         else:
             (data) = self.create_group_member_with_http_info(group_member, group, **kwargs)  # noqa: E501
@@ -63,11 +63,11 @@ class AuthGroupsApi(object):
 
         Add a member to the group.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_group_member_with_http_info(group_member, group, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_group_member_with_http_info(group_member, group, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param AuthAccessAccessItemFileGroup group_member: (required)
         :param str group: (required)
         :param str zone: Filter group members by zone.
@@ -78,7 +78,7 @@ class AuthGroupsApi(object):
         """
 
         all_params = ['group_member', 'group', 'zone', 'provider']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -142,7 +142,7 @@ class AuthGroupsApi(object):
             files=local_var_files,
             response_type='CreateResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -153,11 +153,11 @@ class AuthGroupsApi(object):
 
         Remove the member from the group.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_group_member(group_member_id, group, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_group_member(group_member_id, group, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str group_member_id: Remove the member from the group. (required)
         :param str group: (required)
         :param str zone: Filter group members by zone.
@@ -167,7 +167,7 @@ class AuthGroupsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_group_member_with_http_info(group_member_id, group, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_group_member_with_http_info(group_member_id, group, **kwargs)  # noqa: E501
@@ -178,11 +178,11 @@ class AuthGroupsApi(object):
 
         Remove the member from the group.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_group_member_with_http_info(group_member_id, group, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_group_member_with_http_info(group_member_id, group, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str group_member_id: Remove the member from the group. (required)
         :param str group: (required)
         :param str zone: Filter group members by zone.
@@ -193,7 +193,7 @@ class AuthGroupsApi(object):
         """
 
         all_params = ['group_member_id', 'group', 'zone', 'provider']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -257,7 +257,7 @@ class AuthGroupsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -268,11 +268,11 @@ class AuthGroupsApi(object):
 
         List all the members of the group.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_group_members(group, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_group_members(group, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str group: (required)
         :param bool resolve_names: Resolve names of personas.
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
@@ -284,7 +284,7 @@ class AuthGroupsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_group_members_with_http_info(group, **kwargs)  # noqa: E501
         else:
             (data) = self.list_group_members_with_http_info(group, **kwargs)  # noqa: E501
@@ -295,11 +295,11 @@ class AuthGroupsApi(object):
 
         List all the members of the group.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_group_members_with_http_info(group, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_group_members_with_http_info(group, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str group: (required)
         :param bool resolve_names: Resolve names of personas.
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
@@ -312,7 +312,7 @@ class AuthGroupsApi(object):
         """
 
         all_params = ['group', 'resolve_names', 'resume', 'limit', 'zone', 'provider']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -386,7 +386,7 @@ class AuthGroupsApi(object):
             files=local_var_files,
             response_type='GroupMembers',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

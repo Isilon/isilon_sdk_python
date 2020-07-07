@@ -38,18 +38,18 @@ class EventApi(object):
 
         Retrieve event information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_event_event(event_event_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_event_event(event_event_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str event_event_id: Retrieve event information. (required)
         :return: EventEvents
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_event_event_with_http_info(event_event_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_event_event_with_http_info(event_event_id, **kwargs)  # noqa: E501
@@ -60,11 +60,11 @@ class EventApi(object):
 
         Retrieve event information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_event_event_with_http_info(event_event_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_event_event_with_http_info(event_event_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str event_event_id: Retrieve event information. (required)
         :return: EventEvents
                  If the method is called asynchronously,
@@ -72,7 +72,7 @@ class EventApi(object):
         """
 
         all_params = ['event_event_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -126,7 +126,7 @@ class EventApi(object):
             files=local_var_files,
             response_type='EventEvents',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -137,11 +137,11 @@ class EventApi(object):
 
         Retrieve event information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_event_events(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_event_events(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param bool count: If true, return a count of events.
         :param str sort: The field that will be used for sorting.
         :param int begin: Specifies the earliest time to query events from.
@@ -161,7 +161,7 @@ class EventApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_event_events_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_event_events_with_http_info(**kwargs)  # noqa: E501
@@ -172,11 +172,11 @@ class EventApi(object):
 
         Retrieve event information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_event_events_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_event_events_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param bool count: If true, return a count of events.
         :param str sort: The field that will be used for sorting.
         :param int begin: Specifies the earliest time to query events from.
@@ -197,7 +197,7 @@ class EventApi(object):
         """
 
         all_params = ['count', 'sort', 'begin', 'end', 'event_type', 'coalesced', 'resume', 'devid', 'acknowledged', 'ended', 'limit', 'dir', 'coalescing', 'severity']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -278,7 +278,7 @@ class EventApi(object):
             files=local_var_files,
             response_type='EventEventsExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

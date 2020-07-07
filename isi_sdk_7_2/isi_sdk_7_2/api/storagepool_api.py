@@ -38,18 +38,18 @@ class StoragepoolApi(object):
 
         Create a new compatibility  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_compatibilities_class_active_item(compatibilities_class_active_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_compatibilities_class_active_item(compatibilities_class_active_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CompatibilitiesClassActiveItem compatibilities_class_active_item: (required)
         :return: CreateCompatibilitiesClassActiveItemResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_compatibilities_class_active_item_with_http_info(compatibilities_class_active_item, **kwargs)  # noqa: E501
         else:
             (data) = self.create_compatibilities_class_active_item_with_http_info(compatibilities_class_active_item, **kwargs)  # noqa: E501
@@ -60,11 +60,11 @@ class StoragepoolApi(object):
 
         Create a new compatibility  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_compatibilities_class_active_item_with_http_info(compatibilities_class_active_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_compatibilities_class_active_item_with_http_info(compatibilities_class_active_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CompatibilitiesClassActiveItem compatibilities_class_active_item: (required)
         :return: CreateCompatibilitiesClassActiveItemResponse
                  If the method is called asynchronously,
@@ -72,7 +72,7 @@ class StoragepoolApi(object):
         """
 
         all_params = ['compatibilities_class_active_item']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -126,7 +126,7 @@ class StoragepoolApi(object):
             files=local_var_files,
             response_type='CreateCompatibilitiesClassActiveItemResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -137,18 +137,18 @@ class StoragepoolApi(object):
 
         Create a new ssd compatibility  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_compatibilities_ssd_active_item(compatibilities_ssd_active_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_compatibilities_ssd_active_item(compatibilities_ssd_active_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CompatibilitiesSsdActiveItem compatibilities_ssd_active_item: (required)
         :return: CreateCompatibilitiesClassActiveItemResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_compatibilities_ssd_active_item_with_http_info(compatibilities_ssd_active_item, **kwargs)  # noqa: E501
         else:
             (data) = self.create_compatibilities_ssd_active_item_with_http_info(compatibilities_ssd_active_item, **kwargs)  # noqa: E501
@@ -159,11 +159,11 @@ class StoragepoolApi(object):
 
         Create a new ssd compatibility  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_compatibilities_ssd_active_item_with_http_info(compatibilities_ssd_active_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_compatibilities_ssd_active_item_with_http_info(compatibilities_ssd_active_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CompatibilitiesSsdActiveItem compatibilities_ssd_active_item: (required)
         :return: CreateCompatibilitiesClassActiveItemResponse
                  If the method is called asynchronously,
@@ -171,7 +171,7 @@ class StoragepoolApi(object):
         """
 
         all_params = ['compatibilities_ssd_active_item']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -225,7 +225,7 @@ class StoragepoolApi(object):
             files=local_var_files,
             response_type='CreateCompatibilitiesClassActiveItemResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -236,18 +236,18 @@ class StoragepoolApi(object):
 
         Create a new node pool.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_storagepool_nodepool(storagepool_nodepool, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_storagepool_nodepool(storagepool_nodepool, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param StoragepoolNodepoolCreateParams storagepool_nodepool: (required)
         :return: CreateStoragepoolNodepoolResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_storagepool_nodepool_with_http_info(storagepool_nodepool, **kwargs)  # noqa: E501
         else:
             (data) = self.create_storagepool_nodepool_with_http_info(storagepool_nodepool, **kwargs)  # noqa: E501
@@ -258,11 +258,11 @@ class StoragepoolApi(object):
 
         Create a new node pool.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_storagepool_nodepool_with_http_info(storagepool_nodepool, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_storagepool_nodepool_with_http_info(storagepool_nodepool, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param StoragepoolNodepoolCreateParams storagepool_nodepool: (required)
         :return: CreateStoragepoolNodepoolResponse
                  If the method is called asynchronously,
@@ -270,7 +270,7 @@ class StoragepoolApi(object):
         """
 
         all_params = ['storagepool_nodepool']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -324,7 +324,7 @@ class StoragepoolApi(object):
             files=local_var_files,
             response_type='CreateStoragepoolNodepoolResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -335,18 +335,18 @@ class StoragepoolApi(object):
 
         Create a new tier.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_storagepool_tier(storagepool_tier, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_storagepool_tier(storagepool_tier, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param StoragepoolTierCreateParams storagepool_tier: (required)
         :return: CreateStoragepoolNodepoolResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_storagepool_tier_with_http_info(storagepool_tier, **kwargs)  # noqa: E501
         else:
             (data) = self.create_storagepool_tier_with_http_info(storagepool_tier, **kwargs)  # noqa: E501
@@ -357,11 +357,11 @@ class StoragepoolApi(object):
 
         Create a new tier.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_storagepool_tier_with_http_info(storagepool_tier, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_storagepool_tier_with_http_info(storagepool_tier, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param StoragepoolTierCreateParams storagepool_tier: (required)
         :return: CreateStoragepoolNodepoolResponse
                  If the method is called asynchronously,
@@ -369,7 +369,7 @@ class StoragepoolApi(object):
         """
 
         all_params = ['storagepool_tier']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -423,7 +423,7 @@ class StoragepoolApi(object):
             files=local_var_files,
             response_type='CreateStoragepoolNodepoolResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -434,18 +434,18 @@ class StoragepoolApi(object):
 
         Delete an active compatibility by id  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_compatibilities_class_active_by_id(compatibilities_class_active_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_compatibilities_class_active_by_id(compatibilities_class_active_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str compatibilities_class_active_id: Delete an active compatibility by id (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_compatibilities_class_active_by_id_with_http_info(compatibilities_class_active_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_compatibilities_class_active_by_id_with_http_info(compatibilities_class_active_id, **kwargs)  # noqa: E501
@@ -456,11 +456,11 @@ class StoragepoolApi(object):
 
         Delete an active compatibility by id  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_compatibilities_class_active_by_id_with_http_info(compatibilities_class_active_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_compatibilities_class_active_by_id_with_http_info(compatibilities_class_active_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str compatibilities_class_active_id: Delete an active compatibility by id (required)
         :return: None
                  If the method is called asynchronously,
@@ -468,7 +468,7 @@ class StoragepoolApi(object):
         """
 
         all_params = ['compatibilities_class_active_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -522,7 +522,7 @@ class StoragepoolApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -533,18 +533,18 @@ class StoragepoolApi(object):
 
         Delete an active ssd compatibility by id  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_compatibilities_ssd_active_by_id(compatibilities_ssd_active_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_compatibilities_ssd_active_by_id(compatibilities_ssd_active_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str compatibilities_ssd_active_id: Delete an active ssd compatibility by id (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_compatibilities_ssd_active_by_id_with_http_info(compatibilities_ssd_active_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_compatibilities_ssd_active_by_id_with_http_info(compatibilities_ssd_active_id, **kwargs)  # noqa: E501
@@ -555,11 +555,11 @@ class StoragepoolApi(object):
 
         Delete an active ssd compatibility by id  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_compatibilities_ssd_active_by_id_with_http_info(compatibilities_ssd_active_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_compatibilities_ssd_active_by_id_with_http_info(compatibilities_ssd_active_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str compatibilities_ssd_active_id: Delete an active ssd compatibility by id (required)
         :return: None
                  If the method is called asynchronously,
@@ -567,7 +567,7 @@ class StoragepoolApi(object):
         """
 
         all_params = ['compatibilities_ssd_active_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -621,7 +621,7 @@ class StoragepoolApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -632,18 +632,18 @@ class StoragepoolApi(object):
 
         Delete node pool.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_storagepool_nodepool(storagepool_nodepool_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_storagepool_nodepool(storagepool_nodepool_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str storagepool_nodepool_id: Delete node pool. (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_storagepool_nodepool_with_http_info(storagepool_nodepool_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_storagepool_nodepool_with_http_info(storagepool_nodepool_id, **kwargs)  # noqa: E501
@@ -654,11 +654,11 @@ class StoragepoolApi(object):
 
         Delete node pool.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_storagepool_nodepool_with_http_info(storagepool_nodepool_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_storagepool_nodepool_with_http_info(storagepool_nodepool_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str storagepool_nodepool_id: Delete node pool. (required)
         :return: None
                  If the method is called asynchronously,
@@ -666,7 +666,7 @@ class StoragepoolApi(object):
         """
 
         all_params = ['storagepool_nodepool_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -720,7 +720,7 @@ class StoragepoolApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -731,18 +731,18 @@ class StoragepoolApi(object):
 
         Delete tier.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_storagepool_tier(storagepool_tier_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_storagepool_tier(storagepool_tier_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str storagepool_tier_id: Delete tier. (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_storagepool_tier_with_http_info(storagepool_tier_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_storagepool_tier_with_http_info(storagepool_tier_id, **kwargs)  # noqa: E501
@@ -753,11 +753,11 @@ class StoragepoolApi(object):
 
         Delete tier.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_storagepool_tier_with_http_info(storagepool_tier_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_storagepool_tier_with_http_info(storagepool_tier_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str storagepool_tier_id: Delete tier. (required)
         :return: None
                  If the method is called asynchronously,
@@ -765,7 +765,7 @@ class StoragepoolApi(object):
         """
 
         all_params = ['storagepool_tier_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -819,7 +819,7 @@ class StoragepoolApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -830,17 +830,17 @@ class StoragepoolApi(object):
 
         Delete all tiers.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_storagepool_tiers(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_storagepool_tiers(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_storagepool_tiers_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.delete_storagepool_tiers_with_http_info(**kwargs)  # noqa: E501
@@ -851,18 +851,18 @@ class StoragepoolApi(object):
 
         Delete all tiers.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_storagepool_tiers_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_storagepool_tiers_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -910,7 +910,7 @@ class StoragepoolApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -921,18 +921,18 @@ class StoragepoolApi(object):
 
         Get an active compatibilities by id  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_compatibilities_class_active_by_id(compatibilities_class_active_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_compatibilities_class_active_by_id(compatibilities_class_active_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str compatibilities_class_active_id: Get an active compatibilities by id (required)
         :return: CompatibilitiesClassActive
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_compatibilities_class_active_by_id_with_http_info(compatibilities_class_active_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_compatibilities_class_active_by_id_with_http_info(compatibilities_class_active_id, **kwargs)  # noqa: E501
@@ -943,11 +943,11 @@ class StoragepoolApi(object):
 
         Get an active compatibilities by id  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_compatibilities_class_active_by_id_with_http_info(compatibilities_class_active_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_compatibilities_class_active_by_id_with_http_info(compatibilities_class_active_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str compatibilities_class_active_id: Get an active compatibilities by id (required)
         :return: CompatibilitiesClassActive
                  If the method is called asynchronously,
@@ -955,7 +955,7 @@ class StoragepoolApi(object):
         """
 
         all_params = ['compatibilities_class_active_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1009,7 +1009,7 @@ class StoragepoolApi(object):
             files=local_var_files,
             response_type='CompatibilitiesClassActive',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1020,17 +1020,17 @@ class StoragepoolApi(object):
 
         Get a list of available compatibilities  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_compatibilities_class_available(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_compatibilities_class_available(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: CompatibilitiesClassAvailable
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_compatibilities_class_available_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_compatibilities_class_available_with_http_info(**kwargs)  # noqa: E501
@@ -1041,18 +1041,18 @@ class StoragepoolApi(object):
 
         Get a list of available compatibilities  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_compatibilities_class_available_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_compatibilities_class_available_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: CompatibilitiesClassAvailable
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1100,7 +1100,7 @@ class StoragepoolApi(object):
             files=local_var_files,
             response_type='CompatibilitiesClassAvailable',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1111,18 +1111,18 @@ class StoragepoolApi(object):
 
         Get a active ssd compatibilities by id  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_compatibilities_ssd_active_by_id(compatibilities_ssd_active_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_compatibilities_ssd_active_by_id(compatibilities_ssd_active_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str compatibilities_ssd_active_id: Get a active ssd compatibilities by id (required)
         :return: CompatibilitiesSsdActive
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_compatibilities_ssd_active_by_id_with_http_info(compatibilities_ssd_active_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_compatibilities_ssd_active_by_id_with_http_info(compatibilities_ssd_active_id, **kwargs)  # noqa: E501
@@ -1133,11 +1133,11 @@ class StoragepoolApi(object):
 
         Get a active ssd compatibilities by id  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_compatibilities_ssd_active_by_id_with_http_info(compatibilities_ssd_active_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_compatibilities_ssd_active_by_id_with_http_info(compatibilities_ssd_active_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str compatibilities_ssd_active_id: Get a active ssd compatibilities by id (required)
         :return: CompatibilitiesSsdActive
                  If the method is called asynchronously,
@@ -1145,7 +1145,7 @@ class StoragepoolApi(object):
         """
 
         all_params = ['compatibilities_ssd_active_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1199,7 +1199,7 @@ class StoragepoolApi(object):
             files=local_var_files,
             response_type='CompatibilitiesSsdActive',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1210,17 +1210,17 @@ class StoragepoolApi(object):
 
         Get a list of available ssd compatibilities  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_compatibilities_ssd_available(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_compatibilities_ssd_available(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: CompatibilitiesSsdAvailable
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_compatibilities_ssd_available_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_compatibilities_ssd_available_with_http_info(**kwargs)  # noqa: E501
@@ -1231,18 +1231,18 @@ class StoragepoolApi(object):
 
         Get a list of available ssd compatibilities  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_compatibilities_ssd_available_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_compatibilities_ssd_available_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: CompatibilitiesSsdAvailable
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1290,7 +1290,7 @@ class StoragepoolApi(object):
             files=local_var_files,
             response_type='CompatibilitiesSsdAvailable',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1301,18 +1301,18 @@ class StoragepoolApi(object):
 
         Retrieve node pool information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_storagepool_nodepool(storagepool_nodepool_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_storagepool_nodepool(storagepool_nodepool_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str storagepool_nodepool_id: Retrieve node pool information. (required)
         :return: StoragepoolNodepools
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_storagepool_nodepool_with_http_info(storagepool_nodepool_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_storagepool_nodepool_with_http_info(storagepool_nodepool_id, **kwargs)  # noqa: E501
@@ -1323,11 +1323,11 @@ class StoragepoolApi(object):
 
         Retrieve node pool information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_storagepool_nodepool_with_http_info(storagepool_nodepool_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_storagepool_nodepool_with_http_info(storagepool_nodepool_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str storagepool_nodepool_id: Retrieve node pool information. (required)
         :return: StoragepoolNodepools
                  If the method is called asynchronously,
@@ -1335,7 +1335,7 @@ class StoragepoolApi(object):
         """
 
         all_params = ['storagepool_nodepool_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1389,7 +1389,7 @@ class StoragepoolApi(object):
             files=local_var_files,
             response_type='StoragepoolNodepools',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1400,17 +1400,17 @@ class StoragepoolApi(object):
 
         List all settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_storagepool_settings(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_storagepool_settings(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: StoragepoolSettings
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_storagepool_settings_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_storagepool_settings_with_http_info(**kwargs)  # noqa: E501
@@ -1421,18 +1421,18 @@ class StoragepoolApi(object):
 
         List all settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_storagepool_settings_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_storagepool_settings_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: StoragepoolSettings
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1480,7 +1480,7 @@ class StoragepoolApi(object):
             files=local_var_files,
             response_type='StoragepoolSettings',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1491,17 +1491,17 @@ class StoragepoolApi(object):
 
         List any health conditions detected.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_storagepool_status(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_storagepool_status(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: StoragepoolStatus
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_storagepool_status_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_storagepool_status_with_http_info(**kwargs)  # noqa: E501
@@ -1512,18 +1512,18 @@ class StoragepoolApi(object):
 
         List any health conditions detected.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_storagepool_status_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_storagepool_status_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: StoragepoolStatus
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1571,7 +1571,7 @@ class StoragepoolApi(object):
             files=local_var_files,
             response_type='StoragepoolStatus',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1582,17 +1582,17 @@ class StoragepoolApi(object):
 
         List all storage pools.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_storagepool_storagepools(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_storagepool_storagepools(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: StoragepoolStoragepools
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_storagepool_storagepools_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_storagepool_storagepools_with_http_info(**kwargs)  # noqa: E501
@@ -1603,18 +1603,18 @@ class StoragepoolApi(object):
 
         List all storage pools.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_storagepool_storagepools_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_storagepool_storagepools_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: StoragepoolStoragepools
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1662,7 +1662,7 @@ class StoragepoolApi(object):
             files=local_var_files,
             response_type='StoragepoolStoragepools',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1673,18 +1673,18 @@ class StoragepoolApi(object):
 
         Retrieve the suggested protection policy.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_storagepool_suggested_protection_nid(storagepool_suggested_protection_nid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_storagepool_suggested_protection_nid(storagepool_suggested_protection_nid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str storagepool_suggested_protection_nid: Retrieve the suggested protection policy. (required)
         :return: StoragepoolSuggestedProtection
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_storagepool_suggested_protection_nid_with_http_info(storagepool_suggested_protection_nid, **kwargs)  # noqa: E501
         else:
             (data) = self.get_storagepool_suggested_protection_nid_with_http_info(storagepool_suggested_protection_nid, **kwargs)  # noqa: E501
@@ -1695,11 +1695,11 @@ class StoragepoolApi(object):
 
         Retrieve the suggested protection policy.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_storagepool_suggested_protection_nid_with_http_info(storagepool_suggested_protection_nid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_storagepool_suggested_protection_nid_with_http_info(storagepool_suggested_protection_nid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str storagepool_suggested_protection_nid: Retrieve the suggested protection policy. (required)
         :return: StoragepoolSuggestedProtection
                  If the method is called asynchronously,
@@ -1707,7 +1707,7 @@ class StoragepoolApi(object):
         """
 
         all_params = ['storagepool_suggested_protection_nid']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1761,7 +1761,7 @@ class StoragepoolApi(object):
             files=local_var_files,
             response_type='StoragepoolSuggestedProtection',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1772,18 +1772,18 @@ class StoragepoolApi(object):
 
         Retrieve tier information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_storagepool_tier(storagepool_tier_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_storagepool_tier(storagepool_tier_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str storagepool_tier_id: Retrieve tier information. (required)
         :return: StoragepoolTiers
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_storagepool_tier_with_http_info(storagepool_tier_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_storagepool_tier_with_http_info(storagepool_tier_id, **kwargs)  # noqa: E501
@@ -1794,11 +1794,11 @@ class StoragepoolApi(object):
 
         Retrieve tier information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_storagepool_tier_with_http_info(storagepool_tier_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_storagepool_tier_with_http_info(storagepool_tier_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str storagepool_tier_id: Retrieve tier information. (required)
         :return: StoragepoolTiers
                  If the method is called asynchronously,
@@ -1806,7 +1806,7 @@ class StoragepoolApi(object):
         """
 
         all_params = ['storagepool_tier_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1860,7 +1860,7 @@ class StoragepoolApi(object):
             files=local_var_files,
             response_type='StoragepoolTiers',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1871,17 +1871,17 @@ class StoragepoolApi(object):
 
         Get the uprovisioned nodes and drives  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_storagepool_unprovisioned(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_storagepool_unprovisioned(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: StoragepoolUnprovisioned
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_storagepool_unprovisioned_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_storagepool_unprovisioned_with_http_info(**kwargs)  # noqa: E501
@@ -1892,18 +1892,18 @@ class StoragepoolApi(object):
 
         Get the uprovisioned nodes and drives  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_storagepool_unprovisioned_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_storagepool_unprovisioned_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: StoragepoolUnprovisioned
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1951,7 +1951,7 @@ class StoragepoolApi(object):
             files=local_var_files,
             response_type='StoragepoolUnprovisioned',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1962,17 +1962,17 @@ class StoragepoolApi(object):
 
         Get a list of active compatibilities  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_compatibilities_class_active(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_compatibilities_class_active(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: CompatibilitiesClassActiveExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_compatibilities_class_active_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_compatibilities_class_active_with_http_info(**kwargs)  # noqa: E501
@@ -1983,18 +1983,18 @@ class StoragepoolApi(object):
 
         Get a list of active compatibilities  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_compatibilities_class_active_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_compatibilities_class_active_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: CompatibilitiesClassActiveExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2042,7 +2042,7 @@ class StoragepoolApi(object):
             files=local_var_files,
             response_type='CompatibilitiesClassActiveExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2053,17 +2053,17 @@ class StoragepoolApi(object):
 
         Get a list of active ssd compatibilities  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_compatibilities_ssd_active(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_compatibilities_ssd_active(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: CompatibilitiesSsdActiveExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_compatibilities_ssd_active_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_compatibilities_ssd_active_with_http_info(**kwargs)  # noqa: E501
@@ -2074,18 +2074,18 @@ class StoragepoolApi(object):
 
         Get a list of active ssd compatibilities  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_compatibilities_ssd_active_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_compatibilities_ssd_active_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: CompatibilitiesSsdActiveExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2133,7 +2133,7 @@ class StoragepoolApi(object):
             files=local_var_files,
             response_type='CompatibilitiesSsdActiveExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2144,17 +2144,17 @@ class StoragepoolApi(object):
 
         List all node pools.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_storagepool_nodepools(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_storagepool_nodepools(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: StoragepoolNodepoolsExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_storagepool_nodepools_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_storagepool_nodepools_with_http_info(**kwargs)  # noqa: E501
@@ -2165,18 +2165,18 @@ class StoragepoolApi(object):
 
         List all node pools.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_storagepool_nodepools_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_storagepool_nodepools_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: StoragepoolNodepoolsExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2224,7 +2224,7 @@ class StoragepoolApi(object):
             files=local_var_files,
             response_type='StoragepoolNodepoolsExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2235,17 +2235,17 @@ class StoragepoolApi(object):
 
         List all tiers.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_storagepool_tiers(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_storagepool_tiers(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: StoragepoolTiersExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_storagepool_tiers_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_storagepool_tiers_with_http_info(**kwargs)  # noqa: E501
@@ -2256,18 +2256,18 @@ class StoragepoolApi(object):
 
         List all tiers.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_storagepool_tiers_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_storagepool_tiers_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: StoragepoolTiersExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2315,7 +2315,7 @@ class StoragepoolApi(object):
             files=local_var_files,
             response_type='StoragepoolTiersExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2326,11 +2326,11 @@ class StoragepoolApi(object):
 
         Modify node pool. All input fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_storagepool_nodepool(storagepool_nodepool, storagepool_nodepool_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_storagepool_nodepool(storagepool_nodepool, storagepool_nodepool_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param StoragepoolNodepool storagepool_nodepool: (required)
         :param str storagepool_nodepool_id: Modify node pool. All input fields are optional, but one or more must be supplied. (required)
         :return: None
@@ -2338,7 +2338,7 @@ class StoragepoolApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_storagepool_nodepool_with_http_info(storagepool_nodepool, storagepool_nodepool_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_storagepool_nodepool_with_http_info(storagepool_nodepool, storagepool_nodepool_id, **kwargs)  # noqa: E501
@@ -2349,11 +2349,11 @@ class StoragepoolApi(object):
 
         Modify node pool. All input fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_storagepool_nodepool_with_http_info(storagepool_nodepool, storagepool_nodepool_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_storagepool_nodepool_with_http_info(storagepool_nodepool, storagepool_nodepool_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param StoragepoolNodepool storagepool_nodepool: (required)
         :param str storagepool_nodepool_id: Modify node pool. All input fields are optional, but one or more must be supplied. (required)
         :return: None
@@ -2362,7 +2362,7 @@ class StoragepoolApi(object):
         """
 
         all_params = ['storagepool_nodepool', 'storagepool_nodepool_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2422,7 +2422,7 @@ class StoragepoolApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2433,18 +2433,18 @@ class StoragepoolApi(object):
 
         Modify one or more settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_storagepool_settings(storagepool_settings, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_storagepool_settings(storagepool_settings, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param StoragepoolSettingsExtended storagepool_settings: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_storagepool_settings_with_http_info(storagepool_settings, **kwargs)  # noqa: E501
         else:
             (data) = self.update_storagepool_settings_with_http_info(storagepool_settings, **kwargs)  # noqa: E501
@@ -2455,11 +2455,11 @@ class StoragepoolApi(object):
 
         Modify one or more settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_storagepool_settings_with_http_info(storagepool_settings, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_storagepool_settings_with_http_info(storagepool_settings, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param StoragepoolSettingsExtended storagepool_settings: (required)
         :return: None
                  If the method is called asynchronously,
@@ -2467,7 +2467,7 @@ class StoragepoolApi(object):
         """
 
         all_params = ['storagepool_settings']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2521,7 +2521,7 @@ class StoragepoolApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2532,11 +2532,11 @@ class StoragepoolApi(object):
 
         Modify tier. All input fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_storagepool_tier(storagepool_tier, storagepool_tier_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_storagepool_tier(storagepool_tier, storagepool_tier_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param StoragepoolTier storagepool_tier: (required)
         :param str storagepool_tier_id: Modify tier. All input fields are optional, but one or more must be supplied. (required)
         :return: None
@@ -2544,7 +2544,7 @@ class StoragepoolApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_storagepool_tier_with_http_info(storagepool_tier, storagepool_tier_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_storagepool_tier_with_http_info(storagepool_tier, storagepool_tier_id, **kwargs)  # noqa: E501
@@ -2555,11 +2555,11 @@ class StoragepoolApi(object):
 
         Modify tier. All input fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_storagepool_tier_with_http_info(storagepool_tier, storagepool_tier_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_storagepool_tier_with_http_info(storagepool_tier, storagepool_tier_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param StoragepoolTier storagepool_tier: (required)
         :param str storagepool_tier_id: Modify tier. All input fields are optional, but one or more must be supplied. (required)
         :return: None
@@ -2568,7 +2568,7 @@ class StoragepoolApi(object):
         """
 
         all_params = ['storagepool_tier', 'storagepool_tier_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2628,7 +2628,7 @@ class StoragepoolApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

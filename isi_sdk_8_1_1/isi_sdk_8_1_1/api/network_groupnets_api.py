@@ -38,11 +38,11 @@ class NetworkGroupnetsApi(object):
 
         Create a new subnet.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_groupnet_subnet(groupnet_subnet, groupnet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_groupnet_subnet(groupnet_subnet, groupnet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param GroupnetSubnetCreateParams groupnet_subnet: (required)
         :param str groupnet: (required)
         :return: CreateResponse
@@ -50,7 +50,7 @@ class NetworkGroupnetsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_groupnet_subnet_with_http_info(groupnet_subnet, groupnet, **kwargs)  # noqa: E501
         else:
             (data) = self.create_groupnet_subnet_with_http_info(groupnet_subnet, groupnet, **kwargs)  # noqa: E501
@@ -61,11 +61,11 @@ class NetworkGroupnetsApi(object):
 
         Create a new subnet.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_groupnet_subnet_with_http_info(groupnet_subnet, groupnet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_groupnet_subnet_with_http_info(groupnet_subnet, groupnet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param GroupnetSubnetCreateParams groupnet_subnet: (required)
         :param str groupnet: (required)
         :return: CreateResponse
@@ -74,7 +74,7 @@ class NetworkGroupnetsApi(object):
         """
 
         all_params = ['groupnet_subnet', 'groupnet']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -134,7 +134,7 @@ class NetworkGroupnetsApi(object):
             files=local_var_files,
             response_type='CreateResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -145,11 +145,11 @@ class NetworkGroupnetsApi(object):
 
         Create a new pool.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_subnets_subnet_pool(subnets_subnet_pool, groupnet, subnet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_subnets_subnet_pool(subnets_subnet_pool, groupnet, subnet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SubnetsSubnetPoolCreateParams subnets_subnet_pool: (required)
         :param str groupnet: (required)
         :param str subnet: (required)
@@ -159,7 +159,7 @@ class NetworkGroupnetsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_subnets_subnet_pool_with_http_info(subnets_subnet_pool, groupnet, subnet, **kwargs)  # noqa: E501
         else:
             (data) = self.create_subnets_subnet_pool_with_http_info(subnets_subnet_pool, groupnet, subnet, **kwargs)  # noqa: E501
@@ -170,11 +170,11 @@ class NetworkGroupnetsApi(object):
 
         Create a new pool.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_subnets_subnet_pool_with_http_info(subnets_subnet_pool, groupnet, subnet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_subnets_subnet_pool_with_http_info(subnets_subnet_pool, groupnet, subnet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SubnetsSubnetPoolCreateParams subnets_subnet_pool: (required)
         :param str groupnet: (required)
         :param str subnet: (required)
@@ -185,7 +185,7 @@ class NetworkGroupnetsApi(object):
         """
 
         all_params = ['subnets_subnet_pool', 'groupnet', 'subnet', 'force']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -253,7 +253,7 @@ class NetworkGroupnetsApi(object):
             files=local_var_files,
             response_type='CreateResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -264,11 +264,11 @@ class NetworkGroupnetsApi(object):
 
         Delete a network subnet..  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_groupnet_subnet(groupnet_subnet_id, groupnet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_groupnet_subnet(groupnet_subnet_id, groupnet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str groupnet_subnet_id: Delete a network subnet.. (required)
         :param str groupnet: (required)
         :param bool force: force deleting this subnet even if pools in other subnets rely on this subnet's SC VIP.
@@ -277,7 +277,7 @@ class NetworkGroupnetsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_groupnet_subnet_with_http_info(groupnet_subnet_id, groupnet, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_groupnet_subnet_with_http_info(groupnet_subnet_id, groupnet, **kwargs)  # noqa: E501
@@ -288,11 +288,11 @@ class NetworkGroupnetsApi(object):
 
         Delete a network subnet..  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_groupnet_subnet_with_http_info(groupnet_subnet_id, groupnet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_groupnet_subnet_with_http_info(groupnet_subnet_id, groupnet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str groupnet_subnet_id: Delete a network subnet.. (required)
         :param str groupnet: (required)
         :param bool force: force deleting this subnet even if pools in other subnets rely on this subnet's SC VIP.
@@ -302,7 +302,7 @@ class NetworkGroupnetsApi(object):
         """
 
         all_params = ['groupnet_subnet_id', 'groupnet', 'force']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -364,7 +364,7 @@ class NetworkGroupnetsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -375,11 +375,11 @@ class NetworkGroupnetsApi(object):
 
         Delete a network pool.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_subnets_subnet_pool(subnets_subnet_pool_id, groupnet, subnet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_subnets_subnet_pool(subnets_subnet_pool_id, groupnet, subnet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str subnets_subnet_pool_id: Delete a network pool. (required)
         :param str groupnet: (required)
         :param str subnet: (required)
@@ -388,7 +388,7 @@ class NetworkGroupnetsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_subnets_subnet_pool_with_http_info(subnets_subnet_pool_id, groupnet, subnet, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_subnets_subnet_pool_with_http_info(subnets_subnet_pool_id, groupnet, subnet, **kwargs)  # noqa: E501
@@ -399,11 +399,11 @@ class NetworkGroupnetsApi(object):
 
         Delete a network pool.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_subnets_subnet_pool_with_http_info(subnets_subnet_pool_id, groupnet, subnet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_subnets_subnet_pool_with_http_info(subnets_subnet_pool_id, groupnet, subnet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str subnets_subnet_pool_id: Delete a network pool. (required)
         :param str groupnet: (required)
         :param str subnet: (required)
@@ -413,7 +413,7 @@ class NetworkGroupnetsApi(object):
         """
 
         all_params = ['subnets_subnet_pool_id', 'groupnet', 'subnet']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -479,7 +479,7 @@ class NetworkGroupnetsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -490,11 +490,11 @@ class NetworkGroupnetsApi(object):
 
         View a network subnet.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_groupnet_subnet(groupnet_subnet_id, groupnet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_groupnet_subnet(groupnet_subnet_id, groupnet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str groupnet_subnet_id: View a network subnet. (required)
         :param str groupnet: (required)
         :return: GroupnetSubnets
@@ -502,7 +502,7 @@ class NetworkGroupnetsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_groupnet_subnet_with_http_info(groupnet_subnet_id, groupnet, **kwargs)  # noqa: E501
         else:
             (data) = self.get_groupnet_subnet_with_http_info(groupnet_subnet_id, groupnet, **kwargs)  # noqa: E501
@@ -513,11 +513,11 @@ class NetworkGroupnetsApi(object):
 
         View a network subnet.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_groupnet_subnet_with_http_info(groupnet_subnet_id, groupnet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_groupnet_subnet_with_http_info(groupnet_subnet_id, groupnet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str groupnet_subnet_id: View a network subnet. (required)
         :param str groupnet: (required)
         :return: GroupnetSubnets
@@ -526,7 +526,7 @@ class NetworkGroupnetsApi(object):
         """
 
         all_params = ['groupnet_subnet_id', 'groupnet']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -586,7 +586,7 @@ class NetworkGroupnetsApi(object):
             files=local_var_files,
             response_type='GroupnetSubnets',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -597,11 +597,11 @@ class NetworkGroupnetsApi(object):
 
         View a single network pool.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_subnets_subnet_pool(subnets_subnet_pool_id, groupnet, subnet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_subnets_subnet_pool(subnets_subnet_pool_id, groupnet, subnet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str subnets_subnet_pool_id: View a single network pool. (required)
         :param str groupnet: (required)
         :param str subnet: (required)
@@ -610,7 +610,7 @@ class NetworkGroupnetsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_subnets_subnet_pool_with_http_info(subnets_subnet_pool_id, groupnet, subnet, **kwargs)  # noqa: E501
         else:
             (data) = self.get_subnets_subnet_pool_with_http_info(subnets_subnet_pool_id, groupnet, subnet, **kwargs)  # noqa: E501
@@ -621,11 +621,11 @@ class NetworkGroupnetsApi(object):
 
         View a single network pool.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_subnets_subnet_pool_with_http_info(subnets_subnet_pool_id, groupnet, subnet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_subnets_subnet_pool_with_http_info(subnets_subnet_pool_id, groupnet, subnet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str subnets_subnet_pool_id: View a single network pool. (required)
         :param str groupnet: (required)
         :param str subnet: (required)
@@ -635,7 +635,7 @@ class NetworkGroupnetsApi(object):
         """
 
         all_params = ['subnets_subnet_pool_id', 'groupnet', 'subnet']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -701,7 +701,7 @@ class NetworkGroupnetsApi(object):
             files=local_var_files,
             response_type='SubnetsSubnetPools',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -712,11 +712,11 @@ class NetworkGroupnetsApi(object):
 
         Get a list of subnets.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_groupnet_subnets(groupnet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_groupnet_subnets(groupnet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str groupnet: (required)
         :param str sort: The field that will be used for sorting.
         :param int limit: Return no more than this many results at once (see resume).
@@ -727,7 +727,7 @@ class NetworkGroupnetsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_groupnet_subnets_with_http_info(groupnet, **kwargs)  # noqa: E501
         else:
             (data) = self.list_groupnet_subnets_with_http_info(groupnet, **kwargs)  # noqa: E501
@@ -738,11 +738,11 @@ class NetworkGroupnetsApi(object):
 
         Get a list of subnets.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_groupnet_subnets_with_http_info(groupnet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_groupnet_subnets_with_http_info(groupnet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str groupnet: (required)
         :param str sort: The field that will be used for sorting.
         :param int limit: Return no more than this many results at once (see resume).
@@ -754,7 +754,7 @@ class NetworkGroupnetsApi(object):
         """
 
         all_params = ['groupnet', 'sort', 'limit', 'dir', 'resume']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -835,7 +835,7 @@ class NetworkGroupnetsApi(object):
             files=local_var_files,
             response_type='GroupnetSubnetsExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -846,11 +846,11 @@ class NetworkGroupnetsApi(object):
 
         Get a list of network pools.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_subnets_subnet_pools(groupnet, subnet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_subnets_subnet_pools(groupnet, subnet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str groupnet: (required)
         :param str subnet: (required)
         :param str sort: The field that will be used for sorting.
@@ -864,7 +864,7 @@ class NetworkGroupnetsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_subnets_subnet_pools_with_http_info(groupnet, subnet, **kwargs)  # noqa: E501
         else:
             (data) = self.list_subnets_subnet_pools_with_http_info(groupnet, subnet, **kwargs)  # noqa: E501
@@ -875,11 +875,11 @@ class NetworkGroupnetsApi(object):
 
         Get a list of network pools.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_subnets_subnet_pools_with_http_info(groupnet, subnet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_subnets_subnet_pools_with_http_info(groupnet, subnet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str groupnet: (required)
         :param str subnet: (required)
         :param str sort: The field that will be used for sorting.
@@ -894,7 +894,7 @@ class NetworkGroupnetsApi(object):
         """
 
         all_params = ['groupnet', 'subnet', 'sort', 'resume', 'access_zone', 'alloc_method', 'limit', 'dir']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -985,7 +985,7 @@ class NetworkGroupnetsApi(object):
             files=local_var_files,
             response_type='SubnetsSubnetPoolsExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -996,11 +996,11 @@ class NetworkGroupnetsApi(object):
 
         Modify a network subnet.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_groupnet_subnet(groupnet_subnet, groupnet_subnet_id, groupnet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_groupnet_subnet(groupnet_subnet, groupnet_subnet_id, groupnet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param GroupnetSubnet groupnet_subnet: (required)
         :param str groupnet_subnet_id: Modify a network subnet. (required)
         :param str groupnet: (required)
@@ -1010,7 +1010,7 @@ class NetworkGroupnetsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_groupnet_subnet_with_http_info(groupnet_subnet, groupnet_subnet_id, groupnet, **kwargs)  # noqa: E501
         else:
             (data) = self.update_groupnet_subnet_with_http_info(groupnet_subnet, groupnet_subnet_id, groupnet, **kwargs)  # noqa: E501
@@ -1021,11 +1021,11 @@ class NetworkGroupnetsApi(object):
 
         Modify a network subnet.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_groupnet_subnet_with_http_info(groupnet_subnet, groupnet_subnet_id, groupnet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_groupnet_subnet_with_http_info(groupnet_subnet, groupnet_subnet_id, groupnet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param GroupnetSubnet groupnet_subnet: (required)
         :param str groupnet_subnet_id: Modify a network subnet. (required)
         :param str groupnet: (required)
@@ -1036,7 +1036,7 @@ class NetworkGroupnetsApi(object):
         """
 
         all_params = ['groupnet_subnet', 'groupnet_subnet_id', 'groupnet', 'force']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1104,7 +1104,7 @@ class NetworkGroupnetsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1115,11 +1115,11 @@ class NetworkGroupnetsApi(object):
 
         Modify a network pool.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_subnets_subnet_pool(subnets_subnet_pool, subnets_subnet_pool_id, groupnet, subnet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_subnets_subnet_pool(subnets_subnet_pool, subnets_subnet_pool_id, groupnet, subnet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SubnetsSubnetPool subnets_subnet_pool: (required)
         :param str subnets_subnet_pool_id: Modify a network pool. (required)
         :param str groupnet: (required)
@@ -1130,7 +1130,7 @@ class NetworkGroupnetsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_subnets_subnet_pool_with_http_info(subnets_subnet_pool, subnets_subnet_pool_id, groupnet, subnet, **kwargs)  # noqa: E501
         else:
             (data) = self.update_subnets_subnet_pool_with_http_info(subnets_subnet_pool, subnets_subnet_pool_id, groupnet, subnet, **kwargs)  # noqa: E501
@@ -1141,11 +1141,11 @@ class NetworkGroupnetsApi(object):
 
         Modify a network pool.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_subnets_subnet_pool_with_http_info(subnets_subnet_pool, subnets_subnet_pool_id, groupnet, subnet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_subnets_subnet_pool_with_http_info(subnets_subnet_pool, subnets_subnet_pool_id, groupnet, subnet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SubnetsSubnetPool subnets_subnet_pool: (required)
         :param str subnets_subnet_pool_id: Modify a network pool. (required)
         :param str groupnet: (required)
@@ -1157,7 +1157,7 @@ class NetworkGroupnetsApi(object):
         """
 
         all_params = ['subnets_subnet_pool', 'subnets_subnet_pool_id', 'groupnet', 'subnet', 'force']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1231,7 +1231,7 @@ class NetworkGroupnetsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

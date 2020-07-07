@@ -38,18 +38,18 @@ class WormApi(object):
 
         Create a WORM domain.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_worm_domain(worm_domain, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_worm_domain(worm_domain, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param WormDomainCreateParams worm_domain: (required)
         :return: WormDomainExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_worm_domain_with_http_info(worm_domain, **kwargs)  # noqa: E501
         else:
             (data) = self.create_worm_domain_with_http_info(worm_domain, **kwargs)  # noqa: E501
@@ -60,11 +60,11 @@ class WormApi(object):
 
         Create a WORM domain.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_worm_domain_with_http_info(worm_domain, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_worm_domain_with_http_info(worm_domain, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param WormDomainCreateParams worm_domain: (required)
         :return: WormDomainExtended
                  If the method is called asynchronously,
@@ -72,7 +72,7 @@ class WormApi(object):
         """
 
         all_params = ['worm_domain']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -126,7 +126,7 @@ class WormApi(object):
             files=local_var_files,
             response_type='WormDomainExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -137,18 +137,18 @@ class WormApi(object):
 
         View a single WORM domain.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_worm_domain(worm_domain_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_worm_domain(worm_domain_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str worm_domain_id: View a single WORM domain. (required)
         :return: WormDomains
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_worm_domain_with_http_info(worm_domain_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_worm_domain_with_http_info(worm_domain_id, **kwargs)  # noqa: E501
@@ -159,11 +159,11 @@ class WormApi(object):
 
         View a single WORM domain.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_worm_domain_with_http_info(worm_domain_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_worm_domain_with_http_info(worm_domain_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str worm_domain_id: View a single WORM domain. (required)
         :return: WormDomains
                  If the method is called asynchronously,
@@ -171,7 +171,7 @@ class WormApi(object):
         """
 
         all_params = ['worm_domain_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -225,7 +225,7 @@ class WormApi(object):
             files=local_var_files,
             response_type='WormDomains',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -236,17 +236,17 @@ class WormApi(object):
 
         Get the global WORM settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_worm_settings(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_worm_settings(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: WormSettings
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_worm_settings_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_worm_settings_with_http_info(**kwargs)  # noqa: E501
@@ -257,18 +257,18 @@ class WormApi(object):
 
         Get the global WORM settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_worm_settings_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_worm_settings_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: WormSettings
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -316,7 +316,7 @@ class WormApi(object):
             files=local_var_files,
             response_type='WormSettings',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -327,11 +327,11 @@ class WormApi(object):
 
         List all WORM domains.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_worm_domains(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_worm_domains(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param int limit: Return no more than this many results at once (see resume).
         :param str dir: The direction of the sort.
@@ -341,7 +341,7 @@ class WormApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_worm_domains_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_worm_domains_with_http_info(**kwargs)  # noqa: E501
@@ -352,11 +352,11 @@ class WormApi(object):
 
         List all WORM domains.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_worm_domains_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_worm_domains_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param int limit: Return no more than this many results at once (see resume).
         :param str dir: The direction of the sort.
@@ -367,7 +367,7 @@ class WormApi(object):
         """
 
         all_params = ['sort', 'limit', 'dir', 'resume']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -442,7 +442,7 @@ class WormApi(object):
             files=local_var_files,
             response_type='WormDomainsExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -453,11 +453,11 @@ class WormApi(object):
 
         Modify a single WORM domain.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_worm_domain(worm_domain, worm_domain_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_worm_domain(worm_domain, worm_domain_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param WormDomain worm_domain: (required)
         :param str worm_domain_id: Modify a single WORM domain. (required)
         :return: None
@@ -465,7 +465,7 @@ class WormApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_worm_domain_with_http_info(worm_domain, worm_domain_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_worm_domain_with_http_info(worm_domain, worm_domain_id, **kwargs)  # noqa: E501
@@ -476,11 +476,11 @@ class WormApi(object):
 
         Modify a single WORM domain.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_worm_domain_with_http_info(worm_domain, worm_domain_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_worm_domain_with_http_info(worm_domain, worm_domain_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param WormDomain worm_domain: (required)
         :param str worm_domain_id: Modify a single WORM domain. (required)
         :return: None
@@ -489,7 +489,7 @@ class WormApi(object):
         """
 
         all_params = ['worm_domain', 'worm_domain_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -549,7 +549,7 @@ class WormApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -560,18 +560,18 @@ class WormApi(object):
 
         Modify the global WORM settings.  All input fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_worm_settings(worm_settings, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_worm_settings(worm_settings, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param WormSettingsExtended worm_settings: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_worm_settings_with_http_info(worm_settings, **kwargs)  # noqa: E501
         else:
             (data) = self.update_worm_settings_with_http_info(worm_settings, **kwargs)  # noqa: E501
@@ -582,11 +582,11 @@ class WormApi(object):
 
         Modify the global WORM settings.  All input fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_worm_settings_with_http_info(worm_settings, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_worm_settings_with_http_info(worm_settings, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param WormSettingsExtended worm_settings: (required)
         :return: None
                  If the method is called asynchronously,
@@ -594,7 +594,7 @@ class WormApi(object):
         """
 
         all_params = ['worm_settings']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -648,7 +648,7 @@ class WormApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

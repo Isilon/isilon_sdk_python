@@ -38,11 +38,11 @@ class AuthUsersApi(object):
 
         Add the user to a group.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_user_member_of_item(user_member_of_item, user, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_user_member_of_item(user_member_of_item, user, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param AuthAccessAccessItemFileGroup user_member_of_item: (required)
         :param str user: (required)
         :param str zone: Filter groups by zone.
@@ -52,7 +52,7 @@ class AuthUsersApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_user_member_of_item_with_http_info(user_member_of_item, user, **kwargs)  # noqa: E501
         else:
             (data) = self.create_user_member_of_item_with_http_info(user_member_of_item, user, **kwargs)  # noqa: E501
@@ -63,11 +63,11 @@ class AuthUsersApi(object):
 
         Add the user to a group.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_user_member_of_item_with_http_info(user_member_of_item, user, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_user_member_of_item_with_http_info(user_member_of_item, user, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param AuthAccessAccessItemFileGroup user_member_of_item: (required)
         :param str user: (required)
         :param str zone: Filter groups by zone.
@@ -78,7 +78,7 @@ class AuthUsersApi(object):
         """
 
         all_params = ['user_member_of_item', 'user', 'zone', 'provider']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -142,7 +142,7 @@ class AuthUsersApi(object):
             files=local_var_files,
             response_type='CreateResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -153,11 +153,11 @@ class AuthUsersApi(object):
 
         Remove the user from the group.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_user_member_of_member_of(user_member_of_member_of, user, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_user_member_of_member_of(user_member_of_member_of, user, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str user_member_of_member_of: Remove the user from the group. (required)
         :param str user: (required)
         :param str zone: Filter groups by zone.
@@ -167,7 +167,7 @@ class AuthUsersApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_user_member_of_member_of_with_http_info(user_member_of_member_of, user, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_user_member_of_member_of_with_http_info(user_member_of_member_of, user, **kwargs)  # noqa: E501
@@ -178,11 +178,11 @@ class AuthUsersApi(object):
 
         Remove the user from the group.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_user_member_of_member_of_with_http_info(user_member_of_member_of, user, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_user_member_of_member_of_with_http_info(user_member_of_member_of, user, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str user_member_of_member_of: Remove the user from the group. (required)
         :param str user: (required)
         :param str zone: Filter groups by zone.
@@ -193,7 +193,7 @@ class AuthUsersApi(object):
         """
 
         all_params = ['user_member_of_member_of', 'user', 'zone', 'provider']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -257,7 +257,7 @@ class AuthUsersApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -268,11 +268,11 @@ class AuthUsersApi(object):
 
         List all groups the user is a member of.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_user_member_of(user, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_user_member_of(user, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str user: (required)
         :param bool resolve_names: Resolve names of personas.
         :param str zone: Filter groups by zone.
@@ -282,7 +282,7 @@ class AuthUsersApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_user_member_of_with_http_info(user, **kwargs)  # noqa: E501
         else:
             (data) = self.list_user_member_of_with_http_info(user, **kwargs)  # noqa: E501
@@ -293,11 +293,11 @@ class AuthUsersApi(object):
 
         List all groups the user is a member of.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_user_member_of_with_http_info(user, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_user_member_of_with_http_info(user, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str user: (required)
         :param bool resolve_names: Resolve names of personas.
         :param str zone: Filter groups by zone.
@@ -308,7 +308,7 @@ class AuthUsersApi(object):
         """
 
         all_params = ['user', 'resolve_names', 'zone', 'provider']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -368,7 +368,7 @@ class AuthUsersApi(object):
             files=local_var_files,
             response_type='UserMemberOf',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -379,11 +379,11 @@ class AuthUsersApi(object):
 
         Change the user's password.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_user_change_password(user_change_password, user, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_user_change_password(user_change_password, user, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param UserChangePassword user_change_password: (required)
         :param str user: (required)
         :param str zone: Specifies access zone containing user.
@@ -392,7 +392,7 @@ class AuthUsersApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_user_change_password_with_http_info(user_change_password, user, **kwargs)  # noqa: E501
         else:
             (data) = self.update_user_change_password_with_http_info(user_change_password, user, **kwargs)  # noqa: E501
@@ -403,11 +403,11 @@ class AuthUsersApi(object):
 
         Change the user's password.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_user_change_password_with_http_info(user_change_password, user, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_user_change_password_with_http_info(user_change_password, user, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param UserChangePassword user_change_password: (required)
         :param str user: (required)
         :param str zone: Specifies access zone containing user.
@@ -417,7 +417,7 @@ class AuthUsersApi(object):
         """
 
         all_params = ['user_change_password', 'user', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -479,7 +479,7 @@ class AuthUsersApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

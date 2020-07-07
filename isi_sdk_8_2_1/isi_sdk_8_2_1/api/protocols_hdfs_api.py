@@ -38,11 +38,11 @@ class ProtocolsHdfsApi(object):
 
         Add a member to the HDFS proxyuser.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_proxyusers_name_member(proxyusers_name_member, name, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_proxyusers_name_member(proxyusers_name_member, name, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param AuthAccessAccessItemFileGroup proxyusers_name_member: (required)
         :param str name: (required)
         :param str zone: Specifies which access zone to use.
@@ -51,7 +51,7 @@ class ProtocolsHdfsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_proxyusers_name_member_with_http_info(proxyusers_name_member, name, **kwargs)  # noqa: E501
         else:
             (data) = self.create_proxyusers_name_member_with_http_info(proxyusers_name_member, name, **kwargs)  # noqa: E501
@@ -62,11 +62,11 @@ class ProtocolsHdfsApi(object):
 
         Add a member to the HDFS proxyuser.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_proxyusers_name_member_with_http_info(proxyusers_name_member, name, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_proxyusers_name_member_with_http_info(proxyusers_name_member, name, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param AuthAccessAccessItemFileGroup proxyusers_name_member: (required)
         :param str name: (required)
         :param str zone: Specifies which access zone to use.
@@ -76,7 +76,7 @@ class ProtocolsHdfsApi(object):
         """
 
         all_params = ['proxyusers_name_member', 'name', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -144,7 +144,7 @@ class ProtocolsHdfsApi(object):
             files=local_var_files,
             response_type='Empty',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -155,11 +155,11 @@ class ProtocolsHdfsApi(object):
 
         Remove a member from the HDFS proxyuser.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_proxyusers_name_member(proxyusers_name_member_id, name, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_proxyusers_name_member(proxyusers_name_member_id, name, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str proxyusers_name_member_id: Remove a member from the HDFS proxyuser. (required)
         :param str name: (required)
         :param str zone: Specifies which access zone to use.
@@ -168,7 +168,7 @@ class ProtocolsHdfsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_proxyusers_name_member_with_http_info(proxyusers_name_member_id, name, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_proxyusers_name_member_with_http_info(proxyusers_name_member_id, name, **kwargs)  # noqa: E501
@@ -179,11 +179,11 @@ class ProtocolsHdfsApi(object):
 
         Remove a member from the HDFS proxyuser.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_proxyusers_name_member_with_http_info(proxyusers_name_member_id, name, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_proxyusers_name_member_with_http_info(proxyusers_name_member_id, name, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str proxyusers_name_member_id: Remove a member from the HDFS proxyuser. (required)
         :param str name: (required)
         :param str zone: Specifies which access zone to use.
@@ -193,7 +193,7 @@ class ProtocolsHdfsApi(object):
         """
 
         all_params = ['proxyusers_name_member_id', 'name', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -261,7 +261,7 @@ class ProtocolsHdfsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -272,11 +272,11 @@ class ProtocolsHdfsApi(object):
 
         List all the members of the HDFS proxyuser.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_proxyusers_name_members(name, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_proxyusers_name_members(name, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str name: (required)
         :param str zone: Specifies which access zone to use.
         :return: ProxyusersNameMembers
@@ -284,7 +284,7 @@ class ProtocolsHdfsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_proxyusers_name_members_with_http_info(name, **kwargs)  # noqa: E501
         else:
             (data) = self.list_proxyusers_name_members_with_http_info(name, **kwargs)  # noqa: E501
@@ -295,11 +295,11 @@ class ProtocolsHdfsApi(object):
 
         List all the members of the HDFS proxyuser.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_proxyusers_name_members_with_http_info(name, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_proxyusers_name_members_with_http_info(name, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str name: (required)
         :param str zone: Specifies which access zone to use.
         :return: ProxyusersNameMembers
@@ -308,7 +308,7 @@ class ProtocolsHdfsApi(object):
         """
 
         all_params = ['name', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -370,7 +370,7 @@ class ProtocolsHdfsApi(object):
             files=local_var_files,
             response_type='ProxyusersNameMembers',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -381,11 +381,11 @@ class ProtocolsHdfsApi(object):
 
         Create a new HDFS proxyuser.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_proxyusers_name_member(proxyusers_name_member, proxyusers_name_member_id, name, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_proxyusers_name_member(proxyusers_name_member, proxyusers_name_member_id, name, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty proxyusers_name_member: (required)
         :param str proxyusers_name_member_id: Create a new HDFS proxyuser. (required)
         :param str name: (required)
@@ -395,7 +395,7 @@ class ProtocolsHdfsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_proxyusers_name_member_with_http_info(proxyusers_name_member, proxyusers_name_member_id, name, **kwargs)  # noqa: E501
         else:
             (data) = self.update_proxyusers_name_member_with_http_info(proxyusers_name_member, proxyusers_name_member_id, name, **kwargs)  # noqa: E501
@@ -406,11 +406,11 @@ class ProtocolsHdfsApi(object):
 
         Create a new HDFS proxyuser.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_proxyusers_name_member_with_http_info(proxyusers_name_member, proxyusers_name_member_id, name, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_proxyusers_name_member_with_http_info(proxyusers_name_member, proxyusers_name_member_id, name, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty proxyusers_name_member: (required)
         :param str proxyusers_name_member_id: Create a new HDFS proxyuser. (required)
         :param str name: (required)
@@ -421,7 +421,7 @@ class ProtocolsHdfsApi(object):
         """
 
         all_params = ['proxyusers_name_member', 'proxyusers_name_member_id', 'name', 'zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -495,7 +495,7 @@ class ProtocolsHdfsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

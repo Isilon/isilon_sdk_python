@@ -38,11 +38,11 @@ class StatisticsApi(object):
 
         Retrieve stats.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_statistics_current(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_statistics_current(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int timeout: Time in seconds to wait for results from remote nodes.
         :param bool degraded: If true, try to continue even if some stats are unavailable. In this case, errors will be present in the per-key returned data.
         :param list[str] devid: Node devid to query.  Either an <integer> or \"all\".  Can be used more than one time to query multiple nodes.  \"all\" queries all up nodes. 0 means query the local node. For \"cluster\" scoped keys, in any devid including 0 can be used.
@@ -53,7 +53,7 @@ class StatisticsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_statistics_current_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_statistics_current_with_http_info(**kwargs)  # noqa: E501
@@ -64,11 +64,11 @@ class StatisticsApi(object):
 
         Retrieve stats.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_statistics_current_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_statistics_current_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int timeout: Time in seconds to wait for results from remote nodes.
         :param bool degraded: If true, try to continue even if some stats are unavailable. In this case, errors will be present in the per-key returned data.
         :param list[str] devid: Node devid to query.  Either an <integer> or \"all\".  Can be used more than one time to query multiple nodes.  \"all\" queries all up nodes. 0 means query the local node. For \"cluster\" scoped keys, in any devid including 0 can be used.
@@ -80,7 +80,7 @@ class StatisticsApi(object):
         """
 
         all_params = ['timeout', 'degraded', 'devid', 'key', 'expand_clientid']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -140,7 +140,7 @@ class StatisticsApi(object):
             files=local_var_files,
             response_type='StatisticsCurrent',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -151,11 +151,11 @@ class StatisticsApi(object):
 
         Retrieve stats.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_statistics_history(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_statistics_history(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int begin: Earliest time (Unix epoch seconds) of interest. Negative times are interpreted as relative (before) now.
         :param int interval: Minimum sampling interval time in seconds.  If native statistics are higher resolution, data will be down-sampled.
         :param int end: Latest time (Unix epoch seconds) of interest. Negative times are interpreted as relative (before) now. If not supplied, use now as the end time.
@@ -170,7 +170,7 @@ class StatisticsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_statistics_history_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_statistics_history_with_http_info(**kwargs)  # noqa: E501
@@ -181,11 +181,11 @@ class StatisticsApi(object):
 
         Retrieve stats.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_statistics_history_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_statistics_history_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int begin: Earliest time (Unix epoch seconds) of interest. Negative times are interpreted as relative (before) now.
         :param int interval: Minimum sampling interval time in seconds.  If native statistics are higher resolution, data will be down-sampled.
         :param int end: Latest time (Unix epoch seconds) of interest. Negative times are interpreted as relative (before) now. If not supplied, use now as the end time.
@@ -201,7 +201,7 @@ class StatisticsApi(object):
         """
 
         all_params = ['begin', 'interval', 'end', 'timeout', 'devid', 'memory_only', 'key', 'degraded', 'expand_clientid']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -269,7 +269,7 @@ class StatisticsApi(object):
             files=local_var_files,
             response_type='StatisticsHistory',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -280,18 +280,18 @@ class StatisticsApi(object):
 
         List key meta-data.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_statistics_key(statistics_key_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_statistics_key(statistics_key_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str statistics_key_id: List key meta-data. (required)
         :return: StatisticsKeys
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_statistics_key_with_http_info(statistics_key_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_statistics_key_with_http_info(statistics_key_id, **kwargs)  # noqa: E501
@@ -302,11 +302,11 @@ class StatisticsApi(object):
 
         List key meta-data.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_statistics_key_with_http_info(statistics_key_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_statistics_key_with_http_info(statistics_key_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str statistics_key_id: List key meta-data. (required)
         :return: StatisticsKeys
                  If the method is called asynchronously,
@@ -314,7 +314,7 @@ class StatisticsApi(object):
         """
 
         all_params = ['statistics_key_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -368,7 +368,7 @@ class StatisticsApi(object):
             files=local_var_files,
             response_type='StatisticsKeys',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -379,11 +379,11 @@ class StatisticsApi(object):
 
         List meta-data for matching keys.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_statistics_keys(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_statistics_keys(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param bool count: Only count matching keys, do not return meta-data.
         :param int limit: Return no more than this many results at once (see resume).
         :param bool queryable: Only list keys that can/cannot be queries. Default is true.
@@ -393,7 +393,7 @@ class StatisticsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_statistics_keys_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_statistics_keys_with_http_info(**kwargs)  # noqa: E501
@@ -404,11 +404,11 @@ class StatisticsApi(object):
 
         List meta-data for matching keys.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_statistics_keys_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_statistics_keys_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param bool count: Only count matching keys, do not return meta-data.
         :param int limit: Return no more than this many results at once (see resume).
         :param bool queryable: Only list keys that can/cannot be queries. Default is true.
@@ -419,7 +419,7 @@ class StatisticsApi(object):
         """
 
         all_params = ['count', 'limit', 'queryable', 'resume']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -477,7 +477,7 @@ class StatisticsApi(object):
             files=local_var_files,
             response_type='StatisticsKeysExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -488,17 +488,17 @@ class StatisticsApi(object):
 
         Retrieve protocol list.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_statistics_protocols(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_statistics_protocols(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: StatisticsProtocols
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_statistics_protocols_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_statistics_protocols_with_http_info(**kwargs)  # noqa: E501
@@ -509,18 +509,18 @@ class StatisticsApi(object):
 
         Retrieve protocol list.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_statistics_protocols_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_statistics_protocols_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: StatisticsProtocols
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -568,7 +568,7 @@ class StatisticsApi(object):
             files=local_var_files,
             response_type='StatisticsProtocols',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

@@ -38,18 +38,18 @@ class HardeningApi(object):
 
         Apply hardening on the cluster.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_hardening_apply_item(hardening_apply_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_hardening_apply_item(hardening_apply_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param HardeningApplyItem hardening_apply_item: (required)
         :return: CreateHardeningApplyItemResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_hardening_apply_item_with_http_info(hardening_apply_item, **kwargs)  # noqa: E501
         else:
             (data) = self.create_hardening_apply_item_with_http_info(hardening_apply_item, **kwargs)  # noqa: E501
@@ -60,11 +60,11 @@ class HardeningApi(object):
 
         Apply hardening on the cluster.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_hardening_apply_item_with_http_info(hardening_apply_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_hardening_apply_item_with_http_info(hardening_apply_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param HardeningApplyItem hardening_apply_item: (required)
         :return: CreateHardeningApplyItemResponse
                  If the method is called asynchronously,
@@ -72,7 +72,7 @@ class HardeningApi(object):
         """
 
         all_params = ['hardening_apply_item']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -126,7 +126,7 @@ class HardeningApi(object):
             files=local_var_files,
             response_type='CreateHardeningApplyItemResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -137,11 +137,11 @@ class HardeningApi(object):
 
         Resolve issues related to hardening, found in current cluster configuration.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_hardening_resolve_item(hardening_resolve_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_hardening_resolve_item(hardening_resolve_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param HardeningResolveItem hardening_resolve_item: (required)
         :param bool accept: If true, execution proceeds to resolve all issues. If false, executrion aborts. This is a required argument.
         :return: CreateHardeningResolveItemResponse
@@ -149,7 +149,7 @@ class HardeningApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_hardening_resolve_item_with_http_info(hardening_resolve_item, **kwargs)  # noqa: E501
         else:
             (data) = self.create_hardening_resolve_item_with_http_info(hardening_resolve_item, **kwargs)  # noqa: E501
@@ -160,11 +160,11 @@ class HardeningApi(object):
 
         Resolve issues related to hardening, found in current cluster configuration.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_hardening_resolve_item_with_http_info(hardening_resolve_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_hardening_resolve_item_with_http_info(hardening_resolve_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param HardeningResolveItem hardening_resolve_item: (required)
         :param bool accept: If true, execution proceeds to resolve all issues. If false, executrion aborts. This is a required argument.
         :return: CreateHardeningResolveItemResponse
@@ -173,7 +173,7 @@ class HardeningApi(object):
         """
 
         all_params = ['hardening_resolve_item', 'accept']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -229,7 +229,7 @@ class HardeningApi(object):
             files=local_var_files,
             response_type='CreateHardeningResolveItemResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -240,11 +240,11 @@ class HardeningApi(object):
 
         Revert hardening on the cluster.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_hardening_revert_item(hardening_revert_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_hardening_revert_item(hardening_revert_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty hardening_revert_item: (required)
         :param bool force: If specified, revert operation continues even in case of a failure. Default is false in which case revert stops at the first failure.
         :return: CreateHardeningRevertItemResponse
@@ -252,7 +252,7 @@ class HardeningApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_hardening_revert_item_with_http_info(hardening_revert_item, **kwargs)  # noqa: E501
         else:
             (data) = self.create_hardening_revert_item_with_http_info(hardening_revert_item, **kwargs)  # noqa: E501
@@ -263,11 +263,11 @@ class HardeningApi(object):
 
         Revert hardening on the cluster.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_hardening_revert_item_with_http_info(hardening_revert_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_hardening_revert_item_with_http_info(hardening_revert_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty hardening_revert_item: (required)
         :param bool force: If specified, revert operation continues even in case of a failure. Default is false in which case revert stops at the first failure.
         :return: CreateHardeningRevertItemResponse
@@ -276,7 +276,7 @@ class HardeningApi(object):
         """
 
         all_params = ['hardening_revert_item', 'force']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -332,7 +332,7 @@ class HardeningApi(object):
             files=local_var_files,
             response_type='CreateHardeningRevertItemResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -343,17 +343,17 @@ class HardeningApi(object):
 
         Get the state of the current hardening operation, if one is happening.  Note that this is different from the /status resource, which returns the overall hardening status of the cluster.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_hardening_state(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_hardening_state(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: HardeningState
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_hardening_state_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_hardening_state_with_http_info(**kwargs)  # noqa: E501
@@ -364,18 +364,18 @@ class HardeningApi(object):
 
         Get the state of the current hardening operation, if one is happening.  Note that this is different from the /status resource, which returns the overall hardening status of the cluster.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_hardening_state_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_hardening_state_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: HardeningState
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -423,7 +423,7 @@ class HardeningApi(object):
             files=local_var_files,
             response_type='HardeningState',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -434,17 +434,17 @@ class HardeningApi(object):
 
         Get a message indicating whether or not the cluster is hardened. Note that this is different from the /state resource, which returns the state of a specific hardening operation (apply or revert).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_hardening_status(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_hardening_status(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: HardeningStatus
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_hardening_status_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_hardening_status_with_http_info(**kwargs)  # noqa: E501
@@ -455,18 +455,18 @@ class HardeningApi(object):
 
         Get a message indicating whether or not the cluster is hardened. Note that this is different from the /state resource, which returns the state of a specific hardening operation (apply or revert).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_hardening_status_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_hardening_status_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: HardeningStatus
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -514,7 +514,7 @@ class HardeningApi(object):
             files=local_var_files,
             response_type='HardeningStatus',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

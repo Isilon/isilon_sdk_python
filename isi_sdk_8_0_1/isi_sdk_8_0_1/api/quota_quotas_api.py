@@ -38,11 +38,11 @@ class QuotaQuotasApi(object):
 
         Create a new notification rule specific to this quota.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_quota_notification(quota_notification, qid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_quota_notification(quota_notification, qid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param QuotaNotificationCreateParams quota_notification: (required)
         :param str qid: (required)
         :return: CreateResponse
@@ -50,7 +50,7 @@ class QuotaQuotasApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_quota_notification_with_http_info(quota_notification, qid, **kwargs)  # noqa: E501
         else:
             (data) = self.create_quota_notification_with_http_info(quota_notification, qid, **kwargs)  # noqa: E501
@@ -61,11 +61,11 @@ class QuotaQuotasApi(object):
 
         Create a new notification rule specific to this quota.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_quota_notification_with_http_info(quota_notification, qid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_quota_notification_with_http_info(quota_notification, qid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param QuotaNotificationCreateParams quota_notification: (required)
         :param str qid: (required)
         :return: CreateResponse
@@ -74,7 +74,7 @@ class QuotaQuotasApi(object):
         """
 
         all_params = ['quota_notification', 'qid']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -134,7 +134,7 @@ class QuotaQuotasApi(object):
             files=local_var_files,
             response_type='CreateResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -145,11 +145,11 @@ class QuotaQuotasApi(object):
 
         Delete the notification rule.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_quota_notification(quota_notification_id, qid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_quota_notification(quota_notification_id, qid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str quota_notification_id: Delete the notification rule. (required)
         :param str qid: (required)
         :return: None
@@ -157,7 +157,7 @@ class QuotaQuotasApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_quota_notification_with_http_info(quota_notification_id, qid, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_quota_notification_with_http_info(quota_notification_id, qid, **kwargs)  # noqa: E501
@@ -168,11 +168,11 @@ class QuotaQuotasApi(object):
 
         Delete the notification rule.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_quota_notification_with_http_info(quota_notification_id, qid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_quota_notification_with_http_info(quota_notification_id, qid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str quota_notification_id: Delete the notification rule. (required)
         :param str qid: (required)
         :return: None
@@ -181,7 +181,7 @@ class QuotaQuotasApi(object):
         """
 
         all_params = ['quota_notification_id', 'qid']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -241,7 +241,7 @@ class QuotaQuotasApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -252,18 +252,18 @@ class QuotaQuotasApi(object):
 
         Delete all quota specific rules. The quota will then use the global rules.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_quota_notifications(qid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_quota_notifications(qid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str qid: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_quota_notifications_with_http_info(qid, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_quota_notifications_with_http_info(qid, **kwargs)  # noqa: E501
@@ -274,11 +274,11 @@ class QuotaQuotasApi(object):
 
         Delete all quota specific rules. The quota will then use the global rules.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_quota_notifications_with_http_info(qid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_quota_notifications_with_http_info(qid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str qid: (required)
         :return: None
                  If the method is called asynchronously,
@@ -286,7 +286,7 @@ class QuotaQuotasApi(object):
         """
 
         all_params = ['qid']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -340,7 +340,7 @@ class QuotaQuotasApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -351,11 +351,11 @@ class QuotaQuotasApi(object):
 
         Retrieve notification rule information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_quota_notification(quota_notification_id, qid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_quota_notification(quota_notification_id, qid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str quota_notification_id: Retrieve notification rule information. (required)
         :param str qid: (required)
         :return: QuotaNotifications
@@ -363,7 +363,7 @@ class QuotaQuotasApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_quota_notification_with_http_info(quota_notification_id, qid, **kwargs)  # noqa: E501
         else:
             (data) = self.get_quota_notification_with_http_info(quota_notification_id, qid, **kwargs)  # noqa: E501
@@ -374,11 +374,11 @@ class QuotaQuotasApi(object):
 
         Retrieve notification rule information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_quota_notification_with_http_info(quota_notification_id, qid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_quota_notification_with_http_info(quota_notification_id, qid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str quota_notification_id: Retrieve notification rule information. (required)
         :param str qid: (required)
         :return: QuotaNotifications
@@ -387,7 +387,7 @@ class QuotaQuotasApi(object):
         """
 
         all_params = ['quota_notification_id', 'qid']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -447,7 +447,7 @@ class QuotaQuotasApi(object):
             files=local_var_files,
             response_type='QuotaNotifications',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -458,18 +458,18 @@ class QuotaQuotasApi(object):
 
         List all rules.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_quota_notifications(qid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_quota_notifications(qid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str qid: (required)
         :return: QuotaNotificationsExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_quota_notifications_with_http_info(qid, **kwargs)  # noqa: E501
         else:
             (data) = self.list_quota_notifications_with_http_info(qid, **kwargs)  # noqa: E501
@@ -480,11 +480,11 @@ class QuotaQuotasApi(object):
 
         List all rules.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_quota_notifications_with_http_info(qid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_quota_notifications_with_http_info(qid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str qid: (required)
         :return: QuotaNotificationsExtended
                  If the method is called asynchronously,
@@ -492,7 +492,7 @@ class QuotaQuotasApi(object):
         """
 
         all_params = ['qid']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -546,7 +546,7 @@ class QuotaQuotasApi(object):
             files=local_var_files,
             response_type='QuotaNotificationsExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -557,11 +557,11 @@ class QuotaQuotasApi(object):
 
         Modify notification rule. All input fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_quota_notification(quota_notification, quota_notification_id, qid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_quota_notification(quota_notification, quota_notification_id, qid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param QuotaNotification quota_notification: (required)
         :param str quota_notification_id: Modify notification rule. All input fields are optional, but one or more must be supplied. (required)
         :param str qid: (required)
@@ -570,7 +570,7 @@ class QuotaQuotasApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_quota_notification_with_http_info(quota_notification, quota_notification_id, qid, **kwargs)  # noqa: E501
         else:
             (data) = self.update_quota_notification_with_http_info(quota_notification, quota_notification_id, qid, **kwargs)  # noqa: E501
@@ -581,11 +581,11 @@ class QuotaQuotasApi(object):
 
         Modify notification rule. All input fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_quota_notification_with_http_info(quota_notification, quota_notification_id, qid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_quota_notification_with_http_info(quota_notification, quota_notification_id, qid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param QuotaNotification quota_notification: (required)
         :param str quota_notification_id: Modify notification rule. All input fields are optional, but one or more must be supplied. (required)
         :param str qid: (required)
@@ -595,7 +595,7 @@ class QuotaQuotasApi(object):
         """
 
         all_params = ['quota_notification', 'quota_notification_id', 'qid']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -661,7 +661,7 @@ class QuotaQuotasApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -672,11 +672,11 @@ class QuotaQuotasApi(object):
 
         This method creates an empty set of rules so that the global rules are not used. The input must be an empty JSON object.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_quota_notifications(quota_notifications, qid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_quota_notifications(quota_notifications, qid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty quota_notifications: (required)
         :param str qid: (required)
         :return: None
@@ -684,7 +684,7 @@ class QuotaQuotasApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_quota_notifications_with_http_info(quota_notifications, qid, **kwargs)  # noqa: E501
         else:
             (data) = self.update_quota_notifications_with_http_info(quota_notifications, qid, **kwargs)  # noqa: E501
@@ -695,11 +695,11 @@ class QuotaQuotasApi(object):
 
         This method creates an empty set of rules so that the global rules are not used. The input must be an empty JSON object.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_quota_notifications_with_http_info(quota_notifications, qid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_quota_notifications_with_http_info(quota_notifications, qid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty quota_notifications: (required)
         :param str qid: (required)
         :return: None
@@ -708,7 +708,7 @@ class QuotaQuotasApi(object):
         """
 
         all_params = ['quota_notifications', 'qid']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -768,7 +768,7 @@ class QuotaQuotasApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

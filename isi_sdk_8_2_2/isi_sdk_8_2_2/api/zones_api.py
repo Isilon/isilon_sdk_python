@@ -38,18 +38,18 @@ class ZonesApi(object):
 
         Create a new access zone.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_zone(zone, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_zone(zone, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param ZoneCreateParams zone: (required)
         :return: CreateResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_zone_with_http_info(zone, **kwargs)  # noqa: E501
         else:
             (data) = self.create_zone_with_http_info(zone, **kwargs)  # noqa: E501
@@ -60,11 +60,11 @@ class ZonesApi(object):
 
         Create a new access zone.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_zone_with_http_info(zone, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_zone_with_http_info(zone, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param ZoneCreateParams zone: (required)
         :return: CreateResponse
                  If the method is called asynchronously,
@@ -72,7 +72,7 @@ class ZonesApi(object):
         """
 
         all_params = ['zone']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -126,7 +126,7 @@ class ZonesApi(object):
             files=local_var_files,
             response_type='CreateResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -137,18 +137,18 @@ class ZonesApi(object):
 
         Delete the access zone.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_zone(zone_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_zone(zone_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int zone_id: Delete the access zone. (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_zone_with_http_info(zone_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_zone_with_http_info(zone_id, **kwargs)  # noqa: E501
@@ -159,11 +159,11 @@ class ZonesApi(object):
 
         Delete the access zone.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_zone_with_http_info(zone_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_zone_with_http_info(zone_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int zone_id: Delete the access zone. (required)
         :return: None
                  If the method is called asynchronously,
@@ -171,7 +171,7 @@ class ZonesApi(object):
         """
 
         all_params = ['zone_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -225,7 +225,7 @@ class ZonesApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -236,18 +236,18 @@ class ZonesApi(object):
 
         Retrieve the access zone information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_zone(zone_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_zone(zone_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int zone_id: Retrieve the access zone information. (required)
         :return: Zones
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_zone_with_http_info(zone_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_zone_with_http_info(zone_id, **kwargs)  # noqa: E501
@@ -258,11 +258,11 @@ class ZonesApi(object):
 
         Retrieve the access zone information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_zone_with_http_info(zone_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_zone_with_http_info(zone_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int zone_id: Retrieve the access zone information. (required)
         :return: Zones
                  If the method is called asynchronously,
@@ -270,7 +270,7 @@ class ZonesApi(object):
         """
 
         all_params = ['zone_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -324,7 +324,7 @@ class ZonesApi(object):
             files=local_var_files,
             response_type='Zones',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -335,17 +335,17 @@ class ZonesApi(object):
 
         List all access zones.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_zones(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_zones(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: ZonesExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_zones_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_zones_with_http_info(**kwargs)  # noqa: E501
@@ -356,18 +356,18 @@ class ZonesApi(object):
 
         List all access zones.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_zones_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_zones_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: ZonesExtended
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -415,7 +415,7 @@ class ZonesApi(object):
             files=local_var_files,
             response_type='ZonesExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -426,11 +426,11 @@ class ZonesApi(object):
 
         Modify the access zone. All input fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_zone(zone, zone_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_zone(zone, zone_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Zone zone: (required)
         :param int zone_id: Modify the access zone. All input fields are optional, but one or more must be supplied. (required)
         :return: None
@@ -438,7 +438,7 @@ class ZonesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_zone_with_http_info(zone, zone_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_zone_with_http_info(zone, zone_id, **kwargs)  # noqa: E501
@@ -449,11 +449,11 @@ class ZonesApi(object):
 
         Modify the access zone. All input fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_zone_with_http_info(zone, zone_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_zone_with_http_info(zone, zone_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Zone zone: (required)
         :param int zone_id: Modify the access zone. All input fields are optional, but one or more must be supplied. (required)
         :return: None
@@ -462,7 +462,7 @@ class ZonesApi(object):
         """
 
         all_params = ['zone', 'zone_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -522,7 +522,7 @@ class ZonesApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

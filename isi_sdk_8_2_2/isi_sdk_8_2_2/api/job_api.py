@@ -38,18 +38,18 @@ class JobApi(object):
 
         Queue a new instance of a job type.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_job_job(job_job, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_job_job(job_job, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param JobJobCreateParams job_job: (required)
         :return: CreateJobJobResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_job_job_with_http_info(job_job, **kwargs)  # noqa: E501
         else:
             (data) = self.create_job_job_with_http_info(job_job, **kwargs)  # noqa: E501
@@ -60,11 +60,11 @@ class JobApi(object):
 
         Queue a new instance of a job type.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_job_job_with_http_info(job_job, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_job_job_with_http_info(job_job, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param JobJobCreateParams job_job: (required)
         :return: CreateJobJobResponse
                  If the method is called asynchronously,
@@ -72,7 +72,7 @@ class JobApi(object):
         """
 
         all_params = ['job_job']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -126,7 +126,7 @@ class JobApi(object):
             files=local_var_files,
             response_type='CreateJobJobResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -137,18 +137,18 @@ class JobApi(object):
 
         Create a new job impact policy.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_job_policy(job_policy, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_job_policy(job_policy, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param JobPolicyCreateParams job_policy: (required)
         :return: CreateResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_job_policy_with_http_info(job_policy, **kwargs)  # noqa: E501
         else:
             (data) = self.create_job_policy_with_http_info(job_policy, **kwargs)  # noqa: E501
@@ -159,11 +159,11 @@ class JobApi(object):
 
         Create a new job impact policy.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_job_policy_with_http_info(job_policy, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_job_policy_with_http_info(job_policy, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param JobPolicyCreateParams job_policy: (required)
         :return: CreateResponse
                  If the method is called asynchronously,
@@ -171,7 +171,7 @@ class JobApi(object):
         """
 
         all_params = ['job_policy']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -225,7 +225,7 @@ class JobApi(object):
             files=local_var_files,
             response_type='CreateResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -236,18 +236,18 @@ class JobApi(object):
 
         Delete a job impact policy.  System policies may not be deleted.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_job_policy(job_policy_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_job_policy(job_policy_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str job_policy_id: Delete a job impact policy.  System policies may not be deleted. (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_job_policy_with_http_info(job_policy_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_job_policy_with_http_info(job_policy_id, **kwargs)  # noqa: E501
@@ -258,11 +258,11 @@ class JobApi(object):
 
         Delete a job impact policy.  System policies may not be deleted.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_job_policy_with_http_info(job_policy_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_job_policy_with_http_info(job_policy_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str job_policy_id: Delete a job impact policy.  System policies may not be deleted. (required)
         :return: None
                  If the method is called asynchronously,
@@ -270,7 +270,7 @@ class JobApi(object):
         """
 
         all_params = ['job_policy_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -324,7 +324,7 @@ class JobApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -335,11 +335,11 @@ class JobApi(object):
 
         List job events.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_job_events(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_job_events(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int begin: Restrict the query to events at or after the given time, in seconds since the Epoch.
         :param int end: Restrict the query to events before the given time, in seconds since the Epoch.
         :param int job_id: Restrict the query to the given job ID.
@@ -355,7 +355,7 @@ class JobApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_job_events_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_job_events_with_http_info(**kwargs)  # noqa: E501
@@ -366,11 +366,11 @@ class JobApi(object):
 
         List job events.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_job_events_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_job_events_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int begin: Restrict the query to events at or after the given time, in seconds since the Epoch.
         :param int end: Restrict the query to events before the given time, in seconds since the Epoch.
         :param int job_id: Restrict the query to the given job ID.
@@ -387,7 +387,7 @@ class JobApi(object):
         """
 
         all_params = ['begin', 'end', 'job_id', 'resume', 'job_type', 'timeout_ms', 'state', 'ended_jobs_only', 'limit', 'key']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -465,7 +465,7 @@ class JobApi(object):
             files=local_var_files,
             response_type='JobEvents',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -476,18 +476,18 @@ class JobApi(object):
 
         View a single job instance.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_job_job(job_job_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_job_job(job_job_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str job_job_id: View a single job instance. (required)
         :return: JobJobs
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_job_job_with_http_info(job_job_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_job_job_with_http_info(job_job_id, **kwargs)  # noqa: E501
@@ -498,11 +498,11 @@ class JobApi(object):
 
         View a single job instance.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_job_job_with_http_info(job_job_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_job_job_with_http_info(job_job_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str job_job_id: View a single job instance. (required)
         :return: JobJobs
                  If the method is called asynchronously,
@@ -510,7 +510,7 @@ class JobApi(object):
         """
 
         all_params = ['job_job_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -564,7 +564,7 @@ class JobApi(object):
             files=local_var_files,
             response_type='JobJobs',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -575,17 +575,17 @@ class JobApi(object):
 
         View job engine status.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_job_job_summary(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_job_job_summary(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: JobJobSummary
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_job_job_summary_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_job_job_summary_with_http_info(**kwargs)  # noqa: E501
@@ -596,18 +596,18 @@ class JobApi(object):
 
         View job engine status.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_job_job_summary_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_job_job_summary_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: JobJobSummary
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -655,7 +655,7 @@ class JobApi(object):
             files=local_var_files,
             response_type='JobJobSummary',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -666,18 +666,18 @@ class JobApi(object):
 
         View a single job impact policy.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_job_policy(job_policy_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_job_policy(job_policy_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str job_policy_id: View a single job impact policy. (required)
         :return: JobPolicies
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_job_policy_with_http_info(job_policy_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_job_policy_with_http_info(job_policy_id, **kwargs)  # noqa: E501
@@ -688,11 +688,11 @@ class JobApi(object):
 
         View a single job impact policy.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_job_policy_with_http_info(job_policy_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_job_policy_with_http_info(job_policy_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str job_policy_id: View a single job impact policy. (required)
         :return: JobPolicies
                  If the method is called asynchronously,
@@ -700,7 +700,7 @@ class JobApi(object):
         """
 
         all_params = ['job_policy_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -754,7 +754,7 @@ class JobApi(object):
             files=local_var_files,
             response_type='JobPolicies',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -765,11 +765,11 @@ class JobApi(object):
 
         List recently completed jobs.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_job_recent(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_job_recent(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int timeout_ms: Query timeout in milliseconds. The default is 10000 ms.
         :param int limit: Max number of recent jobs to return. The default is 8, the max is 100.
         :return: JobRecent
@@ -777,7 +777,7 @@ class JobApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_job_recent_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_job_recent_with_http_info(**kwargs)  # noqa: E501
@@ -788,11 +788,11 @@ class JobApi(object):
 
         List recently completed jobs.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_job_recent_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_job_recent_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int timeout_ms: Query timeout in milliseconds. The default is 10000 ms.
         :param int limit: Max number of recent jobs to return. The default is 8, the max is 100.
         :return: JobRecent
@@ -801,7 +801,7 @@ class JobApi(object):
         """
 
         all_params = ['timeout_ms', 'limit']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -853,7 +853,7 @@ class JobApi(object):
             files=local_var_files,
             response_type='JobRecent',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -864,11 +864,11 @@ class JobApi(object):
 
         List job reports.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_job_reports(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_job_reports(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int begin: Restrict the query to reports at or after the given time, in seconds since the Epoch.
         :param int end: Restrict the query to reports before the given time, in seconds since the Epoch.
         :param int job_id: Restrict the query to the given job ID.
@@ -884,7 +884,7 @@ class JobApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_job_reports_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_job_reports_with_http_info(**kwargs)  # noqa: E501
@@ -895,11 +895,11 @@ class JobApi(object):
 
         List job reports.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_job_reports_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_job_reports_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int begin: Restrict the query to reports at or after the given time, in seconds since the Epoch.
         :param int end: Restrict the query to reports before the given time, in seconds since the Epoch.
         :param int job_id: Restrict the query to the given job ID.
@@ -916,7 +916,7 @@ class JobApi(object):
         """
 
         all_params = ['begin', 'end', 'job_id', 'resume', 'job_type', 'timeout_ms', 'limit', 'key', 'last_phase_only', 'verbose']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -994,7 +994,7 @@ class JobApi(object):
             files=local_var_files,
             response_type='JobReports',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1005,11 +1005,11 @@ class JobApi(object):
 
         View job engine statistics.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_job_statistics(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_job_statistics(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int devid: Restrict the query to the given node.
         :param int job_id: Restrict the query to the given job ID.
         :return: JobStatistics
@@ -1017,7 +1017,7 @@ class JobApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_job_statistics_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_job_statistics_with_http_info(**kwargs)  # noqa: E501
@@ -1028,11 +1028,11 @@ class JobApi(object):
 
         View job engine statistics.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_job_statistics_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_job_statistics_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int devid: Restrict the query to the given node.
         :param int job_id: Restrict the query to the given job ID.
         :return: JobStatistics
@@ -1041,7 +1041,7 @@ class JobApi(object):
         """
 
         all_params = ['devid', 'job_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1093,7 +1093,7 @@ class JobApi(object):
             files=local_var_files,
             response_type='JobStatistics',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1104,18 +1104,18 @@ class JobApi(object):
 
         Retrieve job type information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_job_type(job_type_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_job_type(job_type_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str job_type_id: Retrieve job type information. (required)
         :return: JobTypes
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_job_type_with_http_info(job_type_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_job_type_with_http_info(job_type_id, **kwargs)  # noqa: E501
@@ -1126,11 +1126,11 @@ class JobApi(object):
 
         Retrieve job type information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_job_type_with_http_info(job_type_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_job_type_with_http_info(job_type_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str job_type_id: Retrieve job type information. (required)
         :return: JobTypes
                  If the method is called asynchronously,
@@ -1138,7 +1138,7 @@ class JobApi(object):
         """
 
         all_params = ['job_type_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1192,7 +1192,7 @@ class JobApi(object):
             files=local_var_files,
             response_type='JobTypes',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1203,11 +1203,11 @@ class JobApi(object):
 
         List job types.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_job_types(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_job_types(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param bool show_all: Whether to show all job types, including hidden ones.  Defaults to false.
         :param str dir: The direction of the sort.
@@ -1216,7 +1216,7 @@ class JobApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_job_types_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_job_types_with_http_info(**kwargs)  # noqa: E501
@@ -1227,11 +1227,11 @@ class JobApi(object):
 
         List job types.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_job_types_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_job_types_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param bool show_all: Whether to show all job types, including hidden ones.  Defaults to false.
         :param str dir: The direction of the sort.
@@ -1241,7 +1241,7 @@ class JobApi(object):
         """
 
         all_params = ['sort', 'show_all', 'dir']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1304,7 +1304,7 @@ class JobApi(object):
             files=local_var_files,
             response_type='JobTypesExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1315,11 +1315,11 @@ class JobApi(object):
 
         List running and paused jobs.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_job_jobs(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_job_jobs(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
         :param bool batch: If true, other arguments are ignored, and the query will return all results, unsorted, as quickly as possible.
@@ -1331,7 +1331,7 @@ class JobApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_job_jobs_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_job_jobs_with_http_info(**kwargs)  # noqa: E501
@@ -1342,11 +1342,11 @@ class JobApi(object):
 
         List running and paused jobs.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_job_jobs_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_job_jobs_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
         :param bool batch: If true, other arguments are ignored, and the query will return all results, unsorted, as quickly as possible.
@@ -1359,7 +1359,7 @@ class JobApi(object):
         """
 
         all_params = ['sort', 'resume', 'batch', 'state', 'limit', 'dir']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1438,7 +1438,7 @@ class JobApi(object):
             files=local_var_files,
             response_type='JobJobsExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1449,11 +1449,11 @@ class JobApi(object):
 
         List job impact policies.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_job_policies(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_job_policies(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param int limit: Return no more than this many results at once (see resume).
         :param str dir: The direction of the sort.
@@ -1463,7 +1463,7 @@ class JobApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_job_policies_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_job_policies_with_http_info(**kwargs)  # noqa: E501
@@ -1474,11 +1474,11 @@ class JobApi(object):
 
         List job impact policies.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_job_policies_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_job_policies_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param int limit: Return no more than this many results at once (see resume).
         :param str dir: The direction of the sort.
@@ -1489,7 +1489,7 @@ class JobApi(object):
         """
 
         all_params = ['sort', 'limit', 'dir', 'resume']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1564,7 +1564,7 @@ class JobApi(object):
             files=local_var_files,
             response_type='JobPoliciesExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1575,11 +1575,11 @@ class JobApi(object):
 
         Modify a running or paused job instance.  All input fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_job_job(job_job, job_job_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_job_job(job_job, job_job_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param JobJob job_job: (required)
         :param str job_job_id: Modify a running or paused job instance.  All input fields are optional, but one or more must be supplied. (required)
         :return: None
@@ -1587,7 +1587,7 @@ class JobApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_job_job_with_http_info(job_job, job_job_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_job_job_with_http_info(job_job, job_job_id, **kwargs)  # noqa: E501
@@ -1598,11 +1598,11 @@ class JobApi(object):
 
         Modify a running or paused job instance.  All input fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_job_job_with_http_info(job_job, job_job_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_job_job_with_http_info(job_job, job_job_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param JobJob job_job: (required)
         :param str job_job_id: Modify a running or paused job instance.  All input fields are optional, but one or more must be supplied. (required)
         :return: None
@@ -1611,7 +1611,7 @@ class JobApi(object):
         """
 
         all_params = ['job_job', 'job_job_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1671,7 +1671,7 @@ class JobApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1682,11 +1682,11 @@ class JobApi(object):
 
         Modify a job impact policy.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_job_policy(job_policy, job_policy_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_job_policy(job_policy, job_policy_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param JobPolicy job_policy: (required)
         :param str job_policy_id: Modify a job impact policy. (required)
         :return: None
@@ -1694,7 +1694,7 @@ class JobApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_job_policy_with_http_info(job_policy, job_policy_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_job_policy_with_http_info(job_policy, job_policy_id, **kwargs)  # noqa: E501
@@ -1705,11 +1705,11 @@ class JobApi(object):
 
         Modify a job impact policy.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_job_policy_with_http_info(job_policy, job_policy_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_job_policy_with_http_info(job_policy, job_policy_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param JobPolicy job_policy: (required)
         :param str job_policy_id: Modify a job impact policy. (required)
         :return: None
@@ -1718,7 +1718,7 @@ class JobApi(object):
         """
 
         all_params = ['job_policy', 'job_policy_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1778,7 +1778,7 @@ class JobApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1789,11 +1789,11 @@ class JobApi(object):
 
         Modify the job type.  All input fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_job_type(job_type, job_type_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_job_type(job_type, job_type_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param JobType job_type: (required)
         :param str job_type_id: Modify the job type.  All input fields are optional, but one or more must be supplied. (required)
         :return: None
@@ -1801,7 +1801,7 @@ class JobApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_job_type_with_http_info(job_type, job_type_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_job_type_with_http_info(job_type, job_type_id, **kwargs)  # noqa: E501
@@ -1812,11 +1812,11 @@ class JobApi(object):
 
         Modify the job type.  All input fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_job_type_with_http_info(job_type, job_type_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_job_type_with_http_info(job_type, job_type_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param JobType job_type: (required)
         :param str job_type_id: Modify the job type.  All input fields are optional, but one or more must be supplied. (required)
         :return: None
@@ -1825,7 +1825,7 @@ class JobApi(object):
         """
 
         all_params = ['job_type', 'job_type_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1885,7 +1885,7 @@ class JobApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

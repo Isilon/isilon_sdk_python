@@ -38,18 +38,18 @@ class HealthcheckApi(object):
 
         Request an evaluation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_healthcheck_evaluation(healthcheck_evaluation, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_healthcheck_evaluation(healthcheck_evaluation, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param HealthcheckEvaluationCreateParams healthcheck_evaluation: (required)
         :return: CreateResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_healthcheck_evaluation_with_http_info(healthcheck_evaluation, **kwargs)  # noqa: E501
         else:
             (data) = self.create_healthcheck_evaluation_with_http_info(healthcheck_evaluation, **kwargs)  # noqa: E501
@@ -60,11 +60,11 @@ class HealthcheckApi(object):
 
         Request an evaluation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_healthcheck_evaluation_with_http_info(healthcheck_evaluation, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_healthcheck_evaluation_with_http_info(healthcheck_evaluation, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param HealthcheckEvaluationCreateParams healthcheck_evaluation: (required)
         :return: CreateResponse
                  If the method is called asynchronously,
@@ -72,7 +72,7 @@ class HealthcheckApi(object):
         """
 
         all_params = ['healthcheck_evaluation']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -126,7 +126,7 @@ class HealthcheckApi(object):
             files=local_var_files,
             response_type='CreateResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -137,18 +137,18 @@ class HealthcheckApi(object):
 
         Create a parameter.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_healthcheck_parameter(healthcheck_parameter, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_healthcheck_parameter(healthcheck_parameter, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param HealthcheckParameterCreateParams healthcheck_parameter: (required)
         :return: CreateResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_healthcheck_parameter_with_http_info(healthcheck_parameter, **kwargs)  # noqa: E501
         else:
             (data) = self.create_healthcheck_parameter_with_http_info(healthcheck_parameter, **kwargs)  # noqa: E501
@@ -159,11 +159,11 @@ class HealthcheckApi(object):
 
         Create a parameter.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_healthcheck_parameter_with_http_info(healthcheck_parameter, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_healthcheck_parameter_with_http_info(healthcheck_parameter, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param HealthcheckParameterCreateParams healthcheck_parameter: (required)
         :return: CreateResponse
                  If the method is called asynchronously,
@@ -171,7 +171,7 @@ class HealthcheckApi(object):
         """
 
         all_params = ['healthcheck_parameter']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -225,7 +225,7 @@ class HealthcheckApi(object):
             files=local_var_files,
             response_type='CreateResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -236,18 +236,18 @@ class HealthcheckApi(object):
 
         Cancel an evaluation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_healthcheck_evaluation(healthcheck_evaluation_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_healthcheck_evaluation(healthcheck_evaluation_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str healthcheck_evaluation_id: Cancel an evaluation. (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_healthcheck_evaluation_with_http_info(healthcheck_evaluation_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_healthcheck_evaluation_with_http_info(healthcheck_evaluation_id, **kwargs)  # noqa: E501
@@ -258,11 +258,11 @@ class HealthcheckApi(object):
 
         Cancel an evaluation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_healthcheck_evaluation_with_http_info(healthcheck_evaluation_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_healthcheck_evaluation_with_http_info(healthcheck_evaluation_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str healthcheck_evaluation_id: Cancel an evaluation. (required)
         :return: None
                  If the method is called asynchronously,
@@ -270,7 +270,7 @@ class HealthcheckApi(object):
         """
 
         all_params = ['healthcheck_evaluation_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -324,7 +324,7 @@ class HealthcheckApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -335,18 +335,18 @@ class HealthcheckApi(object):
 
         Delete a parameter.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_healthcheck_parameter(healthcheck_parameter_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_healthcheck_parameter(healthcheck_parameter_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str healthcheck_parameter_id: Delete a parameter. (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_healthcheck_parameter_with_http_info(healthcheck_parameter_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_healthcheck_parameter_with_http_info(healthcheck_parameter_id, **kwargs)  # noqa: E501
@@ -357,11 +357,11 @@ class HealthcheckApi(object):
 
         Delete a parameter.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_healthcheck_parameter_with_http_info(healthcheck_parameter_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_healthcheck_parameter_with_http_info(healthcheck_parameter_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str healthcheck_parameter_id: Delete a parameter. (required)
         :return: None
                  If the method is called asynchronously,
@@ -369,7 +369,7 @@ class HealthcheckApi(object):
         """
 
         all_params = ['healthcheck_parameter_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -423,7 +423,7 @@ class HealthcheckApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -434,18 +434,18 @@ class HealthcheckApi(object):
 
         Retrieve a checklist definition.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_healthcheck_checklist(healthcheck_checklist_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_healthcheck_checklist(healthcheck_checklist_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str healthcheck_checklist_id: Retrieve a checklist definition. (required)
         :return: HealthcheckChecklists
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_healthcheck_checklist_with_http_info(healthcheck_checklist_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_healthcheck_checklist_with_http_info(healthcheck_checklist_id, **kwargs)  # noqa: E501
@@ -456,11 +456,11 @@ class HealthcheckApi(object):
 
         Retrieve a checklist definition.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_healthcheck_checklist_with_http_info(healthcheck_checklist_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_healthcheck_checklist_with_http_info(healthcheck_checklist_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str healthcheck_checklist_id: Retrieve a checklist definition. (required)
         :return: HealthcheckChecklists
                  If the method is called asynchronously,
@@ -468,7 +468,7 @@ class HealthcheckApi(object):
         """
 
         all_params = ['healthcheck_checklist_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -522,7 +522,7 @@ class HealthcheckApi(object):
             files=local_var_files,
             response_type='HealthcheckChecklists',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -533,11 +533,11 @@ class HealthcheckApi(object):
 
         List checklists.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_healthcheck_checklists(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_healthcheck_checklists(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int limit: Return no more than this many results at once (see resume).
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
         :return: HealthcheckChecklistsExtended
@@ -545,7 +545,7 @@ class HealthcheckApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_healthcheck_checklists_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_healthcheck_checklists_with_http_info(**kwargs)  # noqa: E501
@@ -556,11 +556,11 @@ class HealthcheckApi(object):
 
         List checklists.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_healthcheck_checklists_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_healthcheck_checklists_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int limit: Return no more than this many results at once (see resume).
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
         :return: HealthcheckChecklistsExtended
@@ -569,7 +569,7 @@ class HealthcheckApi(object):
         """
 
         all_params = ['limit', 'resume']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -631,7 +631,7 @@ class HealthcheckApi(object):
             files=local_var_files,
             response_type='HealthcheckChecklistsExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -642,11 +642,11 @@ class HealthcheckApi(object):
 
         Retrieve individual evaluation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_healthcheck_evaluation(healthcheck_evaluation_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_healthcheck_evaluation(healthcheck_evaluation_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str healthcheck_evaluation_id: Retrieve individual evaluation. (required)
         :param bool detailed: Also return details for items that pass
         :return: HealthcheckEvaluations
@@ -654,7 +654,7 @@ class HealthcheckApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_healthcheck_evaluation_with_http_info(healthcheck_evaluation_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_healthcheck_evaluation_with_http_info(healthcheck_evaluation_id, **kwargs)  # noqa: E501
@@ -665,11 +665,11 @@ class HealthcheckApi(object):
 
         Retrieve individual evaluation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_healthcheck_evaluation_with_http_info(healthcheck_evaluation_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_healthcheck_evaluation_with_http_info(healthcheck_evaluation_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str healthcheck_evaluation_id: Retrieve individual evaluation. (required)
         :param bool detailed: Also return details for items that pass
         :return: HealthcheckEvaluations
@@ -678,7 +678,7 @@ class HealthcheckApi(object):
         """
 
         all_params = ['healthcheck_evaluation_id', 'detailed']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -734,7 +734,7 @@ class HealthcheckApi(object):
             files=local_var_files,
             response_type='HealthcheckEvaluations',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -745,18 +745,18 @@ class HealthcheckApi(object):
 
         Retrieve an item definition.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_healthcheck_item(healthcheck_item_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_healthcheck_item(healthcheck_item_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str healthcheck_item_id: Retrieve an item definition. (required)
         :return: HealthcheckItems
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_healthcheck_item_with_http_info(healthcheck_item_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_healthcheck_item_with_http_info(healthcheck_item_id, **kwargs)  # noqa: E501
@@ -767,11 +767,11 @@ class HealthcheckApi(object):
 
         Retrieve an item definition.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_healthcheck_item_with_http_info(healthcheck_item_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_healthcheck_item_with_http_info(healthcheck_item_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str healthcheck_item_id: Retrieve an item definition. (required)
         :return: HealthcheckItems
                  If the method is called asynchronously,
@@ -779,7 +779,7 @@ class HealthcheckApi(object):
         """
 
         all_params = ['healthcheck_item_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -833,7 +833,7 @@ class HealthcheckApi(object):
             files=local_var_files,
             response_type='HealthcheckItems',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -844,11 +844,11 @@ class HealthcheckApi(object):
 
         List items.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_healthcheck_items(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_healthcheck_items(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int limit: Return no more than this many results at once (see resume).
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
         :return: HealthcheckItemsExtended
@@ -856,7 +856,7 @@ class HealthcheckApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_healthcheck_items_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_healthcheck_items_with_http_info(**kwargs)  # noqa: E501
@@ -867,11 +867,11 @@ class HealthcheckApi(object):
 
         List items.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_healthcheck_items_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_healthcheck_items_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int limit: Return no more than this many results at once (see resume).
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
         :return: HealthcheckItemsExtended
@@ -880,7 +880,7 @@ class HealthcheckApi(object):
         """
 
         all_params = ['limit', 'resume']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -942,7 +942,7 @@ class HealthcheckApi(object):
             files=local_var_files,
             response_type='HealthcheckItemsExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -953,18 +953,18 @@ class HealthcheckApi(object):
 
         Retrieve individual parameter.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_healthcheck_parameter(healthcheck_parameter_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_healthcheck_parameter(healthcheck_parameter_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str healthcheck_parameter_id: Retrieve individual parameter. (required)
         :return: HealthcheckParameters
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_healthcheck_parameter_with_http_info(healthcheck_parameter_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_healthcheck_parameter_with_http_info(healthcheck_parameter_id, **kwargs)  # noqa: E501
@@ -975,11 +975,11 @@ class HealthcheckApi(object):
 
         Retrieve individual parameter.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_healthcheck_parameter_with_http_info(healthcheck_parameter_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_healthcheck_parameter_with_http_info(healthcheck_parameter_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str healthcheck_parameter_id: Retrieve individual parameter. (required)
         :return: HealthcheckParameters
                  If the method is called asynchronously,
@@ -987,7 +987,7 @@ class HealthcheckApi(object):
         """
 
         all_params = ['healthcheck_parameter_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1041,7 +1041,7 @@ class HealthcheckApi(object):
             files=local_var_files,
             response_type='HealthcheckParameters',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1052,11 +1052,11 @@ class HealthcheckApi(object):
 
         List evaluations.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_healthcheck_evaluations(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_healthcheck_evaluations(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param bool detailed: Also return details for items that pass
         :param int limit: Return no more than this many results at once (see resume).
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
@@ -1065,7 +1065,7 @@ class HealthcheckApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_healthcheck_evaluations_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_healthcheck_evaluations_with_http_info(**kwargs)  # noqa: E501
@@ -1076,11 +1076,11 @@ class HealthcheckApi(object):
 
         List evaluations.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_healthcheck_evaluations_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_healthcheck_evaluations_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param bool detailed: Also return details for items that pass
         :param int limit: Return no more than this many results at once (see resume).
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
@@ -1090,7 +1090,7 @@ class HealthcheckApi(object):
         """
 
         all_params = ['detailed', 'limit', 'resume']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1154,7 +1154,7 @@ class HealthcheckApi(object):
             files=local_var_files,
             response_type='HealthcheckEvaluationsExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1165,11 +1165,11 @@ class HealthcheckApi(object):
 
         List parameters.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_healthcheck_parameters(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_healthcheck_parameters(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int limit: Return no more than this many results at once (see resume).
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
         :return: HealthcheckParametersExtended
@@ -1177,7 +1177,7 @@ class HealthcheckApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_healthcheck_parameters_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_healthcheck_parameters_with_http_info(**kwargs)  # noqa: E501
@@ -1188,11 +1188,11 @@ class HealthcheckApi(object):
 
         List parameters.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_healthcheck_parameters_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_healthcheck_parameters_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int limit: Return no more than this many results at once (see resume).
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
         :return: HealthcheckParametersExtended
@@ -1201,7 +1201,7 @@ class HealthcheckApi(object):
         """
 
         all_params = ['limit', 'resume']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1263,7 +1263,7 @@ class HealthcheckApi(object):
             files=local_var_files,
             response_type='HealthcheckParametersExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1274,11 +1274,11 @@ class HealthcheckApi(object):
 
         Pause or resume an evaluation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_healthcheck_evaluation(healthcheck_evaluation, healthcheck_evaluation_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_healthcheck_evaluation(healthcheck_evaluation, healthcheck_evaluation_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param HealthcheckEvaluation healthcheck_evaluation: (required)
         :param str healthcheck_evaluation_id: Pause or resume an evaluation. (required)
         :return: None
@@ -1286,7 +1286,7 @@ class HealthcheckApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_healthcheck_evaluation_with_http_info(healthcheck_evaluation, healthcheck_evaluation_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_healthcheck_evaluation_with_http_info(healthcheck_evaluation, healthcheck_evaluation_id, **kwargs)  # noqa: E501
@@ -1297,11 +1297,11 @@ class HealthcheckApi(object):
 
         Pause or resume an evaluation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_healthcheck_evaluation_with_http_info(healthcheck_evaluation, healthcheck_evaluation_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_healthcheck_evaluation_with_http_info(healthcheck_evaluation, healthcheck_evaluation_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param HealthcheckEvaluation healthcheck_evaluation: (required)
         :param str healthcheck_evaluation_id: Pause or resume an evaluation. (required)
         :return: None
@@ -1310,7 +1310,7 @@ class HealthcheckApi(object):
         """
 
         all_params = ['healthcheck_evaluation', 'healthcheck_evaluation_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1370,7 +1370,7 @@ class HealthcheckApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1381,11 +1381,11 @@ class HealthcheckApi(object):
 
         Modify a parameter value.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_healthcheck_parameter(healthcheck_parameter, healthcheck_parameter_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_healthcheck_parameter(healthcheck_parameter, healthcheck_parameter_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param HealthcheckParameter healthcheck_parameter: (required)
         :param str healthcheck_parameter_id: Modify a parameter value. (required)
         :return: None
@@ -1393,7 +1393,7 @@ class HealthcheckApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_healthcheck_parameter_with_http_info(healthcheck_parameter, healthcheck_parameter_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_healthcheck_parameter_with_http_info(healthcheck_parameter, healthcheck_parameter_id, **kwargs)  # noqa: E501
@@ -1404,11 +1404,11 @@ class HealthcheckApi(object):
 
         Modify a parameter value.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_healthcheck_parameter_with_http_info(healthcheck_parameter, healthcheck_parameter_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_healthcheck_parameter_with_http_info(healthcheck_parameter, healthcheck_parameter_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param HealthcheckParameter healthcheck_parameter: (required)
         :param str healthcheck_parameter_id: Modify a parameter value. (required)
         :return: None
@@ -1417,7 +1417,7 @@ class HealthcheckApi(object):
         """
 
         all_params = ['healthcheck_parameter', 'healthcheck_parameter_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1477,7 +1477,7 @@ class HealthcheckApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

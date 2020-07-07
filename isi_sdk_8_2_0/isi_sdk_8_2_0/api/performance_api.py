@@ -38,18 +38,18 @@ class PerformanceApi(object):
 
         Create a new dataset.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_performance_dataset(performance_dataset, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_performance_dataset(performance_dataset, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param PerformanceDatasetCreateParams performance_dataset: (required)
         :return: CreatePerformanceDatasetResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_performance_dataset_with_http_info(performance_dataset, **kwargs)  # noqa: E501
         else:
             (data) = self.create_performance_dataset_with_http_info(performance_dataset, **kwargs)  # noqa: E501
@@ -60,11 +60,11 @@ class PerformanceApi(object):
 
         Create a new dataset.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_performance_dataset_with_http_info(performance_dataset, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_performance_dataset_with_http_info(performance_dataset, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param PerformanceDatasetCreateParams performance_dataset: (required)
         :return: CreatePerformanceDatasetResponse
                  If the method is called asynchronously,
@@ -72,7 +72,7 @@ class PerformanceApi(object):
         """
 
         all_params = ['performance_dataset']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -126,7 +126,7 @@ class PerformanceApi(object):
             files=local_var_files,
             response_type='CreatePerformanceDatasetResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -137,18 +137,18 @@ class PerformanceApi(object):
 
         Delete the performance dataset.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_performance_dataset(performance_dataset_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_performance_dataset(performance_dataset_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str performance_dataset_id: Delete the performance dataset. (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_performance_dataset_with_http_info(performance_dataset_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_performance_dataset_with_http_info(performance_dataset_id, **kwargs)  # noqa: E501
@@ -159,11 +159,11 @@ class PerformanceApi(object):
 
         Delete the performance dataset.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_performance_dataset_with_http_info(performance_dataset_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_performance_dataset_with_http_info(performance_dataset_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str performance_dataset_id: Delete the performance dataset. (required)
         :return: None
                  If the method is called asynchronously,
@@ -171,7 +171,7 @@ class PerformanceApi(object):
         """
 
         all_params = ['performance_dataset_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -225,7 +225,7 @@ class PerformanceApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -236,18 +236,18 @@ class PerformanceApi(object):
 
         Retrieve the performance dataset.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_performance_dataset(performance_dataset_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_performance_dataset(performance_dataset_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str performance_dataset_id: Retrieve the performance dataset. (required)
         :return: PerformanceDatasets
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_performance_dataset_with_http_info(performance_dataset_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_performance_dataset_with_http_info(performance_dataset_id, **kwargs)  # noqa: E501
@@ -258,11 +258,11 @@ class PerformanceApi(object):
 
         Retrieve the performance dataset.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_performance_dataset_with_http_info(performance_dataset_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_performance_dataset_with_http_info(performance_dataset_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str performance_dataset_id: Retrieve the performance dataset. (required)
         :return: PerformanceDatasets
                  If the method is called asynchronously,
@@ -270,7 +270,7 @@ class PerformanceApi(object):
         """
 
         all_params = ['performance_dataset_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -324,7 +324,7 @@ class PerformanceApi(object):
             files=local_var_files,
             response_type='PerformanceDatasets',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -335,18 +335,18 @@ class PerformanceApi(object):
 
         View a single performance metric.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_performance_metric(performance_metric_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_performance_metric(performance_metric_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str performance_metric_id: View a single performance metric. (required)
         :return: PerformanceMetrics
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_performance_metric_with_http_info(performance_metric_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_performance_metric_with_http_info(performance_metric_id, **kwargs)  # noqa: E501
@@ -357,11 +357,11 @@ class PerformanceApi(object):
 
         View a single performance metric.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_performance_metric_with_http_info(performance_metric_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_performance_metric_with_http_info(performance_metric_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str performance_metric_id: View a single performance metric. (required)
         :return: PerformanceMetrics
                  If the method is called asynchronously,
@@ -369,7 +369,7 @@ class PerformanceApi(object):
         """
 
         all_params = ['performance_metric_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -423,7 +423,7 @@ class PerformanceApi(object):
             files=local_var_files,
             response_type='PerformanceMetrics',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -434,11 +434,11 @@ class PerformanceApi(object):
 
         List all metrics.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_performance_metrics(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_performance_metrics(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param str dir: The direction of the sort.
         :return: PerformanceMetricsExtended
@@ -446,7 +446,7 @@ class PerformanceApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_performance_metrics_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_performance_metrics_with_http_info(**kwargs)  # noqa: E501
@@ -457,11 +457,11 @@ class PerformanceApi(object):
 
         List all metrics.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_performance_metrics_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_performance_metrics_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param str dir: The direction of the sort.
         :return: PerformanceMetricsExtended
@@ -470,7 +470,7 @@ class PerformanceApi(object):
         """
 
         all_params = ['sort', 'dir']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -531,7 +531,7 @@ class PerformanceApi(object):
             files=local_var_files,
             response_type='PerformanceMetricsExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -542,17 +542,17 @@ class PerformanceApi(object):
 
         List all performance settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_performance_settings(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_performance_settings(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: PerformanceSettings
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_performance_settings_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_performance_settings_with_http_info(**kwargs)  # noqa: E501
@@ -563,18 +563,18 @@ class PerformanceApi(object):
 
         List all performance settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_performance_settings_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_performance_settings_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: PerformanceSettings
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -622,7 +622,7 @@ class PerformanceApi(object):
             files=local_var_files,
             response_type='PerformanceSettings',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -633,11 +633,11 @@ class PerformanceApi(object):
 
         List all datasets.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_performance_datasets(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_performance_datasets(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param int limit: Return no more than this many results at once (see resume).
         :param str dir: The direction of the sort.
@@ -647,7 +647,7 @@ class PerformanceApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_performance_datasets_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_performance_datasets_with_http_info(**kwargs)  # noqa: E501
@@ -658,11 +658,11 @@ class PerformanceApi(object):
 
         List all datasets.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_performance_datasets_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_performance_datasets_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param int limit: Return no more than this many results at once (see resume).
         :param str dir: The direction of the sort.
@@ -673,7 +673,7 @@ class PerformanceApi(object):
         """
 
         all_params = ['sort', 'limit', 'dir', 'resume']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -748,7 +748,7 @@ class PerformanceApi(object):
             files=local_var_files,
             response_type='PerformanceDatasetsExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -759,11 +759,11 @@ class PerformanceApi(object):
 
         Modify the name of the performance dataset.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_performance_dataset(performance_dataset, performance_dataset_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_performance_dataset(performance_dataset, performance_dataset_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param PerformanceDataset performance_dataset: (required)
         :param str performance_dataset_id: Modify the name of the performance dataset. (required)
         :return: None
@@ -771,7 +771,7 @@ class PerformanceApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_performance_dataset_with_http_info(performance_dataset, performance_dataset_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_performance_dataset_with_http_info(performance_dataset, performance_dataset_id, **kwargs)  # noqa: E501
@@ -782,11 +782,11 @@ class PerformanceApi(object):
 
         Modify the name of the performance dataset.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_performance_dataset_with_http_info(performance_dataset, performance_dataset_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_performance_dataset_with_http_info(performance_dataset, performance_dataset_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param PerformanceDataset performance_dataset: (required)
         :param str performance_dataset_id: Modify the name of the performance dataset. (required)
         :return: None
@@ -795,7 +795,7 @@ class PerformanceApi(object):
         """
 
         all_params = ['performance_dataset', 'performance_dataset_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -855,7 +855,7 @@ class PerformanceApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -866,11 +866,11 @@ class PerformanceApi(object):
 
         Configure performance settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_performance_settings(performance_settings, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_performance_settings(performance_settings, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param PerformanceSettingsExtended performance_settings: (required)
         :param bool force: Allow modification of settings outside of recommended limits
         :return: None
@@ -878,7 +878,7 @@ class PerformanceApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_performance_settings_with_http_info(performance_settings, **kwargs)  # noqa: E501
         else:
             (data) = self.update_performance_settings_with_http_info(performance_settings, **kwargs)  # noqa: E501
@@ -889,11 +889,11 @@ class PerformanceApi(object):
 
         Configure performance settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_performance_settings_with_http_info(performance_settings, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_performance_settings_with_http_info(performance_settings, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param PerformanceSettingsExtended performance_settings: (required)
         :param bool force: Allow modification of settings outside of recommended limits
         :return: None
@@ -902,7 +902,7 @@ class PerformanceApi(object):
         """
 
         all_params = ['performance_settings', 'force']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -958,7 +958,7 @@ class PerformanceApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

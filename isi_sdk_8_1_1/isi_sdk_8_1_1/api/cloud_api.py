@@ -38,18 +38,18 @@ class CloudApi(object):
 
         Add a cluster identifier to access list.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_cloud_access_item(cloud_access_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_cloud_access_item(cloud_access_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CloudAccessItem cloud_access_item: (required)
         :return: Empty
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_cloud_access_item_with_http_info(cloud_access_item, **kwargs)  # noqa: E501
         else:
             (data) = self.create_cloud_access_item_with_http_info(cloud_access_item, **kwargs)  # noqa: E501
@@ -60,11 +60,11 @@ class CloudApi(object):
 
         Add a cluster identifier to access list.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_cloud_access_item_with_http_info(cloud_access_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_cloud_access_item_with_http_info(cloud_access_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CloudAccessItem cloud_access_item: (required)
         :return: Empty
                  If the method is called asynchronously,
@@ -72,7 +72,7 @@ class CloudApi(object):
         """
 
         all_params = ['cloud_access_item']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -126,7 +126,7 @@ class CloudApi(object):
             files=local_var_files,
             response_type='Empty',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -137,18 +137,18 @@ class CloudApi(object):
 
         Create a new account.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_cloud_account(cloud_account, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_cloud_account(cloud_account, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CloudAccountCreateParams cloud_account: (required)
         :return: CreateCloudAccountResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_cloud_account_with_http_info(cloud_account, **kwargs)  # noqa: E501
         else:
             (data) = self.create_cloud_account_with_http_info(cloud_account, **kwargs)  # noqa: E501
@@ -159,11 +159,11 @@ class CloudApi(object):
 
         Create a new account.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_cloud_account_with_http_info(cloud_account, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_cloud_account_with_http_info(cloud_account, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CloudAccountCreateParams cloud_account: (required)
         :return: CreateCloudAccountResponse
                  If the method is called asynchronously,
@@ -171,7 +171,7 @@ class CloudApi(object):
         """
 
         all_params = ['cloud_account']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -225,7 +225,7 @@ class CloudApi(object):
             files=local_var_files,
             response_type='CreateCloudAccountResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -236,18 +236,18 @@ class CloudApi(object):
 
         Create a new job.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_cloud_job(cloud_job, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_cloud_job(cloud_job, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CloudJobCreateParams cloud_job: (required)
         :return: CreateCloudJobResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_cloud_job_with_http_info(cloud_job, **kwargs)  # noqa: E501
         else:
             (data) = self.create_cloud_job_with_http_info(cloud_job, **kwargs)  # noqa: E501
@@ -258,11 +258,11 @@ class CloudApi(object):
 
         Create a new job.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_cloud_job_with_http_info(cloud_job, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_cloud_job_with_http_info(cloud_job, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CloudJobCreateParams cloud_job: (required)
         :return: CreateCloudJobResponse
                  If the method is called asynchronously,
@@ -270,7 +270,7 @@ class CloudApi(object):
         """
 
         all_params = ['cloud_job']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -324,7 +324,7 @@ class CloudApi(object):
             files=local_var_files,
             response_type='CreateCloudJobResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -335,18 +335,18 @@ class CloudApi(object):
 
         Create a new pool.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_cloud_pool(cloud_pool, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_cloud_pool(cloud_pool, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CloudPoolCreateParams cloud_pool: (required)
         :return: CreateCloudPoolResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_cloud_pool_with_http_info(cloud_pool, **kwargs)  # noqa: E501
         else:
             (data) = self.create_cloud_pool_with_http_info(cloud_pool, **kwargs)  # noqa: E501
@@ -357,11 +357,11 @@ class CloudApi(object):
 
         Create a new pool.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_cloud_pool_with_http_info(cloud_pool, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_cloud_pool_with_http_info(cloud_pool, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CloudPoolCreateParams cloud_pool: (required)
         :return: CreateCloudPoolResponse
                  If the method is called asynchronously,
@@ -369,7 +369,7 @@ class CloudApi(object):
         """
 
         all_params = ['cloud_pool']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -423,7 +423,7 @@ class CloudApi(object):
             files=local_var_files,
             response_type='CreateCloudPoolResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -434,18 +434,18 @@ class CloudApi(object):
 
         Create a new proxy.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_cloud_proxy(cloud_proxy, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_cloud_proxy(cloud_proxy, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CloudProxyCreateParams cloud_proxy: (required)
         :return: CreateCloudProxyResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_cloud_proxy_with_http_info(cloud_proxy, **kwargs)  # noqa: E501
         else:
             (data) = self.create_cloud_proxy_with_http_info(cloud_proxy, **kwargs)  # noqa: E501
@@ -456,11 +456,11 @@ class CloudApi(object):
 
         Create a new proxy.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_cloud_proxy_with_http_info(cloud_proxy, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_cloud_proxy_with_http_info(cloud_proxy, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CloudProxyCreateParams cloud_proxy: (required)
         :return: CreateCloudProxyResponse
                  If the method is called asynchronously,
@@ -468,7 +468,7 @@ class CloudApi(object):
         """
 
         all_params = ['cloud_proxy']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -522,7 +522,7 @@ class CloudApi(object):
             files=local_var_files,
             response_type='CreateCloudProxyResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -533,18 +533,18 @@ class CloudApi(object):
 
         Regenerate master encryption key.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_settings_encryption_key_item(settings_encryption_key_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_settings_encryption_key_item(settings_encryption_key_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty settings_encryption_key_item: (required)
         :return: Empty
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_settings_encryption_key_item_with_http_info(settings_encryption_key_item, **kwargs)  # noqa: E501
         else:
             (data) = self.create_settings_encryption_key_item_with_http_info(settings_encryption_key_item, **kwargs)  # noqa: E501
@@ -555,11 +555,11 @@ class CloudApi(object):
 
         Regenerate master encryption key.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_settings_encryption_key_item_with_http_info(settings_encryption_key_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_settings_encryption_key_item_with_http_info(settings_encryption_key_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Empty settings_encryption_key_item: (required)
         :return: Empty
                  If the method is called asynchronously,
@@ -567,7 +567,7 @@ class CloudApi(object):
         """
 
         all_params = ['settings_encryption_key_item']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -621,7 +621,7 @@ class CloudApi(object):
             files=local_var_files,
             response_type='Empty',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -632,18 +632,18 @@ class CloudApi(object):
 
         Accept telemetry collection EULA.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_settings_reporting_eula_item(settings_reporting_eula_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_settings_reporting_eula_item(settings_reporting_eula_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SettingsReportingEulaItem settings_reporting_eula_item: (required)
         :return: SettingsReportingEulaItem
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_settings_reporting_eula_item_with_http_info(settings_reporting_eula_item, **kwargs)  # noqa: E501
         else:
             (data) = self.create_settings_reporting_eula_item_with_http_info(settings_reporting_eula_item, **kwargs)  # noqa: E501
@@ -654,11 +654,11 @@ class CloudApi(object):
 
         Accept telemetry collection EULA.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_settings_reporting_eula_item_with_http_info(settings_reporting_eula_item, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_settings_reporting_eula_item_with_http_info(settings_reporting_eula_item, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SettingsReportingEulaItem settings_reporting_eula_item: (required)
         :return: SettingsReportingEulaItem
                  If the method is called asynchronously,
@@ -666,7 +666,7 @@ class CloudApi(object):
         """
 
         all_params = ['settings_reporting_eula_item']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -720,7 +720,7 @@ class CloudApi(object):
             files=local_var_files,
             response_type='SettingsReportingEulaItem',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -731,18 +731,18 @@ class CloudApi(object):
 
         Delete cloud access.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_cloud_access_guid(cloud_access_guid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_cloud_access_guid(cloud_access_guid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str cloud_access_guid: Delete cloud access. (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_cloud_access_guid_with_http_info(cloud_access_guid, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_cloud_access_guid_with_http_info(cloud_access_guid, **kwargs)  # noqa: E501
@@ -753,11 +753,11 @@ class CloudApi(object):
 
         Delete cloud access.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_cloud_access_guid_with_http_info(cloud_access_guid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_cloud_access_guid_with_http_info(cloud_access_guid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str cloud_access_guid: Delete cloud access. (required)
         :return: None
                  If the method is called asynchronously,
@@ -765,7 +765,7 @@ class CloudApi(object):
         """
 
         all_params = ['cloud_access_guid']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -819,7 +819,7 @@ class CloudApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -830,11 +830,11 @@ class CloudApi(object):
 
         Delete cloud account.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_cloud_account(cloud_account_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_cloud_account(cloud_account_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str cloud_account_id: Delete cloud account. (required)
         :param str acknowledge_force_delete: A value of 1 acknowledges that the user is deleting data.
         :return: None
@@ -842,7 +842,7 @@ class CloudApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_cloud_account_with_http_info(cloud_account_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_cloud_account_with_http_info(cloud_account_id, **kwargs)  # noqa: E501
@@ -853,11 +853,11 @@ class CloudApi(object):
 
         Delete cloud account.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_cloud_account_with_http_info(cloud_account_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_cloud_account_with_http_info(cloud_account_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str cloud_account_id: Delete cloud account. (required)
         :param str acknowledge_force_delete: A value of 1 acknowledges that the user is deleting data.
         :return: None
@@ -866,7 +866,7 @@ class CloudApi(object):
         """
 
         all_params = ['cloud_account_id', 'acknowledge_force_delete']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -922,7 +922,7 @@ class CloudApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -933,11 +933,11 @@ class CloudApi(object):
 
         Delete a cloud pool.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_cloud_pool(cloud_pool_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_cloud_pool(cloud_pool_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str cloud_pool_id: Delete a cloud pool. (required)
         :param str acknowledge_force_delete: A value of 1 acknowledges that the user is deleting data.
         :return: None
@@ -945,7 +945,7 @@ class CloudApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_cloud_pool_with_http_info(cloud_pool_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_cloud_pool_with_http_info(cloud_pool_id, **kwargs)  # noqa: E501
@@ -956,11 +956,11 @@ class CloudApi(object):
 
         Delete a cloud pool.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_cloud_pool_with_http_info(cloud_pool_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_cloud_pool_with_http_info(cloud_pool_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str cloud_pool_id: Delete a cloud pool. (required)
         :param str acknowledge_force_delete: A value of 1 acknowledges that the user is deleting data.
         :return: None
@@ -969,7 +969,7 @@ class CloudApi(object):
         """
 
         all_params = ['cloud_pool_id', 'acknowledge_force_delete']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1025,7 +1025,7 @@ class CloudApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1036,18 +1036,18 @@ class CloudApi(object):
 
         Delete cloud account.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_cloud_proxy(cloud_proxy_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_cloud_proxy(cloud_proxy_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str cloud_proxy_id: Delete cloud account. (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_cloud_proxy_with_http_info(cloud_proxy_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_cloud_proxy_with_http_info(cloud_proxy_id, **kwargs)  # noqa: E501
@@ -1058,11 +1058,11 @@ class CloudApi(object):
 
         Delete cloud account.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_cloud_proxy_with_http_info(cloud_proxy_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_cloud_proxy_with_http_info(cloud_proxy_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str cloud_proxy_id: Delete cloud account. (required)
         :return: None
                  If the method is called asynchronously,
@@ -1070,7 +1070,7 @@ class CloudApi(object):
         """
 
         all_params = ['cloud_proxy_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1124,7 +1124,7 @@ class CloudApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1135,17 +1135,17 @@ class CloudApi(object):
 
         Revoke acceptance of telemetry collection EULA.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_settings_reporting_eula(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_settings_reporting_eula(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_settings_reporting_eula_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.delete_settings_reporting_eula_with_http_info(**kwargs)  # noqa: E501
@@ -1156,18 +1156,18 @@ class CloudApi(object):
 
         Revoke acceptance of telemetry collection EULA.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_settings_reporting_eula_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_settings_reporting_eula_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1215,7 +1215,7 @@ class CloudApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1226,18 +1226,18 @@ class CloudApi(object):
 
         Retrieve cloud access information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_cloud_access_guid(cloud_access_guid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_cloud_access_guid(cloud_access_guid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str cloud_access_guid: Retrieve cloud access information. (required)
         :return: CloudAccess
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_cloud_access_guid_with_http_info(cloud_access_guid, **kwargs)  # noqa: E501
         else:
             (data) = self.get_cloud_access_guid_with_http_info(cloud_access_guid, **kwargs)  # noqa: E501
@@ -1248,11 +1248,11 @@ class CloudApi(object):
 
         Retrieve cloud access information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_cloud_access_guid_with_http_info(cloud_access_guid, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_cloud_access_guid_with_http_info(cloud_access_guid, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str cloud_access_guid: Retrieve cloud access information. (required)
         :return: CloudAccess
                  If the method is called asynchronously,
@@ -1260,7 +1260,7 @@ class CloudApi(object):
         """
 
         all_params = ['cloud_access_guid']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1314,7 +1314,7 @@ class CloudApi(object):
             files=local_var_files,
             response_type='CloudAccess',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1325,18 +1325,18 @@ class CloudApi(object):
 
         Retrieve cloud account information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_cloud_account(cloud_account_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_cloud_account(cloud_account_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str cloud_account_id: Retrieve cloud account information. (required)
         :return: CloudAccounts
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_cloud_account_with_http_info(cloud_account_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_cloud_account_with_http_info(cloud_account_id, **kwargs)  # noqa: E501
@@ -1347,11 +1347,11 @@ class CloudApi(object):
 
         Retrieve cloud account information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_cloud_account_with_http_info(cloud_account_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_cloud_account_with_http_info(cloud_account_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str cloud_account_id: Retrieve cloud account information. (required)
         :return: CloudAccounts
                  If the method is called asynchronously,
@@ -1359,7 +1359,7 @@ class CloudApi(object):
         """
 
         all_params = ['cloud_account_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1413,7 +1413,7 @@ class CloudApi(object):
             files=local_var_files,
             response_type='CloudAccounts',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1424,18 +1424,18 @@ class CloudApi(object):
 
         Retrieve cloudpool job information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_cloud_job(cloud_job_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_cloud_job(cloud_job_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str cloud_job_id: Retrieve cloudpool job information. (required)
         :return: CloudJobs
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_cloud_job_with_http_info(cloud_job_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_cloud_job_with_http_info(cloud_job_id, **kwargs)  # noqa: E501
@@ -1446,11 +1446,11 @@ class CloudApi(object):
 
         Retrieve cloudpool job information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_cloud_job_with_http_info(cloud_job_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_cloud_job_with_http_info(cloud_job_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str cloud_job_id: Retrieve cloudpool job information. (required)
         :return: CloudJobs
                  If the method is called asynchronously,
@@ -1458,7 +1458,7 @@ class CloudApi(object):
         """
 
         all_params = ['cloud_job_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1512,7 +1512,7 @@ class CloudApi(object):
             files=local_var_files,
             response_type='CloudJobs',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1523,11 +1523,11 @@ class CloudApi(object):
 
         Retrieve files associated with a cloudpool job.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_cloud_jobs_file(cloud_jobs_file_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_cloud_jobs_file(cloud_jobs_file_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str cloud_jobs_file_id: Retrieve files associated with a cloudpool job. (required)
         :param str sort: The field that will be used for sorting.
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
@@ -1540,7 +1540,7 @@ class CloudApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_cloud_jobs_file_with_http_info(cloud_jobs_file_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_cloud_jobs_file_with_http_info(cloud_jobs_file_id, **kwargs)  # noqa: E501
@@ -1551,11 +1551,11 @@ class CloudApi(object):
 
         Retrieve files associated with a cloudpool job.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_cloud_jobs_file_with_http_info(cloud_jobs_file_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_cloud_jobs_file_with_http_info(cloud_jobs_file_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str cloud_jobs_file_id: Retrieve files associated with a cloudpool job. (required)
         :param str sort: The field that will be used for sorting.
         :param str resume: Continue returning results from previous call using this token (token should come from the previous call, resume cannot be used with other options).
@@ -1569,7 +1569,7 @@ class CloudApi(object):
         """
 
         all_params = ['cloud_jobs_file_id', 'sort', 'resume', 'batch', 'limit', 'page', 'dir']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1654,7 +1654,7 @@ class CloudApi(object):
             files=local_var_files,
             response_type='CloudJobsFiles',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1665,18 +1665,18 @@ class CloudApi(object):
 
         Retrieve cloud pool information  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_cloud_pool(cloud_pool_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_cloud_pool(cloud_pool_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str cloud_pool_id: Retrieve cloud pool information (required)
         :return: CloudPools
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_cloud_pool_with_http_info(cloud_pool_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_cloud_pool_with_http_info(cloud_pool_id, **kwargs)  # noqa: E501
@@ -1687,11 +1687,11 @@ class CloudApi(object):
 
         Retrieve cloud pool information  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_cloud_pool_with_http_info(cloud_pool_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_cloud_pool_with_http_info(cloud_pool_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str cloud_pool_id: Retrieve cloud pool information (required)
         :return: CloudPools
                  If the method is called asynchronously,
@@ -1699,7 +1699,7 @@ class CloudApi(object):
         """
 
         all_params = ['cloud_pool_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1753,7 +1753,7 @@ class CloudApi(object):
             files=local_var_files,
             response_type='CloudPools',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1764,18 +1764,18 @@ class CloudApi(object):
 
         Retrieve cloud account information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_cloud_proxy(cloud_proxy_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_cloud_proxy(cloud_proxy_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str cloud_proxy_id: Retrieve cloud account information. (required)
         :return: CloudProxies
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_cloud_proxy_with_http_info(cloud_proxy_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_cloud_proxy_with_http_info(cloud_proxy_id, **kwargs)  # noqa: E501
@@ -1786,11 +1786,11 @@ class CloudApi(object):
 
         Retrieve cloud account information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_cloud_proxy_with_http_info(cloud_proxy_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_cloud_proxy_with_http_info(cloud_proxy_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str cloud_proxy_id: Retrieve cloud account information. (required)
         :return: CloudProxies
                  If the method is called asynchronously,
@@ -1798,7 +1798,7 @@ class CloudApi(object):
         """
 
         all_params = ['cloud_proxy_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1852,7 +1852,7 @@ class CloudApi(object):
             files=local_var_files,
             response_type='CloudProxies',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1863,17 +1863,17 @@ class CloudApi(object):
 
         List all cloud settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_cloud_settings(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_cloud_settings(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: CloudSettings
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_cloud_settings_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_cloud_settings_with_http_info(**kwargs)  # noqa: E501
@@ -1884,18 +1884,18 @@ class CloudApi(object):
 
         List all cloud settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_cloud_settings_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_cloud_settings_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: CloudSettings
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1943,7 +1943,7 @@ class CloudApi(object):
             files=local_var_files,
             response_type='CloudSettings',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1954,11 +1954,11 @@ class CloudApi(object):
 
         List all accessible cluster identifiers.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_cloud_access(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_cloud_access(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param int limit: Return no more than this many results at once (see resume).
         :param str dir: The direction of the sort.
@@ -1967,7 +1967,7 @@ class CloudApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_cloud_access_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_cloud_access_with_http_info(**kwargs)  # noqa: E501
@@ -1978,11 +1978,11 @@ class CloudApi(object):
 
         List all accessible cluster identifiers.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_cloud_access_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_cloud_access_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param int limit: Return no more than this many results at once (see resume).
         :param str dir: The direction of the sort.
@@ -1992,7 +1992,7 @@ class CloudApi(object):
         """
 
         all_params = ['sort', 'limit', 'dir']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2059,7 +2059,7 @@ class CloudApi(object):
             files=local_var_files,
             response_type='CloudAccessExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2070,11 +2070,11 @@ class CloudApi(object):
 
         List all accounts.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_cloud_accounts(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_cloud_accounts(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param int limit: Return no more than this many results at once (see resume).
         :param str dir: The direction of the sort.
@@ -2083,7 +2083,7 @@ class CloudApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_cloud_accounts_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_cloud_accounts_with_http_info(**kwargs)  # noqa: E501
@@ -2094,11 +2094,11 @@ class CloudApi(object):
 
         List all accounts.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_cloud_accounts_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_cloud_accounts_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param int limit: Return no more than this many results at once (see resume).
         :param str dir: The direction of the sort.
@@ -2108,7 +2108,7 @@ class CloudApi(object):
         """
 
         all_params = ['sort', 'limit', 'dir']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2175,7 +2175,7 @@ class CloudApi(object):
             files=local_var_files,
             response_type='CloudAccountsExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2186,11 +2186,11 @@ class CloudApi(object):
 
         List all cloudpools jobs.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_cloud_jobs(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_cloud_jobs(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param int limit: Return no more than this many results at once (see resume).
         :param str dir: The direction of the sort.
@@ -2199,7 +2199,7 @@ class CloudApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_cloud_jobs_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_cloud_jobs_with_http_info(**kwargs)  # noqa: E501
@@ -2210,11 +2210,11 @@ class CloudApi(object):
 
         List all cloudpools jobs.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_cloud_jobs_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_cloud_jobs_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param int limit: Return no more than this many results at once (see resume).
         :param str dir: The direction of the sort.
@@ -2224,7 +2224,7 @@ class CloudApi(object):
         """
 
         all_params = ['sort', 'limit', 'dir']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2291,7 +2291,7 @@ class CloudApi(object):
             files=local_var_files,
             response_type='CloudJobsExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2302,11 +2302,11 @@ class CloudApi(object):
 
         List all pools.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_cloud_pools(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_cloud_pools(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param int limit: Return no more than this many results at once (see resume).
         :param str dir: The direction of the sort.
@@ -2315,7 +2315,7 @@ class CloudApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_cloud_pools_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_cloud_pools_with_http_info(**kwargs)  # noqa: E501
@@ -2326,11 +2326,11 @@ class CloudApi(object):
 
         List all pools.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_cloud_pools_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_cloud_pools_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param int limit: Return no more than this many results at once (see resume).
         :param str dir: The direction of the sort.
@@ -2340,7 +2340,7 @@ class CloudApi(object):
         """
 
         all_params = ['sort', 'limit', 'dir']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2407,7 +2407,7 @@ class CloudApi(object):
             files=local_var_files,
             response_type='CloudPoolsExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2418,11 +2418,11 @@ class CloudApi(object):
 
         List all proxies.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_cloud_proxies(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_cloud_proxies(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param int limit: Return no more than this many results at once (see resume).
         :param str dir: The direction of the sort.
@@ -2431,7 +2431,7 @@ class CloudApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_cloud_proxies_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_cloud_proxies_with_http_info(**kwargs)  # noqa: E501
@@ -2442,11 +2442,11 @@ class CloudApi(object):
 
         List all proxies.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_cloud_proxies_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_cloud_proxies_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str sort: The field that will be used for sorting.
         :param int limit: Return no more than this many results at once (see resume).
         :param str dir: The direction of the sort.
@@ -2456,7 +2456,7 @@ class CloudApi(object):
         """
 
         all_params = ['sort', 'limit', 'dir']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2523,7 +2523,7 @@ class CloudApi(object):
             files=local_var_files,
             response_type='CloudProxiesExtended',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2534,17 +2534,17 @@ class CloudApi(object):
 
         View telemetry collection EULA acceptance and content URI.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_settings_reporting_eula(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_settings_reporting_eula(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: SettingsReportingEulaItem
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.list_settings_reporting_eula_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_settings_reporting_eula_with_http_info(**kwargs)  # noqa: E501
@@ -2555,18 +2555,18 @@ class CloudApi(object):
 
         View telemetry collection EULA acceptance and content URI.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.list_settings_reporting_eula_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_settings_reporting_eula_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: SettingsReportingEulaItem
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2614,7 +2614,7 @@ class CloudApi(object):
             files=local_var_files,
             response_type='SettingsReportingEulaItem',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2625,11 +2625,11 @@ class CloudApi(object):
 
         Modify cloud account.  All fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_cloud_account(cloud_account, cloud_account_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_cloud_account(cloud_account, cloud_account_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CloudAccount cloud_account: (required)
         :param str cloud_account_id: Modify cloud account.  All fields are optional, but one or more must be supplied. (required)
         :return: None
@@ -2637,7 +2637,7 @@ class CloudApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_cloud_account_with_http_info(cloud_account, cloud_account_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_cloud_account_with_http_info(cloud_account, cloud_account_id, **kwargs)  # noqa: E501
@@ -2648,11 +2648,11 @@ class CloudApi(object):
 
         Modify cloud account.  All fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_cloud_account_with_http_info(cloud_account, cloud_account_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_cloud_account_with_http_info(cloud_account, cloud_account_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CloudAccount cloud_account: (required)
         :param str cloud_account_id: Modify cloud account.  All fields are optional, but one or more must be supplied. (required)
         :return: None
@@ -2661,7 +2661,7 @@ class CloudApi(object):
         """
 
         all_params = ['cloud_account', 'cloud_account_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2721,7 +2721,7 @@ class CloudApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2732,11 +2732,11 @@ class CloudApi(object):
 
         Modify a cloud job or operation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_cloud_job(cloud_job, cloud_job_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_cloud_job(cloud_job, cloud_job_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CloudJob cloud_job: (required)
         :param str cloud_job_id: Modify a cloud job or operation. (required)
         :return: None
@@ -2744,7 +2744,7 @@ class CloudApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_cloud_job_with_http_info(cloud_job, cloud_job_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_cloud_job_with_http_info(cloud_job, cloud_job_id, **kwargs)  # noqa: E501
@@ -2755,11 +2755,11 @@ class CloudApi(object):
 
         Modify a cloud job or operation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_cloud_job_with_http_info(cloud_job, cloud_job_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_cloud_job_with_http_info(cloud_job, cloud_job_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CloudJob cloud_job: (required)
         :param str cloud_job_id: Modify a cloud job or operation. (required)
         :return: None
@@ -2768,7 +2768,7 @@ class CloudApi(object):
         """
 
         all_params = ['cloud_job', 'cloud_job_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2828,7 +2828,7 @@ class CloudApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2839,11 +2839,11 @@ class CloudApi(object):
 
         Modify a cloud pool.  All fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_cloud_pool(cloud_pool, cloud_pool_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_cloud_pool(cloud_pool, cloud_pool_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CloudPool cloud_pool: (required)
         :param str cloud_pool_id: Modify a cloud pool.  All fields are optional, but one or more must be supplied. (required)
         :return: None
@@ -2851,7 +2851,7 @@ class CloudApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_cloud_pool_with_http_info(cloud_pool, cloud_pool_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_cloud_pool_with_http_info(cloud_pool, cloud_pool_id, **kwargs)  # noqa: E501
@@ -2862,11 +2862,11 @@ class CloudApi(object):
 
         Modify a cloud pool.  All fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_cloud_pool_with_http_info(cloud_pool, cloud_pool_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_cloud_pool_with_http_info(cloud_pool, cloud_pool_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CloudPool cloud_pool: (required)
         :param str cloud_pool_id: Modify a cloud pool.  All fields are optional, but one or more must be supplied. (required)
         :return: None
@@ -2875,7 +2875,7 @@ class CloudApi(object):
         """
 
         all_params = ['cloud_pool', 'cloud_pool_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2935,7 +2935,7 @@ class CloudApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2946,11 +2946,11 @@ class CloudApi(object):
 
         Modify cloud account.  All fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_cloud_proxy(cloud_proxy, cloud_proxy_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_cloud_proxy(cloud_proxy, cloud_proxy_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CloudProxy cloud_proxy: (required)
         :param str cloud_proxy_id: Modify cloud account.  All fields are optional, but one or more must be supplied. (required)
         :return: None
@@ -2958,7 +2958,7 @@ class CloudApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_cloud_proxy_with_http_info(cloud_proxy, cloud_proxy_id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_cloud_proxy_with_http_info(cloud_proxy, cloud_proxy_id, **kwargs)  # noqa: E501
@@ -2969,11 +2969,11 @@ class CloudApi(object):
 
         Modify cloud account.  All fields are optional, but one or more must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_cloud_proxy_with_http_info(cloud_proxy, cloud_proxy_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_cloud_proxy_with_http_info(cloud_proxy, cloud_proxy_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CloudProxy cloud_proxy: (required)
         :param str cloud_proxy_id: Modify cloud account.  All fields are optional, but one or more must be supplied. (required)
         :return: None
@@ -2982,7 +2982,7 @@ class CloudApi(object):
         """
 
         all_params = ['cloud_proxy', 'cloud_proxy_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3042,7 +3042,7 @@ class CloudApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -3053,18 +3053,18 @@ class CloudApi(object):
 
         Modify one or more settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_cloud_settings(cloud_settings, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_cloud_settings(cloud_settings, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CloudSettingsSettings cloud_settings: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_cloud_settings_with_http_info(cloud_settings, **kwargs)  # noqa: E501
         else:
             (data) = self.update_cloud_settings_with_http_info(cloud_settings, **kwargs)  # noqa: E501
@@ -3075,11 +3075,11 @@ class CloudApi(object):
 
         Modify one or more settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_cloud_settings_with_http_info(cloud_settings, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_cloud_settings_with_http_info(cloud_settings, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CloudSettingsSettings cloud_settings: (required)
         :return: None
                  If the method is called asynchronously,
@@ -3087,7 +3087,7 @@ class CloudApi(object):
         """
 
         all_params = ['cloud_settings']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3141,7 +3141,7 @@ class CloudApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
