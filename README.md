@@ -54,6 +54,13 @@ import <Supporting Package Name>
 
 sdk@isilon.com
 
+## Resources
+
+All documentations, blogs, tutorials, GitHub should have the following hyperlinks posted in section called "Resources":
+Dell Storage API Explorer: https://api-marketplace.dell.com/
+Dell Storage Developer resources (technical papers, SDKs and videos): https://www.delltechnologies.com/en-us/storage/storage-automation-and-developer-resources/index.htm
+Follow Dell Storage on Twitter: http://twitter.com/dellstorage
+Subscribe to the DellTechCenter YouTube channel: http://bit.ly/1N7scKx
 
 ## License
 
