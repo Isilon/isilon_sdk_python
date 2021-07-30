@@ -75,6 +75,7 @@ class HealthcheckChecklistExtended(object):
     def delivery(self):
         """Gets the delivery of this HealthcheckChecklistExtended.  # noqa: E501
 
+        List of delivery addresses/methods for results  # noqa: E501
 
         :return: The delivery of this HealthcheckChecklistExtended.  # noqa: E501
         :rtype: list[HealthcheckChecklistDeliveryItem]
@@ -85,6 +86,7 @@ class HealthcheckChecklistExtended(object):
     def delivery(self, delivery):
         """Sets the delivery of this HealthcheckChecklistExtended.
 
+        List of delivery addresses/methods for results  # noqa: E501
 
         :param delivery: The delivery of this HealthcheckChecklistExtended.  # noqa: E501
         :type: list[HealthcheckChecklistDeliveryItem]

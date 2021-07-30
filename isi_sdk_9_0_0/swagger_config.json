@@ -12630,7 +12630,7 @@
             "description": "Delivery update",
             "properties": {
                 "delivery": {
-                    "description:": "List of delivery addresses/methods for results",
+                    "description": "List of delivery addresses/methods for results",
                     "items": {
                         "$ref": "#/definitions/HealthcheckChecklistDeliveryItem",
                         "description": "Evaluation Request/Result"
@@ -12865,7 +12865,7 @@
                     "type": "string"
                 },
                 "delivery": {
-                    "description:": "List of delivery addresses/methods for results",
+                    "description": "List of delivery addresses/methods for results",
                     "items": {
                         "$ref": "#/definitions/HealthcheckChecklistDeliveryItem",
                         "description": "Evaluation Request/Result"
@@ -12956,7 +12956,7 @@
                     "type": "string"
                 },
                 "delivery": {
-                    "description:": "List of delivery addresses/methods for results",
+                    "description": "List of delivery addresses/methods for results",
                     "items": {
                         "$ref": "#/definitions/HealthcheckChecklistDeliveryItem",
                         "description": "Evaluation Request/Result"

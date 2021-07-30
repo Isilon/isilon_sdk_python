@@ -14,7 +14,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "isi-sdk-8-2-2"
-VERSION = "0.2.11"
+VERSION = "0.2.12"
 # To install the library, run the following
 #
 # python setup.py install
@@ -105,7 +105,9 @@ subdirectory of the repo. The tests currently run against a generic
 if you build your own bindings. If you want to run the tests against one
 of the libraries you've downloaded from the prebuilt releases page, you
 should change the ``import isi_sdk`` lines to ``import isi_sdk_7_2`` or
-``import isi_sdk_9_0_0`` depending on which one you downloaded.
+corresponding package depending on which one you downloaded. Look at
+https://github.com/Isilon/isilon\_sdk for SDK version to OneFS version
+mapping.
 
 More info
 ---------
