@@ -125,8 +125,8 @@ class AuthGroupExtended(object):
         :param dn: The dn of this AuthGroupExtended.  # noqa: E501
         :type: str
         """
-        if dn is not None and len(dn) > 255:
-            raise ValueError("Invalid value for `dn`, length must be less than or equal to `255`")  # noqa: E501
+        if dn is not None and len(dn) > 8192:
+            raise ValueError("Invalid value for `dn`, length must be less than or equal to `8192`")  # noqa: E501
         if dn is not None and len(dn) < 0:
             raise ValueError("Invalid value for `dn`, length must be greater than or equal to `0`")  # noqa: E501
 
