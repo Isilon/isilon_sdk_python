@@ -1,0 +1,18 @@
+# DatasetWorkloadExtended
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**client_impact** | **int** | The desired workload&#39;s impact on the system. Specified by the Job Engine. | [optional] 
+**cluster_resource_impact** | **int** | The desired workload&#39;s impact on the system. Specified by the Job Engine. | [optional] 
+**limits** | [**DatasetWorkloadLimits**](DatasetWorkloadLimits.md) | Performance limits for a workload | [optional] 
+**name** | **str** | The name of the workload. User specified. | [optional] 
+**creation_time** | **int** | Timestamp of when the workload was pinned. | [optional] 
+**dataset_id** | **int** | Unique identifier of the associated dataset. | [optional] 
+**error** | **str** | If this field is present, then there was an error fetching the workload configuration. | [optional] 
+**id** | **int** | The workload ID. Unique and automatically assigned. | 
+**metric_values** | [**DatasetFilterMetricValues**](DatasetFilterMetricValues.md) | Performance metric values that can be used to pin workloads and apply filters, and performance metric values that are used to display information about the system performance dataset. | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
