@@ -4,12 +4,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **container** | **bool** | If true, SMB shares using the quota directory see the quota thresholds as share size. | 
-**description** | **str** | User settable free form text description of the quota. | 
+**description** | **str** | User settable free form text description of the quota. | [optional] 
 **efficiency_ratio** | **float** | Represents the ratio of logical space provided to physical space used. This accounts for protection overhead, metadata, and compression ratios for the data. | [optional] 
 **enforced** | **bool** | True if the quota provides enforcement, otherwise a accounting quota. | 
 **id** | **str** | The system ID given to the quota. | 
 **include_snapshots** | **bool** | If true, quota governs snapshot data as well as head data. | 
-**labels** | **str** | Tags to identify a quota domain. | 
+**labels** | **str** | Tags to identify a quota domain. | [optional] 
 **linked** | **bool** | For user, group and directory quotas, true if the quota is linked and controlled by a parent default-* quota. Linked quotas cannot be modified until they are unlinked. | [optional] 
 **notifications** | **str** | Summary of notifications: &#39;custom&#39; indicates one or more notification rules available from the notifications sub-resource; &#39;default&#39; indicates system default rules are used; &#39;disabled&#39; indicates that no notifications will be used for this quota.; &#39;badmap&#39; indicates that notification rule has problem in rule map. | 
 **path** | **str** |  | [optional] 

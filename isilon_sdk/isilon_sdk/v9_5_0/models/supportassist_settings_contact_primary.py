@@ -33,7 +33,6 @@ class SupportassistSettingsContactPrimary(object):
     swagger_types = {
         'email': 'str',
         'first_name': 'str',
-        'language': 'str',
         'last_name': 'str',
         'phone': 'str'
     }
@@ -41,17 +40,15 @@ class SupportassistSettingsContactPrimary(object):
     attribute_map = {
         'email': 'email',
         'first_name': 'first_name',
-        'language': 'language',
         'last_name': 'last_name',
         'phone': 'phone'
     }
 
-    def __init__(self, email='', first_name='', language='', last_name='', phone=''):  # noqa: E501
+    def __init__(self, email='', first_name='', last_name='', phone=''):  # noqa: E501
         """SupportassistSettingsContactPrimary - a model defined in Swagger"""  # noqa: E501
 
         self._email = None
         self._first_name = None
-        self._language = None
         self._last_name = None
         self._phone = None
         self.discriminator = None
@@ -60,8 +57,6 @@ class SupportassistSettingsContactPrimary(object):
             self.email = email
         if first_name is not None:
             self.first_name = first_name
-        if language is not None:
-            self.language = language
         if last_name is not None:
             self.last_name = last_name
         if phone is not None:
@@ -120,37 +115,10 @@ class SupportassistSettingsContactPrimary(object):
             raise ValueError("Invalid value for `first_name`, length must be less than or equal to `50`")  # noqa: E501
         if first_name is not None and len(first_name) < 0:
             raise ValueError("Invalid value for `first_name`, length must be greater than or equal to `0`")  # noqa: E501
-        if first_name is not None and not re.search('[\\p{L}\\p{M}*\\-\\.\\\' ]*', first_name):  # noqa: E501
-            raise ValueError("Invalid value for `first_name`, must be a follow pattern or equal to `/[\\p{L}\\p{M}*\\-\\.\\' ]*/`")  # noqa: E501
+        if first_name is not None and not re.search('[a-zA-Z]*[\\-\\.\\\']*', first_name):  # noqa: E501
+            raise ValueError("Invalid value for `first_name`, must be a follow pattern or equal to `/[a-zA-Z]*[\\-\\.\\']*/`")  # noqa: E501
 
         self._first_name = first_name
-
-    @property
-    def language(self):
-        """Gets the language of this SupportassistSettingsContactPrimary.  # noqa: E501
-
-
-        :return: The language of this SupportassistSettingsContactPrimary.  # noqa: E501
-        :rtype: str
-        """
-        return self._language
-
-    @language.setter
-    def language(self, language):
-        """Sets the language of this SupportassistSettingsContactPrimary.
-
-
-        :param language: The language of this SupportassistSettingsContactPrimary.  # noqa: E501
-        :type: str
-        """
-        allowed_values = ["Cs", "Da", "De", "El", "En", "Es", "es-LA", "Fi", "fr-CA", "He", "It", "Ja", "Ko", "Nl", "No", "Pl", "Pt", "pt-BR", "Ru", "Sk", "Sv", "Th", "Tr", "zh-CN", "zh-TW"]  # noqa: E501
-        if language not in allowed_values:
-            raise ValueError(
-                "Invalid value for `language` ({0}), must be one of {1}"  # noqa: E501
-                .format(language, allowed_values)
-            )
-
-        self._language = language
 
     @property
     def last_name(self):
@@ -176,8 +144,8 @@ class SupportassistSettingsContactPrimary(object):
             raise ValueError("Invalid value for `last_name`, length must be less than or equal to `50`")  # noqa: E501
         if last_name is not None and len(last_name) < 0:
             raise ValueError("Invalid value for `last_name`, length must be greater than or equal to `0`")  # noqa: E501
-        if last_name is not None and not re.search('[\\p{L}\\p{M}*\\-\\.\\\' ]*', last_name):  # noqa: E501
-            raise ValueError("Invalid value for `last_name`, must be a follow pattern or equal to `/[\\p{L}\\p{M}*\\-\\.\\' ]*/`")  # noqa: E501
+        if last_name is not None and not re.search('[a-zA-Z]*[\\-\\.\\\']*', last_name):  # noqa: E501
+            raise ValueError("Invalid value for `last_name`, must be a follow pattern or equal to `/[a-zA-Z]*[\\-\\.\\']*/`")  # noqa: E501
 
         self._last_name = last_name
 

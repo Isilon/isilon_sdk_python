@@ -97,13 +97,15 @@ class QuotaQuotaExtended(object):
         self.discriminator = None
 
         self.container = container
-        self.description = description
+        if description is not None:
+            self.description = description
         if efficiency_ratio is not None:
             self.efficiency_ratio = efficiency_ratio
         self.enforced = enforced
         self.id = id
         self.include_snapshots = include_snapshots
-        self.labels = labels
+        if labels is not None:
+            self.labels = labels
         if linked is not None:
             self.linked = linked
         self.notifications = notifications
@@ -165,8 +167,6 @@ class QuotaQuotaExtended(object):
         :param description: The description of this QuotaQuotaExtended.  # noqa: E501
         :type: str
         """
-        if description is None:
-            raise ValueError("Invalid value for `description`, must not be `None`")  # noqa: E501
         if description is not None and len(description) > 1024:
             raise ValueError("Invalid value for `description`, length must be less than or equal to `1024`")  # noqa: E501
         if description is not None and len(description) < 0:
@@ -300,8 +300,6 @@ class QuotaQuotaExtended(object):
         :param labels: The labels of this QuotaQuotaExtended.  # noqa: E501
         :type: str
         """
-        if labels is None:
-            raise ValueError("Invalid value for `labels`, must not be `None`")  # noqa: E501
         if labels is not None and len(labels) > 1024:
             raise ValueError("Invalid value for `labels`, length must be less than or equal to `1024`")  # noqa: E501
         if labels is not None and len(labels) < 0:
