@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 NAME = "isilon-sdk"
 VERSION = ""
 REQUIRES = ["urllib3 >= 1.15", "six >= 1.10", "certifi", "python-dateutil"]
-SETUP_README_PATH = "/sdkbuilder/SETUP_README.rst"
+SETUP_README_PATH = "README.rst"
 
 with open('version_config.json') as f:
     VERSION = json.load(f).get("sdk_version")

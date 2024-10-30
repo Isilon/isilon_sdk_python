@@ -82,8 +82,8 @@ class PerformanceSettingsSettingsCpuLimitUsImpactMultiplier(object):
         :param impact_high: The impact_high of this PerformanceSettingsSettingsCpuLimitUsImpactMultiplier.  # noqa: E501
         :type: float
         """
-        if impact_high is not None and impact_high > 10.0:  # noqa: E501
-            raise ValueError("Invalid value for `impact_high`, must be a value less than or equal to `10.0`")  # noqa: E501
+        if impact_high is not None and impact_high > 1.79769E+308:  # noqa: E501
+            raise ValueError("Invalid value for `impact_high`, must be a value less than or equal to `1.79769E+308`")  # noqa: E501
         if impact_high is not None and impact_high < 0.1:  # noqa: E501
             raise ValueError("Invalid value for `impact_high`, must be a value greater than or equal to `0.1`")  # noqa: E501
 
@@ -109,8 +109,8 @@ class PerformanceSettingsSettingsCpuLimitUsImpactMultiplier(object):
         :param impact_low: The impact_low of this PerformanceSettingsSettingsCpuLimitUsImpactMultiplier.  # noqa: E501
         :type: float
         """
-        if impact_low is not None and impact_low > 10.0:  # noqa: E501
-            raise ValueError("Invalid value for `impact_low`, must be a value less than or equal to `10.0`")  # noqa: E501
+        if impact_low is not None and impact_low > 1.79769E+308:  # noqa: E501
+            raise ValueError("Invalid value for `impact_low`, must be a value less than or equal to `1.79769E+308`")  # noqa: E501
         if impact_low is not None and impact_low < 0.1:  # noqa: E501
             raise ValueError("Invalid value for `impact_low`, must be a value greater than or equal to `0.1`")  # noqa: E501
 
@@ -136,8 +136,8 @@ class PerformanceSettingsSettingsCpuLimitUsImpactMultiplier(object):
         :param impact_medium: The impact_medium of this PerformanceSettingsSettingsCpuLimitUsImpactMultiplier.  # noqa: E501
         :type: float
         """
-        if impact_medium is not None and impact_medium > 10.0:  # noqa: E501
-            raise ValueError("Invalid value for `impact_medium`, must be a value less than or equal to `10.0`")  # noqa: E501
+        if impact_medium is not None and impact_medium > 1.79769E+308:  # noqa: E501
+            raise ValueError("Invalid value for `impact_medium`, must be a value less than or equal to `1.79769E+308`")  # noqa: E501
         if impact_medium is not None and impact_medium < 0.1:  # noqa: E501
             raise ValueError("Invalid value for `impact_medium`, must be a value greater than or equal to `0.1`")  # noqa: E501
 
@@ -163,8 +163,8 @@ class PerformanceSettingsSettingsCpuLimitUsImpactMultiplier(object):
         :param impact_unset: The impact_unset of this PerformanceSettingsSettingsCpuLimitUsImpactMultiplier.  # noqa: E501
         :type: float
         """
-        if impact_unset is not None and impact_unset > 10.0:  # noqa: E501
-            raise ValueError("Invalid value for `impact_unset`, must be a value less than or equal to `10.0`")  # noqa: E501
+        if impact_unset is not None and impact_unset > 1.79769E+308:  # noqa: E501
+            raise ValueError("Invalid value for `impact_unset`, must be a value less than or equal to `1.79769E+308`")  # noqa: E501
         if impact_unset is not None and impact_unset < 0.1:  # noqa: E501
             raise ValueError("Invalid value for `impact_unset`, must be a value greater than or equal to `0.1`")  # noqa: E501
 
