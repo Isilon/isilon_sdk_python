@@ -24,10 +24,15 @@ cluster by referring to the below table:
 OneFS Version and respective subpackage name are as:
 
 9.4.0.0: v9_4_0
-9.5.0.0: v9_5_0     
-9.6.0.0: v9_6_0     
-9.7.0.0: v9_7_0     
-9.8.0.0: v9_8_0     
+
+9.5.0.0: v9_5_0
+
+9.6.0.0: v9_6_0
+
+9.7.0.0: v9_7_0
+
+9.8.0.0: v9_8_0
+
 9.9.0.0: v9_9_0     
 
 Here’s an example of using the Python PAPI bindings to retrieve a list
