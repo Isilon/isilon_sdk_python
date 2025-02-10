@@ -639,6 +639,9 @@ class DatamoverHistoricalJobsJobJobTypeSpecificAttrsDatasetBaselineCopyJobStatis
                 ))
             else:
                 result[attr] = value
+        if issubclass(DatamoverHistoricalJobsJobJobTypeSpecificAttrsDatasetBaselineCopyJobStatistics, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

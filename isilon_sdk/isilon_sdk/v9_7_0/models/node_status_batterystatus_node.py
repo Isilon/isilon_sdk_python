@@ -503,6 +503,9 @@ class NodeStatusBatterystatusNode(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(NodeStatusBatterystatusNode, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

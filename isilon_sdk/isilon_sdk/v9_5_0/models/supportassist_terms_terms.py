@@ -125,6 +125,9 @@ class SupportassistTermsTerms(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(SupportassistTermsTerms, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

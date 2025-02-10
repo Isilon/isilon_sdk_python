@@ -202,8 +202,8 @@ class DatasetFilterMetricValues(object):
             raise ValueError("Invalid value for `local_address`, length must be less than or equal to `91`")  # noqa: E501
         if local_address is not None and len(local_address) < 1:
             raise ValueError("Invalid value for `local_address`, length must be greater than or equal to `1`")  # noqa: E501
-        if local_address is not None and not re.search('^[0-9a-fA-F:.\/-]*$', local_address):  # noqa: E501
-            raise ValueError("Invalid value for `local_address`, must be a follow pattern or equal to `/^[0-9a-fA-F:.\/-]*$/`")  # noqa: E501
+        if local_address is not None and not re.search(r'^[0-9a-fA-F:.\/-]*$', local_address):  # noqa: E501
+            raise ValueError(r"Invalid value for `local_address`, must be a follow pattern or equal to `/^[0-9a-fA-F:.\/-]*$/`")  # noqa: E501
 
         self._local_address = local_address
 
@@ -229,8 +229,8 @@ class DatasetFilterMetricValues(object):
             raise ValueError("Invalid value for `path`, length must be less than or equal to `4096`")  # noqa: E501
         if path is not None and len(path) < 4:
             raise ValueError("Invalid value for `path`, length must be greater than or equal to `4`")  # noqa: E501
-        if path is not None and not re.search('^\/ifs$|^\/ifs\/', path):  # noqa: E501
-            raise ValueError("Invalid value for `path`, must be a follow pattern or equal to `/^\/ifs$|^\/ifs\//`")  # noqa: E501
+        if path is not None and not re.search(r'^\/ifs$|^\/ifs\/', path):  # noqa: E501
+            raise ValueError(r"Invalid value for `path`, must be a follow pattern or equal to `/^\/ifs$|^\/ifs\//`")  # noqa: E501
 
         self._path = path
 
@@ -281,8 +281,8 @@ class DatasetFilterMetricValues(object):
             raise ValueError("Invalid value for `remote_address`, length must be less than or equal to `91`")  # noqa: E501
         if remote_address is not None and len(remote_address) < 1:
             raise ValueError("Invalid value for `remote_address`, length must be greater than or equal to `1`")  # noqa: E501
-        if remote_address is not None and not re.search('^[0-9a-fA-F:.\/-]*$', remote_address):  # noqa: E501
-            raise ValueError("Invalid value for `remote_address`, must be a follow pattern or equal to `/^[0-9a-fA-F:.\/-]*$/`")  # noqa: E501
+        if remote_address is not None and not re.search(r'^[0-9a-fA-F:.\/-]*$', remote_address):  # noqa: E501
+            raise ValueError(r"Invalid value for `remote_address`, must be a follow pattern or equal to `/^[0-9a-fA-F:.\/-]*$/`")  # noqa: E501
 
         self._remote_address = remote_address
 
@@ -415,6 +415,9 @@ class DatasetFilterMetricValues(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(DatasetFilterMetricValues, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

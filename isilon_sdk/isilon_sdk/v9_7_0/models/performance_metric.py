@@ -219,6 +219,9 @@ class PerformanceMetric(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(PerformanceMetric, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

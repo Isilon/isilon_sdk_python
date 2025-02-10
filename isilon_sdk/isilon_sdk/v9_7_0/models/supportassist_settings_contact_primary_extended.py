@@ -86,8 +86,8 @@ class SupportassistSettingsContactPrimaryExtended(object):
             raise ValueError("Invalid value for `email`, length must be less than or equal to `320`")  # noqa: E501
         if email is not None and len(email) < 0:
             raise ValueError("Invalid value for `email`, length must be greater than or equal to `0`")  # noqa: E501
-        if email is not None and not re.search('^[a-zA-Z0-9._%-]+@([a-zA-Z0-9-]+\\.)+[a-zA-Z0-9]+$', email):  # noqa: E501
-            raise ValueError("Invalid value for `email`, must be a follow pattern or equal to `/^[a-zA-Z0-9._%-]+@([a-zA-Z0-9-]+\\.)+[a-zA-Z0-9]+$/`")  # noqa: E501
+        if email is not None and not re.search(r'^[a-zA-Z0-9._%-]+@([a-zA-Z0-9-]+\\.)+[a-zA-Z0-9]+$', email):  # noqa: E501
+            raise ValueError(r"Invalid value for `email`, must be a follow pattern or equal to `/^[a-zA-Z0-9._%-]+@([a-zA-Z0-9-]+\\.)+[a-zA-Z0-9]+$/`")  # noqa: E501
 
         self._email = email
 
@@ -115,8 +115,8 @@ class SupportassistSettingsContactPrimaryExtended(object):
             raise ValueError("Invalid value for `first_name`, length must be less than or equal to `50`")  # noqa: E501
         if first_name is not None and len(first_name) < 0:
             raise ValueError("Invalid value for `first_name`, length must be greater than or equal to `0`")  # noqa: E501
-        if first_name is not None and not re.search('[a-zA-Z]*[\\-\\.\\\']*', first_name):  # noqa: E501
-            raise ValueError("Invalid value for `first_name`, must be a follow pattern or equal to `/[a-zA-Z]*[\\-\\.\\']*/`")  # noqa: E501
+        if first_name is not None and not re.search(r'[a-zA-Z]*[\\-\\.\\\']*', first_name):  # noqa: E501
+            raise ValueError(r"Invalid value for `first_name`, must be a follow pattern or equal to `/[a-zA-Z]*[\\-\\.\\']*/`")  # noqa: E501
 
         self._first_name = first_name
 
@@ -144,8 +144,8 @@ class SupportassistSettingsContactPrimaryExtended(object):
             raise ValueError("Invalid value for `last_name`, length must be less than or equal to `50`")  # noqa: E501
         if last_name is not None and len(last_name) < 0:
             raise ValueError("Invalid value for `last_name`, length must be greater than or equal to `0`")  # noqa: E501
-        if last_name is not None and not re.search('[a-zA-Z]*[\\-\\.\\\']*', last_name):  # noqa: E501
-            raise ValueError("Invalid value for `last_name`, must be a follow pattern or equal to `/[a-zA-Z]*[\\-\\.\\']*/`")  # noqa: E501
+        if last_name is not None and not re.search(r'[a-zA-Z]*[\\-\\.\\\']*', last_name):  # noqa: E501
+            raise ValueError(r"Invalid value for `last_name`, must be a follow pattern or equal to `/[a-zA-Z]*[\\-\\.\\']*/`")  # noqa: E501
 
         self._last_name = last_name
 
@@ -173,8 +173,8 @@ class SupportassistSettingsContactPrimaryExtended(object):
             raise ValueError("Invalid value for `phone`, length must be less than or equal to `40`")  # noqa: E501
         if phone is not None and len(phone) < 0:
             raise ValueError("Invalid value for `phone`, length must be greater than or equal to `0`")  # noqa: E501
-        if phone is not None and not re.search('([\\.\\-\\+\/\\sxX]*([0-9]+|[\\(\\d+\\)])+)+', phone):  # noqa: E501
-            raise ValueError("Invalid value for `phone`, must be a follow pattern or equal to `/([\\.\\-\\+\/\\sxX]*([0-9]+|[\\(\\d+\\)])+)+/`")  # noqa: E501
+        if phone is not None and not re.search(r'([\\.\\-\\+\/\\sxX]*([0-9]+|[\\(\\d+\\)])+)+', phone):  # noqa: E501
+            raise ValueError(r"Invalid value for `phone`, must be a follow pattern or equal to `/([\\.\\-\\+\/\\sxX]*([0-9]+|[\\(\\d+\\)])+)+/`")  # noqa: E501
 
         self._phone = phone
 
@@ -199,6 +199,9 @@ class SupportassistSettingsContactPrimaryExtended(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(SupportassistSettingsContactPrimaryExtended, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

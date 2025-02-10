@@ -287,6 +287,9 @@ class SedStatusNode(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(SedStatusNode, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

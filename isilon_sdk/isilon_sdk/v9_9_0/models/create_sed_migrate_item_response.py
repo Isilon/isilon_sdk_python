@@ -96,6 +96,9 @@ class CreateSedMigrateItemResponse(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(CreateSedMigrateItemResponse, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

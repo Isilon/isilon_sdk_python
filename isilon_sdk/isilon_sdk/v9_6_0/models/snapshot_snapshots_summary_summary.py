@@ -295,6 +295,9 @@ class SnapshotSnapshotsSummarySummary(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(SnapshotSnapshotsSummarySummary, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

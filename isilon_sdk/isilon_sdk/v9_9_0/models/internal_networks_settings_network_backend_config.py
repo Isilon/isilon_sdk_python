@@ -98,6 +98,9 @@ class InternalNetworksSettingsNetworkBackendConfig(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(InternalNetworksSettingsNetworkBackendConfig, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

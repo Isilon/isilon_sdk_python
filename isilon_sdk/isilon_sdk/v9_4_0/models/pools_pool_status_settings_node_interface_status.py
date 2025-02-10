@@ -127,6 +127,9 @@ class PoolsPoolStatusSettingsNodeInterfaceStatus(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(PoolsPoolStatusSettingsNodeInterfaceStatus, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

@@ -183,6 +183,9 @@ class S3SettingsGlobalSettings(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(S3SettingsGlobalSettings, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

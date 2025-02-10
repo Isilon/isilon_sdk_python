@@ -125,6 +125,9 @@ class CloudJobJobEngineJob(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(CloudJobJobEngineJob, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

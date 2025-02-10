@@ -32,31 +32,31 @@ class ClusterAddNodeItem(object):
     """
     swagger_types = {
         'allow_down': 'bool',
-        'async': 'bool',
+        '_async': 'bool',
         'serial_number': 'str',
         'skip_hardware_version_check': 'bool'
     }
 
     attribute_map = {
         'allow_down': 'allow_down',
-        'async': 'async',
+        '_async': 'async',
         'serial_number': 'serial_number',
         'skip_hardware_version_check': 'skip_hardware_version_check'
     }
 
-    def __init__(self, allow_down=None, async=False, serial_number=None, skip_hardware_version_check=None):  # noqa: E501
+    def __init__(self, allow_down=None, _async=False, serial_number=None, skip_hardware_version_check=None):  # noqa: E501
         """ClusterAddNodeItem - a model defined in Swagger"""  # noqa: E501
 
         self._allow_down = None
-        self._async = None
+        self.__async = None
         self._serial_number = None
         self._skip_hardware_version_check = None
         self.discriminator = None
 
         if allow_down is not None:
             self.allow_down = allow_down
-        if async is not None:
-            self.async = async
+        if _async is not None:
+            self._async = _async
         self.serial_number = serial_number
         if skip_hardware_version_check is not None:
             self.skip_hardware_version_check = skip_hardware_version_check
@@ -85,27 +85,27 @@ class ClusterAddNodeItem(object):
         self._allow_down = allow_down
 
     @property
-    def async(self):
-        """Gets the async of this ClusterAddNodeItem.  # noqa: E501
+    def _async(self):
+        """Gets the _async of this ClusterAddNodeItem.  # noqa: E501
 
         Add node in asynchronous way.  # noqa: E501
 
-        :return: The async of this ClusterAddNodeItem.  # noqa: E501
+        :return: The _async of this ClusterAddNodeItem.  # noqa: E501
         :rtype: bool
         """
-        return self._async
+        return self.__async
 
-    @async.setter
-    def async(self, async):
-        """Sets the async of this ClusterAddNodeItem.
+    @_async.setter
+    def _async(self, _async):
+        """Sets the _async of this ClusterAddNodeItem.
 
         Add node in asynchronous way.  # noqa: E501
 
-        :param async: The async of this ClusterAddNodeItem.  # noqa: E501
+        :param _async: The _async of this ClusterAddNodeItem.  # noqa: E501
         :type: bool
         """
 
-        self._async = async
+        self.__async = _async
 
     @property
     def serial_number(self):
@@ -180,6 +180,9 @@ class ClusterAddNodeItem(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(ClusterAddNodeItem, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

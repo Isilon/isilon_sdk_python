@@ -129,6 +129,9 @@ class CatalogExport(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(CatalogExport, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

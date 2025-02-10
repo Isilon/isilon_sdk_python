@@ -121,6 +121,9 @@ class SyncReportsRotate(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(SyncReportsRotate, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

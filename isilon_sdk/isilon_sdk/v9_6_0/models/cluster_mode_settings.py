@@ -84,8 +84,8 @@ class ClusterModeSettings(object):
             raise ValueError("Invalid value for `cloud_storage_console`, length must be less than or equal to `2048`")  # noqa: E501
         if cloud_storage_console is not None and len(cloud_storage_console) < 11:
             raise ValueError("Invalid value for `cloud_storage_console`, length must be greater than or equal to `11`")  # noqa: E501
-        if cloud_storage_console is not None and not re.search('^(http:\/\/www\\.|https:\/\/www\\.|http:\/\/|https:\/\/)[a-z0-9]+([-\\.]{1}[a-z0-9]+)*\\.[a-z]{2,5}(:[0-9]{1,5})?(\/[^ ]*)?$|^((http:\/\/www\\.|https:\/\/www\\.|http:\/\/|https:\/\/)?([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\:[0-9]{0,4})?(\/[a-zA-Z0-9_]*)?$', cloud_storage_console):  # noqa: E501
-            raise ValueError("Invalid value for `cloud_storage_console`, must be a follow pattern or equal to `/^(http:\/\/www\\.|https:\/\/www\\.|http:\/\/|https:\/\/)[a-z0-9]+([-\\.]{1}[a-z0-9]+)*\\.[a-z]{2,5}(:[0-9]{1,5})?(\/[^ ]*)?$|^((http:\/\/www\\.|https:\/\/www\\.|http:\/\/|https:\/\/)?([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\:[0-9]{0,4})?(\/[a-zA-Z0-9_]*)?$/`")  # noqa: E501
+        if cloud_storage_console is not None and not re.search(r'^(http:\/\/www\\.|https:\/\/www\\.|http:\/\/|https:\/\/)[a-z0-9]+([-\\.]{1}[a-z0-9]+)*\\.[a-z]{2,5}(:[0-9]{1,5})?(\/[^ ]*)?$|^((http:\/\/www\\.|https:\/\/www\\.|http:\/\/|https:\/\/)?([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\:[0-9]{0,4})?(\/[a-zA-Z0-9_]*)?$', cloud_storage_console):  # noqa: E501
+            raise ValueError(r"Invalid value for `cloud_storage_console`, must be a follow pattern or equal to `/^(http:\/\/www\\.|https:\/\/www\\.|http:\/\/|https:\/\/)[a-z0-9]+([-\\.]{1}[a-z0-9]+)*\\.[a-z]{2,5}(:[0-9]{1,5})?(\/[^ ]*)?$|^((http:\/\/www\\.|https:\/\/www\\.|http:\/\/|https:\/\/)?([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\:[0-9]{0,4})?(\/[a-zA-Z0-9_]*)?$/`")  # noqa: E501
 
         self._cloud_storage_console = cloud_storage_console
 
@@ -111,8 +111,8 @@ class ClusterModeSettings(object):
             raise ValueError("Invalid value for `monitoring`, length must be less than or equal to `2048`")  # noqa: E501
         if monitoring is not None and len(monitoring) < 11:
             raise ValueError("Invalid value for `monitoring`, length must be greater than or equal to `11`")  # noqa: E501
-        if monitoring is not None and not re.search('^(http:\/\/www\\.|https:\/\/www\\.|http:\/\/|https:\/\/)[a-z0-9]+([-\\.]{1}[a-z0-9]+)*\\.[a-z]{2,5}(:[0-9]{1,5})?(\/[^ ]*)?$|^((http:\/\/www\\.|https:\/\/www\\.|http:\/\/|https:\/\/)?([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\:[0-9]{0,4})?(\/[a-zA-Z0-9_]*)?$', monitoring):  # noqa: E501
-            raise ValueError("Invalid value for `monitoring`, must be a follow pattern or equal to `/^(http:\/\/www\\.|https:\/\/www\\.|http:\/\/|https:\/\/)[a-z0-9]+([-\\.]{1}[a-z0-9]+)*\\.[a-z]{2,5}(:[0-9]{1,5})?(\/[^ ]*)?$|^((http:\/\/www\\.|https:\/\/www\\.|http:\/\/|https:\/\/)?([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\:[0-9]{0,4})?(\/[a-zA-Z0-9_]*)?$/`")  # noqa: E501
+        if monitoring is not None and not re.search(r'^(http:\/\/www\\.|https:\/\/www\\.|http:\/\/|https:\/\/)[a-z0-9]+([-\\.]{1}[a-z0-9]+)*\\.[a-z]{2,5}(:[0-9]{1,5})?(\/[^ ]*)?$|^((http:\/\/www\\.|https:\/\/www\\.|http:\/\/|https:\/\/)?([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\:[0-9]{0,4})?(\/[a-zA-Z0-9_]*)?$', monitoring):  # noqa: E501
+            raise ValueError(r"Invalid value for `monitoring`, must be a follow pattern or equal to `/^(http:\/\/www\\.|https:\/\/www\\.|http:\/\/|https:\/\/)[a-z0-9]+([-\\.]{1}[a-z0-9]+)*\\.[a-z]{2,5}(:[0-9]{1,5})?(\/[^ ]*)?$|^((http:\/\/www\\.|https:\/\/www\\.|http:\/\/|https:\/\/)?([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\:[0-9]{0,4})?(\/[a-zA-Z0-9_]*)?$/`")  # noqa: E501
 
         self._monitoring = monitoring
 
@@ -161,8 +161,8 @@ class ClusterModeSettings(object):
             raise ValueError("Invalid value for `support`, length must be less than or equal to `2048`")  # noqa: E501
         if support is not None and len(support) < 11:
             raise ValueError("Invalid value for `support`, length must be greater than or equal to `11`")  # noqa: E501
-        if support is not None and not re.search('^(http:\/\/www\\.|https:\/\/www\\.|http:\/\/|https:\/\/)[a-z0-9]+([-\\.]{1}[a-z0-9]+)*\\.[a-z]{2,5}(:[0-9]{1,5})?(\/[^ ]*)?$|^((http:\/\/www\\.|https:\/\/www\\.|http:\/\/|https:\/\/)?([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\:[0-9]{0,4})?(\/[a-zA-Z0-9_]*)?$', support):  # noqa: E501
-            raise ValueError("Invalid value for `support`, must be a follow pattern or equal to `/^(http:\/\/www\\.|https:\/\/www\\.|http:\/\/|https:\/\/)[a-z0-9]+([-\\.]{1}[a-z0-9]+)*\\.[a-z]{2,5}(:[0-9]{1,5})?(\/[^ ]*)?$|^((http:\/\/www\\.|https:\/\/www\\.|http:\/\/|https:\/\/)?([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\:[0-9]{0,4})?(\/[a-zA-Z0-9_]*)?$/`")  # noqa: E501
+        if support is not None and not re.search(r'^(http:\/\/www\\.|https:\/\/www\\.|http:\/\/|https:\/\/)[a-z0-9]+([-\\.]{1}[a-z0-9]+)*\\.[a-z]{2,5}(:[0-9]{1,5})?(\/[^ ]*)?$|^((http:\/\/www\\.|https:\/\/www\\.|http:\/\/|https:\/\/)?([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\:[0-9]{0,4})?(\/[a-zA-Z0-9_]*)?$', support):  # noqa: E501
+            raise ValueError(r"Invalid value for `support`, must be a follow pattern or equal to `/^(http:\/\/www\\.|https:\/\/www\\.|http:\/\/|https:\/\/)[a-z0-9]+([-\\.]{1}[a-z0-9]+)*\\.[a-z]{2,5}(:[0-9]{1,5})?(\/[^ ]*)?$|^((http:\/\/www\\.|https:\/\/www\\.|http:\/\/|https:\/\/)?([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\:[0-9]{0,4})?(\/[a-zA-Z0-9_]*)?$/`")  # noqa: E501
 
         self._support = support
 
@@ -187,6 +187,9 @@ class ClusterModeSettings(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(ClusterModeSettings, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

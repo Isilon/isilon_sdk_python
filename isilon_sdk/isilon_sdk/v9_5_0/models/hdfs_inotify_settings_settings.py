@@ -155,6 +155,9 @@ class HdfsInotifySettingsSettings(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(HdfsInotifySettingsSettings, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

@@ -91,6 +91,9 @@ class HttpService(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(HttpService, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

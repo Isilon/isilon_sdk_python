@@ -189,6 +189,9 @@ class AvscanServerCreateParams(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(AvscanServerCreateParams, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

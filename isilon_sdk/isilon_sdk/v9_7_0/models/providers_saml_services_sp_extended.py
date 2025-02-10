@@ -106,8 +106,8 @@ class ProvidersSamlServicesSpExtended(object):
             raise ValueError("Invalid value for `email`, length must be less than or equal to `254`")  # noqa: E501
         if email is not None and len(email) < 3:
             raise ValueError("Invalid value for `email`, length must be greater than or equal to `3`")  # noqa: E501
-        if email is not None and not re.search('[a-zA-Z0-9!#%&\'*+= ^_`{|}~\/?$.-]{1,64}@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,63}', email):  # noqa: E501
-            raise ValueError("Invalid value for `email`, must be a follow pattern or equal to `/[a-zA-Z0-9!#%&'*+= ^_`{|}~\/?$.-]{1,64}@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,63}/`")  # noqa: E501
+        if email is not None and not re.search(r'[a-zA-Z0-9!#%&\'*+= ^_`{|}~\/?$.-]{1,64}@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,63}', email):  # noqa: E501
+            raise ValueError(r"Invalid value for `email`, must be a follow pattern or equal to `/[a-zA-Z0-9!#%&'*+= ^_`{|}~\/?$.-]{1,64}@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,63}/`")  # noqa: E501
 
         self._email = email
 
@@ -319,6 +319,9 @@ class ProvidersSamlServicesSpExtended(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(ProvidersSamlServicesSpExtended, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

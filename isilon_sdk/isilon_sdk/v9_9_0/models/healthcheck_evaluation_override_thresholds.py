@@ -159,6 +159,9 @@ class HealthcheckEvaluationOverrideThresholds(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(HealthcheckEvaluationOverrideThresholds, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

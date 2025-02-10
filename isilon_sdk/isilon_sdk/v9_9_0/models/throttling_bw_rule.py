@@ -95,6 +95,9 @@ class ThrottlingBwRule(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(ThrottlingBwRule, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

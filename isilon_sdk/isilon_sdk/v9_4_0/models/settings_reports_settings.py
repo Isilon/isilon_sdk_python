@@ -212,6 +212,9 @@ class SettingsReportsSettings(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(SettingsReportsSettings, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

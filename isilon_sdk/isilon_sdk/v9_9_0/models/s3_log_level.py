@@ -97,6 +97,9 @@ class S3LogLevel(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(S3LogLevel, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

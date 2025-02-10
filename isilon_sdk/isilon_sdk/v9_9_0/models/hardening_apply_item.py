@@ -71,8 +71,8 @@ class HardeningApplyItem(object):
             raise ValueError("Invalid value for `profile`, length must be less than or equal to `256`")  # noqa: E501
         if profile is not None and len(profile) < 1:
             raise ValueError("Invalid value for `profile`, length must be greater than or equal to `1`")  # noqa: E501
-        if profile is not None and not re.search('^([a-zA-Z0-9]|_|-)*$', profile):  # noqa: E501
-            raise ValueError("Invalid value for `profile`, must be a follow pattern or equal to `/^([a-zA-Z0-9]|_|-)*$/`")  # noqa: E501
+        if profile is not None and not re.search(r'^([a-zA-Z0-9]|_|-)*$', profile):  # noqa: E501
+            raise ValueError(r"Invalid value for `profile`, must be a follow pattern or equal to `/^([a-zA-Z0-9]|_|-)*$/`")  # noqa: E501
 
         self._profile = profile
 
@@ -97,6 +97,9 @@ class HardeningApplyItem(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(HardeningApplyItem, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

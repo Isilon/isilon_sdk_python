@@ -273,6 +273,9 @@ class MaintenanceSettingsExtended(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(MaintenanceSettingsExtended, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

@@ -92,6 +92,9 @@ class SupportassistTermsExtended(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(SupportassistTermsExtended, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

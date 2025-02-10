@@ -121,6 +121,9 @@ class SummaryProtocolStatsProtocolStatsProtocolDataItem(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(SummaryProtocolStatsProtocolStatsProtocolDataItem, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

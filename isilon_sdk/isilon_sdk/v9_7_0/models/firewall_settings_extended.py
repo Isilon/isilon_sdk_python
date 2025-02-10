@@ -91,6 +91,9 @@ class FirewallSettingsExtended(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(FirewallSettingsExtended, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

@@ -127,6 +127,9 @@ class NetworkDiscoverDiscover(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(NetworkDiscoverDiscover, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

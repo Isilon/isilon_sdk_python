@@ -167,6 +167,9 @@ class SettingsCharacterEncodingsSettings(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(SettingsCharacterEncodingsSettings, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

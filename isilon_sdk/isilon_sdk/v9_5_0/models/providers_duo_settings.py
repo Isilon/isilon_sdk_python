@@ -334,8 +334,8 @@ class ProvidersDuoSettings(object):
             raise ValueError("Invalid value for `ikey`, length must be less than or equal to `256`")  # noqa: E501
         if ikey is not None and len(ikey) < 0:
             raise ValueError("Invalid value for `ikey`, length must be greater than or equal to `0`")  # noqa: E501
-        if ikey is not None and not re.search('^[A-Za-z0-9]*$', ikey):  # noqa: E501
-            raise ValueError("Invalid value for `ikey`, must be a follow pattern or equal to `/^[A-Za-z0-9]*$/`")  # noqa: E501
+        if ikey is not None and not re.search(r'^[A-Za-z0-9]*$', ikey):  # noqa: E501
+            raise ValueError(r"Invalid value for `ikey`, must be a follow pattern or equal to `/^[A-Za-z0-9]*$/`")  # noqa: E501
 
         self._ikey = ikey
 
@@ -414,6 +414,9 @@ class ProvidersDuoSettings(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(ProvidersDuoSettings, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

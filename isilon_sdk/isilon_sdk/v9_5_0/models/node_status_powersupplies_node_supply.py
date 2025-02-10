@@ -288,6 +288,9 @@ class NodeStatusPowersuppliesNodeSupply(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(NodeStatusPowersuppliesNodeSupply, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

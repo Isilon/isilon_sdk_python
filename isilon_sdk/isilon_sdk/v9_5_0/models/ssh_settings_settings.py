@@ -245,8 +245,8 @@ class SshSettingsSettings(object):
             raise ValueError("Invalid value for `authentication_methods`, length must be less than or equal to `1024`")  # noqa: E501
         if authentication_methods is not None and len(authentication_methods) < 0:
             raise ValueError("Invalid value for `authentication_methods`, length must be greater than or equal to `0`")  # noqa: E501
-        if authentication_methods is not None and not re.search('^[^ ]*$', authentication_methods):  # noqa: E501
-            raise ValueError("Invalid value for `authentication_methods`, must be a follow pattern or equal to `/^[^ ]*$/`")  # noqa: E501
+        if authentication_methods is not None and not re.search(r'^[^ ]*$', authentication_methods):  # noqa: E501
+            raise ValueError(r"Invalid value for `authentication_methods`, must be a follow pattern or equal to `/^[^ ]*$/`")  # noqa: E501
 
         self._authentication_methods = authentication_methods
 
@@ -274,8 +274,8 @@ class SshSettingsSettings(object):
             raise ValueError("Invalid value for `banner`, length must be less than or equal to `4096`")  # noqa: E501
         if banner is not None and len(banner) < 0:
             raise ValueError("Invalid value for `banner`, length must be greater than or equal to `0`")  # noqa: E501
-        if banner is not None and not re.search('^[^ ]*$', banner):  # noqa: E501
-            raise ValueError("Invalid value for `banner`, must be a follow pattern or equal to `/^[^ ]*$/`")  # noqa: E501
+        if banner is not None and not re.search(r'^[^ ]*$', banner):  # noqa: E501
+            raise ValueError(r"Invalid value for `banner`, must be a follow pattern or equal to `/^[^ ]*$/`")  # noqa: E501
 
         self._banner = banner
 
@@ -303,8 +303,8 @@ class SshSettingsSettings(object):
             raise ValueError("Invalid value for `ca_signature_algorithms`, length must be less than or equal to `4096`")  # noqa: E501
         if ca_signature_algorithms is not None and len(ca_signature_algorithms) < 0:
             raise ValueError("Invalid value for `ca_signature_algorithms`, length must be greater than or equal to `0`")  # noqa: E501
-        if ca_signature_algorithms is not None and not re.search('^(\\+?)(ecdsa-sha2-nistp256|ecdsa-sha2-nistp384|ecdsa-sha2-nistp521|ssh-ed25519|rsa-sha2-512|rsa-sha2-256|ssh-rsa)(,(ecdsa-sha2-nistp256|ecdsa-sha2-nistp384|ecdsa-sha2-nistp521|ssh-ed25519|rsa-sha2-512|rsa-sha2-256|ssh-rsa))*$', ca_signature_algorithms):  # noqa: E501
-            raise ValueError("Invalid value for `ca_signature_algorithms`, must be a follow pattern or equal to `/^(\\+?)(ecdsa-sha2-nistp256|ecdsa-sha2-nistp384|ecdsa-sha2-nistp521|ssh-ed25519|rsa-sha2-512|rsa-sha2-256|ssh-rsa)(,(ecdsa-sha2-nistp256|ecdsa-sha2-nistp384|ecdsa-sha2-nistp521|ssh-ed25519|rsa-sha2-512|rsa-sha2-256|ssh-rsa))*$/`")  # noqa: E501
+        if ca_signature_algorithms is not None and not re.search(r'^(\\+?)(ecdsa-sha2-nistp256|ecdsa-sha2-nistp384|ecdsa-sha2-nistp521|ssh-ed25519|rsa-sha2-512|rsa-sha2-256|ssh-rsa)(,(ecdsa-sha2-nistp256|ecdsa-sha2-nistp384|ecdsa-sha2-nistp521|ssh-ed25519|rsa-sha2-512|rsa-sha2-256|ssh-rsa))*$', ca_signature_algorithms):  # noqa: E501
+            raise ValueError(r"Invalid value for `ca_signature_algorithms`, must be a follow pattern or equal to `/^(\\+?)(ecdsa-sha2-nistp256|ecdsa-sha2-nistp384|ecdsa-sha2-nistp521|ssh-ed25519|rsa-sha2-512|rsa-sha2-256|ssh-rsa)(,(ecdsa-sha2-nistp256|ecdsa-sha2-nistp384|ecdsa-sha2-nistp521|ssh-ed25519|rsa-sha2-512|rsa-sha2-256|ssh-rsa))*$/`")  # noqa: E501
 
         self._ca_signature_algorithms = ca_signature_algorithms
 
@@ -355,8 +355,8 @@ class SshSettingsSettings(object):
             raise ValueError("Invalid value for `ciphers`, length must be less than or equal to `4096`")  # noqa: E501
         if ciphers is not None and len(ciphers) < 7:
             raise ValueError("Invalid value for `ciphers`, length must be greater than or equal to `7`")  # noqa: E501
-        if ciphers is not None and not re.search('^(\\+?)(3des-cbc|aes128-cbc|aes192-cbc|aes256-cbc|aes128-ctr|aes192-ctr|aes256-ctr|aes128-gcm@openssh\\.com|aes256-gcm@openssh\\.com|chacha20-poly1305@openssh\\.com)(,(3des-cbc|aes128-cbc|aes192-cbc|aes256-cbc|aes128-ctr|aes192-ctr|aes256-ctr|aes128-gcm@openssh\\.com|aes256-gcm@openssh\\.com|chacha20-poly1305@openssh\\.com))*$', ciphers):  # noqa: E501
-            raise ValueError("Invalid value for `ciphers`, must be a follow pattern or equal to `/^(\\+?)(3des-cbc|aes128-cbc|aes192-cbc|aes256-cbc|aes128-ctr|aes192-ctr|aes256-ctr|aes128-gcm@openssh\\.com|aes256-gcm@openssh\\.com|chacha20-poly1305@openssh\\.com)(,(3des-cbc|aes128-cbc|aes192-cbc|aes256-cbc|aes128-ctr|aes192-ctr|aes256-ctr|aes128-gcm@openssh\\.com|aes256-gcm@openssh\\.com|chacha20-poly1305@openssh\\.com))*$/`")  # noqa: E501
+        if ciphers is not None and not re.search(r'^(\\+?)(3des-cbc|aes128-cbc|aes192-cbc|aes256-cbc|aes128-ctr|aes192-ctr|aes256-ctr|aes128-gcm@openssh\\.com|aes256-gcm@openssh\\.com|chacha20-poly1305@openssh\\.com)(,(3des-cbc|aes128-cbc|aes192-cbc|aes256-cbc|aes128-ctr|aes192-ctr|aes256-ctr|aes128-gcm@openssh\\.com|aes256-gcm@openssh\\.com|chacha20-poly1305@openssh\\.com))*$', ciphers):  # noqa: E501
+            raise ValueError(r"Invalid value for `ciphers`, must be a follow pattern or equal to `/^(\\+?)(3des-cbc|aes128-cbc|aes192-cbc|aes256-cbc|aes128-ctr|aes192-ctr|aes256-ctr|aes128-gcm@openssh\\.com|aes256-gcm@openssh\\.com|chacha20-poly1305@openssh\\.com)(,(3des-cbc|aes128-cbc|aes192-cbc|aes256-cbc|aes128-ctr|aes192-ctr|aes256-ctr|aes128-gcm@openssh\\.com|aes256-gcm@openssh\\.com|chacha20-poly1305@openssh\\.com))*$/`")  # noqa: E501
 
         self._ciphers = ciphers
 
@@ -384,8 +384,8 @@ class SshSettingsSettings(object):
             raise ValueError("Invalid value for `host_key_algorithms`, length must be less than or equal to `4096`")  # noqa: E501
         if host_key_algorithms is not None and len(host_key_algorithms) < 7:
             raise ValueError("Invalid value for `host_key_algorithms`, length must be greater than or equal to `7`")  # noqa: E501
-        if host_key_algorithms is not None and not re.search('^(\\+?)(ssh-ed25519|ssh-ed25519-cert-v01@openssh\\.com|ssh-rsa|ssh-dss|ecdsa-sha2-nistp256|ecdsa-sha2-nistp384|ecdsa-sha2-nistp521|ssh-rsa-cert-v01@openssh\\.com|ssh-dss-cert-v01@openssh\\.com|ecdsa-sha2-nistp256-cert-v01@openssh\\.com|ecdsa-sha2-nistp384-cert-v01@openssh\\.com|ecdsa-sha2-nistp521-cert-v01@openssh\\.com)(,(ssh-ed25519|ssh-ed25519-cert-v01@openssh\\.com|ssh-rsa|ssh-dss|ecdsa-sha2-nistp256|ecdsa-sha2-nistp384|ecdsa-sha2-nistp521|ssh-rsa-cert-v01@openssh\\.com|ssh-dss-cert-v01@openssh\\.com|ecdsa-sha2-nistp256-cert-v01@openssh\\.com|ecdsa-sha2-nistp384-cert-v01@openssh\\.com|ecdsa-sha2-nistp521-cert-v01@openssh\\.com))*$', host_key_algorithms):  # noqa: E501
-            raise ValueError("Invalid value for `host_key_algorithms`, must be a follow pattern or equal to `/^(\\+?)(ssh-ed25519|ssh-ed25519-cert-v01@openssh\\.com|ssh-rsa|ssh-dss|ecdsa-sha2-nistp256|ecdsa-sha2-nistp384|ecdsa-sha2-nistp521|ssh-rsa-cert-v01@openssh\\.com|ssh-dss-cert-v01@openssh\\.com|ecdsa-sha2-nistp256-cert-v01@openssh\\.com|ecdsa-sha2-nistp384-cert-v01@openssh\\.com|ecdsa-sha2-nistp521-cert-v01@openssh\\.com)(,(ssh-ed25519|ssh-ed25519-cert-v01@openssh\\.com|ssh-rsa|ssh-dss|ecdsa-sha2-nistp256|ecdsa-sha2-nistp384|ecdsa-sha2-nistp521|ssh-rsa-cert-v01@openssh\\.com|ssh-dss-cert-v01@openssh\\.com|ecdsa-sha2-nistp256-cert-v01@openssh\\.com|ecdsa-sha2-nistp384-cert-v01@openssh\\.com|ecdsa-sha2-nistp521-cert-v01@openssh\\.com))*$/`")  # noqa: E501
+        if host_key_algorithms is not None and not re.search(r'^(\\+?)(ssh-ed25519|ssh-ed25519-cert-v01@openssh\\.com|ssh-rsa|ssh-dss|ecdsa-sha2-nistp256|ecdsa-sha2-nistp384|ecdsa-sha2-nistp521|ssh-rsa-cert-v01@openssh\\.com|ssh-dss-cert-v01@openssh\\.com|ecdsa-sha2-nistp256-cert-v01@openssh\\.com|ecdsa-sha2-nistp384-cert-v01@openssh\\.com|ecdsa-sha2-nistp521-cert-v01@openssh\\.com)(,(ssh-ed25519|ssh-ed25519-cert-v01@openssh\\.com|ssh-rsa|ssh-dss|ecdsa-sha2-nistp256|ecdsa-sha2-nistp384|ecdsa-sha2-nistp521|ssh-rsa-cert-v01@openssh\\.com|ssh-dss-cert-v01@openssh\\.com|ecdsa-sha2-nistp256-cert-v01@openssh\\.com|ecdsa-sha2-nistp384-cert-v01@openssh\\.com|ecdsa-sha2-nistp521-cert-v01@openssh\\.com))*$', host_key_algorithms):  # noqa: E501
+            raise ValueError(r"Invalid value for `host_key_algorithms`, must be a follow pattern or equal to `/^(\\+?)(ssh-ed25519|ssh-ed25519-cert-v01@openssh\\.com|ssh-rsa|ssh-dss|ecdsa-sha2-nistp256|ecdsa-sha2-nistp384|ecdsa-sha2-nistp521|ssh-rsa-cert-v01@openssh\\.com|ssh-dss-cert-v01@openssh\\.com|ecdsa-sha2-nistp256-cert-v01@openssh\\.com|ecdsa-sha2-nistp384-cert-v01@openssh\\.com|ecdsa-sha2-nistp521-cert-v01@openssh\\.com)(,(ssh-ed25519|ssh-ed25519-cert-v01@openssh\\.com|ssh-rsa|ssh-dss|ecdsa-sha2-nistp256|ecdsa-sha2-nistp384|ecdsa-sha2-nistp521|ssh-rsa-cert-v01@openssh\\.com|ssh-dss-cert-v01@openssh\\.com|ecdsa-sha2-nistp256-cert-v01@openssh\\.com|ecdsa-sha2-nistp384-cert-v01@openssh\\.com|ecdsa-sha2-nistp521-cert-v01@openssh\\.com))*$/`")  # noqa: E501
 
         self._host_key_algorithms = host_key_algorithms
 
@@ -436,8 +436,8 @@ class SshSettingsSettings(object):
             raise ValueError("Invalid value for `kex_algorithms`, length must be less than or equal to `4096`")  # noqa: E501
         if kex_algorithms is not None and len(kex_algorithms) < 18:
             raise ValueError("Invalid value for `kex_algorithms`, length must be greater than or equal to `18`")  # noqa: E501
-        if kex_algorithms is not None and not re.search('^(\\+?)(curve25519-sha256|curve25519-sha256@libssh\\.org|diffie-hellman-group1-sha1|diffie-hellman-group14-sha1|diffie-hellman-group14-sha256|diffie-hellman-group16-sha512|diffie-hellman-group18-sha512|diffie-hellman-group-exchange-sha1|diffie-hellman-group-exchange-sha256|ecdh-sha2-nistp256|ecdh-sha2-nistp384|ecdh-sha2-nistp521)(,(curve25519-sha256|curve25519-sha256@libssh\\.org|diffie-hellman-group1-sha1|diffie-hellman-group14-sha1|diffie-hellman-group14-sha256|diffie-hellman-group16-sha512|diffie-hellman-group18-sha512|diffie-hellman-group-exchange-sha1|diffie-hellman-group-exchange-sha256|ecdh-sha2-nistp256|ecdh-sha2-nistp384|ecdh-sha2-nistp521))*$', kex_algorithms):  # noqa: E501
-            raise ValueError("Invalid value for `kex_algorithms`, must be a follow pattern or equal to `/^(\\+?)(curve25519-sha256|curve25519-sha256@libssh\\.org|diffie-hellman-group1-sha1|diffie-hellman-group14-sha1|diffie-hellman-group14-sha256|diffie-hellman-group16-sha512|diffie-hellman-group18-sha512|diffie-hellman-group-exchange-sha1|diffie-hellman-group-exchange-sha256|ecdh-sha2-nistp256|ecdh-sha2-nistp384|ecdh-sha2-nistp521)(,(curve25519-sha256|curve25519-sha256@libssh\\.org|diffie-hellman-group1-sha1|diffie-hellman-group14-sha1|diffie-hellman-group14-sha256|diffie-hellman-group16-sha512|diffie-hellman-group18-sha512|diffie-hellman-group-exchange-sha1|diffie-hellman-group-exchange-sha256|ecdh-sha2-nistp256|ecdh-sha2-nistp384|ecdh-sha2-nistp521))*$/`")  # noqa: E501
+        if kex_algorithms is not None and not re.search(r'^(\\+?)(curve25519-sha256|curve25519-sha256@libssh\\.org|diffie-hellman-group1-sha1|diffie-hellman-group14-sha1|diffie-hellman-group14-sha256|diffie-hellman-group16-sha512|diffie-hellman-group18-sha512|diffie-hellman-group-exchange-sha1|diffie-hellman-group-exchange-sha256|ecdh-sha2-nistp256|ecdh-sha2-nistp384|ecdh-sha2-nistp521)(,(curve25519-sha256|curve25519-sha256@libssh\\.org|diffie-hellman-group1-sha1|diffie-hellman-group14-sha1|diffie-hellman-group14-sha256|diffie-hellman-group16-sha512|diffie-hellman-group18-sha512|diffie-hellman-group-exchange-sha1|diffie-hellman-group-exchange-sha256|ecdh-sha2-nistp256|ecdh-sha2-nistp384|ecdh-sha2-nistp521))*$', kex_algorithms):  # noqa: E501
+            raise ValueError(r"Invalid value for `kex_algorithms`, must be a follow pattern or equal to `/^(\\+?)(curve25519-sha256|curve25519-sha256@libssh\\.org|diffie-hellman-group1-sha1|diffie-hellman-group14-sha1|diffie-hellman-group14-sha256|diffie-hellman-group16-sha512|diffie-hellman-group18-sha512|diffie-hellman-group-exchange-sha1|diffie-hellman-group-exchange-sha256|ecdh-sha2-nistp256|ecdh-sha2-nistp384|ecdh-sha2-nistp521)(,(curve25519-sha256|curve25519-sha256@libssh\\.org|diffie-hellman-group1-sha1|diffie-hellman-group14-sha1|diffie-hellman-group14-sha256|diffie-hellman-group16-sha512|diffie-hellman-group18-sha512|diffie-hellman-group-exchange-sha1|diffie-hellman-group-exchange-sha256|ecdh-sha2-nistp256|ecdh-sha2-nistp384|ecdh-sha2-nistp521))*$/`")  # noqa: E501
 
         self._kex_algorithms = kex_algorithms
 
@@ -544,8 +544,8 @@ class SshSettingsSettings(object):
             raise ValueError("Invalid value for `macs`, length must be less than or equal to `4096`")  # noqa: E501
         if macs is not None and len(macs) < 8:
             raise ValueError("Invalid value for `macs`, length must be greater than or equal to `8`")  # noqa: E501
-        if macs is not None and not re.search('^(\\+?)(hmac-md5|hmac-md5-96|hmac-sha1|hmac-sha1-96|hmac-sha2-256|hmac-sha2-512|umac-64@openssh.com|umac-128@openssh.com|hmac-md5-etm@openssh.com|hmac-md5-96-etm@openssh.com|hmac-sha1-etm@openssh.com|hmac-sha1-96-etm@openssh.com|hmac-sha2-256-etm@openssh.com|hmac-sha2-512-etm@openssh.com|umac-64-etm@openssh.com|umac-128-etm@openssh.com)(,(hmac-md5|hmac-md5-96|hmac-sha1|hmac-sha1-96|hmac-sha2-256|hmac-sha2-512|umac-64@openssh.com|umac-128@openssh.com|hmac-md5-etm@openssh.com|hmac-md5-96-etm@openssh.com|hmac-sha1-etm@openssh.com|hmac-sha1-96-etm@openssh.com|hmac-sha2-256-etm@openssh.com|hmac-sha2-512-etm@openssh.com|umac-64-etm@openssh.com|umac-128-etm@openssh.com))*$', macs):  # noqa: E501
-            raise ValueError("Invalid value for `macs`, must be a follow pattern or equal to `/^(\\+?)(hmac-md5|hmac-md5-96|hmac-sha1|hmac-sha1-96|hmac-sha2-256|hmac-sha2-512|umac-64@openssh.com|umac-128@openssh.com|hmac-md5-etm@openssh.com|hmac-md5-96-etm@openssh.com|hmac-sha1-etm@openssh.com|hmac-sha1-96-etm@openssh.com|hmac-sha2-256-etm@openssh.com|hmac-sha2-512-etm@openssh.com|umac-64-etm@openssh.com|umac-128-etm@openssh.com)(,(hmac-md5|hmac-md5-96|hmac-sha1|hmac-sha1-96|hmac-sha2-256|hmac-sha2-512|umac-64@openssh.com|umac-128@openssh.com|hmac-md5-etm@openssh.com|hmac-md5-96-etm@openssh.com|hmac-sha1-etm@openssh.com|hmac-sha1-96-etm@openssh.com|hmac-sha2-256-etm@openssh.com|hmac-sha2-512-etm@openssh.com|umac-64-etm@openssh.com|umac-128-etm@openssh.com))*$/`")  # noqa: E501
+        if macs is not None and not re.search(r'^(\\+?)(hmac-md5|hmac-md5-96|hmac-sha1|hmac-sha1-96|hmac-sha2-256|hmac-sha2-512|umac-64@openssh.com|umac-128@openssh.com|hmac-md5-etm@openssh.com|hmac-md5-96-etm@openssh.com|hmac-sha1-etm@openssh.com|hmac-sha1-96-etm@openssh.com|hmac-sha2-256-etm@openssh.com|hmac-sha2-512-etm@openssh.com|umac-64-etm@openssh.com|umac-128-etm@openssh.com)(,(hmac-md5|hmac-md5-96|hmac-sha1|hmac-sha1-96|hmac-sha2-256|hmac-sha2-512|umac-64@openssh.com|umac-128@openssh.com|hmac-md5-etm@openssh.com|hmac-md5-96-etm@openssh.com|hmac-sha1-etm@openssh.com|hmac-sha1-96-etm@openssh.com|hmac-sha2-256-etm@openssh.com|hmac-sha2-512-etm@openssh.com|umac-64-etm@openssh.com|umac-128-etm@openssh.com))*$', macs):  # noqa: E501
+            raise ValueError(r"Invalid value for `macs`, must be a follow pattern or equal to `/^(\\+?)(hmac-md5|hmac-md5-96|hmac-sha1|hmac-sha1-96|hmac-sha2-256|hmac-sha2-512|umac-64@openssh.com|umac-128@openssh.com|hmac-md5-etm@openssh.com|hmac-md5-96-etm@openssh.com|hmac-sha1-etm@openssh.com|hmac-sha1-96-etm@openssh.com|hmac-sha2-256-etm@openssh.com|hmac-sha2-512-etm@openssh.com|umac-64-etm@openssh.com|umac-128-etm@openssh.com)(,(hmac-md5|hmac-md5-96|hmac-sha1|hmac-sha1-96|hmac-sha2-256|hmac-sha2-512|umac-64@openssh.com|umac-128@openssh.com|hmac-md5-etm@openssh.com|hmac-md5-96-etm@openssh.com|hmac-sha1-etm@openssh.com|hmac-sha1-96-etm@openssh.com|hmac-sha2-256-etm@openssh.com|hmac-sha2-512-etm@openssh.com|umac-64-etm@openssh.com|umac-128-etm@openssh.com))*$/`")  # noqa: E501
 
         self._macs = macs
 
@@ -654,8 +654,8 @@ class SshSettingsSettings(object):
             raise ValueError("Invalid value for `max_startups`, length must be less than or equal to `11`")  # noqa: E501
         if max_startups is not None and len(max_startups) < 0:
             raise ValueError("Invalid value for `max_startups`, length must be greater than or equal to `0`")  # noqa: E501
-        if max_startups is not None and not re.search('^$|^([0-9]|[0-9][0-9]|[0-9][0-9][0-9]):([0-9]|[0-9][0-9]|[0-9][0-9][0-9]):([0-9]|[0-9][0-9]|[0-9][0-9][0-9])$', max_startups):  # noqa: E501
-            raise ValueError("Invalid value for `max_startups`, must be a follow pattern or equal to `/^$|^([0-9]|[0-9][0-9]|[0-9][0-9][0-9]):([0-9]|[0-9][0-9]|[0-9][0-9][0-9]):([0-9]|[0-9][0-9]|[0-9][0-9][0-9])$/`")  # noqa: E501
+        if max_startups is not None and not re.search(r'^$|^([0-9]|[0-9][0-9]|[0-9][0-9][0-9]):([0-9]|[0-9][0-9]|[0-9][0-9][0-9]):([0-9]|[0-9][0-9]|[0-9][0-9][0-9])$', max_startups):  # noqa: E501
+            raise ValueError(r"Invalid value for `max_startups`, must be a follow pattern or equal to `/^$|^([0-9]|[0-9][0-9]|[0-9][0-9][0-9]):([0-9]|[0-9][0-9]|[0-9][0-9][0-9]):([0-9]|[0-9][0-9]|[0-9][0-9][0-9])$/`")  # noqa: E501
 
         self._max_startups = max_startups
 
@@ -802,8 +802,8 @@ class SshSettingsSettings(object):
             raise ValueError("Invalid value for `pubkey_accepted_key_types`, length must be less than or equal to `4096`")  # noqa: E501
         if pubkey_accepted_key_types is not None and len(pubkey_accepted_key_types) < 7:
             raise ValueError("Invalid value for `pubkey_accepted_key_types`, length must be greater than or equal to `7`")  # noqa: E501
-        if pubkey_accepted_key_types is not None and not re.search('^(\\+?)(ssh-ed25519|ssh-ed25519-cert-v01@openssh\\.com|ssh-rsa|ssh-dss|ecdsa-sha2-nistp256|ecdsa-sha2-nistp384|ecdsa-sha2-nistp521|ssh-rsa-cert-v01@openssh\\.com|ssh-dss-cert-v01@openssh\\.com|ecdsa-sha2-nistp256-cert-v01@openssh\\.com|ecdsa-sha2-nistp384-cert-v01@openssh\\.com|ecdsa-sha2-nistp521-cert-v01@openssh\\.com)(,(ssh-ed25519|ssh-ed25519-cert-v01@openssh\\.com|ssh-rsa|ssh-dss|ecdsa-sha2-nistp256|ecdsa-sha2-nistp384|ecdsa-sha2-nistp521|ssh-rsa-cert-v01@openssh\\.com|ssh-dss-cert-v01@openssh\\.com|ecdsa-sha2-nistp256-cert-v01@openssh\\.com|ecdsa-sha2-nistp384-cert-v01@openssh\\.com|ecdsa-sha2-nistp521-cert-v01@openssh\\.com))*$', pubkey_accepted_key_types):  # noqa: E501
-            raise ValueError("Invalid value for `pubkey_accepted_key_types`, must be a follow pattern or equal to `/^(\\+?)(ssh-ed25519|ssh-ed25519-cert-v01@openssh\\.com|ssh-rsa|ssh-dss|ecdsa-sha2-nistp256|ecdsa-sha2-nistp384|ecdsa-sha2-nistp521|ssh-rsa-cert-v01@openssh\\.com|ssh-dss-cert-v01@openssh\\.com|ecdsa-sha2-nistp256-cert-v01@openssh\\.com|ecdsa-sha2-nistp384-cert-v01@openssh\\.com|ecdsa-sha2-nistp521-cert-v01@openssh\\.com)(,(ssh-ed25519|ssh-ed25519-cert-v01@openssh\\.com|ssh-rsa|ssh-dss|ecdsa-sha2-nistp256|ecdsa-sha2-nistp384|ecdsa-sha2-nistp521|ssh-rsa-cert-v01@openssh\\.com|ssh-dss-cert-v01@openssh\\.com|ecdsa-sha2-nistp256-cert-v01@openssh\\.com|ecdsa-sha2-nistp384-cert-v01@openssh\\.com|ecdsa-sha2-nistp521-cert-v01@openssh\\.com))*$/`")  # noqa: E501
+        if pubkey_accepted_key_types is not None and not re.search(r'^(\\+?)(ssh-ed25519|ssh-ed25519-cert-v01@openssh\\.com|ssh-rsa|ssh-dss|ecdsa-sha2-nistp256|ecdsa-sha2-nistp384|ecdsa-sha2-nistp521|ssh-rsa-cert-v01@openssh\\.com|ssh-dss-cert-v01@openssh\\.com|ecdsa-sha2-nistp256-cert-v01@openssh\\.com|ecdsa-sha2-nistp384-cert-v01@openssh\\.com|ecdsa-sha2-nistp521-cert-v01@openssh\\.com)(,(ssh-ed25519|ssh-ed25519-cert-v01@openssh\\.com|ssh-rsa|ssh-dss|ecdsa-sha2-nistp256|ecdsa-sha2-nistp384|ecdsa-sha2-nistp521|ssh-rsa-cert-v01@openssh\\.com|ssh-dss-cert-v01@openssh\\.com|ecdsa-sha2-nistp256-cert-v01@openssh\\.com|ecdsa-sha2-nistp384-cert-v01@openssh\\.com|ecdsa-sha2-nistp521-cert-v01@openssh\\.com))*$', pubkey_accepted_key_types):  # noqa: E501
+            raise ValueError(r"Invalid value for `pubkey_accepted_key_types`, must be a follow pattern or equal to `/^(\\+?)(ssh-ed25519|ssh-ed25519-cert-v01@openssh\\.com|ssh-rsa|ssh-dss|ecdsa-sha2-nistp256|ecdsa-sha2-nistp384|ecdsa-sha2-nistp521|ssh-rsa-cert-v01@openssh\\.com|ssh-dss-cert-v01@openssh\\.com|ecdsa-sha2-nistp256-cert-v01@openssh\\.com|ecdsa-sha2-nistp384-cert-v01@openssh\\.com|ecdsa-sha2-nistp521-cert-v01@openssh\\.com)(,(ssh-ed25519|ssh-ed25519-cert-v01@openssh\\.com|ssh-rsa|ssh-dss|ecdsa-sha2-nistp256|ecdsa-sha2-nistp384|ecdsa-sha2-nistp521|ssh-rsa-cert-v01@openssh\\.com|ssh-dss-cert-v01@openssh\\.com|ecdsa-sha2-nistp256-cert-v01@openssh\\.com|ecdsa-sha2-nistp384-cert-v01@openssh\\.com|ecdsa-sha2-nistp521-cert-v01@openssh\\.com))*$/`")  # noqa: E501
 
         self._pubkey_accepted_key_types = pubkey_accepted_key_types
 
@@ -877,8 +877,8 @@ class SshSettingsSettings(object):
             raise ValueError("Invalid value for `subsystem`, length must be less than or equal to `1024`")  # noqa: E501
         if subsystem is not None and len(subsystem) < 0:
             raise ValueError("Invalid value for `subsystem`, length must be greater than or equal to `0`")  # noqa: E501
-        if subsystem is not None and not re.search('b\'^[^\\\\n]*$\'', subsystem):  # noqa: E501
-            raise ValueError("Invalid value for `subsystem`, must be a follow pattern or equal to `/b'^[^\\\\n]*$'/`")  # noqa: E501
+        if subsystem is not None and not re.search(r'b\'^[^\\\\n]*$\'', subsystem):  # noqa: E501
+            raise ValueError(r"Invalid value for `subsystem`, must be a follow pattern or equal to `/b'^[^\\\\n]*$'/`")  # noqa: E501
 
         self._subsystem = subsystem
 
@@ -1001,6 +1001,9 @@ class SshSettingsSettings(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(SshSettingsSettings, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

@@ -147,6 +147,9 @@ class NdmpSessionsNodeSession(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(NdmpSessionsNodeSession, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

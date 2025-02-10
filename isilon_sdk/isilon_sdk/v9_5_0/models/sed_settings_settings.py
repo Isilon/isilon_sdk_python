@@ -154,6 +154,9 @@ class SedSettingsSettings(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(SedSettingsSettings, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

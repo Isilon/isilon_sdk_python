@@ -191,6 +191,9 @@ class PapiSettingsPapiSettingsChildSettings(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(PapiSettingsPapiSettingsChildSettings, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

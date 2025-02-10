@@ -95,6 +95,9 @@ class DatasetFilter(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(DatasetFilter, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

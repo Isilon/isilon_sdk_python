@@ -75,8 +75,8 @@ class HealthcheckEvaluationSmartlog(object):
             raise ValueError("Invalid value for `failure_begin_time`, length must be less than or equal to `16`")  # noqa: E501
         if failure_begin_time is not None and len(failure_begin_time) < 16:
             raise ValueError("Invalid value for `failure_begin_time`, length must be greater than or equal to `16`")  # noqa: E501
-        if failure_begin_time is not None and not re.search('^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}$', failure_begin_time):  # noqa: E501
-            raise ValueError("Invalid value for `failure_begin_time`, must be a follow pattern or equal to `/^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}$/`")  # noqa: E501
+        if failure_begin_time is not None and not re.search(r'^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}$', failure_begin_time):  # noqa: E501
+            raise ValueError(r"Invalid value for `failure_begin_time`, must be a follow pattern or equal to `/^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}$/`")  # noqa: E501
 
         self._failure_begin_time = failure_begin_time
 
@@ -130,6 +130,9 @@ class HealthcheckEvaluationSmartlog(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(HealthcheckEvaluationSmartlog, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

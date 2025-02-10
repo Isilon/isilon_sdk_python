@@ -463,6 +463,9 @@ class AntivirusSettingsExtended(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(AntivirusSettingsExtended, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

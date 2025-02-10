@@ -170,8 +170,8 @@ class FirewallService(object):
             raise ValueError("Invalid value for `service_name`, length must be less than or equal to `32`")  # noqa: E501
         if service_name is not None and len(service_name) < 1:
             raise ValueError("Invalid value for `service_name`, length must be greater than or equal to `1`")  # noqa: E501
-        if service_name is not None and not re.search('^[^-][0-9a-zA-Z_-]*[^-]$', service_name):  # noqa: E501
-            raise ValueError("Invalid value for `service_name`, must be a follow pattern or equal to `/^[^-][0-9a-zA-Z_-]*[^-]$/`")  # noqa: E501
+        if service_name is not None and not re.search(r'^[^-][0-9a-zA-Z_-]*[^-]$', service_name):  # noqa: E501
+            raise ValueError(r"Invalid value for `service_name`, must be a follow pattern or equal to `/^[^-][0-9a-zA-Z_-]*[^-]$/`")  # noqa: E501
 
         self._service_name = service_name
 
@@ -196,6 +196,9 @@ class FirewallService(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(FirewallService, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

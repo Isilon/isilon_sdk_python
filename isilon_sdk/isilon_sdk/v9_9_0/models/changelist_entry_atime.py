@@ -128,6 +128,9 @@ class ChangelistEntryAtime(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(ChangelistEntryAtime, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

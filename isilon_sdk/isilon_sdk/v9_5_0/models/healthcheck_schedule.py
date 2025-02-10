@@ -188,6 +188,9 @@ class HealthcheckSchedule(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(HealthcheckSchedule, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

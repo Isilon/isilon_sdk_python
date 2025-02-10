@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **consumer** | **str** |  | [optional] 
-**date** | **str** |  | [optional] 
+**_date** | **str** |  | [optional] 
 **lnn** | **int** |  | [optional] 
 **topic** | **str** |  | [optional] 
 

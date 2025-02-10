@@ -76,8 +76,8 @@ class SnapshotWritableItem(object):
             raise ValueError("Invalid value for `dst_path`, length must be less than or equal to `4096`")  # noqa: E501
         if dst_path is not None and len(dst_path) < 4:
             raise ValueError("Invalid value for `dst_path`, length must be greater than or equal to `4`")  # noqa: E501
-        if dst_path is not None and not re.search('^\/ifs$|^\/ifs\/', dst_path):  # noqa: E501
-            raise ValueError("Invalid value for `dst_path`, must be a follow pattern or equal to `/^\/ifs$|^\/ifs\//`")  # noqa: E501
+        if dst_path is not None and not re.search(r'^\/ifs$|^\/ifs\/', dst_path):  # noqa: E501
+            raise ValueError(r"Invalid value for `dst_path`, must be a follow pattern or equal to `/^\/ifs$|^\/ifs\//`")  # noqa: E501
 
         self._dst_path = dst_path
 
@@ -129,6 +129,9 @@ class SnapshotWritableItem(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(SnapshotWritableItem, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

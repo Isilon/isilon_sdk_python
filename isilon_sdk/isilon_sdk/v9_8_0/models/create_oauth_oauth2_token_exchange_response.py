@@ -95,6 +95,9 @@ class CreateOauthOauth2TokenExchangeResponse(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(CreateOauthOauth2TokenExchangeResponse, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

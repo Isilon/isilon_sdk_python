@@ -253,6 +253,9 @@ class AntivirusQuarantine(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(AntivirusQuarantine, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

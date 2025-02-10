@@ -91,6 +91,9 @@ class NodeDriveconfigNodeAutomaticReplacementRecognition(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(NodeDriveconfigNodeAutomaticReplacementRecognition, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

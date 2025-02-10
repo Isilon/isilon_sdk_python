@@ -455,6 +455,9 @@ class SnapshotSettingsExtended(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(SnapshotSettingsExtended, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

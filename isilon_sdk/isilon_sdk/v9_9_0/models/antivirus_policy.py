@@ -303,6 +303,9 @@ class AntivirusPolicy(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(AntivirusPolicy, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

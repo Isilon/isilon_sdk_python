@@ -205,8 +205,8 @@ class EventChannelParameters(object):
             raise ValueError("Invalid value for `custom_template`, length must be less than or equal to `4096`")  # noqa: E501
         if custom_template is not None and len(custom_template) < 0:
             raise ValueError("Invalid value for `custom_template`, length must be greater than or equal to `0`")  # noqa: E501
-        if custom_template is not None and not re.search('^((\/[^\/[:cntrl:]]+)(\/?))*$', custom_template):  # noqa: E501
-            raise ValueError("Invalid value for `custom_template`, must be a follow pattern or equal to `/^((\/[^\/[:cntrl:]]+)(\/?))*$/`")  # noqa: E501
+        if custom_template is not None and not re.search(r'^((\/[^\/[:cntrl:]]+)(\/?))*$', custom_template):  # noqa: E501
+            raise ValueError(r"Invalid value for `custom_template`, must be a follow pattern or equal to `/^((\/[^\/[:cntrl:]]+)(\/?))*$/`")  # noqa: E501
 
         self._custom_template = custom_template
 
@@ -445,6 +445,9 @@ class EventChannelParameters(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(EventChannelParameters, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

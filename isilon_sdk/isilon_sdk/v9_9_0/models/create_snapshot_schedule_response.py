@@ -92,6 +92,9 @@ class CreateSnapshotScheduleResponse(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(CreateSnapshotScheduleResponse, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

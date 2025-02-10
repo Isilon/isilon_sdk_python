@@ -84,8 +84,8 @@ class JobJobEsrsmftdownloadParams(object):
             raise ValueError("Invalid value for `checksum`, length must be less than or equal to `64`")  # noqa: E501
         if checksum is not None and len(checksum) < 64:
             raise ValueError("Invalid value for `checksum`, length must be greater than or equal to `64`")  # noqa: E501
-        if checksum is not None and not re.search('^[a-f0-9A-F]{64}', checksum):  # noqa: E501
-            raise ValueError("Invalid value for `checksum`, must be a follow pattern or equal to `/^[a-f0-9A-F]{64}/`")  # noqa: E501
+        if checksum is not None and not re.search(r'^[a-f0-9A-F]{64}', checksum):  # noqa: E501
+            raise ValueError(r"Invalid value for `checksum`, must be a follow pattern or equal to `/^[a-f0-9A-F]{64}/`")  # noqa: E501
 
         self._checksum = checksum
 
@@ -144,8 +144,8 @@ class JobJobEsrsmftdownloadParams(object):
             raise ValueError("Invalid value for `path`, length must be less than or equal to `4096`")  # noqa: E501
         if path is not None and len(path) < 4:
             raise ValueError("Invalid value for `path`, length must be greater than or equal to `4`")  # noqa: E501
-        if path is not None and not re.search('^\/ifs', path):  # noqa: E501
-            raise ValueError("Invalid value for `path`, must be a follow pattern or equal to `/^\/ifs/`")  # noqa: E501
+        if path is not None and not re.search(r'^\/ifs', path):  # noqa: E501
+            raise ValueError(r"Invalid value for `path`, must be a follow pattern or equal to `/^\/ifs/`")  # noqa: E501
 
         self._path = path
 
@@ -199,6 +199,9 @@ class JobJobEsrsmftdownloadParams(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(JobJobEsrsmftdownloadParams, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

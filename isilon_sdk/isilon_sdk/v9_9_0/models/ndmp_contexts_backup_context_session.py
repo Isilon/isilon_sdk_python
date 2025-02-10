@@ -203,6 +203,9 @@ class NdmpContextsBackupContextSession(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(NdmpContextsBackupContextSession, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

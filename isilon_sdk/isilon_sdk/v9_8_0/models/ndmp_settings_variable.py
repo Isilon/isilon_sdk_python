@@ -92,6 +92,9 @@ class NdmpSettingsVariable(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(NdmpSettingsVariable, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

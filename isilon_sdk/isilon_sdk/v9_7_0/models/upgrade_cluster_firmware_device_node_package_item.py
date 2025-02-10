@@ -159,6 +159,9 @@ class UpgradeClusterFirmwareDeviceNodePackageItem(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(UpgradeClusterFirmwareDeviceNodePackageItem, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

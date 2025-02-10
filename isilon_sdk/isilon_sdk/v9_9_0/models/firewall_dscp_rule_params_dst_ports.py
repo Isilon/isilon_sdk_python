@@ -119,6 +119,9 @@ class FirewallDscpRuleParamsDstPorts(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(FirewallDscpRuleParamsDstPorts, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

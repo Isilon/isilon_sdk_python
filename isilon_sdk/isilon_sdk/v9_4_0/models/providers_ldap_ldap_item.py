@@ -1125,8 +1125,8 @@ class ProvidersLdapLdapItem(object):
             raise ValueError("Invalid value for `home_directory_template`, length must be less than or equal to `4096`")  # noqa: E501
         if home_directory_template is not None and len(home_directory_template) < 0:
             raise ValueError("Invalid value for `home_directory_template`, length must be greater than or equal to `0`")  # noqa: E501
-        if home_directory_template is not None and not re.search('^((\/[^\/[:cntrl:]]+)(\/?))*$', home_directory_template):  # noqa: E501
-            raise ValueError("Invalid value for `home_directory_template`, must be a follow pattern or equal to `/^((\/[^\/[:cntrl:]]+)(\/?))*$/`")  # noqa: E501
+        if home_directory_template is not None and not re.search(r'^((\/[^\/[:cntrl:]]+)(\/?))*$', home_directory_template):  # noqa: E501
+            raise ValueError(r"Invalid value for `home_directory_template`, must be a follow pattern or equal to `/^((\/[^\/[:cntrl:]]+)(\/?))*$/`")  # noqa: E501
 
         self._home_directory_template = home_directory_template
 
@@ -2148,8 +2148,8 @@ class ProvidersLdapLdapItem(object):
             raise ValueError("Invalid value for `tls_protocol_min`, length must be less than or equal to `255`")  # noqa: E501
         if tls_protocol_min is not None and len(tls_protocol_min) < 0:
             raise ValueError("Invalid value for `tls_protocol_min`, length must be greater than or equal to `0`")  # noqa: E501
-        if tls_protocol_min is not None and not re.search('^[0-9]+\\.[0-9]+$', tls_protocol_min):  # noqa: E501
-            raise ValueError("Invalid value for `tls_protocol_min`, must be a follow pattern or equal to `/^[0-9]+\\.[0-9]+$/`")  # noqa: E501
+        if tls_protocol_min is not None and not re.search(r'^[0-9]+\\.[0-9]+$', tls_protocol_min):  # noqa: E501
+            raise ValueError(r"Invalid value for `tls_protocol_min`, must be a follow pattern or equal to `/^[0-9]+\\.[0-9]+$/`")  # noqa: E501
 
         self._tls_protocol_min = tls_protocol_min
 
@@ -2457,6 +2457,9 @@ class ProvidersLdapLdapItem(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(ProvidersLdapLdapItem, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

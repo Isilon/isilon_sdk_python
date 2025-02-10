@@ -162,6 +162,9 @@ class AuthIdNtokenPrivilegeItem(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(AuthIdNtokenPrivilegeItem, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

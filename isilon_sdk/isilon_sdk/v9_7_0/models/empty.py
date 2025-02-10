@@ -61,6 +61,9 @@ class Empty(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(Empty, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

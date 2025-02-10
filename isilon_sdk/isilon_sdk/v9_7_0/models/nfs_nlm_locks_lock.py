@@ -287,6 +287,9 @@ class NfsNlmLocksLock(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(NfsNlmLocksLock, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

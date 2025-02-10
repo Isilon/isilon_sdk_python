@@ -96,6 +96,9 @@ class CreateDatamoverBasePolicyResponse(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(CreateDatamoverBasePolicyResponse, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

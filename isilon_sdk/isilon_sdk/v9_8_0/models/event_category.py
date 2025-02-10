@@ -147,6 +147,9 @@ class EventCategory(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(EventCategory, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

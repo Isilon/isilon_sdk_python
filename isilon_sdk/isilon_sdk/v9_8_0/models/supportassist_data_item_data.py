@@ -227,6 +227,9 @@ class SupportassistDataItemData(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(SupportassistDataItemData, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

@@ -97,6 +97,9 @@ class AuthLogLevelExtended(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(AuthLogLevelExtended, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

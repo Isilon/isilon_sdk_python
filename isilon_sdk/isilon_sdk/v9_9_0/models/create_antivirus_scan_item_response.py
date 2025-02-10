@@ -127,6 +127,9 @@ class CreateAntivirusScanItemResponse(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(CreateAntivirusScanItemResponse, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

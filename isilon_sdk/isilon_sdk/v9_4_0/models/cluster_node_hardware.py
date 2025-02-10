@@ -1080,6 +1080,9 @@ class ClusterNodeHardware(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(ClusterNodeHardware, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

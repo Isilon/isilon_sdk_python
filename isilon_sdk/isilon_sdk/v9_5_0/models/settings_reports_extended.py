@@ -89,8 +89,8 @@ class SettingsReportsExtended(object):
             raise ValueError("Invalid value for `live_dir`, length must be less than or equal to `4096`")  # noqa: E501
         if live_dir is not None and len(live_dir) < 4:
             raise ValueError("Invalid value for `live_dir`, length must be greater than or equal to `4`")  # noqa: E501
-        if live_dir is not None and not re.search('^\/ifs$|^\/ifs\/', live_dir):  # noqa: E501
-            raise ValueError("Invalid value for `live_dir`, must be a follow pattern or equal to `/^\/ifs$|^\/ifs\//`")  # noqa: E501
+        if live_dir is not None and not re.search(r'^\/ifs$|^\/ifs\/', live_dir):  # noqa: E501
+            raise ValueError(r"Invalid value for `live_dir`, must be a follow pattern or equal to `/^\/ifs$|^\/ifs\//`")  # noqa: E501
 
         self._live_dir = live_dir
 
@@ -164,8 +164,8 @@ class SettingsReportsExtended(object):
             raise ValueError("Invalid value for `scheduled_dir`, length must be less than or equal to `4096`")  # noqa: E501
         if scheduled_dir is not None and len(scheduled_dir) < 4:
             raise ValueError("Invalid value for `scheduled_dir`, length must be greater than or equal to `4`")  # noqa: E501
-        if scheduled_dir is not None and not re.search('^\/ifs$|^\/ifs\/', scheduled_dir):  # noqa: E501
-            raise ValueError("Invalid value for `scheduled_dir`, must be a follow pattern or equal to `/^\/ifs$|^\/ifs\//`")  # noqa: E501
+        if scheduled_dir is not None and not re.search(r'^\/ifs$|^\/ifs\/', scheduled_dir):  # noqa: E501
+            raise ValueError(r"Invalid value for `scheduled_dir`, must be a follow pattern or equal to `/^\/ifs$|^\/ifs\//`")  # noqa: E501
 
         self._scheduled_dir = scheduled_dir
 
@@ -215,6 +215,9 @@ class SettingsReportsExtended(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(SettingsReportsExtended, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

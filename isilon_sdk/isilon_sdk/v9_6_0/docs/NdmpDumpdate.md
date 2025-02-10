@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**date** | **int** | The backup time since epoch. | [optional] 
+**_date** | **int** | The backup time since epoch. | [optional] 
 **id** | **str** | The unique display id. | [optional] 
 **level** | **int** | The level of the backup. | [optional] 
 **path** | **str** | The path specified by NDMP environment variable FILESYSTEM. | [optional] 

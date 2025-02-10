@@ -289,8 +289,8 @@ class CreateSnapshotSnapshotResponse(object):
             raise ValueError("Invalid value for `path`, length must be less than or equal to `4096`")  # noqa: E501
         if path is not None and len(path) < 4:
             raise ValueError("Invalid value for `path`, length must be greater than or equal to `4`")  # noqa: E501
-        if path is not None and not re.search('^\/ifs$|^\/ifs\/', path):  # noqa: E501
-            raise ValueError("Invalid value for `path`, must be a follow pattern or equal to `/^\/ifs$|^\/ifs\//`")  # noqa: E501
+        if path is not None and not re.search(r'^\/ifs$|^\/ifs\/', path):  # noqa: E501
+            raise ValueError(r"Invalid value for `path`, must be a follow pattern or equal to `/^\/ifs$|^\/ifs\//`")  # noqa: E501
 
         self._path = path
 
@@ -529,6 +529,9 @@ class CreateSnapshotSnapshotResponse(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(CreateSnapshotSnapshotResponse, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

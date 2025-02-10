@@ -127,6 +127,9 @@ class StatisticsProtocol(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(StatisticsProtocol, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

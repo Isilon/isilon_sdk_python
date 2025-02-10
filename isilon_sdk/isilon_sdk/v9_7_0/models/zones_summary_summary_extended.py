@@ -120,6 +120,9 @@ class ZonesSummarySummaryExtended(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(ZonesSummarySummaryExtended, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

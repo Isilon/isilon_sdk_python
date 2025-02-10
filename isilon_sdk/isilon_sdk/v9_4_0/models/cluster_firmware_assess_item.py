@@ -255,6 +255,9 @@ class ClusterFirmwareAssessItem(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(ClusterFirmwareAssessItem, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

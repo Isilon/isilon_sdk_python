@@ -324,6 +324,9 @@ class AuthPrivilege(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(AuthPrivilege, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

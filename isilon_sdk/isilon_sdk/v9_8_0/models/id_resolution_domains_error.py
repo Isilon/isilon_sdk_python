@@ -159,6 +159,9 @@ class IdResolutionDomainsError(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(IdResolutionDomainsError, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

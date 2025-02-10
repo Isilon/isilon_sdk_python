@@ -266,6 +266,9 @@ class DedupeDedupeSummarySummary(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(DedupeDedupeSummarySummary, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

@@ -121,6 +121,9 @@ class SettingsAccessTimeSettings(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(SettingsAccessTimeSettings, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

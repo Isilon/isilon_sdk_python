@@ -315,6 +315,9 @@ class SyncRuleSchedule(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(SyncRuleSchedule, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

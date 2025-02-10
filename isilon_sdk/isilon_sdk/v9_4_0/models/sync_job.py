@@ -98,6 +98,9 @@ class SyncJob(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(SyncJob, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

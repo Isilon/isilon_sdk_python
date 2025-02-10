@@ -383,6 +383,9 @@ class NodeDriveconfigNodeStall(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(NodeDriveconfigNodeStall, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

@@ -98,6 +98,9 @@ class InlineSettingsSettings(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(InlineSettingsSettings, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

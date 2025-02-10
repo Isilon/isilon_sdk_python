@@ -903,6 +903,9 @@ class FtpSettingsExtended(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(FtpSettingsExtended, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

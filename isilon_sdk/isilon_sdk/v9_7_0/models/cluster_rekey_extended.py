@@ -95,6 +95,9 @@ class ClusterRekeyExtended(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(ClusterRekeyExtended, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

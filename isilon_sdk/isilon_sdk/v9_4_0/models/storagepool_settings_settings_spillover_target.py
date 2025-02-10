@@ -154,6 +154,9 @@ class StoragepoolSettingsSettingsSpilloverTarget(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(StoragepoolSettingsSettingsSpilloverTarget, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

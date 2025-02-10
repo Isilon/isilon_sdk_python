@@ -343,6 +343,9 @@ class ClusterOwner(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(ClusterOwner, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

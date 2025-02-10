@@ -147,6 +147,9 @@ class DebugStatsDescribe(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(DebugStatsDescribe, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

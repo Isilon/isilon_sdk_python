@@ -427,6 +427,9 @@ class NetworkExternalSettings(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(NetworkExternalSettings, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

@@ -105,8 +105,8 @@ class ClusterNodeSled(object):
             raise ValueError("Invalid value for `sled_letter`, length must be less than or equal to `1`")  # noqa: E501
         if sled_letter is not None and len(sled_letter) < 1:
             raise ValueError("Invalid value for `sled_letter`, length must be greater than or equal to `1`")  # noqa: E501
-        if sled_letter is not None and not re.search('^[a-eA-E]$', sled_letter):  # noqa: E501
-            raise ValueError("Invalid value for `sled_letter`, must be a follow pattern or equal to `/^[a-eA-E]$/`")  # noqa: E501
+        if sled_letter is not None and not re.search(r'^[a-eA-E]$', sled_letter):  # noqa: E501
+            raise ValueError(r"Invalid value for `sled_letter`, must be a follow pattern or equal to `/^[a-eA-E]$/`")  # noqa: E501
 
         self._sled_letter = sled_letter
 
@@ -162,6 +162,9 @@ class ClusterNodeSled(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(ClusterNodeSled, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

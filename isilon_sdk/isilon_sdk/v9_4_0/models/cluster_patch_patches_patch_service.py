@@ -127,6 +127,9 @@ class ClusterPatchPatchesPatchService(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(ClusterPatchPatchesPatchService, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

@@ -386,8 +386,8 @@ class SnmpSettingsExtended(object):
             raise ValueError("Invalid value for `system_contact`, length must be less than or equal to `254`")  # noqa: E501
         if system_contact is not None and len(system_contact) < 3:
             raise ValueError("Invalid value for `system_contact`, length must be greater than or equal to `3`")  # noqa: E501
-        if system_contact is not None and not re.search('[a-zA-Z0-9._%+-]{1,64}@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,63}', system_contact):  # noqa: E501
-            raise ValueError("Invalid value for `system_contact`, must be a follow pattern or equal to `/[a-zA-Z0-9._%+-]{1,64}@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,63}/`")  # noqa: E501
+        if system_contact is not None and not re.search(r'[a-zA-Z0-9._%+-]{1,64}@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,63}', system_contact):  # noqa: E501
+            raise ValueError(r"Invalid value for `system_contact`, must be a follow pattern or equal to `/[a-zA-Z0-9._%+-]{1,64}@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,63}/`")  # noqa: E501
 
         self._system_contact = system_contact
 
@@ -437,6 +437,9 @@ class SnmpSettingsExtended(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(SnmpSettingsExtended, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

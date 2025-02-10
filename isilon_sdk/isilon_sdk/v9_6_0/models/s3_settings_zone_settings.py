@@ -96,8 +96,8 @@ class S3SettingsZoneSettings(object):
             raise ValueError("Invalid value for `base_domain`, length must be less than or equal to `255`")  # noqa: E501
         if base_domain is not None and len(base_domain) < 0:
             raise ValueError("Invalid value for `base_domain`, length must be greater than or equal to `0`")  # noqa: E501
-        if base_domain is not None and not re.search('^$|^((([a-zA-Z0-9_][a-zA-Z0-9-]{0,61})?[a-zA-Z0-9])(\\.([a-zA-Z0-9_][a-zA-Z0-9-]{0,61})?[a-zA-Z0-9])*)$', base_domain):  # noqa: E501
-            raise ValueError("Invalid value for `base_domain`, must be a follow pattern or equal to `/^$|^((([a-zA-Z0-9_][a-zA-Z0-9-]{0,61})?[a-zA-Z0-9])(\\.([a-zA-Z0-9_][a-zA-Z0-9-]{0,61})?[a-zA-Z0-9])*)$/`")  # noqa: E501
+        if base_domain is not None and not re.search(r'^$|^((([a-zA-Z0-9_][a-zA-Z0-9-]{0,61})?[a-zA-Z0-9])(\\.([a-zA-Z0-9_][a-zA-Z0-9-]{0,61})?[a-zA-Z0-9])*)$', base_domain):  # noqa: E501
+            raise ValueError(r"Invalid value for `base_domain`, must be a follow pattern or equal to `/^$|^((([a-zA-Z0-9_][a-zA-Z0-9-]{0,61})?[a-zA-Z0-9])(\\.([a-zA-Z0-9_][a-zA-Z0-9-]{0,61})?[a-zA-Z0-9])*)$/`")  # noqa: E501
 
         self._base_domain = base_domain
 
@@ -251,6 +251,9 @@ class S3SettingsZoneSettings(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(S3SettingsZoneSettings, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

@@ -141,6 +141,9 @@ class MemberObject(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(MemberObject, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

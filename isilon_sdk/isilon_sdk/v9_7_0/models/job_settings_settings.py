@@ -97,6 +97,9 @@ class JobSettingsSettings(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(JobSettingsSettings, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

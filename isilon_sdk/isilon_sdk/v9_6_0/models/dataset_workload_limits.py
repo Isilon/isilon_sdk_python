@@ -95,6 +95,9 @@ class DatasetWorkloadLimits(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(DatasetWorkloadLimits, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

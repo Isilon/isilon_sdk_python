@@ -95,6 +95,9 @@ class ClusterTimeExtendedExtended(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(ClusterTimeExtendedExtended, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

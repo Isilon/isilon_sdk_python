@@ -147,6 +147,9 @@ class FileFilterSettingsExtended(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(FileFilterSettingsExtended, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

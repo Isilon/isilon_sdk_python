@@ -115,6 +115,9 @@ class NamespaceAccessPointsNamespaces(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(NamespaceAccessPointsNamespaces, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

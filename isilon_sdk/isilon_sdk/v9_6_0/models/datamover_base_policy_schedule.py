@@ -127,8 +127,8 @@ class DatamoverBasePolicySchedule(object):
             raise ValueError("Invalid value for `start_time`, length must be less than or equal to `19`")  # noqa: E501
         if start_time is not None and len(start_time) < 14:
             raise ValueError("Invalid value for `start_time`, length must be greater than or equal to `14`")  # noqa: E501
-        if start_time is not None and not re.search('20[0-9][0-9]-1[0-2]|[1-9]-3[01]|[12][0-9]|0?[1-9] 2[0-3]|1[0-9]|0?[0-9]:[0-5]?[0-9]:[0-5]?[0-9]', start_time):  # noqa: E501
-            raise ValueError("Invalid value for `start_time`, must be a follow pattern or equal to `/20[0-9][0-9]-1[0-2]|[1-9]-3[01]|[12][0-9]|0?[1-9] 2[0-3]|1[0-9]|0?[0-9]:[0-5]?[0-9]:[0-5]?[0-9]/`")  # noqa: E501
+        if start_time is not None and not re.search(r'20[0-9][0-9]-1[0-2]|[1-9]-3[01]|[12][0-9]|0?[1-9] 2[0-3]|1[0-9]|0?[0-9]:[0-5]?[0-9]:[0-5]?[0-9]', start_time):  # noqa: E501
+            raise ValueError(r"Invalid value for `start_time`, must be a follow pattern or equal to `/20[0-9][0-9]-1[0-2]|[1-9]-3[01]|[12][0-9]|0?[1-9] 2[0-3]|1[0-9]|0?[0-9]:[0-5]?[0-9]:[0-5]?[0-9]/`")  # noqa: E501
 
         self._start_time = start_time
 
@@ -153,6 +153,9 @@ class DatamoverBasePolicySchedule(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(DatamoverBasePolicySchedule, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

@@ -469,6 +469,9 @@ class SummarySystemSystemItem(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(SummarySystemSystemItem, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

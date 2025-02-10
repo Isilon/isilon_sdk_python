@@ -187,6 +187,9 @@ class NfsAlias(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(NfsAlias, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

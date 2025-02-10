@@ -329,6 +329,9 @@ class AvscanFilterExtendedExtended(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(AvscanFilterExtendedExtended, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

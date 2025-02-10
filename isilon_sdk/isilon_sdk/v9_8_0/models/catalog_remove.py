@@ -96,6 +96,9 @@ class CatalogRemove(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(CatalogRemove, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

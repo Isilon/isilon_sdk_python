@@ -207,6 +207,9 @@ class SettingsReportsExtended(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(SettingsReportsExtended, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

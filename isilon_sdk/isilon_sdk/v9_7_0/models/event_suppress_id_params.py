@@ -89,6 +89,9 @@ class EventSuppressIdParams(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(EventSuppressIdParams, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 
