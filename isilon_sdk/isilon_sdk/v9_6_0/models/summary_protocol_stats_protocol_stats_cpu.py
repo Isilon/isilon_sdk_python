@@ -150,6 +150,9 @@ class SummaryProtocolStatsProtocolStatsCpu(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(SummaryProtocolStatsProtocolStatsCpu, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

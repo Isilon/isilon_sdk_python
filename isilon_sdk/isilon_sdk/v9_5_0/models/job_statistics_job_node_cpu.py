@@ -178,6 +178,9 @@ class JobStatisticsJobNodeCpu(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(JobStatisticsJobNodeCpu, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

@@ -207,6 +207,9 @@ class SettingsKrb5DefaultsKrb5Settings(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(SettingsKrb5DefaultsKrb5Settings, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

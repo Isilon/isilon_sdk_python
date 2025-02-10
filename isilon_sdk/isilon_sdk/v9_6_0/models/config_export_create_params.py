@@ -95,6 +95,9 @@ class ConfigExportCreateParams(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(ConfigExportCreateParams, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

@@ -717,6 +717,9 @@ class StoragepoolNodepoolUsage(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(StoragepoolNodepoolUsage, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

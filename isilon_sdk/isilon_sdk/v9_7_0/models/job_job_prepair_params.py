@@ -143,8 +143,8 @@ class JobJobPrepairParams(object):
             raise ValueError("Invalid value for `template`, length must be less than or equal to `4096`")  # noqa: E501
         if template is not None and len(template) < 4:
             raise ValueError("Invalid value for `template`, length must be greater than or equal to `4`")  # noqa: E501
-        if template is not None and not re.search('^\/ifs$|^\/ifs\/', template):  # noqa: E501
-            raise ValueError("Invalid value for `template`, must be a follow pattern or equal to `/^\/ifs$|^\/ifs\//`")  # noqa: E501
+        if template is not None and not re.search(r'^\/ifs$|^\/ifs\/', template):  # noqa: E501
+            raise ValueError(r"Invalid value for `template`, must be a follow pattern or equal to `/^\/ifs$|^\/ifs\//`")  # noqa: E501
 
         self._template = template
 
@@ -196,6 +196,9 @@ class JobJobPrepairParams(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(JobJobPrepairParams, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

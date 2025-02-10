@@ -159,6 +159,9 @@ class AdsProviderControllersController(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(AdsProviderControllersController, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

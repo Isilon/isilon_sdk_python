@@ -149,6 +149,9 @@ class NtpServerExtended(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(NtpServerExtended, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

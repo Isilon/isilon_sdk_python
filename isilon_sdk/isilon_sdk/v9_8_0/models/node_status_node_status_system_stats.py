@@ -703,6 +703,9 @@ class NodeStatusNodeStatusSystemStats(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(NodeStatusNodeStatusSystemStats, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

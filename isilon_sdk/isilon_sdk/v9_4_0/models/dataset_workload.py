@@ -95,6 +95,9 @@ class DatasetWorkload(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(DatasetWorkload, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

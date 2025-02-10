@@ -183,6 +183,9 @@ class SettingsKrb5Realm(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(SettingsKrb5Realm, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

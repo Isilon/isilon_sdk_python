@@ -225,6 +225,9 @@ class DatamoverAccountCredentialsCloudProxy(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(DatamoverAccountCredentialsCloudProxy, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

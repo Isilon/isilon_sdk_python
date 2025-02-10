@@ -287,6 +287,9 @@ class NdmpContextsBackupContextExtended(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(NdmpContextsBackupContextExtended, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

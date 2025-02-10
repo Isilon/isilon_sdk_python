@@ -158,6 +158,9 @@ class CertificateSettingsSettings(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(CertificateSettingsSettings, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

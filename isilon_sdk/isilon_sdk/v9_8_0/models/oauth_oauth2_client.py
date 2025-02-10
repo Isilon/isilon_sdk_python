@@ -213,6 +213,9 @@ class OauthOauth2Client(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(OauthOauth2Client, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

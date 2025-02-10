@@ -119,6 +119,9 @@ class ClusterTimezoneSettings(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(ClusterTimezoneSettings, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

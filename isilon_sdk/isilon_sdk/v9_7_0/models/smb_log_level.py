@@ -97,6 +97,9 @@ class SmbLogLevel(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(SmbLogLevel, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

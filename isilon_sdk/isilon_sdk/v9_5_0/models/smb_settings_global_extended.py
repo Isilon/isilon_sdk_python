@@ -731,6 +731,9 @@ class SmbSettingsGlobalExtended(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(SmbSettingsGlobalExtended, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

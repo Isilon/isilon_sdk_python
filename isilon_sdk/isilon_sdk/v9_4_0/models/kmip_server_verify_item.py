@@ -244,8 +244,8 @@ class KmipServerVerifyItem(object):
             raise ValueError("Invalid value for `minimum_tls_version`, length must be less than or equal to `3`")  # noqa: E501
         if minimum_tls_version is not None and len(minimum_tls_version) < 3:
             raise ValueError("Invalid value for `minimum_tls_version`, length must be greater than or equal to `3`")  # noqa: E501
-        if minimum_tls_version is not None and not re.search('^[0-9]{1}[.][0-9]{1}$', minimum_tls_version):  # noqa: E501
-            raise ValueError("Invalid value for `minimum_tls_version`, must be a follow pattern or equal to `/^[0-9]{1}[.][0-9]{1}$/`")  # noqa: E501
+        if minimum_tls_version is not None and not re.search(r'^[0-9]{1}[.][0-9]{1}$', minimum_tls_version):  # noqa: E501
+            raise ValueError(r"Invalid value for `minimum_tls_version`, must be a follow pattern or equal to `/^[0-9]{1}[.][0-9]{1}$/`")  # noqa: E501
 
         self._minimum_tls_version = minimum_tls_version
 
@@ -324,6 +324,9 @@ class KmipServerVerifyItem(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(KmipServerVerifyItem, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

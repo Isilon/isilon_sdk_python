@@ -183,6 +183,9 @@ class SmbLogLevelFiltersFilter(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(SmbLogLevelFiltersFilter, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

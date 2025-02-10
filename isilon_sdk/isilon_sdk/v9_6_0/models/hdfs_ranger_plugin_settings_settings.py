@@ -147,6 +147,9 @@ class HdfsRangerPluginSettingsSettings(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(HdfsRangerPluginSettingsSettings, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

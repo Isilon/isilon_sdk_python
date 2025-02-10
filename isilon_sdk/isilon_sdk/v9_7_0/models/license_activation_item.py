@@ -109,8 +109,8 @@ class LicenseActivationItem(object):
             raise ValueError("Invalid value for `licenses_to_exclude`, length must be less than or equal to `2500`")  # noqa: E501
         if licenses_to_exclude is not None and len(licenses_to_exclude) < 1:
             raise ValueError("Invalid value for `licenses_to_exclude`, length must be greater than or equal to `1`")  # noqa: E501
-        if licenses_to_exclude is not None and not re.search('.*', licenses_to_exclude):  # noqa: E501
-            raise ValueError("Invalid value for `licenses_to_exclude`, must be a follow pattern or equal to `/.*/`")  # noqa: E501
+        if licenses_to_exclude is not None and not re.search(r'.*', licenses_to_exclude):  # noqa: E501
+            raise ValueError(r"Invalid value for `licenses_to_exclude`, must be a follow pattern or equal to `/.*/`")  # noqa: E501
 
         self._licenses_to_exclude = licenses_to_exclude
 
@@ -138,8 +138,8 @@ class LicenseActivationItem(object):
             raise ValueError("Invalid value for `licenses_to_include`, length must be less than or equal to `2500`")  # noqa: E501
         if licenses_to_include is not None and len(licenses_to_include) < 1:
             raise ValueError("Invalid value for `licenses_to_include`, length must be greater than or equal to `1`")  # noqa: E501
-        if licenses_to_include is not None and not re.search('.*', licenses_to_include):  # noqa: E501
-            raise ValueError("Invalid value for `licenses_to_include`, must be a follow pattern or equal to `/.*/`")  # noqa: E501
+        if licenses_to_include is not None and not re.search(r'.*', licenses_to_include):  # noqa: E501
+            raise ValueError(r"Invalid value for `licenses_to_include`, must be a follow pattern or equal to `/.*/`")  # noqa: E501
 
         self._licenses_to_include = licenses_to_include
 
@@ -167,8 +167,8 @@ class LicenseActivationItem(object):
             raise ValueError("Invalid value for `only_these_licenses`, length must be less than or equal to `2500`")  # noqa: E501
         if only_these_licenses is not None and len(only_these_licenses) < 1:
             raise ValueError("Invalid value for `only_these_licenses`, length must be greater than or equal to `1`")  # noqa: E501
-        if only_these_licenses is not None and not re.search('.*', only_these_licenses):  # noqa: E501
-            raise ValueError("Invalid value for `only_these_licenses`, must be a follow pattern or equal to `/.*/`")  # noqa: E501
+        if only_these_licenses is not None and not re.search(r'.*', only_these_licenses):  # noqa: E501
+            raise ValueError(r"Invalid value for `only_these_licenses`, must be a follow pattern or equal to `/.*/`")  # noqa: E501
 
         self._only_these_licenses = only_these_licenses
 
@@ -193,6 +193,9 @@ class LicenseActivationItem(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(LicenseActivationItem, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

@@ -155,6 +155,9 @@ class HardeningListProfile(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(HardeningListProfile, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

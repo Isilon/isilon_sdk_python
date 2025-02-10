@@ -31,7 +31,7 @@ class NdmpDumpdate(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'date': 'int',
+        '_date': 'int',
         'id': 'str',
         'level': 'int',
         'path': 'str',
@@ -39,25 +39,25 @@ class NdmpDumpdate(object):
     }
 
     attribute_map = {
-        'date': 'date',
+        '_date': 'date',
         'id': 'id',
         'level': 'level',
         'path': 'path',
         'snapid': 'snapid'
     }
 
-    def __init__(self, date=None, id=None, level=None, path=None, snapid=None):  # noqa: E501
+    def __init__(self, _date=None, id=None, level=None, path=None, snapid=None):  # noqa: E501
         """NdmpDumpdate - a model defined in Swagger"""  # noqa: E501
 
-        self._date = None
+        self.__date = None
         self._id = None
         self._level = None
         self._path = None
         self._snapid = None
         self.discriminator = None
 
-        if date is not None:
-            self.date = date
+        if _date is not None:
+            self._date = _date
         if id is not None:
             self.id = id
         if level is not None:
@@ -68,27 +68,27 @@ class NdmpDumpdate(object):
             self.snapid = snapid
 
     @property
-    def date(self):
-        """Gets the date of this NdmpDumpdate.  # noqa: E501
+    def _date(self):
+        """Gets the _date of this NdmpDumpdate.  # noqa: E501
 
         The backup time since epoch.  # noqa: E501
 
-        :return: The date of this NdmpDumpdate.  # noqa: E501
+        :return: The _date of this NdmpDumpdate.  # noqa: E501
         :rtype: int
         """
-        return self._date
+        return self.__date
 
-    @date.setter
-    def date(self, date):
-        """Sets the date of this NdmpDumpdate.
+    @_date.setter
+    def _date(self, _date):
+        """Sets the _date of this NdmpDumpdate.
 
         The backup time since epoch.  # noqa: E501
 
-        :param date: The date of this NdmpDumpdate.  # noqa: E501
+        :param _date: The _date of this NdmpDumpdate.  # noqa: E501
         :type: int
         """
 
-        self._date = date
+        self.__date = _date
 
     @property
     def id(self):
@@ -207,6 +207,9 @@ class NdmpDumpdate(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(NdmpDumpdate, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

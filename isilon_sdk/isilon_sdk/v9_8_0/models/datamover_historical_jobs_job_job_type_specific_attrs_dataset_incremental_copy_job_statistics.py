@@ -1023,6 +1023,9 @@ class DatamoverHistoricalJobsJobJobTypeSpecificAttrsDatasetIncrementalCopyJobSta
                 ))
             else:
                 result[attr] = value
+        if issubclass(DatamoverHistoricalJobsJobJobTypeSpecificAttrsDatasetIncrementalCopyJobStatistics, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

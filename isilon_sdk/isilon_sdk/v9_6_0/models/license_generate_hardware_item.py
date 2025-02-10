@@ -167,8 +167,8 @@ class LicenseGenerateHardwareItem(object):
             raise ValueError("Invalid value for `tier`, length must be less than or equal to `50`")  # noqa: E501
         if tier is not None and len(tier) < 1:
             raise ValueError("Invalid value for `tier`, length must be greater than or equal to `1`")  # noqa: E501
-        if tier is not None and not re.search('^NONINF$|^NO_TIER$|^\\d+$', tier):  # noqa: E501
-            raise ValueError("Invalid value for `tier`, must be a follow pattern or equal to `/^NONINF$|^NO_TIER$|^\\d+$/`")  # noqa: E501
+        if tier is not None and not re.search(r'^NONINF$|^NO_TIER$|^\\d+$', tier):  # noqa: E501
+            raise ValueError(r"Invalid value for `tier`, must be a follow pattern or equal to `/^NONINF$|^NO_TIER$|^\\d+$/`")  # noqa: E501
 
         self._tier = tier
 
@@ -193,6 +193,9 @@ class LicenseGenerateHardwareItem(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(LicenseGenerateHardwareItem, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

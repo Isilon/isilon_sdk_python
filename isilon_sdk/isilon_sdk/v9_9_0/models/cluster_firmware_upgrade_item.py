@@ -438,6 +438,9 @@ class ClusterFirmwareUpgradeItem(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(ClusterFirmwareUpgradeItem, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

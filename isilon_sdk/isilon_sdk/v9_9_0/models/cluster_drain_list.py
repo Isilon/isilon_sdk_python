@@ -91,6 +91,9 @@ class ClusterDrainList(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(ClusterDrainList, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

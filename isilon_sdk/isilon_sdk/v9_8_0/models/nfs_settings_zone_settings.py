@@ -259,6 +259,9 @@ class NfsSettingsZoneSettings(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(NfsSettingsZoneSettings, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

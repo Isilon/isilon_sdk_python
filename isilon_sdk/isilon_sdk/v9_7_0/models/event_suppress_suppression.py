@@ -95,6 +95,9 @@ class EventSuppressSuppression(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(EventSuppressSuppression, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

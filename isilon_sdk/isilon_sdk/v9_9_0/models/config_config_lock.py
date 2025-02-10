@@ -91,6 +91,9 @@ class ConfigConfigLock(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(ConfigConfigLock, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

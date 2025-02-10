@@ -95,6 +95,9 @@ class CertificatesCaIdParams(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(CertificatesCaIdParams, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

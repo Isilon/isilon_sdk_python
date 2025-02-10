@@ -175,6 +175,9 @@ class JobJobSmartpoolstreeParams(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(JobJobSmartpoolstreeParams, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

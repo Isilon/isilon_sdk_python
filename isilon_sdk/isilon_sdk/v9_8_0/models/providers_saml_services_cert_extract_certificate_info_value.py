@@ -127,6 +127,9 @@ class ProvidersSamlServicesCertExtractCertificateInfoValue(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(ProvidersSamlServicesCertExtractCertificateInfoValue, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

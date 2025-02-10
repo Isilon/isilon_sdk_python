@@ -161,6 +161,9 @@ class DatamoverBasePolicySrcDatasetRetention(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(DatamoverBasePolicySrcDatasetRetention, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

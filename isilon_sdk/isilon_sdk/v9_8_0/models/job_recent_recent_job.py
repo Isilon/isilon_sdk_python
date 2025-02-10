@@ -712,6 +712,9 @@ class JobRecentRecentJob(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(JobRecentRecentJob, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

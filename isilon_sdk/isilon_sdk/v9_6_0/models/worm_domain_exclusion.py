@@ -159,6 +159,9 @@ class WormDomainExclusion(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(WormDomainExclusion, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

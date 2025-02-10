@@ -187,6 +187,9 @@ class AvscanServer(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(AvscanServer, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

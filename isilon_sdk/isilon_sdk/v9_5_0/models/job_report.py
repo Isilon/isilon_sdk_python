@@ -388,6 +388,9 @@ class JobReport(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(JobReport, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

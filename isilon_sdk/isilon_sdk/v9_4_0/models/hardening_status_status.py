@@ -91,6 +91,9 @@ class HardeningStatusStatus(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(HardeningStatusStatus, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

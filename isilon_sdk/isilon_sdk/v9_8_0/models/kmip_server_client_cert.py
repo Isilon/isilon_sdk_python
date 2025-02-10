@@ -223,6 +223,9 @@ class KmipServerClientCert(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(KmipServerClientCert, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

@@ -175,6 +175,9 @@ class NfsNetgroupSettings(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(NfsNetgroupSettings, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

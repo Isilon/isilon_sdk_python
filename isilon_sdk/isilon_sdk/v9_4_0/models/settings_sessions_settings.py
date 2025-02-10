@@ -95,6 +95,9 @@ class SettingsSessionsSettings(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(SettingsSessionsSettings, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

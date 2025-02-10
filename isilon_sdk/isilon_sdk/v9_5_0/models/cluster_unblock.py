@@ -90,6 +90,9 @@ class ClusterUnblock(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(ClusterUnblock, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

@@ -91,6 +91,9 @@ class NdmpSettingsPreferredIpDataSubnet(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(NdmpSettingsPreferredIpDataSubnet, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

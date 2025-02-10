@@ -191,6 +191,9 @@ class ReportAboutReport(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(ReportAboutReport, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

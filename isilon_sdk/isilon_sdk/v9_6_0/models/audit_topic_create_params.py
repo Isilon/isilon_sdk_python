@@ -128,6 +128,9 @@ class AuditTopicCreateParams(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(AuditTopicCreateParams, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

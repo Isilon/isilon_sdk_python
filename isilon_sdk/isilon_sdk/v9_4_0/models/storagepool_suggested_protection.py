@@ -91,6 +91,9 @@ class StoragepoolSuggestedProtection(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(StoragepoolSuggestedProtection, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

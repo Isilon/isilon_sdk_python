@@ -187,6 +187,9 @@ class CreateProvidersSamlServicesMetadataExtractItemResponseLogoutEndpoint(objec
                 ))
             else:
                 result[attr] = value
+        if issubclass(CreateProvidersSamlServicesMetadataExtractItemResponseLogoutEndpoint, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

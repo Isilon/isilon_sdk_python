@@ -102,8 +102,8 @@ class DiagnosticsNetloggerStartItem(object):
         :param clients: The clients of this DiagnosticsNetloggerStartItem.  # noqa: E501
         :type: str
         """
-        if clients is not None and not re.search('^$|^(((([a-zA-Z0-9_][a-zA-Z0-9-]{0,61})?[a-zA-Z0-9])(\\.([a-zA-Z0-9_][a-zA-Z0-9-]{0,61})?[a-zA-Z0-9])*)|([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])(\\.([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])){3}|[0-9A-Fa-f]{1,4}(:[0-9A-Fa-f]{1,4}){0,5}::([0-9A-Fa-f]{1,4}(:[0-9A-Fa-f]{1,4}){0,5})?|[0-9A-Fa-f]{1,4}(:[0-9A-Fa-f]{1,4}){7})(,(((([a-zA-Z0-9_][a-zA-Z0-9-]{0,61})?[a-zA-Z0-9])(\\.([a-zA-Z0-9_][a-zA-Z0-9-]{0,61})?[a-zA-Z0-9])*)|([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])(\\.([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])){3}|[0-9A-Fa-f]{1,4}(:[0-9A-Fa-f]{1,4}){0,5}::([0-9A-Fa-f]{1,4}(:[0-9A-Fa-f]{1,4}){0,5})?|[0-9A-Fa-f]{1,4}(:[0-9A-Fa-f]{1,4}){7}))*$', clients):  # noqa: E501
-            raise ValueError("Invalid value for `clients`, must be a follow pattern or equal to `/^$|^(((([a-zA-Z0-9_][a-zA-Z0-9-]{0,61})?[a-zA-Z0-9])(\\.([a-zA-Z0-9_][a-zA-Z0-9-]{0,61})?[a-zA-Z0-9])*)|([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])(\\.([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])){3}|[0-9A-Fa-f]{1,4}(:[0-9A-Fa-f]{1,4}){0,5}::([0-9A-Fa-f]{1,4}(:[0-9A-Fa-f]{1,4}){0,5})?|[0-9A-Fa-f]{1,4}(:[0-9A-Fa-f]{1,4}){7})(,(((([a-zA-Z0-9_][a-zA-Z0-9-]{0,61})?[a-zA-Z0-9])(\\.([a-zA-Z0-9_][a-zA-Z0-9-]{0,61})?[a-zA-Z0-9])*)|([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])(\\.([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])){3}|[0-9A-Fa-f]{1,4}(:[0-9A-Fa-f]{1,4}){0,5}::([0-9A-Fa-f]{1,4}(:[0-9A-Fa-f]{1,4}){0,5})?|[0-9A-Fa-f]{1,4}(:[0-9A-Fa-f]{1,4}){7}))*$/`")  # noqa: E501
+        if clients is not None and not re.search(r'^$|^(((([a-zA-Z0-9_][a-zA-Z0-9-]{0,61})?[a-zA-Z0-9])(\\.([a-zA-Z0-9_][a-zA-Z0-9-]{0,61})?[a-zA-Z0-9])*)|([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])(\\.([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])){3}|[0-9A-Fa-f]{1,4}(:[0-9A-Fa-f]{1,4}){0,5}::([0-9A-Fa-f]{1,4}(:[0-9A-Fa-f]{1,4}){0,5})?|[0-9A-Fa-f]{1,4}(:[0-9A-Fa-f]{1,4}){7})(,(((([a-zA-Z0-9_][a-zA-Z0-9-]{0,61})?[a-zA-Z0-9])(\\.([a-zA-Z0-9_][a-zA-Z0-9-]{0,61})?[a-zA-Z0-9])*)|([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])(\\.([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])){3}|[0-9A-Fa-f]{1,4}(:[0-9A-Fa-f]{1,4}){0,5}::([0-9A-Fa-f]{1,4}(:[0-9A-Fa-f]{1,4}){0,5})?|[0-9A-Fa-f]{1,4}(:[0-9A-Fa-f]{1,4}){7}))*$', clients):  # noqa: E501
+            raise ValueError(r"Invalid value for `clients`, must be a follow pattern or equal to `/^$|^(((([a-zA-Z0-9_][a-zA-Z0-9-]{0,61})?[a-zA-Z0-9])(\\.([a-zA-Z0-9_][a-zA-Z0-9-]{0,61})?[a-zA-Z0-9])*)|([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])(\\.([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])){3}|[0-9A-Fa-f]{1,4}(:[0-9A-Fa-f]{1,4}){0,5}::([0-9A-Fa-f]{1,4}(:[0-9A-Fa-f]{1,4}){0,5})?|[0-9A-Fa-f]{1,4}(:[0-9A-Fa-f]{1,4}){7})(,(((([a-zA-Z0-9_][a-zA-Z0-9-]{0,61})?[a-zA-Z0-9])(\\.([a-zA-Z0-9_][a-zA-Z0-9-]{0,61})?[a-zA-Z0-9])*)|([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])(\\.([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])){3}|[0-9A-Fa-f]{1,4}(:[0-9A-Fa-f]{1,4}){0,5}::([0-9A-Fa-f]{1,4}(:[0-9A-Fa-f]{1,4}){0,5})?|[0-9A-Fa-f]{1,4}(:[0-9A-Fa-f]{1,4}){7}))*$/`")  # noqa: E501
 
         self._clients = clients
 
@@ -181,8 +181,8 @@ class DiagnosticsNetloggerStartItem(object):
         :param interfaces: The interfaces of this DiagnosticsNetloggerStartItem.  # noqa: E501
         :type: str
         """
-        if interfaces is not None and not re.search('^[a-z0-9]*(,[a-z0-9]*)*$', interfaces):  # noqa: E501
-            raise ValueError("Invalid value for `interfaces`, must be a follow pattern or equal to `/^[a-z0-9]*(,[a-z0-9]*)*$/`")  # noqa: E501
+        if interfaces is not None and not re.search(r'^[a-z0-9]*(,[a-z0-9]*)*$', interfaces):  # noqa: E501
+            raise ValueError(r"Invalid value for `interfaces`, must be a follow pattern or equal to `/^[a-z0-9]*(,[a-z0-9]*)*$/`")  # noqa: E501
 
         self._interfaces = interfaces
 
@@ -206,8 +206,8 @@ class DiagnosticsNetloggerStartItem(object):
         :param nodelist: The nodelist of this DiagnosticsNetloggerStartItem.  # noqa: E501
         :type: str
         """
-        if nodelist is not None and not re.search('^$|^([0-9]{1,3}(,[0-9]{1,3})*)$', nodelist):  # noqa: E501
-            raise ValueError("Invalid value for `nodelist`, must be a follow pattern or equal to `/^$|^([0-9]{1,3}(,[0-9]{1,3})*)$/`")  # noqa: E501
+        if nodelist is not None and not re.search(r'^$|^([0-9]{1,3}(,[0-9]{1,3})*)$', nodelist):  # noqa: E501
+            raise ValueError(r"Invalid value for `nodelist`, must be a follow pattern or equal to `/^$|^([0-9]{1,3}(,[0-9]{1,3})*)$/`")  # noqa: E501
 
         self._nodelist = nodelist
 
@@ -231,8 +231,8 @@ class DiagnosticsNetloggerStartItem(object):
         :param ports: The ports of this DiagnosticsNetloggerStartItem.  # noqa: E501
         :type: str
         """
-        if ports is not None and not re.search('^$|^([0-9]{1,5}(,[0-9]{1,5})*)$', ports):  # noqa: E501
-            raise ValueError("Invalid value for `ports`, must be a follow pattern or equal to `/^$|^([0-9]{1,5}(,[0-9]{1,5})*)$/`")  # noqa: E501
+        if ports is not None and not re.search(r'^$|^([0-9]{1,5}(,[0-9]{1,5})*)$', ports):  # noqa: E501
+            raise ValueError(r"Invalid value for `ports`, must be a follow pattern or equal to `/^$|^([0-9]{1,5}(,[0-9]{1,5})*)$/`")  # noqa: E501
 
         self._ports = ports
 
@@ -256,8 +256,8 @@ class DiagnosticsNetloggerStartItem(object):
         :param protocols: The protocols of this DiagnosticsNetloggerStartItem.  # noqa: E501
         :type: str
         """
-        if protocols is not None and not re.search('^(ip6|ip|arp|tcp|udp)(,(ip6|ip|arp|tcp|udp))*$', protocols):  # noqa: E501
-            raise ValueError("Invalid value for `protocols`, must be a follow pattern or equal to `/^(ip6|ip|arp|tcp|udp)(,(ip6|ip|arp|tcp|udp))*$/`")  # noqa: E501
+        if protocols is not None and not re.search(r'^(ip6|ip|arp|tcp|udp)(,(ip6|ip|arp|tcp|udp))*$', protocols):  # noqa: E501
+            raise ValueError(r"Invalid value for `protocols`, must be a follow pattern or equal to `/^(ip6|ip|arp|tcp|udp)(,(ip6|ip|arp|tcp|udp))*$/`")  # noqa: E501
 
         self._protocols = protocols
 
@@ -309,6 +309,9 @@ class DiagnosticsNetloggerStartItem(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(DiagnosticsNetloggerStartItem, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

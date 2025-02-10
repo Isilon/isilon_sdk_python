@@ -266,6 +266,9 @@ class ClusterConfigOnefsVersion(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(ClusterConfigOnefsVersion, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

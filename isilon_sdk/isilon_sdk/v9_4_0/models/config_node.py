@@ -118,8 +118,8 @@ class ConfigNode(object):
             raise ValueError("Invalid value for `ip_addr`, length must be less than or equal to `45`")  # noqa: E501
         if ip_addr is not None and len(ip_addr) < 2:
             raise ValueError("Invalid value for `ip_addr`, length must be greater than or equal to `2`")  # noqa: E501
-        if ip_addr is not None and not re.search('^([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])(\\.([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])){3}$', ip_addr):  # noqa: E501
-            raise ValueError("Invalid value for `ip_addr`, must be a follow pattern or equal to `/^([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])(\\.([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])){3}$/`")  # noqa: E501
+        if ip_addr is not None and not re.search(r'^([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])(\\.([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])){3}$', ip_addr):  # noqa: E501
+            raise ValueError(r"Invalid value for `ip_addr`, must be a follow pattern or equal to `/^([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])(\\.([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])){3}$/`")  # noqa: E501
 
         self._ip_addr = ip_addr
 
@@ -221,6 +221,9 @@ class ConfigNode(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(ConfigNode, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

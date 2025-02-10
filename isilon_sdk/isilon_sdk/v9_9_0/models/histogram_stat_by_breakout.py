@@ -121,6 +121,9 @@ class HistogramStatByBreakout(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(HistogramStatByBreakout, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

@@ -167,6 +167,9 @@ class CopyErrorsCopyErrors(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(CopyErrorsCopyErrors, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

@@ -91,6 +91,9 @@ class NdmpSettingsDmasDmavendor(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(NdmpSettingsDmasDmavendor, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

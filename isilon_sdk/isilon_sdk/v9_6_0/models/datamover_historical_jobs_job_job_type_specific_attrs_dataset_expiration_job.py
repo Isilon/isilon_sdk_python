@@ -95,6 +95,9 @@ class DatamoverHistoricalJobsJobJobTypeSpecificAttrsDatasetExpirationJob(object)
                 ))
             else:
                 result[attr] = value
+        if issubclass(DatamoverHistoricalJobsJobJobTypeSpecificAttrsDatasetExpirationJob, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

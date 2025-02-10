@@ -193,6 +193,9 @@ class AuthAccessAccessItemShareEffectiveUser(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(AuthAccessAccessItemShareEffectiveUser, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

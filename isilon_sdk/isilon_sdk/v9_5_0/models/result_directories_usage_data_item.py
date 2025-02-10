@@ -422,6 +422,9 @@ class ResultDirectoriesUsageDataItem(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(ResultDirectoriesUsageDataItem, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

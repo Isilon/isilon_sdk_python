@@ -331,6 +331,9 @@ class NodeStateReadonlyNode(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(NodeStateReadonlyNode, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

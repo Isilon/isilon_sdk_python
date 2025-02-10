@@ -145,6 +145,9 @@ class HardeningReportsProfileClusterWideRuleSettingsComparisonsListItemCompariso
                 ))
             else:
                 result[attr] = value
+        if issubclass(HardeningReportsProfileClusterWideRuleSettingsComparisonsListItemComparison, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

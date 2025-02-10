@@ -187,6 +187,9 @@ class NetworkPingPing(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(NetworkPingPing, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

@@ -160,6 +160,9 @@ class ClusterPatchPatch(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(ClusterPatchPatch, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

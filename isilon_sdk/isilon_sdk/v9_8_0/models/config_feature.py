@@ -91,6 +91,9 @@ class ConfigFeature(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(ConfigFeature, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

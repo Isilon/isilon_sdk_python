@@ -159,6 +159,9 @@ class AuthError(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(AuthError, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

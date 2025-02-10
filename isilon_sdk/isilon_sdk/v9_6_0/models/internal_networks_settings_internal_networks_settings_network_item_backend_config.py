@@ -126,6 +126,9 @@ class InternalNetworksSettingsInternalNetworksSettingsNetworkItemBackendConfig(o
                 ))
             else:
                 result[attr] = value
+        if issubclass(InternalNetworksSettingsInternalNetworksSettingsNetworkItemBackendConfig, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

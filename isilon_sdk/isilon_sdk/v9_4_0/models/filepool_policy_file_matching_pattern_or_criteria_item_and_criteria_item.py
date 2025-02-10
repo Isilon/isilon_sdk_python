@@ -330,6 +330,9 @@ class FilepoolPolicyFileMatchingPatternOrCriteriaItemAndCriteriaItem(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(FilepoolPolicyFileMatchingPatternOrCriteriaItemAndCriteriaItem, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

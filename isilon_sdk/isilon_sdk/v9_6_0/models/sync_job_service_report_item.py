@@ -471,6 +471,9 @@ class SyncJobServiceReportItem(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(SyncJobServiceReportItem, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

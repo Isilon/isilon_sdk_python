@@ -121,6 +121,9 @@ class JobStatisticsJobNodeIoWrite(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(JobStatisticsJobNodeIoWrite, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

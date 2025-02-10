@@ -189,6 +189,9 @@ class HdfsFsimageJobJob(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(HdfsFsimageJobJob, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

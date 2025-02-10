@@ -243,6 +243,9 @@ class CreateS3KeyResponseKeys(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(CreateS3KeyResponseKeys, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

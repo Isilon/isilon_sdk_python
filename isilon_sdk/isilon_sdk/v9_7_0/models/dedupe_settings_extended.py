@@ -119,6 +119,9 @@ class DedupeSettingsExtended(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(DedupeSettingsExtended, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

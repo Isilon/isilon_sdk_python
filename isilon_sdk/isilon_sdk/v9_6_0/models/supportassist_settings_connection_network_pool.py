@@ -129,6 +129,9 @@ class SupportassistSettingsConnectionNetworkPool(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(SupportassistSettingsConnectionNetworkPool, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

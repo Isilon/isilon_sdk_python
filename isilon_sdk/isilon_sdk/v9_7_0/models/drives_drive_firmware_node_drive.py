@@ -287,6 +287,9 @@ class DrivesDriveFirmwareNodeDrive(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(DrivesDriveFirmwareNodeDrive, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

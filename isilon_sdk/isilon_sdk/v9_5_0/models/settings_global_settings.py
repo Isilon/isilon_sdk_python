@@ -679,6 +679,9 @@ class SettingsGlobalSettings(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(SettingsGlobalSettings, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

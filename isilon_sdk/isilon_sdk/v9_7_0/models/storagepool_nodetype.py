@@ -187,6 +187,9 @@ class StoragepoolNodetype(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(StoragepoolNodetype, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

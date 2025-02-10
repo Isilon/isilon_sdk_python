@@ -159,6 +159,9 @@ class ConfigUserUser(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(ConfigUserUser, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

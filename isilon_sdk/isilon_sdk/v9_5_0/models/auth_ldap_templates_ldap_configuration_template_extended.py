@@ -931,6 +931,9 @@ class AuthLdapTemplatesLdapConfigurationTemplateExtended(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(AuthLdapTemplatesLdapConfigurationTemplateExtended, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

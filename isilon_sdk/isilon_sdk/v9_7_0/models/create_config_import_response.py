@@ -95,6 +95,9 @@ class CreateConfigImportResponse(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(CreateConfigImportResponse, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

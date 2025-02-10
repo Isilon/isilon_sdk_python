@@ -461,8 +461,8 @@ class ProvidersFileFileItem(object):
             raise ValueError("Invalid value for `home_directory_template`, length must be less than or equal to `4096`")  # noqa: E501
         if home_directory_template is not None and len(home_directory_template) < 0:
             raise ValueError("Invalid value for `home_directory_template`, length must be greater than or equal to `0`")  # noqa: E501
-        if home_directory_template is not None and not re.search('^((\/[^\/[:cntrl:]]+)(\/?))*$', home_directory_template):  # noqa: E501
-            raise ValueError("Invalid value for `home_directory_template`, must be a follow pattern or equal to `/^((\/[^\/[:cntrl:]]+)(\/?))*$/`")  # noqa: E501
+        if home_directory_template is not None and not re.search(r'^((\/[^\/[:cntrl:]]+)(\/?))*$', home_directory_template):  # noqa: E501
+            raise ValueError(r"Invalid value for `home_directory_template`, must be a follow pattern or equal to `/^((\/[^\/[:cntrl:]]+)(\/?))*$/`")  # noqa: E501
 
         self._home_directory_template = home_directory_template
 
@@ -1127,6 +1127,9 @@ class ProvidersFileFileItem(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(ProvidersFileFileItem, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

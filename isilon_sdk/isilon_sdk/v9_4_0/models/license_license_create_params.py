@@ -104,8 +104,8 @@ class LicenseLicenseCreateParams(object):
             raise ValueError("Invalid value for `license_file_content`, length must be less than or equal to `2147483647`")  # noqa: E501
         if license_file_content is not None and len(license_file_content) < 1:
             raise ValueError("Invalid value for `license_file_content`, length must be greater than or equal to `1`")  # noqa: E501
-        if license_file_content is not None and not re.search('.+', license_file_content):  # noqa: E501
-            raise ValueError("Invalid value for `license_file_content`, must be a follow pattern or equal to `/.+/`")  # noqa: E501
+        if license_file_content is not None and not re.search(r'.+', license_file_content):  # noqa: E501
+            raise ValueError(r"Invalid value for `license_file_content`, must be a follow pattern or equal to `/.+/`")  # noqa: E501
 
         self._license_file_content = license_file_content
 
@@ -133,8 +133,8 @@ class LicenseLicenseCreateParams(object):
             raise ValueError("Invalid value for `license_file_path`, length must be less than or equal to `4096`")  # noqa: E501
         if license_file_path is not None and len(license_file_path) < 4:
             raise ValueError("Invalid value for `license_file_path`, length must be greater than or equal to `4`")  # noqa: E501
-        if license_file_path is not None and not re.search('^\/ifs$|^\/ifs\/', license_file_path):  # noqa: E501
-            raise ValueError("Invalid value for `license_file_path`, must be a follow pattern or equal to `/^\/ifs$|^\/ifs\//`")  # noqa: E501
+        if license_file_path is not None and not re.search(r'^\/ifs$|^\/ifs\/', license_file_path):  # noqa: E501
+            raise ValueError(r"Invalid value for `license_file_path`, must be a follow pattern or equal to `/^\/ifs$|^\/ifs\//`")  # noqa: E501
 
         self._license_file_path = license_file_path
 
@@ -159,6 +159,9 @@ class LicenseLicenseCreateParams(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(LicenseLicenseCreateParams, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

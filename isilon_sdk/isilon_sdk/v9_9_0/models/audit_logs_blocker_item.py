@@ -32,31 +32,31 @@ class AuditLogsBlockerItem(object):
     """
     swagger_types = {
         'consumer': 'str',
-        'date': 'str',
+        '_date': 'str',
         'lnn': 'int',
         'topic': 'str'
     }
 
     attribute_map = {
         'consumer': 'consumer',
-        'date': 'date',
+        '_date': 'date',
         'lnn': 'lnn',
         'topic': 'topic'
     }
 
-    def __init__(self, consumer=None, date=None, lnn=None, topic=None):  # noqa: E501
+    def __init__(self, consumer=None, _date=None, lnn=None, topic=None):  # noqa: E501
         """AuditLogsBlockerItem - a model defined in Swagger"""  # noqa: E501
 
         self._consumer = None
-        self._date = None
+        self.__date = None
         self._lnn = None
         self._topic = None
         self.discriminator = None
 
         if consumer is not None:
             self.consumer = consumer
-        if date is not None:
-            self.date = date
+        if _date is not None:
+            self._date = _date
         if lnn is not None:
             self.lnn = lnn
         if topic is not None:
@@ -88,29 +88,29 @@ class AuditLogsBlockerItem(object):
         self._consumer = consumer
 
     @property
-    def date(self):
-        """Gets the date of this AuditLogsBlockerItem.  # noqa: E501
+    def _date(self):
+        """Gets the _date of this AuditLogsBlockerItem.  # noqa: E501
 
 
-        :return: The date of this AuditLogsBlockerItem.  # noqa: E501
+        :return: The _date of this AuditLogsBlockerItem.  # noqa: E501
         :rtype: str
         """
-        return self._date
+        return self.__date
 
-    @date.setter
-    def date(self, date):
-        """Sets the date of this AuditLogsBlockerItem.
+    @_date.setter
+    def _date(self, _date):
+        """Sets the _date of this AuditLogsBlockerItem.
 
 
-        :param date: The date of this AuditLogsBlockerItem.  # noqa: E501
+        :param _date: The _date of this AuditLogsBlockerItem.  # noqa: E501
         :type: str
         """
-        if date is not None and len(date) > 255:
-            raise ValueError("Invalid value for `date`, length must be less than or equal to `255`")  # noqa: E501
-        if date is not None and len(date) < 0:
-            raise ValueError("Invalid value for `date`, length must be greater than or equal to `0`")  # noqa: E501
+        if _date is not None and len(_date) > 255:
+            raise ValueError("Invalid value for `_date`, length must be less than or equal to `255`")  # noqa: E501
+        if _date is not None and len(_date) < 0:
+            raise ValueError("Invalid value for `_date`, length must be greater than or equal to `0`")  # noqa: E501
 
-        self._date = date
+        self.__date = _date
 
     @property
     def lnn(self):
@@ -183,6 +183,9 @@ class AuditLogsBlockerItem(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(AuditLogsBlockerItem, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

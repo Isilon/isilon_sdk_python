@@ -187,6 +187,9 @@ class ProvidersKrb5IdParamsKeytabEntry(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(ProvidersKrb5IdParamsKeytabEntry, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

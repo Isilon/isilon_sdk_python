@@ -400,6 +400,9 @@ class SyncJobCreateParams(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(SyncJobCreateParams, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

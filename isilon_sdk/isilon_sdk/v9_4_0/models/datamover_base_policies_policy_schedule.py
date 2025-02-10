@@ -151,6 +151,9 @@ class DatamoverBasePoliciesPolicySchedule(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(DatamoverBasePoliciesPolicySchedule, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

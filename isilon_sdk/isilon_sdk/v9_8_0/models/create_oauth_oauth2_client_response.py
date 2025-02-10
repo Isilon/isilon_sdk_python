@@ -127,6 +127,9 @@ class CreateOauthOauth2ClientResponse(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(CreateOauthOauth2ClientResponse, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

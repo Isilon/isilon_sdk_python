@@ -259,6 +259,9 @@ class FsaSettingsSettings(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(FsaSettingsSettings, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

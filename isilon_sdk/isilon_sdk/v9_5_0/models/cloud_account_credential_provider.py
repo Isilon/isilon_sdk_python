@@ -289,6 +289,9 @@ class CloudAccountCredentialProvider(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(CloudAccountCredentialProvider, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

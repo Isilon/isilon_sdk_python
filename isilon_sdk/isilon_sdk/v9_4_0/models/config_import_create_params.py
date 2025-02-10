@@ -128,6 +128,9 @@ class ConfigImportCreateParams(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(ConfigImportCreateParams, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

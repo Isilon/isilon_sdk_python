@@ -95,6 +95,9 @@ class CreateOauthCertificateResponse(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(CreateOauthCertificateResponse, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

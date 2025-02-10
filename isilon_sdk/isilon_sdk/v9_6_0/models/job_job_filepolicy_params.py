@@ -147,6 +147,9 @@ class JobJobFilepolicyParams(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(JobJobFilepolicyParams, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

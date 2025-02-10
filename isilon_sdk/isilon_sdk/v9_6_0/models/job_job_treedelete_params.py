@@ -91,6 +91,9 @@ class JobJobTreedeleteParams(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(JobJobTreedeleteParams, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

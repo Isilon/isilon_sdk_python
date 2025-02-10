@@ -127,6 +127,9 @@ class ClusterUpdateLnnsLnn(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(ClusterUpdateLnnsLnn, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

@@ -141,8 +141,8 @@ class ClusterEmailExtended(object):
         :param mail_relay: The mail_relay of this ClusterEmailExtended.  # noqa: E501
         :type: str
         """
-        if mail_relay is not None and not re.search('(^$|^((([a-zA-Z0-9_][a-zA-Z0-9-]{0,61})?[a-zA-Z0-9])(\\.([a-zA-Z0-9_][a-zA-Z0-9-]{0,61})?[a-zA-Z0-9])*)$|^([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])(\\.([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])){3}$|^[0-9A-Fa-f]{1,4}(:[0-9A-Fa-f]{1,4}){0,5}::([0-9A-Fa-f]{1,4}(:[0-9A-Fa-f]{1,4}){0,5})?$|^[0-9A-Fa-f]{1,4}(:[0-9A-Fa-f]{1,4}){7}$)', mail_relay):  # noqa: E501
-            raise ValueError("Invalid value for `mail_relay`, must be a follow pattern or equal to `/(^$|^((([a-zA-Z0-9_][a-zA-Z0-9-]{0,61})?[a-zA-Z0-9])(\\.([a-zA-Z0-9_][a-zA-Z0-9-]{0,61})?[a-zA-Z0-9])*)$|^([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])(\\.([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])){3}$|^[0-9A-Fa-f]{1,4}(:[0-9A-Fa-f]{1,4}){0,5}::([0-9A-Fa-f]{1,4}(:[0-9A-Fa-f]{1,4}){0,5})?$|^[0-9A-Fa-f]{1,4}(:[0-9A-Fa-f]{1,4}){7}$)/`")  # noqa: E501
+        if mail_relay is not None and not re.search(r'(^$|^((([a-zA-Z0-9_][a-zA-Z0-9-]{0,61})?[a-zA-Z0-9])(\\.([a-zA-Z0-9_][a-zA-Z0-9-]{0,61})?[a-zA-Z0-9])*)$|^([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])(\\.([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])){3}$|^[0-9A-Fa-f]{1,4}(:[0-9A-Fa-f]{1,4}){0,5}::([0-9A-Fa-f]{1,4}(:[0-9A-Fa-f]{1,4}){0,5})?$|^[0-9A-Fa-f]{1,4}(:[0-9A-Fa-f]{1,4}){7}$)', mail_relay):  # noqa: E501
+            raise ValueError(r"Invalid value for `mail_relay`, must be a follow pattern or equal to `/(^$|^((([a-zA-Z0-9_][a-zA-Z0-9-]{0,61})?[a-zA-Z0-9])(\\.([a-zA-Z0-9_][a-zA-Z0-9-]{0,61})?[a-zA-Z0-9])*)$|^([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])(\\.([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])){3}$|^[0-9A-Fa-f]{1,4}(:[0-9A-Fa-f]{1,4}){0,5}::([0-9A-Fa-f]{1,4}(:[0-9A-Fa-f]{1,4}){0,5})?$|^[0-9A-Fa-f]{1,4}(:[0-9A-Fa-f]{1,4}){7}$)/`")  # noqa: E501
 
         self._mail_relay = mail_relay
 
@@ -170,8 +170,8 @@ class ClusterEmailExtended(object):
             raise ValueError("Invalid value for `mail_sender`, length must be less than or equal to `254`")  # noqa: E501
         if mail_sender is not None and len(mail_sender) < 3:
             raise ValueError("Invalid value for `mail_sender`, length must be greater than or equal to `3`")  # noqa: E501
-        if mail_sender is not None and not re.search('[a-zA-Z0-9!#%&\'*+= ^_`{|}~\/?$.-]{1,64}@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,63}', mail_sender):  # noqa: E501
-            raise ValueError("Invalid value for `mail_sender`, must be a follow pattern or equal to `/[a-zA-Z0-9!#%&'*+= ^_`{|}~\/?$.-]{1,64}@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,63}/`")  # noqa: E501
+        if mail_sender is not None and not re.search(r'[a-zA-Z0-9!#%&\'*+= ^_`{|}~\/?$.-]{1,64}@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,63}', mail_sender):  # noqa: E501
+            raise ValueError(r"Invalid value for `mail_sender`, must be a follow pattern or equal to `/[a-zA-Z0-9!#%&'*+= ^_`{|}~\/?$.-]{1,64}@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,63}/`")  # noqa: E501
 
         self._mail_sender = mail_sender
 
@@ -278,8 +278,8 @@ class ClusterEmailExtended(object):
             raise ValueError("Invalid value for `smtp_auth_username`, length must be less than or equal to `256`")  # noqa: E501
         if smtp_auth_username is not None and len(smtp_auth_username) < 1:
             raise ValueError("Invalid value for `smtp_auth_username`, length must be greater than or equal to `1`")  # noqa: E501
-        if smtp_auth_username is not None and not re.search('^[^]\"\/\\[\\:;|=,+*?<>$]+', smtp_auth_username):  # noqa: E501
-            raise ValueError("Invalid value for `smtp_auth_username`, must be a follow pattern or equal to `/^[^]\"\/\\[\\:;|=,+*?<>$]+/`")  # noqa: E501
+        if smtp_auth_username is not None and not re.search(r'^[^]\"\/\\[\\:;|=,+*?<>$]+', smtp_auth_username):  # noqa: E501
+            raise ValueError(r"Invalid value for `smtp_auth_username`, must be a follow pattern or equal to `/^[^]\"\/\\[\\:;|=,+*?<>$]+/`")  # noqa: E501
 
         self._smtp_auth_username = smtp_auth_username
 
@@ -353,8 +353,8 @@ class ClusterEmailExtended(object):
         :param user_template: The user_template of this ClusterEmailExtended.  # noqa: E501
         :type: str
         """
-        if user_template is not None and not re.search('^\/ifs$|^\/ifs\/', user_template):  # noqa: E501
-            raise ValueError("Invalid value for `user_template`, must be a follow pattern or equal to `/^\/ifs$|^\/ifs\//`")  # noqa: E501
+        if user_template is not None and not re.search(r'^\/ifs$|^\/ifs\/', user_template):  # noqa: E501
+            raise ValueError(r"Invalid value for `user_template`, must be a follow pattern or equal to `/^\/ifs$|^\/ifs\//`")  # noqa: E501
 
         self._user_template = user_template
 
@@ -379,6 +379,9 @@ class ClusterEmailExtended(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(ClusterEmailExtended, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

@@ -91,6 +91,9 @@ class ClusterSkipOptional(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(ClusterSkipOptional, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

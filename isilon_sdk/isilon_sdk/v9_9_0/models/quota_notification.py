@@ -163,8 +163,8 @@ class QuotaNotification(object):
             raise ValueError("Invalid value for `email_template`, length must be less than or equal to `4096`")  # noqa: E501
         if email_template is not None and len(email_template) < 4:
             raise ValueError("Invalid value for `email_template`, length must be greater than or equal to `4`")  # noqa: E501
-        if email_template is not None and not re.search('^\/ifs$|^\/ifs\/', email_template):  # noqa: E501
-            raise ValueError("Invalid value for `email_template`, must be a follow pattern or equal to `/^\/ifs$|^\/ifs\//`")  # noqa: E501
+        if email_template is not None and not re.search(r'^\/ifs$|^\/ifs\/', email_template):  # noqa: E501
+            raise ValueError(r"Invalid value for `email_template`, must be a follow pattern or equal to `/^\/ifs$|^\/ifs\//`")  # noqa: E501
 
         self._email_template = email_template
 
@@ -237,6 +237,9 @@ class QuotaNotification(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(QuotaNotification, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

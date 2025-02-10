@@ -124,6 +124,9 @@ class FilepoolPolicyActionExtended(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(FilepoolPolicyActionExtended, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

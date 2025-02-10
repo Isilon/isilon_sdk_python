@@ -223,6 +223,9 @@ class NodeStatusDriveSecurityLevelNode(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(NodeStatusDriveSecurityLevelNode, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

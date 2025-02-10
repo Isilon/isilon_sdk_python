@@ -148,6 +148,9 @@ class ClusterAddNodeItem(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(ClusterAddNodeItem, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

@@ -119,6 +119,9 @@ class NdmpUserExtended(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(NdmpUserExtended, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

@@ -150,6 +150,9 @@ class SummaryProtocolStatsProtocolStatsNetworkOut(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(SummaryProtocolStatsProtocolStatsNetworkOut, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

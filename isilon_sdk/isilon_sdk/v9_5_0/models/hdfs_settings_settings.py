@@ -397,8 +397,8 @@ class HdfsSettingsSettings(object):
             raise ValueError("Invalid value for `root_directory`, length must be less than or equal to `4096`")  # noqa: E501
         if root_directory is not None and len(root_directory) < 4:
             raise ValueError("Invalid value for `root_directory`, length must be greater than or equal to `4`")  # noqa: E501
-        if root_directory is not None and not re.search('^\/ifs$|^\/ifs\/', root_directory):  # noqa: E501
-            raise ValueError("Invalid value for `root_directory`, must be a follow pattern or equal to `/^\/ifs$|^\/ifs\//`")  # noqa: E501
+        if root_directory is not None and not re.search(r'^\/ifs$|^\/ifs\/', root_directory):  # noqa: E501
+            raise ValueError(r"Invalid value for `root_directory`, must be a follow pattern or equal to `/^\/ifs$|^\/ifs\//`")  # noqa: E501
 
         self._root_directory = root_directory
 
@@ -469,6 +469,9 @@ class HdfsSettingsSettings(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(HdfsSettingsSettings, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

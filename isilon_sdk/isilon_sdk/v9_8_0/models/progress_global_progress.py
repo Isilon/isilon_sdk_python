@@ -159,6 +159,9 @@ class ProgressGlobalProgress(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(ProgressGlobalProgress, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

@@ -182,6 +182,9 @@ class SettingsMappingCreateParams(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(SettingsMappingCreateParams, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

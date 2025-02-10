@@ -149,6 +149,9 @@ class NtpSettingsSettings(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(NtpSettingsSettings, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

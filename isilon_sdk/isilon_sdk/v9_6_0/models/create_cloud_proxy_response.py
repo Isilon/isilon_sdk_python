@@ -91,6 +91,9 @@ class CreateCloudProxyResponse(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(CreateCloudProxyResponse, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

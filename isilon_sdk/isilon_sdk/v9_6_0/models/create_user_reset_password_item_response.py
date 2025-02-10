@@ -95,6 +95,9 @@ class CreateUserResetPasswordItemResponse(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(CreateUserResetPasswordItemResponse, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

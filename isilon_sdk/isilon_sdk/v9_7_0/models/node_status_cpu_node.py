@@ -319,6 +319,9 @@ class NodeStatusCpuNode(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(NodeStatusCpuNode, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

@@ -95,6 +95,9 @@ class NodeDriveconfigStall(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(NodeDriveconfigStall, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

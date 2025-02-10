@@ -315,6 +315,9 @@ class SnapshotScheduleExtended(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(SnapshotScheduleExtended, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

@@ -141,6 +141,9 @@ class DirectoryQueryScopeConditions(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(DirectoryQueryScopeConditions, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

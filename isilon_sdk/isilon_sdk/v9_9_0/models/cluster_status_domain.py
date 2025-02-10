@@ -191,6 +191,9 @@ class ClusterStatusDomain(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(ClusterStatusDomain, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

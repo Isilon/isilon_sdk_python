@@ -121,6 +121,9 @@ class SyncPolicySourceNetwork(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(SyncPolicySourceNetwork, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

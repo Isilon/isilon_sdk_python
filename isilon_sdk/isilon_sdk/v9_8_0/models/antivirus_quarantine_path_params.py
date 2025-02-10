@@ -91,6 +91,9 @@ class AntivirusQuarantinePathParams(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(AntivirusQuarantinePathParams, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

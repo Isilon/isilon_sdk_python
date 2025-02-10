@@ -127,6 +127,9 @@ class ThrottlingSettingsSettings(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(ThrottlingSettingsSettings, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

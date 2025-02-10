@@ -261,6 +261,9 @@ class PerformanceSettingsSettings(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(PerformanceSettingsSettings, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

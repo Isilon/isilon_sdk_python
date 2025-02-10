@@ -96,6 +96,9 @@ class CreateDatamoverAccountResponse(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(CreateDatamoverAccountResponse, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

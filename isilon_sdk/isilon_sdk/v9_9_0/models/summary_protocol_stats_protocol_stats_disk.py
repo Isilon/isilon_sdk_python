@@ -150,6 +150,9 @@ class SummaryProtocolStatsProtocolStatsDisk(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(SummaryProtocolStatsProtocolStatsDisk, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

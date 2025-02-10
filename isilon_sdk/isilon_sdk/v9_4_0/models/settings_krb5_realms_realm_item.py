@@ -275,6 +275,9 @@ class SettingsKrb5RealmsRealmItem(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(SettingsKrb5RealmsRealmItem, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

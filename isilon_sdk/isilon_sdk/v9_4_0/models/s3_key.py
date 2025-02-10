@@ -95,6 +95,9 @@ class S3Key(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(S3Key, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

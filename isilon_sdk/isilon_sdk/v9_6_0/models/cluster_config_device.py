@@ -179,6 +179,9 @@ class ClusterConfigDevice(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(ClusterConfigDevice, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

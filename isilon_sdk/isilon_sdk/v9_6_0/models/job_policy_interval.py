@@ -156,6 +156,9 @@ class JobPolicyInterval(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(JobPolicyInterval, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

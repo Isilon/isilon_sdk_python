@@ -95,6 +95,9 @@ class NfsExportMapAllSecondaryGroups(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(NfsExportMapAllSecondaryGroups, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

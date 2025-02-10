@@ -159,6 +159,9 @@ class ConfigCatalogStatusLastFailedPackage(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(ConfigCatalogStatusLastFailedPackage, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

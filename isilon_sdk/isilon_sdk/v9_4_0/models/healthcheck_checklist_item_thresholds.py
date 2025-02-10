@@ -159,6 +159,9 @@ class HealthcheckChecklistItemThresholds(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(HealthcheckChecklistItemThresholds, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 
